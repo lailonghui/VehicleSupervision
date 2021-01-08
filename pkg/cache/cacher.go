@@ -2,7 +2,6 @@ package cache
 
 import (
 	"context"
-	"fmt"
 	rc "github.com/go-redis/cache/v8"
 	"github.com/go-redis/redis/v8"
 	"sync"
@@ -86,7 +85,6 @@ func (r *Cacher) Clear(ctx context.Context) error {
 	for true {
 		v, c, err := r.RedisClient.SScan(ctx, r.getKeySetKey(ctx), cursor, "", 1000).Result()
 		cursor = c
-		fmt.Println(cursor)
 		if err != nil {
 			if err == redis.Nil {
 				return nil

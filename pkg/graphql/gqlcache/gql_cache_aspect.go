@@ -116,6 +116,10 @@ func (n *GqlCacheAspect) OnPkRemove(ctx context.Context, key string) error {
 		if err != nil {
 			return err
 		}
+		err = n.UnionPkCacher.Clear(ctx)
+		if err != nil {
+			return err
+		}
 	}
 	if n.GqlCacheConf.EnableListCache {
 		err := n.ListCacher.Clear(ctx)
@@ -137,6 +141,10 @@ func (n *GqlCacheAspect) OnPkRemove(ctx context.Context, key string) error {
 func (n *GqlCacheAspect) OnListRemove(ctx context.Context, key string) error {
 	if n.GqlCacheConf.EnablePkCache {
 		err := n.PkCacher.Clear(ctx)
+		if err != nil {
+			return err
+		}
+		err = n.UnionPkCacher.Clear(ctx)
 		if err != nil {
 			return err
 		}
@@ -182,6 +190,10 @@ func (n *GqlCacheAspect) OnPkUpdate(ctx context.Context, key string) error {
 		if err != nil {
 			return err
 		}
+		err = n.UnionPkCacher.Clear(ctx)
+		if err != nil {
+			return err
+		}
 	}
 	if n.GqlCacheConf.EnableListCache {
 		err := n.ListCacher.Clear(ctx)
@@ -203,6 +215,10 @@ func (n *GqlCacheAspect) OnPkUpdate(ctx context.Context, key string) error {
 func (n *GqlCacheAspect) OnListUpdate(ctx context.Context, key string) error {
 	if n.GqlCacheConf.EnablePkCache {
 		err := n.PkCacher.Clear(ctx)
+		if err != nil {
+			return err
+		}
+		err = n.UnionPkCacher.Clear(ctx)
 		if err != nil {
 			return err
 		}
