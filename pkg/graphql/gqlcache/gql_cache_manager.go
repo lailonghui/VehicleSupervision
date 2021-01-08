@@ -45,7 +45,7 @@ func NewGqlCacheManager(cacheManager *cache.CacheManager) *GqlCacheManager {
 }
 
 //GetGqlCacheAspect 获取gqlCacheAspect
-func (m *GqlCacheManager) GetGqlCacheAspect(cacheName string, conf *GqlCacheConf) (*GqlCacheAspect, error) {
+func (m *GqlCacheManager) GetGqlCacheAspect(cacheName string) (*GqlCacheAspect, error) {
 	if cacheName == "" {
 		return nil, ErrCacheNameEmpty
 	}
@@ -53,6 +53,19 @@ func (m *GqlCacheManager) GetGqlCacheAspect(cacheName string, conf *GqlCacheConf
 	if ok {
 		return aspect, nil
 	}
+	return nil, nil
+}
+
+//GetGqlCacheAspectIfNotExistNew 获取gqlCacheAspect,如果不存在，则按配置信息新建一个
+func (m *GqlCacheManager) GetGqlCacheAspectIfNotExistNew(cacheName string, conf *GqlCacheConf) (*GqlCacheAspect, error) {
+	if cacheName == "" {
+		return nil, ErrCacheNameEmpty
+	}
+	aspect, ok := m.AspectMap[cacheName]
+	if ok {
+		return aspect, nil
+	}
+
 	return m.NewGqlCacheAspect(cacheName, conf)
 }
 

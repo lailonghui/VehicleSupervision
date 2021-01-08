@@ -1,4 +1,5 @@
-gqlcache:
+enable: true
+caches:
   department:
     enablePkCache: true
     enableListCache: true
@@ -6,3 +7,8 @@ gqlcache:
     pkCacheTimeout: 30m
     listCacheTimeout: 30m
     aggregateCacheTimeout: 30m
+defaultCache:
+  enablePkCache: true
+  enableListCache: false
+  enableAggregateCache: false
+  pkCacheTimeout: 30m
