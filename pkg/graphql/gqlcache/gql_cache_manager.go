@@ -9,6 +9,7 @@ import (
 
 var (
 	ErrCacheNameEmpty = errors.New("cache name can not be empty")
+	ErrNotCacheConfig = errors.New("cache not config")
 )
 
 //GqlCacheManager gql缓存管理
@@ -32,6 +33,8 @@ type GqlCacheConf struct {
 	ListCacheTimeout time.Duration
 	// 聚合查询缓存过期时间
 	AggregateCacheTimeout time.Duration
+	// 不存在记录缓存过期时间
+	NotExistRecordTimeout time.Duration
 }
 
 //NewGqlCacheManager 新建 GqlCacheManager 实例
@@ -53,7 +56,7 @@ func (m *GqlCacheManager) GetGqlCacheAspect(cacheName string) (*GqlCacheAspect, 
 	if ok {
 		return aspect, nil
 	}
-	return nil, nil
+	return nil, ErrNotCacheConfig
 }
 
 //GetGqlCacheAspectIfNotExistNew 获取gqlCacheAspect,如果不存在，则按配置信息新建一个
@@ -84,6 +87,6 @@ func (m *GqlCacheManager) NewGqlCacheAspect(cacheName string, conf *GqlCacheConf
 		ListCacher:     m.CacheManager.NewCache(cacheName + ":list"),
 		AggregateCache: m.CacheManager.NewCache(cacheName + ":aggregate"),
 	}
-
-	return nil, nil
+	m.AspectMap[cacheName] = aspect
+	return aspect, nil
 }

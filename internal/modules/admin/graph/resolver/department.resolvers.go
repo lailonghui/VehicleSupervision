@@ -1,6 +1,7 @@
 package resolver
 
 import (
+	"VehicleSupervision/internal/cache"
 	"VehicleSupervision/internal/dataloader"
 	"VehicleSupervision/internal/db"
 	"VehicleSupervision/internal/modules/admin/graph/generated"
@@ -10,6 +11,7 @@ import (
 	util2 "VehicleSupervision/pkg/util"
 	"context"
 	"errors"
+	"strconv"
 
 	"gorm.io/gorm"
 )
@@ -229,9 +231,28 @@ func (r *queryResolver) DepartmentAggregate(ctx context.Context, distinctOn []mo
 
 func (r *queryResolver) DepartmentByPk(ctx context.Context, id int64) (*model1.Department, error) {
 	var rs model1.Department
-	tx := db.DB.Model(&model1.Department{}).Select(util.GetTopPreloads(ctx)).First(&rs, id)
-	err := tx.Error
-	return &rs, err
+	cacheAspect, err := cache.GetGqlCacheAspect(rs.TableName())
+	if err != nil {
+		return nil, err
+	}
+	cacheKey := strconv.FormatInt(id, 10)
+	exist, err := cacheAspect.OnPkQuery(ctx, cacheKey, &rs)
+	if err != nil {
+		return nil, err
+	}
+	if exist {
+		return &rs, err
+	}
+	tx := db.DB.Model(&model1.Department{}).First(&rs, id)
+	err = tx.Error
+	if err != nil {
+		if err == gorm.ErrRecordNotFound {
+			_ = cacheAspect.SetNotExistPkQueryCache(ctx, cacheKey, model1.Department{})
+		}
+		return nil, err
+	}
+	_ = cacheAspect.SetPkQueryCache(ctx, cacheKey, rs)
+	return &rs, nil
 }
 
 func (r *queryResolver) DepartmentByUnionPk(ctx context.Context, departmentID string) (*model1.Department, error) {

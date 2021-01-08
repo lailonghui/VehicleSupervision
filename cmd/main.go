@@ -38,6 +38,7 @@ func setup() {
 		AppName: cf.AppConf.Name,
 	})
 	defer logger.Sync()
+	logger.Info("日志配置完成")
 	// 启动db
 	dbConfig := db.ConfigOption{}
 	dbConfig.PoolInfo = db.PoolInfo{
@@ -70,6 +71,7 @@ func setup() {
 		}
 	}
 	db.Setup(dbConfig)
+	logger.Info("db配置完成")
 	// 启动redis
 	redisConfig := &goRedis.ClusterOptions{
 		Addrs:        cf.RedisConf.Addresses,
@@ -79,8 +81,10 @@ func setup() {
 	}
 	rc := redis.Setup(redisConfig)
 	defer redis.Close()
+	logger.Info("redis配置完成")
 	// 启动gqlcache
 	cache.GqlCacheSetup(cf.GqlConf.CacheConfigFile, rc)
+	logger.Info("gqlcache配置完成")
 	// 启动服务器
 	server.Setup(cf.ServerConf.Host, cf.ServerConf.Port)
 

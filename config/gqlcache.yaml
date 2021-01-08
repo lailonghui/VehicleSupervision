@@ -7,8 +7,8 @@ caches:
     pkCacheTimeout: 30m
     listCacheTimeout: 30m
     aggregateCacheTimeout: 30m
+    notExistRecordTimeout: 30s
 defaultCache:
   enablePkCache: true
-  enableListCache: false
-  enableAggregateCache: false
   pkCacheTimeout: 30m
+  notExistRecordTimeout: 30s

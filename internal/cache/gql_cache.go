@@ -34,6 +34,8 @@ type GqlCacheConf struct {
 	ListCacheTimeout time.Duration `yaml:"listCacheTimeout"`
 	// 聚合查询缓存过期时间
 	AggregateCacheTimeout time.Duration `yaml:"aggregateCacheTimeout"`
+	// 不存在记录缓存过期时间
+	NotExistRecordTimeout time.Duration `yaml:"notExistRecordTimeout"`
 }
 
 var GqlCacheManager *gCache.GqlCacheManager
@@ -73,7 +75,7 @@ func GqlCacheSetup(configFile string, client *redis.ClusterClient) {
 func GetGqlCacheAspect(tableName string) (*gCache.GqlCacheAspect, error) {
 	cacheAspect, err := GqlCacheManager.GetGqlCacheAspect(tableName)
 	if err != nil {
-		if err == gCache.ErrCacheNameEmpty {
+		if err == gCache.ErrNotCacheConfig {
 			return GqlCacheManager.GetGqlCacheAspectIfNotExistNew(tableName, &gCache.GqlCacheConf{
 				EnablePkCache:         conf.DefaultCacheConf.EnablePkCache,
 				EnableListCache:       conf.DefaultCacheConf.EnableListCache,

@@ -49,7 +49,16 @@ func (n *GqlCacheAspect) SetPkQueryCache(ctx context.Context, key string, data i
 	if !n.GqlCacheConf.EnablePkCache {
 		return nil
 	}
-	return n.PkCacher.Set(ctx, key, data, n.GqlCacheConf.ListCacheTimeout)
+	return n.PkCacher.Set(ctx, key, data, n.GqlCacheConf.PkCacheTimeout)
+}
+
+//SetNotExistPkQueryCache
+// 设置不存在的主键的缓存
+func (n *GqlCacheAspect) SetNotExistPkQueryCache(ctx context.Context, key string, data interface{}) error {
+	if !n.GqlCacheConf.EnablePkCache {
+		return nil
+	}
+	return n.PkCacher.Set(ctx, key, data, n.GqlCacheConf.NotExistRecordTimeout)
 }
 
 //SetListQueryCache
@@ -67,7 +76,7 @@ func (n *GqlCacheAspect) SetArrgegateQueryCache(ctx context.Context, key string,
 	if !n.GqlCacheConf.EnableAggregateCache {
 		return nil
 	}
-	return n.AggregateCache.Set(ctx, key, data, n.GqlCacheConf.ListCacheTimeout)
+	return n.AggregateCache.Set(ctx, key, data, n.GqlCacheConf.AggregateCacheTimeout)
 }
 
 //OnPkRemove
