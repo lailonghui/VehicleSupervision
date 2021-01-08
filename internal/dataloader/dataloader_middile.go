@@ -22,16 +22,18 @@ func NewLoaders() *Loaders {
 	}
 }
 
+//GetLoader 获取dataloader
 func (t *Loaders) GetLoader(dest interface{}) interface{} {
 	iType := reflect.TypeOf(dest).Elem()
-	i, ok := t.loaderMap[iType.String()]
+	typeStr := iType.String()
+	i, ok := t.loaderMap[typeStr]
 	if !ok {
 		t.Mutex.Lock()
-		i, ok = t.loaderMap[iType.String()]
+		i, ok = t.loaderMap[typeStr]
 		if !ok {
-			v := reflect.New(iType).Interface()
-			d := reflect.ValueOf(v).MethodByName("NewLoader").Call([]reflect.Value{})[0].Interface()
-			t.loaderMap[iType.String()] = d
+			v := reflect.New(iType)
+			d := v.MethodByName("NewLoader").Call([]reflect.Value{})[0].Interface()
+			t.loaderMap[typeStr] = d
 			i = d
 		}
 		t.Mutex.Unlock()
