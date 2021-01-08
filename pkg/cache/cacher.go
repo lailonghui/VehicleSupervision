@@ -25,7 +25,7 @@ type Cacher struct {
 }
 
 //NewCacher 新建Cacher
-func NewCacher(ctx context.Context, keyPrefix string, redisClient *redis.ClusterClient) *Cacher {
+func NewCacher(keyPrefix string, redisClient *redis.ClusterClient) *Cacher {
 	c := rc.New(&rc.Options{
 		Redis: redisClient,
 	})

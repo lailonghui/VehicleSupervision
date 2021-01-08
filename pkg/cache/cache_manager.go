@@ -1,7 +1,6 @@
 package cache
 
 import (
-	"context"
 	"github.com/go-redis/redis/v8"
 	"sync"
 )
@@ -23,7 +22,7 @@ func NewCacheManager(redisClient *redis.ClusterClient) *CacheManager {
 }
 
 //NewCache 新建缓存
-func (m *CacheManager) NewCache(ctx context.Context, cacheName string) *Cacher {
+func (m *CacheManager) NewCache(cacheName string) *Cacher {
 	cacher, ok := m.CacheMap[cacheName]
 	if ok {
 		return cacher
@@ -34,14 +33,14 @@ func (m *CacheManager) NewCache(ctx context.Context, cacheName string) *Cacher {
 	if ok {
 		return cacher
 	}
-	return NewCacher(ctx, cacheName, m.redisClient)
+	return NewCacher(cacheName, m.redisClient)
 }
 
 //GetCache 获取缓存
-func (m *CacheManager) GetCache(ctx context.Context, cacheName string, autoNew bool) *Cacher {
+func (m *CacheManager) GetCache(cacheName string, autoNew bool) *Cacher {
 	cacher := m.CacheMap[cacheName]
 	if autoNew && cacher == nil {
-		return m.NewCache(ctx, cacheName)
+		return m.NewCache(cacheName)
 	}
 	return cacher
 }

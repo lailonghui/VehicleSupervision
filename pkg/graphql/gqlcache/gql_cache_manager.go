@@ -77,6 +77,13 @@ func (m *GqlCacheManager) NewGqlCacheAspect(cacheName string, conf *GqlCacheConf
 	if ok {
 		return aspect, nil
 	}
+	aspect = &GqlCacheAspect{
+		GqlCacheConf:   conf,
+		TableName:      cacheName,
+		PkCacher:       m.CacheManager.NewCache(cacheName + ":pk"),
+		ListCacher:     m.CacheManager.NewCache(cacheName + ":list"),
+		AggregateCache: m.CacheManager.NewCache(cacheName + ":aggregate"),
+	}
 
 	return nil, nil
 }
