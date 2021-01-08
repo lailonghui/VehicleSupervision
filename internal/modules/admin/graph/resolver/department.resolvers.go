@@ -15,25 +15,36 @@ import (
 )
 
 func (r *mutationResolver) DeleteDepartment(ctx context.Context, where model.DepartmentBoolExp) (*model.DepartmentMutationResponse, error) {
+	var rs []*model1.Department
 	qt := util.NewQueryTranslator(db.DB, &model1.Department{})
 	tx := qt.Where(where).Finish()
 	// 获取请求的字段
 	preloads := util.GetPreloadsMustPrefixAndRemovePrefix(ctx, "returning.")
-	var rs []*model1.Department
-	if len(preloads) > 0 {
-		// 如果请求的字段不为空，则先查询一遍数据库
-		tx := tx.Select(preloads)
-		tx = tx.Find(&rs)
-		// 如果查询结果含有错误，则返回错误
-		if err := tx.Error; err != nil {
-			if errors.Is(err, gorm.ErrRecordNotFound) {
-				return nil, nil
-			}
-			return nil, err
+	preloadExistId := false
+	for _, preload := range preloads {
+		if (preload == model1.Department{}.PrimaryColumnName()) {
+			preloadExistId = true
+			break
 		}
 	}
+	if !preloadExistId {
+		preloads = append(preloads, model1.Department{}.PrimaryColumnName())
+	}
+	tx = tx.Select(preloads)
+	tx = tx.Find(&rs)
 	// 删除
-	tx = tx.Delete(nil)
+	amount := len(rs)
+	if amount == 0 {
+		return &model.DepartmentMutationResponse{
+			AffectedRows: 0,
+			Returning:    rs,
+		}, nil
+	}
+	var idList []int64 = make([]int64, 0, amount)
+	for i := 0; i < amount; i++ {
+		idList[i] = rs[i].ID
+	}
+	tx = db.DB.Model(&model1.Department{}).Delete(idList)
 	if err := tx.Error; err != nil {
 		return nil, err
 	}

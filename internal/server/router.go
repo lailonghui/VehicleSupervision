@@ -1,7 +1,6 @@
 package server
 
 import (
-	"VehicleSupervision/config"
 	"VehicleSupervision/internal/dataloader"
 	adasMutation "VehicleSupervision/internal/modules/adas/mutation"
 	adasQuery "VehicleSupervision/internal/modules/adas/query"
@@ -35,11 +34,7 @@ import (
 	"time"
 )
 
-// 监听的host
-var host string
 
-// 监听的port
-var port int
 
 func playgroundHandler() gin.HandlerFunc {
 	h := playground.Handler("GraphQL", "/query")
@@ -48,9 +43,9 @@ func playgroundHandler() gin.HandlerFunc {
 		h.ServeHTTP(c.Writer, c.Request)
 	}
 }
-func Setup() {
-	host = config.CONF_INSTANCE.ServerConf.Host
-	port = config.CONF_INSTANCE.ServerConf.Port
+func Setup(host string, port int) {
+	//host = config.CONF_INSTANCE.ServerConf.Host
+	//port = config.CONF_INSTANCE.ServerConf.Port
 
 	gin.SetMode(gin.ReleaseMode)
 	router := gin.New()

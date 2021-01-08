@@ -6,6 +6,7 @@ import (
 	"gopkg.in/yaml.v2"
 	"io/ioutil"
 	"log"
+	"time"
 )
 
 //CONF_INSTANCE 配置信息实例
@@ -23,6 +24,8 @@ type Conf struct {
 	LogConf `yaml:"log"`
 	//RedisConf redis配置信息
 	RedisConf `yaml:"redis"`
+	//GqlConf gql配置信息
+	GqlConf `yaml:"gql"`
 }
 
 //ServerConf 服务器配置
@@ -41,6 +44,16 @@ type AppConf struct {
 
 //DbConf 数据库配置
 type DbConf struct {
+	// 主节点
+	Master DbNodeConf `yaml:"master"`
+	// 从节点
+	Slaves []DbNodeConf `yaml:"slaves"`
+	//DbPoolConf 连接池设置
+	DbPoolConf `yaml:"pool"`
+}
+
+// DbNodeConf 数据库节点配置
+type DbNodeConf struct {
 	//Host 数据库连接地址
 	Host string `yaml:"host"`
 	//Port 数据库端口
@@ -52,11 +65,9 @@ type DbConf struct {
 	//DbName 数据库连接
 	Dbname string `yaml:"dbname"`
 	//SslMode ssl模式
-	SslMode string `yaml:"sslMode"`
+	SslMode string `yaml:"sslmode"`
 	//TimeZone 时区
 	Timezone string `yaml:"timezone"`
-	//DbPoolConf 连接池设置
-	DbPoolConf `yaml:"pool"`
 }
 
 //DbPoolConf 数据库pool配置
@@ -66,7 +77,7 @@ type DbPoolConf struct {
 	//MaxOpenConn 最多连接数
 	MaxOpenConn int `yaml:"maxOpenConn"`
 	//MaxLifeTime 连接多久过期
-	MaxLifeTime int `yaml:"maxLifeTime"`
+	MaxLifeTime time.Duration `yaml:"maxLifeTime"`
 }
 
 // 日志配置
@@ -94,10 +105,16 @@ type RedisPoolConf struct {
 	//MaxActive 最多活跃连接数
 	MaxActive int `yaml:"maxActive"`
 	//IdleTimeout 空闲连接多久过期
-	IdleTimeout int `yaml:"idleTimeout"`
+	IdleTimeout time.Duration `yaml:"idleTimeout"`
 }
 
-func Setup(configFile string) {
+//GqlConf gql配置
+type GqlConf struct {
+	//CacheConfigFile 缓存配置文件地址
+	CacheConfigFile string `yaml:"cacheConfigFile"`
+}
+
+func Setup(configFile string) *Conf{
 	data, err := ioutil.ReadFile(configFile)
 	if err != nil {
 		log.Fatal(err)
@@ -106,4 +123,5 @@ func Setup(configFile string) {
 	if err != nil {
 		log.Fatal(err)
 	}
+	return CONF_INSTANCE
 }

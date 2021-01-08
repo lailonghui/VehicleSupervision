@@ -14,7 +14,7 @@ type CacheManager struct {
 }
 
 //NewCacheManager 新建缓存管理实例
-func NewCacheManager(ctx context.Context, redisClient *redis.ClusterClient) *CacheManager {
+func NewCacheManager(redisClient *redis.ClusterClient) *CacheManager {
 	return &CacheManager{
 		CacheMap:    make(map[string]*Cacher, 0),
 		mutex:       &sync.Mutex{},

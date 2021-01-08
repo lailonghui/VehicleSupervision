@@ -1,7 +1,6 @@
 package logger
 
 import (
-	"VehicleSupervision/config"
 	"github.com/lestrrat-go/file-rotatelogs"
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
@@ -23,6 +22,18 @@ const (
 	MODE_ALL
 )
 
+// 配置选项
+type ConfigOption struct {
+	// 日志保存路径
+	Path string
+	// 日志等级
+	Level string
+	// 日志模式
+	Mode string
+	// 应用名称
+	AppName string
+}
+
 // 应用日志实例
 var AppLogger *zap.Logger
 
@@ -32,11 +43,11 @@ var GLogger *zap.Logger
 // gin日志实例
 var GinLogger *zap.Logger
 
-func Setup() {
-	logPath := config.CONF_INSTANCE.LogConf.Path
-	logLevel := getLevel(config.CONF_INSTANCE.LogConf.Level)
-	logMode := getLogMode(config.CONF_INSTANCE.LogConf.Mode)
-	AppLogger = newLogger(config.CONF_INSTANCE.AppConf.Name, logPath, logLevel, logMode)
+func Setup(option *ConfigOption) {
+	logPath := option.Path
+	logLevel := getLevel(option.Level)
+	logMode := getLogMode(option.Mode)
+	AppLogger = newLogger(option.AppName, logPath, logLevel, logMode)
 	// gorm日志实例-关掉默认的caller打印设置
 	GLogger = AppLogger.WithOptions(zap.WithCaller(false))
 	// gin日志实例-关掉默认的caller打印设置

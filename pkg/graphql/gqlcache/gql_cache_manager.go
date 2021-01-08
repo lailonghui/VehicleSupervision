@@ -13,9 +13,9 @@ var (
 
 //GqlCacheManager gql缓存管理
 type GqlCacheManager struct {
-	aspectMap    map[string]*GqlCacheAspect
-	mutex        *sync.Mutex
-	cacheManager *cache.CacheManager
+	AspectMap    map[string]*GqlCacheAspect
+	Mutex        *sync.Mutex
+	CacheManager *cache.CacheManager
 }
 
 //GqlCacheConfs gql缓存配置信息
@@ -34,12 +34,22 @@ type GqlCacheConf struct {
 	AggregateCacheTimeout time.Duration
 }
 
+//NewGqlCacheManager 新建 GqlCacheManager 实例
+func NewGqlCacheManager(cacheManager *cache.CacheManager) *GqlCacheManager {
+	aspectMap := make(map[string]*GqlCacheAspect, 0)
+	return &GqlCacheManager{
+		AspectMap:    aspectMap,
+		Mutex:        &sync.Mutex{},
+		CacheManager: cacheManager,
+	}
+}
+
 //GetGqlCacheAspect 获取gqlCacheAspect
 func (m *GqlCacheManager) GetGqlCacheAspect(cacheName string, conf *GqlCacheConf) (*GqlCacheAspect, error) {
 	if cacheName == "" {
 		return nil, ErrCacheNameEmpty
 	}
-	aspect, ok := m.aspectMap[cacheName]
+	aspect, ok := m.AspectMap[cacheName]
 	if ok {
 		return aspect, nil
 	}
@@ -48,9 +58,9 @@ func (m *GqlCacheManager) GetGqlCacheAspect(cacheName string, conf *GqlCacheConf
 
 //NewGqlCacheAspect 新建gql缓存切面
 func (m *GqlCacheManager) NewGqlCacheAspect(cacheName string, conf *GqlCacheConf) (*GqlCacheAspect, error) {
-	m.mutex.Lock()
-	defer m.mutex.Unlock()
-	aspect, ok := m.aspectMap[cacheName]
+	m.Mutex.Lock()
+	defer m.Mutex.Unlock()
+	aspect, ok := m.AspectMap[cacheName]
 	if ok {
 		return aspect, nil
 	}
