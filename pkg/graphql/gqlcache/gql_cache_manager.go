@@ -84,8 +84,9 @@ func (m *GqlCacheManager) NewGqlCacheAspect(cacheName string, conf *GqlCacheConf
 		GqlCacheConf:   conf,
 		TableName:      cacheName,
 		PkCacher:       m.CacheManager.NewCache(cacheName + ":pk"),
+		UnionPkCacher:  m.CacheManager.NewCache(cacheName + ":upk"),
 		ListCacher:     m.CacheManager.NewCache(cacheName + ":list"),
-		AggregateCache: m.CacheManager.NewCache(cacheName + ":aggregate"),
+		AggregateCache: m.CacheManager.NewCache(cacheName + ":aggr"),
 	}
 	m.AspectMap[cacheName] = aspect
 	return aspect, nil

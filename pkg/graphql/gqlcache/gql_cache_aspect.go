@@ -9,6 +9,7 @@ type GqlCacheAspect struct {
 	GqlCacheConf   *GqlCacheConf
 	TableName      string
 	PkCacher       *cache.Cacher
+	UnionPkCacher  *cache.Cacher
 	ListCacher     *cache.Cacher
 	AggregateCache *cache.Cacher
 }
@@ -21,6 +22,16 @@ func (n *GqlCacheAspect) OnPkQuery(ctx context.Context, key string, dest interfa
 		return false, nil
 	}
 	return n.PkCacher.Get(ctx, key, dest)
+}
+
+//OnUnionPkQuery
+// 联合主键查询时候，查询缓存，如果缓存有内容，则将缓存内容设置到dest，并返回true
+// 反之，返回false
+func (n *GqlCacheAspect) OnUnionPkQuery(ctx context.Context, key string, dest interface{}) (bool, error) {
+	if !n.GqlCacheConf.EnablePkCache {
+		return false, nil
+	}
+	return n.UnionPkCacher.Get(ctx, key, dest)
 }
 
 //OnListQuery
@@ -52,6 +63,15 @@ func (n *GqlCacheAspect) SetPkQueryCache(ctx context.Context, key string, data i
 	return n.PkCacher.Set(ctx, key, data, n.GqlCacheConf.PkCacheTimeout)
 }
 
+//SetPkQueryCache
+// 设置主键查询的缓存
+func (n *GqlCacheAspect) SetUnionPkQueryCache(ctx context.Context, key string, data interface{}) error {
+	if !n.GqlCacheConf.EnablePkCache {
+		return nil
+	}
+	return n.UnionPkCacher.Set(ctx, key, data, n.GqlCacheConf.PkCacheTimeout)
+}
+
 //SetNotExistPkQueryCache
 // 设置不存在的主键的缓存
 func (n *GqlCacheAspect) SetNotExistPkQueryCache(ctx context.Context, key string, data interface{}) error {
@@ -59,6 +79,15 @@ func (n *GqlCacheAspect) SetNotExistPkQueryCache(ctx context.Context, key string
 		return nil
 	}
 	return n.PkCacher.Set(ctx, key, data, n.GqlCacheConf.NotExistRecordTimeout)
+}
+
+//SetNotExistUnionPkQueryCache
+// 设置不存在的联合主键的缓存
+func (n *GqlCacheAspect) SetNotExistUnionPkQueryCache(ctx context.Context, key string, data interface{}) error {
+	if !n.GqlCacheConf.EnablePkCache {
+		return nil
+	}
+	return n.UnionPkCacher.Set(ctx, key, data, n.GqlCacheConf.NotExistRecordTimeout)
 }
 
 //SetListQueryCache

@@ -257,10 +257,28 @@ func (r *queryResolver) DepartmentByPk(ctx context.Context, id int64) (*model1.D
 
 func (r *queryResolver) DepartmentByUnionPk(ctx context.Context, departmentID string) (*model1.Department, error) {
 	var rs model1.Department
-	tx := db.DB.Model(&model1.Department{}).Select(util.GetTopPreloads(ctx)).Where(rs.UnionPrimaryColumnName()+" = ?", departmentID).First(&rs)
-
-	err := tx.Error
-	return &rs, err
+	cacheAspect, err := cache.GetGqlCacheAspect(rs.TableName())
+	if err != nil {
+		return nil, err
+	}
+	cacheKey := departmentID
+	exist, err := cacheAspect.OnUnionPkQuery(ctx, cacheKey, &rs)
+	if err != nil {
+		return nil, err
+	}
+	if exist {
+		return &rs, err
+	}
+	tx := db.DB.Model(&model1.Department{}).Where(rs.UnionPrimaryColumnName()+" = ?", departmentID).First(&rs)
+	err = tx.Error
+	if err != nil {
+		if err == gorm.ErrRecordNotFound {
+			_ = cacheAspect.SetNotExistUnionPkQueryCache(ctx, cacheKey, model1.Department{})
+		}
+		return nil, err
+	}
+	_ = cacheAspect.SetUnionPkQueryCache(ctx, cacheKey, rs)
+	return &rs, nil
 }
 
 func (r *departmentResolver) Enterprise(ctx context.Context, obj *model1.Department) (*model1.Enterprise, error) {
