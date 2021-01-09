@@ -11,7 +11,7 @@ import (
 
 func init() {
 	config.Setup("../../config/setting.yaml")
-	Setup()
+	//Setup()
 }
 
 func TestSetup(t *testing.T) {

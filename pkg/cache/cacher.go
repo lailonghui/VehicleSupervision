@@ -15,7 +15,7 @@ type Cacher struct {
 	KeyPrefix string
 
 	// redis客户端
-	RedisClient *redis.ClusterClient
+	RedisClient redis.UniversalClient
 
 	//Cache 缓存实例
 	Cache *rc.Cache
@@ -24,7 +24,7 @@ type Cacher struct {
 }
 
 //NewCacher 新建Cacher
-func NewCacher(keyPrefix string, redisClient *redis.ClusterClient) *Cacher {
+func NewCacher(keyPrefix string, redisClient redis.UniversalClient) *Cacher {
 	c := rc.New(&rc.Options{
 		Redis: redisClient,
 	})

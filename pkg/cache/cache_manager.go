@@ -9,11 +9,11 @@ import (
 type CacheManager struct {
 	CacheMap    map[string]*Cacher
 	mutex       *sync.Mutex
-	redisClient *redis.ClusterClient
+	redisClient redis.UniversalClient
 }
 
 //NewCacheManager 新建缓存管理实例
-func NewCacheManager(redisClient *redis.ClusterClient) *CacheManager {
+func NewCacheManager(redisClient redis.UniversalClient) *CacheManager {
 	return &CacheManager{
 		CacheMap:    make(map[string]*Cacher, 0),
 		mutex:       &sync.Mutex{},

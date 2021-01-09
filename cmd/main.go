@@ -73,7 +73,7 @@ func setup() {
 	db.Setup(dbConfig)
 	logger.Info("db配置完成")
 	// 启动redis
-	redisConfig := &goRedis.ClusterOptions{
+	redisConfig := &goRedis.UniversalOptions{
 		Addrs:        cf.RedisConf.Addresses,
 		IdleTimeout:  cf.RedisConf.Pool.IdleTimeout,
 		MinIdleConns: cf.RedisConf.Pool.MinIdle,

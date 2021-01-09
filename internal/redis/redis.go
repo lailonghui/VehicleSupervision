@@ -6,11 +6,12 @@ import (
 	"log"
 )
 
-var REDIS_CLIENT *redis.ClusterClient
+var REDIS_CLIENT redis.UniversalClient
 
-func Setup(option *redis.ClusterOptions) *redis.ClusterClient {
+func Setup(option *redis.UniversalOptions) redis.UniversalClient {
 	var ctx = context.Background()
-	REDIS_CLIENT = redis.NewClusterClient(option)
+	client := redis.NewUniversalClient(option)
+	REDIS_CLIENT = client
 	err := REDIS_CLIENT.Ping(ctx).Err()
 	if err != nil {
 		log.Fatal(err)

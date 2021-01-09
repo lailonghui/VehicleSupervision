@@ -11,14 +11,13 @@ import (
 
 func init() {
 	config.Setup("../../config/setting.yaml")
-	rc.Setup()
+	//rc.Setup()
 
 }
 
 func TestNewCacher(t *testing.T) {
-	var ctx context.Context = context.Background()
 
-	c := NewCacher(ctx, "test", rc.REDIS_CLIENT)
+	c := NewCacher("test", rc.REDIS_CLIENT)
 	assert.NotNil(t, c)
 }
 
@@ -26,7 +25,7 @@ func TestCacher_Set(t *testing.T) {
 	fmt.Println("test")
 	var ctx context.Context = context.Background()
 
-	c := NewCacher(ctx, "test005", rc.REDIS_CLIENT)
+	c := NewCacher("test005", rc.REDIS_CLIENT)
 
 	t.Run("test not exist key", func(t *testing.T) {
 		var dest interface{}
@@ -51,7 +50,7 @@ func TestCacher_Set(t *testing.T) {
 func TestCacher_Clear(t *testing.T) {
 	var ctx context.Context = context.Background()
 
-	c := NewCacher(ctx, "test005", rc.REDIS_CLIENT)
+	c := NewCacher("test005", rc.REDIS_CLIENT)
 	assert.NotNil(t, c)
 	err := c.Clear(ctx)
 	assert.Nil(t, err)

@@ -43,7 +43,7 @@ var CacheManager *cache.CacheManager
 var conf *GqlCacheConfs
 
 //GqlCacheSetup gqlCache 启动
-func GqlCacheSetup(configFile string, client *redis.ClusterClient) {
+func GqlCacheSetup(configFile string, client redis.UniversalClient) {
 	// 加载配置文件
 	bs, err := ioutil.ReadFile(configFile)
 	if err != nil {
