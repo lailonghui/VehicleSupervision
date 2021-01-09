@@ -136,17 +136,45 @@ func (n *GqlCacheAspect) OnPkRemove(ctx context.Context, key string) error {
 	return nil
 }
 
-//OnListRemove
-// 根据列表删除时候，删除对应的缓存
-func (n *GqlCacheAspect) OnListRemove(ctx context.Context, key string) error {
+//OnUnionPkRemove
+// 根据联合主键删除时候，删除对应的缓存
+func (n *GqlCacheAspect) OnUnionPkRemove(ctx context.Context, key string) error {
 	if n.GqlCacheConf.EnablePkCache {
-		err := n.PkCacher.Clear(ctx)
+		err := n.UnionPkCacher.Del(ctx, key)
 		if err != nil {
 			return err
 		}
-		err = n.UnionPkCacher.Clear(ctx)
+	}
+	if n.GqlCacheConf.EnableListCache {
+		err := n.ListCacher.Clear(ctx)
 		if err != nil {
 			return err
+		}
+	}
+	if n.GqlCacheConf.EnableAggregateCache {
+		err := n.AggregateCache.Clear(ctx)
+		if err != nil {
+			return err
+		}
+	}
+	return nil
+}
+
+//OnListRemove
+// 根据列表删除时候，删除对应的缓存
+func (n *GqlCacheAspect) OnListRemove(ctx context.Context, ids []string, unionIds []string) error {
+	if n.GqlCacheConf.EnablePkCache {
+		if len(ids) > 0 {
+			err := n.PkCacher.BatchDel(ctx, ids)
+			if err != nil {
+				return err
+			}
+		}
+		if len(unionIds) > 0 {
+			err := n.UnionPkCacher.Clear(ctx)
+			if err != nil {
+				return err
+			}
 		}
 	}
 	if n.GqlCacheConf.EnableListCache {
@@ -212,15 +240,19 @@ func (n *GqlCacheAspect) OnPkUpdate(ctx context.Context, key string) error {
 
 //OnListUpdate
 // 根据列表更新时候，删除对应的缓存
-func (n *GqlCacheAspect) OnListUpdate(ctx context.Context, key string) error {
+func (n *GqlCacheAspect) OnListUpdate(ctx context.Context, ids []string, unionIds []string) error {
 	if n.GqlCacheConf.EnablePkCache {
-		err := n.PkCacher.Clear(ctx)
-		if err != nil {
-			return err
+		if len(ids) > 0 {
+			err := n.PkCacher.BatchDel(ctx, ids)
+			if err != nil {
+				return err
+			}
 		}
-		err = n.UnionPkCacher.Clear(ctx)
-		if err != nil {
-			return err
+		if len(unionIds) > 0 {
+			err := n.UnionPkCacher.Clear(ctx)
+			if err != nil {
+				return err
+			}
 		}
 	}
 	if n.GqlCacheConf.EnableListCache {

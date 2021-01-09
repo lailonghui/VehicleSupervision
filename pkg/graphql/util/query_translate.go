@@ -6,8 +6,8 @@ import (
 	"VehicleSupervision/pkg/logger"
 	"bytes"
 	"context"
-	"encoding/json"
 	"errors"
+	"github.com/mitchellh/mapstructure"
 	"gorm.io/gorm"
 	"gorm.io/gorm/clause"
 	"reflect"
@@ -185,15 +185,19 @@ func (t *QueryTranslator) Aggregate(rs interface{}, ctx context.Context) (*gorm.
 
 			}
 		}
-
-		bs, err := json.Marshal(formatResults)
+		config := &mapstructure.DecoderConfig{
+			WeaklyTypedInput: true,
+			Result:           rs,
+		}
+		decoder, err := mapstructure.NewDecoder(config)
 		if err != nil {
 			return nil, err
 		}
-		err = json.Unmarshal(bs, rs)
+		err = decoder.Decode(formatResults)
 		if err != nil {
 			return nil, err
 		}
+		
 	}
 
 	return t.tx, nil

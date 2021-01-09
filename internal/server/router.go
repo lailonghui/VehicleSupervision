@@ -10,6 +10,7 @@ import (
 	"VehicleSupervision/internal/modules/vehicle_driver_separation"
 	"VehicleSupervision/internal/modules/vehicle_snapshot_system"
 	"VehicleSupervision/internal/modules/vehicle_violation"
+	"VehicleSupervision/internal/server/middle"
 
 	admin "VehicleSupervision/internal/modules/admin"
 	areaMutation "VehicleSupervision/internal/modules/area/mutation"
@@ -53,6 +54,7 @@ func Setup(host string, port int) {
 	router.Use(ginzap.Ginzap(logger.GinLogger, time.RFC3339, true))
 	router.Use(ginzap.RecoveryWithZap(logger.GinLogger, true))
 	router.Use(dataloader.DataloaderMiddle(dataloader.DATA_LOADER_CONTEXT_KEY))
+	router.Use(middle.GqlCacheSwitchMiddle())
 	// 路由配置
 	router.GET("/", playgroundHandler())
 

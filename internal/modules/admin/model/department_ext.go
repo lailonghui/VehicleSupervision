@@ -8,14 +8,30 @@ import (
 //go:generate go run github.com/vektah/dataloaden DepartmentUnionPkLoader string *VehicleSupervision/internal/modules/admin/model.Department
 
 // 数据库表名
-func (t Department) TableName() string {
+func (t *Department) TableName() string {
 	return "department"
 }
 
 // 主键列名
-func (t Department) PrimaryColumnName() string {
+func (t *Department) PrimaryColumnName() string {
 	return "id"
 }
+
+// 获取主键
+func (t *Department) GetPrimary() int64 {
+	return t.ID
+}
+
+// 联合主键列名
+func (t *Department) UnionPrimaryColumnName() string {
+	return "department_id"
+}
+
+// 获取联合主键
+func (t *Department) GetUnionPrimary() string {
+	return t.DepartmentID
+}
+
 
 // 新建主键dataloader
 func (t *DepartmentPkLoader) NewLoader() *DepartmentPkLoader {
@@ -29,11 +45,6 @@ func (t *DepartmentPkLoader) NewLoader() *DepartmentPkLoader {
 			return rs, nil
 		},
 	}
-}
-
-// 联合主键列名
-func (t Department) UnionPrimaryColumnName() string {
-	return "department_id"
 }
 
 // 新建联合主键dataloader

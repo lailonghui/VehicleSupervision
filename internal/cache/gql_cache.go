@@ -64,6 +64,7 @@ func GqlCacheSetup(configFile string, client redis.UniversalClient) {
 			PkCacheTimeout:        cacheConf.PkCacheTimeout,
 			ListCacheTimeout:      cacheConf.ListCacheTimeout,
 			AggregateCacheTimeout: cacheConf.AggregateCacheTimeout,
+			NotExistRecordTimeout: cacheConf.NotExistRecordTimeout,
 		})
 		if err != nil {
 			log.Fatal(err)
@@ -83,6 +84,7 @@ func GetGqlCacheAspect(tableName string) (*gCache.GqlCacheAspect, error) {
 				PkCacheTimeout:        conf.DefaultCacheConf.PkCacheTimeout,
 				ListCacheTimeout:      conf.DefaultCacheConf.ListCacheTimeout,
 				AggregateCacheTimeout: conf.DefaultCacheConf.AggregateCacheTimeout,
+				NotExistRecordTimeout: conf.DefaultCacheConf.NotExistRecordTimeout,
 			})
 		}
 		return nil, err

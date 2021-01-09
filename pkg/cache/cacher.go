@@ -77,6 +77,25 @@ func (r *Cacher) Del(ctx context.Context, cacheKey string) error {
 	return r.Cache.Delete(ctx, r.getKey(ctx, cacheKey))
 }
 
+//BatchDel 批量删除
+func (r *Cacher) BatchDel(ctx context.Context, cacheKeys []string) error {
+	r.mutex.Lock()
+	defer r.mutex.Unlock()
+	setKeys := make([]interface{}, 0, len(cacheKeys))
+	// 使用管道发送删除命令
+	pipe := r.RedisClient.Pipeline()
+	for i := range cacheKeys {
+		pipe.Del(ctx, cacheKeys[i])
+		setKeys = append(setKeys, cacheKeys[i])
+	}
+	pipe.SRem(ctx, r.getKeySetKey(ctx), setKeys...)
+	_, err := pipe.Exec(ctx)
+	if err != nil {
+		return err
+	}
+	return nil
+}
+
 //Clear 清空缓存
 func (r *Cacher) Clear(ctx context.Context) error {
 	r.mutex.Lock()
