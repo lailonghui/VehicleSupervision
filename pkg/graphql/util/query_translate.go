@@ -140,10 +140,7 @@ func (t *QueryTranslator) Finish() *gorm.DB {
 	return t.tx
 }
 
-// 聚合结果，返回tx
-func (t *QueryTranslator) Aggregate(rs interface{}, ctx context.Context) (*gorm.DB, error) {
-	// 获取聚合查询项
-	queryStrings := GetPreloadsMustPrefix(ctx, "aggregate.")
+func (t QueryTranslator) AggregateWithQueryString(rs interface{}, queryStrings []string) (*gorm.DB, error) {
 	if queryStrings == nil || len(queryStrings) == 0 {
 		return t.tx, errors.New("not aggregate column find")
 	}
@@ -197,10 +194,16 @@ func (t *QueryTranslator) Aggregate(rs interface{}, ctx context.Context) (*gorm.
 		if err != nil {
 			return nil, err
 		}
-		
+
 	}
 
 	return t.tx, nil
+}
+
+// 聚合结果，返回tx
+func (t *QueryTranslator) Aggregate(rs interface{}, ctx context.Context) (*gorm.DB, error) {
+	queryStrings := GetPreloadsMustPrefix(ctx, "aggregate.")
+	return t.AggregateWithQueryString(rs, queryStrings)
 }
 
 // 更新时候，递增某些字段

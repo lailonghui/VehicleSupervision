@@ -35,8 +35,6 @@ import (
 	"time"
 )
 
-
-
 func playgroundHandler() gin.HandlerFunc {
 	h := playground.Handler("GraphQL", "/query")
 
@@ -55,6 +53,7 @@ func Setup(host string, port int) {
 	router.Use(ginzap.RecoveryWithZap(logger.GinLogger, true))
 	router.Use(dataloader.DataloaderMiddle(dataloader.DATA_LOADER_CONTEXT_KEY))
 	router.Use(middle.GqlCacheSwitchMiddle())
+	router.Use(middle.DBSwitchMiddle())
 	// 路由配置
 	router.GET("/", playgroundHandler())
 

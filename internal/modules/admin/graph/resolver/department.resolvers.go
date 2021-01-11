@@ -11,19 +11,18 @@ import (
 	"VehicleSupervision/pkg/graphql/util"
 	util2 "VehicleSupervision/pkg/util"
 	"context"
+	"crypto/sha256"
 	"errors"
-	"github.com/99designs/gqlgen/graphql"
-	"strconv"
-
+	"fmt"
 	"gorm.io/gorm"
 )
 
 func (r *mutationResolver) DeleteDepartment(ctx context.Context, where model.DepartmentBoolExp) (*model.DepartmentMutationResponse, error) {
 	var rs []*model1.Department
 	var m = &model1.Department{}
+	// 查询主键和联合主键
 	qt := util.NewQueryTranslator(db.DB, m)
 	tx := qt.Where(where).Finish()
-	// 获取ID,联系主键
 	tx = tx.Select(m.PrimaryColumnName(), m.UnionPrimaryColumnName())
 	tx = tx.Find(&rs)
 	// 删除
@@ -34,16 +33,15 @@ func (r *mutationResolver) DeleteDepartment(ctx context.Context, where model.Dep
 			Returning:    nil,
 		}, nil
 	}
-	var idList []int64 = make([]int64, 0, amount)
-	var unionIdList []string = make([]string, 0, amount)
+	var idList = make([]int64, 0, amount)
 	for i := 0; i < amount; i++ {
 		idList[i] = rs[i].GetPrimary()
-		unionIdList[i] = rs[i].GetUnionPrimary()
 	}
 	tx = db.DB.Model(m).Delete(idList)
 	if err := tx.Error; err != nil {
 		return nil, err
 	}
+	// 删除缓存
 	cacheAspect, cacheErr := cache.GetGqlCacheAspect(m.TableName())
 	if cacheErr == nil {
 		rsLen := len(rs)
@@ -65,9 +63,8 @@ func (r *mutationResolver) DeleteDepartmentByPk(ctx context.Context, id int64) (
 	var rs model1.Department
 	m := &model1.Department{}
 	tx := db.DB.Model(m)
-	// 如果请求的字段不为空，则先查询一遍数据库
+	// 查询记录
 	tx = tx.Where(rs.PrimaryColumnName()+" = ?", id).First(&rs)
-	// 如果查询结果含有错误，则返回错误
 	if err := tx.Error; err != nil {
 		if errors.Is(err, gorm.ErrRecordNotFound) {
 			return nil, nil
@@ -79,6 +76,7 @@ func (r *mutationResolver) DeleteDepartmentByPk(ctx context.Context, id int64) (
 	if err := tx.Error; err != nil {
 		return nil, err
 	}
+	// 删除缓存
 	cacheAspect, cacheErr := cache.GetGqlCacheAspect(m.TableName())
 	if cacheErr == nil {
 		_ = cacheAspect.OnPkRemove(ctx, util2.ToStr(rs.GetPrimary()))
@@ -91,9 +89,8 @@ func (r *mutationResolver) DeleteDepartmentByUnionPk(ctx context.Context, depart
 	var rs model1.Department
 	m := &model1.Department{}
 	tx := db.DB.Model(&model1.Department{})
-	// 如果请求的字段不为空，则先查询一遍数据库
+	// 查询
 	tx = tx.Where(rs.UnionPrimaryColumnName()+" = ?", departmentID).First(&rs)
-	// 如果查询结果含有错误，则返回错误
 	if err := tx.Error; err != nil {
 		if errors.Is(err, gorm.ErrRecordNotFound) {
 			return nil, nil
@@ -105,6 +102,7 @@ func (r *mutationResolver) DeleteDepartmentByUnionPk(ctx context.Context, depart
 	if err := tx.Error; err != nil {
 		return nil, err
 	}
+	// 删除缓存
 	cacheAspect, cacheErr := cache.GetGqlCacheAspect(m.TableName())
 	if cacheErr == nil {
 		_ = cacheAspect.OnPkRemove(ctx, util2.ToStr(rs.GetPrimary()))
@@ -116,11 +114,13 @@ func (r *mutationResolver) DeleteDepartmentByUnionPk(ctx context.Context, depart
 func (r *mutationResolver) InsertDepartment(ctx context.Context, objects []*model.DepartmentInsertInput) (*model.DepartmentMutationResponse, error) {
 	rs := make([]*model1.Department, 0)
 	m := &model1.Department{}
+	// 结构转换
 	for _, object := range objects {
 		v := &model1.Department{}
-		util2.StructAssign(v, object)
+		util2.StructAssign(object, v)
 		rs = append(rs, v)
 	}
+	// 插入记录
 	tx := db.DB.Model(m).Create(&rs)
 	if err := tx.Error; err != nil {
 		if errors.Is(err, gorm.ErrRecordNotFound) {
@@ -128,6 +128,7 @@ func (r *mutationResolver) InsertDepartment(ctx context.Context, objects []*mode
 		}
 		return nil, err
 	}
+	// 清理缓存
 	cacheAspect, cacheErr := cache.GetGqlCacheAspect(m.TableName())
 	if cacheErr == nil {
 		_ = cacheAspect.OnInsert(ctx)
@@ -141,6 +142,7 @@ func (r *mutationResolver) InsertDepartment(ctx context.Context, objects []*mode
 func (r *mutationResolver) InsertDepartmentOne(ctx context.Context, objects model.DepartmentInsertInput) (*model1.Department, error) {
 	rs := &model1.Department{}
 	m := &model1.Department{}
+	// 插入记录
 	util2.StructAssign(rs, &objects)
 	tx := db.DB.Model(m).Create(&rs)
 	if err := tx.Error; err != nil {
@@ -149,6 +151,7 @@ func (r *mutationResolver) InsertDepartmentOne(ctx context.Context, objects mode
 		}
 		return nil, err
 	}
+	// 清理缓存
 	cacheAspect, cacheErr := cache.GetGqlCacheAspect(m.TableName())
 	if cacheErr == nil {
 		_ = cacheAspect.OnInsert(ctx)
@@ -159,6 +162,7 @@ func (r *mutationResolver) InsertDepartmentOne(ctx context.Context, objects mode
 func (r *mutationResolver) UpdateDepartment(ctx context.Context, inc *model.DepartmentIncInput, set *model.DepartmentSetInput, where model.DepartmentBoolExp) (*model.DepartmentMutationResponse, error) {
 	qt := util.NewQueryTranslator(db.DB, &model1.Department{})
 	var m = &model1.Department{}
+	// 更新数据库
 	tx := qt.Where(where).Inc(inc).Set(set).DoUpdate()
 	if err := tx.Error; err != nil {
 		if errors.Is(err, gorm.ErrRecordNotFound) {
@@ -168,17 +172,16 @@ func (r *mutationResolver) UpdateDepartment(ctx context.Context, inc *model.Depa
 		}
 		return nil, err
 	}
-	// 获取请求的字段
+	// 查询数据库
 	var rs []*model1.Department
-	// 如果请求的字段不为空，则先查询一遍数据库
 	tx = tx.Find(&rs)
-	// 如果查询结果含有错误，则返回错误
 	if err := tx.Error; err != nil {
 		if errors.Is(err, gorm.ErrRecordNotFound) {
 			return nil, nil
 		}
 		return nil, err
 	}
+	// 清理缓存
 	cacheAspect, cacheErr := cache.GetGqlCacheAspect(m.TableName())
 	if cacheErr == nil {
 		rsLen := len(rs)
@@ -199,16 +202,19 @@ func (r *mutationResolver) UpdateDepartment(ctx context.Context, inc *model.Depa
 func (r *mutationResolver) UpdateDepartmentByPk(ctx context.Context, inc *model.DepartmentIncInput, set *model.DepartmentSetInput, id int64) (*model1.Department, error) {
 	var rs model1.Department
 	var m = &model1.Department{}
+	// 更新数据库
 	tx := db.DB.Where(rs.PrimaryColumnName()+" = ?", id)
 	qt := util.NewQueryTranslator(tx, &model1.Department{})
 	tx = qt.Inc(inc).Set(set).DoUpdate()
 	if err := tx.Error; err != nil {
 		return nil, err
 	}
+	// 查询数据库
 	tx = tx.First(&rs)
 	if err := tx.Error; err != nil {
 		return &rs, err
 	}
+	// 清理缓存
 	cacheAspect, cacheErr := cache.GetGqlCacheAspect(m.TableName())
 	if cacheErr == nil {
 		_ = cacheAspect.OnPkRemove(ctx, util2.ToStr(rs.GetPrimary()))
@@ -220,17 +226,19 @@ func (r *mutationResolver) UpdateDepartmentByPk(ctx context.Context, inc *model.
 func (r *mutationResolver) UpdateDepartmentByUnionPk(ctx context.Context, inc *model.DepartmentIncInput, set *model.DepartmentSetInput, departmentID string) (*model1.Department, error) {
 	var rs model1.Department
 	var m = &model1.Department{}
+	// 更新数据库
 	tx := db.DB.Where(rs.UnionPrimaryColumnName()+" = ?", departmentID)
 	qt := util.NewQueryTranslator(tx, &model1.Department{})
 	tx = qt.Inc(inc).Set(set).DoUpdate()
 	if err := tx.Error; err != nil {
 		return nil, err
 	}
-
+	// 查询数据库
 	tx = tx.First(&rs)
 	if err := tx.Error; err != nil {
 		return &rs, err
 	}
+	// 清理缓存
 	cacheAspect, cacheErr := cache.GetGqlCacheAspect(m.TableName())
 	if cacheErr == nil {
 		_ = cacheAspect.OnPkRemove(ctx, util2.ToStr(rs.GetPrimary()))
@@ -243,8 +251,16 @@ func (r *queryResolver) Department(ctx context.Context, distinctOn []model.Depar
 	var rs []*model1.Department
 	var m = &model1.Department{}
 	if middle.IsEnableGqlCache(ctx) {
+		// 如果启用缓存，则从缓存中查询数据
 		cacheAspect, cacheErr := cache.GetGqlCacheAspect(m.TableName())
-		cacheKey := graphql.GetOperationContext(ctx).RawQuery
+		cacheKey := util2.ToStr(map[string]interface{}{
+			"distinctOn": distinctOn,
+			"limit":      limit,
+			"offset":     offset,
+			"orderBy":    orderBy,
+			"where":      where,
+		})
+		cacheKey = fmt.Sprintf("%x", sha256.Sum256([]byte(cacheKey)))
 		if cacheErr == nil {
 			exist, err := cacheAspect.OnListQuery(ctx, cacheKey, &rs)
 			if err != nil {
@@ -254,6 +270,7 @@ func (r *queryResolver) Department(ctx context.Context, distinctOn []model.Depar
 				return rs, err
 			}
 		}
+		// 缓存中找不到数据的话，查询数据库获取数据
 		qt := util.NewQueryTranslator(db.DB, m)
 		tx := qt.DistinctOn(distinctOn).
 			Limit(limit).
@@ -269,11 +286,13 @@ func (r *queryResolver) Department(ctx context.Context, distinctOn []model.Depar
 			}
 			return rs, err
 		}
+		// 设置数据到缓存
 		if cacheErr == nil {
 			_ = cacheAspect.SetListQueryCache(ctx, cacheKey, rs)
 		}
 		return rs, err
 	}
+	// 如果没启用缓存，则直接从数据库中查询
 	qt := util.NewQueryTranslator(db.DB, m)
 	tx := qt.DistinctOn(distinctOn).
 		Limit(limit).
@@ -289,9 +308,20 @@ func (r *queryResolver) Department(ctx context.Context, distinctOn []model.Depar
 func (r *queryResolver) DepartmentAggregate(ctx context.Context, distinctOn []model.DepartmentSelectColumn, limit *int, offset *int, orderBy []*model.DepartmentOrderBy, where *model.DepartmentBoolExp) (*model.DepartmentAggregate, error) {
 	var rs model.DepartmentAggregate
 	var m = &model1.Department{}
+	// 获取聚合查询项
+	queryStrings := util.GetPreloadsMustPrefix(ctx, "aggregate.")
 	if middle.IsEnableGqlCache(ctx) {
+		// 如果启用缓存，则从缓存中查询数据
 		cacheAspect, cacheErr := cache.GetGqlCacheAspect(m.TableName())
-		cacheKey := graphql.GetOperationContext(ctx).RawQuery
+		cacheKey := util2.ToStr(map[string]interface{}{
+			"distinctOn":   distinctOn,
+			"limit":        limit,
+			"offset":       offset,
+			"orderBy":      orderBy,
+			"where":        where,
+			"queryStrings": queryStrings,
+		})
+		cacheKey = fmt.Sprintf("%x", sha256.Sum256([]byte(cacheKey)))
 		if cacheErr == nil {
 			exist, err := cacheAspect.OnArrgegateQuery(ctx, cacheKey, &rs)
 			if err != nil {
@@ -301,29 +331,32 @@ func (r *queryResolver) DepartmentAggregate(ctx context.Context, distinctOn []mo
 				return &rs, err
 			}
 		}
+		// 缓存中找不到数据的话，查询数据库获取数据
 		qt := util.NewQueryTranslator(db.DB, &model1.Department{})
 		tx, err := qt.DistinctOn(distinctOn).
 			Limit(limit).
 			Offset(offset).
 			OrderBy(orderBy).
 			Where(where).
-			Aggregate(&rs, ctx)
+			AggregateWithQueryString(&rs, queryStrings)
 		if err != nil {
 			return nil, err
 		}
+		// 设置数据到缓存
 		if cacheErr == nil {
 			_ = cacheAspect.SetArrgegateQueryCache(ctx, cacheKey, rs)
 		}
 		err = tx.Error
 		return &rs, err
 	}
+	// 如果没启用缓存，则直接从数据库中查询
 	qt := util.NewQueryTranslator(db.DB, &model1.Department{})
 	tx, err := qt.DistinctOn(distinctOn).
 		Limit(limit).
 		Offset(offset).
 		OrderBy(orderBy).
 		Where(where).
-		Aggregate(&rs, ctx)
+		AggregateWithQueryString(&rs, queryStrings)
 	if err != nil {
 		return nil, err
 	}
@@ -336,8 +369,9 @@ func (r *queryResolver) DepartmentByPk(ctx context.Context, id int64) (*model1.D
 	var m = &model1.Department{}
 	var rs model1.Department
 	if middle.IsEnableGqlCache(ctx) {
+		// 如果启用缓存，则从缓存中查询数据
 		cacheAspect, cacheErr := cache.GetGqlCacheAspect(m.TableName())
-		cacheKey := strconv.FormatInt(id, 10)
+		cacheKey := util2.ToStr(id)
 		if cacheErr == nil {
 			exist, err := cacheAspect.OnPkQuery(ctx, cacheKey, &rs)
 			if err != nil {
@@ -347,6 +381,7 @@ func (r *queryResolver) DepartmentByPk(ctx context.Context, id int64) (*model1.D
 				return &rs, err
 			}
 		}
+		// 缓存中找不到数据的话，查询数据库获取数据
 		tx := db.DB.Model(m).First(&rs, id)
 		err := tx.Error
 		if err != nil {
@@ -358,11 +393,13 @@ func (r *queryResolver) DepartmentByPk(ctx context.Context, id int64) (*model1.D
 			}
 			return &rs, err
 		}
+		// 设置数据到缓存
 		if cacheErr == nil {
 			_ = cacheAspect.SetPkQueryCache(ctx, cacheKey, rs)
 		}
 		return &rs, nil
 	}
+	// 如果没启用缓存，则直接从数据库中查询
 	tx := db.DB.Model(m).First(&rs, id)
 	err := tx.Error
 	if err != nil {
@@ -376,6 +413,7 @@ func (r *queryResolver) DepartmentByUnionPk(ctx context.Context, departmentID st
 	var rs model1.Department
 	var m = &model1.Department{}
 	if middle.IsEnableGqlCache(ctx) {
+		// 如果启用缓存，则从缓存中查询数据
 		cacheAspect, cacheErr := cache.GetGqlCacheAspect(rs.TableName())
 		cacheKey := departmentID
 		if cacheErr == nil {
@@ -387,6 +425,7 @@ func (r *queryResolver) DepartmentByUnionPk(ctx context.Context, departmentID st
 				return &rs, err
 			}
 		}
+		// 缓存中找不到数据的话，查询数据库获取数据
 		tx := db.DB.Model(m).Where(rs.UnionPrimaryColumnName()+" = ?", departmentID).First(&rs)
 		err := tx.Error
 		if err != nil {
@@ -398,11 +437,13 @@ func (r *queryResolver) DepartmentByUnionPk(ctx context.Context, departmentID st
 			}
 			return nil, err
 		}
+		// 设置数据到缓存
 		if cacheErr == nil {
 			_ = cacheAspect.SetUnionPkQueryCache(ctx, cacheKey, rs)
 		}
 		return &rs, nil
 	}
+	// 如果没启用缓存，则直接从数据库中查询
 	tx := db.DB.Model(m).Where(rs.UnionPrimaryColumnName()+" = ?", departmentID).First(&rs)
 	err := tx.Error
 	if err != nil {
