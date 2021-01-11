@@ -8,13 +8,18 @@ import (
 //go:generate go run github.com/vektah/dataloaden EnterpriseScoreSetUnionPkLoader string *VehicleSupervision/internal/modules/admin/model.EnterpriseScoreSet
 
 // 数据库表名
-func (t EnterpriseScoreSet) TableName() string {
+func (t *EnterpriseScoreSet) TableName() string {
 	return "enterprise_score_set"
 }
 
 // 主键列名
-func (t EnterpriseScoreSet) PrimaryColumnName() string {
+func (t *EnterpriseScoreSet) PrimaryColumnName() string {
 	return "id"
+}
+
+// 获取主键
+func (t *EnterpriseScoreSet) GetPrimary() int64 {
+	return t.ID
 }
 
 // 新建主键dataloader
@@ -32,8 +37,13 @@ func (t *EnterpriseScoreSetPkLoader) NewLoader() *EnterpriseScoreSetPkLoader {
 }
 
 // 联合主键列名
-func (t EnterpriseScoreSet) UnionPrimaryColumnName() string {
+func (t *EnterpriseScoreSet) UnionPrimaryColumnName() string {
 	return "score_set_id"
+}
+
+// 获取联合主键
+func (t *EnterpriseScoreSet) GetUnionPrimary() string {
+	return t.ScoreSetID
 }
 
 // 新建联合主键dataloader

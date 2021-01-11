@@ -219,6 +219,7 @@ input DataDictionaryBoolExp {
 input type for inserting data into table "data_dictionary"
 """
 input DataDictionaryInsertInput {
+	dictionary_id: String!
 	dictionary_category_id: String!
 	name: String!
 	value: Int!

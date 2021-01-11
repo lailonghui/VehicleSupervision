@@ -5764,6 +5764,7 @@ input DriverBlacklistApplyBoolExp {
 input type for inserting data into table "driver_blacklist_apply"
 """
 input DriverBlacklistApplyInsertInput {
+	apply_id: String!
 	driver_id: String!
 	apply_reason: String
 	blacklist_type: Int
@@ -6181,6 +6182,7 @@ input DriverBlacklistHisBoolExp {
 input type for inserting data into table "driver_blacklist_his"
 """
 input DriverBlacklistHisInsertInput {
+	his_id: String!
 	driver_id: String!
 	blacklist_type: Int!
 	operate: Int!
@@ -6591,6 +6593,7 @@ input EnterpriseBlacklistAlarmBoolExp {
 input type for inserting data into table "enterprise_blacklist_alarm"
 """
 input EnterpriseBlacklistAlarmInsertInput {
+	alarm_id: String!
 	enterprise_id: String!
 	type: Int!
 	year: Int!
@@ -6745,7 +6748,10 @@ extend type Mutation {
 	delete_enterprise_blacklist_alarm_by_union_pk(alarm_id: String!): EnterpriseBlacklistAlarm
 }
 `, BuiltIn: false},
-	{Name: "graph/graphqls/enterprise_blacklist_his.graphqls", Input: `type EnterpriseBlacklistHis {
+	{Name: "graph/graphqls/enterprise_blacklist_his.graphqls", Input: `"""
+企业黑名单操作纪录
+"""
+type EnterpriseBlacklistHis {
 	"""
 	ID
 	"""
@@ -6971,6 +6977,7 @@ input EnterpriseBlacklistHisBoolExp {
 input type for inserting data into table "enterprise_blacklist_his"
 """
 input EnterpriseBlacklistHisInsertInput {
+	his_id: String!
 	enterprise_id: String!
 	blacklist_type: Int!
 	operate: Int!
@@ -7364,6 +7371,7 @@ input VehicleBlacklistAlarmBoolExp {
 input type for inserting data into table "vehicle_blacklist_alarm"
 """
 input VehicleBlacklistAlarmInsertInput {
+	alarm_id: String!
 	vehicle_id: String!
 	license_plate_number: String
 	year: Int
@@ -7748,6 +7756,7 @@ input VehicleBlacklistHisBoolExp {
 input type for inserting data into table "vehicle_blacklist_his"
 """
 input VehicleBlacklistHisInsertInput {
+	his_id: String!
 	vehicle_id: String!
 	blacklist_type: Int!
 	operate: Int!
@@ -30205,6 +30214,14 @@ func (ec *executionContext) unmarshalInputDriverBlacklistApplyInsertInput(ctx co
 
 	for k, v := range asMap {
 		switch k {
+		case "apply_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("apply_id"))
+			it.ApplyID, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "driver_id":
 			var err error
 
@@ -30753,6 +30770,14 @@ func (ec *executionContext) unmarshalInputDriverBlacklistHisInsertInput(ctx cont
 
 	for k, v := range asMap {
 		switch k {
+		case "his_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("his_id"))
+			it.HisID, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "driver_id":
 			var err error
 
@@ -31365,6 +31390,14 @@ func (ec *executionContext) unmarshalInputEnterpriseBlacklistAlarmInsertInput(ct
 
 	for k, v := range asMap {
 		switch k {
+		case "alarm_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("alarm_id"))
+			it.AlarmID, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "enterprise_id":
 			var err error
 
@@ -31897,6 +31930,14 @@ func (ec *executionContext) unmarshalInputEnterpriseBlacklistHisInsertInput(ctx 
 
 	for k, v := range asMap {
 		switch k {
+		case "his_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("his_id"))
+			it.HisID, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "enterprise_id":
 			var err error
 
@@ -33057,6 +33098,14 @@ func (ec *executionContext) unmarshalInputVehicleBlacklistAlarmInsertInput(ctx c
 
 	for k, v := range asMap {
 		switch k {
+		case "alarm_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("alarm_id"))
+			it.AlarmID, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "vehicle_id":
 			var err error
 
@@ -33589,6 +33638,14 @@ func (ec *executionContext) unmarshalInputVehicleBlacklistHisInsertInput(ctx con
 
 	for k, v := range asMap {
 		switch k {
+		case "his_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("his_id"))
+			it.HisID, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "vehicle_id":
 			var err error
 

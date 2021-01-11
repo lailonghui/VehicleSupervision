@@ -227,6 +227,7 @@ input VehicleBlacklistHisBoolExp {
 input type for inserting data into table "vehicle_blacklist_his"
 """
 input VehicleBlacklistHisInsertInput {
+	his_id: String!
 	vehicle_id: String!
 	blacklist_type: Int!
 	operate: Int!

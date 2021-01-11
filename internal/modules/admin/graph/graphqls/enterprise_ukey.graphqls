@@ -187,6 +187,7 @@ input EnterpriseUkeyBoolExp {
 input type for inserting data into table "enterprise_ukey"
 """
 input EnterpriseUkeyInsertInput {
+	ukey_id: String!
 	enterprise_id: String!
 	create_at: Timestamptz!
 	create_by: String

@@ -299,6 +299,7 @@ input TerminalCheckParamBoolExp {
 input type for inserting data into table "terminal_check_param"
 """
 input TerminalCheckParamInsertInput {
+	terminal_check_param_id: String!
 	acc: String!
 	brake: String
 	left_lamp: String

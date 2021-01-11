@@ -259,6 +259,7 @@ input TerminalOperLogBoolExp {
 input type for inserting data into table "terminal_oper_log"
 """
 input TerminalOperLogInsertInput {
+	log_id: String!
 	terminal_id: String!
 	operate_type: Int!
 	req_info: String

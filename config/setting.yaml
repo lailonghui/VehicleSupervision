@@ -11,7 +11,7 @@ db:
     port: 5432
     username: "postgres"
     password: "root"
-    dbname: "vehicle_1"
+    dbname: "vehicle"
     sslmode: "disable"
     timezone: "Asia/Shanghai"
   slaves:
@@ -20,7 +20,7 @@ db:
       port: 5432
       username: "postgres"
       password: "root"
-      dbname: "vehicle_1"
+      dbname: "vehicle"
       sslmode: "disable"
       timezone: "Asia/Shanghai"
   pool:

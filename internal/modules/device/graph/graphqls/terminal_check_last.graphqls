@@ -299,6 +299,7 @@ input TerminalCheckLastBoolExp {
 input type for inserting data into table "terminal_check_last"
 """
 input TerminalCheckLastInsertInput {
+	terminal_check_last_id: String!
 	terminal_id: String!
 	acc: String
 	brake: String

@@ -187,6 +187,7 @@ input TerminalChangeBoolExp {
 input type for inserting data into table "terminal_change"
 """
 input TerminalChangeInsertInput {
+	change_id: String!
 	new_plate_number: String!
 	terminal_id: String!
 	terminal_type_id: String

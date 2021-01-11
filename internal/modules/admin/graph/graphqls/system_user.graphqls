@@ -355,6 +355,7 @@ input SystemUserBoolExp {
 input type for inserting data into table "system_user"
 """
 input SystemUserInsertInput {
+	user_id: String!
 	password: String!
 	uername: String!
 	enterprise_id: String

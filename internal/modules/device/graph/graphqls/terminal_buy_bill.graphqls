@@ -291,6 +291,7 @@ input TerminalBuyBillBoolExp {
 input type for inserting data into table "terminal_buy_bill"
 """
 input TerminalBuyBillInsertInput {
+	bill_id: String!
 	terminal_type: Int!
 	start_sn: Bigint
 	end_sn: Bigint

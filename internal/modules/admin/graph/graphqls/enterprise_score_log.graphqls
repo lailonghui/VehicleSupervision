@@ -243,6 +243,7 @@ input EnterpriseScoreLogBoolExp {
 input type for inserting data into table "enterprise_score_log"
 """
 input EnterpriseScoreLogInsertInput {
+	log_id: String!
 	enterprise_id: String!
 	current_score: Int!
 	add_score: Int!

@@ -1,3 +1,6 @@
+"""
+企业黑名单操作纪录
+"""
 type EnterpriseBlacklistHis {
 	"""
 	ID
@@ -224,6 +227,7 @@ input EnterpriseBlacklistHisBoolExp {
 input type for inserting data into table "enterprise_blacklist_his"
 """
 input EnterpriseBlacklistHisInsertInput {
+	his_id: String!
 	enterprise_id: String!
 	blacklist_type: Int!
 	operate: Int!

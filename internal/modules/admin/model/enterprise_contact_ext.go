@@ -8,13 +8,18 @@ import (
 //go:generate go run github.com/vektah/dataloaden EnterpriseContactUnionPkLoader string *VehicleSupervision/internal/modules/admin/model.EnterpriseContact
 
 // 数据库表名
-func (t EnterpriseContact) TableName() string {
+func (t *EnterpriseContact) TableName() string {
 	return "enterprise_contact"
 }
 
 // 主键列名
-func (t EnterpriseContact) PrimaryColumnName() string {
+func (t *EnterpriseContact) PrimaryColumnName() string {
 	return "id"
+}
+
+// 获取主键
+func (t *EnterpriseContact) GetPrimary() int64 {
+	return t.ID
 }
 
 // 新建主键dataloader
@@ -32,8 +37,13 @@ func (t *EnterpriseContactPkLoader) NewLoader() *EnterpriseContactPkLoader {
 }
 
 // 联合主键列名
-func (t EnterpriseContact) UnionPrimaryColumnName() string {
+func (t *EnterpriseContact) UnionPrimaryColumnName() string {
 	return "contact_id"
+}
+
+// 获取联合主键
+func (t *EnterpriseContact) GetUnionPrimary() string {
+	return t.ContactID
 }
 
 // 新建联合主键dataloader

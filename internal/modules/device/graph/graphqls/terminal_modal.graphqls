@@ -267,6 +267,7 @@ input TerminalModalBoolExp {
 input type for inserting data into table "terminal_modal"
 """
 input TerminalModalInsertInput {
+	terminal_modal_id: String!
 	factory_id: String
 	terminal_type_id: String
 	modal_name: String

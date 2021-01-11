@@ -1,0 +1,619 @@
+"""
+sim卡使用情况管理
+"""
+type SimCardMgr {
+	"""
+	ID
+	"""
+	id: Bigint!
+	"""
+	sim卡使用情况管理ID
+	"""
+	mgr_id: String!
+	"""
+	状态
+	"""
+	status: Int
+	"""
+	终端ID
+	"""
+	terminal_id: String
+	"""
+	运营商类型
+	"""
+	mobile_type: Int
+	"""
+	代理商ID
+	"""
+	proxyrg_id: String
+	"""
+	部门ID
+	"""
+	dept_id: String
+	"""
+	sim卡类型
+	"""
+	sim_type: Int
+	"""
+	领用用途
+	"""
+	use_type: Int
+	"""
+	领用人员
+	"""
+	use_user_id: String
+	"""
+	应用系统名称
+	"""
+	system_name: String
+	"""
+	sim卡号
+	"""
+	sim_number: String
+	"""
+	是否外部来源
+	"""
+	is_outside: Boolean!
+	"""
+	换卡原因
+	"""
+	update_cause: String
+	"""
+	sim卡来自哪个区域
+	"""
+	sim_area: String
+	"""
+	去掉1和2位的sim卡号
+	"""
+	sim_number_12: String
+	"""
+	去掉2和3位的sim卡号
+	"""
+	sim_number_23: String
+	"""
+	外部sim卡号相匹配的sim卡
+	"""
+	sim_bak: String
+	"""
+	10位sim卡号
+	"""
+	sim_number10: String
+	"""
+	注销时间
+	"""
+	cancel_time: Timestamptz
+	"""
+	注销原因
+	"""
+	cancel_cause: String
+	"""
+	创建时间
+	"""
+	create_at: Timestamptz!
+	"""
+	创建人
+	"""
+	create_by: String
+	"""
+	更新时间
+	"""
+	update_at: Timestamptz
+	"""
+	更新人
+	"""
+	update_by: String
+	"""
+	删除时间
+	"""
+	delete_at: Timestamptz
+	"""
+	删除人
+	"""
+	delete_by: String
+	"""
+	是否删除
+	"""
+	is_delete: Boolean!
+	"""
+	备注
+	"""
+	remark: String
+}
+"""
+aggregated selection of "sim_card_mgr"
+"""
+type SimCardMgrAggregate {
+	aggregate: SimCardMgrAggregateFields
+}
+"""
+aggregate fields of "sim_card_mgr"
+"""
+type SimCardMgrAggregateFields {
+	avg: SimCardMgrAvgFields
+	count: Int
+	max: SimCardMgrMaxFields
+	min: SimCardMgrMinFields
+	stddev: SimCardMgrStddevFields
+	stddev_pop: SimCardMgrStddevPopFields
+	stddev_samp: SimCardMgrStddevSampFields
+	sum: SimCardMgrSumFields
+	var_pop: SimCardMgrVarPopFields
+	var_samp: SimCardMgrVarSampFields
+	variance: SimCardMgrVarianceFields
+}
+"""
+aggregate avg on columns of table "sim_card_mgr"
+"""
+type SimCardMgrAvgFields {
+	id: Bigint
+	status: Int
+	mobile_type: Int
+	sim_type: Int
+	use_type: Int
+}
+"""
+aggregate max on columns of table "sim_card_mgr"
+"""
+type SimCardMgrMaxFields {
+	id: Bigint
+	mgr_id: String
+	status: Int
+	terminal_id: String
+	mobile_type: Int
+	proxyrg_id: String
+	dept_id: String
+	sim_type: Int
+	use_type: Int
+	use_user_id: String
+	system_name: String
+	sim_number: String
+	is_outside: Boolean
+	update_cause: String
+	sim_area: String
+	sim_number_12: String
+	sim_number_23: String
+	sim_bak: String
+	sim_number10: String
+	cancel_time: Timestamptz
+	cancel_cause: String
+	create_at: Timestamptz
+	create_by: String
+	update_at: Timestamptz
+	update_by: String
+	delete_at: Timestamptz
+	delete_by: String
+	is_delete: Boolean
+	remark: String
+}
+"""
+aggregate min on columns of table "sim_card_mgr"
+"""
+type SimCardMgrMinFields {
+	id: Bigint
+	mgr_id: String
+	status: Int
+	terminal_id: String
+	mobile_type: Int
+	proxyrg_id: String
+	dept_id: String
+	sim_type: Int
+	use_type: Int
+	use_user_id: String
+	system_name: String
+	sim_number: String
+	is_outside: Boolean
+	update_cause: String
+	sim_area: String
+	sim_number_12: String
+	sim_number_23: String
+	sim_bak: String
+	sim_number10: String
+	cancel_time: Timestamptz
+	cancel_cause: String
+	create_at: Timestamptz
+	create_by: String
+	update_at: Timestamptz
+	update_by: String
+	delete_at: Timestamptz
+	delete_by: String
+	is_delete: Boolean
+	remark: String
+}
+"""
+aggregate stddev on columns of table "sim_card_mgr"
+"""
+type SimCardMgrStddevFields {
+	id: Bigint
+	status: Int
+	mobile_type: Int
+	sim_type: Int
+	use_type: Int
+}
+"""
+aggregate stddev_pop on columns of table "sim_card_mgr"
+"""
+type SimCardMgrStddevPopFields {
+	id: Bigint
+	status: Int
+	mobile_type: Int
+	sim_type: Int
+	use_type: Int
+}
+"""
+aggregate stddev_samp on columns of table "sim_card_mgr"
+"""
+type SimCardMgrStddevSampFields {
+	id: Bigint
+	status: Int
+	mobile_type: Int
+	sim_type: Int
+	use_type: Int
+}
+"""
+aggregate sum on columns of table "sim_card_mgr"
+"""
+type SimCardMgrSumFields {
+	id: Bigint
+	status: Int
+	mobile_type: Int
+	sim_type: Int
+	use_type: Int
+}
+"""
+aggregate var_pop on columns of table "sim_card_mgr"
+"""
+type SimCardMgrVarPopFields {
+	id: Bigint
+	status: Int
+	mobile_type: Int
+	sim_type: Int
+	use_type: Int
+}
+"""
+aggregate var_samp on columns of table "sim_card_mgr"
+"""
+type SimCardMgrVarSampFields {
+	id: Bigint
+	status: Int
+	mobile_type: Int
+	sim_type: Int
+	use_type: Int
+}
+"""
+aggregate variance on columns of table "sim_card_mgr"
+"""
+type SimCardMgrVarianceFields {
+	id: Bigint
+	status: Int
+	mobile_type: Int
+	sim_type: Int
+	use_type: Int
+}
+"""
+response of any mutation on the table "sim_card_mgr"
+"""
+type SimCardMgrMutationResponse {
+	affected_rows: Int!
+	returning: [SimCardMgr!]!
+}
+"""
+ordering options when selecting data from "sim_card_mgr"
+"""
+input SimCardMgrOrderBy {
+	id: OrderBy
+	mgr_id: OrderBy
+	status: OrderBy
+	terminal_id: OrderBy
+	mobile_type: OrderBy
+	proxyrg_id: OrderBy
+	dept_id: OrderBy
+	sim_type: OrderBy
+	use_type: OrderBy
+	use_user_id: OrderBy
+	system_name: OrderBy
+	sim_number: OrderBy
+	is_outside: OrderBy
+	update_cause: OrderBy
+	sim_area: OrderBy
+	sim_number_12: OrderBy
+	sim_number_23: OrderBy
+	sim_bak: OrderBy
+	sim_number10: OrderBy
+	cancel_time: OrderBy
+	cancel_cause: OrderBy
+	create_at: OrderBy
+	create_by: OrderBy
+	update_at: OrderBy
+	update_by: OrderBy
+	delete_at: OrderBy
+	delete_by: OrderBy
+	is_delete: OrderBy
+	remark: OrderBy
+}
+"""
+Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'sim_card_mgr'.
+"""
+input SimCardMgrBoolExp {
+	_and: [SimCardMgrBoolExp]
+	_not: SimCardMgrBoolExp
+	_or: [SimCardMgrBoolExp]
+	id: BigintComparisonExp
+	mgr_id: StringComparisonExp
+	status: IntComparisonExp
+	terminal_id: StringComparisonExp
+	mobile_type: IntComparisonExp
+	proxyrg_id: StringComparisonExp
+	dept_id: StringComparisonExp
+	sim_type: IntComparisonExp
+	use_type: IntComparisonExp
+	use_user_id: StringComparisonExp
+	system_name: StringComparisonExp
+	sim_number: StringComparisonExp
+	is_outside: BooleanComparisonExp
+	update_cause: StringComparisonExp
+	sim_area: StringComparisonExp
+	sim_number_12: StringComparisonExp
+	sim_number_23: StringComparisonExp
+	sim_bak: StringComparisonExp
+	sim_number10: StringComparisonExp
+	cancel_time: TimestamptzComparisonExp
+	cancel_cause: StringComparisonExp
+	create_at: TimestamptzComparisonExp
+	create_by: StringComparisonExp
+	update_at: TimestamptzComparisonExp
+	update_by: StringComparisonExp
+	delete_at: TimestamptzComparisonExp
+	delete_by: StringComparisonExp
+	is_delete: BooleanComparisonExp
+	remark: StringComparisonExp
+}
+"""
+input type for inserting data into table "sim_card_mgr"
+"""
+input SimCardMgrInsertInput {
+	mgr_id: String!
+	status: Int
+	terminal_id: String
+	mobile_type: Int
+	proxyrg_id: String
+	dept_id: String
+	sim_type: Int
+	use_type: Int
+	use_user_id: String
+	system_name: String
+	sim_number: String
+	is_outside: Boolean!
+	update_cause: String
+	sim_area: String
+	sim_number_12: String
+	sim_number_23: String
+	sim_bak: String
+	sim_number10: String
+	cancel_time: Timestamptz
+	cancel_cause: String
+	create_at: Timestamptz!
+	create_by: String
+	update_at: Timestamptz
+	update_by: String
+	delete_at: Timestamptz
+	delete_by: String
+	is_delete: Boolean!
+	remark: String
+}
+"""
+input type for incrementing integer column in table "sim_card_mgr"
+"""
+input SimCardMgrIncInput {
+	id: Bigint
+	status: Int
+	mobile_type: Int
+	sim_type: Int
+	use_type: Int
+}
+"""
+input type for updating data in table "sim_card_mgr"
+"""
+input SimCardMgrSetInput {
+	id: Bigint
+	mgr_id: String
+	status: Int
+	terminal_id: String
+	mobile_type: Int
+	proxyrg_id: String
+	dept_id: String
+	sim_type: Int
+	use_type: Int
+	use_user_id: String
+	system_name: String
+	sim_number: String
+	is_outside: Boolean
+	update_cause: String
+	sim_area: String
+	sim_number_12: String
+	sim_number_23: String
+	sim_bak: String
+	sim_number10: String
+	cancel_time: Timestamptz
+	cancel_cause: String
+	create_at: Timestamptz
+	create_by: String
+	update_at: Timestamptz
+	update_by: String
+	delete_at: Timestamptz
+	delete_by: String
+	is_delete: Boolean
+	remark: String
+}
+"""
+可选select
+"""
+enum SimCardMgrSelectColumn {
+	"""
+	ID
+	"""
+	id
+	"""
+	sim卡使用情况管理ID
+	"""
+	mgr_id
+	"""
+	状态
+	"""
+	status
+	"""
+	终端ID
+	"""
+	terminal_id
+	"""
+	运营商类型
+	"""
+	mobile_type
+	"""
+	代理商ID
+	"""
+	proxyrg_id
+	"""
+	部门ID
+	"""
+	dept_id
+	"""
+	sim卡类型
+	"""
+	sim_type
+	"""
+	领用用途
+	"""
+	use_type
+	"""
+	领用人员
+	"""
+	use_user_id
+	"""
+	应用系统名称
+	"""
+	system_name
+	"""
+	sim卡号
+	"""
+	sim_number
+	"""
+	是否外部来源
+	"""
+	is_outside
+	"""
+	换卡原因
+	"""
+	update_cause
+	"""
+	sim卡来自哪个区域
+	"""
+	sim_area
+	"""
+	去掉1和2位的sim卡号
+	"""
+	sim_number_12
+	"""
+	去掉2和3位的sim卡号
+	"""
+	sim_number_23
+	"""
+	外部sim卡号相匹配的sim卡
+	"""
+	sim_bak
+	"""
+	10位sim卡号
+	"""
+	sim_number10
+	"""
+	注销时间
+	"""
+	cancel_time
+	"""
+	注销原因
+	"""
+	cancel_cause
+	"""
+	创建时间
+	"""
+	create_at
+	"""
+	创建人
+	"""
+	create_by
+	"""
+	更新时间
+	"""
+	update_at
+	"""
+	更新人
+	"""
+	update_by
+	"""
+	删除时间
+	"""
+	delete_at
+	"""
+	删除人
+	"""
+	delete_by
+	"""
+	是否删除
+	"""
+	is_delete
+	"""
+	备注
+	"""
+	remark
+}
+extend type Query {
+	"""
+	列表查询
+	"""
+	sim_card_mgr(distinct_on: [SimCardMgrSelectColumn!], limit: Int, offset: Int, order_by: [SimCardMgrOrderBy!], where: SimCardMgrBoolExp): [SimCardMgr!]!
+	"""
+	聚合查询
+	"""
+	sim_card_mgr_aggregate(distinct_on: [SimCardMgrSelectColumn!], limit: Int, offset: Int, order_by: [SimCardMgrOrderBy!], where: SimCardMgrBoolExp): SimCardMgrAggregate!
+	"""
+	主键查询
+	"""
+	sim_card_mgr_by_pk(id: Bigint!): SimCardMgr!
+	"""
+	联合主键查询
+	"""
+	sim_card_mgr_by_union_pk(mgr_id: String!): SimCardMgr!
+}
+extend type Mutation {
+	"""
+	删除记录
+	"""
+	delete_sim_card_mgr(where: SimCardMgrBoolExp!): SimCardMgrMutationResponse
+	"""
+	根据主键删除记录
+	"""
+	delete_sim_card_mgr_by_pk(id: Bigint!): SimCardMgr
+	"""
+	插入
+	"""
+	insert_sim_card_mgr(objects: [SimCardMgrInsertInput!]!): SimCardMgrMutationResponse
+	"""
+	插入一条记录
+	"""
+	insert_sim_card_mgr_one(objects: SimCardMgrInsertInput!): SimCardMgr
+	"""
+	更新
+	"""
+	update_sim_card_mgr(_inc: SimCardMgrIncInput, _set: SimCardMgrSetInput, where: SimCardMgrBoolExp!): SimCardMgrMutationResponse
+	"""
+	根据主键更新
+	"""
+	update_sim_card_mgr_by_pk(_inc: SimCardMgrIncInput, _set: SimCardMgrSetInput, id: Bigint!): SimCardMgr
+	"""
+	根据联合主键更新
+	"""
+	update_sim_card_mgr_by_union_pk(_inc: SimCardMgrIncInput, _set: SimCardMgrSetInput, mgr_id: String!): SimCardMgr
+	"""
+	根据联合主键删除记录
+	"""
+	delete_sim_card_mgr_by_union_pk(mgr_id: String!): SimCardMgr
+}

@@ -219,6 +219,7 @@ input EnterpriseScoreSetBoolExp {
 input type for inserting data into table "enterprise_score_set"
 """
 input EnterpriseScoreSetInsertInput {
+	score_set_id: String!
 	content: String!
 	type: Int!
 	score: Float!

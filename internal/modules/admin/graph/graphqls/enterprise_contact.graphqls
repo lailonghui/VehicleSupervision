@@ -235,6 +235,7 @@ input EnterpriseContactBoolExp {
 input type for inserting data into table "enterprise_contact"
 """
 input EnterpriseContactInsertInput {
+	contact_id: String!
 	enterprise_id: String!
 	name: String
 	mobile: String

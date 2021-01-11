@@ -70,6 +70,7 @@ type DepartmentIncInput struct {
 
 // input type for inserting data into table "department"
 type DepartmentInsertInput struct {
+	DepartmentID         string     `json:"department_id"`
 	EnterpriseID         string     `json:"enterprise_id"`
 	SuperiorDepartmentID *string    `json:"superior_department_id"`
 	DepartmentName       *string    `json:"department_name"`
@@ -241,6 +242,193 @@ type EnterpriseAggregateFields struct {
 	Variance   *EnterpriseVarianceFields   `json:"variance"`
 }
 
+// aggregated selection of "enterprise_alarm_send_police"
+type EnterpriseAlarmSendPoliceAggregate struct {
+	Aggregate *EnterpriseAlarmSendPoliceAggregateFields `json:"aggregate"`
+}
+
+// aggregate fields of "enterprise_alarm_send_police"
+type EnterpriseAlarmSendPoliceAggregateFields struct {
+	Avg        *EnterpriseAlarmSendPoliceAvgFields        `json:"avg"`
+	Count      *int                                       `json:"count"`
+	Max        *EnterpriseAlarmSendPoliceMaxFields        `json:"max"`
+	Min        *EnterpriseAlarmSendPoliceMinFields        `json:"min"`
+	Stddev     *EnterpriseAlarmSendPoliceStddevFields     `json:"stddev"`
+	StddevPop  *EnterpriseAlarmSendPoliceStddevPopFields  `json:"stddev_pop"`
+	StddevSamp *EnterpriseAlarmSendPoliceStddevSampFields `json:"stddev_samp"`
+	Sum        *EnterpriseAlarmSendPoliceSumFields        `json:"sum"`
+	VarPop     *EnterpriseAlarmSendPoliceVarPopFields     `json:"var_pop"`
+	VarSamp    *EnterpriseAlarmSendPoliceVarSampFields    `json:"var_samp"`
+	Variance   *EnterpriseAlarmSendPoliceVarianceFields   `json:"variance"`
+}
+
+// aggregate avg on columns of table "enterprise_alarm_send_police"
+type EnterpriseAlarmSendPoliceAvgFields struct {
+	ID *int64 `json:"id"`
+}
+
+// Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'enterprise_alarm_send_police'.
+type EnterpriseAlarmSendPoliceBoolExp struct {
+	And                         []*EnterpriseAlarmSendPoliceBoolExp `json:"_and"`
+	Not                         *EnterpriseAlarmSendPoliceBoolExp   `json:"_not"`
+	Or                          []*EnterpriseAlarmSendPoliceBoolExp `json:"_or"`
+	ID                          *model.BigintComparisonExp          `json:"id"`
+	EnterpriseAlarmSendPoliceID *model.StringComparisonExp          `json:"enterprise_alarm_send_police_id"`
+	EnterpriseID                *model.StringComparisonExp          `json:"enterprise_id"`
+	EnterpriseName              *model.StringComparisonExp          `json:"enterprise_name"`
+	EnterpriseContact           *model.StringComparisonExp          `json:"enterprise_contact"`
+	EnterprisePhone             *model.StringComparisonExp          `json:"enterprise_phone"`
+	Police                      *model.StringComparisonExp          `json:"police"`
+	PolicePhone                 *model.StringComparisonExp          `json:"police_phone"`
+	PhliceDepartment            *model.StringComparisonExp          `json:"phlice_department"`
+	CreatedAt                   *model.TimestamptzComparisonExp     `json:"created_at"`
+	CreatedBy                   *model.StringComparisonExp          `json:"created_by"`
+	UpdatedAt                   *model.TimestamptzComparisonExp     `json:"updated_at"`
+	UpdatedBy                   *model.StringComparisonExp          `json:"updated_by"`
+	DeletedAt                   *model.TimestamptzComparisonExp     `json:"deleted_at"`
+	DeletedBy                   *model.StringComparisonExp          `json:"deleted_by"`
+}
+
+// input type for incrementing integer column in table "enterprise_alarm_send_police"
+type EnterpriseAlarmSendPoliceIncInput struct {
+	ID *int64 `json:"id"`
+}
+
+// input type for inserting data into table "enterprise_alarm_send_police"
+type EnterpriseAlarmSendPoliceInsertInput struct {
+	EnterpriseAlarmSendPoliceID string     `json:"enterprise_alarm_send_police_id"`
+	EnterpriseID                *string    `json:"enterprise_id"`
+	EnterpriseName              *string    `json:"enterprise_name"`
+	EnterpriseContact           *string    `json:"enterprise_contact"`
+	EnterprisePhone             *string    `json:"enterprise_phone"`
+	Police                      *string    `json:"police"`
+	PolicePhone                 *string    `json:"police_phone"`
+	PhliceDepartment            *string    `json:"phlice_department"`
+	CreatedAt                   time.Time  `json:"created_at"`
+	CreatedBy                   string     `json:"created_by"`
+	UpdatedAt                   *time.Time `json:"updated_at"`
+	UpdatedBy                   *string    `json:"updated_by"`
+	DeletedAt                   *time.Time `json:"deleted_at"`
+	DeletedBy                   *string    `json:"deleted_by"`
+}
+
+// aggregate max on columns of table "enterprise_alarm_send_police"
+type EnterpriseAlarmSendPoliceMaxFields struct {
+	ID                          *int64     `json:"id"`
+	EnterpriseAlarmSendPoliceID *string    `json:"enterprise_alarm_send_police_id"`
+	EnterpriseID                *string    `json:"enterprise_id"`
+	EnterpriseName              *string    `json:"enterprise_name"`
+	EnterpriseContact           *string    `json:"enterprise_contact"`
+	EnterprisePhone             *string    `json:"enterprise_phone"`
+	Police                      *string    `json:"police"`
+	PolicePhone                 *string    `json:"police_phone"`
+	PhliceDepartment            *string    `json:"phlice_department"`
+	CreatedAt                   *time.Time `json:"created_at"`
+	CreatedBy                   *string    `json:"created_by"`
+	UpdatedAt                   *time.Time `json:"updated_at"`
+	UpdatedBy                   *string    `json:"updated_by"`
+	DeletedAt                   *time.Time `json:"deleted_at"`
+	DeletedBy                   *string    `json:"deleted_by"`
+}
+
+// aggregate min on columns of table "enterprise_alarm_send_police"
+type EnterpriseAlarmSendPoliceMinFields struct {
+	ID                          *int64     `json:"id"`
+	EnterpriseAlarmSendPoliceID *string    `json:"enterprise_alarm_send_police_id"`
+	EnterpriseID                *string    `json:"enterprise_id"`
+	EnterpriseName              *string    `json:"enterprise_name"`
+	EnterpriseContact           *string    `json:"enterprise_contact"`
+	EnterprisePhone             *string    `json:"enterprise_phone"`
+	Police                      *string    `json:"police"`
+	PolicePhone                 *string    `json:"police_phone"`
+	PhliceDepartment            *string    `json:"phlice_department"`
+	CreatedAt                   *time.Time `json:"created_at"`
+	CreatedBy                   *string    `json:"created_by"`
+	UpdatedAt                   *time.Time `json:"updated_at"`
+	UpdatedBy                   *string    `json:"updated_by"`
+	DeletedAt                   *time.Time `json:"deleted_at"`
+	DeletedBy                   *string    `json:"deleted_by"`
+}
+
+// response of any mutation on the table "enterprise_alarm_send_police"
+type EnterpriseAlarmSendPoliceMutationResponse struct {
+	AffectedRows int                                 `json:"affected_rows"`
+	Returning    []*model1.EnterpriseAlarmSendPolice `json:"returning"`
+}
+
+// ordering options when selecting data from "enterprise_alarm_send_police"
+type EnterpriseAlarmSendPoliceOrderBy struct {
+	ID                          *model.OrderBy `json:"id"`
+	EnterpriseAlarmSendPoliceID *model.OrderBy `json:"enterprise_alarm_send_police_id"`
+	EnterpriseID                *model.OrderBy `json:"enterprise_id"`
+	EnterpriseName              *model.OrderBy `json:"enterprise_name"`
+	EnterpriseContact           *model.OrderBy `json:"enterprise_contact"`
+	EnterprisePhone             *model.OrderBy `json:"enterprise_phone"`
+	Police                      *model.OrderBy `json:"police"`
+	PolicePhone                 *model.OrderBy `json:"police_phone"`
+	PhliceDepartment            *model.OrderBy `json:"phlice_department"`
+	CreatedAt                   *model.OrderBy `json:"created_at"`
+	CreatedBy                   *model.OrderBy `json:"created_by"`
+	UpdatedAt                   *model.OrderBy `json:"updated_at"`
+	UpdatedBy                   *model.OrderBy `json:"updated_by"`
+	DeletedAt                   *model.OrderBy `json:"deleted_at"`
+	DeletedBy                   *model.OrderBy `json:"deleted_by"`
+}
+
+// input type for updating data in table "enterprise_alarm_send_police"
+type EnterpriseAlarmSendPoliceSetInput struct {
+	ID                          *int64     `json:"id"`
+	EnterpriseAlarmSendPoliceID *string    `json:"enterprise_alarm_send_police_id"`
+	EnterpriseID                *string    `json:"enterprise_id"`
+	EnterpriseName              *string    `json:"enterprise_name"`
+	EnterpriseContact           *string    `json:"enterprise_contact"`
+	EnterprisePhone             *string    `json:"enterprise_phone"`
+	Police                      *string    `json:"police"`
+	PolicePhone                 *string    `json:"police_phone"`
+	PhliceDepartment            *string    `json:"phlice_department"`
+	CreatedAt                   *time.Time `json:"created_at"`
+	CreatedBy                   *string    `json:"created_by"`
+	UpdatedAt                   *time.Time `json:"updated_at"`
+	UpdatedBy                   *string    `json:"updated_by"`
+	DeletedAt                   *time.Time `json:"deleted_at"`
+	DeletedBy                   *string    `json:"deleted_by"`
+}
+
+// aggregate stddev on columns of table "enterprise_alarm_send_police"
+type EnterpriseAlarmSendPoliceStddevFields struct {
+	ID *int64 `json:"id"`
+}
+
+// aggregate stddev_pop on columns of table "enterprise_alarm_send_police"
+type EnterpriseAlarmSendPoliceStddevPopFields struct {
+	ID *int64 `json:"id"`
+}
+
+// aggregate stddev_samp on columns of table "enterprise_alarm_send_police"
+type EnterpriseAlarmSendPoliceStddevSampFields struct {
+	ID *int64 `json:"id"`
+}
+
+// aggregate sum on columns of table "enterprise_alarm_send_police"
+type EnterpriseAlarmSendPoliceSumFields struct {
+	ID *int64 `json:"id"`
+}
+
+// aggregate var_pop on columns of table "enterprise_alarm_send_police"
+type EnterpriseAlarmSendPoliceVarPopFields struct {
+	ID *int64 `json:"id"`
+}
+
+// aggregate var_samp on columns of table "enterprise_alarm_send_police"
+type EnterpriseAlarmSendPoliceVarSampFields struct {
+	ID *int64 `json:"id"`
+}
+
+// aggregate variance on columns of table "enterprise_alarm_send_police"
+type EnterpriseAlarmSendPoliceVarianceFields struct {
+	ID *int64 `json:"id"`
+}
+
 // aggregate avg on columns of table "enterprise"
 type EnterpriseAvgFields struct {
 	ID                  *int64 `json:"id"`
@@ -383,6 +571,7 @@ type EnterpriseContactIncInput struct {
 
 // input type for inserting data into table "enterprise_contact"
 type EnterpriseContactInsertInput struct {
+	ContactID    string     `json:"contact_id"`
 	EnterpriseID string     `json:"enterprise_id"`
 	Name         *string    `json:"name"`
 	Mobile       *string    `json:"mobile"`
@@ -542,6 +731,7 @@ type EnterpriseIncInput struct {
 
 // input type for inserting data into table "enterprise"
 type EnterpriseInsertInput struct {
+	EnterpriseID                     string     `json:"enterprise_id"`
 	SuperiorEnterpriseID             *string    `json:"superior_enterprise_id"`
 	EnterpriseCode                   *string    `json:"enterprise_code"`
 	EnterpriseName                   *string    `json:"enterprise_name"`
@@ -815,6 +1005,7 @@ type EnterpriseMuckTrunkIncInput struct {
 
 // input type for inserting data into table "enterprise_muck_trunk"
 type EnterpriseMuckTrunkInsertInput struct {
+	EnterpriseMuckTrunkID       string     `json:"enterprise_muck_trunk_id"`
 	EnterpriseID                string     `json:"enterprise_id"`
 	CompanyManager              *string    `json:"company_manager"`
 	CompanyManagerPhone         *string    `json:"company_manager_phone"`
@@ -1152,198 +1343,6 @@ type EnterpriseOrderBy struct {
 	CreditLevelRemark                *model.OrderBy `json:"credit_level_remark"`
 }
 
-// aggregated selection of "enterprise_police_sms_info"
-type EnterprisePoliceSmsInfoAggregate struct {
-	Aggregate *EnterprisePoliceSmsInfoAggregateFields `json:"aggregate"`
-}
-
-// aggregate fields of "enterprise_police_sms_info"
-type EnterprisePoliceSmsInfoAggregateFields struct {
-	Avg        *EnterprisePoliceSmsInfoAvgFields        `json:"avg"`
-	Count      *int                                     `json:"count"`
-	Max        *EnterprisePoliceSmsInfoMaxFields        `json:"max"`
-	Min        *EnterprisePoliceSmsInfoMinFields        `json:"min"`
-	Stddev     *EnterprisePoliceSmsInfoStddevFields     `json:"stddev"`
-	StddevPop  *EnterprisePoliceSmsInfoStddevPopFields  `json:"stddev_pop"`
-	StddevSamp *EnterprisePoliceSmsInfoStddevSampFields `json:"stddev_samp"`
-	Sum        *EnterprisePoliceSmsInfoSumFields        `json:"sum"`
-	VarPop     *EnterprisePoliceSmsInfoVarPopFields     `json:"var_pop"`
-	VarSamp    *EnterprisePoliceSmsInfoVarSampFields    `json:"var_samp"`
-	Variance   *EnterprisePoliceSmsInfoVarianceFields   `json:"variance"`
-}
-
-// aggregate avg on columns of table "enterprise_police_sms_info"
-type EnterprisePoliceSmsInfoAvgFields struct {
-	ID *int64 `json:"id"`
-}
-
-// Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'enterprise_police_sms_info'.
-type EnterprisePoliceSmsInfoBoolExp struct {
-	And                       []*EnterprisePoliceSmsInfoBoolExp `json:"_and"`
-	Not                       *EnterprisePoliceSmsInfoBoolExp   `json:"_not"`
-	Or                        []*EnterprisePoliceSmsInfoBoolExp `json:"_or"`
-	ID                        *model.BigintComparisonExp        `json:"id"`
-	EnterprisePoliceSmsInfoID *model.StringComparisonExp        `json:"enterprise_police_sms_info_id"`
-	EnterpriseID              *model.StringComparisonExp        `json:"enterprise_id"`
-	EnterpriseName            *model.StringComparisonExp        `json:"enterprise_name"`
-	EnterpriseContactName     *model.StringComparisonExp        `json:"enterprise_contact_name"`
-	EnterpriseContactPhone    *model.StringComparisonExp        `json:"enterprise_contact_phone"`
-	PoliceName                *model.StringComparisonExp        `json:"police_name"`
-	PolicePhone               *model.StringComparisonExp        `json:"police_phone"`
-	PoliceDept                *model.StringComparisonExp        `json:"police_dept"`
-	CreateAt                  *model.TimestamptzComparisonExp   `json:"create_at"`
-	CreateBy                  *model.StringComparisonExp        `json:"create_by"`
-	UpdateAt                  *model.TimestamptzComparisonExp   `json:"update_at"`
-	UpdateBy                  *model.StringComparisonExp        `json:"update_by"`
-	DeleteAt                  *model.TimestamptzComparisonExp   `json:"delete_at"`
-	DeleteBy                  *model.StringComparisonExp        `json:"delete_by"`
-	IsDelete                  *model.BooleanComparisonExp       `json:"is_delete"`
-}
-
-// input type for incrementing integer column in table "enterprise_police_sms_info"
-type EnterprisePoliceSmsInfoIncInput struct {
-	ID *int64 `json:"id"`
-}
-
-// input type for inserting data into table "enterprise_police_sms_info"
-type EnterprisePoliceSmsInfoInsertInput struct {
-	EnterpriseID           string     `json:"enterprise_id"`
-	EnterpriseName         *string    `json:"enterprise_name"`
-	EnterpriseContactName  *string    `json:"enterprise_contact_name"`
-	EnterpriseContactPhone *string    `json:"enterprise_contact_phone"`
-	PoliceName             *string    `json:"police_name"`
-	PolicePhone            *string    `json:"police_phone"`
-	PoliceDept             *string    `json:"police_dept"`
-	CreateAt               time.Time  `json:"create_at"`
-	CreateBy               *string    `json:"create_by"`
-	UpdateAt               *time.Time `json:"update_at"`
-	UpdateBy               *string    `json:"update_by"`
-	DeleteAt               *time.Time `json:"delete_at"`
-	DeleteBy               *string    `json:"delete_by"`
-	IsDelete               bool       `json:"is_delete"`
-}
-
-// aggregate max on columns of table "enterprise_police_sms_info"
-type EnterprisePoliceSmsInfoMaxFields struct {
-	ID                        *int64     `json:"id"`
-	EnterprisePoliceSmsInfoID *string    `json:"enterprise_police_sms_info_id"`
-	EnterpriseID              *string    `json:"enterprise_id"`
-	EnterpriseName            *string    `json:"enterprise_name"`
-	EnterpriseContactName     *string    `json:"enterprise_contact_name"`
-	EnterpriseContactPhone    *string    `json:"enterprise_contact_phone"`
-	PoliceName                *string    `json:"police_name"`
-	PolicePhone               *string    `json:"police_phone"`
-	PoliceDept                *string    `json:"police_dept"`
-	CreateAt                  *time.Time `json:"create_at"`
-	CreateBy                  *string    `json:"create_by"`
-	UpdateAt                  *time.Time `json:"update_at"`
-	UpdateBy                  *string    `json:"update_by"`
-	DeleteAt                  *time.Time `json:"delete_at"`
-	DeleteBy                  *string    `json:"delete_by"`
-	IsDelete                  *bool      `json:"is_delete"`
-}
-
-// aggregate min on columns of table "enterprise_police_sms_info"
-type EnterprisePoliceSmsInfoMinFields struct {
-	ID                        *int64     `json:"id"`
-	EnterprisePoliceSmsInfoID *string    `json:"enterprise_police_sms_info_id"`
-	EnterpriseID              *string    `json:"enterprise_id"`
-	EnterpriseName            *string    `json:"enterprise_name"`
-	EnterpriseContactName     *string    `json:"enterprise_contact_name"`
-	EnterpriseContactPhone    *string    `json:"enterprise_contact_phone"`
-	PoliceName                *string    `json:"police_name"`
-	PolicePhone               *string    `json:"police_phone"`
-	PoliceDept                *string    `json:"police_dept"`
-	CreateAt                  *time.Time `json:"create_at"`
-	CreateBy                  *string    `json:"create_by"`
-	UpdateAt                  *time.Time `json:"update_at"`
-	UpdateBy                  *string    `json:"update_by"`
-	DeleteAt                  *time.Time `json:"delete_at"`
-	DeleteBy                  *string    `json:"delete_by"`
-	IsDelete                  *bool      `json:"is_delete"`
-}
-
-// response of any mutation on the table "enterprise_police_sms_info"
-type EnterprisePoliceSmsInfoMutationResponse struct {
-	AffectedRows int                               `json:"affected_rows"`
-	Returning    []*model1.EnterprisePoliceSmsInfo `json:"returning"`
-}
-
-// ordering options when selecting data from "enterprise_police_sms_info"
-type EnterprisePoliceSmsInfoOrderBy struct {
-	ID                        *model.OrderBy `json:"id"`
-	EnterprisePoliceSmsInfoID *model.OrderBy `json:"enterprise_police_sms_info_id"`
-	EnterpriseID              *model.OrderBy `json:"enterprise_id"`
-	EnterpriseName            *model.OrderBy `json:"enterprise_name"`
-	EnterpriseContactName     *model.OrderBy `json:"enterprise_contact_name"`
-	EnterpriseContactPhone    *model.OrderBy `json:"enterprise_contact_phone"`
-	PoliceName                *model.OrderBy `json:"police_name"`
-	PolicePhone               *model.OrderBy `json:"police_phone"`
-	PoliceDept                *model.OrderBy `json:"police_dept"`
-	CreateAt                  *model.OrderBy `json:"create_at"`
-	CreateBy                  *model.OrderBy `json:"create_by"`
-	UpdateAt                  *model.OrderBy `json:"update_at"`
-	UpdateBy                  *model.OrderBy `json:"update_by"`
-	DeleteAt                  *model.OrderBy `json:"delete_at"`
-	DeleteBy                  *model.OrderBy `json:"delete_by"`
-	IsDelete                  *model.OrderBy `json:"is_delete"`
-}
-
-// input type for updating data in table "enterprise_police_sms_info"
-type EnterprisePoliceSmsInfoSetInput struct {
-	ID                        *int64     `json:"id"`
-	EnterprisePoliceSmsInfoID *string    `json:"enterprise_police_sms_info_id"`
-	EnterpriseID              *string    `json:"enterprise_id"`
-	EnterpriseName            *string    `json:"enterprise_name"`
-	EnterpriseContactName     *string    `json:"enterprise_contact_name"`
-	EnterpriseContactPhone    *string    `json:"enterprise_contact_phone"`
-	PoliceName                *string    `json:"police_name"`
-	PolicePhone               *string    `json:"police_phone"`
-	PoliceDept                *string    `json:"police_dept"`
-	CreateAt                  *time.Time `json:"create_at"`
-	CreateBy                  *string    `json:"create_by"`
-	UpdateAt                  *time.Time `json:"update_at"`
-	UpdateBy                  *string    `json:"update_by"`
-	DeleteAt                  *time.Time `json:"delete_at"`
-	DeleteBy                  *string    `json:"delete_by"`
-	IsDelete                  *bool      `json:"is_delete"`
-}
-
-// aggregate stddev on columns of table "enterprise_police_sms_info"
-type EnterprisePoliceSmsInfoStddevFields struct {
-	ID *int64 `json:"id"`
-}
-
-// aggregate stddev_pop on columns of table "enterprise_police_sms_info"
-type EnterprisePoliceSmsInfoStddevPopFields struct {
-	ID *int64 `json:"id"`
-}
-
-// aggregate stddev_samp on columns of table "enterprise_police_sms_info"
-type EnterprisePoliceSmsInfoStddevSampFields struct {
-	ID *int64 `json:"id"`
-}
-
-// aggregate sum on columns of table "enterprise_police_sms_info"
-type EnterprisePoliceSmsInfoSumFields struct {
-	ID *int64 `json:"id"`
-}
-
-// aggregate var_pop on columns of table "enterprise_police_sms_info"
-type EnterprisePoliceSmsInfoVarPopFields struct {
-	ID *int64 `json:"id"`
-}
-
-// aggregate var_samp on columns of table "enterprise_police_sms_info"
-type EnterprisePoliceSmsInfoVarSampFields struct {
-	ID *int64 `json:"id"`
-}
-
-// aggregate variance on columns of table "enterprise_police_sms_info"
-type EnterprisePoliceSmsInfoVarianceFields struct {
-	ID *int64 `json:"id"`
-}
-
 // aggregated selection of "enterprise_score_log"
 type EnterpriseScoreLogAggregate struct {
 	Aggregate *EnterpriseScoreLogAggregateFields `json:"aggregate"`
@@ -1402,6 +1401,7 @@ type EnterpriseScoreLogIncInput struct {
 
 // input type for inserting data into table "enterprise_score_log"
 type EnterpriseScoreLogInsertInput struct {
+	LogID        string     `json:"log_id"`
 	EnterpriseID string     `json:"enterprise_id"`
 	CurrentScore int        `json:"current_score"`
 	AddScore     int        `json:"add_score"`
@@ -1603,16 +1603,17 @@ type EnterpriseScoreSetIncInput struct {
 
 // input type for inserting data into table "enterprise_score_set"
 type EnterpriseScoreSetInsertInput struct {
-	Content  string     `json:"content"`
-	Type     int        `json:"type"`
-	Score    float64    `json:"score"`
-	CreateAt time.Time  `json:"create_at"`
-	CreateBy *string    `json:"create_by"`
-	UpdateAt *time.Time `json:"update_at"`
-	UpdateBy *string    `json:"update_by"`
-	DeleteAt *time.Time `json:"delete_at"`
-	DeleteBy *string    `json:"delete_by"`
-	IsDelete bool       `json:"is_delete"`
+	ScoreSetID string     `json:"score_set_id"`
+	Content    string     `json:"content"`
+	Type       int        `json:"type"`
+	Score      float64    `json:"score"`
+	CreateAt   time.Time  `json:"create_at"`
+	CreateBy   *string    `json:"create_by"`
+	UpdateAt   *time.Time `json:"update_at"`
+	UpdateBy   *string    `json:"update_by"`
+	DeleteAt   *time.Time `json:"delete_at"`
+	DeleteBy   *string    `json:"delete_by"`
+	IsDelete   bool       `json:"is_delete"`
 }
 
 // aggregate max on columns of table "enterprise_score_set"
@@ -1848,6 +1849,7 @@ type EnterpriseStateHisIncInput struct {
 
 // input type for inserting data into table "enterprise_state_his"
 type EnterpriseStateHisInsertInput struct {
+	StateHisID   string    `json:"state_his_id"`
 	EnterpriseID string    `json:"enterprise_id"`
 	Reason       *string   `json:"reason"`
 	State        int       `json:"state"`
@@ -2073,6 +2075,7 @@ type EnterpriseUkeyIncInput struct {
 
 // input type for inserting data into table "enterprise_ukey"
 type EnterpriseUkeyInsertInput struct {
+	UkeyID       string     `json:"ukey_id"`
 	EnterpriseID string     `json:"enterprise_id"`
 	CreateAt     time.Time  `json:"create_at"`
 	CreateBy     *string    `json:"create_by"`
@@ -2308,6 +2311,7 @@ type SystemUserIncInput struct {
 
 // input type for inserting data into table "system_user"
 type SystemUserInsertInput struct {
+	UserID       string     `json:"user_id"`
 	Password     string     `json:"password"`
 	Uername      string     `json:"uername"`
 	EnterpriseID *string    `json:"enterprise_id"`
@@ -2615,6 +2619,89 @@ func (e DepartmentSelectColumn) MarshalGQL(w io.Writer) {
 }
 
 // 可选select
+type EnterpriseAlarmSendPoliceSelectColumn string
+
+const (
+	// 按指定方法生成                                  ( 主键                                 )
+	EnterpriseAlarmSendPoliceSelectColumnID EnterpriseAlarmSendPoliceSelectColumn = "id"
+	// 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                             )
+	EnterpriseAlarmSendPoliceSelectColumnEnterpriseAlarmSendPoliceID EnterpriseAlarmSendPoliceSelectColumn = "enterprise_alarm_send_police_id"
+	// 所在企业id                                      ( enterprise_info表的enterprise_id )
+	EnterpriseAlarmSendPoliceSelectColumnEnterpriseID EnterpriseAlarmSendPoliceSelectColumn = "enterprise_id"
+	// 企业名称
+	EnterpriseAlarmSendPoliceSelectColumnEnterpriseName EnterpriseAlarmSendPoliceSelectColumn = "enterprise_name"
+	// 企业联系人
+	EnterpriseAlarmSendPoliceSelectColumnEnterpriseContact EnterpriseAlarmSendPoliceSelectColumn = "enterprise_contact"
+	// 企业联系电话
+	EnterpriseAlarmSendPoliceSelectColumnEnterprisePhone EnterpriseAlarmSendPoliceSelectColumn = "enterprise_phone"
+	// 交警
+	EnterpriseAlarmSendPoliceSelectColumnPolice EnterpriseAlarmSendPoliceSelectColumn = "police"
+	// 交警联系电话
+	EnterpriseAlarmSendPoliceSelectColumnPolicePhone EnterpriseAlarmSendPoliceSelectColumn = "police_phone"
+	// 交警所属部门
+	EnterpriseAlarmSendPoliceSelectColumnPhliceDepartment EnterpriseAlarmSendPoliceSelectColumn = "phlice_department"
+	// 创建时间
+	EnterpriseAlarmSendPoliceSelectColumnCreatedAt EnterpriseAlarmSendPoliceSelectColumn = "created_at"
+	// 创建人                                          ( system_user表的user_id           )
+	EnterpriseAlarmSendPoliceSelectColumnCreatedBy EnterpriseAlarmSendPoliceSelectColumn = "created_by"
+	// 修改时间
+	EnterpriseAlarmSendPoliceSelectColumnUpdatedAt EnterpriseAlarmSendPoliceSelectColumn = "updated_at"
+	// 修改人                                          ( system_user表的user_id           )
+	EnterpriseAlarmSendPoliceSelectColumnUpdatedBy EnterpriseAlarmSendPoliceSelectColumn = "updated_by"
+	// 删除时间
+	EnterpriseAlarmSendPoliceSelectColumnDeletedAt EnterpriseAlarmSendPoliceSelectColumn = "deleted_at"
+	// 删除人                                          ( system_user表的user_id           )
+	EnterpriseAlarmSendPoliceSelectColumnDeletedBy EnterpriseAlarmSendPoliceSelectColumn = "deleted_by"
+)
+
+var AllEnterpriseAlarmSendPoliceSelectColumn = []EnterpriseAlarmSendPoliceSelectColumn{
+	EnterpriseAlarmSendPoliceSelectColumnID,
+	EnterpriseAlarmSendPoliceSelectColumnEnterpriseAlarmSendPoliceID,
+	EnterpriseAlarmSendPoliceSelectColumnEnterpriseID,
+	EnterpriseAlarmSendPoliceSelectColumnEnterpriseName,
+	EnterpriseAlarmSendPoliceSelectColumnEnterpriseContact,
+	EnterpriseAlarmSendPoliceSelectColumnEnterprisePhone,
+	EnterpriseAlarmSendPoliceSelectColumnPolice,
+	EnterpriseAlarmSendPoliceSelectColumnPolicePhone,
+	EnterpriseAlarmSendPoliceSelectColumnPhliceDepartment,
+	EnterpriseAlarmSendPoliceSelectColumnCreatedAt,
+	EnterpriseAlarmSendPoliceSelectColumnCreatedBy,
+	EnterpriseAlarmSendPoliceSelectColumnUpdatedAt,
+	EnterpriseAlarmSendPoliceSelectColumnUpdatedBy,
+	EnterpriseAlarmSendPoliceSelectColumnDeletedAt,
+	EnterpriseAlarmSendPoliceSelectColumnDeletedBy,
+}
+
+func (e EnterpriseAlarmSendPoliceSelectColumn) IsValid() bool {
+	switch e {
+	case EnterpriseAlarmSendPoliceSelectColumnID, EnterpriseAlarmSendPoliceSelectColumnEnterpriseAlarmSendPoliceID, EnterpriseAlarmSendPoliceSelectColumnEnterpriseID, EnterpriseAlarmSendPoliceSelectColumnEnterpriseName, EnterpriseAlarmSendPoliceSelectColumnEnterpriseContact, EnterpriseAlarmSendPoliceSelectColumnEnterprisePhone, EnterpriseAlarmSendPoliceSelectColumnPolice, EnterpriseAlarmSendPoliceSelectColumnPolicePhone, EnterpriseAlarmSendPoliceSelectColumnPhliceDepartment, EnterpriseAlarmSendPoliceSelectColumnCreatedAt, EnterpriseAlarmSendPoliceSelectColumnCreatedBy, EnterpriseAlarmSendPoliceSelectColumnUpdatedAt, EnterpriseAlarmSendPoliceSelectColumnUpdatedBy, EnterpriseAlarmSendPoliceSelectColumnDeletedAt, EnterpriseAlarmSendPoliceSelectColumnDeletedBy:
+		return true
+	}
+	return false
+}
+
+func (e EnterpriseAlarmSendPoliceSelectColumn) String() string {
+	return string(e)
+}
+
+func (e *EnterpriseAlarmSendPoliceSelectColumn) UnmarshalGQL(v interface{}) error {
+	str, ok := v.(string)
+	if !ok {
+		return fmt.Errorf("enums must be strings")
+	}
+
+	*e = EnterpriseAlarmSendPoliceSelectColumn(str)
+	if !e.IsValid() {
+		return fmt.Errorf("%s is not a valid EnterpriseAlarmSendPoliceSelectColumn", str)
+	}
+	return nil
+}
+
+func (e EnterpriseAlarmSendPoliceSelectColumn) MarshalGQL(w io.Writer) {
+	fmt.Fprint(w, strconv.Quote(e.String()))
+}
+
+// 可选select
 type EnterpriseContactSelectColumn string
 
 const (
@@ -2849,92 +2936,6 @@ func (e *EnterpriseMuckTrunkSelectColumn) UnmarshalGQL(v interface{}) error {
 }
 
 func (e EnterpriseMuckTrunkSelectColumn) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
-}
-
-// 可选select
-type EnterprisePoliceSmsInfoSelectColumn string
-
-const (
-	// ID
-	EnterprisePoliceSmsInfoSelectColumnID EnterprisePoliceSmsInfoSelectColumn = "id"
-	// 企业对应的交警联系人表ID
-	EnterprisePoliceSmsInfoSelectColumnEnterprisePoliceSmsInfoID EnterprisePoliceSmsInfoSelectColumn = "enterprise_police_sms_info_id"
-	// 企业ID
-	EnterprisePoliceSmsInfoSelectColumnEnterpriseID EnterprisePoliceSmsInfoSelectColumn = "enterprise_id"
-	// 企业名称
-	EnterprisePoliceSmsInfoSelectColumnEnterpriseName EnterprisePoliceSmsInfoSelectColumn = "enterprise_name"
-	// 企业联系人姓名
-	EnterprisePoliceSmsInfoSelectColumnEnterpriseContactName EnterprisePoliceSmsInfoSelectColumn = "enterprise_contact_name"
-	// 企业联系人电话
-	EnterprisePoliceSmsInfoSelectColumnEnterpriseContactPhone EnterprisePoliceSmsInfoSelectColumn = "enterprise_contact_phone"
-	// 交警姓名
-	EnterprisePoliceSmsInfoSelectColumnPoliceName EnterprisePoliceSmsInfoSelectColumn = "police_name"
-	// 交警联系电话
-	EnterprisePoliceSmsInfoSelectColumnPolicePhone EnterprisePoliceSmsInfoSelectColumn = "police_phone"
-	// 交集所属部门
-	EnterprisePoliceSmsInfoSelectColumnPoliceDept EnterprisePoliceSmsInfoSelectColumn = "police_dept"
-	// 创建时间
-	EnterprisePoliceSmsInfoSelectColumnCreateAt EnterprisePoliceSmsInfoSelectColumn = "create_at"
-	// 创建人
-	EnterprisePoliceSmsInfoSelectColumnCreateBy EnterprisePoliceSmsInfoSelectColumn = "create_by"
-	// 更新时间
-	EnterprisePoliceSmsInfoSelectColumnUpdateAt EnterprisePoliceSmsInfoSelectColumn = "update_at"
-	// 更新人
-	EnterprisePoliceSmsInfoSelectColumnUpdateBy EnterprisePoliceSmsInfoSelectColumn = "update_by"
-	// 删除时间
-	EnterprisePoliceSmsInfoSelectColumnDeleteAt EnterprisePoliceSmsInfoSelectColumn = "delete_at"
-	// 删除人
-	EnterprisePoliceSmsInfoSelectColumnDeleteBy EnterprisePoliceSmsInfoSelectColumn = "delete_by"
-	// 是否删除
-	EnterprisePoliceSmsInfoSelectColumnIsDelete EnterprisePoliceSmsInfoSelectColumn = "is_delete"
-)
-
-var AllEnterprisePoliceSmsInfoSelectColumn = []EnterprisePoliceSmsInfoSelectColumn{
-	EnterprisePoliceSmsInfoSelectColumnID,
-	EnterprisePoliceSmsInfoSelectColumnEnterprisePoliceSmsInfoID,
-	EnterprisePoliceSmsInfoSelectColumnEnterpriseID,
-	EnterprisePoliceSmsInfoSelectColumnEnterpriseName,
-	EnterprisePoliceSmsInfoSelectColumnEnterpriseContactName,
-	EnterprisePoliceSmsInfoSelectColumnEnterpriseContactPhone,
-	EnterprisePoliceSmsInfoSelectColumnPoliceName,
-	EnterprisePoliceSmsInfoSelectColumnPolicePhone,
-	EnterprisePoliceSmsInfoSelectColumnPoliceDept,
-	EnterprisePoliceSmsInfoSelectColumnCreateAt,
-	EnterprisePoliceSmsInfoSelectColumnCreateBy,
-	EnterprisePoliceSmsInfoSelectColumnUpdateAt,
-	EnterprisePoliceSmsInfoSelectColumnUpdateBy,
-	EnterprisePoliceSmsInfoSelectColumnDeleteAt,
-	EnterprisePoliceSmsInfoSelectColumnDeleteBy,
-	EnterprisePoliceSmsInfoSelectColumnIsDelete,
-}
-
-func (e EnterprisePoliceSmsInfoSelectColumn) IsValid() bool {
-	switch e {
-	case EnterprisePoliceSmsInfoSelectColumnID, EnterprisePoliceSmsInfoSelectColumnEnterprisePoliceSmsInfoID, EnterprisePoliceSmsInfoSelectColumnEnterpriseID, EnterprisePoliceSmsInfoSelectColumnEnterpriseName, EnterprisePoliceSmsInfoSelectColumnEnterpriseContactName, EnterprisePoliceSmsInfoSelectColumnEnterpriseContactPhone, EnterprisePoliceSmsInfoSelectColumnPoliceName, EnterprisePoliceSmsInfoSelectColumnPolicePhone, EnterprisePoliceSmsInfoSelectColumnPoliceDept, EnterprisePoliceSmsInfoSelectColumnCreateAt, EnterprisePoliceSmsInfoSelectColumnCreateBy, EnterprisePoliceSmsInfoSelectColumnUpdateAt, EnterprisePoliceSmsInfoSelectColumnUpdateBy, EnterprisePoliceSmsInfoSelectColumnDeleteAt, EnterprisePoliceSmsInfoSelectColumnDeleteBy, EnterprisePoliceSmsInfoSelectColumnIsDelete:
-		return true
-	}
-	return false
-}
-
-func (e EnterprisePoliceSmsInfoSelectColumn) String() string {
-	return string(e)
-}
-
-func (e *EnterprisePoliceSmsInfoSelectColumn) UnmarshalGQL(v interface{}) error {
-	str, ok := v.(string)
-	if !ok {
-		return fmt.Errorf("enums must be strings")
-	}
-
-	*e = EnterprisePoliceSmsInfoSelectColumn(str)
-	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid EnterprisePoliceSmsInfoSelectColumn", str)
-	}
-	return nil
-}
-
-func (e EnterprisePoliceSmsInfoSelectColumn) MarshalGQL(w io.Writer) {
 	fmt.Fprint(w, strconv.Quote(e.String()))
 }
 

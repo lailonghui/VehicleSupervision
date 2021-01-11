@@ -291,6 +291,7 @@ input VehicleNightTravelRecordBoolExp {
 input type for inserting data into table "vehicle_night_travel_record"
 """
 input VehicleNightTravelRecordInsertInput {
+	record_id: String!
 	vehicle_id: String!
 	enterprise_id: String!
 	route: String

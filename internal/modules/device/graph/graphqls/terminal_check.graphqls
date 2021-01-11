@@ -1,3 +1,6 @@
+"""
+车辆终端达标情况
+"""
 type TerminalCheck {
 	"""
 	ID
@@ -400,6 +403,7 @@ input TerminalCheckBoolExp {
 input type for inserting data into table "terminal_check"
 """
 input TerminalCheckInsertInput {
+	terminal_check_id: String!
 	terminal_id: String!
 	acc: String
 	brake: String

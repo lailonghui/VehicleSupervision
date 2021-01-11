@@ -8,41 +8,53 @@ import (
 //go:generate go run github.com/vektah/dataloaden EcdFileDistrictUnionPkLoader string *VehicleSupervision/internal/modules/driving/model.EcdFileDistrict
 
 // 数据库表名
-func (t EcdFileDistrict) TableName() string {
+func (t *EcdFileDistrict) TableName() string {
 	return "ecd_file_district"
 }
 
 // 主键列名
-func (t EcdFileDistrict) PrimaryColumnName() string {
+func (t *EcdFileDistrict) PrimaryColumnName() string {
 	return "id"
 }
 
+// 获取主键
+func (t *EcdFileDistrict) GetPrimary() int64 {
+	return t.ID
+}
+
 // 新建主键dataloader
-func (t *EcdFileDistrict) NewPkLoader() *EcdFileDistrictPkLoader {
+func (t *EcdFileDistrictPkLoader) NewLoader() *EcdFileDistrictPkLoader {
 	return &EcdFileDistrictPkLoader{
 		wait:     2 * time.Millisecond,
 		maxBatch: 100,
 		fetch: func(keys []string) ([]*EcdFileDistrict, []error) {
 			var rs []*EcdFileDistrict
-			db.DB.Model(&EcdFileDistrict{}).Where(t.PrimaryColumnName()+" in ?", keys).Find(&rs)
+			var m EcdFileDistrict
+			db.DB.Model(&m).Where(m.PrimaryColumnName()+" in ?", keys).Find(&rs)
 			return rs, nil
 		},
 	}
 }
 
 // 联合主键列名
-func (t EcdFileDistrict) UnionPrimaryColumnName() string {
+func (t *EcdFileDistrict) UnionPrimaryColumnName() string {
 	return "file_district_id"
 }
 
+// 获取联合主键
+func (t *EcdFileDistrict) GetUnionPrimary() string {
+	return t.FileDistrictID
+}
+
 // 新建联合主键dataloader
-func (t *EcdFileDistrict) NewUnionPkLoader() *EcdFileDistrictUnionPkLoader {
+func (t *EcdFileDistrictUnionPkLoader) NewLoader() *EcdFileDistrictUnionPkLoader {
 	return &EcdFileDistrictUnionPkLoader{
 		wait:     2 * time.Millisecond,
 		maxBatch: 100,
 		fetch: func(keys []string) ([]*EcdFileDistrict, []error) {
 			var rs []*EcdFileDistrict
-			db.DB.Model(&EcdFileDistrict{}).Where(t.UnionPrimaryColumnName()+" in ?", keys).Find(&rs)
+			var m EcdFileDistrict
+			db.DB.Model(&m).Where(m.UnionPrimaryColumnName()+" in ?", keys).Find(&rs)
 			return rs, nil
 		},
 	}

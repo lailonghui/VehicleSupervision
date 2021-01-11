@@ -387,6 +387,7 @@ input EcdFileMainSubBoolExp {
 input type for inserting data into table "ecd_file_main_sub"
 """
 input EcdFileMainSubInsertInput {
+	file_main_sub_id: String!
 	file_main_id: String
 	address: String
 	construct_unit: String

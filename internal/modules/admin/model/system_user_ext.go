@@ -8,13 +8,18 @@ import (
 //go:generate go run github.com/vektah/dataloaden SystemUserUnionPkLoader string *VehicleSupervision/internal/modules/admin/model.SystemUser
 
 // 数据库表名
-func (t SystemUser) TableName() string {
+func (t *SystemUser) TableName() string {
 	return "system_user"
 }
 
 // 主键列名
-func (t SystemUser) PrimaryColumnName() string {
+func (t *SystemUser) PrimaryColumnName() string {
 	return "id"
+}
+
+// 获取主键
+func (t *SystemUser) GetPrimary() int64 {
+	return t.ID
 }
 
 // 新建主键dataloader
@@ -32,8 +37,13 @@ func (t *SystemUserPkLoader) NewLoader() *SystemUserPkLoader {
 }
 
 // 联合主键列名
-func (t SystemUser) UnionPrimaryColumnName() string {
+func (t *SystemUser) UnionPrimaryColumnName() string {
 	return "user_id"
+}
+
+// 获取联合主键
+func (t *SystemUser) GetUnionPrimary() string {
+	return t.UserID
 }
 
 // 新建联合主键dataloader

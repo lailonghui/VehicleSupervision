@@ -211,6 +211,7 @@ input TerminalBeidouValidBoolExp {
 input type for inserting data into table "terminal_beidou_valid"
 """
 input TerminalBeidouValidInsertInput {
+	terminal_beidou_valid_id: String!
 	terminal_id: String!
 	terminal_modal_id: String
 	is_bind: Boolean!

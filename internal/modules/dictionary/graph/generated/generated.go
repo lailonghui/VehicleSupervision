@@ -1964,6 +1964,7 @@ input DataDictionaryBoolExp {
 input type for inserting data into table "data_dictionary"
 """
 input DataDictionaryInsertInput {
+	dictionary_id: String!
 	dictionary_category_id: String!
 	name: String!
 	value: Int!
@@ -2316,6 +2317,7 @@ input DataDictionaryCategoryBoolExp {
 input type for inserting data into table "data_dictionary_category"
 """
 input DataDictionaryCategoryInsertInput {
+	dictionary_category_id: String!
 	category_name: String!
 	category_code: String!
 	remarks: String
@@ -9827,6 +9829,14 @@ func (ec *executionContext) unmarshalInputDataDictionaryCategoryInsertInput(ctx 
 
 	for k, v := range asMap {
 		switch k {
+		case "dictionary_category_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("dictionary_category_id"))
+			it.DictionaryCategoryID, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "category_name":
 			var err error
 
@@ -10163,6 +10173,14 @@ func (ec *executionContext) unmarshalInputDataDictionaryInsertInput(ctx context.
 
 	for k, v := range asMap {
 		switch k {
+		case "dictionary_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("dictionary_id"))
+			it.DictionaryID, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "dictionary_category_id":
 			var err error
 

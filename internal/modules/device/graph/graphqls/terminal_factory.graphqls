@@ -235,6 +235,7 @@ input TerminalFactoryBoolExp {
 input type for inserting data into table "terminal_factory"
 """
 input TerminalFactoryInsertInput {
+	factory_id: String!
 	factory_name: String!
 	remark: String
 	contact: String

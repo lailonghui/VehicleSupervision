@@ -22,17 +22,6 @@ func (t *Department) GetPrimary() int64 {
 	return t.ID
 }
 
-// 联合主键列名
-func (t *Department) UnionPrimaryColumnName() string {
-	return "department_id"
-}
-
-// 获取联合主键
-func (t *Department) GetUnionPrimary() string {
-	return t.DepartmentID
-}
-
-
 // 新建主键dataloader
 func (t *DepartmentPkLoader) NewLoader() *DepartmentPkLoader {
 	return &DepartmentPkLoader{
@@ -45,6 +34,16 @@ func (t *DepartmentPkLoader) NewLoader() *DepartmentPkLoader {
 			return rs, nil
 		},
 	}
+}
+
+// 联合主键列名
+func (t *Department) UnionPrimaryColumnName() string {
+	return "department_id"
+}
+
+// 获取联合主键
+func (t *Department) GetUnionPrimary() string {
+	return t.DepartmentID
 }
 
 // 新建联合主键dataloader

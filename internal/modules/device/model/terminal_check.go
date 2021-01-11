@@ -6,6 +6,7 @@ import (
 	"time"
 )
 
+// 车辆终端达标情况
 type TerminalCheck struct {
 	// ID
 	ID int64 `json:"id"`

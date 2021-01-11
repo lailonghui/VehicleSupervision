@@ -267,6 +267,7 @@ input EcdFileVehicleTimeBoolExp {
 input type for inserting data into table "ecd_file_vehicle_time"
 """
 input EcdFileVehicleTimeInsertInput {
+	vehicle_time_id: String!
 	file_main_id: String!
 	vechile_id: String!
 	start_date: Timestamptz

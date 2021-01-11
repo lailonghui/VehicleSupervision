@@ -243,6 +243,7 @@ input TerminalParamItemBoolExp {
 input type for inserting data into table "terminal_param_item"
 """
 input TerminalParamItemInsertInput {
+	param_item_id: String!
 	param_item_name: String!
 	param_type_id: String!
 	data_type: Int!

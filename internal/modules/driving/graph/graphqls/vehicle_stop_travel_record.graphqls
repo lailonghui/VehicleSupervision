@@ -251,6 +251,7 @@ input VehicleStopTravelRecordBoolExp {
 input type for inserting data into table "vehicle_stop_travel_record"
 """
 input VehicleStopTravelRecordInsertInput {
+	record_id: String!
 	bill_id: String!
 	record_start_time: Timestamptz
 	record_end_time: Timestamptz

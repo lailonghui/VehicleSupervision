@@ -283,6 +283,7 @@ input LimitSpeedLineBoolExp {
 input type for inserting data into table "limit_speed_line"
 """
 input LimitSpeedLineInsertInput {
+	limit_speed_line_id: String!
 	line_name: String
 	line_type: Int
 	district_id: String

@@ -251,6 +251,7 @@ input DepartmentBoolExp {
 input type for inserting data into table "department"
 """
 input DepartmentInsertInput {
+	department_id: String!
 	enterprise_id: String!
 	superior_department_id: String
 	department_name: String

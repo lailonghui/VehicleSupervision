@@ -16900,6 +16900,7 @@ input ControlLineBoolExp {
 input type for inserting data into table "control_line"
 """
 input ControlLineInsertInput {
+	control_line_id: String!
 	line_name: String
 	line_type: Int
 	district_id: String
@@ -17085,7 +17086,10 @@ extend type Mutation {
 	delete_control_line_by_union_pk(control_line_id: String!): ControlLine
 }
 `, BuiltIn: false},
-	{Name: "graph/graphqls/control_line_time.graphqls", Input: `type ControlLineTime {
+	{Name: "graph/graphqls/control_line_time.graphqls", Input: `"""
+管制路线时间段表
+"""
+type ControlLineTime {
 	"""
 	ID
 	"""
@@ -17287,6 +17291,7 @@ input ControlLineTimeBoolExp {
 input type for inserting data into table "control_line_time"
 """
 input ControlLineTimeInsertInput {
+	control_line_time_id: String!
 	control_line_id: String!
 	start_time: Timestamptz!
 	end_time: Timestamptz!
@@ -17688,6 +17693,7 @@ input EcdFileCheckHisBoolExp {
 input type for inserting data into table "ecd_file_check_his"
 """
 input EcdFileCheckHisInsertInput {
+	his_id: String!
 	file_main_id: String!
 	user_id: String!
 	oper_type: Int!
@@ -18057,6 +18063,7 @@ input EcdFileDistrictBoolExp {
 input type for inserting data into table "ecd_file_district"
 """
 input EcdFileDistrictInsertInput {
+	file_district_id: String!
 	file_main_id: String!
 	district_id: String!
 	create_at: Timestamptz!
@@ -18428,6 +18435,7 @@ input EcdFileLinePointBoolExp {
 input type for inserting data into table "ecd_file_line_point"
 """
 input EcdFileLinePointInsertInput {
+	line_point_id: String!
 	file_main_id: String!
 	gps_point: Point
 	map_point: Point
@@ -19056,6 +19064,7 @@ input EcdFileMainBoolExp {
 input type for inserting data into table "ecd_file_main"
 """
 input EcdFileMainInsertInput {
+	file_main_id: String!
 	file_id: String!
 	enterprise_id: String!
 	district_id: String
@@ -19768,6 +19777,7 @@ input EcdFileMainSubBoolExp {
 input type for inserting data into table "ecd_file_main_sub"
 """
 input EcdFileMainSubInsertInput {
+	file_main_sub_id: String!
 	file_main_id: String
 	address: String
 	construct_unit: String
@@ -20254,6 +20264,7 @@ input EcdFileVehicleBoolExp {
 input type for inserting data into table "ecd_file_vehicle"
 """
 input EcdFileVehicleInsertInput {
+	file_vehicle_id: String!
 	file_main_id: String!
 	vehicle_id: String
 	check_status: Int
@@ -20664,6 +20675,7 @@ input EcdFileVehicleTimeBoolExp {
 input type for inserting data into table "ecd_file_vehicle_time"
 """
 input EcdFileVehicleTimeInsertInput {
+	vehicle_time_id: String!
 	file_main_id: String!
 	vechile_id: String!
 	start_date: Timestamptz
@@ -21084,6 +21096,7 @@ input EcdLineBoolExp {
 input type for inserting data into table "ecd_line"
 """
 input EcdLineInsertInput {
+	line_id: String!
 	line_name: String!
 	enterprise_id: String
 	line_desc: String
@@ -21493,6 +21506,7 @@ input ElectricFenceBoolExp {
 input type for inserting data into table "electric_fence"
 """
 input ElectricFenceInsertInput {
+	electric_fence_id: String!
 	area_type: Int!
 	fence_type: Int
 	fence_name: String
@@ -21890,6 +21904,7 @@ input ElectricFenceEnteranceRecordBoolExp {
 input type for inserting data into table "electric_fence_enterance_record"
 """
 input ElectricFenceEnteranceRecordInsertInput {
+	record_id: String!
 	vehicle_id: String!
 	electric_fence_id: String!
 	in_time: Timestamptz
@@ -22339,6 +22354,7 @@ input LimitSpeedLineBoolExp {
 input type for inserting data into table "limit_speed_line"
 """
 input LimitSpeedLineInsertInput {
+	limit_speed_line_id: String!
 	line_name: String
 	line_type: Int
 	district_id: String
@@ -22524,7 +22540,10 @@ extend type Mutation {
 	delete_limit_speed_line_by_union_pk(limit_speed_line_id: String!): LimitSpeedLine
 }
 `, BuiltIn: false},
-	{Name: "graph/graphqls/limit_speed_line_time.graphqls", Input: `type LimitSpeedLineTime {
+	{Name: "graph/graphqls/limit_speed_line_time.graphqls", Input: `"""
+限速路线-时间段表
+"""
+type LimitSpeedLineTime {
 	"""
 	ID
 	"""
@@ -22742,6 +22761,7 @@ input LimitSpeedLineTimeBoolExp {
 input type for inserting data into table "limit_speed_line_time"
 """
 input LimitSpeedLineTimeInsertInput {
+	limit_speed_line_time_id: String!
 	limit_speed_line_id: String!
 	start_time: Timestamptz!
 	end_time: Timestamptz!
@@ -23094,6 +23114,7 @@ input LimitSpeedPlanBoolExp {
 input type for inserting data into table "limit_speed_plan"
 """
 input LimitSpeedPlanInsertInput {
+	limit_speed_plan_id: String!
 	enterprise_id: String!
 	plan_name: String!
 	remark: String
@@ -23495,6 +23516,7 @@ input LimitSpeedPlanDetailBoolExp {
 input type for inserting data into table "limit_speed_plan_detail"
 """
 input LimitSpeedPlanDetailInsertInput {
+	detail_id: String!
 	plan_id: String!
 	is_night_limit: Boolean!
 	night_limit_speed: Numeric
@@ -23955,6 +23977,7 @@ input VehicleNightTravelRecordBoolExp {
 input type for inserting data into table "vehicle_night_travel_record"
 """
 input VehicleNightTravelRecordInsertInput {
+	record_id: String!
 	vehicle_id: String!
 	enterprise_id: String!
 	route: String
@@ -24399,6 +24422,7 @@ input VehicleStopTravelRecordBoolExp {
 input type for inserting data into table "vehicle_stop_travel_record"
 """
 input VehicleStopTravelRecordInsertInput {
+	record_id: String!
 	bill_id: String!
 	record_start_time: Timestamptz
 	record_end_time: Timestamptz
@@ -90876,6 +90900,14 @@ func (ec *executionContext) unmarshalInputControlLineInsertInput(ctx context.Con
 
 	for k, v := range asMap {
 		switch k {
+		case "control_line_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("control_line_id"))
+			it.ControlLineID, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "line_name":
 			var err error
 
@@ -91504,6 +91536,14 @@ func (ec *executionContext) unmarshalInputControlLineTimeInsertInput(ctx context
 
 	for k, v := range asMap {
 		switch k {
+		case "control_line_time_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("control_line_time_id"))
+			it.ControlLineTimeID, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "control_line_id":
 			var err error
 
@@ -92020,6 +92060,14 @@ func (ec *executionContext) unmarshalInputEcdFileCheckHisInsertInput(ctx context
 
 	for k, v := range asMap {
 		switch k {
+		case "his_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("his_id"))
+			it.HisID, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "file_main_id":
 			var err error
 
@@ -92592,6 +92640,14 @@ func (ec *executionContext) unmarshalInputEcdFileDistrictInsertInput(ctx context
 
 	for k, v := range asMap {
 		switch k {
+		case "file_district_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("file_district_id"))
+			it.FileDistrictID, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "file_main_id":
 			var err error
 
@@ -93060,6 +93116,14 @@ func (ec *executionContext) unmarshalInputEcdFileLinePointInsertInput(ctx contex
 
 	for k, v := range asMap {
 		switch k {
+		case "line_point_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("line_point_id"))
+			it.LinePointID, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "file_main_id":
 			var err error
 
@@ -93856,6 +93920,14 @@ func (ec *executionContext) unmarshalInputEcdFileMainInsertInput(ctx context.Con
 
 	for k, v := range asMap {
 		switch k {
+		case "file_main_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("file_main_id"))
+			it.FileMainID, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "file_id":
 			var err error
 
@@ -95220,6 +95292,14 @@ func (ec *executionContext) unmarshalInputEcdFileMainSubInsertInput(ctx context.
 
 	for k, v := range asMap {
 		switch k {
+		case "file_main_sub_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("file_main_sub_id"))
+			it.FileMainSubID, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "file_main_id":
 			var err error
 
@@ -96216,6 +96296,14 @@ func (ec *executionContext) unmarshalInputEcdFileVehicleInsertInput(ctx context.
 
 	for k, v := range asMap {
 		switch k {
+		case "file_vehicle_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("file_vehicle_id"))
+			it.FileVehicleID, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "file_main_id":
 			var err error
 
@@ -96740,6 +96828,14 @@ func (ec *executionContext) unmarshalInputEcdFileVehicleTimeInsertInput(ctx cont
 
 	for k, v := range asMap {
 		switch k {
+		case "vehicle_time_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("vehicle_time_id"))
+			it.VehicleTimeID, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "file_main_id":
 			var err error
 
@@ -97400,6 +97496,14 @@ func (ec *executionContext) unmarshalInputEcdLineInsertInput(ctx context.Context
 
 	for k, v := range asMap {
 		switch k {
+		case "line_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("line_id"))
+			it.LineID, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "line_name":
 			var err error
 
@@ -98144,6 +98248,14 @@ func (ec *executionContext) unmarshalInputElectricFenceEnteranceRecordInsertInpu
 
 	for k, v := range asMap {
 		switch k {
+		case "record_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("record_id"))
+			it.RecordID, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "vehicle_id":
 			var err error
 
@@ -98584,6 +98696,14 @@ func (ec *executionContext) unmarshalInputElectricFenceInsertInput(ctx context.C
 
 	for k, v := range asMap {
 		switch k {
+		case "electric_fence_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("electric_fence_id"))
+			it.ElectricFenceID, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "area_type":
 			var err error
 
@@ -99448,6 +99568,14 @@ func (ec *executionContext) unmarshalInputLimitSpeedLineInsertInput(ctx context.
 
 	for k, v := range asMap {
 		switch k {
+		case "limit_speed_line_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("limit_speed_line_id"))
+			it.LimitSpeedLineID, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "line_name":
 			var err error
 
@@ -100092,6 +100220,14 @@ func (ec *executionContext) unmarshalInputLimitSpeedLineTimeInsertInput(ctx cont
 
 	for k, v := range asMap {
 		switch k {
+		case "limit_speed_line_time_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("limit_speed_line_time_id"))
+			it.LimitSpeedLineTimeID, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "limit_speed_line_id":
 			var err error
 
@@ -100764,6 +100900,14 @@ func (ec *executionContext) unmarshalInputLimitSpeedPlanDetailInsertInput(ctx co
 
 	for k, v := range asMap {
 		switch k {
+		case "detail_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("detail_id"))
+			it.DetailID, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "plan_id":
 			var err error
 
@@ -101188,6 +101332,14 @@ func (ec *executionContext) unmarshalInputLimitSpeedPlanInsertInput(ctx context.
 
 	for k, v := range asMap {
 		switch k {
+		case "limit_speed_plan_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("limit_speed_plan_id"))
+			it.LimitSpeedPlanID, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "enterprise_id":
 			var err error
 
@@ -102120,6 +102272,14 @@ func (ec *executionContext) unmarshalInputVehicleNightTravelRecordInsertInput(ct
 
 	for k, v := range asMap {
 		switch k {
+		case "record_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("record_id"))
+			it.RecordID, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "vehicle_id":
 			var err error
 
@@ -102820,6 +102980,14 @@ func (ec *executionContext) unmarshalInputVehicleStopTravelRecordInsertInput(ctx
 
 	for k, v := range asMap {
 		switch k {
+		case "record_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("record_id"))
+			it.RecordID, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "bill_id":
 			var err error
 

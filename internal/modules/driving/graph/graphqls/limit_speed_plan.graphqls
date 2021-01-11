@@ -203,6 +203,7 @@ input LimitSpeedPlanBoolExp {
 input type for inserting data into table "limit_speed_plan"
 """
 input LimitSpeedPlanInsertInput {
+	limit_speed_plan_id: String!
 	enterprise_id: String!
 	plan_name: String!
 	remark: String

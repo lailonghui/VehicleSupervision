@@ -243,6 +243,7 @@ input VehicleBlacklistAlarmBoolExp {
 input type for inserting data into table "vehicle_blacklist_alarm"
 """
 input VehicleBlacklistAlarmInsertInput {
+	alarm_id: String!
 	vehicle_id: String!
 	license_plate_number: String
 	year: Int

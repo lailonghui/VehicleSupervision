@@ -87,6 +87,7 @@ type RideHailingDriverIncInput struct {
 
 // input type for inserting data into table "ride_hailing_driver"
 type RideHailingDriverInsertInput struct {
+	RideHailingDriverID       string     `json:"ride_hailing_driver_id"`
 	RideHailingDriverVerifyID *string    `json:"ride_hailing_driver_verify_id"`
 	DriverName                *string    `json:"driver_name"`
 	PhoneNumber               *string    `json:"phone_number"`
@@ -386,6 +387,7 @@ type RideHailingDriverVerifyIncInput struct {
 
 // input type for inserting data into table "ride_hailing_driver_verify"
 type RideHailingDriverVerifyInsertInput struct {
+	RideHailingDriverVerifyID        string     `json:"ride_hailing_driver_verify_id"`
 	IsViolentCrime                   *bool      `json:"is_violent_crime"`
 	ViolentCrimeRemark               *string    `json:"violent_crime_remark"`
 	ViolentCrimeExamineTime          *time.Time `json:"violent_crime_examine_time"`

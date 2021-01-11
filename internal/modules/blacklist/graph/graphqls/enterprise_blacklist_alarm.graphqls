@@ -235,6 +235,7 @@ input EnterpriseBlacklistAlarmBoolExp {
 input type for inserting data into table "enterprise_blacklist_alarm"
 """
 input EnterpriseBlacklistAlarmInsertInput {
+	alarm_id: String!
 	enterprise_id: String!
 	type: Int!
 	year: Int!

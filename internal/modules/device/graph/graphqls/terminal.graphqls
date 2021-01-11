@@ -395,6 +395,7 @@ input TerminalBoolExp {
 input type for inserting data into table "terminal"
 """
 input TerminalInsertInput {
+	terminal_id: String!
 	first_install_time: Timestamptz
 	imei: String!
 	produce_date: Timestamptz

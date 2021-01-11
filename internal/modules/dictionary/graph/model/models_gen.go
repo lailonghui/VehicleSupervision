@@ -108,16 +108,17 @@ type DataDictionaryCategoryIncInput struct {
 
 // input type for inserting data into table "data_dictionary_category"
 type DataDictionaryCategoryInsertInput struct {
-	CategoryName string     `json:"category_name"`
-	CategoryCode string     `json:"category_code"`
-	Remarks      *string    `json:"remarks"`
-	CreateAt     time.Time  `json:"create_at"`
-	CreateBy     *string    `json:"create_by"`
-	UpdateAt     *time.Time `json:"update_at"`
-	UpdateBy     *string    `json:"update_by"`
-	DeleteAt     *time.Time `json:"delete_at"`
-	DeleteBy     *string    `json:"delete_by"`
-	IsDelete     bool       `json:"is_delete"`
+	DictionaryCategoryID string     `json:"dictionary_category_id"`
+	CategoryName         string     `json:"category_name"`
+	CategoryCode         string     `json:"category_code"`
+	Remarks              *string    `json:"remarks"`
+	CreateAt             time.Time  `json:"create_at"`
+	CreateBy             *string    `json:"create_by"`
+	UpdateAt             *time.Time `json:"update_at"`
+	UpdateBy             *string    `json:"update_by"`
+	DeleteAt             *time.Time `json:"delete_at"`
+	DeleteBy             *string    `json:"delete_by"`
+	IsDelete             bool       `json:"is_delete"`
 }
 
 // aggregate max on columns of table "data_dictionary_category"
@@ -233,6 +234,7 @@ type DataDictionaryIncInput struct {
 
 // input type for inserting data into table "data_dictionary"
 type DataDictionaryInsertInput struct {
+	DictionaryID         string     `json:"dictionary_id"`
 	DictionaryCategoryID string     `json:"dictionary_category_id"`
 	Name                 string     `json:"name"`
 	Value                int        `json:"value"`

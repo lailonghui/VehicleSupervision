@@ -1,3 +1,6 @@
+"""
+管制路线时间段表
+"""
 type ControlLineTime {
 	"""
 	ID
@@ -200,6 +203,7 @@ input ControlLineTimeBoolExp {
 input type for inserting data into table "control_line_time"
 """
 input ControlLineTimeInsertInput {
+	control_line_time_id: String!
 	control_line_id: String!
 	start_time: Timestamptz!
 	end_time: Timestamptz!

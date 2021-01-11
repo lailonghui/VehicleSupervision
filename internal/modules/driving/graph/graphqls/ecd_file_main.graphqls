@@ -467,6 +467,7 @@ input EcdFileMainBoolExp {
 input type for inserting data into table "ecd_file_main"
 """
 input EcdFileMainInsertInput {
+	file_main_id: String!
 	file_id: String!
 	enterprise_id: String!
 	district_id: String

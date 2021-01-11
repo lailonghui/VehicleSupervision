@@ -1,3 +1,6 @@
+"""
+限速路线-时间段表
+"""
 type LimitSpeedLineTime {
 	"""
 	ID
@@ -216,6 +219,7 @@ input LimitSpeedLineTimeBoolExp {
 input type for inserting data into table "limit_speed_line_time"
 """
 input LimitSpeedLineTimeInsertInput {
+	limit_speed_line_time_id: String!
 	limit_speed_line_id: String!
 	start_time: Timestamptz!
 	end_time: Timestamptz!

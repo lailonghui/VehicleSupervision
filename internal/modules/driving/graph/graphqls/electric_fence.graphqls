@@ -243,6 +243,7 @@ input ElectricFenceBoolExp {
 input type for inserting data into table "electric_fence"
 """
 input ElectricFenceInsertInput {
+	electric_fence_id: String!
 	area_type: Int!
 	fence_type: Int
 	fence_name: String

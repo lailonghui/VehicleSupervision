@@ -259,6 +259,7 @@ input EcdFileCheckHisBoolExp {
 input type for inserting data into table "ecd_file_check_his"
 """
 input EcdFileCheckHisInsertInput {
+	his_id: String!
 	file_main_id: String!
 	user_id: String!
 	oper_type: Int!

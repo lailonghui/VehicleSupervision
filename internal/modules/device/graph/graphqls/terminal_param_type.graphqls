@@ -203,6 +203,7 @@ input TerminalParamTypeBoolExp {
 input type for inserting data into table "terminal_param_type"
 """
 input TerminalParamTypeInsertInput {
+	param_type_id: String!
 	param_type_name: String
 	parent_param_type_id: String
 	create_at: Timestamptz!

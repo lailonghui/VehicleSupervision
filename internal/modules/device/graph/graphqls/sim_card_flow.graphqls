@@ -379,6 +379,7 @@ input SimCardFlowBoolExp {
 input type for inserting data into table "sim_card_flow"
 """
 input SimCardFlowInsertInput {
+	sim_card_flow_id: String!
 	sim_card_id: String!
 	card_no_remark: String
 	iccid: String

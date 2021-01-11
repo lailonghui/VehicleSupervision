@@ -435,6 +435,7 @@ input EnterpriseMuckTrunkBoolExp {
 input type for inserting data into table "enterprise_muck_trunk"
 """
 input EnterpriseMuckTrunkInsertInput {
+	enterprise_muck_trunk_id: String!
 	enterprise_id: String!
 	company_manager: String
 	company_manager_phone: String

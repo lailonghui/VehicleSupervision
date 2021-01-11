@@ -699,6 +699,7 @@ input EnterpriseBoolExp {
 input type for inserting data into table "enterprise"
 """
 input EnterpriseInsertInput {
+	enterprise_id: String!
 	superior_enterprise_id: String
 	enterprise_code: String
 	enterprise_name: String

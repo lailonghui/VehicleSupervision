@@ -2663,10 +2663,7 @@ scalar Point
 scalar Numeric
 
 `, BuiltIn: false},
-	{Name: "graph/graphqls/ride_hailing_driver.graphqls", Input: `"""
-网约车驾驶员
-"""
-type RideHailingDriver {
+	{Name: "graph/graphqls/ride_hailing_driver.graphqls", Input: `type RideHailingDriver {
 	"""
 	ID
 	"""
@@ -3044,6 +3041,7 @@ input RideHailingDriverBoolExp {
 input type for inserting data into table "ride_hailing_driver"
 """
 input RideHailingDriverInsertInput {
+	ride_hailing_driver_id: String!
 	ride_hailing_driver_verify_id: String
 	driver_name: String
 	phone_number: String
@@ -3626,6 +3624,7 @@ input RideHailingDriverVerifyBoolExp {
 input type for inserting data into table "ride_hailing_driver_verify"
 """
 input RideHailingDriverVerifyInsertInput {
+	ride_hailing_driver_verify_id: String!
 	is_violent_crime: Boolean
 	violent_crime_remark: String
 	violent_crime_examine_time: Timestamptz
@@ -15342,6 +15341,14 @@ func (ec *executionContext) unmarshalInputRideHailingDriverInsertInput(ctx conte
 
 	for k, v := range asMap {
 		switch k {
+		case "ride_hailing_driver_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ride_hailing_driver_id"))
+			it.RideHailingDriverID, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "ride_hailing_driver_verify_id":
 			var err error
 
@@ -16378,6 +16385,14 @@ func (ec *executionContext) unmarshalInputRideHailingDriverVerifyInsertInput(ctx
 
 	for k, v := range asMap {
 		switch k {
+		case "ride_hailing_driver_verify_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ride_hailing_driver_verify_id"))
+			it.RideHailingDriverVerifyID, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "is_violent_crime":
 			var err error
 

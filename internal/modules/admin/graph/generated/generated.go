@@ -258,6 +258,115 @@ type ComplexityRoot struct {
 		Variance   func(childComplexity int) int
 	}
 
+	EnterpriseAlarmSendPolice struct {
+		CreatedAt                   func(childComplexity int) int
+		CreatedBy                   func(childComplexity int) int
+		DeletedAt                   func(childComplexity int) int
+		DeletedBy                   func(childComplexity int) int
+		EnterpriseAlarmSendPoliceID func(childComplexity int) int
+		EnterpriseContact           func(childComplexity int) int
+		EnterpriseID                func(childComplexity int) int
+		EnterpriseName              func(childComplexity int) int
+		EnterprisePhone             func(childComplexity int) int
+		ID                          func(childComplexity int) int
+		PhliceDepartment            func(childComplexity int) int
+		Police                      func(childComplexity int) int
+		PolicePhone                 func(childComplexity int) int
+		UpdatedAt                   func(childComplexity int) int
+		UpdatedBy                   func(childComplexity int) int
+	}
+
+	EnterpriseAlarmSendPoliceAggregate struct {
+		Aggregate func(childComplexity int) int
+	}
+
+	EnterpriseAlarmSendPoliceAggregateFields struct {
+		Avg        func(childComplexity int) int
+		Count      func(childComplexity int) int
+		Max        func(childComplexity int) int
+		Min        func(childComplexity int) int
+		Stddev     func(childComplexity int) int
+		StddevPop  func(childComplexity int) int
+		StddevSamp func(childComplexity int) int
+		Sum        func(childComplexity int) int
+		VarPop     func(childComplexity int) int
+		VarSamp    func(childComplexity int) int
+		Variance   func(childComplexity int) int
+	}
+
+	EnterpriseAlarmSendPoliceAvgFields struct {
+		ID func(childComplexity int) int
+	}
+
+	EnterpriseAlarmSendPoliceMaxFields struct {
+		CreatedAt                   func(childComplexity int) int
+		CreatedBy                   func(childComplexity int) int
+		DeletedAt                   func(childComplexity int) int
+		DeletedBy                   func(childComplexity int) int
+		EnterpriseAlarmSendPoliceID func(childComplexity int) int
+		EnterpriseContact           func(childComplexity int) int
+		EnterpriseID                func(childComplexity int) int
+		EnterpriseName              func(childComplexity int) int
+		EnterprisePhone             func(childComplexity int) int
+		ID                          func(childComplexity int) int
+		PhliceDepartment            func(childComplexity int) int
+		Police                      func(childComplexity int) int
+		PolicePhone                 func(childComplexity int) int
+		UpdatedAt                   func(childComplexity int) int
+		UpdatedBy                   func(childComplexity int) int
+	}
+
+	EnterpriseAlarmSendPoliceMinFields struct {
+		CreatedAt                   func(childComplexity int) int
+		CreatedBy                   func(childComplexity int) int
+		DeletedAt                   func(childComplexity int) int
+		DeletedBy                   func(childComplexity int) int
+		EnterpriseAlarmSendPoliceID func(childComplexity int) int
+		EnterpriseContact           func(childComplexity int) int
+		EnterpriseID                func(childComplexity int) int
+		EnterpriseName              func(childComplexity int) int
+		EnterprisePhone             func(childComplexity int) int
+		ID                          func(childComplexity int) int
+		PhliceDepartment            func(childComplexity int) int
+		Police                      func(childComplexity int) int
+		PolicePhone                 func(childComplexity int) int
+		UpdatedAt                   func(childComplexity int) int
+		UpdatedBy                   func(childComplexity int) int
+	}
+
+	EnterpriseAlarmSendPoliceMutationResponse struct {
+		AffectedRows func(childComplexity int) int
+		Returning    func(childComplexity int) int
+	}
+
+	EnterpriseAlarmSendPoliceStddevFields struct {
+		ID func(childComplexity int) int
+	}
+
+	EnterpriseAlarmSendPoliceStddevPopFields struct {
+		ID func(childComplexity int) int
+	}
+
+	EnterpriseAlarmSendPoliceStddevSampFields struct {
+		ID func(childComplexity int) int
+	}
+
+	EnterpriseAlarmSendPoliceSumFields struct {
+		ID func(childComplexity int) int
+	}
+
+	EnterpriseAlarmSendPoliceVarPopFields struct {
+		ID func(childComplexity int) int
+	}
+
+	EnterpriseAlarmSendPoliceVarSampFields struct {
+		ID func(childComplexity int) int
+	}
+
+	EnterpriseAlarmSendPoliceVarianceFields struct {
+		ID func(childComplexity int) int
+	}
+
 	EnterpriseAvgFields struct {
 		BusinessScope       func(childComplexity int) int
 		CheckStatus         func(childComplexity int) int
@@ -720,118 +829,6 @@ type ComplexityRoot struct {
 	EnterpriseMutationResponse struct {
 		AffectedRows func(childComplexity int) int
 		Returning    func(childComplexity int) int
-	}
-
-	EnterprisePoliceSmsInfo struct {
-		CreateAt                  func(childComplexity int) int
-		CreateBy                  func(childComplexity int) int
-		DeleteAt                  func(childComplexity int) int
-		DeleteBy                  func(childComplexity int) int
-		EnterpriseContactName     func(childComplexity int) int
-		EnterpriseContactPhone    func(childComplexity int) int
-		EnterpriseID              func(childComplexity int) int
-		EnterpriseName            func(childComplexity int) int
-		EnterprisePoliceSmsInfoID func(childComplexity int) int
-		ID                        func(childComplexity int) int
-		IsDelete                  func(childComplexity int) int
-		PoliceDept                func(childComplexity int) int
-		PoliceName                func(childComplexity int) int
-		PolicePhone               func(childComplexity int) int
-		UpdateAt                  func(childComplexity int) int
-		UpdateBy                  func(childComplexity int) int
-	}
-
-	EnterprisePoliceSmsInfoAggregate struct {
-		Aggregate func(childComplexity int) int
-	}
-
-	EnterprisePoliceSmsInfoAggregateFields struct {
-		Avg        func(childComplexity int) int
-		Count      func(childComplexity int) int
-		Max        func(childComplexity int) int
-		Min        func(childComplexity int) int
-		Stddev     func(childComplexity int) int
-		StddevPop  func(childComplexity int) int
-		StddevSamp func(childComplexity int) int
-		Sum        func(childComplexity int) int
-		VarPop     func(childComplexity int) int
-		VarSamp    func(childComplexity int) int
-		Variance   func(childComplexity int) int
-	}
-
-	EnterprisePoliceSmsInfoAvgFields struct {
-		ID func(childComplexity int) int
-	}
-
-	EnterprisePoliceSmsInfoMaxFields struct {
-		CreateAt                  func(childComplexity int) int
-		CreateBy                  func(childComplexity int) int
-		DeleteAt                  func(childComplexity int) int
-		DeleteBy                  func(childComplexity int) int
-		EnterpriseContactName     func(childComplexity int) int
-		EnterpriseContactPhone    func(childComplexity int) int
-		EnterpriseID              func(childComplexity int) int
-		EnterpriseName            func(childComplexity int) int
-		EnterprisePoliceSmsInfoID func(childComplexity int) int
-		ID                        func(childComplexity int) int
-		IsDelete                  func(childComplexity int) int
-		PoliceDept                func(childComplexity int) int
-		PoliceName                func(childComplexity int) int
-		PolicePhone               func(childComplexity int) int
-		UpdateAt                  func(childComplexity int) int
-		UpdateBy                  func(childComplexity int) int
-	}
-
-	EnterprisePoliceSmsInfoMinFields struct {
-		CreateAt                  func(childComplexity int) int
-		CreateBy                  func(childComplexity int) int
-		DeleteAt                  func(childComplexity int) int
-		DeleteBy                  func(childComplexity int) int
-		EnterpriseContactName     func(childComplexity int) int
-		EnterpriseContactPhone    func(childComplexity int) int
-		EnterpriseID              func(childComplexity int) int
-		EnterpriseName            func(childComplexity int) int
-		EnterprisePoliceSmsInfoID func(childComplexity int) int
-		ID                        func(childComplexity int) int
-		IsDelete                  func(childComplexity int) int
-		PoliceDept                func(childComplexity int) int
-		PoliceName                func(childComplexity int) int
-		PolicePhone               func(childComplexity int) int
-		UpdateAt                  func(childComplexity int) int
-		UpdateBy                  func(childComplexity int) int
-	}
-
-	EnterprisePoliceSmsInfoMutationResponse struct {
-		AffectedRows func(childComplexity int) int
-		Returning    func(childComplexity int) int
-	}
-
-	EnterprisePoliceSmsInfoStddevFields struct {
-		ID func(childComplexity int) int
-	}
-
-	EnterprisePoliceSmsInfoStddevPopFields struct {
-		ID func(childComplexity int) int
-	}
-
-	EnterprisePoliceSmsInfoStddevSampFields struct {
-		ID func(childComplexity int) int
-	}
-
-	EnterprisePoliceSmsInfoSumFields struct {
-		ID func(childComplexity int) int
-	}
-
-	EnterprisePoliceSmsInfoVarPopFields struct {
-		ID func(childComplexity int) int
-	}
-
-	EnterprisePoliceSmsInfoVarSampFields struct {
-		ID func(childComplexity int) int
-	}
-
-	EnterprisePoliceSmsInfoVarianceFields struct {
-		ID func(childComplexity int) int
 	}
 
 	EnterpriseScoreLog struct {
@@ -1385,129 +1382,129 @@ type ComplexityRoot struct {
 	}
 
 	Mutation struct {
-		DeleteDepartment                       func(childComplexity int, where model.DepartmentBoolExp) int
-		DeleteDepartmentByPk                   func(childComplexity int, id int64) int
-		DeleteDepartmentByUnionPk              func(childComplexity int, departmentID string) int
-		DeleteEnterprise                       func(childComplexity int, where model.EnterpriseBoolExp) int
-		DeleteEnterpriseByPk                   func(childComplexity int, id int64) int
-		DeleteEnterpriseByUnionPk              func(childComplexity int, enterpriseID string) int
-		DeleteEnterpriseContact                func(childComplexity int, where model.EnterpriseContactBoolExp) int
-		DeleteEnterpriseContactByPk            func(childComplexity int, id int64) int
-		DeleteEnterpriseContactByUnionPk       func(childComplexity int, contactID string) int
-		DeleteEnterpriseMuckTrunk              func(childComplexity int, where model.EnterpriseMuckTrunkBoolExp) int
-		DeleteEnterpriseMuckTrunkByPk          func(childComplexity int, id int64) int
-		DeleteEnterpriseMuckTrunkByUnionPk     func(childComplexity int, enterpriseMuckTrunkID string) int
-		DeleteEnterprisePoliceSmsInfo          func(childComplexity int, where model.EnterprisePoliceSmsInfoBoolExp) int
-		DeleteEnterprisePoliceSmsInfoByPk      func(childComplexity int, id int64) int
-		DeleteEnterprisePoliceSmsInfoByUnionPk func(childComplexity int, enterprisePoliceSmsInfoID string) int
-		DeleteEnterpriseScoreLog               func(childComplexity int, where model.EnterpriseScoreLogBoolExp) int
-		DeleteEnterpriseScoreLogByPk           func(childComplexity int, id int64) int
-		DeleteEnterpriseScoreLogByUnionPk      func(childComplexity int, logID string) int
-		DeleteEnterpriseScoreSet               func(childComplexity int, where model.EnterpriseScoreSetBoolExp) int
-		DeleteEnterpriseScoreSetByPk           func(childComplexity int, id int64) int
-		DeleteEnterpriseScoreSetByUnionPk      func(childComplexity int, scoreSetID string) int
-		DeleteEnterpriseStateHis               func(childComplexity int, where model.EnterpriseStateHisBoolExp) int
-		DeleteEnterpriseStateHisByPk           func(childComplexity int, id int64) int
-		DeleteEnterpriseStateHisByUnionPk      func(childComplexity int, stateHisID string) int
-		DeleteEnterpriseUkey                   func(childComplexity int, where model.EnterpriseUkeyBoolExp) int
-		DeleteEnterpriseUkeyByPk               func(childComplexity int, id int64) int
-		DeleteEnterpriseUkeyByUnionPk          func(childComplexity int, ukeyID string) int
-		DeleteSystemUser                       func(childComplexity int, where model.SystemUserBoolExp) int
-		DeleteSystemUserByPk                   func(childComplexity int, id int64) int
-		DeleteSystemUserByUnionPk              func(childComplexity int, userID string) int
-		InsertDepartment                       func(childComplexity int, objects []*model.DepartmentInsertInput) int
-		InsertDepartmentOne                    func(childComplexity int, objects model.DepartmentInsertInput) int
-		InsertEnterprise                       func(childComplexity int, objects []*model.EnterpriseInsertInput) int
-		InsertEnterpriseContact                func(childComplexity int, objects []*model.EnterpriseContactInsertInput) int
-		InsertEnterpriseContactOne             func(childComplexity int, objects model.EnterpriseContactInsertInput) int
-		InsertEnterpriseMuckTrunk              func(childComplexity int, objects []*model.EnterpriseMuckTrunkInsertInput) int
-		InsertEnterpriseMuckTrunkOne           func(childComplexity int, objects model.EnterpriseMuckTrunkInsertInput) int
-		InsertEnterpriseOne                    func(childComplexity int, objects model.EnterpriseInsertInput) int
-		InsertEnterprisePoliceSmsInfo          func(childComplexity int, objects []*model.EnterprisePoliceSmsInfoInsertInput) int
-		InsertEnterprisePoliceSmsInfoOne       func(childComplexity int, objects model.EnterprisePoliceSmsInfoInsertInput) int
-		InsertEnterpriseScoreLog               func(childComplexity int, objects []*model.EnterpriseScoreLogInsertInput) int
-		InsertEnterpriseScoreLogOne            func(childComplexity int, objects model.EnterpriseScoreLogInsertInput) int
-		InsertEnterpriseScoreSet               func(childComplexity int, objects []*model.EnterpriseScoreSetInsertInput) int
-		InsertEnterpriseScoreSetOne            func(childComplexity int, objects model.EnterpriseScoreSetInsertInput) int
-		InsertEnterpriseStateHis               func(childComplexity int, objects []*model.EnterpriseStateHisInsertInput) int
-		InsertEnterpriseStateHisOne            func(childComplexity int, objects model.EnterpriseStateHisInsertInput) int
-		InsertEnterpriseUkey                   func(childComplexity int, objects []*model.EnterpriseUkeyInsertInput) int
-		InsertEnterpriseUkeyOne                func(childComplexity int, objects model.EnterpriseUkeyInsertInput) int
-		InsertSystemUser                       func(childComplexity int, objects []*model.SystemUserInsertInput) int
-		InsertSystemUserOne                    func(childComplexity int, objects model.SystemUserInsertInput) int
-		UpdateDepartment                       func(childComplexity int, inc *model.DepartmentIncInput, set *model.DepartmentSetInput, where model.DepartmentBoolExp) int
-		UpdateDepartmentByPk                   func(childComplexity int, inc *model.DepartmentIncInput, set *model.DepartmentSetInput, id int64) int
-		UpdateDepartmentByUnionPk              func(childComplexity int, inc *model.DepartmentIncInput, set *model.DepartmentSetInput, departmentID string) int
-		UpdateEnterprise                       func(childComplexity int, inc *model.EnterpriseIncInput, set *model.EnterpriseSetInput, where model.EnterpriseBoolExp) int
-		UpdateEnterpriseByPk                   func(childComplexity int, inc *model.EnterpriseIncInput, set *model.EnterpriseSetInput, id int64) int
-		UpdateEnterpriseByUnionPk              func(childComplexity int, inc *model.EnterpriseIncInput, set *model.EnterpriseSetInput, enterpriseID string) int
-		UpdateEnterpriseContact                func(childComplexity int, inc *model.EnterpriseContactIncInput, set *model.EnterpriseContactSetInput, where model.EnterpriseContactBoolExp) int
-		UpdateEnterpriseContactByPk            func(childComplexity int, inc *model.EnterpriseContactIncInput, set *model.EnterpriseContactSetInput, id int64) int
-		UpdateEnterpriseContactByUnionPk       func(childComplexity int, inc *model.EnterpriseContactIncInput, set *model.EnterpriseContactSetInput, contactID string) int
-		UpdateEnterpriseMuckTrunk              func(childComplexity int, inc *model.EnterpriseMuckTrunkIncInput, set *model.EnterpriseMuckTrunkSetInput, where model.EnterpriseMuckTrunkBoolExp) int
-		UpdateEnterpriseMuckTrunkByPk          func(childComplexity int, inc *model.EnterpriseMuckTrunkIncInput, set *model.EnterpriseMuckTrunkSetInput, id int64) int
-		UpdateEnterpriseMuckTrunkByUnionPk     func(childComplexity int, inc *model.EnterpriseMuckTrunkIncInput, set *model.EnterpriseMuckTrunkSetInput, enterpriseMuckTrunkID string) int
-		UpdateEnterprisePoliceSmsInfo          func(childComplexity int, inc *model.EnterprisePoliceSmsInfoIncInput, set *model.EnterprisePoliceSmsInfoSetInput, where model.EnterprisePoliceSmsInfoBoolExp) int
-		UpdateEnterprisePoliceSmsInfoByPk      func(childComplexity int, inc *model.EnterprisePoliceSmsInfoIncInput, set *model.EnterprisePoliceSmsInfoSetInput, id int64) int
-		UpdateEnterprisePoliceSmsInfoByUnionPk func(childComplexity int, inc *model.EnterprisePoliceSmsInfoIncInput, set *model.EnterprisePoliceSmsInfoSetInput, enterprisePoliceSmsInfoID string) int
-		UpdateEnterpriseScoreLog               func(childComplexity int, inc *model.EnterpriseScoreLogIncInput, set *model.EnterpriseScoreLogSetInput, where model.EnterpriseScoreLogBoolExp) int
-		UpdateEnterpriseScoreLogByPk           func(childComplexity int, inc *model.EnterpriseScoreLogIncInput, set *model.EnterpriseScoreLogSetInput, id int64) int
-		UpdateEnterpriseScoreLogByUnionPk      func(childComplexity int, inc *model.EnterpriseScoreLogIncInput, set *model.EnterpriseScoreLogSetInput, logID string) int
-		UpdateEnterpriseScoreSet               func(childComplexity int, inc *model.EnterpriseScoreSetIncInput, set *model.EnterpriseScoreSetSetInput, where model.EnterpriseScoreSetBoolExp) int
-		UpdateEnterpriseScoreSetByPk           func(childComplexity int, inc *model.EnterpriseScoreSetIncInput, set *model.EnterpriseScoreSetSetInput, id int64) int
-		UpdateEnterpriseScoreSetByUnionPk      func(childComplexity int, inc *model.EnterpriseScoreSetIncInput, set *model.EnterpriseScoreSetSetInput, scoreSetID string) int
-		UpdateEnterpriseStateHis               func(childComplexity int, inc *model.EnterpriseStateHisIncInput, set *model.EnterpriseStateHisSetInput, where model.EnterpriseStateHisBoolExp) int
-		UpdateEnterpriseStateHisByPk           func(childComplexity int, inc *model.EnterpriseStateHisIncInput, set *model.EnterpriseStateHisSetInput, id int64) int
-		UpdateEnterpriseStateHisByUnionPk      func(childComplexity int, inc *model.EnterpriseStateHisIncInput, set *model.EnterpriseStateHisSetInput, stateHisID string) int
-		UpdateEnterpriseUkey                   func(childComplexity int, inc *model.EnterpriseUkeyIncInput, set *model.EnterpriseUkeySetInput, where model.EnterpriseUkeyBoolExp) int
-		UpdateEnterpriseUkeyByPk               func(childComplexity int, inc *model.EnterpriseUkeyIncInput, set *model.EnterpriseUkeySetInput, id int64) int
-		UpdateEnterpriseUkeyByUnionPk          func(childComplexity int, inc *model.EnterpriseUkeyIncInput, set *model.EnterpriseUkeySetInput, ukeyID string) int
-		UpdateSystemUser                       func(childComplexity int, inc *model.SystemUserIncInput, set *model.SystemUserSetInput, where model.SystemUserBoolExp) int
-		UpdateSystemUserByPk                   func(childComplexity int, inc *model.SystemUserIncInput, set *model.SystemUserSetInput, id int64) int
-		UpdateSystemUserByUnionPk              func(childComplexity int, inc *model.SystemUserIncInput, set *model.SystemUserSetInput, userID string) int
+		DeleteDepartment                         func(childComplexity int, where model.DepartmentBoolExp) int
+		DeleteDepartmentByPk                     func(childComplexity int, id int64) int
+		DeleteDepartmentByUnionPk                func(childComplexity int, departmentID string) int
+		DeleteEnterprise                         func(childComplexity int, where model.EnterpriseBoolExp) int
+		DeleteEnterpriseAlarmSendPolice          func(childComplexity int, where model.EnterpriseAlarmSendPoliceBoolExp) int
+		DeleteEnterpriseAlarmSendPoliceByPk      func(childComplexity int, id int64) int
+		DeleteEnterpriseAlarmSendPoliceByUnionPk func(childComplexity int, enterpriseAlarmSendPoliceID string) int
+		DeleteEnterpriseByPk                     func(childComplexity int, id int64) int
+		DeleteEnterpriseByUnionPk                func(childComplexity int, enterpriseID string) int
+		DeleteEnterpriseContact                  func(childComplexity int, where model.EnterpriseContactBoolExp) int
+		DeleteEnterpriseContactByPk              func(childComplexity int, id int64) int
+		DeleteEnterpriseContactByUnionPk         func(childComplexity int, contactID string) int
+		DeleteEnterpriseMuckTrunk                func(childComplexity int, where model.EnterpriseMuckTrunkBoolExp) int
+		DeleteEnterpriseMuckTrunkByPk            func(childComplexity int, id int64) int
+		DeleteEnterpriseMuckTrunkByUnionPk       func(childComplexity int, enterpriseMuckTrunkID string) int
+		DeleteEnterpriseScoreLog                 func(childComplexity int, where model.EnterpriseScoreLogBoolExp) int
+		DeleteEnterpriseScoreLogByPk             func(childComplexity int, id int64) int
+		DeleteEnterpriseScoreLogByUnionPk        func(childComplexity int, logID string) int
+		DeleteEnterpriseScoreSet                 func(childComplexity int, where model.EnterpriseScoreSetBoolExp) int
+		DeleteEnterpriseScoreSetByPk             func(childComplexity int, id int64) int
+		DeleteEnterpriseScoreSetByUnionPk        func(childComplexity int, scoreSetID string) int
+		DeleteEnterpriseStateHis                 func(childComplexity int, where model.EnterpriseStateHisBoolExp) int
+		DeleteEnterpriseStateHisByPk             func(childComplexity int, id int64) int
+		DeleteEnterpriseStateHisByUnionPk        func(childComplexity int, stateHisID string) int
+		DeleteEnterpriseUkey                     func(childComplexity int, where model.EnterpriseUkeyBoolExp) int
+		DeleteEnterpriseUkeyByPk                 func(childComplexity int, id int64) int
+		DeleteEnterpriseUkeyByUnionPk            func(childComplexity int, ukeyID string) int
+		DeleteSystemUser                         func(childComplexity int, where model.SystemUserBoolExp) int
+		DeleteSystemUserByPk                     func(childComplexity int, id int64) int
+		DeleteSystemUserByUnionPk                func(childComplexity int, userID string) int
+		InsertDepartment                         func(childComplexity int, objects []*model.DepartmentInsertInput) int
+		InsertDepartmentOne                      func(childComplexity int, objects model.DepartmentInsertInput) int
+		InsertEnterprise                         func(childComplexity int, objects []*model.EnterpriseInsertInput) int
+		InsertEnterpriseAlarmSendPolice          func(childComplexity int, objects []*model.EnterpriseAlarmSendPoliceInsertInput) int
+		InsertEnterpriseAlarmSendPoliceOne       func(childComplexity int, objects model.EnterpriseAlarmSendPoliceInsertInput) int
+		InsertEnterpriseContact                  func(childComplexity int, objects []*model.EnterpriseContactInsertInput) int
+		InsertEnterpriseContactOne               func(childComplexity int, objects model.EnterpriseContactInsertInput) int
+		InsertEnterpriseMuckTrunk                func(childComplexity int, objects []*model.EnterpriseMuckTrunkInsertInput) int
+		InsertEnterpriseMuckTrunkOne             func(childComplexity int, objects model.EnterpriseMuckTrunkInsertInput) int
+		InsertEnterpriseOne                      func(childComplexity int, objects model.EnterpriseInsertInput) int
+		InsertEnterpriseScoreLog                 func(childComplexity int, objects []*model.EnterpriseScoreLogInsertInput) int
+		InsertEnterpriseScoreLogOne              func(childComplexity int, objects model.EnterpriseScoreLogInsertInput) int
+		InsertEnterpriseScoreSet                 func(childComplexity int, objects []*model.EnterpriseScoreSetInsertInput) int
+		InsertEnterpriseScoreSetOne              func(childComplexity int, objects model.EnterpriseScoreSetInsertInput) int
+		InsertEnterpriseStateHis                 func(childComplexity int, objects []*model.EnterpriseStateHisInsertInput) int
+		InsertEnterpriseStateHisOne              func(childComplexity int, objects model.EnterpriseStateHisInsertInput) int
+		InsertEnterpriseUkey                     func(childComplexity int, objects []*model.EnterpriseUkeyInsertInput) int
+		InsertEnterpriseUkeyOne                  func(childComplexity int, objects model.EnterpriseUkeyInsertInput) int
+		InsertSystemUser                         func(childComplexity int, objects []*model.SystemUserInsertInput) int
+		InsertSystemUserOne                      func(childComplexity int, objects model.SystemUserInsertInput) int
+		UpdateDepartment                         func(childComplexity int, inc *model.DepartmentIncInput, set *model.DepartmentSetInput, where model.DepartmentBoolExp) int
+		UpdateDepartmentByPk                     func(childComplexity int, inc *model.DepartmentIncInput, set *model.DepartmentSetInput, id int64) int
+		UpdateDepartmentByUnionPk                func(childComplexity int, inc *model.DepartmentIncInput, set *model.DepartmentSetInput, departmentID string) int
+		UpdateEnterprise                         func(childComplexity int, inc *model.EnterpriseIncInput, set *model.EnterpriseSetInput, where model.EnterpriseBoolExp) int
+		UpdateEnterpriseAlarmSendPolice          func(childComplexity int, inc *model.EnterpriseAlarmSendPoliceIncInput, set *model.EnterpriseAlarmSendPoliceSetInput, where model.EnterpriseAlarmSendPoliceBoolExp) int
+		UpdateEnterpriseAlarmSendPoliceByPk      func(childComplexity int, inc *model.EnterpriseAlarmSendPoliceIncInput, set *model.EnterpriseAlarmSendPoliceSetInput, id int64) int
+		UpdateEnterpriseAlarmSendPoliceByUnionPk func(childComplexity int, inc *model.EnterpriseAlarmSendPoliceIncInput, set *model.EnterpriseAlarmSendPoliceSetInput, enterpriseAlarmSendPoliceID string) int
+		UpdateEnterpriseByPk                     func(childComplexity int, inc *model.EnterpriseIncInput, set *model.EnterpriseSetInput, id int64) int
+		UpdateEnterpriseByUnionPk                func(childComplexity int, inc *model.EnterpriseIncInput, set *model.EnterpriseSetInput, enterpriseID string) int
+		UpdateEnterpriseContact                  func(childComplexity int, inc *model.EnterpriseContactIncInput, set *model.EnterpriseContactSetInput, where model.EnterpriseContactBoolExp) int
+		UpdateEnterpriseContactByPk              func(childComplexity int, inc *model.EnterpriseContactIncInput, set *model.EnterpriseContactSetInput, id int64) int
+		UpdateEnterpriseContactByUnionPk         func(childComplexity int, inc *model.EnterpriseContactIncInput, set *model.EnterpriseContactSetInput, contactID string) int
+		UpdateEnterpriseMuckTrunk                func(childComplexity int, inc *model.EnterpriseMuckTrunkIncInput, set *model.EnterpriseMuckTrunkSetInput, where model.EnterpriseMuckTrunkBoolExp) int
+		UpdateEnterpriseMuckTrunkByPk            func(childComplexity int, inc *model.EnterpriseMuckTrunkIncInput, set *model.EnterpriseMuckTrunkSetInput, id int64) int
+		UpdateEnterpriseMuckTrunkByUnionPk       func(childComplexity int, inc *model.EnterpriseMuckTrunkIncInput, set *model.EnterpriseMuckTrunkSetInput, enterpriseMuckTrunkID string) int
+		UpdateEnterpriseScoreLog                 func(childComplexity int, inc *model.EnterpriseScoreLogIncInput, set *model.EnterpriseScoreLogSetInput, where model.EnterpriseScoreLogBoolExp) int
+		UpdateEnterpriseScoreLogByPk             func(childComplexity int, inc *model.EnterpriseScoreLogIncInput, set *model.EnterpriseScoreLogSetInput, id int64) int
+		UpdateEnterpriseScoreLogByUnionPk        func(childComplexity int, inc *model.EnterpriseScoreLogIncInput, set *model.EnterpriseScoreLogSetInput, logID string) int
+		UpdateEnterpriseScoreSet                 func(childComplexity int, inc *model.EnterpriseScoreSetIncInput, set *model.EnterpriseScoreSetSetInput, where model.EnterpriseScoreSetBoolExp) int
+		UpdateEnterpriseScoreSetByPk             func(childComplexity int, inc *model.EnterpriseScoreSetIncInput, set *model.EnterpriseScoreSetSetInput, id int64) int
+		UpdateEnterpriseScoreSetByUnionPk        func(childComplexity int, inc *model.EnterpriseScoreSetIncInput, set *model.EnterpriseScoreSetSetInput, scoreSetID string) int
+		UpdateEnterpriseStateHis                 func(childComplexity int, inc *model.EnterpriseStateHisIncInput, set *model.EnterpriseStateHisSetInput, where model.EnterpriseStateHisBoolExp) int
+		UpdateEnterpriseStateHisByPk             func(childComplexity int, inc *model.EnterpriseStateHisIncInput, set *model.EnterpriseStateHisSetInput, id int64) int
+		UpdateEnterpriseStateHisByUnionPk        func(childComplexity int, inc *model.EnterpriseStateHisIncInput, set *model.EnterpriseStateHisSetInput, stateHisID string) int
+		UpdateEnterpriseUkey                     func(childComplexity int, inc *model.EnterpriseUkeyIncInput, set *model.EnterpriseUkeySetInput, where model.EnterpriseUkeyBoolExp) int
+		UpdateEnterpriseUkeyByPk                 func(childComplexity int, inc *model.EnterpriseUkeyIncInput, set *model.EnterpriseUkeySetInput, id int64) int
+		UpdateEnterpriseUkeyByUnionPk            func(childComplexity int, inc *model.EnterpriseUkeyIncInput, set *model.EnterpriseUkeySetInput, ukeyID string) int
+		UpdateSystemUser                         func(childComplexity int, inc *model.SystemUserIncInput, set *model.SystemUserSetInput, where model.SystemUserBoolExp) int
+		UpdateSystemUserByPk                     func(childComplexity int, inc *model.SystemUserIncInput, set *model.SystemUserSetInput, id int64) int
+		UpdateSystemUserByUnionPk                func(childComplexity int, inc *model.SystemUserIncInput, set *model.SystemUserSetInput, userID string) int
 	}
 
 	Query struct {
-		Department                       func(childComplexity int, distinctOn []model.DepartmentSelectColumn, limit *int, offset *int, orderBy []*model.DepartmentOrderBy, where *model.DepartmentBoolExp) int
-		DepartmentAggregate              func(childComplexity int, distinctOn []model.DepartmentSelectColumn, limit *int, offset *int, orderBy []*model.DepartmentOrderBy, where *model.DepartmentBoolExp) int
-		DepartmentByPk                   func(childComplexity int, id int64) int
-		DepartmentByUnionPk              func(childComplexity int, departmentID string) int
-		Enterprise                       func(childComplexity int, distinctOn []model.EnterpriseSelectColumn, limit *int, offset *int, orderBy []*model.EnterpriseOrderBy, where *model.EnterpriseBoolExp) int
-		EnterpriseAggregate              func(childComplexity int, distinctOn []model.EnterpriseSelectColumn, limit *int, offset *int, orderBy []*model.EnterpriseOrderBy, where *model.EnterpriseBoolExp) int
-		EnterpriseByPk                   func(childComplexity int, id int64) int
-		EnterpriseByUnionPk              func(childComplexity int, enterpriseID string) int
-		EnterpriseContact                func(childComplexity int, distinctOn []model.EnterpriseContactSelectColumn, limit *int, offset *int, orderBy []*model.EnterpriseContactOrderBy, where *model.EnterpriseContactBoolExp) int
-		EnterpriseContactAggregate       func(childComplexity int, distinctOn []model.EnterpriseContactSelectColumn, limit *int, offset *int, orderBy []*model.EnterpriseContactOrderBy, where *model.EnterpriseContactBoolExp) int
-		EnterpriseContactByPk            func(childComplexity int, id int64) int
-		EnterpriseContactByUnionPk       func(childComplexity int, contactID string) int
-		EnterpriseMuckTrunk              func(childComplexity int, distinctOn []model.EnterpriseMuckTrunkSelectColumn, limit *int, offset *int, orderBy []*model.EnterpriseMuckTrunkOrderBy, where *model.EnterpriseMuckTrunkBoolExp) int
-		EnterpriseMuckTrunkAggregate     func(childComplexity int, distinctOn []model.EnterpriseMuckTrunkSelectColumn, limit *int, offset *int, orderBy []*model.EnterpriseMuckTrunkOrderBy, where *model.EnterpriseMuckTrunkBoolExp) int
-		EnterpriseMuckTrunkByPk          func(childComplexity int, id int64) int
-		EnterpriseMuckTrunkByUnionPk     func(childComplexity int, enterpriseMuckTrunkID string) int
-		EnterprisePoliceSmsInfo          func(childComplexity int, distinctOn []model.EnterprisePoliceSmsInfoSelectColumn, limit *int, offset *int, orderBy []*model.EnterprisePoliceSmsInfoOrderBy, where *model.EnterprisePoliceSmsInfoBoolExp) int
-		EnterprisePoliceSmsInfoAggregate func(childComplexity int, distinctOn []model.EnterprisePoliceSmsInfoSelectColumn, limit *int, offset *int, orderBy []*model.EnterprisePoliceSmsInfoOrderBy, where *model.EnterprisePoliceSmsInfoBoolExp) int
-		EnterprisePoliceSmsInfoByPk      func(childComplexity int, id int64) int
-		EnterprisePoliceSmsInfoByUnionPk func(childComplexity int, enterprisePoliceSmsInfoID string) int
-		EnterpriseScoreLog               func(childComplexity int, distinctOn []model.EnterpriseScoreLogSelectColumn, limit *int, offset *int, orderBy []*model.EnterpriseScoreLogOrderBy, where *model.EnterpriseScoreLogBoolExp) int
-		EnterpriseScoreLogAggregate      func(childComplexity int, distinctOn []model.EnterpriseScoreLogSelectColumn, limit *int, offset *int, orderBy []*model.EnterpriseScoreLogOrderBy, where *model.EnterpriseScoreLogBoolExp) int
-		EnterpriseScoreLogByPk           func(childComplexity int, id int64) int
-		EnterpriseScoreLogByUnionPk      func(childComplexity int, logID string) int
-		EnterpriseScoreSet               func(childComplexity int, distinctOn []model.EnterpriseScoreSetSelectColumn, limit *int, offset *int, orderBy []*model.EnterpriseScoreSetOrderBy, where *model.EnterpriseScoreSetBoolExp) int
-		EnterpriseScoreSetAggregate      func(childComplexity int, distinctOn []model.EnterpriseScoreSetSelectColumn, limit *int, offset *int, orderBy []*model.EnterpriseScoreSetOrderBy, where *model.EnterpriseScoreSetBoolExp) int
-		EnterpriseScoreSetByPk           func(childComplexity int, id int64) int
-		EnterpriseScoreSetByUnionPk      func(childComplexity int, scoreSetID string) int
-		EnterpriseStateHis               func(childComplexity int, distinctOn []model.EnterpriseStateHisSelectColumn, limit *int, offset *int, orderBy []*model.EnterpriseStateHisOrderBy, where *model.EnterpriseStateHisBoolExp) int
-		EnterpriseStateHisAggregate      func(childComplexity int, distinctOn []model.EnterpriseStateHisSelectColumn, limit *int, offset *int, orderBy []*model.EnterpriseStateHisOrderBy, where *model.EnterpriseStateHisBoolExp) int
-		EnterpriseStateHisByPk           func(childComplexity int, id int64) int
-		EnterpriseStateHisByUnionPk      func(childComplexity int, stateHisID string) int
-		EnterpriseUkey                   func(childComplexity int, distinctOn []model.EnterpriseUkeySelectColumn, limit *int, offset *int, orderBy []*model.EnterpriseUkeyOrderBy, where *model.EnterpriseUkeyBoolExp) int
-		EnterpriseUkeyAggregate          func(childComplexity int, distinctOn []model.EnterpriseUkeySelectColumn, limit *int, offset *int, orderBy []*model.EnterpriseUkeyOrderBy, where *model.EnterpriseUkeyBoolExp) int
-		EnterpriseUkeyByPk               func(childComplexity int, id int64) int
-		EnterpriseUkeyByUnionPk          func(childComplexity int, ukeyID string) int
-		SystemUser                       func(childComplexity int, distinctOn []model.SystemUserSelectColumn, limit *int, offset *int, orderBy []*model.SystemUserOrderBy, where *model.SystemUserBoolExp) int
-		SystemUserAggregate              func(childComplexity int, distinctOn []model.SystemUserSelectColumn, limit *int, offset *int, orderBy []*model.SystemUserOrderBy, where *model.SystemUserBoolExp) int
-		SystemUserByPk                   func(childComplexity int, id int64) int
-		SystemUserByUnionPk              func(childComplexity int, userID string) int
+		Department                         func(childComplexity int, distinctOn []model.DepartmentSelectColumn, limit *int, offset *int, orderBy []*model.DepartmentOrderBy, where *model.DepartmentBoolExp) int
+		DepartmentAggregate                func(childComplexity int, distinctOn []model.DepartmentSelectColumn, limit *int, offset *int, orderBy []*model.DepartmentOrderBy, where *model.DepartmentBoolExp) int
+		DepartmentByPk                     func(childComplexity int, id int64) int
+		DepartmentByUnionPk                func(childComplexity int, departmentID string) int
+		Enterprise                         func(childComplexity int, distinctOn []model.EnterpriseSelectColumn, limit *int, offset *int, orderBy []*model.EnterpriseOrderBy, where *model.EnterpriseBoolExp) int
+		EnterpriseAggregate                func(childComplexity int, distinctOn []model.EnterpriseSelectColumn, limit *int, offset *int, orderBy []*model.EnterpriseOrderBy, where *model.EnterpriseBoolExp) int
+		EnterpriseAlarmSendPolice          func(childComplexity int, distinctOn []model.EnterpriseAlarmSendPoliceSelectColumn, limit *int, offset *int, orderBy []*model.EnterpriseAlarmSendPoliceOrderBy, where *model.EnterpriseAlarmSendPoliceBoolExp) int
+		EnterpriseAlarmSendPoliceAggregate func(childComplexity int, distinctOn []model.EnterpriseAlarmSendPoliceSelectColumn, limit *int, offset *int, orderBy []*model.EnterpriseAlarmSendPoliceOrderBy, where *model.EnterpriseAlarmSendPoliceBoolExp) int
+		EnterpriseAlarmSendPoliceByPk      func(childComplexity int, id int64) int
+		EnterpriseAlarmSendPoliceByUnionPk func(childComplexity int, enterpriseAlarmSendPoliceID string) int
+		EnterpriseByPk                     func(childComplexity int, id int64) int
+		EnterpriseByUnionPk                func(childComplexity int, enterpriseID string) int
+		EnterpriseContact                  func(childComplexity int, distinctOn []model.EnterpriseContactSelectColumn, limit *int, offset *int, orderBy []*model.EnterpriseContactOrderBy, where *model.EnterpriseContactBoolExp) int
+		EnterpriseContactAggregate         func(childComplexity int, distinctOn []model.EnterpriseContactSelectColumn, limit *int, offset *int, orderBy []*model.EnterpriseContactOrderBy, where *model.EnterpriseContactBoolExp) int
+		EnterpriseContactByPk              func(childComplexity int, id int64) int
+		EnterpriseContactByUnionPk         func(childComplexity int, contactID string) int
+		EnterpriseMuckTrunk                func(childComplexity int, distinctOn []model.EnterpriseMuckTrunkSelectColumn, limit *int, offset *int, orderBy []*model.EnterpriseMuckTrunkOrderBy, where *model.EnterpriseMuckTrunkBoolExp) int
+		EnterpriseMuckTrunkAggregate       func(childComplexity int, distinctOn []model.EnterpriseMuckTrunkSelectColumn, limit *int, offset *int, orderBy []*model.EnterpriseMuckTrunkOrderBy, where *model.EnterpriseMuckTrunkBoolExp) int
+		EnterpriseMuckTrunkByPk            func(childComplexity int, id int64) int
+		EnterpriseMuckTrunkByUnionPk       func(childComplexity int, enterpriseMuckTrunkID string) int
+		EnterpriseScoreLog                 func(childComplexity int, distinctOn []model.EnterpriseScoreLogSelectColumn, limit *int, offset *int, orderBy []*model.EnterpriseScoreLogOrderBy, where *model.EnterpriseScoreLogBoolExp) int
+		EnterpriseScoreLogAggregate        func(childComplexity int, distinctOn []model.EnterpriseScoreLogSelectColumn, limit *int, offset *int, orderBy []*model.EnterpriseScoreLogOrderBy, where *model.EnterpriseScoreLogBoolExp) int
+		EnterpriseScoreLogByPk             func(childComplexity int, id int64) int
+		EnterpriseScoreLogByUnionPk        func(childComplexity int, logID string) int
+		EnterpriseScoreSet                 func(childComplexity int, distinctOn []model.EnterpriseScoreSetSelectColumn, limit *int, offset *int, orderBy []*model.EnterpriseScoreSetOrderBy, where *model.EnterpriseScoreSetBoolExp) int
+		EnterpriseScoreSetAggregate        func(childComplexity int, distinctOn []model.EnterpriseScoreSetSelectColumn, limit *int, offset *int, orderBy []*model.EnterpriseScoreSetOrderBy, where *model.EnterpriseScoreSetBoolExp) int
+		EnterpriseScoreSetByPk             func(childComplexity int, id int64) int
+		EnterpriseScoreSetByUnionPk        func(childComplexity int, scoreSetID string) int
+		EnterpriseStateHis                 func(childComplexity int, distinctOn []model.EnterpriseStateHisSelectColumn, limit *int, offset *int, orderBy []*model.EnterpriseStateHisOrderBy, where *model.EnterpriseStateHisBoolExp) int
+		EnterpriseStateHisAggregate        func(childComplexity int, distinctOn []model.EnterpriseStateHisSelectColumn, limit *int, offset *int, orderBy []*model.EnterpriseStateHisOrderBy, where *model.EnterpriseStateHisBoolExp) int
+		EnterpriseStateHisByPk             func(childComplexity int, id int64) int
+		EnterpriseStateHisByUnionPk        func(childComplexity int, stateHisID string) int
+		EnterpriseUkey                     func(childComplexity int, distinctOn []model.EnterpriseUkeySelectColumn, limit *int, offset *int, orderBy []*model.EnterpriseUkeyOrderBy, where *model.EnterpriseUkeyBoolExp) int
+		EnterpriseUkeyAggregate            func(childComplexity int, distinctOn []model.EnterpriseUkeySelectColumn, limit *int, offset *int, orderBy []*model.EnterpriseUkeyOrderBy, where *model.EnterpriseUkeyBoolExp) int
+		EnterpriseUkeyByPk                 func(childComplexity int, id int64) int
+		EnterpriseUkeyByUnionPk            func(childComplexity int, ukeyID string) int
+		SystemUser                         func(childComplexity int, distinctOn []model.SystemUserSelectColumn, limit *int, offset *int, orderBy []*model.SystemUserOrderBy, where *model.SystemUserBoolExp) int
+		SystemUserAggregate                func(childComplexity int, distinctOn []model.SystemUserSelectColumn, limit *int, offset *int, orderBy []*model.SystemUserOrderBy, where *model.SystemUserBoolExp) int
+		SystemUserByPk                     func(childComplexity int, id int64) int
+		SystemUserByUnionPk                func(childComplexity int, userID string) int
 	}
 
 	SystemUser struct {
@@ -1709,6 +1706,14 @@ type MutationResolver interface {
 	UpdateEnterpriseByPk(ctx context.Context, inc *model.EnterpriseIncInput, set *model.EnterpriseSetInput, id int64) (*model1.Enterprise, error)
 	UpdateEnterpriseByUnionPk(ctx context.Context, inc *model.EnterpriseIncInput, set *model.EnterpriseSetInput, enterpriseID string) (*model1.Enterprise, error)
 	DeleteEnterpriseByUnionPk(ctx context.Context, enterpriseID string) (*model1.Enterprise, error)
+	DeleteEnterpriseAlarmSendPolice(ctx context.Context, where model.EnterpriseAlarmSendPoliceBoolExp) (*model.EnterpriseAlarmSendPoliceMutationResponse, error)
+	DeleteEnterpriseAlarmSendPoliceByPk(ctx context.Context, id int64) (*model1.EnterpriseAlarmSendPolice, error)
+	InsertEnterpriseAlarmSendPolice(ctx context.Context, objects []*model.EnterpriseAlarmSendPoliceInsertInput) (*model.EnterpriseAlarmSendPoliceMutationResponse, error)
+	InsertEnterpriseAlarmSendPoliceOne(ctx context.Context, objects model.EnterpriseAlarmSendPoliceInsertInput) (*model1.EnterpriseAlarmSendPolice, error)
+	UpdateEnterpriseAlarmSendPolice(ctx context.Context, inc *model.EnterpriseAlarmSendPoliceIncInput, set *model.EnterpriseAlarmSendPoliceSetInput, where model.EnterpriseAlarmSendPoliceBoolExp) (*model.EnterpriseAlarmSendPoliceMutationResponse, error)
+	UpdateEnterpriseAlarmSendPoliceByPk(ctx context.Context, inc *model.EnterpriseAlarmSendPoliceIncInput, set *model.EnterpriseAlarmSendPoliceSetInput, id int64) (*model1.EnterpriseAlarmSendPolice, error)
+	UpdateEnterpriseAlarmSendPoliceByUnionPk(ctx context.Context, inc *model.EnterpriseAlarmSendPoliceIncInput, set *model.EnterpriseAlarmSendPoliceSetInput, enterpriseAlarmSendPoliceID string) (*model1.EnterpriseAlarmSendPolice, error)
+	DeleteEnterpriseAlarmSendPoliceByUnionPk(ctx context.Context, enterpriseAlarmSendPoliceID string) (*model1.EnterpriseAlarmSendPolice, error)
 	DeleteEnterpriseContact(ctx context.Context, where model.EnterpriseContactBoolExp) (*model.EnterpriseContactMutationResponse, error)
 	DeleteEnterpriseContactByPk(ctx context.Context, id int64) (*model1.EnterpriseContact, error)
 	InsertEnterpriseContact(ctx context.Context, objects []*model.EnterpriseContactInsertInput) (*model.EnterpriseContactMutationResponse, error)
@@ -1725,14 +1730,6 @@ type MutationResolver interface {
 	UpdateEnterpriseMuckTrunkByPk(ctx context.Context, inc *model.EnterpriseMuckTrunkIncInput, set *model.EnterpriseMuckTrunkSetInput, id int64) (*model1.EnterpriseMuckTrunk, error)
 	UpdateEnterpriseMuckTrunkByUnionPk(ctx context.Context, inc *model.EnterpriseMuckTrunkIncInput, set *model.EnterpriseMuckTrunkSetInput, enterpriseMuckTrunkID string) (*model1.EnterpriseMuckTrunk, error)
 	DeleteEnterpriseMuckTrunkByUnionPk(ctx context.Context, enterpriseMuckTrunkID string) (*model1.EnterpriseMuckTrunk, error)
-	DeleteEnterprisePoliceSmsInfo(ctx context.Context, where model.EnterprisePoliceSmsInfoBoolExp) (*model.EnterprisePoliceSmsInfoMutationResponse, error)
-	DeleteEnterprisePoliceSmsInfoByPk(ctx context.Context, id int64) (*model1.EnterprisePoliceSmsInfo, error)
-	InsertEnterprisePoliceSmsInfo(ctx context.Context, objects []*model.EnterprisePoliceSmsInfoInsertInput) (*model.EnterprisePoliceSmsInfoMutationResponse, error)
-	InsertEnterprisePoliceSmsInfoOne(ctx context.Context, objects model.EnterprisePoliceSmsInfoInsertInput) (*model1.EnterprisePoliceSmsInfo, error)
-	UpdateEnterprisePoliceSmsInfo(ctx context.Context, inc *model.EnterprisePoliceSmsInfoIncInput, set *model.EnterprisePoliceSmsInfoSetInput, where model.EnterprisePoliceSmsInfoBoolExp) (*model.EnterprisePoliceSmsInfoMutationResponse, error)
-	UpdateEnterprisePoliceSmsInfoByPk(ctx context.Context, inc *model.EnterprisePoliceSmsInfoIncInput, set *model.EnterprisePoliceSmsInfoSetInput, id int64) (*model1.EnterprisePoliceSmsInfo, error)
-	UpdateEnterprisePoliceSmsInfoByUnionPk(ctx context.Context, inc *model.EnterprisePoliceSmsInfoIncInput, set *model.EnterprisePoliceSmsInfoSetInput, enterprisePoliceSmsInfoID string) (*model1.EnterprisePoliceSmsInfo, error)
-	DeleteEnterprisePoliceSmsInfoByUnionPk(ctx context.Context, enterprisePoliceSmsInfoID string) (*model1.EnterprisePoliceSmsInfo, error)
 	DeleteEnterpriseScoreLog(ctx context.Context, where model.EnterpriseScoreLogBoolExp) (*model.EnterpriseScoreLogMutationResponse, error)
 	DeleteEnterpriseScoreLogByPk(ctx context.Context, id int64) (*model1.EnterpriseScoreLog, error)
 	InsertEnterpriseScoreLog(ctx context.Context, objects []*model.EnterpriseScoreLogInsertInput) (*model.EnterpriseScoreLogMutationResponse, error)
@@ -1783,6 +1780,10 @@ type QueryResolver interface {
 	EnterpriseAggregate(ctx context.Context, distinctOn []model.EnterpriseSelectColumn, limit *int, offset *int, orderBy []*model.EnterpriseOrderBy, where *model.EnterpriseBoolExp) (*model.EnterpriseAggregate, error)
 	EnterpriseByPk(ctx context.Context, id int64) (*model1.Enterprise, error)
 	EnterpriseByUnionPk(ctx context.Context, enterpriseID string) (*model1.Enterprise, error)
+	EnterpriseAlarmSendPolice(ctx context.Context, distinctOn []model.EnterpriseAlarmSendPoliceSelectColumn, limit *int, offset *int, orderBy []*model.EnterpriseAlarmSendPoliceOrderBy, where *model.EnterpriseAlarmSendPoliceBoolExp) ([]*model1.EnterpriseAlarmSendPolice, error)
+	EnterpriseAlarmSendPoliceAggregate(ctx context.Context, distinctOn []model.EnterpriseAlarmSendPoliceSelectColumn, limit *int, offset *int, orderBy []*model.EnterpriseAlarmSendPoliceOrderBy, where *model.EnterpriseAlarmSendPoliceBoolExp) (*model.EnterpriseAlarmSendPoliceAggregate, error)
+	EnterpriseAlarmSendPoliceByPk(ctx context.Context, id int64) (*model1.EnterpriseAlarmSendPolice, error)
+	EnterpriseAlarmSendPoliceByUnionPk(ctx context.Context, enterpriseAlarmSendPoliceID string) (*model1.EnterpriseAlarmSendPolice, error)
 	EnterpriseContact(ctx context.Context, distinctOn []model.EnterpriseContactSelectColumn, limit *int, offset *int, orderBy []*model.EnterpriseContactOrderBy, where *model.EnterpriseContactBoolExp) ([]*model1.EnterpriseContact, error)
 	EnterpriseContactAggregate(ctx context.Context, distinctOn []model.EnterpriseContactSelectColumn, limit *int, offset *int, orderBy []*model.EnterpriseContactOrderBy, where *model.EnterpriseContactBoolExp) (*model.EnterpriseContactAggregate, error)
 	EnterpriseContactByPk(ctx context.Context, id int64) (*model1.EnterpriseContact, error)
@@ -1791,10 +1792,6 @@ type QueryResolver interface {
 	EnterpriseMuckTrunkAggregate(ctx context.Context, distinctOn []model.EnterpriseMuckTrunkSelectColumn, limit *int, offset *int, orderBy []*model.EnterpriseMuckTrunkOrderBy, where *model.EnterpriseMuckTrunkBoolExp) (*model.EnterpriseMuckTrunkAggregate, error)
 	EnterpriseMuckTrunkByPk(ctx context.Context, id int64) (*model1.EnterpriseMuckTrunk, error)
 	EnterpriseMuckTrunkByUnionPk(ctx context.Context, enterpriseMuckTrunkID string) (*model1.EnterpriseMuckTrunk, error)
-	EnterprisePoliceSmsInfo(ctx context.Context, distinctOn []model.EnterprisePoliceSmsInfoSelectColumn, limit *int, offset *int, orderBy []*model.EnterprisePoliceSmsInfoOrderBy, where *model.EnterprisePoliceSmsInfoBoolExp) ([]*model1.EnterprisePoliceSmsInfo, error)
-	EnterprisePoliceSmsInfoAggregate(ctx context.Context, distinctOn []model.EnterprisePoliceSmsInfoSelectColumn, limit *int, offset *int, orderBy []*model.EnterprisePoliceSmsInfoOrderBy, where *model.EnterprisePoliceSmsInfoBoolExp) (*model.EnterprisePoliceSmsInfoAggregate, error)
-	EnterprisePoliceSmsInfoByPk(ctx context.Context, id int64) (*model1.EnterprisePoliceSmsInfo, error)
-	EnterprisePoliceSmsInfoByUnionPk(ctx context.Context, enterprisePoliceSmsInfoID string) (*model1.EnterprisePoliceSmsInfo, error)
 	EnterpriseScoreLog(ctx context.Context, distinctOn []model.EnterpriseScoreLogSelectColumn, limit *int, offset *int, orderBy []*model.EnterpriseScoreLogOrderBy, where *model.EnterpriseScoreLogBoolExp) ([]*model1.EnterpriseScoreLog, error)
 	EnterpriseScoreLogAggregate(ctx context.Context, distinctOn []model.EnterpriseScoreLogSelectColumn, limit *int, offset *int, orderBy []*model.EnterpriseScoreLogOrderBy, where *model.EnterpriseScoreLogBoolExp) (*model.EnterpriseScoreLogAggregate, error)
 	EnterpriseScoreLogByPk(ctx context.Context, id int64) (*model1.EnterpriseScoreLog, error)
@@ -2944,6 +2941,475 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.EnterpriseAggregateFields.Variance(childComplexity), true
+
+	case "EnterpriseAlarmSendPolice.created_at":
+		if e.complexity.EnterpriseAlarmSendPolice.CreatedAt == nil {
+			break
+		}
+
+		return e.complexity.EnterpriseAlarmSendPolice.CreatedAt(childComplexity), true
+
+	case "EnterpriseAlarmSendPolice.created_by":
+		if e.complexity.EnterpriseAlarmSendPolice.CreatedBy == nil {
+			break
+		}
+
+		return e.complexity.EnterpriseAlarmSendPolice.CreatedBy(childComplexity), true
+
+	case "EnterpriseAlarmSendPolice.deleted_at":
+		if e.complexity.EnterpriseAlarmSendPolice.DeletedAt == nil {
+			break
+		}
+
+		return e.complexity.EnterpriseAlarmSendPolice.DeletedAt(childComplexity), true
+
+	case "EnterpriseAlarmSendPolice.deleted_by":
+		if e.complexity.EnterpriseAlarmSendPolice.DeletedBy == nil {
+			break
+		}
+
+		return e.complexity.EnterpriseAlarmSendPolice.DeletedBy(childComplexity), true
+
+	case "EnterpriseAlarmSendPolice.enterprise_alarm_send_police_id":
+		if e.complexity.EnterpriseAlarmSendPolice.EnterpriseAlarmSendPoliceID == nil {
+			break
+		}
+
+		return e.complexity.EnterpriseAlarmSendPolice.EnterpriseAlarmSendPoliceID(childComplexity), true
+
+	case "EnterpriseAlarmSendPolice.enterprise_contact":
+		if e.complexity.EnterpriseAlarmSendPolice.EnterpriseContact == nil {
+			break
+		}
+
+		return e.complexity.EnterpriseAlarmSendPolice.EnterpriseContact(childComplexity), true
+
+	case "EnterpriseAlarmSendPolice.enterprise_id":
+		if e.complexity.EnterpriseAlarmSendPolice.EnterpriseID == nil {
+			break
+		}
+
+		return e.complexity.EnterpriseAlarmSendPolice.EnterpriseID(childComplexity), true
+
+	case "EnterpriseAlarmSendPolice.enterprise_name":
+		if e.complexity.EnterpriseAlarmSendPolice.EnterpriseName == nil {
+			break
+		}
+
+		return e.complexity.EnterpriseAlarmSendPolice.EnterpriseName(childComplexity), true
+
+	case "EnterpriseAlarmSendPolice.enterprise_phone":
+		if e.complexity.EnterpriseAlarmSendPolice.EnterprisePhone == nil {
+			break
+		}
+
+		return e.complexity.EnterpriseAlarmSendPolice.EnterprisePhone(childComplexity), true
+
+	case "EnterpriseAlarmSendPolice.id":
+		if e.complexity.EnterpriseAlarmSendPolice.ID == nil {
+			break
+		}
+
+		return e.complexity.EnterpriseAlarmSendPolice.ID(childComplexity), true
+
+	case "EnterpriseAlarmSendPolice.phlice_department":
+		if e.complexity.EnterpriseAlarmSendPolice.PhliceDepartment == nil {
+			break
+		}
+
+		return e.complexity.EnterpriseAlarmSendPolice.PhliceDepartment(childComplexity), true
+
+	case "EnterpriseAlarmSendPolice.police":
+		if e.complexity.EnterpriseAlarmSendPolice.Police == nil {
+			break
+		}
+
+		return e.complexity.EnterpriseAlarmSendPolice.Police(childComplexity), true
+
+	case "EnterpriseAlarmSendPolice.police_phone":
+		if e.complexity.EnterpriseAlarmSendPolice.PolicePhone == nil {
+			break
+		}
+
+		return e.complexity.EnterpriseAlarmSendPolice.PolicePhone(childComplexity), true
+
+	case "EnterpriseAlarmSendPolice.updated_at":
+		if e.complexity.EnterpriseAlarmSendPolice.UpdatedAt == nil {
+			break
+		}
+
+		return e.complexity.EnterpriseAlarmSendPolice.UpdatedAt(childComplexity), true
+
+	case "EnterpriseAlarmSendPolice.updated_by":
+		if e.complexity.EnterpriseAlarmSendPolice.UpdatedBy == nil {
+			break
+		}
+
+		return e.complexity.EnterpriseAlarmSendPolice.UpdatedBy(childComplexity), true
+
+	case "EnterpriseAlarmSendPoliceAggregate.aggregate":
+		if e.complexity.EnterpriseAlarmSendPoliceAggregate.Aggregate == nil {
+			break
+		}
+
+		return e.complexity.EnterpriseAlarmSendPoliceAggregate.Aggregate(childComplexity), true
+
+	case "EnterpriseAlarmSendPoliceAggregateFields.avg":
+		if e.complexity.EnterpriseAlarmSendPoliceAggregateFields.Avg == nil {
+			break
+		}
+
+		return e.complexity.EnterpriseAlarmSendPoliceAggregateFields.Avg(childComplexity), true
+
+	case "EnterpriseAlarmSendPoliceAggregateFields.count":
+		if e.complexity.EnterpriseAlarmSendPoliceAggregateFields.Count == nil {
+			break
+		}
+
+		return e.complexity.EnterpriseAlarmSendPoliceAggregateFields.Count(childComplexity), true
+
+	case "EnterpriseAlarmSendPoliceAggregateFields.max":
+		if e.complexity.EnterpriseAlarmSendPoliceAggregateFields.Max == nil {
+			break
+		}
+
+		return e.complexity.EnterpriseAlarmSendPoliceAggregateFields.Max(childComplexity), true
+
+	case "EnterpriseAlarmSendPoliceAggregateFields.min":
+		if e.complexity.EnterpriseAlarmSendPoliceAggregateFields.Min == nil {
+			break
+		}
+
+		return e.complexity.EnterpriseAlarmSendPoliceAggregateFields.Min(childComplexity), true
+
+	case "EnterpriseAlarmSendPoliceAggregateFields.stddev":
+		if e.complexity.EnterpriseAlarmSendPoliceAggregateFields.Stddev == nil {
+			break
+		}
+
+		return e.complexity.EnterpriseAlarmSendPoliceAggregateFields.Stddev(childComplexity), true
+
+	case "EnterpriseAlarmSendPoliceAggregateFields.stddev_pop":
+		if e.complexity.EnterpriseAlarmSendPoliceAggregateFields.StddevPop == nil {
+			break
+		}
+
+		return e.complexity.EnterpriseAlarmSendPoliceAggregateFields.StddevPop(childComplexity), true
+
+	case "EnterpriseAlarmSendPoliceAggregateFields.stddev_samp":
+		if e.complexity.EnterpriseAlarmSendPoliceAggregateFields.StddevSamp == nil {
+			break
+		}
+
+		return e.complexity.EnterpriseAlarmSendPoliceAggregateFields.StddevSamp(childComplexity), true
+
+	case "EnterpriseAlarmSendPoliceAggregateFields.sum":
+		if e.complexity.EnterpriseAlarmSendPoliceAggregateFields.Sum == nil {
+			break
+		}
+
+		return e.complexity.EnterpriseAlarmSendPoliceAggregateFields.Sum(childComplexity), true
+
+	case "EnterpriseAlarmSendPoliceAggregateFields.var_pop":
+		if e.complexity.EnterpriseAlarmSendPoliceAggregateFields.VarPop == nil {
+			break
+		}
+
+		return e.complexity.EnterpriseAlarmSendPoliceAggregateFields.VarPop(childComplexity), true
+
+	case "EnterpriseAlarmSendPoliceAggregateFields.var_samp":
+		if e.complexity.EnterpriseAlarmSendPoliceAggregateFields.VarSamp == nil {
+			break
+		}
+
+		return e.complexity.EnterpriseAlarmSendPoliceAggregateFields.VarSamp(childComplexity), true
+
+	case "EnterpriseAlarmSendPoliceAggregateFields.variance":
+		if e.complexity.EnterpriseAlarmSendPoliceAggregateFields.Variance == nil {
+			break
+		}
+
+		return e.complexity.EnterpriseAlarmSendPoliceAggregateFields.Variance(childComplexity), true
+
+	case "EnterpriseAlarmSendPoliceAvgFields.id":
+		if e.complexity.EnterpriseAlarmSendPoliceAvgFields.ID == nil {
+			break
+		}
+
+		return e.complexity.EnterpriseAlarmSendPoliceAvgFields.ID(childComplexity), true
+
+	case "EnterpriseAlarmSendPoliceMaxFields.created_at":
+		if e.complexity.EnterpriseAlarmSendPoliceMaxFields.CreatedAt == nil {
+			break
+		}
+
+		return e.complexity.EnterpriseAlarmSendPoliceMaxFields.CreatedAt(childComplexity), true
+
+	case "EnterpriseAlarmSendPoliceMaxFields.created_by":
+		if e.complexity.EnterpriseAlarmSendPoliceMaxFields.CreatedBy == nil {
+			break
+		}
+
+		return e.complexity.EnterpriseAlarmSendPoliceMaxFields.CreatedBy(childComplexity), true
+
+	case "EnterpriseAlarmSendPoliceMaxFields.deleted_at":
+		if e.complexity.EnterpriseAlarmSendPoliceMaxFields.DeletedAt == nil {
+			break
+		}
+
+		return e.complexity.EnterpriseAlarmSendPoliceMaxFields.DeletedAt(childComplexity), true
+
+	case "EnterpriseAlarmSendPoliceMaxFields.deleted_by":
+		if e.complexity.EnterpriseAlarmSendPoliceMaxFields.DeletedBy == nil {
+			break
+		}
+
+		return e.complexity.EnterpriseAlarmSendPoliceMaxFields.DeletedBy(childComplexity), true
+
+	case "EnterpriseAlarmSendPoliceMaxFields.enterprise_alarm_send_police_id":
+		if e.complexity.EnterpriseAlarmSendPoliceMaxFields.EnterpriseAlarmSendPoliceID == nil {
+			break
+		}
+
+		return e.complexity.EnterpriseAlarmSendPoliceMaxFields.EnterpriseAlarmSendPoliceID(childComplexity), true
+
+	case "EnterpriseAlarmSendPoliceMaxFields.enterprise_contact":
+		if e.complexity.EnterpriseAlarmSendPoliceMaxFields.EnterpriseContact == nil {
+			break
+		}
+
+		return e.complexity.EnterpriseAlarmSendPoliceMaxFields.EnterpriseContact(childComplexity), true
+
+	case "EnterpriseAlarmSendPoliceMaxFields.enterprise_id":
+		if e.complexity.EnterpriseAlarmSendPoliceMaxFields.EnterpriseID == nil {
+			break
+		}
+
+		return e.complexity.EnterpriseAlarmSendPoliceMaxFields.EnterpriseID(childComplexity), true
+
+	case "EnterpriseAlarmSendPoliceMaxFields.enterprise_name":
+		if e.complexity.EnterpriseAlarmSendPoliceMaxFields.EnterpriseName == nil {
+			break
+		}
+
+		return e.complexity.EnterpriseAlarmSendPoliceMaxFields.EnterpriseName(childComplexity), true
+
+	case "EnterpriseAlarmSendPoliceMaxFields.enterprise_phone":
+		if e.complexity.EnterpriseAlarmSendPoliceMaxFields.EnterprisePhone == nil {
+			break
+		}
+
+		return e.complexity.EnterpriseAlarmSendPoliceMaxFields.EnterprisePhone(childComplexity), true
+
+	case "EnterpriseAlarmSendPoliceMaxFields.id":
+		if e.complexity.EnterpriseAlarmSendPoliceMaxFields.ID == nil {
+			break
+		}
+
+		return e.complexity.EnterpriseAlarmSendPoliceMaxFields.ID(childComplexity), true
+
+	case "EnterpriseAlarmSendPoliceMaxFields.phlice_department":
+		if e.complexity.EnterpriseAlarmSendPoliceMaxFields.PhliceDepartment == nil {
+			break
+		}
+
+		return e.complexity.EnterpriseAlarmSendPoliceMaxFields.PhliceDepartment(childComplexity), true
+
+	case "EnterpriseAlarmSendPoliceMaxFields.police":
+		if e.complexity.EnterpriseAlarmSendPoliceMaxFields.Police == nil {
+			break
+		}
+
+		return e.complexity.EnterpriseAlarmSendPoliceMaxFields.Police(childComplexity), true
+
+	case "EnterpriseAlarmSendPoliceMaxFields.police_phone":
+		if e.complexity.EnterpriseAlarmSendPoliceMaxFields.PolicePhone == nil {
+			break
+		}
+
+		return e.complexity.EnterpriseAlarmSendPoliceMaxFields.PolicePhone(childComplexity), true
+
+	case "EnterpriseAlarmSendPoliceMaxFields.updated_at":
+		if e.complexity.EnterpriseAlarmSendPoliceMaxFields.UpdatedAt == nil {
+			break
+		}
+
+		return e.complexity.EnterpriseAlarmSendPoliceMaxFields.UpdatedAt(childComplexity), true
+
+	case "EnterpriseAlarmSendPoliceMaxFields.updated_by":
+		if e.complexity.EnterpriseAlarmSendPoliceMaxFields.UpdatedBy == nil {
+			break
+		}
+
+		return e.complexity.EnterpriseAlarmSendPoliceMaxFields.UpdatedBy(childComplexity), true
+
+	case "EnterpriseAlarmSendPoliceMinFields.created_at":
+		if e.complexity.EnterpriseAlarmSendPoliceMinFields.CreatedAt == nil {
+			break
+		}
+
+		return e.complexity.EnterpriseAlarmSendPoliceMinFields.CreatedAt(childComplexity), true
+
+	case "EnterpriseAlarmSendPoliceMinFields.created_by":
+		if e.complexity.EnterpriseAlarmSendPoliceMinFields.CreatedBy == nil {
+			break
+		}
+
+		return e.complexity.EnterpriseAlarmSendPoliceMinFields.CreatedBy(childComplexity), true
+
+	case "EnterpriseAlarmSendPoliceMinFields.deleted_at":
+		if e.complexity.EnterpriseAlarmSendPoliceMinFields.DeletedAt == nil {
+			break
+		}
+
+		return e.complexity.EnterpriseAlarmSendPoliceMinFields.DeletedAt(childComplexity), true
+
+	case "EnterpriseAlarmSendPoliceMinFields.deleted_by":
+		if e.complexity.EnterpriseAlarmSendPoliceMinFields.DeletedBy == nil {
+			break
+		}
+
+		return e.complexity.EnterpriseAlarmSendPoliceMinFields.DeletedBy(childComplexity), true
+
+	case "EnterpriseAlarmSendPoliceMinFields.enterprise_alarm_send_police_id":
+		if e.complexity.EnterpriseAlarmSendPoliceMinFields.EnterpriseAlarmSendPoliceID == nil {
+			break
+		}
+
+		return e.complexity.EnterpriseAlarmSendPoliceMinFields.EnterpriseAlarmSendPoliceID(childComplexity), true
+
+	case "EnterpriseAlarmSendPoliceMinFields.enterprise_contact":
+		if e.complexity.EnterpriseAlarmSendPoliceMinFields.EnterpriseContact == nil {
+			break
+		}
+
+		return e.complexity.EnterpriseAlarmSendPoliceMinFields.EnterpriseContact(childComplexity), true
+
+	case "EnterpriseAlarmSendPoliceMinFields.enterprise_id":
+		if e.complexity.EnterpriseAlarmSendPoliceMinFields.EnterpriseID == nil {
+			break
+		}
+
+		return e.complexity.EnterpriseAlarmSendPoliceMinFields.EnterpriseID(childComplexity), true
+
+	case "EnterpriseAlarmSendPoliceMinFields.enterprise_name":
+		if e.complexity.EnterpriseAlarmSendPoliceMinFields.EnterpriseName == nil {
+			break
+		}
+
+		return e.complexity.EnterpriseAlarmSendPoliceMinFields.EnterpriseName(childComplexity), true
+
+	case "EnterpriseAlarmSendPoliceMinFields.enterprise_phone":
+		if e.complexity.EnterpriseAlarmSendPoliceMinFields.EnterprisePhone == nil {
+			break
+		}
+
+		return e.complexity.EnterpriseAlarmSendPoliceMinFields.EnterprisePhone(childComplexity), true
+
+	case "EnterpriseAlarmSendPoliceMinFields.id":
+		if e.complexity.EnterpriseAlarmSendPoliceMinFields.ID == nil {
+			break
+		}
+
+		return e.complexity.EnterpriseAlarmSendPoliceMinFields.ID(childComplexity), true
+
+	case "EnterpriseAlarmSendPoliceMinFields.phlice_department":
+		if e.complexity.EnterpriseAlarmSendPoliceMinFields.PhliceDepartment == nil {
+			break
+		}
+
+		return e.complexity.EnterpriseAlarmSendPoliceMinFields.PhliceDepartment(childComplexity), true
+
+	case "EnterpriseAlarmSendPoliceMinFields.police":
+		if e.complexity.EnterpriseAlarmSendPoliceMinFields.Police == nil {
+			break
+		}
+
+		return e.complexity.EnterpriseAlarmSendPoliceMinFields.Police(childComplexity), true
+
+	case "EnterpriseAlarmSendPoliceMinFields.police_phone":
+		if e.complexity.EnterpriseAlarmSendPoliceMinFields.PolicePhone == nil {
+			break
+		}
+
+		return e.complexity.EnterpriseAlarmSendPoliceMinFields.PolicePhone(childComplexity), true
+
+	case "EnterpriseAlarmSendPoliceMinFields.updated_at":
+		if e.complexity.EnterpriseAlarmSendPoliceMinFields.UpdatedAt == nil {
+			break
+		}
+
+		return e.complexity.EnterpriseAlarmSendPoliceMinFields.UpdatedAt(childComplexity), true
+
+	case "EnterpriseAlarmSendPoliceMinFields.updated_by":
+		if e.complexity.EnterpriseAlarmSendPoliceMinFields.UpdatedBy == nil {
+			break
+		}
+
+		return e.complexity.EnterpriseAlarmSendPoliceMinFields.UpdatedBy(childComplexity), true
+
+	case "EnterpriseAlarmSendPoliceMutationResponse.affected_rows":
+		if e.complexity.EnterpriseAlarmSendPoliceMutationResponse.AffectedRows == nil {
+			break
+		}
+
+		return e.complexity.EnterpriseAlarmSendPoliceMutationResponse.AffectedRows(childComplexity), true
+
+	case "EnterpriseAlarmSendPoliceMutationResponse.returning":
+		if e.complexity.EnterpriseAlarmSendPoliceMutationResponse.Returning == nil {
+			break
+		}
+
+		return e.complexity.EnterpriseAlarmSendPoliceMutationResponse.Returning(childComplexity), true
+
+	case "EnterpriseAlarmSendPoliceStddevFields.id":
+		if e.complexity.EnterpriseAlarmSendPoliceStddevFields.ID == nil {
+			break
+		}
+
+		return e.complexity.EnterpriseAlarmSendPoliceStddevFields.ID(childComplexity), true
+
+	case "EnterpriseAlarmSendPoliceStddevPopFields.id":
+		if e.complexity.EnterpriseAlarmSendPoliceStddevPopFields.ID == nil {
+			break
+		}
+
+		return e.complexity.EnterpriseAlarmSendPoliceStddevPopFields.ID(childComplexity), true
+
+	case "EnterpriseAlarmSendPoliceStddevSampFields.id":
+		if e.complexity.EnterpriseAlarmSendPoliceStddevSampFields.ID == nil {
+			break
+		}
+
+		return e.complexity.EnterpriseAlarmSendPoliceStddevSampFields.ID(childComplexity), true
+
+	case "EnterpriseAlarmSendPoliceSumFields.id":
+		if e.complexity.EnterpriseAlarmSendPoliceSumFields.ID == nil {
+			break
+		}
+
+		return e.complexity.EnterpriseAlarmSendPoliceSumFields.ID(childComplexity), true
+
+	case "EnterpriseAlarmSendPoliceVarPopFields.id":
+		if e.complexity.EnterpriseAlarmSendPoliceVarPopFields.ID == nil {
+			break
+		}
+
+		return e.complexity.EnterpriseAlarmSendPoliceVarPopFields.ID(childComplexity), true
+
+	case "EnterpriseAlarmSendPoliceVarSampFields.id":
+		if e.complexity.EnterpriseAlarmSendPoliceVarSampFields.ID == nil {
+			break
+		}
+
+		return e.complexity.EnterpriseAlarmSendPoliceVarSampFields.ID(childComplexity), true
+
+	case "EnterpriseAlarmSendPoliceVarianceFields.id":
+		if e.complexity.EnterpriseAlarmSendPoliceVarianceFields.ID == nil {
+			break
+		}
+
+		return e.complexity.EnterpriseAlarmSendPoliceVarianceFields.ID(childComplexity), true
 
 	case "EnterpriseAvgFields.business_scope":
 		if e.complexity.EnterpriseAvgFields.BusinessScope == nil {
@@ -5521,496 +5987,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.EnterpriseMutationResponse.Returning(childComplexity), true
 
-	case "EnterprisePoliceSmsInfo.create_at":
-		if e.complexity.EnterprisePoliceSmsInfo.CreateAt == nil {
-			break
-		}
-
-		return e.complexity.EnterprisePoliceSmsInfo.CreateAt(childComplexity), true
-
-	case "EnterprisePoliceSmsInfo.create_by":
-		if e.complexity.EnterprisePoliceSmsInfo.CreateBy == nil {
-			break
-		}
-
-		return e.complexity.EnterprisePoliceSmsInfo.CreateBy(childComplexity), true
-
-	case "EnterprisePoliceSmsInfo.delete_at":
-		if e.complexity.EnterprisePoliceSmsInfo.DeleteAt == nil {
-			break
-		}
-
-		return e.complexity.EnterprisePoliceSmsInfo.DeleteAt(childComplexity), true
-
-	case "EnterprisePoliceSmsInfo.delete_by":
-		if e.complexity.EnterprisePoliceSmsInfo.DeleteBy == nil {
-			break
-		}
-
-		return e.complexity.EnterprisePoliceSmsInfo.DeleteBy(childComplexity), true
-
-	case "EnterprisePoliceSmsInfo.enterprise_contact_name":
-		if e.complexity.EnterprisePoliceSmsInfo.EnterpriseContactName == nil {
-			break
-		}
-
-		return e.complexity.EnterprisePoliceSmsInfo.EnterpriseContactName(childComplexity), true
-
-	case "EnterprisePoliceSmsInfo.enterprise_contact_phone":
-		if e.complexity.EnterprisePoliceSmsInfo.EnterpriseContactPhone == nil {
-			break
-		}
-
-		return e.complexity.EnterprisePoliceSmsInfo.EnterpriseContactPhone(childComplexity), true
-
-	case "EnterprisePoliceSmsInfo.enterprise_id":
-		if e.complexity.EnterprisePoliceSmsInfo.EnterpriseID == nil {
-			break
-		}
-
-		return e.complexity.EnterprisePoliceSmsInfo.EnterpriseID(childComplexity), true
-
-	case "EnterprisePoliceSmsInfo.enterprise_name":
-		if e.complexity.EnterprisePoliceSmsInfo.EnterpriseName == nil {
-			break
-		}
-
-		return e.complexity.EnterprisePoliceSmsInfo.EnterpriseName(childComplexity), true
-
-	case "EnterprisePoliceSmsInfo.enterprise_police_sms_info_id":
-		if e.complexity.EnterprisePoliceSmsInfo.EnterprisePoliceSmsInfoID == nil {
-			break
-		}
-
-		return e.complexity.EnterprisePoliceSmsInfo.EnterprisePoliceSmsInfoID(childComplexity), true
-
-	case "EnterprisePoliceSmsInfo.id":
-		if e.complexity.EnterprisePoliceSmsInfo.ID == nil {
-			break
-		}
-
-		return e.complexity.EnterprisePoliceSmsInfo.ID(childComplexity), true
-
-	case "EnterprisePoliceSmsInfo.is_delete":
-		if e.complexity.EnterprisePoliceSmsInfo.IsDelete == nil {
-			break
-		}
-
-		return e.complexity.EnterprisePoliceSmsInfo.IsDelete(childComplexity), true
-
-	case "EnterprisePoliceSmsInfo.police_dept":
-		if e.complexity.EnterprisePoliceSmsInfo.PoliceDept == nil {
-			break
-		}
-
-		return e.complexity.EnterprisePoliceSmsInfo.PoliceDept(childComplexity), true
-
-	case "EnterprisePoliceSmsInfo.police_name":
-		if e.complexity.EnterprisePoliceSmsInfo.PoliceName == nil {
-			break
-		}
-
-		return e.complexity.EnterprisePoliceSmsInfo.PoliceName(childComplexity), true
-
-	case "EnterprisePoliceSmsInfo.police_phone":
-		if e.complexity.EnterprisePoliceSmsInfo.PolicePhone == nil {
-			break
-		}
-
-		return e.complexity.EnterprisePoliceSmsInfo.PolicePhone(childComplexity), true
-
-	case "EnterprisePoliceSmsInfo.update_at":
-		if e.complexity.EnterprisePoliceSmsInfo.UpdateAt == nil {
-			break
-		}
-
-		return e.complexity.EnterprisePoliceSmsInfo.UpdateAt(childComplexity), true
-
-	case "EnterprisePoliceSmsInfo.update_by":
-		if e.complexity.EnterprisePoliceSmsInfo.UpdateBy == nil {
-			break
-		}
-
-		return e.complexity.EnterprisePoliceSmsInfo.UpdateBy(childComplexity), true
-
-	case "EnterprisePoliceSmsInfoAggregate.aggregate":
-		if e.complexity.EnterprisePoliceSmsInfoAggregate.Aggregate == nil {
-			break
-		}
-
-		return e.complexity.EnterprisePoliceSmsInfoAggregate.Aggregate(childComplexity), true
-
-	case "EnterprisePoliceSmsInfoAggregateFields.avg":
-		if e.complexity.EnterprisePoliceSmsInfoAggregateFields.Avg == nil {
-			break
-		}
-
-		return e.complexity.EnterprisePoliceSmsInfoAggregateFields.Avg(childComplexity), true
-
-	case "EnterprisePoliceSmsInfoAggregateFields.count":
-		if e.complexity.EnterprisePoliceSmsInfoAggregateFields.Count == nil {
-			break
-		}
-
-		return e.complexity.EnterprisePoliceSmsInfoAggregateFields.Count(childComplexity), true
-
-	case "EnterprisePoliceSmsInfoAggregateFields.max":
-		if e.complexity.EnterprisePoliceSmsInfoAggregateFields.Max == nil {
-			break
-		}
-
-		return e.complexity.EnterprisePoliceSmsInfoAggregateFields.Max(childComplexity), true
-
-	case "EnterprisePoliceSmsInfoAggregateFields.min":
-		if e.complexity.EnterprisePoliceSmsInfoAggregateFields.Min == nil {
-			break
-		}
-
-		return e.complexity.EnterprisePoliceSmsInfoAggregateFields.Min(childComplexity), true
-
-	case "EnterprisePoliceSmsInfoAggregateFields.stddev":
-		if e.complexity.EnterprisePoliceSmsInfoAggregateFields.Stddev == nil {
-			break
-		}
-
-		return e.complexity.EnterprisePoliceSmsInfoAggregateFields.Stddev(childComplexity), true
-
-	case "EnterprisePoliceSmsInfoAggregateFields.stddev_pop":
-		if e.complexity.EnterprisePoliceSmsInfoAggregateFields.StddevPop == nil {
-			break
-		}
-
-		return e.complexity.EnterprisePoliceSmsInfoAggregateFields.StddevPop(childComplexity), true
-
-	case "EnterprisePoliceSmsInfoAggregateFields.stddev_samp":
-		if e.complexity.EnterprisePoliceSmsInfoAggregateFields.StddevSamp == nil {
-			break
-		}
-
-		return e.complexity.EnterprisePoliceSmsInfoAggregateFields.StddevSamp(childComplexity), true
-
-	case "EnterprisePoliceSmsInfoAggregateFields.sum":
-		if e.complexity.EnterprisePoliceSmsInfoAggregateFields.Sum == nil {
-			break
-		}
-
-		return e.complexity.EnterprisePoliceSmsInfoAggregateFields.Sum(childComplexity), true
-
-	case "EnterprisePoliceSmsInfoAggregateFields.var_pop":
-		if e.complexity.EnterprisePoliceSmsInfoAggregateFields.VarPop == nil {
-			break
-		}
-
-		return e.complexity.EnterprisePoliceSmsInfoAggregateFields.VarPop(childComplexity), true
-
-	case "EnterprisePoliceSmsInfoAggregateFields.var_samp":
-		if e.complexity.EnterprisePoliceSmsInfoAggregateFields.VarSamp == nil {
-			break
-		}
-
-		return e.complexity.EnterprisePoliceSmsInfoAggregateFields.VarSamp(childComplexity), true
-
-	case "EnterprisePoliceSmsInfoAggregateFields.variance":
-		if e.complexity.EnterprisePoliceSmsInfoAggregateFields.Variance == nil {
-			break
-		}
-
-		return e.complexity.EnterprisePoliceSmsInfoAggregateFields.Variance(childComplexity), true
-
-	case "EnterprisePoliceSmsInfoAvgFields.id":
-		if e.complexity.EnterprisePoliceSmsInfoAvgFields.ID == nil {
-			break
-		}
-
-		return e.complexity.EnterprisePoliceSmsInfoAvgFields.ID(childComplexity), true
-
-	case "EnterprisePoliceSmsInfoMaxFields.create_at":
-		if e.complexity.EnterprisePoliceSmsInfoMaxFields.CreateAt == nil {
-			break
-		}
-
-		return e.complexity.EnterprisePoliceSmsInfoMaxFields.CreateAt(childComplexity), true
-
-	case "EnterprisePoliceSmsInfoMaxFields.create_by":
-		if e.complexity.EnterprisePoliceSmsInfoMaxFields.CreateBy == nil {
-			break
-		}
-
-		return e.complexity.EnterprisePoliceSmsInfoMaxFields.CreateBy(childComplexity), true
-
-	case "EnterprisePoliceSmsInfoMaxFields.delete_at":
-		if e.complexity.EnterprisePoliceSmsInfoMaxFields.DeleteAt == nil {
-			break
-		}
-
-		return e.complexity.EnterprisePoliceSmsInfoMaxFields.DeleteAt(childComplexity), true
-
-	case "EnterprisePoliceSmsInfoMaxFields.delete_by":
-		if e.complexity.EnterprisePoliceSmsInfoMaxFields.DeleteBy == nil {
-			break
-		}
-
-		return e.complexity.EnterprisePoliceSmsInfoMaxFields.DeleteBy(childComplexity), true
-
-	case "EnterprisePoliceSmsInfoMaxFields.enterprise_contact_name":
-		if e.complexity.EnterprisePoliceSmsInfoMaxFields.EnterpriseContactName == nil {
-			break
-		}
-
-		return e.complexity.EnterprisePoliceSmsInfoMaxFields.EnterpriseContactName(childComplexity), true
-
-	case "EnterprisePoliceSmsInfoMaxFields.enterprise_contact_phone":
-		if e.complexity.EnterprisePoliceSmsInfoMaxFields.EnterpriseContactPhone == nil {
-			break
-		}
-
-		return e.complexity.EnterprisePoliceSmsInfoMaxFields.EnterpriseContactPhone(childComplexity), true
-
-	case "EnterprisePoliceSmsInfoMaxFields.enterprise_id":
-		if e.complexity.EnterprisePoliceSmsInfoMaxFields.EnterpriseID == nil {
-			break
-		}
-
-		return e.complexity.EnterprisePoliceSmsInfoMaxFields.EnterpriseID(childComplexity), true
-
-	case "EnterprisePoliceSmsInfoMaxFields.enterprise_name":
-		if e.complexity.EnterprisePoliceSmsInfoMaxFields.EnterpriseName == nil {
-			break
-		}
-
-		return e.complexity.EnterprisePoliceSmsInfoMaxFields.EnterpriseName(childComplexity), true
-
-	case "EnterprisePoliceSmsInfoMaxFields.enterprise_police_sms_info_id":
-		if e.complexity.EnterprisePoliceSmsInfoMaxFields.EnterprisePoliceSmsInfoID == nil {
-			break
-		}
-
-		return e.complexity.EnterprisePoliceSmsInfoMaxFields.EnterprisePoliceSmsInfoID(childComplexity), true
-
-	case "EnterprisePoliceSmsInfoMaxFields.id":
-		if e.complexity.EnterprisePoliceSmsInfoMaxFields.ID == nil {
-			break
-		}
-
-		return e.complexity.EnterprisePoliceSmsInfoMaxFields.ID(childComplexity), true
-
-	case "EnterprisePoliceSmsInfoMaxFields.is_delete":
-		if e.complexity.EnterprisePoliceSmsInfoMaxFields.IsDelete == nil {
-			break
-		}
-
-		return e.complexity.EnterprisePoliceSmsInfoMaxFields.IsDelete(childComplexity), true
-
-	case "EnterprisePoliceSmsInfoMaxFields.police_dept":
-		if e.complexity.EnterprisePoliceSmsInfoMaxFields.PoliceDept == nil {
-			break
-		}
-
-		return e.complexity.EnterprisePoliceSmsInfoMaxFields.PoliceDept(childComplexity), true
-
-	case "EnterprisePoliceSmsInfoMaxFields.police_name":
-		if e.complexity.EnterprisePoliceSmsInfoMaxFields.PoliceName == nil {
-			break
-		}
-
-		return e.complexity.EnterprisePoliceSmsInfoMaxFields.PoliceName(childComplexity), true
-
-	case "EnterprisePoliceSmsInfoMaxFields.police_phone":
-		if e.complexity.EnterprisePoliceSmsInfoMaxFields.PolicePhone == nil {
-			break
-		}
-
-		return e.complexity.EnterprisePoliceSmsInfoMaxFields.PolicePhone(childComplexity), true
-
-	case "EnterprisePoliceSmsInfoMaxFields.update_at":
-		if e.complexity.EnterprisePoliceSmsInfoMaxFields.UpdateAt == nil {
-			break
-		}
-
-		return e.complexity.EnterprisePoliceSmsInfoMaxFields.UpdateAt(childComplexity), true
-
-	case "EnterprisePoliceSmsInfoMaxFields.update_by":
-		if e.complexity.EnterprisePoliceSmsInfoMaxFields.UpdateBy == nil {
-			break
-		}
-
-		return e.complexity.EnterprisePoliceSmsInfoMaxFields.UpdateBy(childComplexity), true
-
-	case "EnterprisePoliceSmsInfoMinFields.create_at":
-		if e.complexity.EnterprisePoliceSmsInfoMinFields.CreateAt == nil {
-			break
-		}
-
-		return e.complexity.EnterprisePoliceSmsInfoMinFields.CreateAt(childComplexity), true
-
-	case "EnterprisePoliceSmsInfoMinFields.create_by":
-		if e.complexity.EnterprisePoliceSmsInfoMinFields.CreateBy == nil {
-			break
-		}
-
-		return e.complexity.EnterprisePoliceSmsInfoMinFields.CreateBy(childComplexity), true
-
-	case "EnterprisePoliceSmsInfoMinFields.delete_at":
-		if e.complexity.EnterprisePoliceSmsInfoMinFields.DeleteAt == nil {
-			break
-		}
-
-		return e.complexity.EnterprisePoliceSmsInfoMinFields.DeleteAt(childComplexity), true
-
-	case "EnterprisePoliceSmsInfoMinFields.delete_by":
-		if e.complexity.EnterprisePoliceSmsInfoMinFields.DeleteBy == nil {
-			break
-		}
-
-		return e.complexity.EnterprisePoliceSmsInfoMinFields.DeleteBy(childComplexity), true
-
-	case "EnterprisePoliceSmsInfoMinFields.enterprise_contact_name":
-		if e.complexity.EnterprisePoliceSmsInfoMinFields.EnterpriseContactName == nil {
-			break
-		}
-
-		return e.complexity.EnterprisePoliceSmsInfoMinFields.EnterpriseContactName(childComplexity), true
-
-	case "EnterprisePoliceSmsInfoMinFields.enterprise_contact_phone":
-		if e.complexity.EnterprisePoliceSmsInfoMinFields.EnterpriseContactPhone == nil {
-			break
-		}
-
-		return e.complexity.EnterprisePoliceSmsInfoMinFields.EnterpriseContactPhone(childComplexity), true
-
-	case "EnterprisePoliceSmsInfoMinFields.enterprise_id":
-		if e.complexity.EnterprisePoliceSmsInfoMinFields.EnterpriseID == nil {
-			break
-		}
-
-		return e.complexity.EnterprisePoliceSmsInfoMinFields.EnterpriseID(childComplexity), true
-
-	case "EnterprisePoliceSmsInfoMinFields.enterprise_name":
-		if e.complexity.EnterprisePoliceSmsInfoMinFields.EnterpriseName == nil {
-			break
-		}
-
-		return e.complexity.EnterprisePoliceSmsInfoMinFields.EnterpriseName(childComplexity), true
-
-	case "EnterprisePoliceSmsInfoMinFields.enterprise_police_sms_info_id":
-		if e.complexity.EnterprisePoliceSmsInfoMinFields.EnterprisePoliceSmsInfoID == nil {
-			break
-		}
-
-		return e.complexity.EnterprisePoliceSmsInfoMinFields.EnterprisePoliceSmsInfoID(childComplexity), true
-
-	case "EnterprisePoliceSmsInfoMinFields.id":
-		if e.complexity.EnterprisePoliceSmsInfoMinFields.ID == nil {
-			break
-		}
-
-		return e.complexity.EnterprisePoliceSmsInfoMinFields.ID(childComplexity), true
-
-	case "EnterprisePoliceSmsInfoMinFields.is_delete":
-		if e.complexity.EnterprisePoliceSmsInfoMinFields.IsDelete == nil {
-			break
-		}
-
-		return e.complexity.EnterprisePoliceSmsInfoMinFields.IsDelete(childComplexity), true
-
-	case "EnterprisePoliceSmsInfoMinFields.police_dept":
-		if e.complexity.EnterprisePoliceSmsInfoMinFields.PoliceDept == nil {
-			break
-		}
-
-		return e.complexity.EnterprisePoliceSmsInfoMinFields.PoliceDept(childComplexity), true
-
-	case "EnterprisePoliceSmsInfoMinFields.police_name":
-		if e.complexity.EnterprisePoliceSmsInfoMinFields.PoliceName == nil {
-			break
-		}
-
-		return e.complexity.EnterprisePoliceSmsInfoMinFields.PoliceName(childComplexity), true
-
-	case "EnterprisePoliceSmsInfoMinFields.police_phone":
-		if e.complexity.EnterprisePoliceSmsInfoMinFields.PolicePhone == nil {
-			break
-		}
-
-		return e.complexity.EnterprisePoliceSmsInfoMinFields.PolicePhone(childComplexity), true
-
-	case "EnterprisePoliceSmsInfoMinFields.update_at":
-		if e.complexity.EnterprisePoliceSmsInfoMinFields.UpdateAt == nil {
-			break
-		}
-
-		return e.complexity.EnterprisePoliceSmsInfoMinFields.UpdateAt(childComplexity), true
-
-	case "EnterprisePoliceSmsInfoMinFields.update_by":
-		if e.complexity.EnterprisePoliceSmsInfoMinFields.UpdateBy == nil {
-			break
-		}
-
-		return e.complexity.EnterprisePoliceSmsInfoMinFields.UpdateBy(childComplexity), true
-
-	case "EnterprisePoliceSmsInfoMutationResponse.affected_rows":
-		if e.complexity.EnterprisePoliceSmsInfoMutationResponse.AffectedRows == nil {
-			break
-		}
-
-		return e.complexity.EnterprisePoliceSmsInfoMutationResponse.AffectedRows(childComplexity), true
-
-	case "EnterprisePoliceSmsInfoMutationResponse.returning":
-		if e.complexity.EnterprisePoliceSmsInfoMutationResponse.Returning == nil {
-			break
-		}
-
-		return e.complexity.EnterprisePoliceSmsInfoMutationResponse.Returning(childComplexity), true
-
-	case "EnterprisePoliceSmsInfoStddevFields.id":
-		if e.complexity.EnterprisePoliceSmsInfoStddevFields.ID == nil {
-			break
-		}
-
-		return e.complexity.EnterprisePoliceSmsInfoStddevFields.ID(childComplexity), true
-
-	case "EnterprisePoliceSmsInfoStddevPopFields.id":
-		if e.complexity.EnterprisePoliceSmsInfoStddevPopFields.ID == nil {
-			break
-		}
-
-		return e.complexity.EnterprisePoliceSmsInfoStddevPopFields.ID(childComplexity), true
-
-	case "EnterprisePoliceSmsInfoStddevSampFields.id":
-		if e.complexity.EnterprisePoliceSmsInfoStddevSampFields.ID == nil {
-			break
-		}
-
-		return e.complexity.EnterprisePoliceSmsInfoStddevSampFields.ID(childComplexity), true
-
-	case "EnterprisePoliceSmsInfoSumFields.id":
-		if e.complexity.EnterprisePoliceSmsInfoSumFields.ID == nil {
-			break
-		}
-
-		return e.complexity.EnterprisePoliceSmsInfoSumFields.ID(childComplexity), true
-
-	case "EnterprisePoliceSmsInfoVarPopFields.id":
-		if e.complexity.EnterprisePoliceSmsInfoVarPopFields.ID == nil {
-			break
-		}
-
-		return e.complexity.EnterprisePoliceSmsInfoVarPopFields.ID(childComplexity), true
-
-	case "EnterprisePoliceSmsInfoVarSampFields.id":
-		if e.complexity.EnterprisePoliceSmsInfoVarSampFields.ID == nil {
-			break
-		}
-
-		return e.complexity.EnterprisePoliceSmsInfoVarSampFields.ID(childComplexity), true
-
-	case "EnterprisePoliceSmsInfoVarianceFields.id":
-		if e.complexity.EnterprisePoliceSmsInfoVarianceFields.ID == nil {
-			break
-		}
-
-		return e.complexity.EnterprisePoliceSmsInfoVarianceFields.ID(childComplexity), true
-
 	case "EnterpriseScoreLog.add_score":
 		if e.complexity.EnterpriseScoreLog.AddScore == nil {
 			break
@@ -8586,6 +8562,42 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.DeleteEnterprise(childComplexity, args["where"].(model.EnterpriseBoolExp)), true
 
+	case "Mutation.delete_enterprise_alarm_send_police":
+		if e.complexity.Mutation.DeleteEnterpriseAlarmSendPolice == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_delete_enterprise_alarm_send_police_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.DeleteEnterpriseAlarmSendPolice(childComplexity, args["where"].(model.EnterpriseAlarmSendPoliceBoolExp)), true
+
+	case "Mutation.delete_enterprise_alarm_send_police_by_pk":
+		if e.complexity.Mutation.DeleteEnterpriseAlarmSendPoliceByPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_delete_enterprise_alarm_send_police_by_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.DeleteEnterpriseAlarmSendPoliceByPk(childComplexity, args["id"].(int64)), true
+
+	case "Mutation.delete_enterprise_alarm_send_police_by_union_pk":
+		if e.complexity.Mutation.DeleteEnterpriseAlarmSendPoliceByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_delete_enterprise_alarm_send_police_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.DeleteEnterpriseAlarmSendPoliceByUnionPk(childComplexity, args["enterprise_alarm_send_police_id"].(string)), true
+
 	case "Mutation.delete_enterprise_by_pk":
 		if e.complexity.Mutation.DeleteEnterpriseByPk == nil {
 			break
@@ -8681,42 +8693,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Mutation.DeleteEnterpriseMuckTrunkByUnionPk(childComplexity, args["enterprise_muck_trunk_id"].(string)), true
-
-	case "Mutation.delete_enterprise_police_sms_info":
-		if e.complexity.Mutation.DeleteEnterprisePoliceSmsInfo == nil {
-			break
-		}
-
-		args, err := ec.field_Mutation_delete_enterprise_police_sms_info_args(context.TODO(), rawArgs)
-		if err != nil {
-			return 0, false
-		}
-
-		return e.complexity.Mutation.DeleteEnterprisePoliceSmsInfo(childComplexity, args["where"].(model.EnterprisePoliceSmsInfoBoolExp)), true
-
-	case "Mutation.delete_enterprise_police_sms_info_by_pk":
-		if e.complexity.Mutation.DeleteEnterprisePoliceSmsInfoByPk == nil {
-			break
-		}
-
-		args, err := ec.field_Mutation_delete_enterprise_police_sms_info_by_pk_args(context.TODO(), rawArgs)
-		if err != nil {
-			return 0, false
-		}
-
-		return e.complexity.Mutation.DeleteEnterprisePoliceSmsInfoByPk(childComplexity, args["id"].(int64)), true
-
-	case "Mutation.delete_enterprise_police_sms_info_by_union_pk":
-		if e.complexity.Mutation.DeleteEnterprisePoliceSmsInfoByUnionPk == nil {
-			break
-		}
-
-		args, err := ec.field_Mutation_delete_enterprise_police_sms_info_by_union_pk_args(context.TODO(), rawArgs)
-		if err != nil {
-			return 0, false
-		}
-
-		return e.complexity.Mutation.DeleteEnterprisePoliceSmsInfoByUnionPk(childComplexity, args["enterprise_police_sms_info_id"].(string)), true
 
 	case "Mutation.delete_enterprise_score_log":
 		if e.complexity.Mutation.DeleteEnterpriseScoreLog == nil {
@@ -8934,6 +8910,30 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.InsertEnterprise(childComplexity, args["objects"].([]*model.EnterpriseInsertInput)), true
 
+	case "Mutation.insert_enterprise_alarm_send_police":
+		if e.complexity.Mutation.InsertEnterpriseAlarmSendPolice == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_insert_enterprise_alarm_send_police_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.InsertEnterpriseAlarmSendPolice(childComplexity, args["objects"].([]*model.EnterpriseAlarmSendPoliceInsertInput)), true
+
+	case "Mutation.insert_enterprise_alarm_send_police_one":
+		if e.complexity.Mutation.InsertEnterpriseAlarmSendPoliceOne == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_insert_enterprise_alarm_send_police_one_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.InsertEnterpriseAlarmSendPoliceOne(childComplexity, args["objects"].(model.EnterpriseAlarmSendPoliceInsertInput)), true
+
 	case "Mutation.insert_enterprise_contact":
 		if e.complexity.Mutation.InsertEnterpriseContact == nil {
 			break
@@ -8993,30 +8993,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Mutation.InsertEnterpriseOne(childComplexity, args["objects"].(model.EnterpriseInsertInput)), true
-
-	case "Mutation.insert_enterprise_police_sms_info":
-		if e.complexity.Mutation.InsertEnterprisePoliceSmsInfo == nil {
-			break
-		}
-
-		args, err := ec.field_Mutation_insert_enterprise_police_sms_info_args(context.TODO(), rawArgs)
-		if err != nil {
-			return 0, false
-		}
-
-		return e.complexity.Mutation.InsertEnterprisePoliceSmsInfo(childComplexity, args["objects"].([]*model.EnterprisePoliceSmsInfoInsertInput)), true
-
-	case "Mutation.insert_enterprise_police_sms_info_one":
-		if e.complexity.Mutation.InsertEnterprisePoliceSmsInfoOne == nil {
-			break
-		}
-
-		args, err := ec.field_Mutation_insert_enterprise_police_sms_info_one_args(context.TODO(), rawArgs)
-		if err != nil {
-			return 0, false
-		}
-
-		return e.complexity.Mutation.InsertEnterprisePoliceSmsInfoOne(childComplexity, args["objects"].(model.EnterprisePoliceSmsInfoInsertInput)), true
 
 	case "Mutation.insert_enterprise_score_log":
 		if e.complexity.Mutation.InsertEnterpriseScoreLog == nil {
@@ -9186,6 +9162,42 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.UpdateEnterprise(childComplexity, args["_inc"].(*model.EnterpriseIncInput), args["_set"].(*model.EnterpriseSetInput), args["where"].(model.EnterpriseBoolExp)), true
 
+	case "Mutation.update_enterprise_alarm_send_police":
+		if e.complexity.Mutation.UpdateEnterpriseAlarmSendPolice == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_update_enterprise_alarm_send_police_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.UpdateEnterpriseAlarmSendPolice(childComplexity, args["_inc"].(*model.EnterpriseAlarmSendPoliceIncInput), args["_set"].(*model.EnterpriseAlarmSendPoliceSetInput), args["where"].(model.EnterpriseAlarmSendPoliceBoolExp)), true
+
+	case "Mutation.update_enterprise_alarm_send_police_by_pk":
+		if e.complexity.Mutation.UpdateEnterpriseAlarmSendPoliceByPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_update_enterprise_alarm_send_police_by_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.UpdateEnterpriseAlarmSendPoliceByPk(childComplexity, args["_inc"].(*model.EnterpriseAlarmSendPoliceIncInput), args["_set"].(*model.EnterpriseAlarmSendPoliceSetInput), args["id"].(int64)), true
+
+	case "Mutation.update_enterprise_alarm_send_police_by_union_pk":
+		if e.complexity.Mutation.UpdateEnterpriseAlarmSendPoliceByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_update_enterprise_alarm_send_police_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.UpdateEnterpriseAlarmSendPoliceByUnionPk(childComplexity, args["_inc"].(*model.EnterpriseAlarmSendPoliceIncInput), args["_set"].(*model.EnterpriseAlarmSendPoliceSetInput), args["enterprise_alarm_send_police_id"].(string)), true
+
 	case "Mutation.update_enterprise_by_pk":
 		if e.complexity.Mutation.UpdateEnterpriseByPk == nil {
 			break
@@ -9281,42 +9293,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Mutation.UpdateEnterpriseMuckTrunkByUnionPk(childComplexity, args["_inc"].(*model.EnterpriseMuckTrunkIncInput), args["_set"].(*model.EnterpriseMuckTrunkSetInput), args["enterprise_muck_trunk_id"].(string)), true
-
-	case "Mutation.update_enterprise_police_sms_info":
-		if e.complexity.Mutation.UpdateEnterprisePoliceSmsInfo == nil {
-			break
-		}
-
-		args, err := ec.field_Mutation_update_enterprise_police_sms_info_args(context.TODO(), rawArgs)
-		if err != nil {
-			return 0, false
-		}
-
-		return e.complexity.Mutation.UpdateEnterprisePoliceSmsInfo(childComplexity, args["_inc"].(*model.EnterprisePoliceSmsInfoIncInput), args["_set"].(*model.EnterprisePoliceSmsInfoSetInput), args["where"].(model.EnterprisePoliceSmsInfoBoolExp)), true
-
-	case "Mutation.update_enterprise_police_sms_info_by_pk":
-		if e.complexity.Mutation.UpdateEnterprisePoliceSmsInfoByPk == nil {
-			break
-		}
-
-		args, err := ec.field_Mutation_update_enterprise_police_sms_info_by_pk_args(context.TODO(), rawArgs)
-		if err != nil {
-			return 0, false
-		}
-
-		return e.complexity.Mutation.UpdateEnterprisePoliceSmsInfoByPk(childComplexity, args["_inc"].(*model.EnterprisePoliceSmsInfoIncInput), args["_set"].(*model.EnterprisePoliceSmsInfoSetInput), args["id"].(int64)), true
-
-	case "Mutation.update_enterprise_police_sms_info_by_union_pk":
-		if e.complexity.Mutation.UpdateEnterprisePoliceSmsInfoByUnionPk == nil {
-			break
-		}
-
-		args, err := ec.field_Mutation_update_enterprise_police_sms_info_by_union_pk_args(context.TODO(), rawArgs)
-		if err != nil {
-			return 0, false
-		}
-
-		return e.complexity.Mutation.UpdateEnterprisePoliceSmsInfoByUnionPk(childComplexity, args["_inc"].(*model.EnterprisePoliceSmsInfoIncInput), args["_set"].(*model.EnterprisePoliceSmsInfoSetInput), args["enterprise_police_sms_info_id"].(string)), true
 
 	case "Mutation.update_enterprise_score_log":
 		if e.complexity.Mutation.UpdateEnterpriseScoreLog == nil {
@@ -9570,6 +9546,54 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Query.EnterpriseAggregate(childComplexity, args["distinct_on"].([]model.EnterpriseSelectColumn), args["limit"].(*int), args["offset"].(*int), args["order_by"].([]*model.EnterpriseOrderBy), args["where"].(*model.EnterpriseBoolExp)), true
 
+	case "Query.enterprise_alarm_send_police":
+		if e.complexity.Query.EnterpriseAlarmSendPolice == nil {
+			break
+		}
+
+		args, err := ec.field_Query_enterprise_alarm_send_police_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.EnterpriseAlarmSendPolice(childComplexity, args["distinct_on"].([]model.EnterpriseAlarmSendPoliceSelectColumn), args["limit"].(*int), args["offset"].(*int), args["order_by"].([]*model.EnterpriseAlarmSendPoliceOrderBy), args["where"].(*model.EnterpriseAlarmSendPoliceBoolExp)), true
+
+	case "Query.enterprise_alarm_send_police_aggregate":
+		if e.complexity.Query.EnterpriseAlarmSendPoliceAggregate == nil {
+			break
+		}
+
+		args, err := ec.field_Query_enterprise_alarm_send_police_aggregate_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.EnterpriseAlarmSendPoliceAggregate(childComplexity, args["distinct_on"].([]model.EnterpriseAlarmSendPoliceSelectColumn), args["limit"].(*int), args["offset"].(*int), args["order_by"].([]*model.EnterpriseAlarmSendPoliceOrderBy), args["where"].(*model.EnterpriseAlarmSendPoliceBoolExp)), true
+
+	case "Query.enterprise_alarm_send_police_by_pk":
+		if e.complexity.Query.EnterpriseAlarmSendPoliceByPk == nil {
+			break
+		}
+
+		args, err := ec.field_Query_enterprise_alarm_send_police_by_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.EnterpriseAlarmSendPoliceByPk(childComplexity, args["id"].(int64)), true
+
+	case "Query.enterprise_alarm_send_police_by_union_pk":
+		if e.complexity.Query.EnterpriseAlarmSendPoliceByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Query_enterprise_alarm_send_police_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.EnterpriseAlarmSendPoliceByUnionPk(childComplexity, args["enterprise_alarm_send_police_id"].(string)), true
+
 	case "Query.enterprise_by_pk":
 		if e.complexity.Query.EnterpriseByPk == nil {
 			break
@@ -9689,54 +9713,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Query.EnterpriseMuckTrunkByUnionPk(childComplexity, args["enterprise_muck_trunk_id"].(string)), true
-
-	case "Query.enterprise_police_sms_info":
-		if e.complexity.Query.EnterprisePoliceSmsInfo == nil {
-			break
-		}
-
-		args, err := ec.field_Query_enterprise_police_sms_info_args(context.TODO(), rawArgs)
-		if err != nil {
-			return 0, false
-		}
-
-		return e.complexity.Query.EnterprisePoliceSmsInfo(childComplexity, args["distinct_on"].([]model.EnterprisePoliceSmsInfoSelectColumn), args["limit"].(*int), args["offset"].(*int), args["order_by"].([]*model.EnterprisePoliceSmsInfoOrderBy), args["where"].(*model.EnterprisePoliceSmsInfoBoolExp)), true
-
-	case "Query.enterprise_police_sms_info_aggregate":
-		if e.complexity.Query.EnterprisePoliceSmsInfoAggregate == nil {
-			break
-		}
-
-		args, err := ec.field_Query_enterprise_police_sms_info_aggregate_args(context.TODO(), rawArgs)
-		if err != nil {
-			return 0, false
-		}
-
-		return e.complexity.Query.EnterprisePoliceSmsInfoAggregate(childComplexity, args["distinct_on"].([]model.EnterprisePoliceSmsInfoSelectColumn), args["limit"].(*int), args["offset"].(*int), args["order_by"].([]*model.EnterprisePoliceSmsInfoOrderBy), args["where"].(*model.EnterprisePoliceSmsInfoBoolExp)), true
-
-	case "Query.enterprise_police_sms_info_by_pk":
-		if e.complexity.Query.EnterprisePoliceSmsInfoByPk == nil {
-			break
-		}
-
-		args, err := ec.field_Query_enterprise_police_sms_info_by_pk_args(context.TODO(), rawArgs)
-		if err != nil {
-			return 0, false
-		}
-
-		return e.complexity.Query.EnterprisePoliceSmsInfoByPk(childComplexity, args["id"].(int64)), true
-
-	case "Query.enterprise_police_sms_info_by_union_pk":
-		if e.complexity.Query.EnterprisePoliceSmsInfoByUnionPk == nil {
-			break
-		}
-
-		args, err := ec.field_Query_enterprise_police_sms_info_by_union_pk_args(context.TODO(), rawArgs)
-		if err != nil {
-			return 0, false
-		}
-
-		return e.complexity.Query.EnterprisePoliceSmsInfoByUnionPk(childComplexity, args["enterprise_police_sms_info_id"].(string)), true
 
 	case "Query.enterprise_score_log":
 		if e.complexity.Query.EnterpriseScoreLog == nil {
@@ -11409,6 +11385,7 @@ input DepartmentBoolExp {
 input type for inserting data into table "department"
 """
 input DepartmentInsertInput {
+	department_id: String!
 	enterprise_id: String!
 	superior_department_id: String
 	department_name: String
@@ -12276,6 +12253,7 @@ input EnterpriseBoolExp {
 input type for inserting data into table "enterprise"
 """
 input EnterpriseInsertInput {
+	enterprise_id: String!
 	superior_enterprise_id: String
 	enterprise_code: String
 	enterprise_name: String
@@ -12723,6 +12701,394 @@ extend type Mutation {
 	delete_enterprise_by_union_pk(enterprise_id: String!): Enterprise
 }
 `, BuiltIn: false},
+	{Name: "graph/graphqls/enterprise_alarm_send_police.graphqls", Input: `"""
+企业报警发送交警联系人
+"""
+type EnterpriseAlarmSendPolice {
+	"""
+	 按指定方法生成                                  ( 主键                                 )
+	"""
+	id: Bigint!
+	"""
+	 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                             )
+	"""
+	enterprise_alarm_send_police_id: String!
+	"""
+	 所在企业id                                      ( enterprise_info表的enterprise_id )
+	"""
+	enterprise_id: String
+	"""
+	 企业名称                                        
+	"""
+	enterprise_name: String
+	"""
+	 企业联系人                                      
+	"""
+	enterprise_contact: String
+	"""
+	 企业联系电话                                    
+	"""
+	enterprise_phone: String
+	"""
+	 交警                                            
+	"""
+	police: String
+	"""
+	 交警联系电话                                    
+	"""
+	police_phone: String
+	"""
+	 交警所属部门                                    
+	"""
+	phlice_department: String
+	"""
+	 创建时间                                        
+	"""
+	created_at: Timestamptz!
+	"""
+	 创建人                                          ( system_user表的user_id           )
+	"""
+	created_by: String!
+	"""
+	 修改时间                                        
+	"""
+	updated_at: Timestamptz
+	"""
+	 修改人                                          ( system_user表的user_id           )
+	"""
+	updated_by: String
+	"""
+	 删除时间                                        
+	"""
+	deleted_at: Timestamptz
+	"""
+	 删除人                                          ( system_user表的user_id           )
+	"""
+	deleted_by: String
+}
+"""
+aggregated selection of "enterprise_alarm_send_police"
+"""
+type EnterpriseAlarmSendPoliceAggregate {
+	aggregate: EnterpriseAlarmSendPoliceAggregateFields
+}
+"""
+aggregate fields of "enterprise_alarm_send_police"
+"""
+type EnterpriseAlarmSendPoliceAggregateFields {
+	avg: EnterpriseAlarmSendPoliceAvgFields
+	count: Int
+	max: EnterpriseAlarmSendPoliceMaxFields
+	min: EnterpriseAlarmSendPoliceMinFields
+	stddev: EnterpriseAlarmSendPoliceStddevFields
+	stddev_pop: EnterpriseAlarmSendPoliceStddevPopFields
+	stddev_samp: EnterpriseAlarmSendPoliceStddevSampFields
+	sum: EnterpriseAlarmSendPoliceSumFields
+	var_pop: EnterpriseAlarmSendPoliceVarPopFields
+	var_samp: EnterpriseAlarmSendPoliceVarSampFields
+	variance: EnterpriseAlarmSendPoliceVarianceFields
+}
+"""
+aggregate avg on columns of table "enterprise_alarm_send_police"
+"""
+type EnterpriseAlarmSendPoliceAvgFields {
+	id: Bigint
+}
+"""
+aggregate max on columns of table "enterprise_alarm_send_police"
+"""
+type EnterpriseAlarmSendPoliceMaxFields {
+	id: Bigint
+	enterprise_alarm_send_police_id: String
+	enterprise_id: String
+	enterprise_name: String
+	enterprise_contact: String
+	enterprise_phone: String
+	police: String
+	police_phone: String
+	phlice_department: String
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+aggregate min on columns of table "enterprise_alarm_send_police"
+"""
+type EnterpriseAlarmSendPoliceMinFields {
+	id: Bigint
+	enterprise_alarm_send_police_id: String
+	enterprise_id: String
+	enterprise_name: String
+	enterprise_contact: String
+	enterprise_phone: String
+	police: String
+	police_phone: String
+	phlice_department: String
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+aggregate stddev on columns of table "enterprise_alarm_send_police"
+"""
+type EnterpriseAlarmSendPoliceStddevFields {
+	id: Bigint
+}
+"""
+aggregate stddev_pop on columns of table "enterprise_alarm_send_police"
+"""
+type EnterpriseAlarmSendPoliceStddevPopFields {
+	id: Bigint
+}
+"""
+aggregate stddev_samp on columns of table "enterprise_alarm_send_police"
+"""
+type EnterpriseAlarmSendPoliceStddevSampFields {
+	id: Bigint
+}
+"""
+aggregate sum on columns of table "enterprise_alarm_send_police"
+"""
+type EnterpriseAlarmSendPoliceSumFields {
+	id: Bigint
+}
+"""
+aggregate var_pop on columns of table "enterprise_alarm_send_police"
+"""
+type EnterpriseAlarmSendPoliceVarPopFields {
+	id: Bigint
+}
+"""
+aggregate var_samp on columns of table "enterprise_alarm_send_police"
+"""
+type EnterpriseAlarmSendPoliceVarSampFields {
+	id: Bigint
+}
+"""
+aggregate variance on columns of table "enterprise_alarm_send_police"
+"""
+type EnterpriseAlarmSendPoliceVarianceFields {
+	id: Bigint
+}
+"""
+response of any mutation on the table "enterprise_alarm_send_police"
+"""
+type EnterpriseAlarmSendPoliceMutationResponse {
+	affected_rows: Int!
+	returning: [EnterpriseAlarmSendPolice!]!
+}
+"""
+ordering options when selecting data from "enterprise_alarm_send_police"
+"""
+input EnterpriseAlarmSendPoliceOrderBy {
+	id: OrderBy
+	enterprise_alarm_send_police_id: OrderBy
+	enterprise_id: OrderBy
+	enterprise_name: OrderBy
+	enterprise_contact: OrderBy
+	enterprise_phone: OrderBy
+	police: OrderBy
+	police_phone: OrderBy
+	phlice_department: OrderBy
+	created_at: OrderBy
+	created_by: OrderBy
+	updated_at: OrderBy
+	updated_by: OrderBy
+	deleted_at: OrderBy
+	deleted_by: OrderBy
+}
+"""
+Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'enterprise_alarm_send_police'.
+"""
+input EnterpriseAlarmSendPoliceBoolExp {
+	_and: [EnterpriseAlarmSendPoliceBoolExp]
+	_not: EnterpriseAlarmSendPoliceBoolExp
+	_or: [EnterpriseAlarmSendPoliceBoolExp]
+	id: BigintComparisonExp
+	enterprise_alarm_send_police_id: StringComparisonExp
+	enterprise_id: StringComparisonExp
+	enterprise_name: StringComparisonExp
+	enterprise_contact: StringComparisonExp
+	enterprise_phone: StringComparisonExp
+	police: StringComparisonExp
+	police_phone: StringComparisonExp
+	phlice_department: StringComparisonExp
+	created_at: TimestamptzComparisonExp
+	created_by: StringComparisonExp
+	updated_at: TimestamptzComparisonExp
+	updated_by: StringComparisonExp
+	deleted_at: TimestamptzComparisonExp
+	deleted_by: StringComparisonExp
+}
+"""
+input type for inserting data into table "enterprise_alarm_send_police"
+"""
+input EnterpriseAlarmSendPoliceInsertInput {
+	enterprise_alarm_send_police_id: String!
+	enterprise_id: String
+	enterprise_name: String
+	enterprise_contact: String
+	enterprise_phone: String
+	police: String
+	police_phone: String
+	phlice_department: String
+	created_at: Timestamptz!
+	created_by: String!
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+input type for incrementing integer column in table "enterprise_alarm_send_police"
+"""
+input EnterpriseAlarmSendPoliceIncInput {
+	id: Bigint
+}
+"""
+input type for updating data in table "enterprise_alarm_send_police"
+"""
+input EnterpriseAlarmSendPoliceSetInput {
+	id: Bigint
+	enterprise_alarm_send_police_id: String
+	enterprise_id: String
+	enterprise_name: String
+	enterprise_contact: String
+	enterprise_phone: String
+	police: String
+	police_phone: String
+	phlice_department: String
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+可选select
+"""
+enum EnterpriseAlarmSendPoliceSelectColumn {
+	"""
+	 按指定方法生成                                  ( 主键                                 )
+	"""
+	id
+	"""
+	 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                             )
+	"""
+	enterprise_alarm_send_police_id
+	"""
+	 所在企业id                                      ( enterprise_info表的enterprise_id )
+	"""
+	enterprise_id
+	"""
+	 企业名称                                        
+	"""
+	enterprise_name
+	"""
+	 企业联系人                                      
+	"""
+	enterprise_contact
+	"""
+	 企业联系电话                                    
+	"""
+	enterprise_phone
+	"""
+	 交警                                            
+	"""
+	police
+	"""
+	 交警联系电话                                    
+	"""
+	police_phone
+	"""
+	 交警所属部门                                    
+	"""
+	phlice_department
+	"""
+	 创建时间                                        
+	"""
+	created_at
+	"""
+	 创建人                                          ( system_user表的user_id           )
+	"""
+	created_by
+	"""
+	 修改时间                                        
+	"""
+	updated_at
+	"""
+	 修改人                                          ( system_user表的user_id           )
+	"""
+	updated_by
+	"""
+	 删除时间                                        
+	"""
+	deleted_at
+	"""
+	 删除人                                          ( system_user表的user_id           )
+	"""
+	deleted_by
+}
+extend type Query {
+	"""
+	列表查询
+	"""
+	enterprise_alarm_send_police(distinct_on: [EnterpriseAlarmSendPoliceSelectColumn!], limit: Int, offset: Int, order_by: [EnterpriseAlarmSendPoliceOrderBy!], where: EnterpriseAlarmSendPoliceBoolExp): [EnterpriseAlarmSendPolice!]!
+	"""
+	聚合查询
+	"""
+	enterprise_alarm_send_police_aggregate(distinct_on: [EnterpriseAlarmSendPoliceSelectColumn!], limit: Int, offset: Int, order_by: [EnterpriseAlarmSendPoliceOrderBy!], where: EnterpriseAlarmSendPoliceBoolExp): EnterpriseAlarmSendPoliceAggregate!
+	"""
+	主键查询
+	"""
+	enterprise_alarm_send_police_by_pk(id: Bigint!): EnterpriseAlarmSendPolice!
+	"""
+	联合主键查询
+	"""
+	enterprise_alarm_send_police_by_union_pk(enterprise_alarm_send_police_id: String!): EnterpriseAlarmSendPolice!
+}
+extend type Mutation {
+	"""
+	删除记录
+	"""
+	delete_enterprise_alarm_send_police(where: EnterpriseAlarmSendPoliceBoolExp!): EnterpriseAlarmSendPoliceMutationResponse
+	"""
+	根据主键删除记录
+	"""
+	delete_enterprise_alarm_send_police_by_pk(id: Bigint!): EnterpriseAlarmSendPolice
+	"""
+	插入
+	"""
+	insert_enterprise_alarm_send_police(objects: [EnterpriseAlarmSendPoliceInsertInput!]!): EnterpriseAlarmSendPoliceMutationResponse
+	"""
+	插入一条记录
+	"""
+	insert_enterprise_alarm_send_police_one(objects: EnterpriseAlarmSendPoliceInsertInput!): EnterpriseAlarmSendPolice
+	"""
+	更新
+	"""
+	update_enterprise_alarm_send_police(_inc: EnterpriseAlarmSendPoliceIncInput, _set: EnterpriseAlarmSendPoliceSetInput, where: EnterpriseAlarmSendPoliceBoolExp!): EnterpriseAlarmSendPoliceMutationResponse
+	"""
+	根据主键更新
+	"""
+	update_enterprise_alarm_send_police_by_pk(_inc: EnterpriseAlarmSendPoliceIncInput, _set: EnterpriseAlarmSendPoliceSetInput, id: Bigint!): EnterpriseAlarmSendPolice
+	"""
+	根据联合主键更新
+	"""
+	update_enterprise_alarm_send_police_by_union_pk(_inc: EnterpriseAlarmSendPoliceIncInput, _set: EnterpriseAlarmSendPoliceSetInput, enterprise_alarm_send_police_id: String!): EnterpriseAlarmSendPolice
+	"""
+	根据联合主键删除记录
+	"""
+	delete_enterprise_alarm_send_police_by_union_pk(enterprise_alarm_send_police_id: String!): EnterpriseAlarmSendPolice
+}
+`, BuiltIn: false},
 	{Name: "graph/graphqls/enterprise_contact.graphqls", Input: `"""
 企业-联系人
 """
@@ -12960,6 +13326,7 @@ input EnterpriseContactBoolExp {
 input type for inserting data into table "enterprise_contact"
 """
 input EnterpriseContactInsertInput {
+	contact_id: String!
 	enterprise_id: String!
 	name: String
 	mobile: String
@@ -13556,6 +13923,7 @@ input EnterpriseMuckTrunkBoolExp {
 input type for inserting data into table "enterprise_muck_trunk"
 """
 input EnterpriseMuckTrunkInsertInput {
+	enterprise_muck_trunk_id: String!
 	enterprise_id: String!
 	company_manager: String
 	company_manager_phone: String
@@ -13860,407 +14228,6 @@ extend type Mutation {
 	delete_enterprise_muck_trunk_by_union_pk(enterprise_muck_trunk_id: String!): EnterpriseMuckTrunk
 }
 `, BuiltIn: false},
-	{Name: "graph/graphqls/enterprise_police_sms_info.graphqls", Input: `"""
-企业报警发送交警联系人
-"""
-type EnterprisePoliceSmsInfo {
-	"""
-	ID
-	"""
-	id: Bigint!
-	"""
-	企业对应的交警联系人表ID
-	"""
-	enterprise_police_sms_info_id: String!
-	"""
-	企业ID
-	"""
-	enterprise_id: String!
-	"""
-	企业名称
-	"""
-	enterprise_name: String
-	"""
-	企业联系人姓名
-	"""
-	enterprise_contact_name: String
-	"""
-	企业联系人电话
-	"""
-	enterprise_contact_phone: String
-	"""
-	交警姓名
-	"""
-	police_name: String
-	"""
-	交警联系电话
-	"""
-	police_phone: String
-	"""
-	交集所属部门
-	"""
-	police_dept: String
-	"""
-	创建时间
-	"""
-	create_at: Timestamptz!
-	"""
-	创建人
-	"""
-	create_by: String
-	"""
-	更新时间
-	"""
-	update_at: Timestamptz
-	"""
-	更新人
-	"""
-	update_by: String
-	"""
-	删除时间
-	"""
-	delete_at: Timestamptz
-	"""
-	删除人
-	"""
-	delete_by: String
-	"""
-	是否删除
-	"""
-	is_delete: Boolean!
-}
-"""
-aggregated selection of "enterprise_police_sms_info"
-"""
-type EnterprisePoliceSmsInfoAggregate {
-	aggregate: EnterprisePoliceSmsInfoAggregateFields
-}
-"""
-aggregate fields of "enterprise_police_sms_info"
-"""
-type EnterprisePoliceSmsInfoAggregateFields {
-	avg: EnterprisePoliceSmsInfoAvgFields
-	count: Int
-	max: EnterprisePoliceSmsInfoMaxFields
-	min: EnterprisePoliceSmsInfoMinFields
-	stddev: EnterprisePoliceSmsInfoStddevFields
-	stddev_pop: EnterprisePoliceSmsInfoStddevPopFields
-	stddev_samp: EnterprisePoliceSmsInfoStddevSampFields
-	sum: EnterprisePoliceSmsInfoSumFields
-	var_pop: EnterprisePoliceSmsInfoVarPopFields
-	var_samp: EnterprisePoliceSmsInfoVarSampFields
-	variance: EnterprisePoliceSmsInfoVarianceFields
-}
-"""
-aggregate avg on columns of table "enterprise_police_sms_info"
-"""
-type EnterprisePoliceSmsInfoAvgFields {
-	id: Bigint
-}
-"""
-aggregate max on columns of table "enterprise_police_sms_info"
-"""
-type EnterprisePoliceSmsInfoMaxFields {
-	id: Bigint
-	enterprise_police_sms_info_id: String
-	enterprise_id: String
-	enterprise_name: String
-	enterprise_contact_name: String
-	enterprise_contact_phone: String
-	police_name: String
-	police_phone: String
-	police_dept: String
-	create_at: Timestamptz
-	create_by: String
-	update_at: Timestamptz
-	update_by: String
-	delete_at: Timestamptz
-	delete_by: String
-	is_delete: Boolean
-}
-"""
-aggregate min on columns of table "enterprise_police_sms_info"
-"""
-type EnterprisePoliceSmsInfoMinFields {
-	id: Bigint
-	enterprise_police_sms_info_id: String
-	enterprise_id: String
-	enterprise_name: String
-	enterprise_contact_name: String
-	enterprise_contact_phone: String
-	police_name: String
-	police_phone: String
-	police_dept: String
-	create_at: Timestamptz
-	create_by: String
-	update_at: Timestamptz
-	update_by: String
-	delete_at: Timestamptz
-	delete_by: String
-	is_delete: Boolean
-}
-"""
-aggregate stddev on columns of table "enterprise_police_sms_info"
-"""
-type EnterprisePoliceSmsInfoStddevFields {
-	id: Bigint
-}
-"""
-aggregate stddev_pop on columns of table "enterprise_police_sms_info"
-"""
-type EnterprisePoliceSmsInfoStddevPopFields {
-	id: Bigint
-}
-"""
-aggregate stddev_samp on columns of table "enterprise_police_sms_info"
-"""
-type EnterprisePoliceSmsInfoStddevSampFields {
-	id: Bigint
-}
-"""
-aggregate sum on columns of table "enterprise_police_sms_info"
-"""
-type EnterprisePoliceSmsInfoSumFields {
-	id: Bigint
-}
-"""
-aggregate var_pop on columns of table "enterprise_police_sms_info"
-"""
-type EnterprisePoliceSmsInfoVarPopFields {
-	id: Bigint
-}
-"""
-aggregate var_samp on columns of table "enterprise_police_sms_info"
-"""
-type EnterprisePoliceSmsInfoVarSampFields {
-	id: Bigint
-}
-"""
-aggregate variance on columns of table "enterprise_police_sms_info"
-"""
-type EnterprisePoliceSmsInfoVarianceFields {
-	id: Bigint
-}
-"""
-response of any mutation on the table "enterprise_police_sms_info"
-"""
-type EnterprisePoliceSmsInfoMutationResponse {
-	affected_rows: Int!
-	returning: [EnterprisePoliceSmsInfo!]!
-}
-"""
-ordering options when selecting data from "enterprise_police_sms_info"
-"""
-input EnterprisePoliceSmsInfoOrderBy {
-	id: OrderBy
-	enterprise_police_sms_info_id: OrderBy
-	enterprise_id: OrderBy
-	enterprise_name: OrderBy
-	enterprise_contact_name: OrderBy
-	enterprise_contact_phone: OrderBy
-	police_name: OrderBy
-	police_phone: OrderBy
-	police_dept: OrderBy
-	create_at: OrderBy
-	create_by: OrderBy
-	update_at: OrderBy
-	update_by: OrderBy
-	delete_at: OrderBy
-	delete_by: OrderBy
-	is_delete: OrderBy
-}
-"""
-Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'enterprise_police_sms_info'.
-"""
-input EnterprisePoliceSmsInfoBoolExp {
-	_and: [EnterprisePoliceSmsInfoBoolExp]
-	_not: EnterprisePoliceSmsInfoBoolExp
-	_or: [EnterprisePoliceSmsInfoBoolExp]
-	id: BigintComparisonExp
-	enterprise_police_sms_info_id: StringComparisonExp
-	enterprise_id: StringComparisonExp
-	enterprise_name: StringComparisonExp
-	enterprise_contact_name: StringComparisonExp
-	enterprise_contact_phone: StringComparisonExp
-	police_name: StringComparisonExp
-	police_phone: StringComparisonExp
-	police_dept: StringComparisonExp
-	create_at: TimestamptzComparisonExp
-	create_by: StringComparisonExp
-	update_at: TimestamptzComparisonExp
-	update_by: StringComparisonExp
-	delete_at: TimestamptzComparisonExp
-	delete_by: StringComparisonExp
-	is_delete: BooleanComparisonExp
-}
-"""
-input type for inserting data into table "enterprise_police_sms_info"
-"""
-input EnterprisePoliceSmsInfoInsertInput {
-	enterprise_id: String!
-	enterprise_name: String
-	enterprise_contact_name: String
-	enterprise_contact_phone: String
-	police_name: String
-	police_phone: String
-	police_dept: String
-	create_at: Timestamptz!
-	create_by: String
-	update_at: Timestamptz
-	update_by: String
-	delete_at: Timestamptz
-	delete_by: String
-	is_delete: Boolean!
-}
-"""
-input type for incrementing integer column in table "enterprise_police_sms_info"
-"""
-input EnterprisePoliceSmsInfoIncInput {
-	id: Bigint
-}
-"""
-input type for updating data in table "enterprise_police_sms_info"
-"""
-input EnterprisePoliceSmsInfoSetInput {
-	id: Bigint
-	enterprise_police_sms_info_id: String
-	enterprise_id: String
-	enterprise_name: String
-	enterprise_contact_name: String
-	enterprise_contact_phone: String
-	police_name: String
-	police_phone: String
-	police_dept: String
-	create_at: Timestamptz
-	create_by: String
-	update_at: Timestamptz
-	update_by: String
-	delete_at: Timestamptz
-	delete_by: String
-	is_delete: Boolean
-}
-"""
-可选select
-"""
-enum EnterprisePoliceSmsInfoSelectColumn {
-	"""
-	ID
-	"""
-	id
-	"""
-	企业对应的交警联系人表ID
-	"""
-	enterprise_police_sms_info_id
-	"""
-	企业ID
-	"""
-	enterprise_id
-	"""
-	企业名称
-	"""
-	enterprise_name
-	"""
-	企业联系人姓名
-	"""
-	enterprise_contact_name
-	"""
-	企业联系人电话
-	"""
-	enterprise_contact_phone
-	"""
-	交警姓名
-	"""
-	police_name
-	"""
-	交警联系电话
-	"""
-	police_phone
-	"""
-	交集所属部门
-	"""
-	police_dept
-	"""
-	创建时间
-	"""
-	create_at
-	"""
-	创建人
-	"""
-	create_by
-	"""
-	更新时间
-	"""
-	update_at
-	"""
-	更新人
-	"""
-	update_by
-	"""
-	删除时间
-	"""
-	delete_at
-	"""
-	删除人
-	"""
-	delete_by
-	"""
-	是否删除
-	"""
-	is_delete
-}
-extend type Query {
-	"""
-	列表查询
-	"""
-	enterprise_police_sms_info(distinct_on: [EnterprisePoliceSmsInfoSelectColumn!], limit: Int, offset: Int, order_by: [EnterprisePoliceSmsInfoOrderBy!], where: EnterprisePoliceSmsInfoBoolExp): [EnterprisePoliceSmsInfo!]!
-	"""
-	聚合查询
-	"""
-	enterprise_police_sms_info_aggregate(distinct_on: [EnterprisePoliceSmsInfoSelectColumn!], limit: Int, offset: Int, order_by: [EnterprisePoliceSmsInfoOrderBy!], where: EnterprisePoliceSmsInfoBoolExp): EnterprisePoliceSmsInfoAggregate!
-	"""
-	主键查询
-	"""
-	enterprise_police_sms_info_by_pk(id: Bigint!): EnterprisePoliceSmsInfo!
-	"""
-	联合主键查询
-	"""
-	enterprise_police_sms_info_by_union_pk(enterprise_police_sms_info_id: String!): EnterprisePoliceSmsInfo!
-}
-extend type Mutation {
-	"""
-	删除记录
-	"""
-	delete_enterprise_police_sms_info(where: EnterprisePoliceSmsInfoBoolExp!): EnterprisePoliceSmsInfoMutationResponse
-	"""
-	根据主键删除记录
-	"""
-	delete_enterprise_police_sms_info_by_pk(id: Bigint!): EnterprisePoliceSmsInfo
-	"""
-	插入
-	"""
-	insert_enterprise_police_sms_info(objects: [EnterprisePoliceSmsInfoInsertInput!]!): EnterprisePoliceSmsInfoMutationResponse
-	"""
-	插入一条记录
-	"""
-	insert_enterprise_police_sms_info_one(objects: EnterprisePoliceSmsInfoInsertInput!): EnterprisePoliceSmsInfo
-	"""
-	更新
-	"""
-	update_enterprise_police_sms_info(_inc: EnterprisePoliceSmsInfoIncInput, _set: EnterprisePoliceSmsInfoSetInput, where: EnterprisePoliceSmsInfoBoolExp!): EnterprisePoliceSmsInfoMutationResponse
-	"""
-	根据主键更新
-	"""
-	update_enterprise_police_sms_info_by_pk(_inc: EnterprisePoliceSmsInfoIncInput, _set: EnterprisePoliceSmsInfoSetInput, id: Bigint!): EnterprisePoliceSmsInfo
-	"""
-	根据联合主键更新
-	"""
-	update_enterprise_police_sms_info_by_union_pk(_inc: EnterprisePoliceSmsInfoIncInput, _set: EnterprisePoliceSmsInfoSetInput, enterprise_police_sms_info_id: String!): EnterprisePoliceSmsInfo
-	"""
-	根据联合主键删除记录
-	"""
-	delete_enterprise_police_sms_info_by_union_pk(enterprise_police_sms_info_id: String!): EnterprisePoliceSmsInfo
-}
-`, BuiltIn: false},
 	{Name: "graph/graphqls/enterprise_score_log.graphqls", Input: `"""
 企业扣分日志表
 """
@@ -14506,6 +14473,7 @@ input EnterpriseScoreLogBoolExp {
 input type for inserting data into table "enterprise_score_log"
 """
 input EnterpriseScoreLogInsertInput {
+	log_id: String!
 	enterprise_id: String!
 	current_score: Int!
 	add_score: Int!
@@ -14887,6 +14855,7 @@ input EnterpriseScoreSetBoolExp {
 input type for inserting data into table "enterprise_score_set"
 """
 input EnterpriseScoreSetInsertInput {
+	score_set_id: String!
 	content: String!
 	type: Int!
 	score: Float!
@@ -15210,6 +15179,7 @@ input EnterpriseStateHisBoolExp {
 input type for inserting data into table "enterprise_state_his"
 """
 input EnterpriseStateHisInsertInput {
+	state_his_id: String!
 	enterprise_id: String!
 	reason: String
 	state: Int!
@@ -15516,6 +15486,7 @@ input EnterpriseUkeyBoolExp {
 input type for inserting data into table "enterprise_ukey"
 """
 input EnterpriseUkeyInsertInput {
+	ukey_id: String!
 	enterprise_id: String!
 	create_at: Timestamptz!
 	create_by: String
@@ -16001,6 +15972,7 @@ input SystemUserBoolExp {
 input type for inserting data into table "system_user"
 """
 input SystemUserInsertInput {
+	user_id: String!
 	password: String!
 	uername: String!
 	enterprise_id: String
@@ -16287,6 +16259,51 @@ func (ec *executionContext) field_Mutation_delete_department_by_union_pk_args(ct
 	return args, nil
 }
 
+func (ec *executionContext) field_Mutation_delete_enterprise_alarm_send_police_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 model.EnterpriseAlarmSendPoliceBoolExp
+	if tmp, ok := rawArgs["where"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("where"))
+		arg0, err = ec.unmarshalNEnterpriseAlarmSendPoliceBoolExp2VehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterpriseAlarmSendPoliceBoolExp(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["where"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_delete_enterprise_alarm_send_police_by_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 int64
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalNBigint2int64(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_delete_enterprise_alarm_send_police_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["enterprise_alarm_send_police_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_alarm_send_police_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["enterprise_alarm_send_police_id"] = arg0
+	return args, nil
+}
+
 func (ec *executionContext) field_Mutation_delete_enterprise_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -16419,51 +16436,6 @@ func (ec *executionContext) field_Mutation_delete_enterprise_muck_trunk_by_union
 		}
 	}
 	args["enterprise_muck_trunk_id"] = arg0
-	return args, nil
-}
-
-func (ec *executionContext) field_Mutation_delete_enterprise_police_sms_info_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
-	var err error
-	args := map[string]interface{}{}
-	var arg0 model.EnterprisePoliceSmsInfoBoolExp
-	if tmp, ok := rawArgs["where"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("where"))
-		arg0, err = ec.unmarshalNEnterprisePoliceSmsInfoBoolExp2VehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterprisePoliceSmsInfoBoolExp(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["where"] = arg0
-	return args, nil
-}
-
-func (ec *executionContext) field_Mutation_delete_enterprise_police_sms_info_by_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
-	var err error
-	args := map[string]interface{}{}
-	var arg0 int64
-	if tmp, ok := rawArgs["id"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-		arg0, err = ec.unmarshalNBigint2int64(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["id"] = arg0
-	return args, nil
-}
-
-func (ec *executionContext) field_Mutation_delete_enterprise_police_sms_info_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
-	var err error
-	args := map[string]interface{}{}
-	var arg0 string
-	if tmp, ok := rawArgs["enterprise_police_sms_info_id"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_police_sms_info_id"))
-		arg0, err = ec.unmarshalNString2string(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["enterprise_police_sms_info_id"] = arg0
 	return args, nil
 }
 
@@ -16722,6 +16694,36 @@ func (ec *executionContext) field_Mutation_insert_department_one_args(ctx contex
 	return args, nil
 }
 
+func (ec *executionContext) field_Mutation_insert_enterprise_alarm_send_police_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 []*model.EnterpriseAlarmSendPoliceInsertInput
+	if tmp, ok := rawArgs["objects"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("objects"))
+		arg0, err = ec.unmarshalNEnterpriseAlarmSendPoliceInsertInput2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterpriseAlarmSendPoliceInsertInputᚄ(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["objects"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_insert_enterprise_alarm_send_police_one_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 model.EnterpriseAlarmSendPoliceInsertInput
+	if tmp, ok := rawArgs["objects"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("objects"))
+		arg0, err = ec.unmarshalNEnterpriseAlarmSendPoliceInsertInput2VehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterpriseAlarmSendPoliceInsertInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["objects"] = arg0
+	return args, nil
+}
+
 func (ec *executionContext) field_Mutation_insert_enterprise_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -16804,36 +16806,6 @@ func (ec *executionContext) field_Mutation_insert_enterprise_one_args(ctx contex
 	if tmp, ok := rawArgs["objects"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("objects"))
 		arg0, err = ec.unmarshalNEnterpriseInsertInput2VehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterpriseInsertInput(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["objects"] = arg0
-	return args, nil
-}
-
-func (ec *executionContext) field_Mutation_insert_enterprise_police_sms_info_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
-	var err error
-	args := map[string]interface{}{}
-	var arg0 []*model.EnterprisePoliceSmsInfoInsertInput
-	if tmp, ok := rawArgs["objects"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("objects"))
-		arg0, err = ec.unmarshalNEnterprisePoliceSmsInfoInsertInput2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterprisePoliceSmsInfoInsertInputᚄ(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["objects"] = arg0
-	return args, nil
-}
-
-func (ec *executionContext) field_Mutation_insert_enterprise_police_sms_info_one_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
-	var err error
-	args := map[string]interface{}{}
-	var arg0 model.EnterprisePoliceSmsInfoInsertInput
-	if tmp, ok := rawArgs["objects"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("objects"))
-		arg0, err = ec.unmarshalNEnterprisePoliceSmsInfoInsertInput2VehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterprisePoliceSmsInfoInsertInput(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -17088,6 +17060,105 @@ func (ec *executionContext) field_Mutation_update_department_by_union_pk_args(ct
 		}
 	}
 	args["department_id"] = arg2
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_update_enterprise_alarm_send_police_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *model.EnterpriseAlarmSendPoliceIncInput
+	if tmp, ok := rawArgs["_inc"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
+		arg0, err = ec.unmarshalOEnterpriseAlarmSendPoliceIncInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterpriseAlarmSendPoliceIncInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_inc"] = arg0
+	var arg1 *model.EnterpriseAlarmSendPoliceSetInput
+	if tmp, ok := rawArgs["_set"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
+		arg1, err = ec.unmarshalOEnterpriseAlarmSendPoliceSetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterpriseAlarmSendPoliceSetInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_set"] = arg1
+	var arg2 model.EnterpriseAlarmSendPoliceBoolExp
+	if tmp, ok := rawArgs["where"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("where"))
+		arg2, err = ec.unmarshalNEnterpriseAlarmSendPoliceBoolExp2VehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterpriseAlarmSendPoliceBoolExp(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["where"] = arg2
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_update_enterprise_alarm_send_police_by_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *model.EnterpriseAlarmSendPoliceIncInput
+	if tmp, ok := rawArgs["_inc"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
+		arg0, err = ec.unmarshalOEnterpriseAlarmSendPoliceIncInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterpriseAlarmSendPoliceIncInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_inc"] = arg0
+	var arg1 *model.EnterpriseAlarmSendPoliceSetInput
+	if tmp, ok := rawArgs["_set"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
+		arg1, err = ec.unmarshalOEnterpriseAlarmSendPoliceSetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterpriseAlarmSendPoliceSetInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_set"] = arg1
+	var arg2 int64
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg2, err = ec.unmarshalNBigint2int64(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["id"] = arg2
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_update_enterprise_alarm_send_police_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *model.EnterpriseAlarmSendPoliceIncInput
+	if tmp, ok := rawArgs["_inc"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
+		arg0, err = ec.unmarshalOEnterpriseAlarmSendPoliceIncInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterpriseAlarmSendPoliceIncInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_inc"] = arg0
+	var arg1 *model.EnterpriseAlarmSendPoliceSetInput
+	if tmp, ok := rawArgs["_set"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
+		arg1, err = ec.unmarshalOEnterpriseAlarmSendPoliceSetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterpriseAlarmSendPoliceSetInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_set"] = arg1
+	var arg2 string
+	if tmp, ok := rawArgs["enterprise_alarm_send_police_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_alarm_send_police_id"))
+		arg2, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["enterprise_alarm_send_police_id"] = arg2
 	return args, nil
 }
 
@@ -17385,105 +17456,6 @@ func (ec *executionContext) field_Mutation_update_enterprise_muck_trunk_by_union
 		}
 	}
 	args["enterprise_muck_trunk_id"] = arg2
-	return args, nil
-}
-
-func (ec *executionContext) field_Mutation_update_enterprise_police_sms_info_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
-	var err error
-	args := map[string]interface{}{}
-	var arg0 *model.EnterprisePoliceSmsInfoIncInput
-	if tmp, ok := rawArgs["_inc"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
-		arg0, err = ec.unmarshalOEnterprisePoliceSmsInfoIncInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterprisePoliceSmsInfoIncInput(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["_inc"] = arg0
-	var arg1 *model.EnterprisePoliceSmsInfoSetInput
-	if tmp, ok := rawArgs["_set"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
-		arg1, err = ec.unmarshalOEnterprisePoliceSmsInfoSetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterprisePoliceSmsInfoSetInput(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["_set"] = arg1
-	var arg2 model.EnterprisePoliceSmsInfoBoolExp
-	if tmp, ok := rawArgs["where"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("where"))
-		arg2, err = ec.unmarshalNEnterprisePoliceSmsInfoBoolExp2VehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterprisePoliceSmsInfoBoolExp(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["where"] = arg2
-	return args, nil
-}
-
-func (ec *executionContext) field_Mutation_update_enterprise_police_sms_info_by_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
-	var err error
-	args := map[string]interface{}{}
-	var arg0 *model.EnterprisePoliceSmsInfoIncInput
-	if tmp, ok := rawArgs["_inc"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
-		arg0, err = ec.unmarshalOEnterprisePoliceSmsInfoIncInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterprisePoliceSmsInfoIncInput(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["_inc"] = arg0
-	var arg1 *model.EnterprisePoliceSmsInfoSetInput
-	if tmp, ok := rawArgs["_set"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
-		arg1, err = ec.unmarshalOEnterprisePoliceSmsInfoSetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterprisePoliceSmsInfoSetInput(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["_set"] = arg1
-	var arg2 int64
-	if tmp, ok := rawArgs["id"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-		arg2, err = ec.unmarshalNBigint2int64(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["id"] = arg2
-	return args, nil
-}
-
-func (ec *executionContext) field_Mutation_update_enterprise_police_sms_info_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
-	var err error
-	args := map[string]interface{}{}
-	var arg0 *model.EnterprisePoliceSmsInfoIncInput
-	if tmp, ok := rawArgs["_inc"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
-		arg0, err = ec.unmarshalOEnterprisePoliceSmsInfoIncInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterprisePoliceSmsInfoIncInput(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["_inc"] = arg0
-	var arg1 *model.EnterprisePoliceSmsInfoSetInput
-	if tmp, ok := rawArgs["_set"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
-		arg1, err = ec.unmarshalOEnterprisePoliceSmsInfoSetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterprisePoliceSmsInfoSetInput(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["_set"] = arg1
-	var arg2 string
-	if tmp, ok := rawArgs["enterprise_police_sms_info_id"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_police_sms_info_id"))
-		arg2, err = ec.unmarshalNString2string(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["enterprise_police_sms_info_id"] = arg2
 	return args, nil
 }
 
@@ -18180,6 +18152,138 @@ func (ec *executionContext) field_Query_enterprise_aggregate_args(ctx context.Co
 	return args, nil
 }
 
+func (ec *executionContext) field_Query_enterprise_alarm_send_police_aggregate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 []model.EnterpriseAlarmSendPoliceSelectColumn
+	if tmp, ok := rawArgs["distinct_on"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("distinct_on"))
+		arg0, err = ec.unmarshalOEnterpriseAlarmSendPoliceSelectColumn2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterpriseAlarmSendPoliceSelectColumnᚄ(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["distinct_on"] = arg0
+	var arg1 *int
+	if tmp, ok := rawArgs["limit"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("limit"))
+		arg1, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["limit"] = arg1
+	var arg2 *int
+	if tmp, ok := rawArgs["offset"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("offset"))
+		arg2, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["offset"] = arg2
+	var arg3 []*model.EnterpriseAlarmSendPoliceOrderBy
+	if tmp, ok := rawArgs["order_by"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("order_by"))
+		arg3, err = ec.unmarshalOEnterpriseAlarmSendPoliceOrderBy2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterpriseAlarmSendPoliceOrderByᚄ(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["order_by"] = arg3
+	var arg4 *model.EnterpriseAlarmSendPoliceBoolExp
+	if tmp, ok := rawArgs["where"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("where"))
+		arg4, err = ec.unmarshalOEnterpriseAlarmSendPoliceBoolExp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterpriseAlarmSendPoliceBoolExp(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["where"] = arg4
+	return args, nil
+}
+
+func (ec *executionContext) field_Query_enterprise_alarm_send_police_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 []model.EnterpriseAlarmSendPoliceSelectColumn
+	if tmp, ok := rawArgs["distinct_on"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("distinct_on"))
+		arg0, err = ec.unmarshalOEnterpriseAlarmSendPoliceSelectColumn2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterpriseAlarmSendPoliceSelectColumnᚄ(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["distinct_on"] = arg0
+	var arg1 *int
+	if tmp, ok := rawArgs["limit"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("limit"))
+		arg1, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["limit"] = arg1
+	var arg2 *int
+	if tmp, ok := rawArgs["offset"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("offset"))
+		arg2, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["offset"] = arg2
+	var arg3 []*model.EnterpriseAlarmSendPoliceOrderBy
+	if tmp, ok := rawArgs["order_by"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("order_by"))
+		arg3, err = ec.unmarshalOEnterpriseAlarmSendPoliceOrderBy2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterpriseAlarmSendPoliceOrderByᚄ(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["order_by"] = arg3
+	var arg4 *model.EnterpriseAlarmSendPoliceBoolExp
+	if tmp, ok := rawArgs["where"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("where"))
+		arg4, err = ec.unmarshalOEnterpriseAlarmSendPoliceBoolExp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterpriseAlarmSendPoliceBoolExp(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["where"] = arg4
+	return args, nil
+}
+
+func (ec *executionContext) field_Query_enterprise_alarm_send_police_by_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 int64
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalNBigint2int64(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Query_enterprise_alarm_send_police_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["enterprise_alarm_send_police_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_alarm_send_police_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["enterprise_alarm_send_police_id"] = arg0
+	return args, nil
+}
+
 func (ec *executionContext) field_Query_enterprise_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -18522,138 +18626,6 @@ func (ec *executionContext) field_Query_enterprise_muck_trunk_by_union_pk_args(c
 		}
 	}
 	args["enterprise_muck_trunk_id"] = arg0
-	return args, nil
-}
-
-func (ec *executionContext) field_Query_enterprise_police_sms_info_aggregate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
-	var err error
-	args := map[string]interface{}{}
-	var arg0 []model.EnterprisePoliceSmsInfoSelectColumn
-	if tmp, ok := rawArgs["distinct_on"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("distinct_on"))
-		arg0, err = ec.unmarshalOEnterprisePoliceSmsInfoSelectColumn2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterprisePoliceSmsInfoSelectColumnᚄ(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["distinct_on"] = arg0
-	var arg1 *int
-	if tmp, ok := rawArgs["limit"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("limit"))
-		arg1, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["limit"] = arg1
-	var arg2 *int
-	if tmp, ok := rawArgs["offset"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("offset"))
-		arg2, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["offset"] = arg2
-	var arg3 []*model.EnterprisePoliceSmsInfoOrderBy
-	if tmp, ok := rawArgs["order_by"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("order_by"))
-		arg3, err = ec.unmarshalOEnterprisePoliceSmsInfoOrderBy2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterprisePoliceSmsInfoOrderByᚄ(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["order_by"] = arg3
-	var arg4 *model.EnterprisePoliceSmsInfoBoolExp
-	if tmp, ok := rawArgs["where"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("where"))
-		arg4, err = ec.unmarshalOEnterprisePoliceSmsInfoBoolExp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterprisePoliceSmsInfoBoolExp(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["where"] = arg4
-	return args, nil
-}
-
-func (ec *executionContext) field_Query_enterprise_police_sms_info_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
-	var err error
-	args := map[string]interface{}{}
-	var arg0 []model.EnterprisePoliceSmsInfoSelectColumn
-	if tmp, ok := rawArgs["distinct_on"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("distinct_on"))
-		arg0, err = ec.unmarshalOEnterprisePoliceSmsInfoSelectColumn2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterprisePoliceSmsInfoSelectColumnᚄ(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["distinct_on"] = arg0
-	var arg1 *int
-	if tmp, ok := rawArgs["limit"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("limit"))
-		arg1, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["limit"] = arg1
-	var arg2 *int
-	if tmp, ok := rawArgs["offset"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("offset"))
-		arg2, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["offset"] = arg2
-	var arg3 []*model.EnterprisePoliceSmsInfoOrderBy
-	if tmp, ok := rawArgs["order_by"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("order_by"))
-		arg3, err = ec.unmarshalOEnterprisePoliceSmsInfoOrderBy2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterprisePoliceSmsInfoOrderByᚄ(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["order_by"] = arg3
-	var arg4 *model.EnterprisePoliceSmsInfoBoolExp
-	if tmp, ok := rawArgs["where"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("where"))
-		arg4, err = ec.unmarshalOEnterprisePoliceSmsInfoBoolExp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterprisePoliceSmsInfoBoolExp(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["where"] = arg4
-	return args, nil
-}
-
-func (ec *executionContext) field_Query_enterprise_police_sms_info_by_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
-	var err error
-	args := map[string]interface{}{}
-	var arg0 int64
-	if tmp, ok := rawArgs["id"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-		arg0, err = ec.unmarshalNBigint2int64(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["id"] = arg0
-	return args, nil
-}
-
-func (ec *executionContext) field_Query_enterprise_police_sms_info_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
-	var err error
-	args := map[string]interface{}{}
-	var arg0 string
-	if tmp, ok := rawArgs["enterprise_police_sms_info_id"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_police_sms_info_id"))
-		arg0, err = ec.unmarshalNString2string(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["enterprise_police_sms_info_id"] = arg0
 	return args, nil
 }
 
@@ -24486,6 +24458,2168 @@ func (ec *executionContext) _EnterpriseAggregateFields_variance(ctx context.Cont
 	res := resTmp.(*model.EnterpriseVarianceFields)
 	fc.Result = res
 	return ec.marshalOEnterpriseVarianceFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterpriseVarianceFields(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _EnterpriseAlarmSendPolice_id(ctx context.Context, field graphql.CollectedField, obj *model1.EnterpriseAlarmSendPolice) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "EnterpriseAlarmSendPolice",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(int64)
+	fc.Result = res
+	return ec.marshalNBigint2int64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _EnterpriseAlarmSendPolice_enterprise_alarm_send_police_id(ctx context.Context, field graphql.CollectedField, obj *model1.EnterpriseAlarmSendPolice) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "EnterpriseAlarmSendPolice",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.EnterpriseAlarmSendPoliceID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(string)
+	fc.Result = res
+	return ec.marshalNString2string(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _EnterpriseAlarmSendPolice_enterprise_id(ctx context.Context, field graphql.CollectedField, obj *model1.EnterpriseAlarmSendPolice) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "EnterpriseAlarmSendPolice",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.EnterpriseID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _EnterpriseAlarmSendPolice_enterprise_name(ctx context.Context, field graphql.CollectedField, obj *model1.EnterpriseAlarmSendPolice) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "EnterpriseAlarmSendPolice",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.EnterpriseName, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _EnterpriseAlarmSendPolice_enterprise_contact(ctx context.Context, field graphql.CollectedField, obj *model1.EnterpriseAlarmSendPolice) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "EnterpriseAlarmSendPolice",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.EnterpriseContact, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _EnterpriseAlarmSendPolice_enterprise_phone(ctx context.Context, field graphql.CollectedField, obj *model1.EnterpriseAlarmSendPolice) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "EnterpriseAlarmSendPolice",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.EnterprisePhone, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _EnterpriseAlarmSendPolice_police(ctx context.Context, field graphql.CollectedField, obj *model1.EnterpriseAlarmSendPolice) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "EnterpriseAlarmSendPolice",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Police, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _EnterpriseAlarmSendPolice_police_phone(ctx context.Context, field graphql.CollectedField, obj *model1.EnterpriseAlarmSendPolice) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "EnterpriseAlarmSendPolice",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.PolicePhone, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _EnterpriseAlarmSendPolice_phlice_department(ctx context.Context, field graphql.CollectedField, obj *model1.EnterpriseAlarmSendPolice) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "EnterpriseAlarmSendPolice",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.PhliceDepartment, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _EnterpriseAlarmSendPolice_created_at(ctx context.Context, field graphql.CollectedField, obj *model1.EnterpriseAlarmSendPolice) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "EnterpriseAlarmSendPolice",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.CreatedAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(time.Time)
+	fc.Result = res
+	return ec.marshalNTimestamptz2timeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _EnterpriseAlarmSendPolice_created_by(ctx context.Context, field graphql.CollectedField, obj *model1.EnterpriseAlarmSendPolice) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "EnterpriseAlarmSendPolice",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.CreatedBy, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(string)
+	fc.Result = res
+	return ec.marshalNString2string(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _EnterpriseAlarmSendPolice_updated_at(ctx context.Context, field graphql.CollectedField, obj *model1.EnterpriseAlarmSendPolice) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "EnterpriseAlarmSendPolice",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.UpdatedAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*time.Time)
+	fc.Result = res
+	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _EnterpriseAlarmSendPolice_updated_by(ctx context.Context, field graphql.CollectedField, obj *model1.EnterpriseAlarmSendPolice) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "EnterpriseAlarmSendPolice",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.UpdatedBy, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _EnterpriseAlarmSendPolice_deleted_at(ctx context.Context, field graphql.CollectedField, obj *model1.EnterpriseAlarmSendPolice) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "EnterpriseAlarmSendPolice",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.DeletedAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*time.Time)
+	fc.Result = res
+	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _EnterpriseAlarmSendPolice_deleted_by(ctx context.Context, field graphql.CollectedField, obj *model1.EnterpriseAlarmSendPolice) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "EnterpriseAlarmSendPolice",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.DeletedBy, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _EnterpriseAlarmSendPoliceAggregate_aggregate(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseAlarmSendPoliceAggregate) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "EnterpriseAlarmSendPoliceAggregate",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Aggregate, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.EnterpriseAlarmSendPoliceAggregateFields)
+	fc.Result = res
+	return ec.marshalOEnterpriseAlarmSendPoliceAggregateFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterpriseAlarmSendPoliceAggregateFields(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _EnterpriseAlarmSendPoliceAggregateFields_avg(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseAlarmSendPoliceAggregateFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "EnterpriseAlarmSendPoliceAggregateFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Avg, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.EnterpriseAlarmSendPoliceAvgFields)
+	fc.Result = res
+	return ec.marshalOEnterpriseAlarmSendPoliceAvgFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterpriseAlarmSendPoliceAvgFields(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _EnterpriseAlarmSendPoliceAggregateFields_count(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseAlarmSendPoliceAggregateFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "EnterpriseAlarmSendPoliceAggregateFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Count, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*int)
+	fc.Result = res
+	return ec.marshalOInt2ᚖint(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _EnterpriseAlarmSendPoliceAggregateFields_max(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseAlarmSendPoliceAggregateFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "EnterpriseAlarmSendPoliceAggregateFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Max, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.EnterpriseAlarmSendPoliceMaxFields)
+	fc.Result = res
+	return ec.marshalOEnterpriseAlarmSendPoliceMaxFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterpriseAlarmSendPoliceMaxFields(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _EnterpriseAlarmSendPoliceAggregateFields_min(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseAlarmSendPoliceAggregateFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "EnterpriseAlarmSendPoliceAggregateFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Min, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.EnterpriseAlarmSendPoliceMinFields)
+	fc.Result = res
+	return ec.marshalOEnterpriseAlarmSendPoliceMinFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterpriseAlarmSendPoliceMinFields(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _EnterpriseAlarmSendPoliceAggregateFields_stddev(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseAlarmSendPoliceAggregateFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "EnterpriseAlarmSendPoliceAggregateFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Stddev, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.EnterpriseAlarmSendPoliceStddevFields)
+	fc.Result = res
+	return ec.marshalOEnterpriseAlarmSendPoliceStddevFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterpriseAlarmSendPoliceStddevFields(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _EnterpriseAlarmSendPoliceAggregateFields_stddev_pop(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseAlarmSendPoliceAggregateFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "EnterpriseAlarmSendPoliceAggregateFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.StddevPop, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.EnterpriseAlarmSendPoliceStddevPopFields)
+	fc.Result = res
+	return ec.marshalOEnterpriseAlarmSendPoliceStddevPopFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterpriseAlarmSendPoliceStddevPopFields(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _EnterpriseAlarmSendPoliceAggregateFields_stddev_samp(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseAlarmSendPoliceAggregateFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "EnterpriseAlarmSendPoliceAggregateFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.StddevSamp, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.EnterpriseAlarmSendPoliceStddevSampFields)
+	fc.Result = res
+	return ec.marshalOEnterpriseAlarmSendPoliceStddevSampFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterpriseAlarmSendPoliceStddevSampFields(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _EnterpriseAlarmSendPoliceAggregateFields_sum(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseAlarmSendPoliceAggregateFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "EnterpriseAlarmSendPoliceAggregateFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Sum, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.EnterpriseAlarmSendPoliceSumFields)
+	fc.Result = res
+	return ec.marshalOEnterpriseAlarmSendPoliceSumFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterpriseAlarmSendPoliceSumFields(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _EnterpriseAlarmSendPoliceAggregateFields_var_pop(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseAlarmSendPoliceAggregateFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "EnterpriseAlarmSendPoliceAggregateFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.VarPop, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.EnterpriseAlarmSendPoliceVarPopFields)
+	fc.Result = res
+	return ec.marshalOEnterpriseAlarmSendPoliceVarPopFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterpriseAlarmSendPoliceVarPopFields(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _EnterpriseAlarmSendPoliceAggregateFields_var_samp(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseAlarmSendPoliceAggregateFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "EnterpriseAlarmSendPoliceAggregateFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.VarSamp, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.EnterpriseAlarmSendPoliceVarSampFields)
+	fc.Result = res
+	return ec.marshalOEnterpriseAlarmSendPoliceVarSampFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterpriseAlarmSendPoliceVarSampFields(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _EnterpriseAlarmSendPoliceAggregateFields_variance(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseAlarmSendPoliceAggregateFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "EnterpriseAlarmSendPoliceAggregateFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Variance, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.EnterpriseAlarmSendPoliceVarianceFields)
+	fc.Result = res
+	return ec.marshalOEnterpriseAlarmSendPoliceVarianceFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterpriseAlarmSendPoliceVarianceFields(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _EnterpriseAlarmSendPoliceAvgFields_id(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseAlarmSendPoliceAvgFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "EnterpriseAlarmSendPoliceAvgFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*int64)
+	fc.Result = res
+	return ec.marshalOBigint2ᚖint64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _EnterpriseAlarmSendPoliceMaxFields_id(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseAlarmSendPoliceMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "EnterpriseAlarmSendPoliceMaxFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*int64)
+	fc.Result = res
+	return ec.marshalOBigint2ᚖint64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _EnterpriseAlarmSendPoliceMaxFields_enterprise_alarm_send_police_id(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseAlarmSendPoliceMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "EnterpriseAlarmSendPoliceMaxFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.EnterpriseAlarmSendPoliceID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _EnterpriseAlarmSendPoliceMaxFields_enterprise_id(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseAlarmSendPoliceMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "EnterpriseAlarmSendPoliceMaxFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.EnterpriseID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _EnterpriseAlarmSendPoliceMaxFields_enterprise_name(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseAlarmSendPoliceMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "EnterpriseAlarmSendPoliceMaxFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.EnterpriseName, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _EnterpriseAlarmSendPoliceMaxFields_enterprise_contact(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseAlarmSendPoliceMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "EnterpriseAlarmSendPoliceMaxFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.EnterpriseContact, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _EnterpriseAlarmSendPoliceMaxFields_enterprise_phone(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseAlarmSendPoliceMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "EnterpriseAlarmSendPoliceMaxFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.EnterprisePhone, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _EnterpriseAlarmSendPoliceMaxFields_police(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseAlarmSendPoliceMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "EnterpriseAlarmSendPoliceMaxFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Police, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _EnterpriseAlarmSendPoliceMaxFields_police_phone(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseAlarmSendPoliceMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "EnterpriseAlarmSendPoliceMaxFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.PolicePhone, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _EnterpriseAlarmSendPoliceMaxFields_phlice_department(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseAlarmSendPoliceMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "EnterpriseAlarmSendPoliceMaxFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.PhliceDepartment, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _EnterpriseAlarmSendPoliceMaxFields_created_at(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseAlarmSendPoliceMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "EnterpriseAlarmSendPoliceMaxFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.CreatedAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*time.Time)
+	fc.Result = res
+	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _EnterpriseAlarmSendPoliceMaxFields_created_by(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseAlarmSendPoliceMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "EnterpriseAlarmSendPoliceMaxFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.CreatedBy, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _EnterpriseAlarmSendPoliceMaxFields_updated_at(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseAlarmSendPoliceMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "EnterpriseAlarmSendPoliceMaxFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.UpdatedAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*time.Time)
+	fc.Result = res
+	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _EnterpriseAlarmSendPoliceMaxFields_updated_by(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseAlarmSendPoliceMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "EnterpriseAlarmSendPoliceMaxFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.UpdatedBy, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _EnterpriseAlarmSendPoliceMaxFields_deleted_at(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseAlarmSendPoliceMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "EnterpriseAlarmSendPoliceMaxFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.DeletedAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*time.Time)
+	fc.Result = res
+	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _EnterpriseAlarmSendPoliceMaxFields_deleted_by(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseAlarmSendPoliceMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "EnterpriseAlarmSendPoliceMaxFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.DeletedBy, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _EnterpriseAlarmSendPoliceMinFields_id(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseAlarmSendPoliceMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "EnterpriseAlarmSendPoliceMinFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*int64)
+	fc.Result = res
+	return ec.marshalOBigint2ᚖint64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _EnterpriseAlarmSendPoliceMinFields_enterprise_alarm_send_police_id(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseAlarmSendPoliceMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "EnterpriseAlarmSendPoliceMinFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.EnterpriseAlarmSendPoliceID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _EnterpriseAlarmSendPoliceMinFields_enterprise_id(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseAlarmSendPoliceMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "EnterpriseAlarmSendPoliceMinFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.EnterpriseID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _EnterpriseAlarmSendPoliceMinFields_enterprise_name(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseAlarmSendPoliceMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "EnterpriseAlarmSendPoliceMinFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.EnterpriseName, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _EnterpriseAlarmSendPoliceMinFields_enterprise_contact(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseAlarmSendPoliceMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "EnterpriseAlarmSendPoliceMinFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.EnterpriseContact, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _EnterpriseAlarmSendPoliceMinFields_enterprise_phone(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseAlarmSendPoliceMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "EnterpriseAlarmSendPoliceMinFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.EnterprisePhone, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _EnterpriseAlarmSendPoliceMinFields_police(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseAlarmSendPoliceMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "EnterpriseAlarmSendPoliceMinFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Police, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _EnterpriseAlarmSendPoliceMinFields_police_phone(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseAlarmSendPoliceMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "EnterpriseAlarmSendPoliceMinFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.PolicePhone, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _EnterpriseAlarmSendPoliceMinFields_phlice_department(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseAlarmSendPoliceMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "EnterpriseAlarmSendPoliceMinFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.PhliceDepartment, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _EnterpriseAlarmSendPoliceMinFields_created_at(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseAlarmSendPoliceMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "EnterpriseAlarmSendPoliceMinFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.CreatedAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*time.Time)
+	fc.Result = res
+	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _EnterpriseAlarmSendPoliceMinFields_created_by(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseAlarmSendPoliceMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "EnterpriseAlarmSendPoliceMinFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.CreatedBy, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _EnterpriseAlarmSendPoliceMinFields_updated_at(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseAlarmSendPoliceMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "EnterpriseAlarmSendPoliceMinFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.UpdatedAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*time.Time)
+	fc.Result = res
+	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _EnterpriseAlarmSendPoliceMinFields_updated_by(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseAlarmSendPoliceMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "EnterpriseAlarmSendPoliceMinFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.UpdatedBy, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _EnterpriseAlarmSendPoliceMinFields_deleted_at(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseAlarmSendPoliceMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "EnterpriseAlarmSendPoliceMinFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.DeletedAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*time.Time)
+	fc.Result = res
+	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _EnterpriseAlarmSendPoliceMinFields_deleted_by(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseAlarmSendPoliceMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "EnterpriseAlarmSendPoliceMinFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.DeletedBy, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _EnterpriseAlarmSendPoliceMutationResponse_affected_rows(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseAlarmSendPoliceMutationResponse) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "EnterpriseAlarmSendPoliceMutationResponse",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.AffectedRows, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(int)
+	fc.Result = res
+	return ec.marshalNInt2int(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _EnterpriseAlarmSendPoliceMutationResponse_returning(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseAlarmSendPoliceMutationResponse) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "EnterpriseAlarmSendPoliceMutationResponse",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Returning, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.([]*model1.EnterpriseAlarmSendPolice)
+	fc.Result = res
+	return ec.marshalNEnterpriseAlarmSendPolice2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterpriseAlarmSendPoliceᚄ(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _EnterpriseAlarmSendPoliceStddevFields_id(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseAlarmSendPoliceStddevFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "EnterpriseAlarmSendPoliceStddevFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*int64)
+	fc.Result = res
+	return ec.marshalOBigint2ᚖint64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _EnterpriseAlarmSendPoliceStddevPopFields_id(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseAlarmSendPoliceStddevPopFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "EnterpriseAlarmSendPoliceStddevPopFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*int64)
+	fc.Result = res
+	return ec.marshalOBigint2ᚖint64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _EnterpriseAlarmSendPoliceStddevSampFields_id(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseAlarmSendPoliceStddevSampFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "EnterpriseAlarmSendPoliceStddevSampFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*int64)
+	fc.Result = res
+	return ec.marshalOBigint2ᚖint64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _EnterpriseAlarmSendPoliceSumFields_id(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseAlarmSendPoliceSumFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "EnterpriseAlarmSendPoliceSumFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*int64)
+	fc.Result = res
+	return ec.marshalOBigint2ᚖint64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _EnterpriseAlarmSendPoliceVarPopFields_id(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseAlarmSendPoliceVarPopFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "EnterpriseAlarmSendPoliceVarPopFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*int64)
+	fc.Result = res
+	return ec.marshalOBigint2ᚖint64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _EnterpriseAlarmSendPoliceVarSampFields_id(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseAlarmSendPoliceVarSampFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "EnterpriseAlarmSendPoliceVarSampFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*int64)
+	fc.Result = res
+	return ec.marshalOBigint2ᚖint64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _EnterpriseAlarmSendPoliceVarianceFields_id(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseAlarmSendPoliceVarianceFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "EnterpriseAlarmSendPoliceVarianceFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*int64)
+	fc.Result = res
+	return ec.marshalOBigint2ᚖint64(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _EnterpriseAvgFields_id(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseAvgFields) (ret graphql.Marshaler) {
@@ -36337,2267 +38471,6 @@ func (ec *executionContext) _EnterpriseMutationResponse_returning(ctx context.Co
 	res := resTmp.([]*model1.Enterprise)
 	fc.Result = res
 	return ec.marshalNEnterprise2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterpriseᚄ(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _EnterprisePoliceSmsInfo_id(ctx context.Context, field graphql.CollectedField, obj *model1.EnterprisePoliceSmsInfo) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "EnterprisePoliceSmsInfo",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.ID, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(int64)
-	fc.Result = res
-	return ec.marshalNBigint2int64(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _EnterprisePoliceSmsInfo_enterprise_police_sms_info_id(ctx context.Context, field graphql.CollectedField, obj *model1.EnterprisePoliceSmsInfo) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "EnterprisePoliceSmsInfo",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.EnterprisePoliceSmsInfoID, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(string)
-	fc.Result = res
-	return ec.marshalNString2string(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _EnterprisePoliceSmsInfo_enterprise_id(ctx context.Context, field graphql.CollectedField, obj *model1.EnterprisePoliceSmsInfo) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "EnterprisePoliceSmsInfo",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.EnterpriseID, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(string)
-	fc.Result = res
-	return ec.marshalNString2string(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _EnterprisePoliceSmsInfo_enterprise_name(ctx context.Context, field graphql.CollectedField, obj *model1.EnterprisePoliceSmsInfo) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "EnterprisePoliceSmsInfo",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.EnterpriseName, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _EnterprisePoliceSmsInfo_enterprise_contact_name(ctx context.Context, field graphql.CollectedField, obj *model1.EnterprisePoliceSmsInfo) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "EnterprisePoliceSmsInfo",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.EnterpriseContactName, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _EnterprisePoliceSmsInfo_enterprise_contact_phone(ctx context.Context, field graphql.CollectedField, obj *model1.EnterprisePoliceSmsInfo) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "EnterprisePoliceSmsInfo",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.EnterpriseContactPhone, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _EnterprisePoliceSmsInfo_police_name(ctx context.Context, field graphql.CollectedField, obj *model1.EnterprisePoliceSmsInfo) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "EnterprisePoliceSmsInfo",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.PoliceName, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _EnterprisePoliceSmsInfo_police_phone(ctx context.Context, field graphql.CollectedField, obj *model1.EnterprisePoliceSmsInfo) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "EnterprisePoliceSmsInfo",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.PolicePhone, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _EnterprisePoliceSmsInfo_police_dept(ctx context.Context, field graphql.CollectedField, obj *model1.EnterprisePoliceSmsInfo) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "EnterprisePoliceSmsInfo",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.PoliceDept, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _EnterprisePoliceSmsInfo_create_at(ctx context.Context, field graphql.CollectedField, obj *model1.EnterprisePoliceSmsInfo) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "EnterprisePoliceSmsInfo",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.CreateAt, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(time.Time)
-	fc.Result = res
-	return ec.marshalNTimestamptz2timeᚐTime(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _EnterprisePoliceSmsInfo_create_by(ctx context.Context, field graphql.CollectedField, obj *model1.EnterprisePoliceSmsInfo) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "EnterprisePoliceSmsInfo",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.CreateBy, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _EnterprisePoliceSmsInfo_update_at(ctx context.Context, field graphql.CollectedField, obj *model1.EnterprisePoliceSmsInfo) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "EnterprisePoliceSmsInfo",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.UpdateAt, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*time.Time)
-	fc.Result = res
-	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _EnterprisePoliceSmsInfo_update_by(ctx context.Context, field graphql.CollectedField, obj *model1.EnterprisePoliceSmsInfo) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "EnterprisePoliceSmsInfo",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.UpdateBy, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _EnterprisePoliceSmsInfo_delete_at(ctx context.Context, field graphql.CollectedField, obj *model1.EnterprisePoliceSmsInfo) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "EnterprisePoliceSmsInfo",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.DeleteAt, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*time.Time)
-	fc.Result = res
-	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _EnterprisePoliceSmsInfo_delete_by(ctx context.Context, field graphql.CollectedField, obj *model1.EnterprisePoliceSmsInfo) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "EnterprisePoliceSmsInfo",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.DeleteBy, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _EnterprisePoliceSmsInfo_is_delete(ctx context.Context, field graphql.CollectedField, obj *model1.EnterprisePoliceSmsInfo) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "EnterprisePoliceSmsInfo",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.IsDelete, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(bool)
-	fc.Result = res
-	return ec.marshalNBoolean2bool(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _EnterprisePoliceSmsInfoAggregate_aggregate(ctx context.Context, field graphql.CollectedField, obj *model.EnterprisePoliceSmsInfoAggregate) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "EnterprisePoliceSmsInfoAggregate",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.Aggregate, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.EnterprisePoliceSmsInfoAggregateFields)
-	fc.Result = res
-	return ec.marshalOEnterprisePoliceSmsInfoAggregateFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterprisePoliceSmsInfoAggregateFields(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _EnterprisePoliceSmsInfoAggregateFields_avg(ctx context.Context, field graphql.CollectedField, obj *model.EnterprisePoliceSmsInfoAggregateFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "EnterprisePoliceSmsInfoAggregateFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.Avg, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.EnterprisePoliceSmsInfoAvgFields)
-	fc.Result = res
-	return ec.marshalOEnterprisePoliceSmsInfoAvgFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterprisePoliceSmsInfoAvgFields(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _EnterprisePoliceSmsInfoAggregateFields_count(ctx context.Context, field graphql.CollectedField, obj *model.EnterprisePoliceSmsInfoAggregateFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "EnterprisePoliceSmsInfoAggregateFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.Count, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*int)
-	fc.Result = res
-	return ec.marshalOInt2ᚖint(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _EnterprisePoliceSmsInfoAggregateFields_max(ctx context.Context, field graphql.CollectedField, obj *model.EnterprisePoliceSmsInfoAggregateFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "EnterprisePoliceSmsInfoAggregateFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.Max, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.EnterprisePoliceSmsInfoMaxFields)
-	fc.Result = res
-	return ec.marshalOEnterprisePoliceSmsInfoMaxFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterprisePoliceSmsInfoMaxFields(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _EnterprisePoliceSmsInfoAggregateFields_min(ctx context.Context, field graphql.CollectedField, obj *model.EnterprisePoliceSmsInfoAggregateFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "EnterprisePoliceSmsInfoAggregateFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.Min, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.EnterprisePoliceSmsInfoMinFields)
-	fc.Result = res
-	return ec.marshalOEnterprisePoliceSmsInfoMinFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterprisePoliceSmsInfoMinFields(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _EnterprisePoliceSmsInfoAggregateFields_stddev(ctx context.Context, field graphql.CollectedField, obj *model.EnterprisePoliceSmsInfoAggregateFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "EnterprisePoliceSmsInfoAggregateFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.Stddev, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.EnterprisePoliceSmsInfoStddevFields)
-	fc.Result = res
-	return ec.marshalOEnterprisePoliceSmsInfoStddevFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterprisePoliceSmsInfoStddevFields(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _EnterprisePoliceSmsInfoAggregateFields_stddev_pop(ctx context.Context, field graphql.CollectedField, obj *model.EnterprisePoliceSmsInfoAggregateFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "EnterprisePoliceSmsInfoAggregateFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.StddevPop, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.EnterprisePoliceSmsInfoStddevPopFields)
-	fc.Result = res
-	return ec.marshalOEnterprisePoliceSmsInfoStddevPopFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterprisePoliceSmsInfoStddevPopFields(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _EnterprisePoliceSmsInfoAggregateFields_stddev_samp(ctx context.Context, field graphql.CollectedField, obj *model.EnterprisePoliceSmsInfoAggregateFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "EnterprisePoliceSmsInfoAggregateFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.StddevSamp, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.EnterprisePoliceSmsInfoStddevSampFields)
-	fc.Result = res
-	return ec.marshalOEnterprisePoliceSmsInfoStddevSampFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterprisePoliceSmsInfoStddevSampFields(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _EnterprisePoliceSmsInfoAggregateFields_sum(ctx context.Context, field graphql.CollectedField, obj *model.EnterprisePoliceSmsInfoAggregateFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "EnterprisePoliceSmsInfoAggregateFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.Sum, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.EnterprisePoliceSmsInfoSumFields)
-	fc.Result = res
-	return ec.marshalOEnterprisePoliceSmsInfoSumFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterprisePoliceSmsInfoSumFields(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _EnterprisePoliceSmsInfoAggregateFields_var_pop(ctx context.Context, field graphql.CollectedField, obj *model.EnterprisePoliceSmsInfoAggregateFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "EnterprisePoliceSmsInfoAggregateFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.VarPop, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.EnterprisePoliceSmsInfoVarPopFields)
-	fc.Result = res
-	return ec.marshalOEnterprisePoliceSmsInfoVarPopFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterprisePoliceSmsInfoVarPopFields(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _EnterprisePoliceSmsInfoAggregateFields_var_samp(ctx context.Context, field graphql.CollectedField, obj *model.EnterprisePoliceSmsInfoAggregateFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "EnterprisePoliceSmsInfoAggregateFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.VarSamp, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.EnterprisePoliceSmsInfoVarSampFields)
-	fc.Result = res
-	return ec.marshalOEnterprisePoliceSmsInfoVarSampFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterprisePoliceSmsInfoVarSampFields(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _EnterprisePoliceSmsInfoAggregateFields_variance(ctx context.Context, field graphql.CollectedField, obj *model.EnterprisePoliceSmsInfoAggregateFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "EnterprisePoliceSmsInfoAggregateFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.Variance, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.EnterprisePoliceSmsInfoVarianceFields)
-	fc.Result = res
-	return ec.marshalOEnterprisePoliceSmsInfoVarianceFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterprisePoliceSmsInfoVarianceFields(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _EnterprisePoliceSmsInfoAvgFields_id(ctx context.Context, field graphql.CollectedField, obj *model.EnterprisePoliceSmsInfoAvgFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "EnterprisePoliceSmsInfoAvgFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.ID, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*int64)
-	fc.Result = res
-	return ec.marshalOBigint2ᚖint64(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _EnterprisePoliceSmsInfoMaxFields_id(ctx context.Context, field graphql.CollectedField, obj *model.EnterprisePoliceSmsInfoMaxFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "EnterprisePoliceSmsInfoMaxFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.ID, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*int64)
-	fc.Result = res
-	return ec.marshalOBigint2ᚖint64(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _EnterprisePoliceSmsInfoMaxFields_enterprise_police_sms_info_id(ctx context.Context, field graphql.CollectedField, obj *model.EnterprisePoliceSmsInfoMaxFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "EnterprisePoliceSmsInfoMaxFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.EnterprisePoliceSmsInfoID, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _EnterprisePoliceSmsInfoMaxFields_enterprise_id(ctx context.Context, field graphql.CollectedField, obj *model.EnterprisePoliceSmsInfoMaxFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "EnterprisePoliceSmsInfoMaxFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.EnterpriseID, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _EnterprisePoliceSmsInfoMaxFields_enterprise_name(ctx context.Context, field graphql.CollectedField, obj *model.EnterprisePoliceSmsInfoMaxFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "EnterprisePoliceSmsInfoMaxFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.EnterpriseName, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _EnterprisePoliceSmsInfoMaxFields_enterprise_contact_name(ctx context.Context, field graphql.CollectedField, obj *model.EnterprisePoliceSmsInfoMaxFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "EnterprisePoliceSmsInfoMaxFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.EnterpriseContactName, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _EnterprisePoliceSmsInfoMaxFields_enterprise_contact_phone(ctx context.Context, field graphql.CollectedField, obj *model.EnterprisePoliceSmsInfoMaxFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "EnterprisePoliceSmsInfoMaxFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.EnterpriseContactPhone, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _EnterprisePoliceSmsInfoMaxFields_police_name(ctx context.Context, field graphql.CollectedField, obj *model.EnterprisePoliceSmsInfoMaxFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "EnterprisePoliceSmsInfoMaxFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.PoliceName, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _EnterprisePoliceSmsInfoMaxFields_police_phone(ctx context.Context, field graphql.CollectedField, obj *model.EnterprisePoliceSmsInfoMaxFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "EnterprisePoliceSmsInfoMaxFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.PolicePhone, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _EnterprisePoliceSmsInfoMaxFields_police_dept(ctx context.Context, field graphql.CollectedField, obj *model.EnterprisePoliceSmsInfoMaxFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "EnterprisePoliceSmsInfoMaxFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.PoliceDept, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _EnterprisePoliceSmsInfoMaxFields_create_at(ctx context.Context, field graphql.CollectedField, obj *model.EnterprisePoliceSmsInfoMaxFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "EnterprisePoliceSmsInfoMaxFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.CreateAt, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*time.Time)
-	fc.Result = res
-	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _EnterprisePoliceSmsInfoMaxFields_create_by(ctx context.Context, field graphql.CollectedField, obj *model.EnterprisePoliceSmsInfoMaxFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "EnterprisePoliceSmsInfoMaxFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.CreateBy, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _EnterprisePoliceSmsInfoMaxFields_update_at(ctx context.Context, field graphql.CollectedField, obj *model.EnterprisePoliceSmsInfoMaxFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "EnterprisePoliceSmsInfoMaxFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.UpdateAt, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*time.Time)
-	fc.Result = res
-	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _EnterprisePoliceSmsInfoMaxFields_update_by(ctx context.Context, field graphql.CollectedField, obj *model.EnterprisePoliceSmsInfoMaxFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "EnterprisePoliceSmsInfoMaxFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.UpdateBy, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _EnterprisePoliceSmsInfoMaxFields_delete_at(ctx context.Context, field graphql.CollectedField, obj *model.EnterprisePoliceSmsInfoMaxFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "EnterprisePoliceSmsInfoMaxFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.DeleteAt, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*time.Time)
-	fc.Result = res
-	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _EnterprisePoliceSmsInfoMaxFields_delete_by(ctx context.Context, field graphql.CollectedField, obj *model.EnterprisePoliceSmsInfoMaxFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "EnterprisePoliceSmsInfoMaxFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.DeleteBy, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _EnterprisePoliceSmsInfoMaxFields_is_delete(ctx context.Context, field graphql.CollectedField, obj *model.EnterprisePoliceSmsInfoMaxFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "EnterprisePoliceSmsInfoMaxFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.IsDelete, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*bool)
-	fc.Result = res
-	return ec.marshalOBoolean2ᚖbool(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _EnterprisePoliceSmsInfoMinFields_id(ctx context.Context, field graphql.CollectedField, obj *model.EnterprisePoliceSmsInfoMinFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "EnterprisePoliceSmsInfoMinFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.ID, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*int64)
-	fc.Result = res
-	return ec.marshalOBigint2ᚖint64(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _EnterprisePoliceSmsInfoMinFields_enterprise_police_sms_info_id(ctx context.Context, field graphql.CollectedField, obj *model.EnterprisePoliceSmsInfoMinFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "EnterprisePoliceSmsInfoMinFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.EnterprisePoliceSmsInfoID, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _EnterprisePoliceSmsInfoMinFields_enterprise_id(ctx context.Context, field graphql.CollectedField, obj *model.EnterprisePoliceSmsInfoMinFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "EnterprisePoliceSmsInfoMinFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.EnterpriseID, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _EnterprisePoliceSmsInfoMinFields_enterprise_name(ctx context.Context, field graphql.CollectedField, obj *model.EnterprisePoliceSmsInfoMinFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "EnterprisePoliceSmsInfoMinFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.EnterpriseName, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _EnterprisePoliceSmsInfoMinFields_enterprise_contact_name(ctx context.Context, field graphql.CollectedField, obj *model.EnterprisePoliceSmsInfoMinFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "EnterprisePoliceSmsInfoMinFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.EnterpriseContactName, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _EnterprisePoliceSmsInfoMinFields_enterprise_contact_phone(ctx context.Context, field graphql.CollectedField, obj *model.EnterprisePoliceSmsInfoMinFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "EnterprisePoliceSmsInfoMinFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.EnterpriseContactPhone, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _EnterprisePoliceSmsInfoMinFields_police_name(ctx context.Context, field graphql.CollectedField, obj *model.EnterprisePoliceSmsInfoMinFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "EnterprisePoliceSmsInfoMinFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.PoliceName, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _EnterprisePoliceSmsInfoMinFields_police_phone(ctx context.Context, field graphql.CollectedField, obj *model.EnterprisePoliceSmsInfoMinFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "EnterprisePoliceSmsInfoMinFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.PolicePhone, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _EnterprisePoliceSmsInfoMinFields_police_dept(ctx context.Context, field graphql.CollectedField, obj *model.EnterprisePoliceSmsInfoMinFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "EnterprisePoliceSmsInfoMinFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.PoliceDept, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _EnterprisePoliceSmsInfoMinFields_create_at(ctx context.Context, field graphql.CollectedField, obj *model.EnterprisePoliceSmsInfoMinFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "EnterprisePoliceSmsInfoMinFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.CreateAt, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*time.Time)
-	fc.Result = res
-	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _EnterprisePoliceSmsInfoMinFields_create_by(ctx context.Context, field graphql.CollectedField, obj *model.EnterprisePoliceSmsInfoMinFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "EnterprisePoliceSmsInfoMinFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.CreateBy, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _EnterprisePoliceSmsInfoMinFields_update_at(ctx context.Context, field graphql.CollectedField, obj *model.EnterprisePoliceSmsInfoMinFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "EnterprisePoliceSmsInfoMinFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.UpdateAt, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*time.Time)
-	fc.Result = res
-	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _EnterprisePoliceSmsInfoMinFields_update_by(ctx context.Context, field graphql.CollectedField, obj *model.EnterprisePoliceSmsInfoMinFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "EnterprisePoliceSmsInfoMinFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.UpdateBy, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _EnterprisePoliceSmsInfoMinFields_delete_at(ctx context.Context, field graphql.CollectedField, obj *model.EnterprisePoliceSmsInfoMinFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "EnterprisePoliceSmsInfoMinFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.DeleteAt, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*time.Time)
-	fc.Result = res
-	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _EnterprisePoliceSmsInfoMinFields_delete_by(ctx context.Context, field graphql.CollectedField, obj *model.EnterprisePoliceSmsInfoMinFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "EnterprisePoliceSmsInfoMinFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.DeleteBy, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _EnterprisePoliceSmsInfoMinFields_is_delete(ctx context.Context, field graphql.CollectedField, obj *model.EnterprisePoliceSmsInfoMinFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "EnterprisePoliceSmsInfoMinFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.IsDelete, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*bool)
-	fc.Result = res
-	return ec.marshalOBoolean2ᚖbool(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _EnterprisePoliceSmsInfoMutationResponse_affected_rows(ctx context.Context, field graphql.CollectedField, obj *model.EnterprisePoliceSmsInfoMutationResponse) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "EnterprisePoliceSmsInfoMutationResponse",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.AffectedRows, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(int)
-	fc.Result = res
-	return ec.marshalNInt2int(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _EnterprisePoliceSmsInfoMutationResponse_returning(ctx context.Context, field graphql.CollectedField, obj *model.EnterprisePoliceSmsInfoMutationResponse) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "EnterprisePoliceSmsInfoMutationResponse",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.Returning, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.([]*model1.EnterprisePoliceSmsInfo)
-	fc.Result = res
-	return ec.marshalNEnterprisePoliceSmsInfo2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterprisePoliceSmsInfoᚄ(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _EnterprisePoliceSmsInfoStddevFields_id(ctx context.Context, field graphql.CollectedField, obj *model.EnterprisePoliceSmsInfoStddevFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "EnterprisePoliceSmsInfoStddevFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.ID, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*int64)
-	fc.Result = res
-	return ec.marshalOBigint2ᚖint64(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _EnterprisePoliceSmsInfoStddevPopFields_id(ctx context.Context, field graphql.CollectedField, obj *model.EnterprisePoliceSmsInfoStddevPopFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "EnterprisePoliceSmsInfoStddevPopFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.ID, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*int64)
-	fc.Result = res
-	return ec.marshalOBigint2ᚖint64(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _EnterprisePoliceSmsInfoStddevSampFields_id(ctx context.Context, field graphql.CollectedField, obj *model.EnterprisePoliceSmsInfoStddevSampFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "EnterprisePoliceSmsInfoStddevSampFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.ID, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*int64)
-	fc.Result = res
-	return ec.marshalOBigint2ᚖint64(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _EnterprisePoliceSmsInfoSumFields_id(ctx context.Context, field graphql.CollectedField, obj *model.EnterprisePoliceSmsInfoSumFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "EnterprisePoliceSmsInfoSumFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.ID, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*int64)
-	fc.Result = res
-	return ec.marshalOBigint2ᚖint64(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _EnterprisePoliceSmsInfoVarPopFields_id(ctx context.Context, field graphql.CollectedField, obj *model.EnterprisePoliceSmsInfoVarPopFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "EnterprisePoliceSmsInfoVarPopFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.ID, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*int64)
-	fc.Result = res
-	return ec.marshalOBigint2ᚖint64(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _EnterprisePoliceSmsInfoVarSampFields_id(ctx context.Context, field graphql.CollectedField, obj *model.EnterprisePoliceSmsInfoVarSampFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "EnterprisePoliceSmsInfoVarSampFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.ID, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*int64)
-	fc.Result = res
-	return ec.marshalOBigint2ᚖint64(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _EnterprisePoliceSmsInfoVarianceFields_id(ctx context.Context, field graphql.CollectedField, obj *model.EnterprisePoliceSmsInfoVarianceFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "EnterprisePoliceSmsInfoVarianceFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.ID, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*int64)
-	fc.Result = res
-	return ec.marshalOBigint2ᚖint64(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _EnterpriseScoreLog_id(ctx context.Context, field graphql.CollectedField, obj *model1.EnterpriseScoreLog) (ret graphql.Marshaler) {
@@ -50881,6 +50754,318 @@ func (ec *executionContext) _Mutation_delete_enterprise_by_union_pk(ctx context.
 	return ec.marshalOEnterprise2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterprise(ctx, field.Selections, res)
 }
 
+func (ec *executionContext) _Mutation_delete_enterprise_alarm_send_police(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_delete_enterprise_alarm_send_police_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().DeleteEnterpriseAlarmSendPolice(rctx, args["where"].(model.EnterpriseAlarmSendPoliceBoolExp))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.EnterpriseAlarmSendPoliceMutationResponse)
+	fc.Result = res
+	return ec.marshalOEnterpriseAlarmSendPoliceMutationResponse2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterpriseAlarmSendPoliceMutationResponse(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_delete_enterprise_alarm_send_police_by_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_delete_enterprise_alarm_send_police_by_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().DeleteEnterpriseAlarmSendPoliceByPk(rctx, args["id"].(int64))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.EnterpriseAlarmSendPolice)
+	fc.Result = res
+	return ec.marshalOEnterpriseAlarmSendPolice2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterpriseAlarmSendPolice(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_insert_enterprise_alarm_send_police(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_insert_enterprise_alarm_send_police_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().InsertEnterpriseAlarmSendPolice(rctx, args["objects"].([]*model.EnterpriseAlarmSendPoliceInsertInput))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.EnterpriseAlarmSendPoliceMutationResponse)
+	fc.Result = res
+	return ec.marshalOEnterpriseAlarmSendPoliceMutationResponse2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterpriseAlarmSendPoliceMutationResponse(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_insert_enterprise_alarm_send_police_one(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_insert_enterprise_alarm_send_police_one_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().InsertEnterpriseAlarmSendPoliceOne(rctx, args["objects"].(model.EnterpriseAlarmSendPoliceInsertInput))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.EnterpriseAlarmSendPolice)
+	fc.Result = res
+	return ec.marshalOEnterpriseAlarmSendPolice2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterpriseAlarmSendPolice(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_update_enterprise_alarm_send_police(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_enterprise_alarm_send_police_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateEnterpriseAlarmSendPolice(rctx, args["_inc"].(*model.EnterpriseAlarmSendPoliceIncInput), args["_set"].(*model.EnterpriseAlarmSendPoliceSetInput), args["where"].(model.EnterpriseAlarmSendPoliceBoolExp))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.EnterpriseAlarmSendPoliceMutationResponse)
+	fc.Result = res
+	return ec.marshalOEnterpriseAlarmSendPoliceMutationResponse2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterpriseAlarmSendPoliceMutationResponse(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_update_enterprise_alarm_send_police_by_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_enterprise_alarm_send_police_by_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateEnterpriseAlarmSendPoliceByPk(rctx, args["_inc"].(*model.EnterpriseAlarmSendPoliceIncInput), args["_set"].(*model.EnterpriseAlarmSendPoliceSetInput), args["id"].(int64))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.EnterpriseAlarmSendPolice)
+	fc.Result = res
+	return ec.marshalOEnterpriseAlarmSendPolice2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterpriseAlarmSendPolice(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_update_enterprise_alarm_send_police_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_enterprise_alarm_send_police_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateEnterpriseAlarmSendPoliceByUnionPk(rctx, args["_inc"].(*model.EnterpriseAlarmSendPoliceIncInput), args["_set"].(*model.EnterpriseAlarmSendPoliceSetInput), args["enterprise_alarm_send_police_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.EnterpriseAlarmSendPolice)
+	fc.Result = res
+	return ec.marshalOEnterpriseAlarmSendPolice2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterpriseAlarmSendPolice(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_delete_enterprise_alarm_send_police_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_delete_enterprise_alarm_send_police_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().DeleteEnterpriseAlarmSendPoliceByUnionPk(rctx, args["enterprise_alarm_send_police_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.EnterpriseAlarmSendPolice)
+	fc.Result = res
+	return ec.marshalOEnterpriseAlarmSendPolice2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterpriseAlarmSendPolice(ctx, field.Selections, res)
+}
+
 func (ec *executionContext) _Mutation_delete_enterprise_contact(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -51503,318 +51688,6 @@ func (ec *executionContext) _Mutation_delete_enterprise_muck_trunk_by_union_pk(c
 	res := resTmp.(*model1.EnterpriseMuckTrunk)
 	fc.Result = res
 	return ec.marshalOEnterpriseMuckTrunk2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterpriseMuckTrunk(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _Mutation_delete_enterprise_police_sms_info(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "Mutation",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   true,
-		IsResolver: true,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_Mutation_delete_enterprise_police_sms_info_args(ctx, rawArgs)
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	fc.Args = args
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().DeleteEnterprisePoliceSmsInfo(rctx, args["where"].(model.EnterprisePoliceSmsInfoBoolExp))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.EnterprisePoliceSmsInfoMutationResponse)
-	fc.Result = res
-	return ec.marshalOEnterprisePoliceSmsInfoMutationResponse2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterprisePoliceSmsInfoMutationResponse(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _Mutation_delete_enterprise_police_sms_info_by_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "Mutation",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   true,
-		IsResolver: true,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_Mutation_delete_enterprise_police_sms_info_by_pk_args(ctx, rawArgs)
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	fc.Args = args
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().DeleteEnterprisePoliceSmsInfoByPk(rctx, args["id"].(int64))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model1.EnterprisePoliceSmsInfo)
-	fc.Result = res
-	return ec.marshalOEnterprisePoliceSmsInfo2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterprisePoliceSmsInfo(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _Mutation_insert_enterprise_police_sms_info(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "Mutation",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   true,
-		IsResolver: true,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_Mutation_insert_enterprise_police_sms_info_args(ctx, rawArgs)
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	fc.Args = args
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().InsertEnterprisePoliceSmsInfo(rctx, args["objects"].([]*model.EnterprisePoliceSmsInfoInsertInput))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.EnterprisePoliceSmsInfoMutationResponse)
-	fc.Result = res
-	return ec.marshalOEnterprisePoliceSmsInfoMutationResponse2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterprisePoliceSmsInfoMutationResponse(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _Mutation_insert_enterprise_police_sms_info_one(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "Mutation",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   true,
-		IsResolver: true,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_Mutation_insert_enterprise_police_sms_info_one_args(ctx, rawArgs)
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	fc.Args = args
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().InsertEnterprisePoliceSmsInfoOne(rctx, args["objects"].(model.EnterprisePoliceSmsInfoInsertInput))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model1.EnterprisePoliceSmsInfo)
-	fc.Result = res
-	return ec.marshalOEnterprisePoliceSmsInfo2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterprisePoliceSmsInfo(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _Mutation_update_enterprise_police_sms_info(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "Mutation",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   true,
-		IsResolver: true,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_Mutation_update_enterprise_police_sms_info_args(ctx, rawArgs)
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	fc.Args = args
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().UpdateEnterprisePoliceSmsInfo(rctx, args["_inc"].(*model.EnterprisePoliceSmsInfoIncInput), args["_set"].(*model.EnterprisePoliceSmsInfoSetInput), args["where"].(model.EnterprisePoliceSmsInfoBoolExp))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.EnterprisePoliceSmsInfoMutationResponse)
-	fc.Result = res
-	return ec.marshalOEnterprisePoliceSmsInfoMutationResponse2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterprisePoliceSmsInfoMutationResponse(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _Mutation_update_enterprise_police_sms_info_by_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "Mutation",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   true,
-		IsResolver: true,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_Mutation_update_enterprise_police_sms_info_by_pk_args(ctx, rawArgs)
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	fc.Args = args
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().UpdateEnterprisePoliceSmsInfoByPk(rctx, args["_inc"].(*model.EnterprisePoliceSmsInfoIncInput), args["_set"].(*model.EnterprisePoliceSmsInfoSetInput), args["id"].(int64))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model1.EnterprisePoliceSmsInfo)
-	fc.Result = res
-	return ec.marshalOEnterprisePoliceSmsInfo2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterprisePoliceSmsInfo(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _Mutation_update_enterprise_police_sms_info_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "Mutation",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   true,
-		IsResolver: true,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_Mutation_update_enterprise_police_sms_info_by_union_pk_args(ctx, rawArgs)
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	fc.Args = args
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().UpdateEnterprisePoliceSmsInfoByUnionPk(rctx, args["_inc"].(*model.EnterprisePoliceSmsInfoIncInput), args["_set"].(*model.EnterprisePoliceSmsInfoSetInput), args["enterprise_police_sms_info_id"].(string))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model1.EnterprisePoliceSmsInfo)
-	fc.Result = res
-	return ec.marshalOEnterprisePoliceSmsInfo2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterprisePoliceSmsInfo(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _Mutation_delete_enterprise_police_sms_info_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "Mutation",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   true,
-		IsResolver: true,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_Mutation_delete_enterprise_police_sms_info_by_union_pk_args(ctx, rawArgs)
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	fc.Args = args
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().DeleteEnterprisePoliceSmsInfoByUnionPk(rctx, args["enterprise_police_sms_info_id"].(string))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model1.EnterprisePoliceSmsInfo)
-	fc.Result = res
-	return ec.marshalOEnterprisePoliceSmsInfo2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterprisePoliceSmsInfo(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Mutation_delete_enterprise_score_log(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -53713,6 +53586,174 @@ func (ec *executionContext) _Query_enterprise_by_union_pk(ctx context.Context, f
 	return ec.marshalNEnterprise2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterprise(ctx, field.Selections, res)
 }
 
+func (ec *executionContext) _Query_enterprise_alarm_send_police(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_enterprise_alarm_send_police_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().EnterpriseAlarmSendPolice(rctx, args["distinct_on"].([]model.EnterpriseAlarmSendPoliceSelectColumn), args["limit"].(*int), args["offset"].(*int), args["order_by"].([]*model.EnterpriseAlarmSendPoliceOrderBy), args["where"].(*model.EnterpriseAlarmSendPoliceBoolExp))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.([]*model1.EnterpriseAlarmSendPolice)
+	fc.Result = res
+	return ec.marshalNEnterpriseAlarmSendPolice2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterpriseAlarmSendPoliceᚄ(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Query_enterprise_alarm_send_police_aggregate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_enterprise_alarm_send_police_aggregate_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().EnterpriseAlarmSendPoliceAggregate(rctx, args["distinct_on"].([]model.EnterpriseAlarmSendPoliceSelectColumn), args["limit"].(*int), args["offset"].(*int), args["order_by"].([]*model.EnterpriseAlarmSendPoliceOrderBy), args["where"].(*model.EnterpriseAlarmSendPoliceBoolExp))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*model.EnterpriseAlarmSendPoliceAggregate)
+	fc.Result = res
+	return ec.marshalNEnterpriseAlarmSendPoliceAggregate2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterpriseAlarmSendPoliceAggregate(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Query_enterprise_alarm_send_police_by_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_enterprise_alarm_send_police_by_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().EnterpriseAlarmSendPoliceByPk(rctx, args["id"].(int64))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*model1.EnterpriseAlarmSendPolice)
+	fc.Result = res
+	return ec.marshalNEnterpriseAlarmSendPolice2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterpriseAlarmSendPolice(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Query_enterprise_alarm_send_police_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_enterprise_alarm_send_police_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().EnterpriseAlarmSendPoliceByUnionPk(rctx, args["enterprise_alarm_send_police_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*model1.EnterpriseAlarmSendPolice)
+	fc.Result = res
+	return ec.marshalNEnterpriseAlarmSendPolice2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterpriseAlarmSendPolice(ctx, field.Selections, res)
+}
+
 func (ec *executionContext) _Query_enterprise_contact(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -54047,174 +54088,6 @@ func (ec *executionContext) _Query_enterprise_muck_trunk_by_union_pk(ctx context
 	res := resTmp.(*model1.EnterpriseMuckTrunk)
 	fc.Result = res
 	return ec.marshalNEnterpriseMuckTrunk2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterpriseMuckTrunk(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _Query_enterprise_police_sms_info(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "Query",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   true,
-		IsResolver: true,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_Query_enterprise_police_sms_info_args(ctx, rawArgs)
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	fc.Args = args
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Query().EnterprisePoliceSmsInfo(rctx, args["distinct_on"].([]model.EnterprisePoliceSmsInfoSelectColumn), args["limit"].(*int), args["offset"].(*int), args["order_by"].([]*model.EnterprisePoliceSmsInfoOrderBy), args["where"].(*model.EnterprisePoliceSmsInfoBoolExp))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.([]*model1.EnterprisePoliceSmsInfo)
-	fc.Result = res
-	return ec.marshalNEnterprisePoliceSmsInfo2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterprisePoliceSmsInfoᚄ(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _Query_enterprise_police_sms_info_aggregate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "Query",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   true,
-		IsResolver: true,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_Query_enterprise_police_sms_info_aggregate_args(ctx, rawArgs)
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	fc.Args = args
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Query().EnterprisePoliceSmsInfoAggregate(rctx, args["distinct_on"].([]model.EnterprisePoliceSmsInfoSelectColumn), args["limit"].(*int), args["offset"].(*int), args["order_by"].([]*model.EnterprisePoliceSmsInfoOrderBy), args["where"].(*model.EnterprisePoliceSmsInfoBoolExp))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(*model.EnterprisePoliceSmsInfoAggregate)
-	fc.Result = res
-	return ec.marshalNEnterprisePoliceSmsInfoAggregate2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterprisePoliceSmsInfoAggregate(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _Query_enterprise_police_sms_info_by_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "Query",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   true,
-		IsResolver: true,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_Query_enterprise_police_sms_info_by_pk_args(ctx, rawArgs)
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	fc.Args = args
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Query().EnterprisePoliceSmsInfoByPk(rctx, args["id"].(int64))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(*model1.EnterprisePoliceSmsInfo)
-	fc.Result = res
-	return ec.marshalNEnterprisePoliceSmsInfo2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterprisePoliceSmsInfo(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _Query_enterprise_police_sms_info_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "Query",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   true,
-		IsResolver: true,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_Query_enterprise_police_sms_info_by_union_pk_args(ctx, rawArgs)
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	fc.Args = args
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Query().EnterprisePoliceSmsInfoByUnionPk(rctx, args["enterprise_police_sms_info_id"].(string))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(*model1.EnterprisePoliceSmsInfo)
-	fc.Result = res
-	return ec.marshalNEnterprisePoliceSmsInfo2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterprisePoliceSmsInfo(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_enterprise_score_log(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -60930,6 +60803,14 @@ func (ec *executionContext) unmarshalInputDepartmentInsertInput(ctx context.Cont
 
 	for k, v := range asMap {
 		switch k {
+		case "department_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("department_id"))
+			it.DepartmentID, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "enterprise_id":
 			var err error
 
@@ -61319,6 +61200,570 @@ func (ec *executionContext) unmarshalInputDepartmentSetInput(ctx context.Context
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("remarks"))
 			it.Remarks, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputEnterpriseAlarmSendPoliceBoolExp(ctx context.Context, obj interface{}) (model.EnterpriseAlarmSendPoliceBoolExp, error) {
+	var it model.EnterpriseAlarmSendPoliceBoolExp
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "_and":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_and"))
+			it.And, err = ec.unmarshalOEnterpriseAlarmSendPoliceBoolExp2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterpriseAlarmSendPoliceBoolExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_not":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_not"))
+			it.Not, err = ec.unmarshalOEnterpriseAlarmSendPoliceBoolExp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterpriseAlarmSendPoliceBoolExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_or":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_or"))
+			it.Or, err = ec.unmarshalOEnterpriseAlarmSendPoliceBoolExp2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterpriseAlarmSendPoliceBoolExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+			it.ID, err = ec.unmarshalOBigintComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐBigintComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "enterprise_alarm_send_police_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_alarm_send_police_id"))
+			it.EnterpriseAlarmSendPoliceID, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "enterprise_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_id"))
+			it.EnterpriseID, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "enterprise_name":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_name"))
+			it.EnterpriseName, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "enterprise_contact":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_contact"))
+			it.EnterpriseContact, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "enterprise_phone":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_phone"))
+			it.EnterprisePhone, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "police":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("police"))
+			it.Police, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "police_phone":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("police_phone"))
+			it.PolicePhone, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "phlice_department":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("phlice_department"))
+			it.PhliceDepartment, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
+			it.CreatedAt, err = ec.unmarshalOTimestamptzComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
+			it.CreatedBy, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "updated_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("updated_at"))
+			it.UpdatedAt, err = ec.unmarshalOTimestamptzComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "updated_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("updated_by"))
+			it.UpdatedBy, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "deleted_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_at"))
+			it.DeletedAt, err = ec.unmarshalOTimestamptzComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "deleted_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_by"))
+			it.DeletedBy, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputEnterpriseAlarmSendPoliceIncInput(ctx context.Context, obj interface{}) (model.EnterpriseAlarmSendPoliceIncInput, error) {
+	var it model.EnterpriseAlarmSendPoliceIncInput
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+			it.ID, err = ec.unmarshalOBigint2ᚖint64(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputEnterpriseAlarmSendPoliceInsertInput(ctx context.Context, obj interface{}) (model.EnterpriseAlarmSendPoliceInsertInput, error) {
+	var it model.EnterpriseAlarmSendPoliceInsertInput
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "enterprise_alarm_send_police_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_alarm_send_police_id"))
+			it.EnterpriseAlarmSendPoliceID, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "enterprise_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_id"))
+			it.EnterpriseID, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "enterprise_name":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_name"))
+			it.EnterpriseName, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "enterprise_contact":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_contact"))
+			it.EnterpriseContact, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "enterprise_phone":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_phone"))
+			it.EnterprisePhone, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "police":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("police"))
+			it.Police, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "police_phone":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("police_phone"))
+			it.PolicePhone, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "phlice_department":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("phlice_department"))
+			it.PhliceDepartment, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
+			it.CreatedAt, err = ec.unmarshalNTimestamptz2timeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
+			it.CreatedBy, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "updated_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("updated_at"))
+			it.UpdatedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "updated_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("updated_by"))
+			it.UpdatedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "deleted_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_at"))
+			it.DeletedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "deleted_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_by"))
+			it.DeletedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputEnterpriseAlarmSendPoliceOrderBy(ctx context.Context, obj interface{}) (model.EnterpriseAlarmSendPoliceOrderBy, error) {
+	var it model.EnterpriseAlarmSendPoliceOrderBy
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+			it.ID, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "enterprise_alarm_send_police_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_alarm_send_police_id"))
+			it.EnterpriseAlarmSendPoliceID, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "enterprise_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_id"))
+			it.EnterpriseID, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "enterprise_name":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_name"))
+			it.EnterpriseName, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "enterprise_contact":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_contact"))
+			it.EnterpriseContact, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "enterprise_phone":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_phone"))
+			it.EnterprisePhone, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "police":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("police"))
+			it.Police, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "police_phone":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("police_phone"))
+			it.PolicePhone, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "phlice_department":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("phlice_department"))
+			it.PhliceDepartment, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
+			it.CreatedAt, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
+			it.CreatedBy, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "updated_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("updated_at"))
+			it.UpdatedAt, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "updated_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("updated_by"))
+			it.UpdatedBy, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "deleted_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_at"))
+			it.DeletedAt, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "deleted_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_by"))
+			it.DeletedBy, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputEnterpriseAlarmSendPoliceSetInput(ctx context.Context, obj interface{}) (model.EnterpriseAlarmSendPoliceSetInput, error) {
+	var it model.EnterpriseAlarmSendPoliceSetInput
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+			it.ID, err = ec.unmarshalOBigint2ᚖint64(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "enterprise_alarm_send_police_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_alarm_send_police_id"))
+			it.EnterpriseAlarmSendPoliceID, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "enterprise_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_id"))
+			it.EnterpriseID, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "enterprise_name":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_name"))
+			it.EnterpriseName, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "enterprise_contact":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_contact"))
+			it.EnterpriseContact, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "enterprise_phone":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_phone"))
+			it.EnterprisePhone, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "police":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("police"))
+			it.Police, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "police_phone":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("police_phone"))
+			it.PolicePhone, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "phlice_department":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("phlice_department"))
+			it.PhliceDepartment, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
+			it.CreatedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
+			it.CreatedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "updated_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("updated_at"))
+			it.UpdatedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "updated_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("updated_by"))
+			it.UpdatedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "deleted_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_at"))
+			it.DeletedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "deleted_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_by"))
+			it.DeletedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -62042,6 +62487,14 @@ func (ec *executionContext) unmarshalInputEnterpriseContactInsertInput(ctx conte
 
 	for k, v := range asMap {
 		switch k {
+		case "contact_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("contact_id"))
+			it.ContactID, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "enterprise_id":
 			var err error
 
@@ -62546,6 +62999,14 @@ func (ec *executionContext) unmarshalInputEnterpriseInsertInput(ctx context.Cont
 
 	for k, v := range asMap {
 		switch k {
+		case "enterprise_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_id"))
+			it.EnterpriseID, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "superior_enterprise_id":
 			var err error
 
@@ -63414,6 +63875,14 @@ func (ec *executionContext) unmarshalInputEnterpriseMuckTrunkInsertInput(ctx con
 
 	for k, v := range asMap {
 		switch k {
+		case "enterprise_muck_trunk_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_muck_trunk_id"))
+			it.EnterpriseMuckTrunkID, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "enterprise_id":
 			var err error
 
@@ -64864,594 +65333,6 @@ func (ec *executionContext) unmarshalInputEnterpriseOrderBy(ctx context.Context,
 	return it, nil
 }
 
-func (ec *executionContext) unmarshalInputEnterprisePoliceSmsInfoBoolExp(ctx context.Context, obj interface{}) (model.EnterprisePoliceSmsInfoBoolExp, error) {
-	var it model.EnterprisePoliceSmsInfoBoolExp
-	var asMap = obj.(map[string]interface{})
-
-	for k, v := range asMap {
-		switch k {
-		case "_and":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_and"))
-			it.And, err = ec.unmarshalOEnterprisePoliceSmsInfoBoolExp2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterprisePoliceSmsInfoBoolExp(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "_not":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_not"))
-			it.Not, err = ec.unmarshalOEnterprisePoliceSmsInfoBoolExp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterprisePoliceSmsInfoBoolExp(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "_or":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_or"))
-			it.Or, err = ec.unmarshalOEnterprisePoliceSmsInfoBoolExp2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterprisePoliceSmsInfoBoolExp(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-			it.ID, err = ec.unmarshalOBigintComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐBigintComparisonExp(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "enterprise_police_sms_info_id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_police_sms_info_id"))
-			it.EnterprisePoliceSmsInfoID, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "enterprise_id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_id"))
-			it.EnterpriseID, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "enterprise_name":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_name"))
-			it.EnterpriseName, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "enterprise_contact_name":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_contact_name"))
-			it.EnterpriseContactName, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "enterprise_contact_phone":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_contact_phone"))
-			it.EnterpriseContactPhone, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "police_name":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("police_name"))
-			it.PoliceName, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "police_phone":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("police_phone"))
-			it.PolicePhone, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "police_dept":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("police_dept"))
-			it.PoliceDept, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "create_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_at"))
-			it.CreateAt, err = ec.unmarshalOTimestamptzComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "create_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_by"))
-			it.CreateBy, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "update_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_at"))
-			it.UpdateAt, err = ec.unmarshalOTimestamptzComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "update_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_by"))
-			it.UpdateBy, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "delete_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_at"))
-			it.DeleteAt, err = ec.unmarshalOTimestamptzComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "delete_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_by"))
-			it.DeleteBy, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "is_delete":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_delete"))
-			it.IsDelete, err = ec.unmarshalOBooleanComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐBooleanComparisonExp(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		}
-	}
-
-	return it, nil
-}
-
-func (ec *executionContext) unmarshalInputEnterprisePoliceSmsInfoIncInput(ctx context.Context, obj interface{}) (model.EnterprisePoliceSmsInfoIncInput, error) {
-	var it model.EnterprisePoliceSmsInfoIncInput
-	var asMap = obj.(map[string]interface{})
-
-	for k, v := range asMap {
-		switch k {
-		case "id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-			it.ID, err = ec.unmarshalOBigint2ᚖint64(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		}
-	}
-
-	return it, nil
-}
-
-func (ec *executionContext) unmarshalInputEnterprisePoliceSmsInfoInsertInput(ctx context.Context, obj interface{}) (model.EnterprisePoliceSmsInfoInsertInput, error) {
-	var it model.EnterprisePoliceSmsInfoInsertInput
-	var asMap = obj.(map[string]interface{})
-
-	for k, v := range asMap {
-		switch k {
-		case "enterprise_id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_id"))
-			it.EnterpriseID, err = ec.unmarshalNString2string(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "enterprise_name":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_name"))
-			it.EnterpriseName, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "enterprise_contact_name":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_contact_name"))
-			it.EnterpriseContactName, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "enterprise_contact_phone":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_contact_phone"))
-			it.EnterpriseContactPhone, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "police_name":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("police_name"))
-			it.PoliceName, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "police_phone":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("police_phone"))
-			it.PolicePhone, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "police_dept":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("police_dept"))
-			it.PoliceDept, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "create_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_at"))
-			it.CreateAt, err = ec.unmarshalNTimestamptz2timeᚐTime(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "create_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_by"))
-			it.CreateBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "update_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_at"))
-			it.UpdateAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "update_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_by"))
-			it.UpdateBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "delete_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_at"))
-			it.DeleteAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "delete_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_by"))
-			it.DeleteBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "is_delete":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_delete"))
-			it.IsDelete, err = ec.unmarshalNBoolean2bool(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		}
-	}
-
-	return it, nil
-}
-
-func (ec *executionContext) unmarshalInputEnterprisePoliceSmsInfoOrderBy(ctx context.Context, obj interface{}) (model.EnterprisePoliceSmsInfoOrderBy, error) {
-	var it model.EnterprisePoliceSmsInfoOrderBy
-	var asMap = obj.(map[string]interface{})
-
-	for k, v := range asMap {
-		switch k {
-		case "id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-			it.ID, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "enterprise_police_sms_info_id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_police_sms_info_id"))
-			it.EnterprisePoliceSmsInfoID, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "enterprise_id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_id"))
-			it.EnterpriseID, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "enterprise_name":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_name"))
-			it.EnterpriseName, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "enterprise_contact_name":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_contact_name"))
-			it.EnterpriseContactName, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "enterprise_contact_phone":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_contact_phone"))
-			it.EnterpriseContactPhone, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "police_name":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("police_name"))
-			it.PoliceName, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "police_phone":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("police_phone"))
-			it.PolicePhone, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "police_dept":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("police_dept"))
-			it.PoliceDept, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "create_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_at"))
-			it.CreateAt, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "create_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_by"))
-			it.CreateBy, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "update_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_at"))
-			it.UpdateAt, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "update_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_by"))
-			it.UpdateBy, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "delete_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_at"))
-			it.DeleteAt, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "delete_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_by"))
-			it.DeleteBy, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "is_delete":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_delete"))
-			it.IsDelete, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		}
-	}
-
-	return it, nil
-}
-
-func (ec *executionContext) unmarshalInputEnterprisePoliceSmsInfoSetInput(ctx context.Context, obj interface{}) (model.EnterprisePoliceSmsInfoSetInput, error) {
-	var it model.EnterprisePoliceSmsInfoSetInput
-	var asMap = obj.(map[string]interface{})
-
-	for k, v := range asMap {
-		switch k {
-		case "id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-			it.ID, err = ec.unmarshalOBigint2ᚖint64(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "enterprise_police_sms_info_id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_police_sms_info_id"))
-			it.EnterprisePoliceSmsInfoID, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "enterprise_id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_id"))
-			it.EnterpriseID, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "enterprise_name":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_name"))
-			it.EnterpriseName, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "enterprise_contact_name":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_contact_name"))
-			it.EnterpriseContactName, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "enterprise_contact_phone":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_contact_phone"))
-			it.EnterpriseContactPhone, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "police_name":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("police_name"))
-			it.PoliceName, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "police_phone":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("police_phone"))
-			it.PolicePhone, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "police_dept":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("police_dept"))
-			it.PoliceDept, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "create_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_at"))
-			it.CreateAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "create_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_by"))
-			it.CreateBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "update_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_at"))
-			it.UpdateAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "update_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_by"))
-			it.UpdateBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "delete_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_at"))
-			it.DeleteAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "delete_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_by"))
-			it.DeleteBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "is_delete":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_delete"))
-			it.IsDelete, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		}
-	}
-
-	return it, nil
-}
-
 func (ec *executionContext) unmarshalInputEnterpriseScoreLogBoolExp(ctx context.Context, obj interface{}) (model.EnterpriseScoreLogBoolExp, error) {
 	var it model.EnterpriseScoreLogBoolExp
 	var asMap = obj.(map[string]interface{})
@@ -65650,6 +65531,14 @@ func (ec *executionContext) unmarshalInputEnterpriseScoreLogInsertInput(ctx cont
 
 	for k, v := range asMap {
 		switch k {
+		case "log_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("log_id"))
+			it.LogID, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "enterprise_id":
 			var err error
 
@@ -66198,6 +66087,14 @@ func (ec *executionContext) unmarshalInputEnterpriseScoreSetInsertInput(ctx cont
 
 	for k, v := range asMap {
 		switch k {
+		case "score_set_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("score_set_id"))
+			it.ScoreSetID, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "content":
 			var err error
 
@@ -67134,6 +67031,14 @@ func (ec *executionContext) unmarshalInputEnterpriseStateHisInsertInput(ctx cont
 
 	for k, v := range asMap {
 		switch k {
+		case "state_his_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("state_his_id"))
+			it.StateHisID, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "enterprise_id":
 			var err error
 
@@ -67482,6 +67387,14 @@ func (ec *executionContext) unmarshalInputEnterpriseUkeyInsertInput(ctx context.
 
 	for k, v := range asMap {
 		switch k {
+		case "ukey_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ukey_id"))
+			it.UkeyID, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "enterprise_id":
 			var err error
 
@@ -68598,6 +68511,14 @@ func (ec *executionContext) unmarshalInputSystemUserInsertInput(ctx context.Cont
 
 	for k, v := range asMap {
 		switch k {
+		case "user_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("user_id"))
+			it.UserID, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "password":
 			var err error
 
@@ -70096,6 +70017,466 @@ func (ec *executionContext) _EnterpriseAggregateFields(ctx context.Context, sel 
 			out.Values[i] = ec._EnterpriseAggregateFields_var_samp(ctx, field, obj)
 		case "variance":
 			out.Values[i] = ec._EnterpriseAggregateFields_variance(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var enterpriseAlarmSendPoliceImplementors = []string{"EnterpriseAlarmSendPolice"}
+
+func (ec *executionContext) _EnterpriseAlarmSendPolice(ctx context.Context, sel ast.SelectionSet, obj *model1.EnterpriseAlarmSendPolice) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, enterpriseAlarmSendPoliceImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("EnterpriseAlarmSendPolice")
+		case "id":
+			out.Values[i] = ec._EnterpriseAlarmSendPolice_id(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "enterprise_alarm_send_police_id":
+			out.Values[i] = ec._EnterpriseAlarmSendPolice_enterprise_alarm_send_police_id(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "enterprise_id":
+			out.Values[i] = ec._EnterpriseAlarmSendPolice_enterprise_id(ctx, field, obj)
+		case "enterprise_name":
+			out.Values[i] = ec._EnterpriseAlarmSendPolice_enterprise_name(ctx, field, obj)
+		case "enterprise_contact":
+			out.Values[i] = ec._EnterpriseAlarmSendPolice_enterprise_contact(ctx, field, obj)
+		case "enterprise_phone":
+			out.Values[i] = ec._EnterpriseAlarmSendPolice_enterprise_phone(ctx, field, obj)
+		case "police":
+			out.Values[i] = ec._EnterpriseAlarmSendPolice_police(ctx, field, obj)
+		case "police_phone":
+			out.Values[i] = ec._EnterpriseAlarmSendPolice_police_phone(ctx, field, obj)
+		case "phlice_department":
+			out.Values[i] = ec._EnterpriseAlarmSendPolice_phlice_department(ctx, field, obj)
+		case "created_at":
+			out.Values[i] = ec._EnterpriseAlarmSendPolice_created_at(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "created_by":
+			out.Values[i] = ec._EnterpriseAlarmSendPolice_created_by(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "updated_at":
+			out.Values[i] = ec._EnterpriseAlarmSendPolice_updated_at(ctx, field, obj)
+		case "updated_by":
+			out.Values[i] = ec._EnterpriseAlarmSendPolice_updated_by(ctx, field, obj)
+		case "deleted_at":
+			out.Values[i] = ec._EnterpriseAlarmSendPolice_deleted_at(ctx, field, obj)
+		case "deleted_by":
+			out.Values[i] = ec._EnterpriseAlarmSendPolice_deleted_by(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var enterpriseAlarmSendPoliceAggregateImplementors = []string{"EnterpriseAlarmSendPoliceAggregate"}
+
+func (ec *executionContext) _EnterpriseAlarmSendPoliceAggregate(ctx context.Context, sel ast.SelectionSet, obj *model.EnterpriseAlarmSendPoliceAggregate) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, enterpriseAlarmSendPoliceAggregateImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("EnterpriseAlarmSendPoliceAggregate")
+		case "aggregate":
+			out.Values[i] = ec._EnterpriseAlarmSendPoliceAggregate_aggregate(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var enterpriseAlarmSendPoliceAggregateFieldsImplementors = []string{"EnterpriseAlarmSendPoliceAggregateFields"}
+
+func (ec *executionContext) _EnterpriseAlarmSendPoliceAggregateFields(ctx context.Context, sel ast.SelectionSet, obj *model.EnterpriseAlarmSendPoliceAggregateFields) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, enterpriseAlarmSendPoliceAggregateFieldsImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("EnterpriseAlarmSendPoliceAggregateFields")
+		case "avg":
+			out.Values[i] = ec._EnterpriseAlarmSendPoliceAggregateFields_avg(ctx, field, obj)
+		case "count":
+			out.Values[i] = ec._EnterpriseAlarmSendPoliceAggregateFields_count(ctx, field, obj)
+		case "max":
+			out.Values[i] = ec._EnterpriseAlarmSendPoliceAggregateFields_max(ctx, field, obj)
+		case "min":
+			out.Values[i] = ec._EnterpriseAlarmSendPoliceAggregateFields_min(ctx, field, obj)
+		case "stddev":
+			out.Values[i] = ec._EnterpriseAlarmSendPoliceAggregateFields_stddev(ctx, field, obj)
+		case "stddev_pop":
+			out.Values[i] = ec._EnterpriseAlarmSendPoliceAggregateFields_stddev_pop(ctx, field, obj)
+		case "stddev_samp":
+			out.Values[i] = ec._EnterpriseAlarmSendPoliceAggregateFields_stddev_samp(ctx, field, obj)
+		case "sum":
+			out.Values[i] = ec._EnterpriseAlarmSendPoliceAggregateFields_sum(ctx, field, obj)
+		case "var_pop":
+			out.Values[i] = ec._EnterpriseAlarmSendPoliceAggregateFields_var_pop(ctx, field, obj)
+		case "var_samp":
+			out.Values[i] = ec._EnterpriseAlarmSendPoliceAggregateFields_var_samp(ctx, field, obj)
+		case "variance":
+			out.Values[i] = ec._EnterpriseAlarmSendPoliceAggregateFields_variance(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var enterpriseAlarmSendPoliceAvgFieldsImplementors = []string{"EnterpriseAlarmSendPoliceAvgFields"}
+
+func (ec *executionContext) _EnterpriseAlarmSendPoliceAvgFields(ctx context.Context, sel ast.SelectionSet, obj *model.EnterpriseAlarmSendPoliceAvgFields) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, enterpriseAlarmSendPoliceAvgFieldsImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("EnterpriseAlarmSendPoliceAvgFields")
+		case "id":
+			out.Values[i] = ec._EnterpriseAlarmSendPoliceAvgFields_id(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var enterpriseAlarmSendPoliceMaxFieldsImplementors = []string{"EnterpriseAlarmSendPoliceMaxFields"}
+
+func (ec *executionContext) _EnterpriseAlarmSendPoliceMaxFields(ctx context.Context, sel ast.SelectionSet, obj *model.EnterpriseAlarmSendPoliceMaxFields) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, enterpriseAlarmSendPoliceMaxFieldsImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("EnterpriseAlarmSendPoliceMaxFields")
+		case "id":
+			out.Values[i] = ec._EnterpriseAlarmSendPoliceMaxFields_id(ctx, field, obj)
+		case "enterprise_alarm_send_police_id":
+			out.Values[i] = ec._EnterpriseAlarmSendPoliceMaxFields_enterprise_alarm_send_police_id(ctx, field, obj)
+		case "enterprise_id":
+			out.Values[i] = ec._EnterpriseAlarmSendPoliceMaxFields_enterprise_id(ctx, field, obj)
+		case "enterprise_name":
+			out.Values[i] = ec._EnterpriseAlarmSendPoliceMaxFields_enterprise_name(ctx, field, obj)
+		case "enterprise_contact":
+			out.Values[i] = ec._EnterpriseAlarmSendPoliceMaxFields_enterprise_contact(ctx, field, obj)
+		case "enterprise_phone":
+			out.Values[i] = ec._EnterpriseAlarmSendPoliceMaxFields_enterprise_phone(ctx, field, obj)
+		case "police":
+			out.Values[i] = ec._EnterpriseAlarmSendPoliceMaxFields_police(ctx, field, obj)
+		case "police_phone":
+			out.Values[i] = ec._EnterpriseAlarmSendPoliceMaxFields_police_phone(ctx, field, obj)
+		case "phlice_department":
+			out.Values[i] = ec._EnterpriseAlarmSendPoliceMaxFields_phlice_department(ctx, field, obj)
+		case "created_at":
+			out.Values[i] = ec._EnterpriseAlarmSendPoliceMaxFields_created_at(ctx, field, obj)
+		case "created_by":
+			out.Values[i] = ec._EnterpriseAlarmSendPoliceMaxFields_created_by(ctx, field, obj)
+		case "updated_at":
+			out.Values[i] = ec._EnterpriseAlarmSendPoliceMaxFields_updated_at(ctx, field, obj)
+		case "updated_by":
+			out.Values[i] = ec._EnterpriseAlarmSendPoliceMaxFields_updated_by(ctx, field, obj)
+		case "deleted_at":
+			out.Values[i] = ec._EnterpriseAlarmSendPoliceMaxFields_deleted_at(ctx, field, obj)
+		case "deleted_by":
+			out.Values[i] = ec._EnterpriseAlarmSendPoliceMaxFields_deleted_by(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var enterpriseAlarmSendPoliceMinFieldsImplementors = []string{"EnterpriseAlarmSendPoliceMinFields"}
+
+func (ec *executionContext) _EnterpriseAlarmSendPoliceMinFields(ctx context.Context, sel ast.SelectionSet, obj *model.EnterpriseAlarmSendPoliceMinFields) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, enterpriseAlarmSendPoliceMinFieldsImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("EnterpriseAlarmSendPoliceMinFields")
+		case "id":
+			out.Values[i] = ec._EnterpriseAlarmSendPoliceMinFields_id(ctx, field, obj)
+		case "enterprise_alarm_send_police_id":
+			out.Values[i] = ec._EnterpriseAlarmSendPoliceMinFields_enterprise_alarm_send_police_id(ctx, field, obj)
+		case "enterprise_id":
+			out.Values[i] = ec._EnterpriseAlarmSendPoliceMinFields_enterprise_id(ctx, field, obj)
+		case "enterprise_name":
+			out.Values[i] = ec._EnterpriseAlarmSendPoliceMinFields_enterprise_name(ctx, field, obj)
+		case "enterprise_contact":
+			out.Values[i] = ec._EnterpriseAlarmSendPoliceMinFields_enterprise_contact(ctx, field, obj)
+		case "enterprise_phone":
+			out.Values[i] = ec._EnterpriseAlarmSendPoliceMinFields_enterprise_phone(ctx, field, obj)
+		case "police":
+			out.Values[i] = ec._EnterpriseAlarmSendPoliceMinFields_police(ctx, field, obj)
+		case "police_phone":
+			out.Values[i] = ec._EnterpriseAlarmSendPoliceMinFields_police_phone(ctx, field, obj)
+		case "phlice_department":
+			out.Values[i] = ec._EnterpriseAlarmSendPoliceMinFields_phlice_department(ctx, field, obj)
+		case "created_at":
+			out.Values[i] = ec._EnterpriseAlarmSendPoliceMinFields_created_at(ctx, field, obj)
+		case "created_by":
+			out.Values[i] = ec._EnterpriseAlarmSendPoliceMinFields_created_by(ctx, field, obj)
+		case "updated_at":
+			out.Values[i] = ec._EnterpriseAlarmSendPoliceMinFields_updated_at(ctx, field, obj)
+		case "updated_by":
+			out.Values[i] = ec._EnterpriseAlarmSendPoliceMinFields_updated_by(ctx, field, obj)
+		case "deleted_at":
+			out.Values[i] = ec._EnterpriseAlarmSendPoliceMinFields_deleted_at(ctx, field, obj)
+		case "deleted_by":
+			out.Values[i] = ec._EnterpriseAlarmSendPoliceMinFields_deleted_by(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var enterpriseAlarmSendPoliceMutationResponseImplementors = []string{"EnterpriseAlarmSendPoliceMutationResponse"}
+
+func (ec *executionContext) _EnterpriseAlarmSendPoliceMutationResponse(ctx context.Context, sel ast.SelectionSet, obj *model.EnterpriseAlarmSendPoliceMutationResponse) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, enterpriseAlarmSendPoliceMutationResponseImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("EnterpriseAlarmSendPoliceMutationResponse")
+		case "affected_rows":
+			out.Values[i] = ec._EnterpriseAlarmSendPoliceMutationResponse_affected_rows(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "returning":
+			out.Values[i] = ec._EnterpriseAlarmSendPoliceMutationResponse_returning(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var enterpriseAlarmSendPoliceStddevFieldsImplementors = []string{"EnterpriseAlarmSendPoliceStddevFields"}
+
+func (ec *executionContext) _EnterpriseAlarmSendPoliceStddevFields(ctx context.Context, sel ast.SelectionSet, obj *model.EnterpriseAlarmSendPoliceStddevFields) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, enterpriseAlarmSendPoliceStddevFieldsImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("EnterpriseAlarmSendPoliceStddevFields")
+		case "id":
+			out.Values[i] = ec._EnterpriseAlarmSendPoliceStddevFields_id(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var enterpriseAlarmSendPoliceStddevPopFieldsImplementors = []string{"EnterpriseAlarmSendPoliceStddevPopFields"}
+
+func (ec *executionContext) _EnterpriseAlarmSendPoliceStddevPopFields(ctx context.Context, sel ast.SelectionSet, obj *model.EnterpriseAlarmSendPoliceStddevPopFields) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, enterpriseAlarmSendPoliceStddevPopFieldsImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("EnterpriseAlarmSendPoliceStddevPopFields")
+		case "id":
+			out.Values[i] = ec._EnterpriseAlarmSendPoliceStddevPopFields_id(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var enterpriseAlarmSendPoliceStddevSampFieldsImplementors = []string{"EnterpriseAlarmSendPoliceStddevSampFields"}
+
+func (ec *executionContext) _EnterpriseAlarmSendPoliceStddevSampFields(ctx context.Context, sel ast.SelectionSet, obj *model.EnterpriseAlarmSendPoliceStddevSampFields) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, enterpriseAlarmSendPoliceStddevSampFieldsImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("EnterpriseAlarmSendPoliceStddevSampFields")
+		case "id":
+			out.Values[i] = ec._EnterpriseAlarmSendPoliceStddevSampFields_id(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var enterpriseAlarmSendPoliceSumFieldsImplementors = []string{"EnterpriseAlarmSendPoliceSumFields"}
+
+func (ec *executionContext) _EnterpriseAlarmSendPoliceSumFields(ctx context.Context, sel ast.SelectionSet, obj *model.EnterpriseAlarmSendPoliceSumFields) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, enterpriseAlarmSendPoliceSumFieldsImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("EnterpriseAlarmSendPoliceSumFields")
+		case "id":
+			out.Values[i] = ec._EnterpriseAlarmSendPoliceSumFields_id(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var enterpriseAlarmSendPoliceVarPopFieldsImplementors = []string{"EnterpriseAlarmSendPoliceVarPopFields"}
+
+func (ec *executionContext) _EnterpriseAlarmSendPoliceVarPopFields(ctx context.Context, sel ast.SelectionSet, obj *model.EnterpriseAlarmSendPoliceVarPopFields) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, enterpriseAlarmSendPoliceVarPopFieldsImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("EnterpriseAlarmSendPoliceVarPopFields")
+		case "id":
+			out.Values[i] = ec._EnterpriseAlarmSendPoliceVarPopFields_id(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var enterpriseAlarmSendPoliceVarSampFieldsImplementors = []string{"EnterpriseAlarmSendPoliceVarSampFields"}
+
+func (ec *executionContext) _EnterpriseAlarmSendPoliceVarSampFields(ctx context.Context, sel ast.SelectionSet, obj *model.EnterpriseAlarmSendPoliceVarSampFields) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, enterpriseAlarmSendPoliceVarSampFieldsImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("EnterpriseAlarmSendPoliceVarSampFields")
+		case "id":
+			out.Values[i] = ec._EnterpriseAlarmSendPoliceVarSampFields_id(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var enterpriseAlarmSendPoliceVarianceFieldsImplementors = []string{"EnterpriseAlarmSendPoliceVarianceFields"}
+
+func (ec *executionContext) _EnterpriseAlarmSendPoliceVarianceFields(ctx context.Context, sel ast.SelectionSet, obj *model.EnterpriseAlarmSendPoliceVarianceFields) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, enterpriseAlarmSendPoliceVarianceFieldsImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("EnterpriseAlarmSendPoliceVarianceFields")
+		case "id":
+			out.Values[i] = ec._EnterpriseAlarmSendPoliceVarianceFields_id(ctx, field, obj)
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}
@@ -71611,475 +71992,6 @@ func (ec *executionContext) _EnterpriseMutationResponse(ctx context.Context, sel
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		default:
-			panic("unknown field " + strconv.Quote(field.Name))
-		}
-	}
-	out.Dispatch()
-	if invalids > 0 {
-		return graphql.Null
-	}
-	return out
-}
-
-var enterprisePoliceSmsInfoImplementors = []string{"EnterprisePoliceSmsInfo"}
-
-func (ec *executionContext) _EnterprisePoliceSmsInfo(ctx context.Context, sel ast.SelectionSet, obj *model1.EnterprisePoliceSmsInfo) graphql.Marshaler {
-	fields := graphql.CollectFields(ec.OperationContext, sel, enterprisePoliceSmsInfoImplementors)
-
-	out := graphql.NewFieldSet(fields)
-	var invalids uint32
-	for i, field := range fields {
-		switch field.Name {
-		case "__typename":
-			out.Values[i] = graphql.MarshalString("EnterprisePoliceSmsInfo")
-		case "id":
-			out.Values[i] = ec._EnterprisePoliceSmsInfo_id(ctx, field, obj)
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
-		case "enterprise_police_sms_info_id":
-			out.Values[i] = ec._EnterprisePoliceSmsInfo_enterprise_police_sms_info_id(ctx, field, obj)
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
-		case "enterprise_id":
-			out.Values[i] = ec._EnterprisePoliceSmsInfo_enterprise_id(ctx, field, obj)
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
-		case "enterprise_name":
-			out.Values[i] = ec._EnterprisePoliceSmsInfo_enterprise_name(ctx, field, obj)
-		case "enterprise_contact_name":
-			out.Values[i] = ec._EnterprisePoliceSmsInfo_enterprise_contact_name(ctx, field, obj)
-		case "enterprise_contact_phone":
-			out.Values[i] = ec._EnterprisePoliceSmsInfo_enterprise_contact_phone(ctx, field, obj)
-		case "police_name":
-			out.Values[i] = ec._EnterprisePoliceSmsInfo_police_name(ctx, field, obj)
-		case "police_phone":
-			out.Values[i] = ec._EnterprisePoliceSmsInfo_police_phone(ctx, field, obj)
-		case "police_dept":
-			out.Values[i] = ec._EnterprisePoliceSmsInfo_police_dept(ctx, field, obj)
-		case "create_at":
-			out.Values[i] = ec._EnterprisePoliceSmsInfo_create_at(ctx, field, obj)
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
-		case "create_by":
-			out.Values[i] = ec._EnterprisePoliceSmsInfo_create_by(ctx, field, obj)
-		case "update_at":
-			out.Values[i] = ec._EnterprisePoliceSmsInfo_update_at(ctx, field, obj)
-		case "update_by":
-			out.Values[i] = ec._EnterprisePoliceSmsInfo_update_by(ctx, field, obj)
-		case "delete_at":
-			out.Values[i] = ec._EnterprisePoliceSmsInfo_delete_at(ctx, field, obj)
-		case "delete_by":
-			out.Values[i] = ec._EnterprisePoliceSmsInfo_delete_by(ctx, field, obj)
-		case "is_delete":
-			out.Values[i] = ec._EnterprisePoliceSmsInfo_is_delete(ctx, field, obj)
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
-		default:
-			panic("unknown field " + strconv.Quote(field.Name))
-		}
-	}
-	out.Dispatch()
-	if invalids > 0 {
-		return graphql.Null
-	}
-	return out
-}
-
-var enterprisePoliceSmsInfoAggregateImplementors = []string{"EnterprisePoliceSmsInfoAggregate"}
-
-func (ec *executionContext) _EnterprisePoliceSmsInfoAggregate(ctx context.Context, sel ast.SelectionSet, obj *model.EnterprisePoliceSmsInfoAggregate) graphql.Marshaler {
-	fields := graphql.CollectFields(ec.OperationContext, sel, enterprisePoliceSmsInfoAggregateImplementors)
-
-	out := graphql.NewFieldSet(fields)
-	var invalids uint32
-	for i, field := range fields {
-		switch field.Name {
-		case "__typename":
-			out.Values[i] = graphql.MarshalString("EnterprisePoliceSmsInfoAggregate")
-		case "aggregate":
-			out.Values[i] = ec._EnterprisePoliceSmsInfoAggregate_aggregate(ctx, field, obj)
-		default:
-			panic("unknown field " + strconv.Quote(field.Name))
-		}
-	}
-	out.Dispatch()
-	if invalids > 0 {
-		return graphql.Null
-	}
-	return out
-}
-
-var enterprisePoliceSmsInfoAggregateFieldsImplementors = []string{"EnterprisePoliceSmsInfoAggregateFields"}
-
-func (ec *executionContext) _EnterprisePoliceSmsInfoAggregateFields(ctx context.Context, sel ast.SelectionSet, obj *model.EnterprisePoliceSmsInfoAggregateFields) graphql.Marshaler {
-	fields := graphql.CollectFields(ec.OperationContext, sel, enterprisePoliceSmsInfoAggregateFieldsImplementors)
-
-	out := graphql.NewFieldSet(fields)
-	var invalids uint32
-	for i, field := range fields {
-		switch field.Name {
-		case "__typename":
-			out.Values[i] = graphql.MarshalString("EnterprisePoliceSmsInfoAggregateFields")
-		case "avg":
-			out.Values[i] = ec._EnterprisePoliceSmsInfoAggregateFields_avg(ctx, field, obj)
-		case "count":
-			out.Values[i] = ec._EnterprisePoliceSmsInfoAggregateFields_count(ctx, field, obj)
-		case "max":
-			out.Values[i] = ec._EnterprisePoliceSmsInfoAggregateFields_max(ctx, field, obj)
-		case "min":
-			out.Values[i] = ec._EnterprisePoliceSmsInfoAggregateFields_min(ctx, field, obj)
-		case "stddev":
-			out.Values[i] = ec._EnterprisePoliceSmsInfoAggregateFields_stddev(ctx, field, obj)
-		case "stddev_pop":
-			out.Values[i] = ec._EnterprisePoliceSmsInfoAggregateFields_stddev_pop(ctx, field, obj)
-		case "stddev_samp":
-			out.Values[i] = ec._EnterprisePoliceSmsInfoAggregateFields_stddev_samp(ctx, field, obj)
-		case "sum":
-			out.Values[i] = ec._EnterprisePoliceSmsInfoAggregateFields_sum(ctx, field, obj)
-		case "var_pop":
-			out.Values[i] = ec._EnterprisePoliceSmsInfoAggregateFields_var_pop(ctx, field, obj)
-		case "var_samp":
-			out.Values[i] = ec._EnterprisePoliceSmsInfoAggregateFields_var_samp(ctx, field, obj)
-		case "variance":
-			out.Values[i] = ec._EnterprisePoliceSmsInfoAggregateFields_variance(ctx, field, obj)
-		default:
-			panic("unknown field " + strconv.Quote(field.Name))
-		}
-	}
-	out.Dispatch()
-	if invalids > 0 {
-		return graphql.Null
-	}
-	return out
-}
-
-var enterprisePoliceSmsInfoAvgFieldsImplementors = []string{"EnterprisePoliceSmsInfoAvgFields"}
-
-func (ec *executionContext) _EnterprisePoliceSmsInfoAvgFields(ctx context.Context, sel ast.SelectionSet, obj *model.EnterprisePoliceSmsInfoAvgFields) graphql.Marshaler {
-	fields := graphql.CollectFields(ec.OperationContext, sel, enterprisePoliceSmsInfoAvgFieldsImplementors)
-
-	out := graphql.NewFieldSet(fields)
-	var invalids uint32
-	for i, field := range fields {
-		switch field.Name {
-		case "__typename":
-			out.Values[i] = graphql.MarshalString("EnterprisePoliceSmsInfoAvgFields")
-		case "id":
-			out.Values[i] = ec._EnterprisePoliceSmsInfoAvgFields_id(ctx, field, obj)
-		default:
-			panic("unknown field " + strconv.Quote(field.Name))
-		}
-	}
-	out.Dispatch()
-	if invalids > 0 {
-		return graphql.Null
-	}
-	return out
-}
-
-var enterprisePoliceSmsInfoMaxFieldsImplementors = []string{"EnterprisePoliceSmsInfoMaxFields"}
-
-func (ec *executionContext) _EnterprisePoliceSmsInfoMaxFields(ctx context.Context, sel ast.SelectionSet, obj *model.EnterprisePoliceSmsInfoMaxFields) graphql.Marshaler {
-	fields := graphql.CollectFields(ec.OperationContext, sel, enterprisePoliceSmsInfoMaxFieldsImplementors)
-
-	out := graphql.NewFieldSet(fields)
-	var invalids uint32
-	for i, field := range fields {
-		switch field.Name {
-		case "__typename":
-			out.Values[i] = graphql.MarshalString("EnterprisePoliceSmsInfoMaxFields")
-		case "id":
-			out.Values[i] = ec._EnterprisePoliceSmsInfoMaxFields_id(ctx, field, obj)
-		case "enterprise_police_sms_info_id":
-			out.Values[i] = ec._EnterprisePoliceSmsInfoMaxFields_enterprise_police_sms_info_id(ctx, field, obj)
-		case "enterprise_id":
-			out.Values[i] = ec._EnterprisePoliceSmsInfoMaxFields_enterprise_id(ctx, field, obj)
-		case "enterprise_name":
-			out.Values[i] = ec._EnterprisePoliceSmsInfoMaxFields_enterprise_name(ctx, field, obj)
-		case "enterprise_contact_name":
-			out.Values[i] = ec._EnterprisePoliceSmsInfoMaxFields_enterprise_contact_name(ctx, field, obj)
-		case "enterprise_contact_phone":
-			out.Values[i] = ec._EnterprisePoliceSmsInfoMaxFields_enterprise_contact_phone(ctx, field, obj)
-		case "police_name":
-			out.Values[i] = ec._EnterprisePoliceSmsInfoMaxFields_police_name(ctx, field, obj)
-		case "police_phone":
-			out.Values[i] = ec._EnterprisePoliceSmsInfoMaxFields_police_phone(ctx, field, obj)
-		case "police_dept":
-			out.Values[i] = ec._EnterprisePoliceSmsInfoMaxFields_police_dept(ctx, field, obj)
-		case "create_at":
-			out.Values[i] = ec._EnterprisePoliceSmsInfoMaxFields_create_at(ctx, field, obj)
-		case "create_by":
-			out.Values[i] = ec._EnterprisePoliceSmsInfoMaxFields_create_by(ctx, field, obj)
-		case "update_at":
-			out.Values[i] = ec._EnterprisePoliceSmsInfoMaxFields_update_at(ctx, field, obj)
-		case "update_by":
-			out.Values[i] = ec._EnterprisePoliceSmsInfoMaxFields_update_by(ctx, field, obj)
-		case "delete_at":
-			out.Values[i] = ec._EnterprisePoliceSmsInfoMaxFields_delete_at(ctx, field, obj)
-		case "delete_by":
-			out.Values[i] = ec._EnterprisePoliceSmsInfoMaxFields_delete_by(ctx, field, obj)
-		case "is_delete":
-			out.Values[i] = ec._EnterprisePoliceSmsInfoMaxFields_is_delete(ctx, field, obj)
-		default:
-			panic("unknown field " + strconv.Quote(field.Name))
-		}
-	}
-	out.Dispatch()
-	if invalids > 0 {
-		return graphql.Null
-	}
-	return out
-}
-
-var enterprisePoliceSmsInfoMinFieldsImplementors = []string{"EnterprisePoliceSmsInfoMinFields"}
-
-func (ec *executionContext) _EnterprisePoliceSmsInfoMinFields(ctx context.Context, sel ast.SelectionSet, obj *model.EnterprisePoliceSmsInfoMinFields) graphql.Marshaler {
-	fields := graphql.CollectFields(ec.OperationContext, sel, enterprisePoliceSmsInfoMinFieldsImplementors)
-
-	out := graphql.NewFieldSet(fields)
-	var invalids uint32
-	for i, field := range fields {
-		switch field.Name {
-		case "__typename":
-			out.Values[i] = graphql.MarshalString("EnterprisePoliceSmsInfoMinFields")
-		case "id":
-			out.Values[i] = ec._EnterprisePoliceSmsInfoMinFields_id(ctx, field, obj)
-		case "enterprise_police_sms_info_id":
-			out.Values[i] = ec._EnterprisePoliceSmsInfoMinFields_enterprise_police_sms_info_id(ctx, field, obj)
-		case "enterprise_id":
-			out.Values[i] = ec._EnterprisePoliceSmsInfoMinFields_enterprise_id(ctx, field, obj)
-		case "enterprise_name":
-			out.Values[i] = ec._EnterprisePoliceSmsInfoMinFields_enterprise_name(ctx, field, obj)
-		case "enterprise_contact_name":
-			out.Values[i] = ec._EnterprisePoliceSmsInfoMinFields_enterprise_contact_name(ctx, field, obj)
-		case "enterprise_contact_phone":
-			out.Values[i] = ec._EnterprisePoliceSmsInfoMinFields_enterprise_contact_phone(ctx, field, obj)
-		case "police_name":
-			out.Values[i] = ec._EnterprisePoliceSmsInfoMinFields_police_name(ctx, field, obj)
-		case "police_phone":
-			out.Values[i] = ec._EnterprisePoliceSmsInfoMinFields_police_phone(ctx, field, obj)
-		case "police_dept":
-			out.Values[i] = ec._EnterprisePoliceSmsInfoMinFields_police_dept(ctx, field, obj)
-		case "create_at":
-			out.Values[i] = ec._EnterprisePoliceSmsInfoMinFields_create_at(ctx, field, obj)
-		case "create_by":
-			out.Values[i] = ec._EnterprisePoliceSmsInfoMinFields_create_by(ctx, field, obj)
-		case "update_at":
-			out.Values[i] = ec._EnterprisePoliceSmsInfoMinFields_update_at(ctx, field, obj)
-		case "update_by":
-			out.Values[i] = ec._EnterprisePoliceSmsInfoMinFields_update_by(ctx, field, obj)
-		case "delete_at":
-			out.Values[i] = ec._EnterprisePoliceSmsInfoMinFields_delete_at(ctx, field, obj)
-		case "delete_by":
-			out.Values[i] = ec._EnterprisePoliceSmsInfoMinFields_delete_by(ctx, field, obj)
-		case "is_delete":
-			out.Values[i] = ec._EnterprisePoliceSmsInfoMinFields_is_delete(ctx, field, obj)
-		default:
-			panic("unknown field " + strconv.Quote(field.Name))
-		}
-	}
-	out.Dispatch()
-	if invalids > 0 {
-		return graphql.Null
-	}
-	return out
-}
-
-var enterprisePoliceSmsInfoMutationResponseImplementors = []string{"EnterprisePoliceSmsInfoMutationResponse"}
-
-func (ec *executionContext) _EnterprisePoliceSmsInfoMutationResponse(ctx context.Context, sel ast.SelectionSet, obj *model.EnterprisePoliceSmsInfoMutationResponse) graphql.Marshaler {
-	fields := graphql.CollectFields(ec.OperationContext, sel, enterprisePoliceSmsInfoMutationResponseImplementors)
-
-	out := graphql.NewFieldSet(fields)
-	var invalids uint32
-	for i, field := range fields {
-		switch field.Name {
-		case "__typename":
-			out.Values[i] = graphql.MarshalString("EnterprisePoliceSmsInfoMutationResponse")
-		case "affected_rows":
-			out.Values[i] = ec._EnterprisePoliceSmsInfoMutationResponse_affected_rows(ctx, field, obj)
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
-		case "returning":
-			out.Values[i] = ec._EnterprisePoliceSmsInfoMutationResponse_returning(ctx, field, obj)
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
-		default:
-			panic("unknown field " + strconv.Quote(field.Name))
-		}
-	}
-	out.Dispatch()
-	if invalids > 0 {
-		return graphql.Null
-	}
-	return out
-}
-
-var enterprisePoliceSmsInfoStddevFieldsImplementors = []string{"EnterprisePoliceSmsInfoStddevFields"}
-
-func (ec *executionContext) _EnterprisePoliceSmsInfoStddevFields(ctx context.Context, sel ast.SelectionSet, obj *model.EnterprisePoliceSmsInfoStddevFields) graphql.Marshaler {
-	fields := graphql.CollectFields(ec.OperationContext, sel, enterprisePoliceSmsInfoStddevFieldsImplementors)
-
-	out := graphql.NewFieldSet(fields)
-	var invalids uint32
-	for i, field := range fields {
-		switch field.Name {
-		case "__typename":
-			out.Values[i] = graphql.MarshalString("EnterprisePoliceSmsInfoStddevFields")
-		case "id":
-			out.Values[i] = ec._EnterprisePoliceSmsInfoStddevFields_id(ctx, field, obj)
-		default:
-			panic("unknown field " + strconv.Quote(field.Name))
-		}
-	}
-	out.Dispatch()
-	if invalids > 0 {
-		return graphql.Null
-	}
-	return out
-}
-
-var enterprisePoliceSmsInfoStddevPopFieldsImplementors = []string{"EnterprisePoliceSmsInfoStddevPopFields"}
-
-func (ec *executionContext) _EnterprisePoliceSmsInfoStddevPopFields(ctx context.Context, sel ast.SelectionSet, obj *model.EnterprisePoliceSmsInfoStddevPopFields) graphql.Marshaler {
-	fields := graphql.CollectFields(ec.OperationContext, sel, enterprisePoliceSmsInfoStddevPopFieldsImplementors)
-
-	out := graphql.NewFieldSet(fields)
-	var invalids uint32
-	for i, field := range fields {
-		switch field.Name {
-		case "__typename":
-			out.Values[i] = graphql.MarshalString("EnterprisePoliceSmsInfoStddevPopFields")
-		case "id":
-			out.Values[i] = ec._EnterprisePoliceSmsInfoStddevPopFields_id(ctx, field, obj)
-		default:
-			panic("unknown field " + strconv.Quote(field.Name))
-		}
-	}
-	out.Dispatch()
-	if invalids > 0 {
-		return graphql.Null
-	}
-	return out
-}
-
-var enterprisePoliceSmsInfoStddevSampFieldsImplementors = []string{"EnterprisePoliceSmsInfoStddevSampFields"}
-
-func (ec *executionContext) _EnterprisePoliceSmsInfoStddevSampFields(ctx context.Context, sel ast.SelectionSet, obj *model.EnterprisePoliceSmsInfoStddevSampFields) graphql.Marshaler {
-	fields := graphql.CollectFields(ec.OperationContext, sel, enterprisePoliceSmsInfoStddevSampFieldsImplementors)
-
-	out := graphql.NewFieldSet(fields)
-	var invalids uint32
-	for i, field := range fields {
-		switch field.Name {
-		case "__typename":
-			out.Values[i] = graphql.MarshalString("EnterprisePoliceSmsInfoStddevSampFields")
-		case "id":
-			out.Values[i] = ec._EnterprisePoliceSmsInfoStddevSampFields_id(ctx, field, obj)
-		default:
-			panic("unknown field " + strconv.Quote(field.Name))
-		}
-	}
-	out.Dispatch()
-	if invalids > 0 {
-		return graphql.Null
-	}
-	return out
-}
-
-var enterprisePoliceSmsInfoSumFieldsImplementors = []string{"EnterprisePoliceSmsInfoSumFields"}
-
-func (ec *executionContext) _EnterprisePoliceSmsInfoSumFields(ctx context.Context, sel ast.SelectionSet, obj *model.EnterprisePoliceSmsInfoSumFields) graphql.Marshaler {
-	fields := graphql.CollectFields(ec.OperationContext, sel, enterprisePoliceSmsInfoSumFieldsImplementors)
-
-	out := graphql.NewFieldSet(fields)
-	var invalids uint32
-	for i, field := range fields {
-		switch field.Name {
-		case "__typename":
-			out.Values[i] = graphql.MarshalString("EnterprisePoliceSmsInfoSumFields")
-		case "id":
-			out.Values[i] = ec._EnterprisePoliceSmsInfoSumFields_id(ctx, field, obj)
-		default:
-			panic("unknown field " + strconv.Quote(field.Name))
-		}
-	}
-	out.Dispatch()
-	if invalids > 0 {
-		return graphql.Null
-	}
-	return out
-}
-
-var enterprisePoliceSmsInfoVarPopFieldsImplementors = []string{"EnterprisePoliceSmsInfoVarPopFields"}
-
-func (ec *executionContext) _EnterprisePoliceSmsInfoVarPopFields(ctx context.Context, sel ast.SelectionSet, obj *model.EnterprisePoliceSmsInfoVarPopFields) graphql.Marshaler {
-	fields := graphql.CollectFields(ec.OperationContext, sel, enterprisePoliceSmsInfoVarPopFieldsImplementors)
-
-	out := graphql.NewFieldSet(fields)
-	var invalids uint32
-	for i, field := range fields {
-		switch field.Name {
-		case "__typename":
-			out.Values[i] = graphql.MarshalString("EnterprisePoliceSmsInfoVarPopFields")
-		case "id":
-			out.Values[i] = ec._EnterprisePoliceSmsInfoVarPopFields_id(ctx, field, obj)
-		default:
-			panic("unknown field " + strconv.Quote(field.Name))
-		}
-	}
-	out.Dispatch()
-	if invalids > 0 {
-		return graphql.Null
-	}
-	return out
-}
-
-var enterprisePoliceSmsInfoVarSampFieldsImplementors = []string{"EnterprisePoliceSmsInfoVarSampFields"}
-
-func (ec *executionContext) _EnterprisePoliceSmsInfoVarSampFields(ctx context.Context, sel ast.SelectionSet, obj *model.EnterprisePoliceSmsInfoVarSampFields) graphql.Marshaler {
-	fields := graphql.CollectFields(ec.OperationContext, sel, enterprisePoliceSmsInfoVarSampFieldsImplementors)
-
-	out := graphql.NewFieldSet(fields)
-	var invalids uint32
-	for i, field := range fields {
-		switch field.Name {
-		case "__typename":
-			out.Values[i] = graphql.MarshalString("EnterprisePoliceSmsInfoVarSampFields")
-		case "id":
-			out.Values[i] = ec._EnterprisePoliceSmsInfoVarSampFields_id(ctx, field, obj)
-		default:
-			panic("unknown field " + strconv.Quote(field.Name))
-		}
-	}
-	out.Dispatch()
-	if invalids > 0 {
-		return graphql.Null
-	}
-	return out
-}
-
-var enterprisePoliceSmsInfoVarianceFieldsImplementors = []string{"EnterprisePoliceSmsInfoVarianceFields"}
-
-func (ec *executionContext) _EnterprisePoliceSmsInfoVarianceFields(ctx context.Context, sel ast.SelectionSet, obj *model.EnterprisePoliceSmsInfoVarianceFields) graphql.Marshaler {
-	fields := graphql.CollectFields(ec.OperationContext, sel, enterprisePoliceSmsInfoVarianceFieldsImplementors)
-
-	out := graphql.NewFieldSet(fields)
-	var invalids uint32
-	for i, field := range fields {
-		switch field.Name {
-		case "__typename":
-			out.Values[i] = graphql.MarshalString("EnterprisePoliceSmsInfoVarianceFields")
-		case "id":
-			out.Values[i] = ec._EnterprisePoliceSmsInfoVarianceFields_id(ctx, field, obj)
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}
@@ -74351,6 +74263,22 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			out.Values[i] = ec._Mutation_update_enterprise_by_union_pk(ctx, field)
 		case "delete_enterprise_by_union_pk":
 			out.Values[i] = ec._Mutation_delete_enterprise_by_union_pk(ctx, field)
+		case "delete_enterprise_alarm_send_police":
+			out.Values[i] = ec._Mutation_delete_enterprise_alarm_send_police(ctx, field)
+		case "delete_enterprise_alarm_send_police_by_pk":
+			out.Values[i] = ec._Mutation_delete_enterprise_alarm_send_police_by_pk(ctx, field)
+		case "insert_enterprise_alarm_send_police":
+			out.Values[i] = ec._Mutation_insert_enterprise_alarm_send_police(ctx, field)
+		case "insert_enterprise_alarm_send_police_one":
+			out.Values[i] = ec._Mutation_insert_enterprise_alarm_send_police_one(ctx, field)
+		case "update_enterprise_alarm_send_police":
+			out.Values[i] = ec._Mutation_update_enterprise_alarm_send_police(ctx, field)
+		case "update_enterprise_alarm_send_police_by_pk":
+			out.Values[i] = ec._Mutation_update_enterprise_alarm_send_police_by_pk(ctx, field)
+		case "update_enterprise_alarm_send_police_by_union_pk":
+			out.Values[i] = ec._Mutation_update_enterprise_alarm_send_police_by_union_pk(ctx, field)
+		case "delete_enterprise_alarm_send_police_by_union_pk":
+			out.Values[i] = ec._Mutation_delete_enterprise_alarm_send_police_by_union_pk(ctx, field)
 		case "delete_enterprise_contact":
 			out.Values[i] = ec._Mutation_delete_enterprise_contact(ctx, field)
 		case "delete_enterprise_contact_by_pk":
@@ -74383,22 +74311,6 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			out.Values[i] = ec._Mutation_update_enterprise_muck_trunk_by_union_pk(ctx, field)
 		case "delete_enterprise_muck_trunk_by_union_pk":
 			out.Values[i] = ec._Mutation_delete_enterprise_muck_trunk_by_union_pk(ctx, field)
-		case "delete_enterprise_police_sms_info":
-			out.Values[i] = ec._Mutation_delete_enterprise_police_sms_info(ctx, field)
-		case "delete_enterprise_police_sms_info_by_pk":
-			out.Values[i] = ec._Mutation_delete_enterprise_police_sms_info_by_pk(ctx, field)
-		case "insert_enterprise_police_sms_info":
-			out.Values[i] = ec._Mutation_insert_enterprise_police_sms_info(ctx, field)
-		case "insert_enterprise_police_sms_info_one":
-			out.Values[i] = ec._Mutation_insert_enterprise_police_sms_info_one(ctx, field)
-		case "update_enterprise_police_sms_info":
-			out.Values[i] = ec._Mutation_update_enterprise_police_sms_info(ctx, field)
-		case "update_enterprise_police_sms_info_by_pk":
-			out.Values[i] = ec._Mutation_update_enterprise_police_sms_info_by_pk(ctx, field)
-		case "update_enterprise_police_sms_info_by_union_pk":
-			out.Values[i] = ec._Mutation_update_enterprise_police_sms_info_by_union_pk(ctx, field)
-		case "delete_enterprise_police_sms_info_by_union_pk":
-			out.Values[i] = ec._Mutation_delete_enterprise_police_sms_info_by_union_pk(ctx, field)
 		case "delete_enterprise_score_log":
 			out.Values[i] = ec._Mutation_delete_enterprise_score_log(ctx, field)
 		case "delete_enterprise_score_log_by_pk":
@@ -74617,6 +74529,62 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 				}
 				return res
 			})
+		case "enterprise_alarm_send_police":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_enterprise_alarm_send_police(ctx, field)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			})
+		case "enterprise_alarm_send_police_aggregate":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_enterprise_alarm_send_police_aggregate(ctx, field)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			})
+		case "enterprise_alarm_send_police_by_pk":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_enterprise_alarm_send_police_by_pk(ctx, field)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			})
+		case "enterprise_alarm_send_police_by_union_pk":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_enterprise_alarm_send_police_by_union_pk(ctx, field)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			})
 		case "enterprise_contact":
 			field := field
 			out.Concurrently(i, func() (res graphql.Marshaler) {
@@ -74724,62 +74692,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_enterprise_muck_trunk_by_union_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
-				return res
-			})
-		case "enterprise_police_sms_info":
-			field := field
-			out.Concurrently(i, func() (res graphql.Marshaler) {
-				defer func() {
-					if r := recover(); r != nil {
-						ec.Error(ctx, ec.Recover(ctx, r))
-					}
-				}()
-				res = ec._Query_enterprise_police_sms_info(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
-				return res
-			})
-		case "enterprise_police_sms_info_aggregate":
-			field := field
-			out.Concurrently(i, func() (res graphql.Marshaler) {
-				defer func() {
-					if r := recover(); r != nil {
-						ec.Error(ctx, ec.Recover(ctx, r))
-					}
-				}()
-				res = ec._Query_enterprise_police_sms_info_aggregate(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
-				return res
-			})
-		case "enterprise_police_sms_info_by_pk":
-			field := field
-			out.Concurrently(i, func() (res graphql.Marshaler) {
-				defer func() {
-					if r := recover(); r != nil {
-						ec.Error(ctx, ec.Recover(ctx, r))
-					}
-				}()
-				res = ec._Query_enterprise_police_sms_info_by_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
-				return res
-			})
-		case "enterprise_police_sms_info_by_union_pk":
-			field := field
-			out.Concurrently(i, func() (res graphql.Marshaler) {
-				defer func() {
-					if r := recover(); r != nil {
-						ec.Error(ctx, ec.Recover(ctx, r))
-					}
-				}()
-				res = ec._Query_enterprise_police_sms_info_by_union_pk(ctx, field)
 				if res == graphql.Null {
 					atomic.AddUint32(&invalids, 1)
 				}
@@ -76135,6 +76047,122 @@ func (ec *executionContext) marshalNEnterpriseAggregate2ᚖVehicleSupervisionᚋ
 	return ec._EnterpriseAggregate(ctx, sel, v)
 }
 
+func (ec *executionContext) marshalNEnterpriseAlarmSendPolice2VehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterpriseAlarmSendPolice(ctx context.Context, sel ast.SelectionSet, v model1.EnterpriseAlarmSendPolice) graphql.Marshaler {
+	return ec._EnterpriseAlarmSendPolice(ctx, sel, &v)
+}
+
+func (ec *executionContext) marshalNEnterpriseAlarmSendPolice2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterpriseAlarmSendPoliceᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.EnterpriseAlarmSendPolice) graphql.Marshaler {
+	ret := make(graphql.Array, len(v))
+	var wg sync.WaitGroup
+	isLen1 := len(v) == 1
+	if !isLen1 {
+		wg.Add(len(v))
+	}
+	for i := range v {
+		i := i
+		fc := &graphql.FieldContext{
+			Index:  &i,
+			Result: &v[i],
+		}
+		ctx := graphql.WithFieldContext(ctx, fc)
+		f := func(i int) {
+			defer func() {
+				if r := recover(); r != nil {
+					ec.Error(ctx, ec.Recover(ctx, r))
+					ret = nil
+				}
+			}()
+			if !isLen1 {
+				defer wg.Done()
+			}
+			ret[i] = ec.marshalNEnterpriseAlarmSendPolice2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterpriseAlarmSendPolice(ctx, sel, v[i])
+		}
+		if isLen1 {
+			f(i)
+		} else {
+			go f(i)
+		}
+
+	}
+	wg.Wait()
+	return ret
+}
+
+func (ec *executionContext) marshalNEnterpriseAlarmSendPolice2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterpriseAlarmSendPolice(ctx context.Context, sel ast.SelectionSet, v *model1.EnterpriseAlarmSendPolice) graphql.Marshaler {
+	if v == nil {
+		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	return ec._EnterpriseAlarmSendPolice(ctx, sel, v)
+}
+
+func (ec *executionContext) marshalNEnterpriseAlarmSendPoliceAggregate2VehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterpriseAlarmSendPoliceAggregate(ctx context.Context, sel ast.SelectionSet, v model.EnterpriseAlarmSendPoliceAggregate) graphql.Marshaler {
+	return ec._EnterpriseAlarmSendPoliceAggregate(ctx, sel, &v)
+}
+
+func (ec *executionContext) marshalNEnterpriseAlarmSendPoliceAggregate2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterpriseAlarmSendPoliceAggregate(ctx context.Context, sel ast.SelectionSet, v *model.EnterpriseAlarmSendPoliceAggregate) graphql.Marshaler {
+	if v == nil {
+		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	return ec._EnterpriseAlarmSendPoliceAggregate(ctx, sel, v)
+}
+
+func (ec *executionContext) unmarshalNEnterpriseAlarmSendPoliceBoolExp2VehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterpriseAlarmSendPoliceBoolExp(ctx context.Context, v interface{}) (model.EnterpriseAlarmSendPoliceBoolExp, error) {
+	res, err := ec.unmarshalInputEnterpriseAlarmSendPoliceBoolExp(ctx, v)
+	return res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) unmarshalNEnterpriseAlarmSendPoliceInsertInput2VehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterpriseAlarmSendPoliceInsertInput(ctx context.Context, v interface{}) (model.EnterpriseAlarmSendPoliceInsertInput, error) {
+	res, err := ec.unmarshalInputEnterpriseAlarmSendPoliceInsertInput(ctx, v)
+	return res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) unmarshalNEnterpriseAlarmSendPoliceInsertInput2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterpriseAlarmSendPoliceInsertInputᚄ(ctx context.Context, v interface{}) ([]*model.EnterpriseAlarmSendPoliceInsertInput, error) {
+	var vSlice []interface{}
+	if v != nil {
+		if tmp1, ok := v.([]interface{}); ok {
+			vSlice = tmp1
+		} else {
+			vSlice = []interface{}{v}
+		}
+	}
+	var err error
+	res := make([]*model.EnterpriseAlarmSendPoliceInsertInput, len(vSlice))
+	for i := range vSlice {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
+		res[i], err = ec.unmarshalNEnterpriseAlarmSendPoliceInsertInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterpriseAlarmSendPoliceInsertInput(ctx, vSlice[i])
+		if err != nil {
+			return nil, err
+		}
+	}
+	return res, nil
+}
+
+func (ec *executionContext) unmarshalNEnterpriseAlarmSendPoliceInsertInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterpriseAlarmSendPoliceInsertInput(ctx context.Context, v interface{}) (*model.EnterpriseAlarmSendPoliceInsertInput, error) {
+	res, err := ec.unmarshalInputEnterpriseAlarmSendPoliceInsertInput(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) unmarshalNEnterpriseAlarmSendPoliceOrderBy2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterpriseAlarmSendPoliceOrderBy(ctx context.Context, v interface{}) (*model.EnterpriseAlarmSendPoliceOrderBy, error) {
+	res, err := ec.unmarshalInputEnterpriseAlarmSendPoliceOrderBy(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) unmarshalNEnterpriseAlarmSendPoliceSelectColumn2VehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterpriseAlarmSendPoliceSelectColumn(ctx context.Context, v interface{}) (model.EnterpriseAlarmSendPoliceSelectColumn, error) {
+	var res model.EnterpriseAlarmSendPoliceSelectColumn
+	err := res.UnmarshalGQL(v)
+	return res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalNEnterpriseAlarmSendPoliceSelectColumn2VehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterpriseAlarmSendPoliceSelectColumn(ctx context.Context, sel ast.SelectionSet, v model.EnterpriseAlarmSendPoliceSelectColumn) graphql.Marshaler {
+	return v
+}
+
 func (ec *executionContext) unmarshalNEnterpriseBoolExp2VehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterpriseBoolExp(ctx context.Context, v interface{}) (model.EnterpriseBoolExp, error) {
 	res, err := ec.unmarshalInputEnterpriseBoolExp(ctx, v)
 	return res, graphql.ErrorOnPath(ctx, err)
@@ -76406,122 +76434,6 @@ func (ec *executionContext) marshalNEnterpriseMuckTrunkSelectColumn2VehicleSuper
 func (ec *executionContext) unmarshalNEnterpriseOrderBy2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterpriseOrderBy(ctx context.Context, v interface{}) (*model.EnterpriseOrderBy, error) {
 	res, err := ec.unmarshalInputEnterpriseOrderBy(ctx, v)
 	return &res, graphql.ErrorOnPath(ctx, err)
-}
-
-func (ec *executionContext) marshalNEnterprisePoliceSmsInfo2VehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterprisePoliceSmsInfo(ctx context.Context, sel ast.SelectionSet, v model1.EnterprisePoliceSmsInfo) graphql.Marshaler {
-	return ec._EnterprisePoliceSmsInfo(ctx, sel, &v)
-}
-
-func (ec *executionContext) marshalNEnterprisePoliceSmsInfo2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterprisePoliceSmsInfoᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.EnterprisePoliceSmsInfo) graphql.Marshaler {
-	ret := make(graphql.Array, len(v))
-	var wg sync.WaitGroup
-	isLen1 := len(v) == 1
-	if !isLen1 {
-		wg.Add(len(v))
-	}
-	for i := range v {
-		i := i
-		fc := &graphql.FieldContext{
-			Index:  &i,
-			Result: &v[i],
-		}
-		ctx := graphql.WithFieldContext(ctx, fc)
-		f := func(i int) {
-			defer func() {
-				if r := recover(); r != nil {
-					ec.Error(ctx, ec.Recover(ctx, r))
-					ret = nil
-				}
-			}()
-			if !isLen1 {
-				defer wg.Done()
-			}
-			ret[i] = ec.marshalNEnterprisePoliceSmsInfo2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterprisePoliceSmsInfo(ctx, sel, v[i])
-		}
-		if isLen1 {
-			f(i)
-		} else {
-			go f(i)
-		}
-
-	}
-	wg.Wait()
-	return ret
-}
-
-func (ec *executionContext) marshalNEnterprisePoliceSmsInfo2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterprisePoliceSmsInfo(ctx context.Context, sel ast.SelectionSet, v *model1.EnterprisePoliceSmsInfo) graphql.Marshaler {
-	if v == nil {
-		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	return ec._EnterprisePoliceSmsInfo(ctx, sel, v)
-}
-
-func (ec *executionContext) marshalNEnterprisePoliceSmsInfoAggregate2VehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterprisePoliceSmsInfoAggregate(ctx context.Context, sel ast.SelectionSet, v model.EnterprisePoliceSmsInfoAggregate) graphql.Marshaler {
-	return ec._EnterprisePoliceSmsInfoAggregate(ctx, sel, &v)
-}
-
-func (ec *executionContext) marshalNEnterprisePoliceSmsInfoAggregate2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterprisePoliceSmsInfoAggregate(ctx context.Context, sel ast.SelectionSet, v *model.EnterprisePoliceSmsInfoAggregate) graphql.Marshaler {
-	if v == nil {
-		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	return ec._EnterprisePoliceSmsInfoAggregate(ctx, sel, v)
-}
-
-func (ec *executionContext) unmarshalNEnterprisePoliceSmsInfoBoolExp2VehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterprisePoliceSmsInfoBoolExp(ctx context.Context, v interface{}) (model.EnterprisePoliceSmsInfoBoolExp, error) {
-	res, err := ec.unmarshalInputEnterprisePoliceSmsInfoBoolExp(ctx, v)
-	return res, graphql.ErrorOnPath(ctx, err)
-}
-
-func (ec *executionContext) unmarshalNEnterprisePoliceSmsInfoInsertInput2VehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterprisePoliceSmsInfoInsertInput(ctx context.Context, v interface{}) (model.EnterprisePoliceSmsInfoInsertInput, error) {
-	res, err := ec.unmarshalInputEnterprisePoliceSmsInfoInsertInput(ctx, v)
-	return res, graphql.ErrorOnPath(ctx, err)
-}
-
-func (ec *executionContext) unmarshalNEnterprisePoliceSmsInfoInsertInput2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterprisePoliceSmsInfoInsertInputᚄ(ctx context.Context, v interface{}) ([]*model.EnterprisePoliceSmsInfoInsertInput, error) {
-	var vSlice []interface{}
-	if v != nil {
-		if tmp1, ok := v.([]interface{}); ok {
-			vSlice = tmp1
-		} else {
-			vSlice = []interface{}{v}
-		}
-	}
-	var err error
-	res := make([]*model.EnterprisePoliceSmsInfoInsertInput, len(vSlice))
-	for i := range vSlice {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
-		res[i], err = ec.unmarshalNEnterprisePoliceSmsInfoInsertInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterprisePoliceSmsInfoInsertInput(ctx, vSlice[i])
-		if err != nil {
-			return nil, err
-		}
-	}
-	return res, nil
-}
-
-func (ec *executionContext) unmarshalNEnterprisePoliceSmsInfoInsertInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterprisePoliceSmsInfoInsertInput(ctx context.Context, v interface{}) (*model.EnterprisePoliceSmsInfoInsertInput, error) {
-	res, err := ec.unmarshalInputEnterprisePoliceSmsInfoInsertInput(ctx, v)
-	return &res, graphql.ErrorOnPath(ctx, err)
-}
-
-func (ec *executionContext) unmarshalNEnterprisePoliceSmsInfoOrderBy2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterprisePoliceSmsInfoOrderBy(ctx context.Context, v interface{}) (*model.EnterprisePoliceSmsInfoOrderBy, error) {
-	res, err := ec.unmarshalInputEnterprisePoliceSmsInfoOrderBy(ctx, v)
-	return &res, graphql.ErrorOnPath(ctx, err)
-}
-
-func (ec *executionContext) unmarshalNEnterprisePoliceSmsInfoSelectColumn2VehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterprisePoliceSmsInfoSelectColumn(ctx context.Context, v interface{}) (model.EnterprisePoliceSmsInfoSelectColumn, error) {
-	var res model.EnterprisePoliceSmsInfoSelectColumn
-	err := res.UnmarshalGQL(v)
-	return res, graphql.ErrorOnPath(ctx, err)
-}
-
-func (ec *executionContext) marshalNEnterprisePoliceSmsInfoSelectColumn2VehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterprisePoliceSmsInfoSelectColumn(ctx context.Context, sel ast.SelectionSet, v model.EnterprisePoliceSmsInfoSelectColumn) graphql.Marshaler {
-	return v
 }
 
 func (ec *executionContext) marshalNEnterpriseScoreLog2VehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterpriseScoreLog(ctx context.Context, sel ast.SelectionSet, v model1.EnterpriseScoreLog) graphql.Marshaler {
@@ -77837,6 +77749,233 @@ func (ec *executionContext) marshalOEnterpriseAggregateFields2ᚖVehicleSupervis
 	return ec._EnterpriseAggregateFields(ctx, sel, v)
 }
 
+func (ec *executionContext) marshalOEnterpriseAlarmSendPolice2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterpriseAlarmSendPolice(ctx context.Context, sel ast.SelectionSet, v *model1.EnterpriseAlarmSendPolice) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._EnterpriseAlarmSendPolice(ctx, sel, v)
+}
+
+func (ec *executionContext) marshalOEnterpriseAlarmSendPoliceAggregateFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterpriseAlarmSendPoliceAggregateFields(ctx context.Context, sel ast.SelectionSet, v *model.EnterpriseAlarmSendPoliceAggregateFields) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._EnterpriseAlarmSendPoliceAggregateFields(ctx, sel, v)
+}
+
+func (ec *executionContext) marshalOEnterpriseAlarmSendPoliceAvgFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterpriseAlarmSendPoliceAvgFields(ctx context.Context, sel ast.SelectionSet, v *model.EnterpriseAlarmSendPoliceAvgFields) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._EnterpriseAlarmSendPoliceAvgFields(ctx, sel, v)
+}
+
+func (ec *executionContext) unmarshalOEnterpriseAlarmSendPoliceBoolExp2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterpriseAlarmSendPoliceBoolExp(ctx context.Context, v interface{}) ([]*model.EnterpriseAlarmSendPoliceBoolExp, error) {
+	if v == nil {
+		return nil, nil
+	}
+	var vSlice []interface{}
+	if v != nil {
+		if tmp1, ok := v.([]interface{}); ok {
+			vSlice = tmp1
+		} else {
+			vSlice = []interface{}{v}
+		}
+	}
+	var err error
+	res := make([]*model.EnterpriseAlarmSendPoliceBoolExp, len(vSlice))
+	for i := range vSlice {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
+		res[i], err = ec.unmarshalOEnterpriseAlarmSendPoliceBoolExp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterpriseAlarmSendPoliceBoolExp(ctx, vSlice[i])
+		if err != nil {
+			return nil, err
+		}
+	}
+	return res, nil
+}
+
+func (ec *executionContext) unmarshalOEnterpriseAlarmSendPoliceBoolExp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterpriseAlarmSendPoliceBoolExp(ctx context.Context, v interface{}) (*model.EnterpriseAlarmSendPoliceBoolExp, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputEnterpriseAlarmSendPoliceBoolExp(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) unmarshalOEnterpriseAlarmSendPoliceIncInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterpriseAlarmSendPoliceIncInput(ctx context.Context, v interface{}) (*model.EnterpriseAlarmSendPoliceIncInput, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputEnterpriseAlarmSendPoliceIncInput(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalOEnterpriseAlarmSendPoliceMaxFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterpriseAlarmSendPoliceMaxFields(ctx context.Context, sel ast.SelectionSet, v *model.EnterpriseAlarmSendPoliceMaxFields) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._EnterpriseAlarmSendPoliceMaxFields(ctx, sel, v)
+}
+
+func (ec *executionContext) marshalOEnterpriseAlarmSendPoliceMinFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterpriseAlarmSendPoliceMinFields(ctx context.Context, sel ast.SelectionSet, v *model.EnterpriseAlarmSendPoliceMinFields) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._EnterpriseAlarmSendPoliceMinFields(ctx, sel, v)
+}
+
+func (ec *executionContext) marshalOEnterpriseAlarmSendPoliceMutationResponse2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterpriseAlarmSendPoliceMutationResponse(ctx context.Context, sel ast.SelectionSet, v *model.EnterpriseAlarmSendPoliceMutationResponse) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._EnterpriseAlarmSendPoliceMutationResponse(ctx, sel, v)
+}
+
+func (ec *executionContext) unmarshalOEnterpriseAlarmSendPoliceOrderBy2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterpriseAlarmSendPoliceOrderByᚄ(ctx context.Context, v interface{}) ([]*model.EnterpriseAlarmSendPoliceOrderBy, error) {
+	if v == nil {
+		return nil, nil
+	}
+	var vSlice []interface{}
+	if v != nil {
+		if tmp1, ok := v.([]interface{}); ok {
+			vSlice = tmp1
+		} else {
+			vSlice = []interface{}{v}
+		}
+	}
+	var err error
+	res := make([]*model.EnterpriseAlarmSendPoliceOrderBy, len(vSlice))
+	for i := range vSlice {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
+		res[i], err = ec.unmarshalNEnterpriseAlarmSendPoliceOrderBy2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterpriseAlarmSendPoliceOrderBy(ctx, vSlice[i])
+		if err != nil {
+			return nil, err
+		}
+	}
+	return res, nil
+}
+
+func (ec *executionContext) unmarshalOEnterpriseAlarmSendPoliceSelectColumn2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterpriseAlarmSendPoliceSelectColumnᚄ(ctx context.Context, v interface{}) ([]model.EnterpriseAlarmSendPoliceSelectColumn, error) {
+	if v == nil {
+		return nil, nil
+	}
+	var vSlice []interface{}
+	if v != nil {
+		if tmp1, ok := v.([]interface{}); ok {
+			vSlice = tmp1
+		} else {
+			vSlice = []interface{}{v}
+		}
+	}
+	var err error
+	res := make([]model.EnterpriseAlarmSendPoliceSelectColumn, len(vSlice))
+	for i := range vSlice {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
+		res[i], err = ec.unmarshalNEnterpriseAlarmSendPoliceSelectColumn2VehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterpriseAlarmSendPoliceSelectColumn(ctx, vSlice[i])
+		if err != nil {
+			return nil, err
+		}
+	}
+	return res, nil
+}
+
+func (ec *executionContext) marshalOEnterpriseAlarmSendPoliceSelectColumn2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterpriseAlarmSendPoliceSelectColumnᚄ(ctx context.Context, sel ast.SelectionSet, v []model.EnterpriseAlarmSendPoliceSelectColumn) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	ret := make(graphql.Array, len(v))
+	var wg sync.WaitGroup
+	isLen1 := len(v) == 1
+	if !isLen1 {
+		wg.Add(len(v))
+	}
+	for i := range v {
+		i := i
+		fc := &graphql.FieldContext{
+			Index:  &i,
+			Result: &v[i],
+		}
+		ctx := graphql.WithFieldContext(ctx, fc)
+		f := func(i int) {
+			defer func() {
+				if r := recover(); r != nil {
+					ec.Error(ctx, ec.Recover(ctx, r))
+					ret = nil
+				}
+			}()
+			if !isLen1 {
+				defer wg.Done()
+			}
+			ret[i] = ec.marshalNEnterpriseAlarmSendPoliceSelectColumn2VehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterpriseAlarmSendPoliceSelectColumn(ctx, sel, v[i])
+		}
+		if isLen1 {
+			f(i)
+		} else {
+			go f(i)
+		}
+
+	}
+	wg.Wait()
+	return ret
+}
+
+func (ec *executionContext) unmarshalOEnterpriseAlarmSendPoliceSetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterpriseAlarmSendPoliceSetInput(ctx context.Context, v interface{}) (*model.EnterpriseAlarmSendPoliceSetInput, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputEnterpriseAlarmSendPoliceSetInput(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalOEnterpriseAlarmSendPoliceStddevFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterpriseAlarmSendPoliceStddevFields(ctx context.Context, sel ast.SelectionSet, v *model.EnterpriseAlarmSendPoliceStddevFields) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._EnterpriseAlarmSendPoliceStddevFields(ctx, sel, v)
+}
+
+func (ec *executionContext) marshalOEnterpriseAlarmSendPoliceStddevPopFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterpriseAlarmSendPoliceStddevPopFields(ctx context.Context, sel ast.SelectionSet, v *model.EnterpriseAlarmSendPoliceStddevPopFields) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._EnterpriseAlarmSendPoliceStddevPopFields(ctx, sel, v)
+}
+
+func (ec *executionContext) marshalOEnterpriseAlarmSendPoliceStddevSampFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterpriseAlarmSendPoliceStddevSampFields(ctx context.Context, sel ast.SelectionSet, v *model.EnterpriseAlarmSendPoliceStddevSampFields) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._EnterpriseAlarmSendPoliceStddevSampFields(ctx, sel, v)
+}
+
+func (ec *executionContext) marshalOEnterpriseAlarmSendPoliceSumFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterpriseAlarmSendPoliceSumFields(ctx context.Context, sel ast.SelectionSet, v *model.EnterpriseAlarmSendPoliceSumFields) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._EnterpriseAlarmSendPoliceSumFields(ctx, sel, v)
+}
+
+func (ec *executionContext) marshalOEnterpriseAlarmSendPoliceVarPopFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterpriseAlarmSendPoliceVarPopFields(ctx context.Context, sel ast.SelectionSet, v *model.EnterpriseAlarmSendPoliceVarPopFields) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._EnterpriseAlarmSendPoliceVarPopFields(ctx, sel, v)
+}
+
+func (ec *executionContext) marshalOEnterpriseAlarmSendPoliceVarSampFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterpriseAlarmSendPoliceVarSampFields(ctx context.Context, sel ast.SelectionSet, v *model.EnterpriseAlarmSendPoliceVarSampFields) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._EnterpriseAlarmSendPoliceVarSampFields(ctx, sel, v)
+}
+
+func (ec *executionContext) marshalOEnterpriseAlarmSendPoliceVarianceFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterpriseAlarmSendPoliceVarianceFields(ctx context.Context, sel ast.SelectionSet, v *model.EnterpriseAlarmSendPoliceVarianceFields) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._EnterpriseAlarmSendPoliceVarianceFields(ctx, sel, v)
+}
+
 func (ec *executionContext) marshalOEnterpriseAvgFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterpriseAvgFields(ctx context.Context, sel ast.SelectionSet, v *model.EnterpriseAvgFields) graphql.Marshaler {
 	if v == nil {
 		return graphql.Null
@@ -78381,233 +78520,6 @@ func (ec *executionContext) unmarshalOEnterpriseOrderBy2ᚕᚖVehicleSupervision
 		}
 	}
 	return res, nil
-}
-
-func (ec *executionContext) marshalOEnterprisePoliceSmsInfo2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterprisePoliceSmsInfo(ctx context.Context, sel ast.SelectionSet, v *model1.EnterprisePoliceSmsInfo) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return ec._EnterprisePoliceSmsInfo(ctx, sel, v)
-}
-
-func (ec *executionContext) marshalOEnterprisePoliceSmsInfoAggregateFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterprisePoliceSmsInfoAggregateFields(ctx context.Context, sel ast.SelectionSet, v *model.EnterprisePoliceSmsInfoAggregateFields) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return ec._EnterprisePoliceSmsInfoAggregateFields(ctx, sel, v)
-}
-
-func (ec *executionContext) marshalOEnterprisePoliceSmsInfoAvgFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterprisePoliceSmsInfoAvgFields(ctx context.Context, sel ast.SelectionSet, v *model.EnterprisePoliceSmsInfoAvgFields) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return ec._EnterprisePoliceSmsInfoAvgFields(ctx, sel, v)
-}
-
-func (ec *executionContext) unmarshalOEnterprisePoliceSmsInfoBoolExp2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterprisePoliceSmsInfoBoolExp(ctx context.Context, v interface{}) ([]*model.EnterprisePoliceSmsInfoBoolExp, error) {
-	if v == nil {
-		return nil, nil
-	}
-	var vSlice []interface{}
-	if v != nil {
-		if tmp1, ok := v.([]interface{}); ok {
-			vSlice = tmp1
-		} else {
-			vSlice = []interface{}{v}
-		}
-	}
-	var err error
-	res := make([]*model.EnterprisePoliceSmsInfoBoolExp, len(vSlice))
-	for i := range vSlice {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
-		res[i], err = ec.unmarshalOEnterprisePoliceSmsInfoBoolExp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterprisePoliceSmsInfoBoolExp(ctx, vSlice[i])
-		if err != nil {
-			return nil, err
-		}
-	}
-	return res, nil
-}
-
-func (ec *executionContext) unmarshalOEnterprisePoliceSmsInfoBoolExp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterprisePoliceSmsInfoBoolExp(ctx context.Context, v interface{}) (*model.EnterprisePoliceSmsInfoBoolExp, error) {
-	if v == nil {
-		return nil, nil
-	}
-	res, err := ec.unmarshalInputEnterprisePoliceSmsInfoBoolExp(ctx, v)
-	return &res, graphql.ErrorOnPath(ctx, err)
-}
-
-func (ec *executionContext) unmarshalOEnterprisePoliceSmsInfoIncInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterprisePoliceSmsInfoIncInput(ctx context.Context, v interface{}) (*model.EnterprisePoliceSmsInfoIncInput, error) {
-	if v == nil {
-		return nil, nil
-	}
-	res, err := ec.unmarshalInputEnterprisePoliceSmsInfoIncInput(ctx, v)
-	return &res, graphql.ErrorOnPath(ctx, err)
-}
-
-func (ec *executionContext) marshalOEnterprisePoliceSmsInfoMaxFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterprisePoliceSmsInfoMaxFields(ctx context.Context, sel ast.SelectionSet, v *model.EnterprisePoliceSmsInfoMaxFields) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return ec._EnterprisePoliceSmsInfoMaxFields(ctx, sel, v)
-}
-
-func (ec *executionContext) marshalOEnterprisePoliceSmsInfoMinFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterprisePoliceSmsInfoMinFields(ctx context.Context, sel ast.SelectionSet, v *model.EnterprisePoliceSmsInfoMinFields) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return ec._EnterprisePoliceSmsInfoMinFields(ctx, sel, v)
-}
-
-func (ec *executionContext) marshalOEnterprisePoliceSmsInfoMutationResponse2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterprisePoliceSmsInfoMutationResponse(ctx context.Context, sel ast.SelectionSet, v *model.EnterprisePoliceSmsInfoMutationResponse) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return ec._EnterprisePoliceSmsInfoMutationResponse(ctx, sel, v)
-}
-
-func (ec *executionContext) unmarshalOEnterprisePoliceSmsInfoOrderBy2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterprisePoliceSmsInfoOrderByᚄ(ctx context.Context, v interface{}) ([]*model.EnterprisePoliceSmsInfoOrderBy, error) {
-	if v == nil {
-		return nil, nil
-	}
-	var vSlice []interface{}
-	if v != nil {
-		if tmp1, ok := v.([]interface{}); ok {
-			vSlice = tmp1
-		} else {
-			vSlice = []interface{}{v}
-		}
-	}
-	var err error
-	res := make([]*model.EnterprisePoliceSmsInfoOrderBy, len(vSlice))
-	for i := range vSlice {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
-		res[i], err = ec.unmarshalNEnterprisePoliceSmsInfoOrderBy2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterprisePoliceSmsInfoOrderBy(ctx, vSlice[i])
-		if err != nil {
-			return nil, err
-		}
-	}
-	return res, nil
-}
-
-func (ec *executionContext) unmarshalOEnterprisePoliceSmsInfoSelectColumn2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterprisePoliceSmsInfoSelectColumnᚄ(ctx context.Context, v interface{}) ([]model.EnterprisePoliceSmsInfoSelectColumn, error) {
-	if v == nil {
-		return nil, nil
-	}
-	var vSlice []interface{}
-	if v != nil {
-		if tmp1, ok := v.([]interface{}); ok {
-			vSlice = tmp1
-		} else {
-			vSlice = []interface{}{v}
-		}
-	}
-	var err error
-	res := make([]model.EnterprisePoliceSmsInfoSelectColumn, len(vSlice))
-	for i := range vSlice {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
-		res[i], err = ec.unmarshalNEnterprisePoliceSmsInfoSelectColumn2VehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterprisePoliceSmsInfoSelectColumn(ctx, vSlice[i])
-		if err != nil {
-			return nil, err
-		}
-	}
-	return res, nil
-}
-
-func (ec *executionContext) marshalOEnterprisePoliceSmsInfoSelectColumn2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterprisePoliceSmsInfoSelectColumnᚄ(ctx context.Context, sel ast.SelectionSet, v []model.EnterprisePoliceSmsInfoSelectColumn) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	ret := make(graphql.Array, len(v))
-	var wg sync.WaitGroup
-	isLen1 := len(v) == 1
-	if !isLen1 {
-		wg.Add(len(v))
-	}
-	for i := range v {
-		i := i
-		fc := &graphql.FieldContext{
-			Index:  &i,
-			Result: &v[i],
-		}
-		ctx := graphql.WithFieldContext(ctx, fc)
-		f := func(i int) {
-			defer func() {
-				if r := recover(); r != nil {
-					ec.Error(ctx, ec.Recover(ctx, r))
-					ret = nil
-				}
-			}()
-			if !isLen1 {
-				defer wg.Done()
-			}
-			ret[i] = ec.marshalNEnterprisePoliceSmsInfoSelectColumn2VehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterprisePoliceSmsInfoSelectColumn(ctx, sel, v[i])
-		}
-		if isLen1 {
-			f(i)
-		} else {
-			go f(i)
-		}
-
-	}
-	wg.Wait()
-	return ret
-}
-
-func (ec *executionContext) unmarshalOEnterprisePoliceSmsInfoSetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterprisePoliceSmsInfoSetInput(ctx context.Context, v interface{}) (*model.EnterprisePoliceSmsInfoSetInput, error) {
-	if v == nil {
-		return nil, nil
-	}
-	res, err := ec.unmarshalInputEnterprisePoliceSmsInfoSetInput(ctx, v)
-	return &res, graphql.ErrorOnPath(ctx, err)
-}
-
-func (ec *executionContext) marshalOEnterprisePoliceSmsInfoStddevFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterprisePoliceSmsInfoStddevFields(ctx context.Context, sel ast.SelectionSet, v *model.EnterprisePoliceSmsInfoStddevFields) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return ec._EnterprisePoliceSmsInfoStddevFields(ctx, sel, v)
-}
-
-func (ec *executionContext) marshalOEnterprisePoliceSmsInfoStddevPopFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterprisePoliceSmsInfoStddevPopFields(ctx context.Context, sel ast.SelectionSet, v *model.EnterprisePoliceSmsInfoStddevPopFields) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return ec._EnterprisePoliceSmsInfoStddevPopFields(ctx, sel, v)
-}
-
-func (ec *executionContext) marshalOEnterprisePoliceSmsInfoStddevSampFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterprisePoliceSmsInfoStddevSampFields(ctx context.Context, sel ast.SelectionSet, v *model.EnterprisePoliceSmsInfoStddevSampFields) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return ec._EnterprisePoliceSmsInfoStddevSampFields(ctx, sel, v)
-}
-
-func (ec *executionContext) marshalOEnterprisePoliceSmsInfoSumFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterprisePoliceSmsInfoSumFields(ctx context.Context, sel ast.SelectionSet, v *model.EnterprisePoliceSmsInfoSumFields) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return ec._EnterprisePoliceSmsInfoSumFields(ctx, sel, v)
-}
-
-func (ec *executionContext) marshalOEnterprisePoliceSmsInfoVarPopFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterprisePoliceSmsInfoVarPopFields(ctx context.Context, sel ast.SelectionSet, v *model.EnterprisePoliceSmsInfoVarPopFields) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return ec._EnterprisePoliceSmsInfoVarPopFields(ctx, sel, v)
-}
-
-func (ec *executionContext) marshalOEnterprisePoliceSmsInfoVarSampFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterprisePoliceSmsInfoVarSampFields(ctx context.Context, sel ast.SelectionSet, v *model.EnterprisePoliceSmsInfoVarSampFields) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return ec._EnterprisePoliceSmsInfoVarSampFields(ctx, sel, v)
-}
-
-func (ec *executionContext) marshalOEnterprisePoliceSmsInfoVarianceFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterprisePoliceSmsInfoVarianceFields(ctx context.Context, sel ast.SelectionSet, v *model.EnterprisePoliceSmsInfoVarianceFields) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return ec._EnterprisePoliceSmsInfoVarianceFields(ctx, sel, v)
 }
 
 func (ec *executionContext) marshalOEnterpriseScoreLog2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterpriseScoreLog(ctx context.Context, sel ast.SelectionSet, v *model1.EnterpriseScoreLog) graphql.Marshaler {

@@ -323,6 +323,7 @@ input RideHailingDriverVerifyBoolExp {
 input type for inserting data into table "ride_hailing_driver_verify"
 """
 input RideHailingDriverVerifyInsertInput {
+	ride_hailing_driver_verify_id: String!
 	is_violent_crime: Boolean
 	violent_crime_remark: String
 	violent_crime_examine_time: Timestamptz

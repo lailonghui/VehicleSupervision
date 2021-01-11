@@ -507,6 +507,7 @@ input TerminalProveBoolExp {
 input type for inserting data into table "terminal_prove"
 """
 input TerminalProveInsertInput {
+	prove_id: String!
 	plate_number: String!
 	plate_color: String
 	vehicle_type: Int

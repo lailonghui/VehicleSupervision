@@ -227,6 +227,7 @@ input DriverBlacklistApplyBoolExp {
 input type for inserting data into table "driver_blacklist_apply"
 """
 input DriverBlacklistApplyInsertInput {
+	apply_id: String!
 	driver_id: String!
 	apply_reason: String
 	blacklist_type: Int

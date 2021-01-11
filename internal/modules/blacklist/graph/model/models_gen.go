@@ -67,6 +67,7 @@ type DriverBlacklistApplyIncInput struct {
 
 // input type for inserting data into table "driver_blacklist_apply"
 type DriverBlacklistApplyInsertInput struct {
+	ApplyID       string     `json:"apply_id"`
 	DriverID      string     `json:"driver_id"`
 	ApplyReason   *string    `json:"apply_reason"`
 	BlacklistType *int       `json:"blacklist_type"`
@@ -265,6 +266,7 @@ type DriverBlacklistHisIncInput struct {
 
 // input type for inserting data into table "driver_blacklist_his"
 type DriverBlacklistHisInsertInput struct {
+	HisID         string     `json:"his_id"`
 	DriverID      string     `json:"driver_id"`
 	BlacklistType int        `json:"blacklist_type"`
 	Operate       int        `json:"operate"`
@@ -485,6 +487,7 @@ type EnterpriseBlacklistAlarmIncInput struct {
 
 // input type for inserting data into table "enterprise_blacklist_alarm"
 type EnterpriseBlacklistAlarmInsertInput struct {
+	AlarmID      string     `json:"alarm_id"`
 	EnterpriseID string     `json:"enterprise_id"`
 	Type         int        `json:"type"`
 	Year         int        `json:"year"`
@@ -682,6 +685,7 @@ type EnterpriseBlacklistHisIncInput struct {
 
 // input type for inserting data into table "enterprise_blacklist_his"
 type EnterpriseBlacklistHisInsertInput struct {
+	HisID         string     `json:"his_id"`
 	EnterpriseID  string     `json:"enterprise_id"`
 	BlacklistType int        `json:"blacklist_type"`
 	Operate       int        `json:"operate"`
@@ -877,6 +881,7 @@ type VehicleBlacklistAlarmIncInput struct {
 
 // input type for inserting data into table "vehicle_blacklist_alarm"
 type VehicleBlacklistAlarmInsertInput struct {
+	AlarmID            string     `json:"alarm_id"`
 	VehicleID          string     `json:"vehicle_id"`
 	LicensePlateNumber *string    `json:"license_plate_number"`
 	Year               *int       `json:"year"`
@@ -1081,6 +1086,7 @@ type VehicleBlacklistHisIncInput struct {
 
 // input type for inserting data into table "vehicle_blacklist_his"
 type VehicleBlacklistHisInsertInput struct {
+	HisID         string     `json:"his_id"`
 	VehicleID     string     `json:"vehicle_id"`
 	BlacklistType int        `json:"blacklist_type"`
 	Operate       int        `json:"operate"`

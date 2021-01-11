@@ -283,6 +283,7 @@ input ControlLineBoolExp {
 input type for inserting data into table "control_line"
 """
 input ControlLineInsertInput {
+	control_line_id: String!
 	line_name: String
 	line_type: Int
 	district_id: String

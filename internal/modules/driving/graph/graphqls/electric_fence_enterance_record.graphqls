@@ -235,6 +235,7 @@ input ElectricFenceEnteranceRecordBoolExp {
 input type for inserting data into table "electric_fence_enterance_record"
 """
 input ElectricFenceEnteranceRecordInsertInput {
+	record_id: String!
 	vehicle_id: String!
 	electric_fence_id: String!
 	in_time: Timestamptz

@@ -259,6 +259,7 @@ input LimitSpeedPlanDetailBoolExp {
 input type for inserting data into table "limit_speed_plan_detail"
 """
 input LimitSpeedPlanDetailInsertInput {
+	detail_id: String!
 	plan_id: String!
 	is_night_limit: Boolean!
 	night_limit_speed: Numeric

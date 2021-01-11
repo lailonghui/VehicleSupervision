@@ -235,6 +235,7 @@ input EcdFileLinePointBoolExp {
 input type for inserting data into table "ecd_file_line_point"
 """
 input EcdFileLinePointInsertInput {
+	line_point_id: String!
 	file_main_id: String!
 	gps_point: Point
 	map_point: Point

@@ -259,6 +259,7 @@ input TerminalParamSubBoolExp {
 input type for inserting data into table "terminal_param_sub"
 """
 input TerminalParamSubInsertInput {
+	param_sub_id: String!
 	param_id: String!
 	bit_start: Bigint!
 	bit_end: Bigint!

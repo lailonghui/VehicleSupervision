@@ -6,7 +6,6 @@ import (
 	"time"
 )
 
-// 网约车驾驶员
 type RideHailingDriver struct {
 	// ID
 	ID int64 `json:"id"`

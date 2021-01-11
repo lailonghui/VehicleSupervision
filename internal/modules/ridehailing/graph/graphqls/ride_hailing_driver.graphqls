@@ -1,6 +1,3 @@
-"""
-网约车驾驶员
-"""
 type RideHailingDriver {
 	"""
 	ID
@@ -379,6 +376,7 @@ input RideHailingDriverBoolExp {
 input type for inserting data into table "ride_hailing_driver"
 """
 input RideHailingDriverInsertInput {
+	ride_hailing_driver_id: String!
 	ride_hailing_driver_verify_id: String
 	driver_name: String
 	phone_number: String

@@ -75,23 +75,24 @@ type ControlLineIncInput struct {
 
 // input type for inserting data into table "control_line"
 type ControlLineInsertInput struct {
-	LineName     *string    `json:"line_name"`
-	LineType     *int       `json:"line_type"`
-	DistrictID   *string    `json:"district_id"`
-	ControlLevel *int       `json:"control_level"`
-	ApplyReason  *string    `json:"apply_reason"`
-	CheckStatus  *int       `json:"check_status"`
-	CheckTime    *time.Time `json:"check_time"`
-	CheckUserID  *string    `json:"check_user_id"`
-	RejectReason *string    `json:"reject_reason"`
-	CreateAt     time.Time  `json:"create_at"`
-	CreateBy     *string    `json:"create_by"`
-	UpdateAt     *time.Time `json:"update_at"`
-	UpdateBy     *string    `json:"update_by"`
-	DeleteAt     *time.Time `json:"delete_at"`
-	DeleteBy     *string    `json:"delete_by"`
-	IsDelete     bool       `json:"is_delete"`
-	GisData      *string    `json:"gis_data"`
+	ControlLineID string     `json:"control_line_id"`
+	LineName      *string    `json:"line_name"`
+	LineType      *int       `json:"line_type"`
+	DistrictID    *string    `json:"district_id"`
+	ControlLevel  *int       `json:"control_level"`
+	ApplyReason   *string    `json:"apply_reason"`
+	CheckStatus   *int       `json:"check_status"`
+	CheckTime     *time.Time `json:"check_time"`
+	CheckUserID   *string    `json:"check_user_id"`
+	RejectReason  *string    `json:"reject_reason"`
+	CreateAt      time.Time  `json:"create_at"`
+	CreateBy      *string    `json:"create_by"`
+	UpdateAt      *time.Time `json:"update_at"`
+	UpdateBy      *string    `json:"update_by"`
+	DeleteAt      *time.Time `json:"delete_at"`
+	DeleteBy      *string    `json:"delete_by"`
+	IsDelete      bool       `json:"is_delete"`
+	GisData       *string    `json:"gis_data"`
 }
 
 // aggregate max on columns of table "control_line"
@@ -275,16 +276,17 @@ type ControlLineTimeIncInput struct {
 
 // input type for inserting data into table "control_line_time"
 type ControlLineTimeInsertInput struct {
-	ControlLineID string     `json:"control_line_id"`
-	StartTime     time.Time  `json:"start_time"`
-	EndTime       time.Time  `json:"end_time"`
-	CreateAt      time.Time  `json:"create_at"`
-	CreateBy      *string    `json:"create_by"`
-	UpdateAt      *time.Time `json:"update_at"`
-	UpdateBy      *string    `json:"update_by"`
-	DeleteAt      *time.Time `json:"delete_at"`
-	DeleteBy      *string    `json:"delete_by"`
-	IsDelete      bool       `json:"is_delete"`
+	ControlLineTimeID string     `json:"control_line_time_id"`
+	ControlLineID     string     `json:"control_line_id"`
+	StartTime         time.Time  `json:"start_time"`
+	EndTime           time.Time  `json:"end_time"`
+	CreateAt          time.Time  `json:"create_at"`
+	CreateBy          *string    `json:"create_by"`
+	UpdateAt          *time.Time `json:"update_at"`
+	UpdateBy          *string    `json:"update_by"`
+	DeleteAt          *time.Time `json:"delete_at"`
+	DeleteBy          *string    `json:"delete_by"`
+	IsDelete          bool       `json:"is_delete"`
 }
 
 // aggregate max on columns of table "control_line_time"
@@ -476,6 +478,7 @@ type EcdFileCheckHisIncInput struct {
 
 // input type for inserting data into table "ecd_file_check_his"
 type EcdFileCheckHisInsertInput struct {
+	HisID       string     `json:"his_id"`
 	FileMainID  string     `json:"file_main_id"`
 	UserID      string     `json:"user_id"`
 	OperType    int        `json:"oper_type"`
@@ -682,15 +685,16 @@ type EcdFileDistrictIncInput struct {
 
 // input type for inserting data into table "ecd_file_district"
 type EcdFileDistrictInsertInput struct {
-	FileMainID string     `json:"file_main_id"`
-	DistrictID string     `json:"district_id"`
-	CreateAt   time.Time  `json:"create_at"`
-	CreateBy   *string    `json:"create_by"`
-	UpdateAt   *time.Time `json:"update_at"`
-	UpdateBy   *string    `json:"update_by"`
-	DeleteAt   *time.Time `json:"delete_at"`
-	DeleteBy   *string    `json:"delete_by"`
-	IsDelete   bool       `json:"is_delete"`
+	FileDistrictID string     `json:"file_district_id"`
+	FileMainID     string     `json:"file_main_id"`
+	DistrictID     string     `json:"district_id"`
+	CreateAt       time.Time  `json:"create_at"`
+	CreateBy       *string    `json:"create_by"`
+	UpdateAt       *time.Time `json:"update_at"`
+	UpdateBy       *string    `json:"update_by"`
+	DeleteAt       *time.Time `json:"delete_at"`
+	DeleteBy       *string    `json:"delete_by"`
+	IsDelete       bool       `json:"is_delete"`
 }
 
 // aggregate max on columns of table "ecd_file_district"
@@ -850,6 +854,7 @@ type EcdFileLinePointIncInput struct {
 
 // input type for inserting data into table "ecd_file_line_point"
 type EcdFileLinePointInsertInput struct {
+	LinePointID     string     `json:"line_point_id"`
 	FileMainID      string     `json:"file_main_id"`
 	GpsPoint        *string    `json:"gps_point"`
 	MapPoint        *string    `json:"map_point"`
@@ -1076,6 +1081,7 @@ type EcdFileMainIncInput struct {
 
 // input type for inserting data into table "ecd_file_main"
 type EcdFileMainInsertInput struct {
+	FileMainID                  string     `json:"file_main_id"`
 	FileID                      string     `json:"file_id"`
 	EnterpriseID                string     `json:"enterprise_id"`
 	DistrictID                  *string    `json:"district_id"`
@@ -1407,6 +1413,7 @@ type EcdFileMainSubIncInput struct {
 
 // input type for inserting data into table "ecd_file_main_sub"
 type EcdFileMainSubInsertInput struct {
+	FileMainSubID         string     `json:"file_main_sub_id"`
 	FileMainID            *string    `json:"file_main_id"`
 	Address               *string    `json:"address"`
 	ConstructUnit         *string    `json:"construct_unit"`
@@ -1726,16 +1733,17 @@ type EcdFileVehicleIncInput struct {
 
 // input type for inserting data into table "ecd_file_vehicle"
 type EcdFileVehicleInsertInput struct {
-	FileMainID  string     `json:"file_main_id"`
-	VehicleID   *string    `json:"vehicle_id"`
-	CheckStatus *int       `json:"check_status"`
-	CreateAt    time.Time  `json:"create_at"`
-	CreateBy    *string    `json:"create_by"`
-	UpdateAt    *time.Time `json:"update_at"`
-	UpdateBy    *string    `json:"update_by"`
-	DeleteAt    *time.Time `json:"delete_at"`
-	DeleteBy    *string    `json:"delete_by"`
-	IsDelete    bool       `json:"is_delete"`
+	FileVehicleID string     `json:"file_vehicle_id"`
+	FileMainID    string     `json:"file_main_id"`
+	VehicleID     *string    `json:"vehicle_id"`
+	CheckStatus   *int       `json:"check_status"`
+	CreateAt      time.Time  `json:"create_at"`
+	CreateBy      *string    `json:"create_by"`
+	UpdateAt      *time.Time `json:"update_at"`
+	UpdateBy      *string    `json:"update_by"`
+	DeleteAt      *time.Time `json:"delete_at"`
+	DeleteBy      *string    `json:"delete_by"`
+	IsDelete      bool       `json:"is_delete"`
 }
 
 // aggregate max on columns of table "ecd_file_vehicle"
@@ -1892,23 +1900,24 @@ type EcdFileVehicleTimeIncInput struct {
 
 // input type for inserting data into table "ecd_file_vehicle_time"
 type EcdFileVehicleTimeInsertInput struct {
-	FileMainID  string     `json:"file_main_id"`
-	VechileID   string     `json:"vechile_id"`
-	StartDate   *time.Time `json:"start_date"`
-	EndDate     *time.Time `json:"end_date"`
-	StartTime   *time.Time `json:"start_time"`
-	EndTime     *time.Time `json:"end_time"`
-	CheckStatus *int       `json:"check_status"`
-	IsCheck     bool       `json:"is_check"`
-	CheckTime   *time.Time `json:"check_time"`
-	LineID      *string    `json:"line_id"`
-	CreateAt    time.Time  `json:"create_at"`
-	CreateBy    *string    `json:"create_by"`
-	UpdateAt    *time.Time `json:"update_at"`
-	UpdateBy    *string    `json:"update_by"`
-	DeleteAt    *time.Time `json:"delete_at"`
-	DeleteBy    *string    `json:"delete_by"`
-	IsDelete    bool       `json:"is_delete"`
+	VehicleTimeID string     `json:"vehicle_time_id"`
+	FileMainID    string     `json:"file_main_id"`
+	VechileID     string     `json:"vechile_id"`
+	StartDate     *time.Time `json:"start_date"`
+	EndDate       *time.Time `json:"end_date"`
+	StartTime     *time.Time `json:"start_time"`
+	EndTime       *time.Time `json:"end_time"`
+	CheckStatus   *int       `json:"check_status"`
+	IsCheck       bool       `json:"is_check"`
+	CheckTime     *time.Time `json:"check_time"`
+	LineID        *string    `json:"line_id"`
+	CreateAt      time.Time  `json:"create_at"`
+	CreateBy      *string    `json:"create_by"`
+	UpdateAt      *time.Time `json:"update_at"`
+	UpdateBy      *string    `json:"update_by"`
+	DeleteAt      *time.Time `json:"delete_at"`
+	DeleteBy      *string    `json:"delete_by"`
+	IsDelete      bool       `json:"is_delete"`
 }
 
 // aggregate max on columns of table "ecd_file_vehicle_time"
@@ -2124,6 +2133,7 @@ type EcdLineIncInput struct {
 
 // input type for inserting data into table "ecd_line"
 type EcdLineInsertInput struct {
+	LineID        string     `json:"line_id"`
 	LineName      string     `json:"line_name"`
 	EnterpriseID  *string    `json:"enterprise_id"`
 	LineDesc      *string    `json:"line_desc"`
@@ -2365,6 +2375,7 @@ type ElectricFenceEnteranceRecordIncInput struct {
 
 // input type for inserting data into table "electric_fence_enterance_record"
 type ElectricFenceEnteranceRecordInsertInput struct {
+	RecordID        string     `json:"record_id"`
 	VehicleID       string     `json:"vehicle_id"`
 	ElectricFenceID string     `json:"electric_fence_id"`
 	InTime          *time.Time `json:"in_time"`
@@ -2511,19 +2522,20 @@ type ElectricFenceIncInput struct {
 
 // input type for inserting data into table "electric_fence"
 type ElectricFenceInsertInput struct {
-	AreaType   int        `json:"area_type"`
-	FenceType  *int       `json:"fence_type"`
-	FenceName  *string    `json:"fence_name"`
-	Address    *string    `json:"address"`
-	DistrictID *string    `json:"district_id"`
-	CreateAt   time.Time  `json:"create_at"`
-	CreateBy   *string    `json:"create_by"`
-	UpdateAt   *time.Time `json:"update_at"`
-	UpdateBy   *string    `json:"update_by"`
-	DeleteAt   *time.Time `json:"delete_at"`
-	DeleteBy   *string    `json:"delete_by"`
-	IsDelete   bool       `json:"is_delete"`
-	GisData    *string    `json:"gis_data"`
+	ElectricFenceID string     `json:"electric_fence_id"`
+	AreaType        int        `json:"area_type"`
+	FenceType       *int       `json:"fence_type"`
+	FenceName       *string    `json:"fence_name"`
+	Address         *string    `json:"address"`
+	DistrictID      *string    `json:"district_id"`
+	CreateAt        time.Time  `json:"create_at"`
+	CreateBy        *string    `json:"create_by"`
+	UpdateAt        *time.Time `json:"update_at"`
+	UpdateBy        *string    `json:"update_by"`
+	DeleteAt        *time.Time `json:"delete_at"`
+	DeleteBy        *string    `json:"delete_by"`
+	IsDelete        bool       `json:"is_delete"`
+	GisData         *string    `json:"gis_data"`
 }
 
 // aggregate max on columns of table "electric_fence"
@@ -2721,23 +2733,24 @@ type LimitSpeedLineIncInput struct {
 
 // input type for inserting data into table "limit_speed_line"
 type LimitSpeedLineInsertInput struct {
-	LineName     *string    `json:"line_name"`
-	LineType     *int       `json:"line_type"`
-	DistrictID   *string    `json:"district_id"`
-	ControlLevel *int       `json:"control_level"`
-	ApplyReason  *string    `json:"apply_reason"`
-	CheckStatus  *int       `json:"check_status"`
-	CheckTime    *time.Time `json:"check_time"`
-	CheckUserID  *string    `json:"check_user_id"`
-	RejectReason *string    `json:"reject_reason"`
-	CreateAt     time.Time  `json:"create_at"`
-	CreateBy     *string    `json:"create_by"`
-	UpdateAt     *time.Time `json:"update_at"`
-	UpdateBy     *string    `json:"update_by"`
-	DeleteAt     *time.Time `json:"delete_at"`
-	DeleteBy     *string    `json:"delete_by"`
-	IsDelete     bool       `json:"is_delete"`
-	GisData      *string    `json:"gis_data"`
+	LimitSpeedLineID string     `json:"limit_speed_line_id"`
+	LineName         *string    `json:"line_name"`
+	LineType         *int       `json:"line_type"`
+	DistrictID       *string    `json:"district_id"`
+	ControlLevel     *int       `json:"control_level"`
+	ApplyReason      *string    `json:"apply_reason"`
+	CheckStatus      *int       `json:"check_status"`
+	CheckTime        *time.Time `json:"check_time"`
+	CheckUserID      *string    `json:"check_user_id"`
+	RejectReason     *string    `json:"reject_reason"`
+	CreateAt         time.Time  `json:"create_at"`
+	CreateBy         *string    `json:"create_by"`
+	UpdateAt         *time.Time `json:"update_at"`
+	UpdateBy         *string    `json:"update_by"`
+	DeleteAt         *time.Time `json:"delete_at"`
+	DeleteBy         *string    `json:"delete_by"`
+	IsDelete         bool       `json:"is_delete"`
+	GisData          *string    `json:"gis_data"`
 }
 
 // aggregate max on columns of table "limit_speed_line"
@@ -2924,17 +2937,18 @@ type LimitSpeedLineTimeIncInput struct {
 
 // input type for inserting data into table "limit_speed_line_time"
 type LimitSpeedLineTimeInsertInput struct {
-	LimitSpeedLineID string     `json:"limit_speed_line_id"`
-	StartTime        time.Time  `json:"start_time"`
-	EndTime          time.Time  `json:"end_time"`
-	CreateAt         time.Time  `json:"create_at"`
-	CreateBy         *string    `json:"create_by"`
-	UpdateAt         *time.Time `json:"update_at"`
-	UpdateBy         *string    `json:"update_by"`
-	DeleteAt         *time.Time `json:"delete_at"`
-	DeleteBy         *string    `json:"delete_by"`
-	IsDelete         bool       `json:"is_delete"`
-	Speed            float64    `json:"speed"`
+	LimitSpeedLineTimeID string     `json:"limit_speed_line_time_id"`
+	LimitSpeedLineID     string     `json:"limit_speed_line_id"`
+	StartTime            time.Time  `json:"start_time"`
+	EndTime              time.Time  `json:"end_time"`
+	CreateAt             time.Time  `json:"create_at"`
+	CreateBy             *string    `json:"create_by"`
+	UpdateAt             *time.Time `json:"update_at"`
+	UpdateBy             *string    `json:"update_by"`
+	DeleteAt             *time.Time `json:"delete_at"`
+	DeleteBy             *string    `json:"delete_by"`
+	IsDelete             bool       `json:"is_delete"`
+	Speed                float64    `json:"speed"`
 }
 
 // aggregate max on columns of table "limit_speed_line_time"
@@ -3182,6 +3196,7 @@ type LimitSpeedPlanDetailIncInput struct {
 
 // input type for inserting data into table "limit_speed_plan_detail"
 type LimitSpeedPlanDetailInsertInput struct {
+	DetailID        string     `json:"detail_id"`
 	PlanID          string     `json:"plan_id"`
 	IsNightLimit    bool       `json:"is_night_limit"`
 	NightLimitSpeed *float64   `json:"night_limit_speed"`
@@ -3347,16 +3362,17 @@ type LimitSpeedPlanIncInput struct {
 
 // input type for inserting data into table "limit_speed_plan"
 type LimitSpeedPlanInsertInput struct {
-	EnterpriseID string     `json:"enterprise_id"`
-	PlanName     string     `json:"plan_name"`
-	Remark       *string    `json:"remark"`
-	CreateAt     time.Time  `json:"create_at"`
-	CreateBy     *string    `json:"create_by"`
-	UpdateAt     *time.Time `json:"update_at"`
-	UpdateBy     *string    `json:"update_by"`
-	DeleteAt     *time.Time `json:"delete_at"`
-	DeleteBy     *string    `json:"delete_by"`
-	IsDelete     bool       `json:"is_delete"`
+	LimitSpeedPlanID string     `json:"limit_speed_plan_id"`
+	EnterpriseID     string     `json:"enterprise_id"`
+	PlanName         string     `json:"plan_name"`
+	Remark           *string    `json:"remark"`
+	CreateAt         time.Time  `json:"create_at"`
+	CreateBy         *string    `json:"create_by"`
+	UpdateAt         *time.Time `json:"update_at"`
+	UpdateBy         *string    `json:"update_by"`
+	DeleteAt         *time.Time `json:"delete_at"`
+	DeleteBy         *string    `json:"delete_by"`
+	IsDelete         bool       `json:"is_delete"`
 }
 
 // aggregate max on columns of table "limit_speed_plan"
@@ -3529,6 +3545,7 @@ type VehicleNightTravelRecordIncInput struct {
 
 // input type for inserting data into table "vehicle_night_travel_record"
 type VehicleNightTravelRecordInsertInput struct {
+	RecordID        string     `json:"record_id"`
 	VehicleID       string     `json:"vehicle_id"`
 	EnterpriseID    string     `json:"enterprise_id"`
 	Route           *string    `json:"route"`
@@ -3764,6 +3781,7 @@ type VehicleStopTravelRecordIncInput struct {
 
 // input type for inserting data into table "vehicle_stop_travel_record"
 type VehicleStopTravelRecordInsertInput struct {
+	RecordID        string     `json:"record_id"`
 	BillID          string     `json:"bill_id"`
 	RecordStartTime *time.Time `json:"record_start_time"`
 	RecordEndTime   *time.Time `json:"record_end_time"`

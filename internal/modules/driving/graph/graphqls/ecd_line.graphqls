@@ -235,6 +235,7 @@ input EcdLineBoolExp {
 input type for inserting data into table "ecd_line"
 """
 input EcdLineInsertInput {
+	line_id: String!
 	line_name: String!
 	enterprise_id: String
 	line_desc: String

@@ -1,0 +1,387 @@
+"""
+企业报警发送交警联系人
+"""
+type EnterpriseAlarmSendPolice {
+	"""
+	 按指定方法生成                                  ( 主键                                 )
+	"""
+	id: Bigint!
+	"""
+	 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                             )
+	"""
+	enterprise_alarm_send_police_id: String!
+	"""
+	 所在企业id                                      ( enterprise_info表的enterprise_id )
+	"""
+	enterprise_id: String
+	"""
+	 企业名称                                        
+	"""
+	enterprise_name: String
+	"""
+	 企业联系人                                      
+	"""
+	enterprise_contact: String
+	"""
+	 企业联系电话                                    
+	"""
+	enterprise_phone: String
+	"""
+	 交警                                            
+	"""
+	police: String
+	"""
+	 交警联系电话                                    
+	"""
+	police_phone: String
+	"""
+	 交警所属部门                                    
+	"""
+	phlice_department: String
+	"""
+	 创建时间                                        
+	"""
+	created_at: Timestamptz!
+	"""
+	 创建人                                          ( system_user表的user_id           )
+	"""
+	created_by: String!
+	"""
+	 修改时间                                        
+	"""
+	updated_at: Timestamptz
+	"""
+	 修改人                                          ( system_user表的user_id           )
+	"""
+	updated_by: String
+	"""
+	 删除时间                                        
+	"""
+	deleted_at: Timestamptz
+	"""
+	 删除人                                          ( system_user表的user_id           )
+	"""
+	deleted_by: String
+}
+"""
+aggregated selection of "enterprise_alarm_send_police"
+"""
+type EnterpriseAlarmSendPoliceAggregate {
+	aggregate: EnterpriseAlarmSendPoliceAggregateFields
+}
+"""
+aggregate fields of "enterprise_alarm_send_police"
+"""
+type EnterpriseAlarmSendPoliceAggregateFields {
+	avg: EnterpriseAlarmSendPoliceAvgFields
+	count: Int
+	max: EnterpriseAlarmSendPoliceMaxFields
+	min: EnterpriseAlarmSendPoliceMinFields
+	stddev: EnterpriseAlarmSendPoliceStddevFields
+	stddev_pop: EnterpriseAlarmSendPoliceStddevPopFields
+	stddev_samp: EnterpriseAlarmSendPoliceStddevSampFields
+	sum: EnterpriseAlarmSendPoliceSumFields
+	var_pop: EnterpriseAlarmSendPoliceVarPopFields
+	var_samp: EnterpriseAlarmSendPoliceVarSampFields
+	variance: EnterpriseAlarmSendPoliceVarianceFields
+}
+"""
+aggregate avg on columns of table "enterprise_alarm_send_police"
+"""
+type EnterpriseAlarmSendPoliceAvgFields {
+	id: Bigint
+}
+"""
+aggregate max on columns of table "enterprise_alarm_send_police"
+"""
+type EnterpriseAlarmSendPoliceMaxFields {
+	id: Bigint
+	enterprise_alarm_send_police_id: String
+	enterprise_id: String
+	enterprise_name: String
+	enterprise_contact: String
+	enterprise_phone: String
+	police: String
+	police_phone: String
+	phlice_department: String
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+aggregate min on columns of table "enterprise_alarm_send_police"
+"""
+type EnterpriseAlarmSendPoliceMinFields {
+	id: Bigint
+	enterprise_alarm_send_police_id: String
+	enterprise_id: String
+	enterprise_name: String
+	enterprise_contact: String
+	enterprise_phone: String
+	police: String
+	police_phone: String
+	phlice_department: String
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+aggregate stddev on columns of table "enterprise_alarm_send_police"
+"""
+type EnterpriseAlarmSendPoliceStddevFields {
+	id: Bigint
+}
+"""
+aggregate stddev_pop on columns of table "enterprise_alarm_send_police"
+"""
+type EnterpriseAlarmSendPoliceStddevPopFields {
+	id: Bigint
+}
+"""
+aggregate stddev_samp on columns of table "enterprise_alarm_send_police"
+"""
+type EnterpriseAlarmSendPoliceStddevSampFields {
+	id: Bigint
+}
+"""
+aggregate sum on columns of table "enterprise_alarm_send_police"
+"""
+type EnterpriseAlarmSendPoliceSumFields {
+	id: Bigint
+}
+"""
+aggregate var_pop on columns of table "enterprise_alarm_send_police"
+"""
+type EnterpriseAlarmSendPoliceVarPopFields {
+	id: Bigint
+}
+"""
+aggregate var_samp on columns of table "enterprise_alarm_send_police"
+"""
+type EnterpriseAlarmSendPoliceVarSampFields {
+	id: Bigint
+}
+"""
+aggregate variance on columns of table "enterprise_alarm_send_police"
+"""
+type EnterpriseAlarmSendPoliceVarianceFields {
+	id: Bigint
+}
+"""
+response of any mutation on the table "enterprise_alarm_send_police"
+"""
+type EnterpriseAlarmSendPoliceMutationResponse {
+	affected_rows: Int!
+	returning: [EnterpriseAlarmSendPolice!]!
+}
+"""
+ordering options when selecting data from "enterprise_alarm_send_police"
+"""
+input EnterpriseAlarmSendPoliceOrderBy {
+	id: OrderBy
+	enterprise_alarm_send_police_id: OrderBy
+	enterprise_id: OrderBy
+	enterprise_name: OrderBy
+	enterprise_contact: OrderBy
+	enterprise_phone: OrderBy
+	police: OrderBy
+	police_phone: OrderBy
+	phlice_department: OrderBy
+	created_at: OrderBy
+	created_by: OrderBy
+	updated_at: OrderBy
+	updated_by: OrderBy
+	deleted_at: OrderBy
+	deleted_by: OrderBy
+}
+"""
+Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'enterprise_alarm_send_police'.
+"""
+input EnterpriseAlarmSendPoliceBoolExp {
+	_and: [EnterpriseAlarmSendPoliceBoolExp]
+	_not: EnterpriseAlarmSendPoliceBoolExp
+	_or: [EnterpriseAlarmSendPoliceBoolExp]
+	id: BigintComparisonExp
+	enterprise_alarm_send_police_id: StringComparisonExp
+	enterprise_id: StringComparisonExp
+	enterprise_name: StringComparisonExp
+	enterprise_contact: StringComparisonExp
+	enterprise_phone: StringComparisonExp
+	police: StringComparisonExp
+	police_phone: StringComparisonExp
+	phlice_department: StringComparisonExp
+	created_at: TimestamptzComparisonExp
+	created_by: StringComparisonExp
+	updated_at: TimestamptzComparisonExp
+	updated_by: StringComparisonExp
+	deleted_at: TimestamptzComparisonExp
+	deleted_by: StringComparisonExp
+}
+"""
+input type for inserting data into table "enterprise_alarm_send_police"
+"""
+input EnterpriseAlarmSendPoliceInsertInput {
+	enterprise_alarm_send_police_id: String!
+	enterprise_id: String
+	enterprise_name: String
+	enterprise_contact: String
+	enterprise_phone: String
+	police: String
+	police_phone: String
+	phlice_department: String
+	created_at: Timestamptz!
+	created_by: String!
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+input type for incrementing integer column in table "enterprise_alarm_send_police"
+"""
+input EnterpriseAlarmSendPoliceIncInput {
+	id: Bigint
+}
+"""
+input type for updating data in table "enterprise_alarm_send_police"
+"""
+input EnterpriseAlarmSendPoliceSetInput {
+	id: Bigint
+	enterprise_alarm_send_police_id: String
+	enterprise_id: String
+	enterprise_name: String
+	enterprise_contact: String
+	enterprise_phone: String
+	police: String
+	police_phone: String
+	phlice_department: String
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+可选select
+"""
+enum EnterpriseAlarmSendPoliceSelectColumn {
+	"""
+	 按指定方法生成                                  ( 主键                                 )
+	"""
+	id
+	"""
+	 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                             )
+	"""
+	enterprise_alarm_send_police_id
+	"""
+	 所在企业id                                      ( enterprise_info表的enterprise_id )
+	"""
+	enterprise_id
+	"""
+	 企业名称                                        
+	"""
+	enterprise_name
+	"""
+	 企业联系人                                      
+	"""
+	enterprise_contact
+	"""
+	 企业联系电话                                    
+	"""
+	enterprise_phone
+	"""
+	 交警                                            
+	"""
+	police
+	"""
+	 交警联系电话                                    
+	"""
+	police_phone
+	"""
+	 交警所属部门                                    
+	"""
+	phlice_department
+	"""
+	 创建时间                                        
+	"""
+	created_at
+	"""
+	 创建人                                          ( system_user表的user_id           )
+	"""
+	created_by
+	"""
+	 修改时间                                        
+	"""
+	updated_at
+	"""
+	 修改人                                          ( system_user表的user_id           )
+	"""
+	updated_by
+	"""
+	 删除时间                                        
+	"""
+	deleted_at
+	"""
+	 删除人                                          ( system_user表的user_id           )
+	"""
+	deleted_by
+}
+extend type Query {
+	"""
+	列表查询
+	"""
+	enterprise_alarm_send_police(distinct_on: [EnterpriseAlarmSendPoliceSelectColumn!], limit: Int, offset: Int, order_by: [EnterpriseAlarmSendPoliceOrderBy!], where: EnterpriseAlarmSendPoliceBoolExp): [EnterpriseAlarmSendPolice!]!
+	"""
+	聚合查询
+	"""
+	enterprise_alarm_send_police_aggregate(distinct_on: [EnterpriseAlarmSendPoliceSelectColumn!], limit: Int, offset: Int, order_by: [EnterpriseAlarmSendPoliceOrderBy!], where: EnterpriseAlarmSendPoliceBoolExp): EnterpriseAlarmSendPoliceAggregate!
+	"""
+	主键查询
+	"""
+	enterprise_alarm_send_police_by_pk(id: Bigint!): EnterpriseAlarmSendPolice!
+	"""
+	联合主键查询
+	"""
+	enterprise_alarm_send_police_by_union_pk(enterprise_alarm_send_police_id: String!): EnterpriseAlarmSendPolice!
+}
+extend type Mutation {
+	"""
+	删除记录
+	"""
+	delete_enterprise_alarm_send_police(where: EnterpriseAlarmSendPoliceBoolExp!): EnterpriseAlarmSendPoliceMutationResponse
+	"""
+	根据主键删除记录
+	"""
+	delete_enterprise_alarm_send_police_by_pk(id: Bigint!): EnterpriseAlarmSendPolice
+	"""
+	插入
+	"""
+	insert_enterprise_alarm_send_police(objects: [EnterpriseAlarmSendPoliceInsertInput!]!): EnterpriseAlarmSendPoliceMutationResponse
+	"""
+	插入一条记录
+	"""
+	insert_enterprise_alarm_send_police_one(objects: EnterpriseAlarmSendPoliceInsertInput!): EnterpriseAlarmSendPolice
+	"""
+	更新
+	"""
+	update_enterprise_alarm_send_police(_inc: EnterpriseAlarmSendPoliceIncInput, _set: EnterpriseAlarmSendPoliceSetInput, where: EnterpriseAlarmSendPoliceBoolExp!): EnterpriseAlarmSendPoliceMutationResponse
+	"""
+	根据主键更新
+	"""
+	update_enterprise_alarm_send_police_by_pk(_inc: EnterpriseAlarmSendPoliceIncInput, _set: EnterpriseAlarmSendPoliceSetInput, id: Bigint!): EnterpriseAlarmSendPolice
+	"""
+	根据联合主键更新
+	"""
+	update_enterprise_alarm_send_police_by_union_pk(_inc: EnterpriseAlarmSendPoliceIncInput, _set: EnterpriseAlarmSendPoliceSetInput, enterprise_alarm_send_police_id: String!): EnterpriseAlarmSendPolice
+	"""
+	根据联合主键删除记录
+	"""
+	delete_enterprise_alarm_send_police_by_union_pk(enterprise_alarm_send_police_id: String!): EnterpriseAlarmSendPolice
+}

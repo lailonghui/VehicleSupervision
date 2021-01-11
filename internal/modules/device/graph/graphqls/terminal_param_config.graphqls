@@ -259,6 +259,7 @@ input TerminalParamConfigBoolExp {
 input type for inserting data into table "terminal_param_config"
 """
 input TerminalParamConfigInsertInput {
+	config_id: String!
 	param_item_id: String!
 	param_value: String
 	terminal_id: String

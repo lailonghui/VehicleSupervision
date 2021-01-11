@@ -7,10 +7,10 @@ import (
 	"time"
 )
 
-// EnterprisePoliceSmsInfoUnionPkLoaderConfig captures the config to create a new EnterprisePoliceSmsInfoUnionPkLoader
-type EnterprisePoliceSmsInfoUnionPkLoaderConfig struct {
+// EnterpriseAlarmSendPoliceUnionPkLoaderConfig captures the config to create a new EnterpriseAlarmSendPoliceUnionPkLoader
+type EnterpriseAlarmSendPoliceUnionPkLoaderConfig struct {
 	// Fetch is a method that provides the data for the loader
-	Fetch func(keys []string) ([]*EnterprisePoliceSmsInfo, []error)
+	Fetch func(keys []string) ([]*EnterpriseAlarmSendPolice, []error)
 
 	// Wait is how long wait before sending a batch
 	Wait time.Duration
@@ -19,19 +19,19 @@ type EnterprisePoliceSmsInfoUnionPkLoaderConfig struct {
 	MaxBatch int
 }
 
-// NewEnterprisePoliceSmsInfoUnionPkLoader creates a new EnterprisePoliceSmsInfoUnionPkLoader given a fetch, wait, and maxBatch
-func NewEnterprisePoliceSmsInfoUnionPkLoader(config EnterprisePoliceSmsInfoUnionPkLoaderConfig) *EnterprisePoliceSmsInfoUnionPkLoader {
-	return &EnterprisePoliceSmsInfoUnionPkLoader{
+// NewEnterpriseAlarmSendPoliceUnionPkLoader creates a new EnterpriseAlarmSendPoliceUnionPkLoader given a fetch, wait, and maxBatch
+func NewEnterpriseAlarmSendPoliceUnionPkLoader(config EnterpriseAlarmSendPoliceUnionPkLoaderConfig) *EnterpriseAlarmSendPoliceUnionPkLoader {
+	return &EnterpriseAlarmSendPoliceUnionPkLoader{
 		fetch:    config.Fetch,
 		wait:     config.Wait,
 		maxBatch: config.MaxBatch,
 	}
 }
 
-// EnterprisePoliceSmsInfoUnionPkLoader batches and caches requests
-type EnterprisePoliceSmsInfoUnionPkLoader struct {
+// EnterpriseAlarmSendPoliceUnionPkLoader batches and caches requests
+type EnterpriseAlarmSendPoliceUnionPkLoader struct {
 	// this method provides the data for the loader
-	fetch func(keys []string) ([]*EnterprisePoliceSmsInfo, []error)
+	fetch func(keys []string) ([]*EnterpriseAlarmSendPolice, []error)
 
 	// how long to done before sending a batch
 	wait time.Duration
@@ -42,51 +42,51 @@ type EnterprisePoliceSmsInfoUnionPkLoader struct {
 	// INTERNAL
 
 	// lazily created cache
-	cache map[string]*EnterprisePoliceSmsInfo
+	cache map[string]*EnterpriseAlarmSendPolice
 
 	// the current batch. keys will continue to be collected until timeout is hit,
 	// then everything will be sent to the fetch method and out to the listeners
-	batch *enterprisePoliceSmsInfoUnionPkLoaderBatch
+	batch *enterpriseAlarmSendPoliceUnionPkLoaderBatch
 
 	// mutex to prevent races
 	mu sync.Mutex
 }
 
-type enterprisePoliceSmsInfoUnionPkLoaderBatch struct {
+type enterpriseAlarmSendPoliceUnionPkLoaderBatch struct {
 	keys    []string
-	data    []*EnterprisePoliceSmsInfo
+	data    []*EnterpriseAlarmSendPolice
 	error   []error
 	closing bool
 	done    chan struct{}
 }
 
-// Load a EnterprisePoliceSmsInfo by key, batching and caching will be applied automatically
-func (l *EnterprisePoliceSmsInfoUnionPkLoader) Load(key string) (*EnterprisePoliceSmsInfo, error) {
+// Load a EnterpriseAlarmSendPolice by key, batching and caching will be applied automatically
+func (l *EnterpriseAlarmSendPoliceUnionPkLoader) Load(key string) (*EnterpriseAlarmSendPolice, error) {
 	return l.LoadThunk(key)()
 }
 
-// LoadThunk returns a function that when called will block waiting for a EnterprisePoliceSmsInfo.
+// LoadThunk returns a function that when called will block waiting for a EnterpriseAlarmSendPolice.
 // This method should be used if you want one goroutine to make requests to many
 // different data loaders without blocking until the thunk is called.
-func (l *EnterprisePoliceSmsInfoUnionPkLoader) LoadThunk(key string) func() (*EnterprisePoliceSmsInfo, error) {
+func (l *EnterpriseAlarmSendPoliceUnionPkLoader) LoadThunk(key string) func() (*EnterpriseAlarmSendPolice, error) {
 	l.mu.Lock()
 	if it, ok := l.cache[key]; ok {
 		l.mu.Unlock()
-		return func() (*EnterprisePoliceSmsInfo, error) {
+		return func() (*EnterpriseAlarmSendPolice, error) {
 			return it, nil
 		}
 	}
 	if l.batch == nil {
-		l.batch = &enterprisePoliceSmsInfoUnionPkLoaderBatch{done: make(chan struct{})}
+		l.batch = &enterpriseAlarmSendPoliceUnionPkLoaderBatch{done: make(chan struct{})}
 	}
 	batch := l.batch
 	pos := batch.keyIndex(l, key)
 	l.mu.Unlock()
 
-	return func() (*EnterprisePoliceSmsInfo, error) {
+	return func() (*EnterpriseAlarmSendPolice, error) {
 		<-batch.done
 
-		var data *EnterprisePoliceSmsInfo
+		var data *EnterpriseAlarmSendPolice
 		if pos < len(batch.data) {
 			data = batch.data[pos]
 		}
@@ -111,43 +111,43 @@ func (l *EnterprisePoliceSmsInfoUnionPkLoader) LoadThunk(key string) func() (*En
 
 // LoadAll fetches many keys at once. It will be broken into appropriate sized
 // sub batches depending on how the loader is configured
-func (l *EnterprisePoliceSmsInfoUnionPkLoader) LoadAll(keys []string) ([]*EnterprisePoliceSmsInfo, []error) {
-	results := make([]func() (*EnterprisePoliceSmsInfo, error), len(keys))
+func (l *EnterpriseAlarmSendPoliceUnionPkLoader) LoadAll(keys []string) ([]*EnterpriseAlarmSendPolice, []error) {
+	results := make([]func() (*EnterpriseAlarmSendPolice, error), len(keys))
 
 	for i, key := range keys {
 		results[i] = l.LoadThunk(key)
 	}
 
-	enterprisePoliceSmsInfos := make([]*EnterprisePoliceSmsInfo, len(keys))
+	enterpriseAlarmSendPolices := make([]*EnterpriseAlarmSendPolice, len(keys))
 	errors := make([]error, len(keys))
 	for i, thunk := range results {
-		enterprisePoliceSmsInfos[i], errors[i] = thunk()
+		enterpriseAlarmSendPolices[i], errors[i] = thunk()
 	}
-	return enterprisePoliceSmsInfos, errors
+	return enterpriseAlarmSendPolices, errors
 }
 
-// LoadAllThunk returns a function that when called will block waiting for a EnterprisePoliceSmsInfos.
+// LoadAllThunk returns a function that when called will block waiting for a EnterpriseAlarmSendPolices.
 // This method should be used if you want one goroutine to make requests to many
 // different data loaders without blocking until the thunk is called.
-func (l *EnterprisePoliceSmsInfoUnionPkLoader) LoadAllThunk(keys []string) func() ([]*EnterprisePoliceSmsInfo, []error) {
-	results := make([]func() (*EnterprisePoliceSmsInfo, error), len(keys))
+func (l *EnterpriseAlarmSendPoliceUnionPkLoader) LoadAllThunk(keys []string) func() ([]*EnterpriseAlarmSendPolice, []error) {
+	results := make([]func() (*EnterpriseAlarmSendPolice, error), len(keys))
 	for i, key := range keys {
 		results[i] = l.LoadThunk(key)
 	}
-	return func() ([]*EnterprisePoliceSmsInfo, []error) {
-		enterprisePoliceSmsInfos := make([]*EnterprisePoliceSmsInfo, len(keys))
+	return func() ([]*EnterpriseAlarmSendPolice, []error) {
+		enterpriseAlarmSendPolices := make([]*EnterpriseAlarmSendPolice, len(keys))
 		errors := make([]error, len(keys))
 		for i, thunk := range results {
-			enterprisePoliceSmsInfos[i], errors[i] = thunk()
+			enterpriseAlarmSendPolices[i], errors[i] = thunk()
 		}
-		return enterprisePoliceSmsInfos, errors
+		return enterpriseAlarmSendPolices, errors
 	}
 }
 
 // Prime the cache with the provided key and value. If the key already exists, no change is made
 // and false is returned.
 // (To forcefully prime the cache, clear the key first with loader.clear(key).prime(key, value).)
-func (l *EnterprisePoliceSmsInfoUnionPkLoader) Prime(key string, value *EnterprisePoliceSmsInfo) bool {
+func (l *EnterpriseAlarmSendPoliceUnionPkLoader) Prime(key string, value *EnterpriseAlarmSendPolice) bool {
 	l.mu.Lock()
 	var found bool
 	if _, found = l.cache[key]; !found {
@@ -161,22 +161,22 @@ func (l *EnterprisePoliceSmsInfoUnionPkLoader) Prime(key string, value *Enterpri
 }
 
 // Clear the value at key from the cache, if it exists
-func (l *EnterprisePoliceSmsInfoUnionPkLoader) Clear(key string) {
+func (l *EnterpriseAlarmSendPoliceUnionPkLoader) Clear(key string) {
 	l.mu.Lock()
 	delete(l.cache, key)
 	l.mu.Unlock()
 }
 
-func (l *EnterprisePoliceSmsInfoUnionPkLoader) unsafeSet(key string, value *EnterprisePoliceSmsInfo) {
+func (l *EnterpriseAlarmSendPoliceUnionPkLoader) unsafeSet(key string, value *EnterpriseAlarmSendPolice) {
 	if l.cache == nil {
-		l.cache = map[string]*EnterprisePoliceSmsInfo{}
+		l.cache = map[string]*EnterpriseAlarmSendPolice{}
 	}
 	l.cache[key] = value
 }
 
 // keyIndex will return the location of the key in the batch, if its not found
 // it will add the key to the batch
-func (b *enterprisePoliceSmsInfoUnionPkLoaderBatch) keyIndex(l *EnterprisePoliceSmsInfoUnionPkLoader, key string) int {
+func (b *enterpriseAlarmSendPoliceUnionPkLoaderBatch) keyIndex(l *EnterpriseAlarmSendPoliceUnionPkLoader, key string) int {
 	for i, existingKey := range b.keys {
 		if key == existingKey {
 			return i
@@ -200,7 +200,7 @@ func (b *enterprisePoliceSmsInfoUnionPkLoaderBatch) keyIndex(l *EnterprisePolice
 	return pos
 }
 
-func (b *enterprisePoliceSmsInfoUnionPkLoaderBatch) startTimer(l *EnterprisePoliceSmsInfoUnionPkLoader) {
+func (b *enterpriseAlarmSendPoliceUnionPkLoaderBatch) startTimer(l *EnterpriseAlarmSendPoliceUnionPkLoader) {
 	time.Sleep(l.wait)
 	l.mu.Lock()
 
@@ -216,7 +216,7 @@ func (b *enterprisePoliceSmsInfoUnionPkLoaderBatch) startTimer(l *EnterprisePoli
 	b.end(l)
 }
 
-func (b *enterprisePoliceSmsInfoUnionPkLoaderBatch) end(l *EnterprisePoliceSmsInfoUnionPkLoader) {
+func (b *enterpriseAlarmSendPoliceUnionPkLoaderBatch) end(l *EnterpriseAlarmSendPoliceUnionPkLoader) {
 	b.data, b.error = l.fetch(b.keys)
 	close(b.done)
 }

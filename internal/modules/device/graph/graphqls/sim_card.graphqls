@@ -259,6 +259,7 @@ input SimCardBoolExp {
 input type for inserting data into table "sim_card"
 """
 input SimCardInsertInput {
+	sim_card_id: String!
 	dept_id: String
 	terminal_id: String
 	proxyrg_id: String

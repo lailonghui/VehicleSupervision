@@ -14,6 +14,7 @@ import (
 	"crypto/sha256"
 	"errors"
 	"fmt"
+
 	"gorm.io/gorm"
 )
 
@@ -23,7 +24,9 @@ func (r *mutationResolver) DeleteDepartment(ctx context.Context, where model.Dep
 	// 查询主键和联合主键
 	qt := util.NewQueryTranslator(db.DB, m)
 	tx := qt.Where(where).Finish()
+
 	tx = tx.Select(m.PrimaryColumnName(), m.UnionPrimaryColumnName())
+
 	tx = tx.Find(&rs)
 	// 删除
 	amount := len(rs)
@@ -46,12 +49,18 @@ func (r *mutationResolver) DeleteDepartment(ctx context.Context, where model.Dep
 	if cacheErr == nil {
 		rsLen := len(rs)
 		var ids = make([]string, 0, rsLen)
+
 		var unionIds = make([]string, 0, rsLen)
+
 		for i := 0; i < rsLen; i++ {
 			ids[i] = util2.ToStr(rs[i].GetPrimary())
+
 			unionIds[i] = rs[i].GetUnionPrimary()
+
 		}
+
 		_ = cacheAspect.OnListRemove(ctx, ids, unionIds)
+
 	}
 	return &model.DepartmentMutationResponse{
 		AffectedRows: int(tx.RowsAffected),
@@ -80,7 +89,9 @@ func (r *mutationResolver) DeleteDepartmentByPk(ctx context.Context, id int64) (
 	cacheAspect, cacheErr := cache.GetGqlCacheAspect(m.TableName())
 	if cacheErr == nil {
 		_ = cacheAspect.OnPkRemove(ctx, util2.ToStr(rs.GetPrimary()))
+
 		_ = cacheAspect.OnUnionPkRemove(ctx, rs.GetUnionPrimary())
+
 	}
 	return &rs, nil
 }
@@ -186,12 +197,18 @@ func (r *mutationResolver) UpdateDepartment(ctx context.Context, inc *model.Depa
 	if cacheErr == nil {
 		rsLen := len(rs)
 		var ids = make([]string, 0, rsLen)
+
 		var unionIds = make([]string, 0, rsLen)
+
 		for i := 0; i < rsLen; i++ {
 			ids[i] = util2.ToStr(rs[i].GetPrimary())
+
 			unionIds[i] = rs[i].GetUnionPrimary()
+
 		}
+
 		_ = cacheAspect.OnListUpdate(ctx, ids, unionIds)
+
 	}
 	return &model.DepartmentMutationResponse{
 		AffectedRows: int(tx.RowsAffected),
@@ -218,7 +235,9 @@ func (r *mutationResolver) UpdateDepartmentByPk(ctx context.Context, inc *model.
 	cacheAspect, cacheErr := cache.GetGqlCacheAspect(m.TableName())
 	if cacheErr == nil {
 		_ = cacheAspect.OnPkRemove(ctx, util2.ToStr(rs.GetPrimary()))
+
 		_ = cacheAspect.OnUnionPkRemove(ctx, rs.GetUnionPrimary())
+
 	}
 	return &rs, nil
 }
@@ -406,7 +425,6 @@ func (r *queryResolver) DepartmentByPk(ctx context.Context, id int64) (*model1.D
 		return nil, err
 	}
 	return &rs, nil
-
 }
 
 func (r *queryResolver) DepartmentByUnionPk(ctx context.Context, departmentID string) (*model1.Department, error) {
@@ -461,21 +479,27 @@ func (r *departmentResolver) Enterprise(ctx context.Context, obj *model1.Departm
 	i := dataloader.GetLoaders(ctx).GetLoader(&loader)
 	switch t := i.(type) {
 	case *model1.EnterpriseUnionPkLoader:
+
 		return t.Load(obj.EnterpriseID)
+
 	default:
 		panic("can not get dataloader")
 	}
 }
 
 func (r *departmentResolver) SuperiorDepartment(ctx context.Context, obj *model1.Department) (*model1.Department, error) {
+
 	if obj.SuperiorDepartmentID == nil {
 		return nil, nil
 	}
+
 	var loader model1.DepartmentUnionPkLoader
 	i := dataloader.GetLoaders(ctx).GetLoader(&loader)
 	switch t := i.(type) {
 	case *model1.DepartmentUnionPkLoader:
+
 		return t.Load(*obj.SuperiorDepartmentID)
+
 	default:
 		panic("can not get dataloader")
 	}

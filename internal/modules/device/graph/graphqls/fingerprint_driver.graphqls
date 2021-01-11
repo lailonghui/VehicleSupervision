@@ -219,6 +219,7 @@ input FingerprintDriverBoolExp {
 input type for inserting data into table "fingerprint_driver"
 """
 input FingerprintDriverInsertInput {
+	fingerprint_driver_id: String!
 	driver_id: String!
 	finger_name: String
 	finger_id: String

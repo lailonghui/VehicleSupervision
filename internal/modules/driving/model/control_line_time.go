@@ -6,6 +6,7 @@ import (
 	"time"
 )
 
+// 管制路线时间段表
 type ControlLineTime struct {
 	// ID
 	ID int64 `json:"id"`

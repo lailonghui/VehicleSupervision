@@ -99,18 +99,19 @@ type FingerprintDriverIncInput struct {
 
 // input type for inserting data into table "fingerprint_driver"
 type FingerprintDriverInsertInput struct {
-	DriverID   string     `json:"driver_id"`
-	FingerName *string    `json:"finger_name"`
-	FingerID   *string    `json:"finger_id"`
-	PicURL     *string    `json:"pic_url"`
-	CreateAt   time.Time  `json:"create_at"`
-	CreateBy   *string    `json:"create_by"`
-	UpdateAt   *time.Time `json:"update_at"`
-	UpdateBy   *string    `json:"update_by"`
-	DeleteAt   *time.Time `json:"delete_at"`
-	DeleteBy   *string    `json:"delete_by"`
-	IsDelete   bool       `json:"is_delete"`
-	Remark     *string    `json:"remark"`
+	FingerprintDriverID string     `json:"fingerprint_driver_id"`
+	DriverID            string     `json:"driver_id"`
+	FingerName          *string    `json:"finger_name"`
+	FingerID            *string    `json:"finger_id"`
+	PicURL              *string    `json:"pic_url"`
+	CreateAt            time.Time  `json:"create_at"`
+	CreateBy            *string    `json:"create_by"`
+	UpdateAt            *time.Time `json:"update_at"`
+	UpdateBy            *string    `json:"update_by"`
+	DeleteAt            *time.Time `json:"delete_at"`
+	DeleteBy            *string    `json:"delete_by"`
+	IsDelete            bool       `json:"is_delete"`
+	Remark              *string    `json:"remark"`
 }
 
 // aggregate max on columns of table "fingerprint_driver"
@@ -288,20 +289,21 @@ type FingerprintInformationIncInput struct {
 
 // input type for inserting data into table "fingerprint_information"
 type FingerprintInformationInsertInput struct {
-	UserID        *string    `json:"user_id"`
-	VehicleID     *string    `json:"vehicle_id"`
-	SimID         *string    `json:"sim_id"`
-	MessageID     *string    `json:"message_id"`
-	OperationType *int       `json:"operation_type"`
-	Content       *string    `json:"content"`
-	IsSuccess     *bool      `json:"is_success"`
-	OperationTime *time.Time `json:"operation_time"`
-	UploadTime    *time.Time `json:"upload_time"`
-	SaveID        *string    `json:"save_id"`
-	DriverID      *string    `json:"driver_id"`
-	DriverName    *string    `json:"driver_name"`
-	FingerID      *string    `json:"finger_id"`
-	TerminalID    *string    `json:"terminal_id"`
+	FingerprintInformationID string     `json:"fingerprint_information_id"`
+	UserID                   *string    `json:"user_id"`
+	VehicleID                *string    `json:"vehicle_id"`
+	SimID                    *string    `json:"sim_id"`
+	MessageID                *string    `json:"message_id"`
+	OperationType            *int       `json:"operation_type"`
+	Content                  *string    `json:"content"`
+	IsSuccess                *bool      `json:"is_success"`
+	OperationTime            *time.Time `json:"operation_time"`
+	UploadTime               *time.Time `json:"upload_time"`
+	SaveID                   *string    `json:"save_id"`
+	DriverID                 *string    `json:"driver_id"`
+	DriverName               *string    `json:"driver_name"`
+	FingerID                 *string    `json:"finger_id"`
+	TerminalID               *string    `json:"terminal_id"`
 }
 
 // aggregate max on columns of table "fingerprint_information"
@@ -527,6 +529,259 @@ type SimCardAggregateFields struct {
 	Variance   *SimCardVarianceFields   `json:"variance"`
 }
 
+// aggregated selection of "sim_card_all"
+type SimCardAllAggregate struct {
+	Aggregate *SimCardAllAggregateFields `json:"aggregate"`
+}
+
+// aggregate fields of "sim_card_all"
+type SimCardAllAggregateFields struct {
+	Avg        *SimCardAllAvgFields        `json:"avg"`
+	Count      *int                        `json:"count"`
+	Max        *SimCardAllMaxFields        `json:"max"`
+	Min        *SimCardAllMinFields        `json:"min"`
+	Stddev     *SimCardAllStddevFields     `json:"stddev"`
+	StddevPop  *SimCardAllStddevPopFields  `json:"stddev_pop"`
+	StddevSamp *SimCardAllStddevSampFields `json:"stddev_samp"`
+	Sum        *SimCardAllSumFields        `json:"sum"`
+	VarPop     *SimCardAllVarPopFields     `json:"var_pop"`
+	VarSamp    *SimCardAllVarSampFields    `json:"var_samp"`
+	Variance   *SimCardAllVarianceFields   `json:"variance"`
+}
+
+// aggregate avg on columns of table "sim_card_all"
+type SimCardAllAvgFields struct {
+	ID         *int64 `json:"id"`
+	SimType    *int   `json:"sim_type"`
+	MobileType *int   `json:"mobile_type"`
+}
+
+// Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'sim_card_all'.
+type SimCardAllBoolExp struct {
+	And            []*SimCardAllBoolExp            `json:"_and"`
+	Not            *SimCardAllBoolExp              `json:"_not"`
+	Or             []*SimCardAllBoolExp            `json:"_or"`
+	ID             *model.BigintComparisonExp      `json:"id"`
+	SimcardAllID   *model.StringComparisonExp      `json:"simcard_all_id"`
+	PlateNumber    *model.StringComparisonExp      `json:"plate_number"`
+	PlateColor     *model.StringComparisonExp      `json:"plate_color"`
+	DeptID         *model.StringComparisonExp      `json:"dept_id"`
+	ProxyrgID      *model.StringComparisonExp      `json:"proxyrg_id"`
+	EnterpriseID   *model.StringComparisonExp      `json:"enterprise_id"`
+	SimNumber      *model.StringComparisonExp      `json:"sim_number"`
+	ServiceEndTime *model.TimestamptzComparisonExp `json:"service_end_time"`
+	TerminalID     *model.StringComparisonExp      `json:"terminal_id"`
+	SystemName     *model.StringComparisonExp      `json:"system_name"`
+	SimType        *model.IntComparisonExp         `json:"sim_type"`
+	UserID         *model.StringComparisonExp      `json:"user_id"`
+	MobileType     *model.IntComparisonExp         `json:"mobile_type"`
+	UpdateCause    *model.StringComparisonExp      `json:"update_cause"`
+	CreateAt       *model.TimestamptzComparisonExp `json:"create_at"`
+	CreateBy       *model.StringComparisonExp      `json:"create_by"`
+	UpdateAt       *model.TimestamptzComparisonExp `json:"update_at"`
+	UpdateBy       *model.StringComparisonExp      `json:"update_by"`
+	DeleteAt       *model.TimestamptzComparisonExp `json:"delete_at"`
+	DeleteBy       *model.StringComparisonExp      `json:"delete_by"`
+	IsDelete       *model.BooleanComparisonExp     `json:"is_delete"`
+	Remark         *model.StringComparisonExp      `json:"remark"`
+}
+
+// input type for incrementing integer column in table "sim_card_all"
+type SimCardAllIncInput struct {
+	ID         *int64 `json:"id"`
+	SimType    *int   `json:"sim_type"`
+	MobileType *int   `json:"mobile_type"`
+}
+
+// input type for inserting data into table "sim_card_all"
+type SimCardAllInsertInput struct {
+	SimcardAllID   string     `json:"simcard_all_id"`
+	PlateNumber    *string    `json:"plate_number"`
+	PlateColor     *string    `json:"plate_color"`
+	DeptID         *string    `json:"dept_id"`
+	ProxyrgID      *string    `json:"proxyrg_id"`
+	EnterpriseID   *string    `json:"enterprise_id"`
+	SimNumber      *string    `json:"sim_number"`
+	ServiceEndTime *time.Time `json:"service_end_time"`
+	TerminalID     *string    `json:"terminal_id"`
+	SystemName     *string    `json:"system_name"`
+	SimType        *int       `json:"sim_type"`
+	UserID         *string    `json:"user_id"`
+	MobileType     *int       `json:"mobile_type"`
+	UpdateCause    *string    `json:"update_cause"`
+	CreateAt       time.Time  `json:"create_at"`
+	CreateBy       *string    `json:"create_by"`
+	UpdateAt       *time.Time `json:"update_at"`
+	UpdateBy       *string    `json:"update_by"`
+	DeleteAt       *time.Time `json:"delete_at"`
+	DeleteBy       *string    `json:"delete_by"`
+	IsDelete       bool       `json:"is_delete"`
+	Remark         *string    `json:"remark"`
+}
+
+// aggregate max on columns of table "sim_card_all"
+type SimCardAllMaxFields struct {
+	ID             *int64     `json:"id"`
+	SimcardAllID   *string    `json:"simcard_all_id"`
+	PlateNumber    *string    `json:"plate_number"`
+	PlateColor     *string    `json:"plate_color"`
+	DeptID         *string    `json:"dept_id"`
+	ProxyrgID      *string    `json:"proxyrg_id"`
+	EnterpriseID   *string    `json:"enterprise_id"`
+	SimNumber      *string    `json:"sim_number"`
+	ServiceEndTime *time.Time `json:"service_end_time"`
+	TerminalID     *string    `json:"terminal_id"`
+	SystemName     *string    `json:"system_name"`
+	SimType        *int       `json:"sim_type"`
+	UserID         *string    `json:"user_id"`
+	MobileType     *int       `json:"mobile_type"`
+	UpdateCause    *string    `json:"update_cause"`
+	CreateAt       *time.Time `json:"create_at"`
+	CreateBy       *string    `json:"create_by"`
+	UpdateAt       *time.Time `json:"update_at"`
+	UpdateBy       *string    `json:"update_by"`
+	DeleteAt       *time.Time `json:"delete_at"`
+	DeleteBy       *string    `json:"delete_by"`
+	IsDelete       *bool      `json:"is_delete"`
+	Remark         *string    `json:"remark"`
+}
+
+// aggregate min on columns of table "sim_card_all"
+type SimCardAllMinFields struct {
+	ID             *int64     `json:"id"`
+	SimcardAllID   *string    `json:"simcard_all_id"`
+	PlateNumber    *string    `json:"plate_number"`
+	PlateColor     *string    `json:"plate_color"`
+	DeptID         *string    `json:"dept_id"`
+	ProxyrgID      *string    `json:"proxyrg_id"`
+	EnterpriseID   *string    `json:"enterprise_id"`
+	SimNumber      *string    `json:"sim_number"`
+	ServiceEndTime *time.Time `json:"service_end_time"`
+	TerminalID     *string    `json:"terminal_id"`
+	SystemName     *string    `json:"system_name"`
+	SimType        *int       `json:"sim_type"`
+	UserID         *string    `json:"user_id"`
+	MobileType     *int       `json:"mobile_type"`
+	UpdateCause    *string    `json:"update_cause"`
+	CreateAt       *time.Time `json:"create_at"`
+	CreateBy       *string    `json:"create_by"`
+	UpdateAt       *time.Time `json:"update_at"`
+	UpdateBy       *string    `json:"update_by"`
+	DeleteAt       *time.Time `json:"delete_at"`
+	DeleteBy       *string    `json:"delete_by"`
+	IsDelete       *bool      `json:"is_delete"`
+	Remark         *string    `json:"remark"`
+}
+
+// response of any mutation on the table "sim_card_all"
+type SimCardAllMutationResponse struct {
+	AffectedRows int                  `json:"affected_rows"`
+	Returning    []*model1.SimCardAll `json:"returning"`
+}
+
+// ordering options when selecting data from "sim_card_all"
+type SimCardAllOrderBy struct {
+	ID             *model.OrderBy `json:"id"`
+	SimcardAllID   *model.OrderBy `json:"simcard_all_id"`
+	PlateNumber    *model.OrderBy `json:"plate_number"`
+	PlateColor     *model.OrderBy `json:"plate_color"`
+	DeptID         *model.OrderBy `json:"dept_id"`
+	ProxyrgID      *model.OrderBy `json:"proxyrg_id"`
+	EnterpriseID   *model.OrderBy `json:"enterprise_id"`
+	SimNumber      *model.OrderBy `json:"sim_number"`
+	ServiceEndTime *model.OrderBy `json:"service_end_time"`
+	TerminalID     *model.OrderBy `json:"terminal_id"`
+	SystemName     *model.OrderBy `json:"system_name"`
+	SimType        *model.OrderBy `json:"sim_type"`
+	UserID         *model.OrderBy `json:"user_id"`
+	MobileType     *model.OrderBy `json:"mobile_type"`
+	UpdateCause    *model.OrderBy `json:"update_cause"`
+	CreateAt       *model.OrderBy `json:"create_at"`
+	CreateBy       *model.OrderBy `json:"create_by"`
+	UpdateAt       *model.OrderBy `json:"update_at"`
+	UpdateBy       *model.OrderBy `json:"update_by"`
+	DeleteAt       *model.OrderBy `json:"delete_at"`
+	DeleteBy       *model.OrderBy `json:"delete_by"`
+	IsDelete       *model.OrderBy `json:"is_delete"`
+	Remark         *model.OrderBy `json:"remark"`
+}
+
+// input type for updating data in table "sim_card_all"
+type SimCardAllSetInput struct {
+	ID             *int64     `json:"id"`
+	SimcardAllID   *string    `json:"simcard_all_id"`
+	PlateNumber    *string    `json:"plate_number"`
+	PlateColor     *string    `json:"plate_color"`
+	DeptID         *string    `json:"dept_id"`
+	ProxyrgID      *string    `json:"proxyrg_id"`
+	EnterpriseID   *string    `json:"enterprise_id"`
+	SimNumber      *string    `json:"sim_number"`
+	ServiceEndTime *time.Time `json:"service_end_time"`
+	TerminalID     *string    `json:"terminal_id"`
+	SystemName     *string    `json:"system_name"`
+	SimType        *int       `json:"sim_type"`
+	UserID         *string    `json:"user_id"`
+	MobileType     *int       `json:"mobile_type"`
+	UpdateCause    *string    `json:"update_cause"`
+	CreateAt       *time.Time `json:"create_at"`
+	CreateBy       *string    `json:"create_by"`
+	UpdateAt       *time.Time `json:"update_at"`
+	UpdateBy       *string    `json:"update_by"`
+	DeleteAt       *time.Time `json:"delete_at"`
+	DeleteBy       *string    `json:"delete_by"`
+	IsDelete       *bool      `json:"is_delete"`
+	Remark         *string    `json:"remark"`
+}
+
+// aggregate stddev on columns of table "sim_card_all"
+type SimCardAllStddevFields struct {
+	ID         *int64 `json:"id"`
+	SimType    *int   `json:"sim_type"`
+	MobileType *int   `json:"mobile_type"`
+}
+
+// aggregate stddev_pop on columns of table "sim_card_all"
+type SimCardAllStddevPopFields struct {
+	ID         *int64 `json:"id"`
+	SimType    *int   `json:"sim_type"`
+	MobileType *int   `json:"mobile_type"`
+}
+
+// aggregate stddev_samp on columns of table "sim_card_all"
+type SimCardAllStddevSampFields struct {
+	ID         *int64 `json:"id"`
+	SimType    *int   `json:"sim_type"`
+	MobileType *int   `json:"mobile_type"`
+}
+
+// aggregate sum on columns of table "sim_card_all"
+type SimCardAllSumFields struct {
+	ID         *int64 `json:"id"`
+	SimType    *int   `json:"sim_type"`
+	MobileType *int   `json:"mobile_type"`
+}
+
+// aggregate var_pop on columns of table "sim_card_all"
+type SimCardAllVarPopFields struct {
+	ID         *int64 `json:"id"`
+	SimType    *int   `json:"sim_type"`
+	MobileType *int   `json:"mobile_type"`
+}
+
+// aggregate var_samp on columns of table "sim_card_all"
+type SimCardAllVarSampFields struct {
+	ID         *int64 `json:"id"`
+	SimType    *int   `json:"sim_type"`
+	MobileType *int   `json:"mobile_type"`
+}
+
+// aggregate variance on columns of table "sim_card_all"
+type SimCardAllVarianceFields struct {
+	ID         *int64 `json:"id"`
+	SimType    *int   `json:"sim_type"`
+	MobileType *int   `json:"mobile_type"`
+}
+
 // aggregate avg on columns of table "sim_card"
 type SimCardAvgFields struct {
 	ID         *int64 `json:"id"`
@@ -641,6 +896,7 @@ type SimCardFlowIncInput struct {
 
 // input type for inserting data into table "sim_card_flow"
 type SimCardFlowInsertInput struct {
+	SimCardFlowID  string     `json:"sim_card_flow_id"`
 	SimCardID      string     `json:"sim_card_id"`
 	CardNoRemark   *string    `json:"card_no_remark"`
 	Iccid          *string    `json:"iccid"`
@@ -897,6 +1153,7 @@ type SimCardIncInput struct {
 
 // input type for inserting data into table "sim_card"
 type SimCardInsertInput struct {
+	SimCardID   string     `json:"sim_card_id"`
 	DeptID      *string    `json:"dept_id"`
 	TerminalID  *string    `json:"terminal_id"`
 	ProxyrgID   *string    `json:"proxyrg_id"`
@@ -933,6 +1190,313 @@ type SimCardMaxFields struct {
 	DeleteBy    *string    `json:"delete_by"`
 	IsDelete    *bool      `json:"is_delete"`
 	Source      *int       `json:"source"`
+}
+
+// aggregated selection of "sim_card_mgr"
+type SimCardMgrAggregate struct {
+	Aggregate *SimCardMgrAggregateFields `json:"aggregate"`
+}
+
+// aggregate fields of "sim_card_mgr"
+type SimCardMgrAggregateFields struct {
+	Avg        *SimCardMgrAvgFields        `json:"avg"`
+	Count      *int                        `json:"count"`
+	Max        *SimCardMgrMaxFields        `json:"max"`
+	Min        *SimCardMgrMinFields        `json:"min"`
+	Stddev     *SimCardMgrStddevFields     `json:"stddev"`
+	StddevPop  *SimCardMgrStddevPopFields  `json:"stddev_pop"`
+	StddevSamp *SimCardMgrStddevSampFields `json:"stddev_samp"`
+	Sum        *SimCardMgrSumFields        `json:"sum"`
+	VarPop     *SimCardMgrVarPopFields     `json:"var_pop"`
+	VarSamp    *SimCardMgrVarSampFields    `json:"var_samp"`
+	Variance   *SimCardMgrVarianceFields   `json:"variance"`
+}
+
+// aggregate avg on columns of table "sim_card_mgr"
+type SimCardMgrAvgFields struct {
+	ID         *int64 `json:"id"`
+	Status     *int   `json:"status"`
+	MobileType *int   `json:"mobile_type"`
+	SimType    *int   `json:"sim_type"`
+	UseType    *int   `json:"use_type"`
+}
+
+// Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'sim_card_mgr'.
+type SimCardMgrBoolExp struct {
+	And         []*SimCardMgrBoolExp            `json:"_and"`
+	Not         *SimCardMgrBoolExp              `json:"_not"`
+	Or          []*SimCardMgrBoolExp            `json:"_or"`
+	ID          *model.BigintComparisonExp      `json:"id"`
+	MgrID       *model.StringComparisonExp      `json:"mgr_id"`
+	Status      *model.IntComparisonExp         `json:"status"`
+	TerminalID  *model.StringComparisonExp      `json:"terminal_id"`
+	MobileType  *model.IntComparisonExp         `json:"mobile_type"`
+	ProxyrgID   *model.StringComparisonExp      `json:"proxyrg_id"`
+	DeptID      *model.StringComparisonExp      `json:"dept_id"`
+	SimType     *model.IntComparisonExp         `json:"sim_type"`
+	UseType     *model.IntComparisonExp         `json:"use_type"`
+	UseUserID   *model.StringComparisonExp      `json:"use_user_id"`
+	SystemName  *model.StringComparisonExp      `json:"system_name"`
+	SimNumber   *model.StringComparisonExp      `json:"sim_number"`
+	IsOutside   *model.BooleanComparisonExp     `json:"is_outside"`
+	UpdateCause *model.StringComparisonExp      `json:"update_cause"`
+	SimArea     *model.StringComparisonExp      `json:"sim_area"`
+	SimNumber12 *model.StringComparisonExp      `json:"sim_number_12"`
+	SimNumber23 *model.StringComparisonExp      `json:"sim_number_23"`
+	SimBak      *model.StringComparisonExp      `json:"sim_bak"`
+	SimNumber10 *model.StringComparisonExp      `json:"sim_number10"`
+	CancelTime  *model.TimestamptzComparisonExp `json:"cancel_time"`
+	CancelCause *model.StringComparisonExp      `json:"cancel_cause"`
+	CreateAt    *model.TimestamptzComparisonExp `json:"create_at"`
+	CreateBy    *model.StringComparisonExp      `json:"create_by"`
+	UpdateAt    *model.TimestamptzComparisonExp `json:"update_at"`
+	UpdateBy    *model.StringComparisonExp      `json:"update_by"`
+	DeleteAt    *model.TimestamptzComparisonExp `json:"delete_at"`
+	DeleteBy    *model.StringComparisonExp      `json:"delete_by"`
+	IsDelete    *model.BooleanComparisonExp     `json:"is_delete"`
+	Remark      *model.StringComparisonExp      `json:"remark"`
+}
+
+// input type for incrementing integer column in table "sim_card_mgr"
+type SimCardMgrIncInput struct {
+	ID         *int64 `json:"id"`
+	Status     *int   `json:"status"`
+	MobileType *int   `json:"mobile_type"`
+	SimType    *int   `json:"sim_type"`
+	UseType    *int   `json:"use_type"`
+}
+
+// input type for inserting data into table "sim_card_mgr"
+type SimCardMgrInsertInput struct {
+	MgrID       string     `json:"mgr_id"`
+	Status      *int       `json:"status"`
+	TerminalID  *string    `json:"terminal_id"`
+	MobileType  *int       `json:"mobile_type"`
+	ProxyrgID   *string    `json:"proxyrg_id"`
+	DeptID      *string    `json:"dept_id"`
+	SimType     *int       `json:"sim_type"`
+	UseType     *int       `json:"use_type"`
+	UseUserID   *string    `json:"use_user_id"`
+	SystemName  *string    `json:"system_name"`
+	SimNumber   *string    `json:"sim_number"`
+	IsOutside   bool       `json:"is_outside"`
+	UpdateCause *string    `json:"update_cause"`
+	SimArea     *string    `json:"sim_area"`
+	SimNumber12 *string    `json:"sim_number_12"`
+	SimNumber23 *string    `json:"sim_number_23"`
+	SimBak      *string    `json:"sim_bak"`
+	SimNumber10 *string    `json:"sim_number10"`
+	CancelTime  *time.Time `json:"cancel_time"`
+	CancelCause *string    `json:"cancel_cause"`
+	CreateAt    time.Time  `json:"create_at"`
+	CreateBy    *string    `json:"create_by"`
+	UpdateAt    *time.Time `json:"update_at"`
+	UpdateBy    *string    `json:"update_by"`
+	DeleteAt    *time.Time `json:"delete_at"`
+	DeleteBy    *string    `json:"delete_by"`
+	IsDelete    bool       `json:"is_delete"`
+	Remark      *string    `json:"remark"`
+}
+
+// aggregate max on columns of table "sim_card_mgr"
+type SimCardMgrMaxFields struct {
+	ID          *int64     `json:"id"`
+	MgrID       *string    `json:"mgr_id"`
+	Status      *int       `json:"status"`
+	TerminalID  *string    `json:"terminal_id"`
+	MobileType  *int       `json:"mobile_type"`
+	ProxyrgID   *string    `json:"proxyrg_id"`
+	DeptID      *string    `json:"dept_id"`
+	SimType     *int       `json:"sim_type"`
+	UseType     *int       `json:"use_type"`
+	UseUserID   *string    `json:"use_user_id"`
+	SystemName  *string    `json:"system_name"`
+	SimNumber   *string    `json:"sim_number"`
+	IsOutside   *bool      `json:"is_outside"`
+	UpdateCause *string    `json:"update_cause"`
+	SimArea     *string    `json:"sim_area"`
+	SimNumber12 *string    `json:"sim_number_12"`
+	SimNumber23 *string    `json:"sim_number_23"`
+	SimBak      *string    `json:"sim_bak"`
+	SimNumber10 *string    `json:"sim_number10"`
+	CancelTime  *time.Time `json:"cancel_time"`
+	CancelCause *string    `json:"cancel_cause"`
+	CreateAt    *time.Time `json:"create_at"`
+	CreateBy    *string    `json:"create_by"`
+	UpdateAt    *time.Time `json:"update_at"`
+	UpdateBy    *string    `json:"update_by"`
+	DeleteAt    *time.Time `json:"delete_at"`
+	DeleteBy    *string    `json:"delete_by"`
+	IsDelete    *bool      `json:"is_delete"`
+	Remark      *string    `json:"remark"`
+}
+
+// aggregate min on columns of table "sim_card_mgr"
+type SimCardMgrMinFields struct {
+	ID          *int64     `json:"id"`
+	MgrID       *string    `json:"mgr_id"`
+	Status      *int       `json:"status"`
+	TerminalID  *string    `json:"terminal_id"`
+	MobileType  *int       `json:"mobile_type"`
+	ProxyrgID   *string    `json:"proxyrg_id"`
+	DeptID      *string    `json:"dept_id"`
+	SimType     *int       `json:"sim_type"`
+	UseType     *int       `json:"use_type"`
+	UseUserID   *string    `json:"use_user_id"`
+	SystemName  *string    `json:"system_name"`
+	SimNumber   *string    `json:"sim_number"`
+	IsOutside   *bool      `json:"is_outside"`
+	UpdateCause *string    `json:"update_cause"`
+	SimArea     *string    `json:"sim_area"`
+	SimNumber12 *string    `json:"sim_number_12"`
+	SimNumber23 *string    `json:"sim_number_23"`
+	SimBak      *string    `json:"sim_bak"`
+	SimNumber10 *string    `json:"sim_number10"`
+	CancelTime  *time.Time `json:"cancel_time"`
+	CancelCause *string    `json:"cancel_cause"`
+	CreateAt    *time.Time `json:"create_at"`
+	CreateBy    *string    `json:"create_by"`
+	UpdateAt    *time.Time `json:"update_at"`
+	UpdateBy    *string    `json:"update_by"`
+	DeleteAt    *time.Time `json:"delete_at"`
+	DeleteBy    *string    `json:"delete_by"`
+	IsDelete    *bool      `json:"is_delete"`
+	Remark      *string    `json:"remark"`
+}
+
+// response of any mutation on the table "sim_card_mgr"
+type SimCardMgrMutationResponse struct {
+	AffectedRows int                  `json:"affected_rows"`
+	Returning    []*model1.SimCardMgr `json:"returning"`
+}
+
+// ordering options when selecting data from "sim_card_mgr"
+type SimCardMgrOrderBy struct {
+	ID          *model.OrderBy `json:"id"`
+	MgrID       *model.OrderBy `json:"mgr_id"`
+	Status      *model.OrderBy `json:"status"`
+	TerminalID  *model.OrderBy `json:"terminal_id"`
+	MobileType  *model.OrderBy `json:"mobile_type"`
+	ProxyrgID   *model.OrderBy `json:"proxyrg_id"`
+	DeptID      *model.OrderBy `json:"dept_id"`
+	SimType     *model.OrderBy `json:"sim_type"`
+	UseType     *model.OrderBy `json:"use_type"`
+	UseUserID   *model.OrderBy `json:"use_user_id"`
+	SystemName  *model.OrderBy `json:"system_name"`
+	SimNumber   *model.OrderBy `json:"sim_number"`
+	IsOutside   *model.OrderBy `json:"is_outside"`
+	UpdateCause *model.OrderBy `json:"update_cause"`
+	SimArea     *model.OrderBy `json:"sim_area"`
+	SimNumber12 *model.OrderBy `json:"sim_number_12"`
+	SimNumber23 *model.OrderBy `json:"sim_number_23"`
+	SimBak      *model.OrderBy `json:"sim_bak"`
+	SimNumber10 *model.OrderBy `json:"sim_number10"`
+	CancelTime  *model.OrderBy `json:"cancel_time"`
+	CancelCause *model.OrderBy `json:"cancel_cause"`
+	CreateAt    *model.OrderBy `json:"create_at"`
+	CreateBy    *model.OrderBy `json:"create_by"`
+	UpdateAt    *model.OrderBy `json:"update_at"`
+	UpdateBy    *model.OrderBy `json:"update_by"`
+	DeleteAt    *model.OrderBy `json:"delete_at"`
+	DeleteBy    *model.OrderBy `json:"delete_by"`
+	IsDelete    *model.OrderBy `json:"is_delete"`
+	Remark      *model.OrderBy `json:"remark"`
+}
+
+// input type for updating data in table "sim_card_mgr"
+type SimCardMgrSetInput struct {
+	ID          *int64     `json:"id"`
+	MgrID       *string    `json:"mgr_id"`
+	Status      *int       `json:"status"`
+	TerminalID  *string    `json:"terminal_id"`
+	MobileType  *int       `json:"mobile_type"`
+	ProxyrgID   *string    `json:"proxyrg_id"`
+	DeptID      *string    `json:"dept_id"`
+	SimType     *int       `json:"sim_type"`
+	UseType     *int       `json:"use_type"`
+	UseUserID   *string    `json:"use_user_id"`
+	SystemName  *string    `json:"system_name"`
+	SimNumber   *string    `json:"sim_number"`
+	IsOutside   *bool      `json:"is_outside"`
+	UpdateCause *string    `json:"update_cause"`
+	SimArea     *string    `json:"sim_area"`
+	SimNumber12 *string    `json:"sim_number_12"`
+	SimNumber23 *string    `json:"sim_number_23"`
+	SimBak      *string    `json:"sim_bak"`
+	SimNumber10 *string    `json:"sim_number10"`
+	CancelTime  *time.Time `json:"cancel_time"`
+	CancelCause *string    `json:"cancel_cause"`
+	CreateAt    *time.Time `json:"create_at"`
+	CreateBy    *string    `json:"create_by"`
+	UpdateAt    *time.Time `json:"update_at"`
+	UpdateBy    *string    `json:"update_by"`
+	DeleteAt    *time.Time `json:"delete_at"`
+	DeleteBy    *string    `json:"delete_by"`
+	IsDelete    *bool      `json:"is_delete"`
+	Remark      *string    `json:"remark"`
+}
+
+// aggregate stddev on columns of table "sim_card_mgr"
+type SimCardMgrStddevFields struct {
+	ID         *int64 `json:"id"`
+	Status     *int   `json:"status"`
+	MobileType *int   `json:"mobile_type"`
+	SimType    *int   `json:"sim_type"`
+	UseType    *int   `json:"use_type"`
+}
+
+// aggregate stddev_pop on columns of table "sim_card_mgr"
+type SimCardMgrStddevPopFields struct {
+	ID         *int64 `json:"id"`
+	Status     *int   `json:"status"`
+	MobileType *int   `json:"mobile_type"`
+	SimType    *int   `json:"sim_type"`
+	UseType    *int   `json:"use_type"`
+}
+
+// aggregate stddev_samp on columns of table "sim_card_mgr"
+type SimCardMgrStddevSampFields struct {
+	ID         *int64 `json:"id"`
+	Status     *int   `json:"status"`
+	MobileType *int   `json:"mobile_type"`
+	SimType    *int   `json:"sim_type"`
+	UseType    *int   `json:"use_type"`
+}
+
+// aggregate sum on columns of table "sim_card_mgr"
+type SimCardMgrSumFields struct {
+	ID         *int64 `json:"id"`
+	Status     *int   `json:"status"`
+	MobileType *int   `json:"mobile_type"`
+	SimType    *int   `json:"sim_type"`
+	UseType    *int   `json:"use_type"`
+}
+
+// aggregate var_pop on columns of table "sim_card_mgr"
+type SimCardMgrVarPopFields struct {
+	ID         *int64 `json:"id"`
+	Status     *int   `json:"status"`
+	MobileType *int   `json:"mobile_type"`
+	SimType    *int   `json:"sim_type"`
+	UseType    *int   `json:"use_type"`
+}
+
+// aggregate var_samp on columns of table "sim_card_mgr"
+type SimCardMgrVarSampFields struct {
+	ID         *int64 `json:"id"`
+	Status     *int   `json:"status"`
+	MobileType *int   `json:"mobile_type"`
+	SimType    *int   `json:"sim_type"`
+	UseType    *int   `json:"use_type"`
+}
+
+// aggregate variance on columns of table "sim_card_mgr"
+type SimCardMgrVarianceFields struct {
+	ID         *int64 `json:"id"`
+	Status     *int   `json:"status"`
+	MobileType *int   `json:"mobile_type"`
+	SimType    *int   `json:"sim_type"`
+	UseType    *int   `json:"use_type"`
 }
 
 // aggregate min on columns of table "sim_card"
@@ -1002,6 +1566,253 @@ type SimCardSetInput struct {
 	DeleteBy    *string    `json:"delete_by"`
 	IsDelete    *bool      `json:"is_delete"`
 	Source      *int       `json:"source"`
+}
+
+// aggregated selection of "sim_card_status"
+type SimCardStatusAggregate struct {
+	Aggregate *SimCardStatusAggregateFields `json:"aggregate"`
+}
+
+// aggregate fields of "sim_card_status"
+type SimCardStatusAggregateFields struct {
+	Avg        *SimCardStatusAvgFields        `json:"avg"`
+	Count      *int                           `json:"count"`
+	Max        *SimCardStatusMaxFields        `json:"max"`
+	Min        *SimCardStatusMinFields        `json:"min"`
+	Stddev     *SimCardStatusStddevFields     `json:"stddev"`
+	StddevPop  *SimCardStatusStddevPopFields  `json:"stddev_pop"`
+	StddevSamp *SimCardStatusStddevSampFields `json:"stddev_samp"`
+	Sum        *SimCardStatusSumFields        `json:"sum"`
+	VarPop     *SimCardStatusVarPopFields     `json:"var_pop"`
+	VarSamp    *SimCardStatusVarSampFields    `json:"var_samp"`
+	Variance   *SimCardStatusVarianceFields   `json:"variance"`
+}
+
+// aggregate avg on columns of table "sim_card_status"
+type SimCardStatusAvgFields struct {
+	ID         *int64 `json:"id"`
+	Status     *int   `json:"status"`
+	MobileType *int   `json:"mobile_type"`
+}
+
+// Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'sim_card_status'.
+type SimCardStatusBoolExp struct {
+	And             []*SimCardStatusBoolExp         `json:"_and"`
+	Not             *SimCardStatusBoolExp           `json:"_not"`
+	Or              []*SimCardStatusBoolExp         `json:"_or"`
+	ID              *model.BigintComparisonExp      `json:"id"`
+	SimCardStatusID *model.StringComparisonExp      `json:"sim_card_status_id"`
+	Status          *model.IntComparisonExp         `json:"status"`
+	TerminalModalID *model.StringComparisonExp      `json:"terminal_modal_id"`
+	MobileType      *model.IntComparisonExp         `json:"mobile_type"`
+	ProxyrgID       *model.StringComparisonExp      `json:"proxyrg_id"`
+	EnterpriseID    *model.StringComparisonExp      `json:"enterprise_id"`
+	SystemName      *model.StringComparisonExp      `json:"system_name"`
+	SimNumber       *model.StringComparisonExp      `json:"sim_number"`
+	CancelTime      *model.TimestamptzComparisonExp `json:"cancel_time"`
+	CancelCause     *model.StringComparisonExp      `json:"cancel_cause"`
+	SimNumber10     *model.StringComparisonExp      `json:"sim_number10"`
+	PlateNumber     *model.StringComparisonExp      `json:"plate_number"`
+	FeeEndDate      *model.TimestamptzComparisonExp `json:"fee_end_date"`
+	CreateAt        *model.TimestamptzComparisonExp `json:"create_at"`
+	CreateBy        *model.StringComparisonExp      `json:"create_by"`
+	UpdateAt        *model.TimestamptzComparisonExp `json:"update_at"`
+	UpdateBy        *model.StringComparisonExp      `json:"update_by"`
+	DeleteAt        *model.TimestamptzComparisonExp `json:"delete_at"`
+	DeleteBy        *model.StringComparisonExp      `json:"delete_by"`
+	IsDelete        *model.BooleanComparisonExp     `json:"is_delete"`
+	Remark          *model.StringComparisonExp      `json:"remark"`
+}
+
+// input type for incrementing integer column in table "sim_card_status"
+type SimCardStatusIncInput struct {
+	ID         *int64 `json:"id"`
+	Status     *int   `json:"status"`
+	MobileType *int   `json:"mobile_type"`
+}
+
+// input type for inserting data into table "sim_card_status"
+type SimCardStatusInsertInput struct {
+	SimCardStatusID string     `json:"sim_card_status_id"`
+	Status          *int       `json:"status"`
+	TerminalModalID *string    `json:"terminal_modal_id"`
+	MobileType      *int       `json:"mobile_type"`
+	ProxyrgID       *string    `json:"proxyrg_id"`
+	EnterpriseID    *string    `json:"enterprise_id"`
+	SystemName      *string    `json:"system_name"`
+	SimNumber       *string    `json:"sim_number"`
+	CancelTime      *time.Time `json:"cancel_time"`
+	CancelCause     *string    `json:"cancel_cause"`
+	SimNumber10     *string    `json:"sim_number10"`
+	PlateNumber     *string    `json:"plate_number"`
+	FeeEndDate      *time.Time `json:"fee_end_date"`
+	CreateAt        time.Time  `json:"create_at"`
+	CreateBy        *string    `json:"create_by"`
+	UpdateAt        *time.Time `json:"update_at"`
+	UpdateBy        *string    `json:"update_by"`
+	DeleteAt        *time.Time `json:"delete_at"`
+	DeleteBy        *string    `json:"delete_by"`
+	IsDelete        bool       `json:"is_delete"`
+	Remark          *string    `json:"remark"`
+}
+
+// aggregate max on columns of table "sim_card_status"
+type SimCardStatusMaxFields struct {
+	ID              *int64     `json:"id"`
+	SimCardStatusID *string    `json:"sim_card_status_id"`
+	Status          *int       `json:"status"`
+	TerminalModalID *string    `json:"terminal_modal_id"`
+	MobileType      *int       `json:"mobile_type"`
+	ProxyrgID       *string    `json:"proxyrg_id"`
+	EnterpriseID    *string    `json:"enterprise_id"`
+	SystemName      *string    `json:"system_name"`
+	SimNumber       *string    `json:"sim_number"`
+	CancelTime      *time.Time `json:"cancel_time"`
+	CancelCause     *string    `json:"cancel_cause"`
+	SimNumber10     *string    `json:"sim_number10"`
+	PlateNumber     *string    `json:"plate_number"`
+	FeeEndDate      *time.Time `json:"fee_end_date"`
+	CreateAt        *time.Time `json:"create_at"`
+	CreateBy        *string    `json:"create_by"`
+	UpdateAt        *time.Time `json:"update_at"`
+	UpdateBy        *string    `json:"update_by"`
+	DeleteAt        *time.Time `json:"delete_at"`
+	DeleteBy        *string    `json:"delete_by"`
+	IsDelete        *bool      `json:"is_delete"`
+	Remark          *string    `json:"remark"`
+}
+
+// aggregate min on columns of table "sim_card_status"
+type SimCardStatusMinFields struct {
+	ID              *int64     `json:"id"`
+	SimCardStatusID *string    `json:"sim_card_status_id"`
+	Status          *int       `json:"status"`
+	TerminalModalID *string    `json:"terminal_modal_id"`
+	MobileType      *int       `json:"mobile_type"`
+	ProxyrgID       *string    `json:"proxyrg_id"`
+	EnterpriseID    *string    `json:"enterprise_id"`
+	SystemName      *string    `json:"system_name"`
+	SimNumber       *string    `json:"sim_number"`
+	CancelTime      *time.Time `json:"cancel_time"`
+	CancelCause     *string    `json:"cancel_cause"`
+	SimNumber10     *string    `json:"sim_number10"`
+	PlateNumber     *string    `json:"plate_number"`
+	FeeEndDate      *time.Time `json:"fee_end_date"`
+	CreateAt        *time.Time `json:"create_at"`
+	CreateBy        *string    `json:"create_by"`
+	UpdateAt        *time.Time `json:"update_at"`
+	UpdateBy        *string    `json:"update_by"`
+	DeleteAt        *time.Time `json:"delete_at"`
+	DeleteBy        *string    `json:"delete_by"`
+	IsDelete        *bool      `json:"is_delete"`
+	Remark          *string    `json:"remark"`
+}
+
+// response of any mutation on the table "sim_card_status"
+type SimCardStatusMutationResponse struct {
+	AffectedRows int                     `json:"affected_rows"`
+	Returning    []*model1.SimCardStatus `json:"returning"`
+}
+
+// ordering options when selecting data from "sim_card_status"
+type SimCardStatusOrderBy struct {
+	ID              *model.OrderBy `json:"id"`
+	SimCardStatusID *model.OrderBy `json:"sim_card_status_id"`
+	Status          *model.OrderBy `json:"status"`
+	TerminalModalID *model.OrderBy `json:"terminal_modal_id"`
+	MobileType      *model.OrderBy `json:"mobile_type"`
+	ProxyrgID       *model.OrderBy `json:"proxyrg_id"`
+	EnterpriseID    *model.OrderBy `json:"enterprise_id"`
+	SystemName      *model.OrderBy `json:"system_name"`
+	SimNumber       *model.OrderBy `json:"sim_number"`
+	CancelTime      *model.OrderBy `json:"cancel_time"`
+	CancelCause     *model.OrderBy `json:"cancel_cause"`
+	SimNumber10     *model.OrderBy `json:"sim_number10"`
+	PlateNumber     *model.OrderBy `json:"plate_number"`
+	FeeEndDate      *model.OrderBy `json:"fee_end_date"`
+	CreateAt        *model.OrderBy `json:"create_at"`
+	CreateBy        *model.OrderBy `json:"create_by"`
+	UpdateAt        *model.OrderBy `json:"update_at"`
+	UpdateBy        *model.OrderBy `json:"update_by"`
+	DeleteAt        *model.OrderBy `json:"delete_at"`
+	DeleteBy        *model.OrderBy `json:"delete_by"`
+	IsDelete        *model.OrderBy `json:"is_delete"`
+	Remark          *model.OrderBy `json:"remark"`
+}
+
+// input type for updating data in table "sim_card_status"
+type SimCardStatusSetInput struct {
+	ID              *int64     `json:"id"`
+	SimCardStatusID *string    `json:"sim_card_status_id"`
+	Status          *int       `json:"status"`
+	TerminalModalID *string    `json:"terminal_modal_id"`
+	MobileType      *int       `json:"mobile_type"`
+	ProxyrgID       *string    `json:"proxyrg_id"`
+	EnterpriseID    *string    `json:"enterprise_id"`
+	SystemName      *string    `json:"system_name"`
+	SimNumber       *string    `json:"sim_number"`
+	CancelTime      *time.Time `json:"cancel_time"`
+	CancelCause     *string    `json:"cancel_cause"`
+	SimNumber10     *string    `json:"sim_number10"`
+	PlateNumber     *string    `json:"plate_number"`
+	FeeEndDate      *time.Time `json:"fee_end_date"`
+	CreateAt        *time.Time `json:"create_at"`
+	CreateBy        *string    `json:"create_by"`
+	UpdateAt        *time.Time `json:"update_at"`
+	UpdateBy        *string    `json:"update_by"`
+	DeleteAt        *time.Time `json:"delete_at"`
+	DeleteBy        *string    `json:"delete_by"`
+	IsDelete        *bool      `json:"is_delete"`
+	Remark          *string    `json:"remark"`
+}
+
+// aggregate stddev on columns of table "sim_card_status"
+type SimCardStatusStddevFields struct {
+	ID         *int64 `json:"id"`
+	Status     *int   `json:"status"`
+	MobileType *int   `json:"mobile_type"`
+}
+
+// aggregate stddev_pop on columns of table "sim_card_status"
+type SimCardStatusStddevPopFields struct {
+	ID         *int64 `json:"id"`
+	Status     *int   `json:"status"`
+	MobileType *int   `json:"mobile_type"`
+}
+
+// aggregate stddev_samp on columns of table "sim_card_status"
+type SimCardStatusStddevSampFields struct {
+	ID         *int64 `json:"id"`
+	Status     *int   `json:"status"`
+	MobileType *int   `json:"mobile_type"`
+}
+
+// aggregate sum on columns of table "sim_card_status"
+type SimCardStatusSumFields struct {
+	ID         *int64 `json:"id"`
+	Status     *int   `json:"status"`
+	MobileType *int   `json:"mobile_type"`
+}
+
+// aggregate var_pop on columns of table "sim_card_status"
+type SimCardStatusVarPopFields struct {
+	ID         *int64 `json:"id"`
+	Status     *int   `json:"status"`
+	MobileType *int   `json:"mobile_type"`
+}
+
+// aggregate var_samp on columns of table "sim_card_status"
+type SimCardStatusVarSampFields struct {
+	ID         *int64 `json:"id"`
+	Status     *int   `json:"status"`
+	MobileType *int   `json:"mobile_type"`
+}
+
+// aggregate variance on columns of table "sim_card_status"
+type SimCardStatusVarianceFields struct {
+	ID         *int64 `json:"id"`
+	Status     *int   `json:"status"`
+	MobileType *int   `json:"mobile_type"`
 }
 
 // aggregate stddev on columns of table "sim_card"
@@ -1131,17 +1942,18 @@ type TerminalBeidouValidIncInput struct {
 
 // input type for inserting data into table "terminal_beidou_valid"
 type TerminalBeidouValidInsertInput struct {
-	TerminalID      string     `json:"terminal_id"`
-	TerminalModalID *string    `json:"terminal_modal_id"`
-	IsBind          bool       `json:"is_bind"`
-	BuyBill         *string    `json:"buy_bill"`
-	CreateAt        time.Time  `json:"create_at"`
-	CreateBy        *string    `json:"create_by"`
-	UpdateAt        *time.Time `json:"update_at"`
-	UpdateBy        *string    `json:"update_by"`
-	DeleteAt        *time.Time `json:"delete_at"`
-	DeleteBy        *string    `json:"delete_by"`
-	IsDelete        bool       `json:"is_delete"`
+	TerminalBeidouValidID string     `json:"terminal_beidou_valid_id"`
+	TerminalID            string     `json:"terminal_id"`
+	TerminalModalID       *string    `json:"terminal_modal_id"`
+	IsBind                bool       `json:"is_bind"`
+	BuyBill               *string    `json:"buy_bill"`
+	CreateAt              time.Time  `json:"create_at"`
+	CreateBy              *string    `json:"create_by"`
+	UpdateAt              *time.Time `json:"update_at"`
+	UpdateBy              *string    `json:"update_by"`
+	DeleteAt              *time.Time `json:"delete_at"`
+	DeleteBy              *string    `json:"delete_by"`
+	IsDelete              bool       `json:"is_delete"`
 }
 
 // aggregate max on columns of table "terminal_beidou_valid"
@@ -1362,6 +2174,7 @@ type TerminalBuyBillIncInput struct {
 
 // input type for inserting data into table "terminal_buy_bill"
 type TerminalBuyBillInsertInput struct {
+	BillID       string     `json:"bill_id"`
 	TerminalType int        `json:"terminal_type"`
 	StartSn      *int64     `json:"start_sn"`
 	EndSn        *int64     `json:"end_sn"`
@@ -1593,6 +2406,7 @@ type TerminalChangeIncInput struct {
 
 // input type for inserting data into table "terminal_change"
 type TerminalChangeInsertInput struct {
+	ChangeID       string    `json:"change_id"`
 	NewPlateNumber string    `json:"new_plate_number"`
 	TerminalID     string    `json:"terminal_id"`
 	TerminalTypeID *string   `json:"terminal_type_id"`
@@ -1776,6 +2590,7 @@ type TerminalCheckIncInput struct {
 
 // input type for inserting data into table "terminal_check"
 type TerminalCheckInsertInput struct {
+	TerminalCheckID  string     `json:"terminal_check_id"`
 	TerminalID       string     `json:"terminal_id"`
 	Acc              *string    `json:"acc"`
 	Brake            *string    `json:"brake"`
@@ -1876,28 +2691,29 @@ type TerminalCheckLastIncInput struct {
 
 // input type for inserting data into table "terminal_check_last"
 type TerminalCheckLastInsertInput struct {
-	TerminalID   string     `json:"terminal_id"`
-	Acc          *string    `json:"acc"`
-	Brake        *string    `json:"brake"`
-	LeftLamp     *string    `json:"left_lamp"`
-	RightLamp    *string    `json:"right_lamp"`
-	NearLamp     *string    `json:"near_lamp"`
-	FarLamp      *string    `json:"far_lamp"`
-	LoudSpeaker  *string    `json:"loud_speaker"`
-	Locate       *string    `json:"locate"`
-	FrontDoor    *string    `json:"front_door"`
-	GpsOpen      *string    `json:"gps_open"`
-	BdOpen       *string    `json:"bd_open"`
-	Camera       *string    `json:"camera"`
-	VehicleSpeed *string    `json:"vehicle_speed"`
-	Remark       *string    `json:"remark"`
-	CreateAt     time.Time  `json:"create_at"`
-	CreateBy     *string    `json:"create_by"`
-	UpdateAt     *time.Time `json:"update_at"`
-	UpdateBy     *string    `json:"update_by"`
-	DeleteAt     *time.Time `json:"delete_at"`
-	DeleteBy     *string    `json:"delete_by"`
-	IsDelete     bool       `json:"is_delete"`
+	TerminalCheckLastID string     `json:"terminal_check_last_id"`
+	TerminalID          string     `json:"terminal_id"`
+	Acc                 *string    `json:"acc"`
+	Brake               *string    `json:"brake"`
+	LeftLamp            *string    `json:"left_lamp"`
+	RightLamp           *string    `json:"right_lamp"`
+	NearLamp            *string    `json:"near_lamp"`
+	FarLamp             *string    `json:"far_lamp"`
+	LoudSpeaker         *string    `json:"loud_speaker"`
+	Locate              *string    `json:"locate"`
+	FrontDoor           *string    `json:"front_door"`
+	GpsOpen             *string    `json:"gps_open"`
+	BdOpen              *string    `json:"bd_open"`
+	Camera              *string    `json:"camera"`
+	VehicleSpeed        *string    `json:"vehicle_speed"`
+	Remark              *string    `json:"remark"`
+	CreateAt            time.Time  `json:"create_at"`
+	CreateBy            *string    `json:"create_by"`
+	UpdateAt            *time.Time `json:"update_at"`
+	UpdateBy            *string    `json:"update_by"`
+	DeleteAt            *time.Time `json:"delete_at"`
+	DeleteBy            *string    `json:"delete_by"`
+	IsDelete            bool       `json:"is_delete"`
 }
 
 // aggregate max on columns of table "terminal_check_last"
@@ -2245,28 +3061,29 @@ type TerminalCheckParamIncInput struct {
 
 // input type for inserting data into table "terminal_check_param"
 type TerminalCheckParamInsertInput struct {
-	Acc            string  `json:"acc"`
-	Brake          *string `json:"brake"`
-	LeftLamp       *string `json:"left_lamp"`
-	RightLamp      *string `json:"right_lamp"`
-	NearLamp       *string `json:"near_lamp"`
-	FarLamp        *string `json:"far_lamp"`
-	LoudSpeaker    *string `json:"loud_speaker"`
-	Reverse        *string `json:"reverse"`
-	Locate         *string `json:"locate"`
-	FrontDoor      *string `json:"front_door"`
-	MiddleDoor     *string `json:"middle_door"`
-	BackDoor       *string `json:"back_door"`
-	GpsOpen        *string `json:"gps_open"`
-	BdOpen         *string `json:"bd_open"`
-	VoiceDevice    *string `json:"voice_device"`
-	Camera         *string `json:"camera"`
-	EmergencyAlarm *string `json:"emergency_alarm"`
-	Mileage        *string `json:"mileage"`
-	Oilmass        *string `json:"oilmass"`
-	VehicleSpeed   *string `json:"vehicle_speed"`
-	PowerAlarm     *string `json:"power_alarm"`
-	Pass           *string `json:"pass"`
+	TerminalCheckParamID string  `json:"terminal_check_param_id"`
+	Acc                  string  `json:"acc"`
+	Brake                *string `json:"brake"`
+	LeftLamp             *string `json:"left_lamp"`
+	RightLamp            *string `json:"right_lamp"`
+	NearLamp             *string `json:"near_lamp"`
+	FarLamp              *string `json:"far_lamp"`
+	LoudSpeaker          *string `json:"loud_speaker"`
+	Reverse              *string `json:"reverse"`
+	Locate               *string `json:"locate"`
+	FrontDoor            *string `json:"front_door"`
+	MiddleDoor           *string `json:"middle_door"`
+	BackDoor             *string `json:"back_door"`
+	GpsOpen              *string `json:"gps_open"`
+	BdOpen               *string `json:"bd_open"`
+	VoiceDevice          *string `json:"voice_device"`
+	Camera               *string `json:"camera"`
+	EmergencyAlarm       *string `json:"emergency_alarm"`
+	Mileage              *string `json:"mileage"`
+	Oilmass              *string `json:"oilmass"`
+	VehicleSpeed         *string `json:"vehicle_speed"`
+	PowerAlarm           *string `json:"power_alarm"`
+	Pass                 *string `json:"pass"`
 }
 
 // aggregate max on columns of table "terminal_check_param"
@@ -2553,6 +3370,7 @@ type TerminalFactoryIncInput struct {
 
 // input type for inserting data into table "terminal_factory"
 type TerminalFactoryInsertInput struct {
+	FactoryID        string     `json:"factory_id"`
 	FactoryName      string     `json:"factory_name"`
 	Remark           *string    `json:"remark"`
 	Contact          *string    `json:"contact"`
@@ -2698,6 +3516,7 @@ type TerminalIncInput struct {
 
 // input type for inserting data into table "terminal"
 type TerminalInsertInput struct {
+	TerminalID       string     `json:"terminal_id"`
 	FirstInstallTime *time.Time `json:"first_install_time"`
 	Imei             string     `json:"imei"`
 	ProduceDate      *time.Time `json:"produce_date"`
@@ -2870,6 +3689,7 @@ type TerminalModalIncInput struct {
 
 // input type for inserting data into table "terminal_modal"
 type TerminalModalInsertInput struct {
+	TerminalModalID       string     `json:"terminal_modal_id"`
 	FactoryID             *string    `json:"factory_id"`
 	TerminalTypeID        *string    `json:"terminal_type_id"`
 	ModalName             *string    `json:"modal_name"`
@@ -3093,6 +3913,7 @@ type TerminalOperLogIncInput struct {
 
 // input type for inserting data into table "terminal_oper_log"
 type TerminalOperLogInsertInput struct {
+	LogID       string     `json:"log_id"`
 	TerminalID  string     `json:"terminal_id"`
 	OperateType int        `json:"operate_type"`
 	ReqInfo     *string    `json:"req_info"`
@@ -3347,6 +4168,7 @@ type TerminalParamConfigIncInput struct {
 
 // input type for inserting data into table "terminal_param_config"
 type TerminalParamConfigInsertInput struct {
+	ConfigID      string     `json:"config_id"`
 	ParamItemID   string     `json:"param_item_id"`
 	ParamValue    *string    `json:"param_value"`
 	TerminalID    *string    `json:"terminal_id"`
@@ -3558,6 +4380,7 @@ type TerminalParamItemIncInput struct {
 
 // input type for inserting data into table "terminal_param_item"
 type TerminalParamItemInsertInput struct {
+	ParamItemID   string     `json:"param_item_id"`
 	ParamItemName string     `json:"param_item_name"`
 	ParamTypeID   string     `json:"param_type_id"`
 	DataType      int        `json:"data_type"`
@@ -3762,6 +4585,7 @@ type TerminalParamSubIncInput struct {
 
 // input type for inserting data into table "terminal_param_sub"
 type TerminalParamSubInsertInput struct {
+	ParamSubID   string     `json:"param_sub_id"`
 	ParamID      string     `json:"param_id"`
 	BitStart     int64      `json:"bit_start"`
 	BitEnd       int64      `json:"bit_end"`
@@ -3969,6 +4793,7 @@ type TerminalParamTypeIncInput struct {
 
 // input type for inserting data into table "terminal_param_type"
 type TerminalParamTypeInsertInput struct {
+	ParamTypeID       string     `json:"param_type_id"`
 	ParamTypeName     *string    `json:"param_type_name"`
 	ParentParamTypeID *string    `json:"parent_param_type_id"`
 	CreateAt          time.Time  `json:"create_at"`
@@ -4177,6 +5002,7 @@ type TerminalProveIncInput struct {
 
 // input type for inserting data into table "terminal_prove"
 type TerminalProveInsertInput struct {
+	ProveID                string     `json:"prove_id"`
 	PlateNumber            string     `json:"plate_number"`
 	PlateColor             *string    `json:"plate_color"`
 	VehicleType            *int       `json:"vehicle_type"`
@@ -5214,6 +6040,113 @@ func (e FingerprintSelectColumn) MarshalGQL(w io.Writer) {
 }
 
 // 可选select
+type SimCardAllSelectColumn string
+
+const (
+	// ID
+	SimCardAllSelectColumnID SimCardAllSelectColumn = "id"
+	// SIM卡管理（外部来源）ID
+	SimCardAllSelectColumnSimcardAllID SimCardAllSelectColumn = "simcard_all_id"
+	// 车牌号码
+	SimCardAllSelectColumnPlateNumber SimCardAllSelectColumn = "plate_number"
+	// 车牌号码
+	SimCardAllSelectColumnPlateColor SimCardAllSelectColumn = "plate_color"
+	// 所在部门ID
+	SimCardAllSelectColumnDeptID SimCardAllSelectColumn = "dept_id"
+	// 代理商ID
+	SimCardAllSelectColumnProxyrgID SimCardAllSelectColumn = "proxyrg_id"
+	// 所在企业ID
+	SimCardAllSelectColumnEnterpriseID SimCardAllSelectColumn = "enterprise_id"
+	// sim卡号
+	SimCardAllSelectColumnSimNumber SimCardAllSelectColumn = "sim_number"
+	// 服务费到期时间
+	SimCardAllSelectColumnServiceEndTime SimCardAllSelectColumn = "service_end_time"
+	// 终端ID
+	SimCardAllSelectColumnTerminalID SimCardAllSelectColumn = "terminal_id"
+	// 应用于何种系统
+	SimCardAllSelectColumnSystemName SimCardAllSelectColumn = "system_name"
+	// sim卡类型
+	SimCardAllSelectColumnSimType SimCardAllSelectColumn = "sim_type"
+	// 用户ID
+	SimCardAllSelectColumnUserID SimCardAllSelectColumn = "user_id"
+	// 运营商类型
+	SimCardAllSelectColumnMobileType SimCardAllSelectColumn = "mobile_type"
+	// 解绑原因
+	SimCardAllSelectColumnUpdateCause SimCardAllSelectColumn = "update_cause"
+	// 创建时间
+	SimCardAllSelectColumnCreateAt SimCardAllSelectColumn = "create_at"
+	// 创建人
+	SimCardAllSelectColumnCreateBy SimCardAllSelectColumn = "create_by"
+	// 更新时间
+	SimCardAllSelectColumnUpdateAt SimCardAllSelectColumn = "update_at"
+	// 更新人
+	SimCardAllSelectColumnUpdateBy SimCardAllSelectColumn = "update_by"
+	// 删除时间
+	SimCardAllSelectColumnDeleteAt SimCardAllSelectColumn = "delete_at"
+	// 删除人
+	SimCardAllSelectColumnDeleteBy SimCardAllSelectColumn = "delete_by"
+	// 是否删除
+	SimCardAllSelectColumnIsDelete SimCardAllSelectColumn = "is_delete"
+	// 备注
+	SimCardAllSelectColumnRemark SimCardAllSelectColumn = "remark"
+)
+
+var AllSimCardAllSelectColumn = []SimCardAllSelectColumn{
+	SimCardAllSelectColumnID,
+	SimCardAllSelectColumnSimcardAllID,
+	SimCardAllSelectColumnPlateNumber,
+	SimCardAllSelectColumnPlateColor,
+	SimCardAllSelectColumnDeptID,
+	SimCardAllSelectColumnProxyrgID,
+	SimCardAllSelectColumnEnterpriseID,
+	SimCardAllSelectColumnSimNumber,
+	SimCardAllSelectColumnServiceEndTime,
+	SimCardAllSelectColumnTerminalID,
+	SimCardAllSelectColumnSystemName,
+	SimCardAllSelectColumnSimType,
+	SimCardAllSelectColumnUserID,
+	SimCardAllSelectColumnMobileType,
+	SimCardAllSelectColumnUpdateCause,
+	SimCardAllSelectColumnCreateAt,
+	SimCardAllSelectColumnCreateBy,
+	SimCardAllSelectColumnUpdateAt,
+	SimCardAllSelectColumnUpdateBy,
+	SimCardAllSelectColumnDeleteAt,
+	SimCardAllSelectColumnDeleteBy,
+	SimCardAllSelectColumnIsDelete,
+	SimCardAllSelectColumnRemark,
+}
+
+func (e SimCardAllSelectColumn) IsValid() bool {
+	switch e {
+	case SimCardAllSelectColumnID, SimCardAllSelectColumnSimcardAllID, SimCardAllSelectColumnPlateNumber, SimCardAllSelectColumnPlateColor, SimCardAllSelectColumnDeptID, SimCardAllSelectColumnProxyrgID, SimCardAllSelectColumnEnterpriseID, SimCardAllSelectColumnSimNumber, SimCardAllSelectColumnServiceEndTime, SimCardAllSelectColumnTerminalID, SimCardAllSelectColumnSystemName, SimCardAllSelectColumnSimType, SimCardAllSelectColumnUserID, SimCardAllSelectColumnMobileType, SimCardAllSelectColumnUpdateCause, SimCardAllSelectColumnCreateAt, SimCardAllSelectColumnCreateBy, SimCardAllSelectColumnUpdateAt, SimCardAllSelectColumnUpdateBy, SimCardAllSelectColumnDeleteAt, SimCardAllSelectColumnDeleteBy, SimCardAllSelectColumnIsDelete, SimCardAllSelectColumnRemark:
+		return true
+	}
+	return false
+}
+
+func (e SimCardAllSelectColumn) String() string {
+	return string(e)
+}
+
+func (e *SimCardAllSelectColumn) UnmarshalGQL(v interface{}) error {
+	str, ok := v.(string)
+	if !ok {
+		return fmt.Errorf("enums must be strings")
+	}
+
+	*e = SimCardAllSelectColumn(str)
+	if !e.IsValid() {
+		return fmt.Errorf("%s is not a valid SimCardAllSelectColumn", str)
+	}
+	return nil
+}
+
+func (e SimCardAllSelectColumn) MarshalGQL(w io.Writer) {
+	fmt.Fprint(w, strconv.Quote(e.String()))
+}
+
+// 可选select
 type SimCardFlowSelectColumn string
 
 const (
@@ -5324,6 +6257,131 @@ func (e SimCardFlowSelectColumn) MarshalGQL(w io.Writer) {
 }
 
 // 可选select
+type SimCardMgrSelectColumn string
+
+const (
+	// ID
+	SimCardMgrSelectColumnID SimCardMgrSelectColumn = "id"
+	// sim卡使用情况管理ID
+	SimCardMgrSelectColumnMgrID SimCardMgrSelectColumn = "mgr_id"
+	// 状态
+	SimCardMgrSelectColumnStatus SimCardMgrSelectColumn = "status"
+	// 终端ID
+	SimCardMgrSelectColumnTerminalID SimCardMgrSelectColumn = "terminal_id"
+	// 运营商类型
+	SimCardMgrSelectColumnMobileType SimCardMgrSelectColumn = "mobile_type"
+	// 代理商ID
+	SimCardMgrSelectColumnProxyrgID SimCardMgrSelectColumn = "proxyrg_id"
+	// 部门ID
+	SimCardMgrSelectColumnDeptID SimCardMgrSelectColumn = "dept_id"
+	// sim卡类型
+	SimCardMgrSelectColumnSimType SimCardMgrSelectColumn = "sim_type"
+	// 领用用途
+	SimCardMgrSelectColumnUseType SimCardMgrSelectColumn = "use_type"
+	// 领用人员
+	SimCardMgrSelectColumnUseUserID SimCardMgrSelectColumn = "use_user_id"
+	// 应用系统名称
+	SimCardMgrSelectColumnSystemName SimCardMgrSelectColumn = "system_name"
+	// sim卡号
+	SimCardMgrSelectColumnSimNumber SimCardMgrSelectColumn = "sim_number"
+	// 是否外部来源
+	SimCardMgrSelectColumnIsOutside SimCardMgrSelectColumn = "is_outside"
+	// 换卡原因
+	SimCardMgrSelectColumnUpdateCause SimCardMgrSelectColumn = "update_cause"
+	// sim卡来自哪个区域
+	SimCardMgrSelectColumnSimArea SimCardMgrSelectColumn = "sim_area"
+	// 去掉1和2位的sim卡号
+	SimCardMgrSelectColumnSimNumber12 SimCardMgrSelectColumn = "sim_number_12"
+	// 去掉2和3位的sim卡号
+	SimCardMgrSelectColumnSimNumber23 SimCardMgrSelectColumn = "sim_number_23"
+	// 外部sim卡号相匹配的sim卡
+	SimCardMgrSelectColumnSimBak SimCardMgrSelectColumn = "sim_bak"
+	// 10位sim卡号
+	SimCardMgrSelectColumnSimNumber10 SimCardMgrSelectColumn = "sim_number10"
+	// 注销时间
+	SimCardMgrSelectColumnCancelTime SimCardMgrSelectColumn = "cancel_time"
+	// 注销原因
+	SimCardMgrSelectColumnCancelCause SimCardMgrSelectColumn = "cancel_cause"
+	// 创建时间
+	SimCardMgrSelectColumnCreateAt SimCardMgrSelectColumn = "create_at"
+	// 创建人
+	SimCardMgrSelectColumnCreateBy SimCardMgrSelectColumn = "create_by"
+	// 更新时间
+	SimCardMgrSelectColumnUpdateAt SimCardMgrSelectColumn = "update_at"
+	// 更新人
+	SimCardMgrSelectColumnUpdateBy SimCardMgrSelectColumn = "update_by"
+	// 删除时间
+	SimCardMgrSelectColumnDeleteAt SimCardMgrSelectColumn = "delete_at"
+	// 删除人
+	SimCardMgrSelectColumnDeleteBy SimCardMgrSelectColumn = "delete_by"
+	// 是否删除
+	SimCardMgrSelectColumnIsDelete SimCardMgrSelectColumn = "is_delete"
+	// 备注
+	SimCardMgrSelectColumnRemark SimCardMgrSelectColumn = "remark"
+)
+
+var AllSimCardMgrSelectColumn = []SimCardMgrSelectColumn{
+	SimCardMgrSelectColumnID,
+	SimCardMgrSelectColumnMgrID,
+	SimCardMgrSelectColumnStatus,
+	SimCardMgrSelectColumnTerminalID,
+	SimCardMgrSelectColumnMobileType,
+	SimCardMgrSelectColumnProxyrgID,
+	SimCardMgrSelectColumnDeptID,
+	SimCardMgrSelectColumnSimType,
+	SimCardMgrSelectColumnUseType,
+	SimCardMgrSelectColumnUseUserID,
+	SimCardMgrSelectColumnSystemName,
+	SimCardMgrSelectColumnSimNumber,
+	SimCardMgrSelectColumnIsOutside,
+	SimCardMgrSelectColumnUpdateCause,
+	SimCardMgrSelectColumnSimArea,
+	SimCardMgrSelectColumnSimNumber12,
+	SimCardMgrSelectColumnSimNumber23,
+	SimCardMgrSelectColumnSimBak,
+	SimCardMgrSelectColumnSimNumber10,
+	SimCardMgrSelectColumnCancelTime,
+	SimCardMgrSelectColumnCancelCause,
+	SimCardMgrSelectColumnCreateAt,
+	SimCardMgrSelectColumnCreateBy,
+	SimCardMgrSelectColumnUpdateAt,
+	SimCardMgrSelectColumnUpdateBy,
+	SimCardMgrSelectColumnDeleteAt,
+	SimCardMgrSelectColumnDeleteBy,
+	SimCardMgrSelectColumnIsDelete,
+	SimCardMgrSelectColumnRemark,
+}
+
+func (e SimCardMgrSelectColumn) IsValid() bool {
+	switch e {
+	case SimCardMgrSelectColumnID, SimCardMgrSelectColumnMgrID, SimCardMgrSelectColumnStatus, SimCardMgrSelectColumnTerminalID, SimCardMgrSelectColumnMobileType, SimCardMgrSelectColumnProxyrgID, SimCardMgrSelectColumnDeptID, SimCardMgrSelectColumnSimType, SimCardMgrSelectColumnUseType, SimCardMgrSelectColumnUseUserID, SimCardMgrSelectColumnSystemName, SimCardMgrSelectColumnSimNumber, SimCardMgrSelectColumnIsOutside, SimCardMgrSelectColumnUpdateCause, SimCardMgrSelectColumnSimArea, SimCardMgrSelectColumnSimNumber12, SimCardMgrSelectColumnSimNumber23, SimCardMgrSelectColumnSimBak, SimCardMgrSelectColumnSimNumber10, SimCardMgrSelectColumnCancelTime, SimCardMgrSelectColumnCancelCause, SimCardMgrSelectColumnCreateAt, SimCardMgrSelectColumnCreateBy, SimCardMgrSelectColumnUpdateAt, SimCardMgrSelectColumnUpdateBy, SimCardMgrSelectColumnDeleteAt, SimCardMgrSelectColumnDeleteBy, SimCardMgrSelectColumnIsDelete, SimCardMgrSelectColumnRemark:
+		return true
+	}
+	return false
+}
+
+func (e SimCardMgrSelectColumn) String() string {
+	return string(e)
+}
+
+func (e *SimCardMgrSelectColumn) UnmarshalGQL(v interface{}) error {
+	str, ok := v.(string)
+	if !ok {
+		return fmt.Errorf("enums must be strings")
+	}
+
+	*e = SimCardMgrSelectColumn(str)
+	if !e.IsValid() {
+		return fmt.Errorf("%s is not a valid SimCardMgrSelectColumn", str)
+	}
+	return nil
+}
+
+func (e SimCardMgrSelectColumn) MarshalGQL(w io.Writer) {
+	fmt.Fprint(w, strconv.Quote(e.String()))
+}
+
+// 可选select
 type SimCardSelectColumn string
 
 const (
@@ -5409,6 +6467,110 @@ func (e *SimCardSelectColumn) UnmarshalGQL(v interface{}) error {
 }
 
 func (e SimCardSelectColumn) MarshalGQL(w io.Writer) {
+	fmt.Fprint(w, strconv.Quote(e.String()))
+}
+
+// 可选select
+type SimCardStatusSelectColumn string
+
+const (
+	// ID
+	SimCardStatusSelectColumnID SimCardStatusSelectColumn = "id"
+	// sim卡使用情况ID
+	SimCardStatusSelectColumnSimCardStatusID SimCardStatusSelectColumn = "sim_card_status_id"
+	// 状态
+	SimCardStatusSelectColumnStatus SimCardStatusSelectColumn = "status"
+	// 终端型号ID
+	SimCardStatusSelectColumnTerminalModalID SimCardStatusSelectColumn = "terminal_modal_id"
+	// 运营商类型
+	SimCardStatusSelectColumnMobileType SimCardStatusSelectColumn = "mobile_type"
+	// 代理商ID
+	SimCardStatusSelectColumnProxyrgID SimCardStatusSelectColumn = "proxyrg_id"
+	// 所在单位ID
+	SimCardStatusSelectColumnEnterpriseID SimCardStatusSelectColumn = "enterprise_id"
+	// 应用系统名称
+	SimCardStatusSelectColumnSystemName SimCardStatusSelectColumn = "system_name"
+	// sim卡号
+	SimCardStatusSelectColumnSimNumber SimCardStatusSelectColumn = "sim_number"
+	// 注销时间
+	SimCardStatusSelectColumnCancelTime SimCardStatusSelectColumn = "cancel_time"
+	// 注销原因
+	SimCardStatusSelectColumnCancelCause SimCardStatusSelectColumn = "cancel_cause"
+	// 10位sim卡号
+	SimCardStatusSelectColumnSimNumber10 SimCardStatusSelectColumn = "sim_number10"
+	// 车牌号
+	SimCardStatusSelectColumnPlateNumber SimCardStatusSelectColumn = "plate_number"
+	// 费用截止日期
+	SimCardStatusSelectColumnFeeEndDate SimCardStatusSelectColumn = "fee_end_date"
+	// 创建时间
+	SimCardStatusSelectColumnCreateAt SimCardStatusSelectColumn = "create_at"
+	// 创建人
+	SimCardStatusSelectColumnCreateBy SimCardStatusSelectColumn = "create_by"
+	// 更新时间
+	SimCardStatusSelectColumnUpdateAt SimCardStatusSelectColumn = "update_at"
+	// 更新人
+	SimCardStatusSelectColumnUpdateBy SimCardStatusSelectColumn = "update_by"
+	// 删除时间
+	SimCardStatusSelectColumnDeleteAt SimCardStatusSelectColumn = "delete_at"
+	// 删除人
+	SimCardStatusSelectColumnDeleteBy SimCardStatusSelectColumn = "delete_by"
+	// 是否删除
+	SimCardStatusSelectColumnIsDelete SimCardStatusSelectColumn = "is_delete"
+	// 备注
+	SimCardStatusSelectColumnRemark SimCardStatusSelectColumn = "remark"
+)
+
+var AllSimCardStatusSelectColumn = []SimCardStatusSelectColumn{
+	SimCardStatusSelectColumnID,
+	SimCardStatusSelectColumnSimCardStatusID,
+	SimCardStatusSelectColumnStatus,
+	SimCardStatusSelectColumnTerminalModalID,
+	SimCardStatusSelectColumnMobileType,
+	SimCardStatusSelectColumnProxyrgID,
+	SimCardStatusSelectColumnEnterpriseID,
+	SimCardStatusSelectColumnSystemName,
+	SimCardStatusSelectColumnSimNumber,
+	SimCardStatusSelectColumnCancelTime,
+	SimCardStatusSelectColumnCancelCause,
+	SimCardStatusSelectColumnSimNumber10,
+	SimCardStatusSelectColumnPlateNumber,
+	SimCardStatusSelectColumnFeeEndDate,
+	SimCardStatusSelectColumnCreateAt,
+	SimCardStatusSelectColumnCreateBy,
+	SimCardStatusSelectColumnUpdateAt,
+	SimCardStatusSelectColumnUpdateBy,
+	SimCardStatusSelectColumnDeleteAt,
+	SimCardStatusSelectColumnDeleteBy,
+	SimCardStatusSelectColumnIsDelete,
+	SimCardStatusSelectColumnRemark,
+}
+
+func (e SimCardStatusSelectColumn) IsValid() bool {
+	switch e {
+	case SimCardStatusSelectColumnID, SimCardStatusSelectColumnSimCardStatusID, SimCardStatusSelectColumnStatus, SimCardStatusSelectColumnTerminalModalID, SimCardStatusSelectColumnMobileType, SimCardStatusSelectColumnProxyrgID, SimCardStatusSelectColumnEnterpriseID, SimCardStatusSelectColumnSystemName, SimCardStatusSelectColumnSimNumber, SimCardStatusSelectColumnCancelTime, SimCardStatusSelectColumnCancelCause, SimCardStatusSelectColumnSimNumber10, SimCardStatusSelectColumnPlateNumber, SimCardStatusSelectColumnFeeEndDate, SimCardStatusSelectColumnCreateAt, SimCardStatusSelectColumnCreateBy, SimCardStatusSelectColumnUpdateAt, SimCardStatusSelectColumnUpdateBy, SimCardStatusSelectColumnDeleteAt, SimCardStatusSelectColumnDeleteBy, SimCardStatusSelectColumnIsDelete, SimCardStatusSelectColumnRemark:
+		return true
+	}
+	return false
+}
+
+func (e SimCardStatusSelectColumn) String() string {
+	return string(e)
+}
+
+func (e *SimCardStatusSelectColumn) UnmarshalGQL(v interface{}) error {
+	str, ok := v.(string)
+	if !ok {
+		return fmt.Errorf("enums must be strings")
+	}
+
+	*e = SimCardStatusSelectColumn(str)
+	if !e.IsValid() {
+		return fmt.Errorf("%s is not a valid SimCardStatusSelectColumn", str)
+	}
+	return nil
+}
+
+func (e SimCardStatusSelectColumn) MarshalGQL(w io.Writer) {
 	fmt.Fprint(w, strconv.Quote(e.String()))
 }
 

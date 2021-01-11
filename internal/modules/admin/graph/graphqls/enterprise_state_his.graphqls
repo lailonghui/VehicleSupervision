@@ -179,6 +179,7 @@ input EnterpriseStateHisBoolExp {
 input type for inserting data into table "enterprise_state_his"
 """
 input EnterpriseStateHisInsertInput {
+	state_his_id: String!
 	enterprise_id: String!
 	reason: String
 	state: Int!

@@ -6,6 +6,7 @@ import (
 	"time"
 )
 
+// 限速路线-时间段表
 type LimitSpeedLineTime struct {
 	// ID
 	ID int64 `json:"id"`

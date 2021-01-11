@@ -6,6 +6,7 @@ import (
 	"time"
 )
 
+// 企业黑名单操作纪录
 type EnterpriseBlacklistHis struct {
 	// ID
 	ID int64 `json:"id"`
