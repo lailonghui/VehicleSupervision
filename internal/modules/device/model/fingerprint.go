@@ -7,7 +7,7 @@ type Fingerprint struct {
 	// ID
 	ID int64 `json:"id"`
 	// 指纹ID
-	FingerID string `json:"finger_id"`
+	FingerprintID string `json:"fingerprint_id"`
 	// 指纹内容
 	Content string `json:"content"`
 }

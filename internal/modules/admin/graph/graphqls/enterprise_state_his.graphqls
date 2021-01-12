@@ -29,11 +29,11 @@ type EnterpriseStateHis {
 	"""
 	创建时间
 	"""
-	create_at: Timestamptz!
+	created_at: Timestamptz!
 	"""
 	创建人
 	"""
-	create_by: String
+	created_by: String
 }
 """
 aggregated selection of "enterprise_state_his"
@@ -74,8 +74,8 @@ type EnterpriseStateHisMaxFields {
 	reason: String
 	state: Int
 	file_url: String
-	create_at: Timestamptz
-	create_by: String
+	created_at: Timestamptz
+	created_by: String
 }
 """
 aggregate min on columns of table "enterprise_state_his"
@@ -87,8 +87,8 @@ type EnterpriseStateHisMinFields {
 	reason: String
 	state: Int
 	file_url: String
-	create_at: Timestamptz
-	create_by: String
+	created_at: Timestamptz
+	created_by: String
 }
 """
 aggregate stddev on columns of table "enterprise_state_his"
@@ -156,8 +156,8 @@ input EnterpriseStateHisOrderBy {
 	reason: OrderBy
 	state: OrderBy
 	file_url: OrderBy
-	create_at: OrderBy
-	create_by: OrderBy
+	created_at: OrderBy
+	created_by: OrderBy
 }
 """
 Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'enterprise_state_his'.
@@ -172,8 +172,8 @@ input EnterpriseStateHisBoolExp {
 	reason: StringComparisonExp
 	state: IntComparisonExp
 	file_url: StringComparisonExp
-	create_at: TimestamptzComparisonExp
-	create_by: StringComparisonExp
+	created_at: TimestamptzComparisonExp
+	created_by: StringComparisonExp
 }
 """
 input type for inserting data into table "enterprise_state_his"
@@ -184,8 +184,8 @@ input EnterpriseStateHisInsertInput {
 	reason: String
 	state: Int!
 	file_url: String
-	create_at: Timestamptz!
-	create_by: String
+	created_at: Timestamptz!
+	created_by: String
 }
 """
 input type for incrementing integer column in table "enterprise_state_his"
@@ -204,8 +204,8 @@ input EnterpriseStateHisSetInput {
 	reason: String
 	state: Int
 	file_url: String
-	create_at: Timestamptz
-	create_by: String
+	created_at: Timestamptz
+	created_by: String
 }
 """
 可选select
@@ -238,11 +238,11 @@ enum EnterpriseStateHisSelectColumn {
 	"""
 	创建时间
 	"""
-	create_at
+	created_at
 	"""
 	创建人
 	"""
-	create_by
+	created_by
 }
 extend type Query {
 	"""

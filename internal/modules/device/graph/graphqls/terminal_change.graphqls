@@ -33,11 +33,11 @@ type TerminalChange {
 	"""
 	创建时间
 	"""
-	create_at: Timestamptz!
+	created_at: Timestamptz!
 	"""
 	创建人
 	"""
-	create_by: String
+	created_by: String
 	"""
 	备注
 	"""
@@ -82,8 +82,8 @@ type TerminalChangeMaxFields {
 	terminal_type_id: String
 	old_plate_number: String
 	dept_id: String
-	create_at: Timestamptz
-	create_by: String
+	created_at: Timestamptz
+	created_by: String
 	remark: String
 }
 """
@@ -97,8 +97,8 @@ type TerminalChangeMinFields {
 	terminal_type_id: String
 	old_plate_number: String
 	dept_id: String
-	create_at: Timestamptz
-	create_by: String
+	created_at: Timestamptz
+	created_by: String
 	remark: String
 }
 """
@@ -161,8 +161,8 @@ input TerminalChangeOrderBy {
 	terminal_type_id: OrderBy
 	old_plate_number: OrderBy
 	dept_id: OrderBy
-	create_at: OrderBy
-	create_by: OrderBy
+	created_at: OrderBy
+	created_by: OrderBy
 	remark: OrderBy
 }
 """
@@ -179,8 +179,8 @@ input TerminalChangeBoolExp {
 	terminal_type_id: StringComparisonExp
 	old_plate_number: StringComparisonExp
 	dept_id: StringComparisonExp
-	create_at: TimestamptzComparisonExp
-	create_by: StringComparisonExp
+	created_at: TimestamptzComparisonExp
+	created_by: StringComparisonExp
 	remark: StringComparisonExp
 }
 """
@@ -193,8 +193,8 @@ input TerminalChangeInsertInput {
 	terminal_type_id: String
 	old_plate_number: String!
 	dept_id: String
-	create_at: Timestamptz!
-	create_by: String
+	created_at: Timestamptz!
+	created_by: String
 	remark: String
 }
 """
@@ -214,8 +214,8 @@ input TerminalChangeSetInput {
 	terminal_type_id: String
 	old_plate_number: String
 	dept_id: String
-	create_at: Timestamptz
-	create_by: String
+	created_at: Timestamptz
+	created_by: String
 	remark: String
 }
 """
@@ -253,11 +253,11 @@ enum TerminalChangeSelectColumn {
 	"""
 	创建时间
 	"""
-	create_at
+	created_at
 	"""
 	创建人
 	"""
-	create_by
+	created_by
 	"""
 	备注
 	"""

@@ -80,9 +80,11 @@ type ComplexityRoot struct {
 	RideHailingDriver struct {
 		Birthday                  func(childComplexity int) int
 		CheckStation              func(childComplexity int) int
-		CreateAt                  func(childComplexity int) int
-		CreateBy                  func(childComplexity int) int
+		CreatedAt                 func(childComplexity int) int
+		CreatedBy                 func(childComplexity int) int
 		CurrentAddress            func(childComplexity int) int
+		DeletedAt                 func(childComplexity int) int
+		DeletedBy                 func(childComplexity int) int
 		DriverName                func(childComplexity int) int
 		DriverSchoolID            func(childComplexity int) int
 		EndValidDate              func(childComplexity int) int
@@ -92,7 +94,7 @@ type ComplexityRoot struct {
 		IDAddress                 func(childComplexity int) int
 		IDNumber                  func(childComplexity int) int
 		IdcardPhoto               func(childComplexity int) int
-		IsDelete                  func(childComplexity int) int
+		IsDeleted                 func(childComplexity int) int
 		IsFormerDriver            func(childComplexity int) int
 		Nation                    func(childComplexity int) int
 		OperatorID                func(childComplexity int) int
@@ -106,9 +108,9 @@ type ComplexityRoot struct {
 		SignGov                   func(childComplexity int) int
 		SignnaturePhoto           func(childComplexity int) int
 		StartValidDate            func(childComplexity int) int
-		UpdateAt                  func(childComplexity int) int
-		UpdateBy                  func(childComplexity int) int
 		UpdateTimeIn              func(childComplexity int) int
+		UpdatedAt                 func(childComplexity int) int
+		UpdatedBy                 func(childComplexity int) int
 	}
 
 	RideHailingDriverAggregate struct {
@@ -139,9 +141,11 @@ type ComplexityRoot struct {
 	RideHailingDriverMaxFields struct {
 		Birthday                  func(childComplexity int) int
 		CheckStation              func(childComplexity int) int
-		CreateAt                  func(childComplexity int) int
-		CreateBy                  func(childComplexity int) int
+		CreatedAt                 func(childComplexity int) int
+		CreatedBy                 func(childComplexity int) int
 		CurrentAddress            func(childComplexity int) int
+		DeletedAt                 func(childComplexity int) int
+		DeletedBy                 func(childComplexity int) int
 		DriverName                func(childComplexity int) int
 		DriverSchoolID            func(childComplexity int) int
 		EndValidDate              func(childComplexity int) int
@@ -151,7 +155,7 @@ type ComplexityRoot struct {
 		IDAddress                 func(childComplexity int) int
 		IDNumber                  func(childComplexity int) int
 		IdcardPhoto               func(childComplexity int) int
-		IsDelete                  func(childComplexity int) int
+		IsDeleted                 func(childComplexity int) int
 		IsFormerDriver            func(childComplexity int) int
 		Nation                    func(childComplexity int) int
 		OperatorID                func(childComplexity int) int
@@ -165,17 +169,19 @@ type ComplexityRoot struct {
 		SignGov                   func(childComplexity int) int
 		SignnaturePhoto           func(childComplexity int) int
 		StartValidDate            func(childComplexity int) int
-		UpdateAt                  func(childComplexity int) int
-		UpdateBy                  func(childComplexity int) int
 		UpdateTimeIn              func(childComplexity int) int
+		UpdatedAt                 func(childComplexity int) int
+		UpdatedBy                 func(childComplexity int) int
 	}
 
 	RideHailingDriverMinFields struct {
 		Birthday                  func(childComplexity int) int
 		CheckStation              func(childComplexity int) int
-		CreateAt                  func(childComplexity int) int
-		CreateBy                  func(childComplexity int) int
+		CreatedAt                 func(childComplexity int) int
+		CreatedBy                 func(childComplexity int) int
 		CurrentAddress            func(childComplexity int) int
+		DeletedAt                 func(childComplexity int) int
+		DeletedBy                 func(childComplexity int) int
 		DriverName                func(childComplexity int) int
 		DriverSchoolID            func(childComplexity int) int
 		EndValidDate              func(childComplexity int) int
@@ -185,7 +191,7 @@ type ComplexityRoot struct {
 		IDAddress                 func(childComplexity int) int
 		IDNumber                  func(childComplexity int) int
 		IdcardPhoto               func(childComplexity int) int
-		IsDelete                  func(childComplexity int) int
+		IsDeleted                 func(childComplexity int) int
 		IsFormerDriver            func(childComplexity int) int
 		Nation                    func(childComplexity int) int
 		OperatorID                func(childComplexity int) int
@@ -199,9 +205,9 @@ type ComplexityRoot struct {
 		SignGov                   func(childComplexity int) int
 		SignnaturePhoto           func(childComplexity int) int
 		StartValidDate            func(childComplexity int) int
-		UpdateAt                  func(childComplexity int) int
-		UpdateBy                  func(childComplexity int) int
 		UpdateTimeIn              func(childComplexity int) int
+		UpdatedAt                 func(childComplexity int) int
+		UpdatedBy                 func(childComplexity int) int
 	}
 
 	RideHailingDriverMutationResponse struct {
@@ -259,10 +265,10 @@ type ComplexityRoot struct {
 	}
 
 	RideHailingDriverVerify struct {
-		CreateAt                         func(childComplexity int) int
-		CreateBy                         func(childComplexity int) int
-		DeleteAt                         func(childComplexity int) int
-		DeleteBy                         func(childComplexity int) int
+		CreatedAt                        func(childComplexity int) int
+		CreatedBy                        func(childComplexity int) int
+		DeletedAt                        func(childComplexity int) int
+		DeletedBy                        func(childComplexity int) int
 		DrivingExamTime                  func(childComplexity int) int
 		DrivingExperienceExamineTime     func(childComplexity int) int
 		DrivingExperienceRemark          func(childComplexity int) int
@@ -271,7 +277,7 @@ type ComplexityRoot struct {
 		DrunkDrugDrivingExamineTime      func(childComplexity int) int
 		DrunkDrugDrivingRemark           func(childComplexity int) int
 		ID                               func(childComplexity int) int
-		IsDelete                         func(childComplexity int) int
+		IsDeleted                        func(childComplexity int) int
 		IsDrugHistory                    func(childComplexity int) int
 		IsDrunkDrugDriving               func(childComplexity int) int
 		IsPassDrivingExam                func(childComplexity int) int
@@ -282,8 +288,8 @@ type ComplexityRoot struct {
 		RideHailingDriverVerifyID        func(childComplexity int) int
 		TrafficAccidentEscapeExamineTime func(childComplexity int) int
 		TrafficAccidentEscapeRemark      func(childComplexity int) int
-		UpdateAt                         func(childComplexity int) int
 		UpdateBy                         func(childComplexity int) int
+		UpdatedAt                        func(childComplexity int) int
 		ViolentCrimeExamineTime          func(childComplexity int) int
 		ViolentCrimeRemark               func(childComplexity int) int
 	}
@@ -311,10 +317,10 @@ type ComplexityRoot struct {
 	}
 
 	RideHailingDriverVerifyMaxFields struct {
-		CreateAt                         func(childComplexity int) int
-		CreateBy                         func(childComplexity int) int
-		DeleteAt                         func(childComplexity int) int
-		DeleteBy                         func(childComplexity int) int
+		CreatedAt                        func(childComplexity int) int
+		CreatedBy                        func(childComplexity int) int
+		DeletedAt                        func(childComplexity int) int
+		DeletedBy                        func(childComplexity int) int
 		DrivingExamTime                  func(childComplexity int) int
 		DrivingExperienceExamineTime     func(childComplexity int) int
 		DrivingExperienceRemark          func(childComplexity int) int
@@ -323,7 +329,7 @@ type ComplexityRoot struct {
 		DrunkDrugDrivingExamineTime      func(childComplexity int) int
 		DrunkDrugDrivingRemark           func(childComplexity int) int
 		ID                               func(childComplexity int) int
-		IsDelete                         func(childComplexity int) int
+		IsDeleted                        func(childComplexity int) int
 		IsDrugHistory                    func(childComplexity int) int
 		IsDrunkDrugDriving               func(childComplexity int) int
 		IsPassDrivingExam                func(childComplexity int) int
@@ -334,17 +340,17 @@ type ComplexityRoot struct {
 		RideHailingDriverVerifyID        func(childComplexity int) int
 		TrafficAccidentEscapeExamineTime func(childComplexity int) int
 		TrafficAccidentEscapeRemark      func(childComplexity int) int
-		UpdateAt                         func(childComplexity int) int
 		UpdateBy                         func(childComplexity int) int
+		UpdatedAt                        func(childComplexity int) int
 		ViolentCrimeExamineTime          func(childComplexity int) int
 		ViolentCrimeRemark               func(childComplexity int) int
 	}
 
 	RideHailingDriverVerifyMinFields struct {
-		CreateAt                         func(childComplexity int) int
-		CreateBy                         func(childComplexity int) int
-		DeleteAt                         func(childComplexity int) int
-		DeleteBy                         func(childComplexity int) int
+		CreatedAt                        func(childComplexity int) int
+		CreatedBy                        func(childComplexity int) int
+		DeletedAt                        func(childComplexity int) int
+		DeletedBy                        func(childComplexity int) int
 		DrivingExamTime                  func(childComplexity int) int
 		DrivingExperienceExamineTime     func(childComplexity int) int
 		DrivingExperienceRemark          func(childComplexity int) int
@@ -353,7 +359,7 @@ type ComplexityRoot struct {
 		DrunkDrugDrivingExamineTime      func(childComplexity int) int
 		DrunkDrugDrivingRemark           func(childComplexity int) int
 		ID                               func(childComplexity int) int
-		IsDelete                         func(childComplexity int) int
+		IsDeleted                        func(childComplexity int) int
 		IsDrugHistory                    func(childComplexity int) int
 		IsDrunkDrugDriving               func(childComplexity int) int
 		IsPassDrivingExam                func(childComplexity int) int
@@ -364,8 +370,8 @@ type ComplexityRoot struct {
 		RideHailingDriverVerifyID        func(childComplexity int) int
 		TrafficAccidentEscapeExamineTime func(childComplexity int) int
 		TrafficAccidentEscapeRemark      func(childComplexity int) int
-		UpdateAt                         func(childComplexity int) int
 		UpdateBy                         func(childComplexity int) int
+		UpdatedAt                        func(childComplexity int) int
 		ViolentCrimeExamineTime          func(childComplexity int) int
 		ViolentCrimeRemark               func(childComplexity int) int
 	}
@@ -750,19 +756,19 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.RideHailingDriver.CheckStation(childComplexity), true
 
-	case "RideHailingDriver.create_at":
-		if e.complexity.RideHailingDriver.CreateAt == nil {
+	case "RideHailingDriver.created_at":
+		if e.complexity.RideHailingDriver.CreatedAt == nil {
 			break
 		}
 
-		return e.complexity.RideHailingDriver.CreateAt(childComplexity), true
+		return e.complexity.RideHailingDriver.CreatedAt(childComplexity), true
 
-	case "RideHailingDriver.create_by":
-		if e.complexity.RideHailingDriver.CreateBy == nil {
+	case "RideHailingDriver.created_by":
+		if e.complexity.RideHailingDriver.CreatedBy == nil {
 			break
 		}
 
-		return e.complexity.RideHailingDriver.CreateBy(childComplexity), true
+		return e.complexity.RideHailingDriver.CreatedBy(childComplexity), true
 
 	case "RideHailingDriver.current_address":
 		if e.complexity.RideHailingDriver.CurrentAddress == nil {
@@ -770,6 +776,20 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.RideHailingDriver.CurrentAddress(childComplexity), true
+
+	case "RideHailingDriver.deleted_at":
+		if e.complexity.RideHailingDriver.DeletedAt == nil {
+			break
+		}
+
+		return e.complexity.RideHailingDriver.DeletedAt(childComplexity), true
+
+	case "RideHailingDriver.deleted_by":
+		if e.complexity.RideHailingDriver.DeletedBy == nil {
+			break
+		}
+
+		return e.complexity.RideHailingDriver.DeletedBy(childComplexity), true
 
 	case "RideHailingDriver.driver_name":
 		if e.complexity.RideHailingDriver.DriverName == nil {
@@ -834,12 +854,12 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.RideHailingDriver.IdcardPhoto(childComplexity), true
 
-	case "RideHailingDriver.is_delete":
-		if e.complexity.RideHailingDriver.IsDelete == nil {
+	case "RideHailingDriver.is_deleted":
+		if e.complexity.RideHailingDriver.IsDeleted == nil {
 			break
 		}
 
-		return e.complexity.RideHailingDriver.IsDelete(childComplexity), true
+		return e.complexity.RideHailingDriver.IsDeleted(childComplexity), true
 
 	case "RideHailingDriver.is_former_driver":
 		if e.complexity.RideHailingDriver.IsFormerDriver == nil {
@@ -932,26 +952,26 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.RideHailingDriver.StartValidDate(childComplexity), true
 
-	case "RideHailingDriver.update_at":
-		if e.complexity.RideHailingDriver.UpdateAt == nil {
-			break
-		}
-
-		return e.complexity.RideHailingDriver.UpdateAt(childComplexity), true
-
-	case "RideHailingDriver.update_by":
-		if e.complexity.RideHailingDriver.UpdateBy == nil {
-			break
-		}
-
-		return e.complexity.RideHailingDriver.UpdateBy(childComplexity), true
-
 	case "RideHailingDriver.update_time_in":
 		if e.complexity.RideHailingDriver.UpdateTimeIn == nil {
 			break
 		}
 
 		return e.complexity.RideHailingDriver.UpdateTimeIn(childComplexity), true
+
+	case "RideHailingDriver.updated_at":
+		if e.complexity.RideHailingDriver.UpdatedAt == nil {
+			break
+		}
+
+		return e.complexity.RideHailingDriver.UpdatedAt(childComplexity), true
+
+	case "RideHailingDriver.updated_by":
+		if e.complexity.RideHailingDriver.UpdatedBy == nil {
+			break
+		}
+
+		return e.complexity.RideHailingDriver.UpdatedBy(childComplexity), true
 
 	case "RideHailingDriverAggregate.aggregate":
 		if e.complexity.RideHailingDriverAggregate.Aggregate == nil {
@@ -1079,19 +1099,19 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.RideHailingDriverMaxFields.CheckStation(childComplexity), true
 
-	case "RideHailingDriverMaxFields.create_at":
-		if e.complexity.RideHailingDriverMaxFields.CreateAt == nil {
+	case "RideHailingDriverMaxFields.created_at":
+		if e.complexity.RideHailingDriverMaxFields.CreatedAt == nil {
 			break
 		}
 
-		return e.complexity.RideHailingDriverMaxFields.CreateAt(childComplexity), true
+		return e.complexity.RideHailingDriverMaxFields.CreatedAt(childComplexity), true
 
-	case "RideHailingDriverMaxFields.create_by":
-		if e.complexity.RideHailingDriverMaxFields.CreateBy == nil {
+	case "RideHailingDriverMaxFields.created_by":
+		if e.complexity.RideHailingDriverMaxFields.CreatedBy == nil {
 			break
 		}
 
-		return e.complexity.RideHailingDriverMaxFields.CreateBy(childComplexity), true
+		return e.complexity.RideHailingDriverMaxFields.CreatedBy(childComplexity), true
 
 	case "RideHailingDriverMaxFields.current_address":
 		if e.complexity.RideHailingDriverMaxFields.CurrentAddress == nil {
@@ -1099,6 +1119,20 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.RideHailingDriverMaxFields.CurrentAddress(childComplexity), true
+
+	case "RideHailingDriverMaxFields.deleted_at":
+		if e.complexity.RideHailingDriverMaxFields.DeletedAt == nil {
+			break
+		}
+
+		return e.complexity.RideHailingDriverMaxFields.DeletedAt(childComplexity), true
+
+	case "RideHailingDriverMaxFields.deleted_by":
+		if e.complexity.RideHailingDriverMaxFields.DeletedBy == nil {
+			break
+		}
+
+		return e.complexity.RideHailingDriverMaxFields.DeletedBy(childComplexity), true
 
 	case "RideHailingDriverMaxFields.driver_name":
 		if e.complexity.RideHailingDriverMaxFields.DriverName == nil {
@@ -1163,12 +1197,12 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.RideHailingDriverMaxFields.IdcardPhoto(childComplexity), true
 
-	case "RideHailingDriverMaxFields.is_delete":
-		if e.complexity.RideHailingDriverMaxFields.IsDelete == nil {
+	case "RideHailingDriverMaxFields.is_deleted":
+		if e.complexity.RideHailingDriverMaxFields.IsDeleted == nil {
 			break
 		}
 
-		return e.complexity.RideHailingDriverMaxFields.IsDelete(childComplexity), true
+		return e.complexity.RideHailingDriverMaxFields.IsDeleted(childComplexity), true
 
 	case "RideHailingDriverMaxFields.is_former_driver":
 		if e.complexity.RideHailingDriverMaxFields.IsFormerDriver == nil {
@@ -1261,26 +1295,26 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.RideHailingDriverMaxFields.StartValidDate(childComplexity), true
 
-	case "RideHailingDriverMaxFields.update_at":
-		if e.complexity.RideHailingDriverMaxFields.UpdateAt == nil {
-			break
-		}
-
-		return e.complexity.RideHailingDriverMaxFields.UpdateAt(childComplexity), true
-
-	case "RideHailingDriverMaxFields.update_by":
-		if e.complexity.RideHailingDriverMaxFields.UpdateBy == nil {
-			break
-		}
-
-		return e.complexity.RideHailingDriverMaxFields.UpdateBy(childComplexity), true
-
 	case "RideHailingDriverMaxFields.update_time_in":
 		if e.complexity.RideHailingDriverMaxFields.UpdateTimeIn == nil {
 			break
 		}
 
 		return e.complexity.RideHailingDriverMaxFields.UpdateTimeIn(childComplexity), true
+
+	case "RideHailingDriverMaxFields.updated_at":
+		if e.complexity.RideHailingDriverMaxFields.UpdatedAt == nil {
+			break
+		}
+
+		return e.complexity.RideHailingDriverMaxFields.UpdatedAt(childComplexity), true
+
+	case "RideHailingDriverMaxFields.updated_by":
+		if e.complexity.RideHailingDriverMaxFields.UpdatedBy == nil {
+			break
+		}
+
+		return e.complexity.RideHailingDriverMaxFields.UpdatedBy(childComplexity), true
 
 	case "RideHailingDriverMinFields.birthday":
 		if e.complexity.RideHailingDriverMinFields.Birthday == nil {
@@ -1296,19 +1330,19 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.RideHailingDriverMinFields.CheckStation(childComplexity), true
 
-	case "RideHailingDriverMinFields.create_at":
-		if e.complexity.RideHailingDriverMinFields.CreateAt == nil {
+	case "RideHailingDriverMinFields.created_at":
+		if e.complexity.RideHailingDriverMinFields.CreatedAt == nil {
 			break
 		}
 
-		return e.complexity.RideHailingDriverMinFields.CreateAt(childComplexity), true
+		return e.complexity.RideHailingDriverMinFields.CreatedAt(childComplexity), true
 
-	case "RideHailingDriverMinFields.create_by":
-		if e.complexity.RideHailingDriverMinFields.CreateBy == nil {
+	case "RideHailingDriverMinFields.created_by":
+		if e.complexity.RideHailingDriverMinFields.CreatedBy == nil {
 			break
 		}
 
-		return e.complexity.RideHailingDriverMinFields.CreateBy(childComplexity), true
+		return e.complexity.RideHailingDriverMinFields.CreatedBy(childComplexity), true
 
 	case "RideHailingDriverMinFields.current_address":
 		if e.complexity.RideHailingDriverMinFields.CurrentAddress == nil {
@@ -1316,6 +1350,20 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.RideHailingDriverMinFields.CurrentAddress(childComplexity), true
+
+	case "RideHailingDriverMinFields.deleted_at":
+		if e.complexity.RideHailingDriverMinFields.DeletedAt == nil {
+			break
+		}
+
+		return e.complexity.RideHailingDriverMinFields.DeletedAt(childComplexity), true
+
+	case "RideHailingDriverMinFields.deleted_by":
+		if e.complexity.RideHailingDriverMinFields.DeletedBy == nil {
+			break
+		}
+
+		return e.complexity.RideHailingDriverMinFields.DeletedBy(childComplexity), true
 
 	case "RideHailingDriverMinFields.driver_name":
 		if e.complexity.RideHailingDriverMinFields.DriverName == nil {
@@ -1380,12 +1428,12 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.RideHailingDriverMinFields.IdcardPhoto(childComplexity), true
 
-	case "RideHailingDriverMinFields.is_delete":
-		if e.complexity.RideHailingDriverMinFields.IsDelete == nil {
+	case "RideHailingDriverMinFields.is_deleted":
+		if e.complexity.RideHailingDriverMinFields.IsDeleted == nil {
 			break
 		}
 
-		return e.complexity.RideHailingDriverMinFields.IsDelete(childComplexity), true
+		return e.complexity.RideHailingDriverMinFields.IsDeleted(childComplexity), true
 
 	case "RideHailingDriverMinFields.is_former_driver":
 		if e.complexity.RideHailingDriverMinFields.IsFormerDriver == nil {
@@ -1478,26 +1526,26 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.RideHailingDriverMinFields.StartValidDate(childComplexity), true
 
-	case "RideHailingDriverMinFields.update_at":
-		if e.complexity.RideHailingDriverMinFields.UpdateAt == nil {
-			break
-		}
-
-		return e.complexity.RideHailingDriverMinFields.UpdateAt(childComplexity), true
-
-	case "RideHailingDriverMinFields.update_by":
-		if e.complexity.RideHailingDriverMinFields.UpdateBy == nil {
-			break
-		}
-
-		return e.complexity.RideHailingDriverMinFields.UpdateBy(childComplexity), true
-
 	case "RideHailingDriverMinFields.update_time_in":
 		if e.complexity.RideHailingDriverMinFields.UpdateTimeIn == nil {
 			break
 		}
 
 		return e.complexity.RideHailingDriverMinFields.UpdateTimeIn(childComplexity), true
+
+	case "RideHailingDriverMinFields.updated_at":
+		if e.complexity.RideHailingDriverMinFields.UpdatedAt == nil {
+			break
+		}
+
+		return e.complexity.RideHailingDriverMinFields.UpdatedAt(childComplexity), true
+
+	case "RideHailingDriverMinFields.updated_by":
+		if e.complexity.RideHailingDriverMinFields.UpdatedBy == nil {
+			break
+		}
+
+		return e.complexity.RideHailingDriverMinFields.UpdatedBy(childComplexity), true
 
 	case "RideHailingDriverMutationResponse.affected_rows":
 		if e.complexity.RideHailingDriverMutationResponse.AffectedRows == nil {
@@ -1709,33 +1757,33 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.RideHailingDriverVarianceFields.Sex(childComplexity), true
 
-	case "RideHailingDriverVerify.create_at":
-		if e.complexity.RideHailingDriverVerify.CreateAt == nil {
+	case "RideHailingDriverVerify.created_at":
+		if e.complexity.RideHailingDriverVerify.CreatedAt == nil {
 			break
 		}
 
-		return e.complexity.RideHailingDriverVerify.CreateAt(childComplexity), true
+		return e.complexity.RideHailingDriverVerify.CreatedAt(childComplexity), true
 
-	case "RideHailingDriverVerify.create_by":
-		if e.complexity.RideHailingDriverVerify.CreateBy == nil {
+	case "RideHailingDriverVerify.created_by":
+		if e.complexity.RideHailingDriverVerify.CreatedBy == nil {
 			break
 		}
 
-		return e.complexity.RideHailingDriverVerify.CreateBy(childComplexity), true
+		return e.complexity.RideHailingDriverVerify.CreatedBy(childComplexity), true
 
-	case "RideHailingDriverVerify.delete_at":
-		if e.complexity.RideHailingDriverVerify.DeleteAt == nil {
+	case "RideHailingDriverVerify.deleted_at":
+		if e.complexity.RideHailingDriverVerify.DeletedAt == nil {
 			break
 		}
 
-		return e.complexity.RideHailingDriverVerify.DeleteAt(childComplexity), true
+		return e.complexity.RideHailingDriverVerify.DeletedAt(childComplexity), true
 
-	case "RideHailingDriverVerify.delete_by":
-		if e.complexity.RideHailingDriverVerify.DeleteBy == nil {
+	case "RideHailingDriverVerify.deleted_by":
+		if e.complexity.RideHailingDriverVerify.DeletedBy == nil {
 			break
 		}
 
-		return e.complexity.RideHailingDriverVerify.DeleteBy(childComplexity), true
+		return e.complexity.RideHailingDriverVerify.DeletedBy(childComplexity), true
 
 	case "RideHailingDriverVerify.driving_exam_time":
 		if e.complexity.RideHailingDriverVerify.DrivingExamTime == nil {
@@ -1793,12 +1841,12 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.RideHailingDriverVerify.ID(childComplexity), true
 
-	case "RideHailingDriverVerify.is_delete":
-		if e.complexity.RideHailingDriverVerify.IsDelete == nil {
+	case "RideHailingDriverVerify.is_deleted":
+		if e.complexity.RideHailingDriverVerify.IsDeleted == nil {
 			break
 		}
 
-		return e.complexity.RideHailingDriverVerify.IsDelete(childComplexity), true
+		return e.complexity.RideHailingDriverVerify.IsDeleted(childComplexity), true
 
 	case "RideHailingDriverVerify.is_drug_history":
 		if e.complexity.RideHailingDriverVerify.IsDrugHistory == nil {
@@ -1870,19 +1918,19 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.RideHailingDriverVerify.TrafficAccidentEscapeRemark(childComplexity), true
 
-	case "RideHailingDriverVerify.update_at":
-		if e.complexity.RideHailingDriverVerify.UpdateAt == nil {
-			break
-		}
-
-		return e.complexity.RideHailingDriverVerify.UpdateAt(childComplexity), true
-
 	case "RideHailingDriverVerify.update_by":
 		if e.complexity.RideHailingDriverVerify.UpdateBy == nil {
 			break
 		}
 
 		return e.complexity.RideHailingDriverVerify.UpdateBy(childComplexity), true
+
+	case "RideHailingDriverVerify.updated_at":
+		if e.complexity.RideHailingDriverVerify.UpdatedAt == nil {
+			break
+		}
+
+		return e.complexity.RideHailingDriverVerify.UpdatedAt(childComplexity), true
 
 	case "RideHailingDriverVerify.violent_crime_examine_time":
 		if e.complexity.RideHailingDriverVerify.ViolentCrimeExamineTime == nil {
@@ -1989,33 +2037,33 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.RideHailingDriverVerifyAvgFields.ID(childComplexity), true
 
-	case "RideHailingDriverVerifyMaxFields.create_at":
-		if e.complexity.RideHailingDriverVerifyMaxFields.CreateAt == nil {
+	case "RideHailingDriverVerifyMaxFields.created_at":
+		if e.complexity.RideHailingDriverVerifyMaxFields.CreatedAt == nil {
 			break
 		}
 
-		return e.complexity.RideHailingDriverVerifyMaxFields.CreateAt(childComplexity), true
+		return e.complexity.RideHailingDriverVerifyMaxFields.CreatedAt(childComplexity), true
 
-	case "RideHailingDriverVerifyMaxFields.create_by":
-		if e.complexity.RideHailingDriverVerifyMaxFields.CreateBy == nil {
+	case "RideHailingDriverVerifyMaxFields.created_by":
+		if e.complexity.RideHailingDriverVerifyMaxFields.CreatedBy == nil {
 			break
 		}
 
-		return e.complexity.RideHailingDriverVerifyMaxFields.CreateBy(childComplexity), true
+		return e.complexity.RideHailingDriverVerifyMaxFields.CreatedBy(childComplexity), true
 
-	case "RideHailingDriverVerifyMaxFields.delete_at":
-		if e.complexity.RideHailingDriverVerifyMaxFields.DeleteAt == nil {
+	case "RideHailingDriverVerifyMaxFields.deleted_at":
+		if e.complexity.RideHailingDriverVerifyMaxFields.DeletedAt == nil {
 			break
 		}
 
-		return e.complexity.RideHailingDriverVerifyMaxFields.DeleteAt(childComplexity), true
+		return e.complexity.RideHailingDriverVerifyMaxFields.DeletedAt(childComplexity), true
 
-	case "RideHailingDriverVerifyMaxFields.delete_by":
-		if e.complexity.RideHailingDriverVerifyMaxFields.DeleteBy == nil {
+	case "RideHailingDriverVerifyMaxFields.deleted_by":
+		if e.complexity.RideHailingDriverVerifyMaxFields.DeletedBy == nil {
 			break
 		}
 
-		return e.complexity.RideHailingDriverVerifyMaxFields.DeleteBy(childComplexity), true
+		return e.complexity.RideHailingDriverVerifyMaxFields.DeletedBy(childComplexity), true
 
 	case "RideHailingDriverVerifyMaxFields.driving_exam_time":
 		if e.complexity.RideHailingDriverVerifyMaxFields.DrivingExamTime == nil {
@@ -2073,12 +2121,12 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.RideHailingDriverVerifyMaxFields.ID(childComplexity), true
 
-	case "RideHailingDriverVerifyMaxFields.is_delete":
-		if e.complexity.RideHailingDriverVerifyMaxFields.IsDelete == nil {
+	case "RideHailingDriverVerifyMaxFields.is_deleted":
+		if e.complexity.RideHailingDriverVerifyMaxFields.IsDeleted == nil {
 			break
 		}
 
-		return e.complexity.RideHailingDriverVerifyMaxFields.IsDelete(childComplexity), true
+		return e.complexity.RideHailingDriverVerifyMaxFields.IsDeleted(childComplexity), true
 
 	case "RideHailingDriverVerifyMaxFields.is_drug_history":
 		if e.complexity.RideHailingDriverVerifyMaxFields.IsDrugHistory == nil {
@@ -2150,19 +2198,19 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.RideHailingDriverVerifyMaxFields.TrafficAccidentEscapeRemark(childComplexity), true
 
-	case "RideHailingDriverVerifyMaxFields.update_at":
-		if e.complexity.RideHailingDriverVerifyMaxFields.UpdateAt == nil {
-			break
-		}
-
-		return e.complexity.RideHailingDriverVerifyMaxFields.UpdateAt(childComplexity), true
-
 	case "RideHailingDriverVerifyMaxFields.update_by":
 		if e.complexity.RideHailingDriverVerifyMaxFields.UpdateBy == nil {
 			break
 		}
 
 		return e.complexity.RideHailingDriverVerifyMaxFields.UpdateBy(childComplexity), true
+
+	case "RideHailingDriverVerifyMaxFields.updated_at":
+		if e.complexity.RideHailingDriverVerifyMaxFields.UpdatedAt == nil {
+			break
+		}
+
+		return e.complexity.RideHailingDriverVerifyMaxFields.UpdatedAt(childComplexity), true
 
 	case "RideHailingDriverVerifyMaxFields.violent_crime_examine_time":
 		if e.complexity.RideHailingDriverVerifyMaxFields.ViolentCrimeExamineTime == nil {
@@ -2178,33 +2226,33 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.RideHailingDriverVerifyMaxFields.ViolentCrimeRemark(childComplexity), true
 
-	case "RideHailingDriverVerifyMinFields.create_at":
-		if e.complexity.RideHailingDriverVerifyMinFields.CreateAt == nil {
+	case "RideHailingDriverVerifyMinFields.created_at":
+		if e.complexity.RideHailingDriverVerifyMinFields.CreatedAt == nil {
 			break
 		}
 
-		return e.complexity.RideHailingDriverVerifyMinFields.CreateAt(childComplexity), true
+		return e.complexity.RideHailingDriverVerifyMinFields.CreatedAt(childComplexity), true
 
-	case "RideHailingDriverVerifyMinFields.create_by":
-		if e.complexity.RideHailingDriverVerifyMinFields.CreateBy == nil {
+	case "RideHailingDriverVerifyMinFields.created_by":
+		if e.complexity.RideHailingDriverVerifyMinFields.CreatedBy == nil {
 			break
 		}
 
-		return e.complexity.RideHailingDriverVerifyMinFields.CreateBy(childComplexity), true
+		return e.complexity.RideHailingDriverVerifyMinFields.CreatedBy(childComplexity), true
 
-	case "RideHailingDriverVerifyMinFields.delete_at":
-		if e.complexity.RideHailingDriverVerifyMinFields.DeleteAt == nil {
+	case "RideHailingDriverVerifyMinFields.deleted_at":
+		if e.complexity.RideHailingDriverVerifyMinFields.DeletedAt == nil {
 			break
 		}
 
-		return e.complexity.RideHailingDriverVerifyMinFields.DeleteAt(childComplexity), true
+		return e.complexity.RideHailingDriverVerifyMinFields.DeletedAt(childComplexity), true
 
-	case "RideHailingDriverVerifyMinFields.delete_by":
-		if e.complexity.RideHailingDriverVerifyMinFields.DeleteBy == nil {
+	case "RideHailingDriverVerifyMinFields.deleted_by":
+		if e.complexity.RideHailingDriverVerifyMinFields.DeletedBy == nil {
 			break
 		}
 
-		return e.complexity.RideHailingDriverVerifyMinFields.DeleteBy(childComplexity), true
+		return e.complexity.RideHailingDriverVerifyMinFields.DeletedBy(childComplexity), true
 
 	case "RideHailingDriverVerifyMinFields.driving_exam_time":
 		if e.complexity.RideHailingDriverVerifyMinFields.DrivingExamTime == nil {
@@ -2262,12 +2310,12 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.RideHailingDriverVerifyMinFields.ID(childComplexity), true
 
-	case "RideHailingDriverVerifyMinFields.is_delete":
-		if e.complexity.RideHailingDriverVerifyMinFields.IsDelete == nil {
+	case "RideHailingDriverVerifyMinFields.is_deleted":
+		if e.complexity.RideHailingDriverVerifyMinFields.IsDeleted == nil {
 			break
 		}
 
-		return e.complexity.RideHailingDriverVerifyMinFields.IsDelete(childComplexity), true
+		return e.complexity.RideHailingDriverVerifyMinFields.IsDeleted(childComplexity), true
 
 	case "RideHailingDriverVerifyMinFields.is_drug_history":
 		if e.complexity.RideHailingDriverVerifyMinFields.IsDrugHistory == nil {
@@ -2339,19 +2387,19 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.RideHailingDriverVerifyMinFields.TrafficAccidentEscapeRemark(childComplexity), true
 
-	case "RideHailingDriverVerifyMinFields.update_at":
-		if e.complexity.RideHailingDriverVerifyMinFields.UpdateAt == nil {
-			break
-		}
-
-		return e.complexity.RideHailingDriverVerifyMinFields.UpdateAt(childComplexity), true
-
 	case "RideHailingDriverVerifyMinFields.update_by":
 		if e.complexity.RideHailingDriverVerifyMinFields.UpdateBy == nil {
 			break
 		}
 
 		return e.complexity.RideHailingDriverVerifyMinFields.UpdateBy(childComplexity), true
+
+	case "RideHailingDriverVerifyMinFields.updated_at":
+		if e.complexity.RideHailingDriverVerifyMinFields.UpdatedAt == nil {
+			break
+		}
+
+		return e.complexity.RideHailingDriverVerifyMinFields.UpdatedAt(childComplexity), true
 
 	case "RideHailingDriverVerifyMinFields.violent_crime_examine_time":
 		if e.complexity.RideHailingDriverVerifyMinFields.ViolentCrimeExamineTime == nil {
@@ -2763,19 +2811,19 @@ scalar Numeric
 	"""
 	记录时间
 	"""
-	create_at: Timestamptz
+	created_at: Timestamptz
 	"""
 	记录人员ID
 	"""
-	create_by: String
+	created_by: String
 	"""
 	更新时间
 	"""
-	update_at: Timestamptz
+	updated_at: Timestamptz
 	"""
 	更新人员id
 	"""
-	update_by: String
+	updated_by: String
 	"""
 	操作员id
 	"""
@@ -2787,7 +2835,15 @@ scalar Numeric
 	"""
 	是否删除
 	"""
-	is_delete: Boolean!
+	is_deleted: Boolean!
+	"""
+	删除时间
+	"""
+	deleted_at: Timestamptz
+	"""
+	删除人ID
+	"""
+	deleted_by: String
 }
 """
 aggregated selection of "ride_hailing_driver"
@@ -2848,13 +2904,15 @@ type RideHailingDriverMaxFields {
 	is_former_driver: Boolean
 	check_station: Int
 	update_time_in: Timestamptz
-	create_at: Timestamptz
-	create_by: String
-	update_at: Timestamptz
-	update_by: String
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
 	operator_id: String
 	remarks: String
-	is_delete: Boolean
+	is_deleted: Boolean
+	deleted_at: Timestamptz
+	deleted_by: String
 }
 """
 aggregate min on columns of table "ride_hailing_driver"
@@ -2884,13 +2942,15 @@ type RideHailingDriverMinFields {
 	is_former_driver: Boolean
 	check_station: Int
 	update_time_in: Timestamptz
-	create_at: Timestamptz
-	create_by: String
-	update_at: Timestamptz
-	update_by: String
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
 	operator_id: String
 	remarks: String
-	is_delete: Boolean
+	is_deleted: Boolean
+	deleted_at: Timestamptz
+	deleted_by: String
 }
 """
 aggregate stddev on columns of table "ride_hailing_driver"
@@ -2990,13 +3050,15 @@ input RideHailingDriverOrderBy {
 	is_former_driver: OrderBy
 	check_station: OrderBy
 	update_time_in: OrderBy
-	create_at: OrderBy
-	create_by: OrderBy
-	update_at: OrderBy
-	update_by: OrderBy
+	created_at: OrderBy
+	created_by: OrderBy
+	updated_at: OrderBy
+	updated_by: OrderBy
 	operator_id: OrderBy
 	remarks: OrderBy
-	is_delete: OrderBy
+	is_deleted: OrderBy
+	deleted_at: OrderBy
+	deleted_by: OrderBy
 }
 """
 Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'ride_hailing_driver'.
@@ -3029,13 +3091,15 @@ input RideHailingDriverBoolExp {
 	is_former_driver: BooleanComparisonExp
 	check_station: IntComparisonExp
 	update_time_in: TimestamptzComparisonExp
-	create_at: TimestamptzComparisonExp
-	create_by: StringComparisonExp
-	update_at: TimestamptzComparisonExp
-	update_by: StringComparisonExp
+	created_at: TimestamptzComparisonExp
+	created_by: StringComparisonExp
+	updated_at: TimestamptzComparisonExp
+	updated_by: StringComparisonExp
 	operator_id: StringComparisonExp
 	remarks: StringComparisonExp
-	is_delete: BooleanComparisonExp
+	is_deleted: BooleanComparisonExp
+	deleted_at: TimestamptzComparisonExp
+	deleted_by: StringComparisonExp
 }
 """
 input type for inserting data into table "ride_hailing_driver"
@@ -3064,13 +3128,15 @@ input RideHailingDriverInsertInput {
 	is_former_driver: Boolean
 	check_station: Int
 	update_time_in: Timestamptz
-	create_at: Timestamptz
-	create_by: String
-	update_at: Timestamptz
-	update_by: String
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
 	operator_id: String
 	remarks: String
-	is_delete: Boolean!
+	is_deleted: Boolean!
+	deleted_at: Timestamptz
+	deleted_by: String
 }
 """
 input type for incrementing integer column in table "ride_hailing_driver"
@@ -3109,13 +3175,15 @@ input RideHailingDriverSetInput {
 	is_former_driver: Boolean
 	check_station: Int
 	update_time_in: Timestamptz
-	create_at: Timestamptz
-	create_by: String
-	update_at: Timestamptz
-	update_by: String
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
 	operator_id: String
 	remarks: String
-	is_delete: Boolean
+	is_deleted: Boolean
+	deleted_at: Timestamptz
+	deleted_by: String
 }
 """
 可选select
@@ -3220,19 +3288,19 @@ enum RideHailingDriverSelectColumn {
 	"""
 	记录时间
 	"""
-	create_at
+	created_at
 	"""
 	记录人员ID
 	"""
-	create_by
+	created_by
 	"""
 	更新时间
 	"""
-	update_at
+	updated_at
 	"""
 	更新人员id
 	"""
-	update_by
+	updated_by
 	"""
 	操作员id
 	"""
@@ -3244,7 +3312,15 @@ enum RideHailingDriverSelectColumn {
 	"""
 	是否删除
 	"""
-	is_delete
+	is_deleted
+	"""
+	删除时间
+	"""
+	deleted_at
+	"""
+	删除人ID
+	"""
+	deleted_by
 }
 extend type Query {
 	"""
@@ -3386,15 +3462,15 @@ type RideHailingDriverVerify {
 	"""
 	创建时间
 	"""
-	create_at: Timestamptz
+	created_at: Timestamptz
 	"""
 	创建人
 	"""
-	create_by: String
+	created_by: String
 	"""
 	修改时间
 	"""
-	update_at: Timestamptz
+	updated_at: Timestamptz
 	"""
 	修改人
 	"""
@@ -3402,15 +3478,15 @@ type RideHailingDriverVerify {
 	"""
 	删除时间
 	"""
-	delete_at: Timestamptz
+	deleted_at: Timestamptz
 	"""
 	删除人
 	"""
-	delete_by: String
+	deleted_by: String
 	"""
 	是否删除
 	"""
-	is_delete: String!
+	is_deleted: String!
 }
 """
 aggregated selection of "ride_hailing_driver_verify"
@@ -3464,13 +3540,13 @@ type RideHailingDriverVerifyMaxFields {
 	drunk_drug_driving_examine_time: Timestamptz
 	is_pass_driving_exam: Boolean
 	driving_exam_time: Timestamptz
-	create_at: Timestamptz
-	create_by: String
-	update_at: Timestamptz
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
 	update_by: String
-	delete_at: Timestamptz
-	delete_by: String
-	is_delete: String
+	deleted_at: Timestamptz
+	deleted_by: String
+	is_deleted: String
 }
 """
 aggregate min on columns of table "ride_hailing_driver_verify"
@@ -3496,13 +3572,13 @@ type RideHailingDriverVerifyMinFields {
 	drunk_drug_driving_examine_time: Timestamptz
 	is_pass_driving_exam: Boolean
 	driving_exam_time: Timestamptz
-	create_at: Timestamptz
-	create_by: String
-	update_at: Timestamptz
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
 	update_by: String
-	delete_at: Timestamptz
-	delete_by: String
-	is_delete: String
+	deleted_at: Timestamptz
+	deleted_by: String
+	is_deleted: String
 }
 """
 aggregate stddev on columns of table "ride_hailing_driver_verify"
@@ -3577,13 +3653,13 @@ input RideHailingDriverVerifyOrderBy {
 	drunk_drug_driving_examine_time: OrderBy
 	is_pass_driving_exam: OrderBy
 	driving_exam_time: OrderBy
-	create_at: OrderBy
-	create_by: OrderBy
-	update_at: OrderBy
+	created_at: OrderBy
+	created_by: OrderBy
+	updated_at: OrderBy
 	update_by: OrderBy
-	delete_at: OrderBy
-	delete_by: OrderBy
-	is_delete: OrderBy
+	deleted_at: OrderBy
+	deleted_by: OrderBy
+	is_deleted: OrderBy
 }
 """
 Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'ride_hailing_driver_verify'.
@@ -3612,13 +3688,13 @@ input RideHailingDriverVerifyBoolExp {
 	drunk_drug_driving_examine_time: TimestamptzComparisonExp
 	is_pass_driving_exam: BooleanComparisonExp
 	driving_exam_time: TimestamptzComparisonExp
-	create_at: TimestamptzComparisonExp
-	create_by: StringComparisonExp
-	update_at: TimestamptzComparisonExp
+	created_at: TimestamptzComparisonExp
+	created_by: StringComparisonExp
+	updated_at: TimestamptzComparisonExp
 	update_by: StringComparisonExp
-	delete_at: TimestamptzComparisonExp
-	delete_by: StringComparisonExp
-	is_delete: StringComparisonExp
+	deleted_at: TimestamptzComparisonExp
+	deleted_by: StringComparisonExp
+	is_deleted: StringComparisonExp
 }
 """
 input type for inserting data into table "ride_hailing_driver_verify"
@@ -3643,13 +3719,13 @@ input RideHailingDriverVerifyInsertInput {
 	drunk_drug_driving_examine_time: Timestamptz
 	is_pass_driving_exam: Boolean
 	driving_exam_time: Timestamptz
-	create_at: Timestamptz
-	create_by: String
-	update_at: Timestamptz
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
 	update_by: String
-	delete_at: Timestamptz
-	delete_by: String
-	is_delete: String!
+	deleted_at: Timestamptz
+	deleted_by: String
+	is_deleted: String!
 }
 """
 input type for incrementing integer column in table "ride_hailing_driver_verify"
@@ -3681,13 +3757,13 @@ input RideHailingDriverVerifySetInput {
 	drunk_drug_driving_examine_time: Timestamptz
 	is_pass_driving_exam: Boolean
 	driving_exam_time: Timestamptz
-	create_at: Timestamptz
-	create_by: String
-	update_at: Timestamptz
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
 	update_by: String
-	delete_at: Timestamptz
-	delete_by: String
-	is_delete: String
+	deleted_at: Timestamptz
+	deleted_by: String
+	is_deleted: String
 }
 """
 可选select
@@ -3776,15 +3852,15 @@ enum RideHailingDriverVerifySelectColumn {
 	"""
 	创建时间
 	"""
-	create_at
+	created_at
 	"""
 	创建人
 	"""
-	create_by
+	created_by
 	"""
 	修改时间
 	"""
-	update_at
+	updated_at
 	"""
 	修改人
 	"""
@@ -3792,15 +3868,15 @@ enum RideHailingDriverVerifySelectColumn {
 	"""
 	删除时间
 	"""
-	delete_at
+	deleted_at
 	"""
 	删除人
 	"""
-	delete_by
+	deleted_by
 	"""
 	是否删除
 	"""
-	is_delete
+	is_deleted
 }
 extend type Query {
 	"""
@@ -6332,7 +6408,7 @@ func (ec *executionContext) _RideHailingDriver_update_time_in(ctx context.Contex
 	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _RideHailingDriver_create_at(ctx context.Context, field graphql.CollectedField, obj *model1.RideHailingDriver) (ret graphql.Marshaler) {
+func (ec *executionContext) _RideHailingDriver_created_at(ctx context.Context, field graphql.CollectedField, obj *model1.RideHailingDriver) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -6350,7 +6426,7 @@ func (ec *executionContext) _RideHailingDriver_create_at(ctx context.Context, fi
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.CreateAt, nil
+		return obj.CreatedAt, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -6364,7 +6440,7 @@ func (ec *executionContext) _RideHailingDriver_create_at(ctx context.Context, fi
 	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _RideHailingDriver_create_by(ctx context.Context, field graphql.CollectedField, obj *model1.RideHailingDriver) (ret graphql.Marshaler) {
+func (ec *executionContext) _RideHailingDriver_created_by(ctx context.Context, field graphql.CollectedField, obj *model1.RideHailingDriver) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -6382,7 +6458,7 @@ func (ec *executionContext) _RideHailingDriver_create_by(ctx context.Context, fi
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.CreateBy, nil
+		return obj.CreatedBy, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -6396,7 +6472,7 @@ func (ec *executionContext) _RideHailingDriver_create_by(ctx context.Context, fi
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _RideHailingDriver_update_at(ctx context.Context, field graphql.CollectedField, obj *model1.RideHailingDriver) (ret graphql.Marshaler) {
+func (ec *executionContext) _RideHailingDriver_updated_at(ctx context.Context, field graphql.CollectedField, obj *model1.RideHailingDriver) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -6414,7 +6490,7 @@ func (ec *executionContext) _RideHailingDriver_update_at(ctx context.Context, fi
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.UpdateAt, nil
+		return obj.UpdatedAt, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -6428,7 +6504,7 @@ func (ec *executionContext) _RideHailingDriver_update_at(ctx context.Context, fi
 	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _RideHailingDriver_update_by(ctx context.Context, field graphql.CollectedField, obj *model1.RideHailingDriver) (ret graphql.Marshaler) {
+func (ec *executionContext) _RideHailingDriver_updated_by(ctx context.Context, field graphql.CollectedField, obj *model1.RideHailingDriver) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -6446,7 +6522,7 @@ func (ec *executionContext) _RideHailingDriver_update_by(ctx context.Context, fi
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.UpdateBy, nil
+		return obj.UpdatedBy, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -6524,7 +6600,7 @@ func (ec *executionContext) _RideHailingDriver_remarks(ctx context.Context, fiel
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _RideHailingDriver_is_delete(ctx context.Context, field graphql.CollectedField, obj *model1.RideHailingDriver) (ret graphql.Marshaler) {
+func (ec *executionContext) _RideHailingDriver_is_deleted(ctx context.Context, field graphql.CollectedField, obj *model1.RideHailingDriver) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -6542,7 +6618,7 @@ func (ec *executionContext) _RideHailingDriver_is_delete(ctx context.Context, fi
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.IsDelete, nil
+		return obj.IsDeleted, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -6557,6 +6633,70 @@ func (ec *executionContext) _RideHailingDriver_is_delete(ctx context.Context, fi
 	res := resTmp.(bool)
 	fc.Result = res
 	return ec.marshalNBoolean2bool(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _RideHailingDriver_deleted_at(ctx context.Context, field graphql.CollectedField, obj *model1.RideHailingDriver) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "RideHailingDriver",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.DeletedAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*time.Time)
+	fc.Result = res
+	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _RideHailingDriver_deleted_by(ctx context.Context, field graphql.CollectedField, obj *model1.RideHailingDriver) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "RideHailingDriver",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.DeletedBy, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _RideHailingDriverAggregate_aggregate(ctx context.Context, field graphql.CollectedField, obj *model.RideHailingDriverAggregate) (ret graphql.Marshaler) {
@@ -7839,7 +7979,7 @@ func (ec *executionContext) _RideHailingDriverMaxFields_update_time_in(ctx conte
 	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _RideHailingDriverMaxFields_create_at(ctx context.Context, field graphql.CollectedField, obj *model.RideHailingDriverMaxFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _RideHailingDriverMaxFields_created_at(ctx context.Context, field graphql.CollectedField, obj *model.RideHailingDriverMaxFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -7857,7 +7997,7 @@ func (ec *executionContext) _RideHailingDriverMaxFields_create_at(ctx context.Co
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.CreateAt, nil
+		return obj.CreatedAt, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -7871,7 +8011,7 @@ func (ec *executionContext) _RideHailingDriverMaxFields_create_at(ctx context.Co
 	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _RideHailingDriverMaxFields_create_by(ctx context.Context, field graphql.CollectedField, obj *model.RideHailingDriverMaxFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _RideHailingDriverMaxFields_created_by(ctx context.Context, field graphql.CollectedField, obj *model.RideHailingDriverMaxFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -7889,7 +8029,7 @@ func (ec *executionContext) _RideHailingDriverMaxFields_create_by(ctx context.Co
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.CreateBy, nil
+		return obj.CreatedBy, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -7903,7 +8043,7 @@ func (ec *executionContext) _RideHailingDriverMaxFields_create_by(ctx context.Co
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _RideHailingDriverMaxFields_update_at(ctx context.Context, field graphql.CollectedField, obj *model.RideHailingDriverMaxFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _RideHailingDriverMaxFields_updated_at(ctx context.Context, field graphql.CollectedField, obj *model.RideHailingDriverMaxFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -7921,7 +8061,7 @@ func (ec *executionContext) _RideHailingDriverMaxFields_update_at(ctx context.Co
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.UpdateAt, nil
+		return obj.UpdatedAt, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -7935,7 +8075,7 @@ func (ec *executionContext) _RideHailingDriverMaxFields_update_at(ctx context.Co
 	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _RideHailingDriverMaxFields_update_by(ctx context.Context, field graphql.CollectedField, obj *model.RideHailingDriverMaxFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _RideHailingDriverMaxFields_updated_by(ctx context.Context, field graphql.CollectedField, obj *model.RideHailingDriverMaxFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -7953,7 +8093,7 @@ func (ec *executionContext) _RideHailingDriverMaxFields_update_by(ctx context.Co
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.UpdateBy, nil
+		return obj.UpdatedBy, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -8031,7 +8171,7 @@ func (ec *executionContext) _RideHailingDriverMaxFields_remarks(ctx context.Cont
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _RideHailingDriverMaxFields_is_delete(ctx context.Context, field graphql.CollectedField, obj *model.RideHailingDriverMaxFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _RideHailingDriverMaxFields_is_deleted(ctx context.Context, field graphql.CollectedField, obj *model.RideHailingDriverMaxFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -8049,7 +8189,7 @@ func (ec *executionContext) _RideHailingDriverMaxFields_is_delete(ctx context.Co
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.IsDelete, nil
+		return obj.IsDeleted, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -8061,6 +8201,70 @@ func (ec *executionContext) _RideHailingDriverMaxFields_is_delete(ctx context.Co
 	res := resTmp.(*bool)
 	fc.Result = res
 	return ec.marshalOBoolean2ᚖbool(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _RideHailingDriverMaxFields_deleted_at(ctx context.Context, field graphql.CollectedField, obj *model.RideHailingDriverMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "RideHailingDriverMaxFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.DeletedAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*time.Time)
+	fc.Result = res
+	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _RideHailingDriverMaxFields_deleted_by(ctx context.Context, field graphql.CollectedField, obj *model.RideHailingDriverMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "RideHailingDriverMaxFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.DeletedBy, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _RideHailingDriverMinFields_id(ctx context.Context, field graphql.CollectedField, obj *model.RideHailingDriverMinFields) (ret graphql.Marshaler) {
@@ -8831,7 +9035,7 @@ func (ec *executionContext) _RideHailingDriverMinFields_update_time_in(ctx conte
 	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _RideHailingDriverMinFields_create_at(ctx context.Context, field graphql.CollectedField, obj *model.RideHailingDriverMinFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _RideHailingDriverMinFields_created_at(ctx context.Context, field graphql.CollectedField, obj *model.RideHailingDriverMinFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -8849,7 +9053,7 @@ func (ec *executionContext) _RideHailingDriverMinFields_create_at(ctx context.Co
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.CreateAt, nil
+		return obj.CreatedAt, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -8863,7 +9067,7 @@ func (ec *executionContext) _RideHailingDriverMinFields_create_at(ctx context.Co
 	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _RideHailingDriverMinFields_create_by(ctx context.Context, field graphql.CollectedField, obj *model.RideHailingDriverMinFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _RideHailingDriverMinFields_created_by(ctx context.Context, field graphql.CollectedField, obj *model.RideHailingDriverMinFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -8881,7 +9085,7 @@ func (ec *executionContext) _RideHailingDriverMinFields_create_by(ctx context.Co
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.CreateBy, nil
+		return obj.CreatedBy, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -8895,7 +9099,7 @@ func (ec *executionContext) _RideHailingDriverMinFields_create_by(ctx context.Co
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _RideHailingDriverMinFields_update_at(ctx context.Context, field graphql.CollectedField, obj *model.RideHailingDriverMinFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _RideHailingDriverMinFields_updated_at(ctx context.Context, field graphql.CollectedField, obj *model.RideHailingDriverMinFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -8913,7 +9117,7 @@ func (ec *executionContext) _RideHailingDriverMinFields_update_at(ctx context.Co
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.UpdateAt, nil
+		return obj.UpdatedAt, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -8927,7 +9131,7 @@ func (ec *executionContext) _RideHailingDriverMinFields_update_at(ctx context.Co
 	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _RideHailingDriverMinFields_update_by(ctx context.Context, field graphql.CollectedField, obj *model.RideHailingDriverMinFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _RideHailingDriverMinFields_updated_by(ctx context.Context, field graphql.CollectedField, obj *model.RideHailingDriverMinFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -8945,7 +9149,7 @@ func (ec *executionContext) _RideHailingDriverMinFields_update_by(ctx context.Co
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.UpdateBy, nil
+		return obj.UpdatedBy, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -9023,7 +9227,7 @@ func (ec *executionContext) _RideHailingDriverMinFields_remarks(ctx context.Cont
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _RideHailingDriverMinFields_is_delete(ctx context.Context, field graphql.CollectedField, obj *model.RideHailingDriverMinFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _RideHailingDriverMinFields_is_deleted(ctx context.Context, field graphql.CollectedField, obj *model.RideHailingDriverMinFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -9041,7 +9245,7 @@ func (ec *executionContext) _RideHailingDriverMinFields_is_delete(ctx context.Co
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.IsDelete, nil
+		return obj.IsDeleted, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -9053,6 +9257,70 @@ func (ec *executionContext) _RideHailingDriverMinFields_is_delete(ctx context.Co
 	res := resTmp.(*bool)
 	fc.Result = res
 	return ec.marshalOBoolean2ᚖbool(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _RideHailingDriverMinFields_deleted_at(ctx context.Context, field graphql.CollectedField, obj *model.RideHailingDriverMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "RideHailingDriverMinFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.DeletedAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*time.Time)
+	fc.Result = res
+	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _RideHailingDriverMinFields_deleted_by(ctx context.Context, field graphql.CollectedField, obj *model.RideHailingDriverMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "RideHailingDriverMinFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.DeletedBy, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _RideHailingDriverMutationResponse_affected_rows(ctx context.Context, field graphql.CollectedField, obj *model.RideHailingDriverMutationResponse) (ret graphql.Marshaler) {
@@ -10667,7 +10935,7 @@ func (ec *executionContext) _RideHailingDriverVerify_driving_exam_time(ctx conte
 	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _RideHailingDriverVerify_create_at(ctx context.Context, field graphql.CollectedField, obj *model1.RideHailingDriverVerify) (ret graphql.Marshaler) {
+func (ec *executionContext) _RideHailingDriverVerify_created_at(ctx context.Context, field graphql.CollectedField, obj *model1.RideHailingDriverVerify) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -10685,7 +10953,7 @@ func (ec *executionContext) _RideHailingDriverVerify_create_at(ctx context.Conte
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.CreateAt, nil
+		return obj.CreatedAt, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -10699,7 +10967,7 @@ func (ec *executionContext) _RideHailingDriverVerify_create_at(ctx context.Conte
 	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _RideHailingDriverVerify_create_by(ctx context.Context, field graphql.CollectedField, obj *model1.RideHailingDriverVerify) (ret graphql.Marshaler) {
+func (ec *executionContext) _RideHailingDriverVerify_created_by(ctx context.Context, field graphql.CollectedField, obj *model1.RideHailingDriverVerify) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -10717,7 +10985,7 @@ func (ec *executionContext) _RideHailingDriverVerify_create_by(ctx context.Conte
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.CreateBy, nil
+		return obj.CreatedBy, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -10731,7 +10999,7 @@ func (ec *executionContext) _RideHailingDriverVerify_create_by(ctx context.Conte
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _RideHailingDriverVerify_update_at(ctx context.Context, field graphql.CollectedField, obj *model1.RideHailingDriverVerify) (ret graphql.Marshaler) {
+func (ec *executionContext) _RideHailingDriverVerify_updated_at(ctx context.Context, field graphql.CollectedField, obj *model1.RideHailingDriverVerify) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -10749,7 +11017,7 @@ func (ec *executionContext) _RideHailingDriverVerify_update_at(ctx context.Conte
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.UpdateAt, nil
+		return obj.UpdatedAt, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -10795,7 +11063,7 @@ func (ec *executionContext) _RideHailingDriverVerify_update_by(ctx context.Conte
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _RideHailingDriverVerify_delete_at(ctx context.Context, field graphql.CollectedField, obj *model1.RideHailingDriverVerify) (ret graphql.Marshaler) {
+func (ec *executionContext) _RideHailingDriverVerify_deleted_at(ctx context.Context, field graphql.CollectedField, obj *model1.RideHailingDriverVerify) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -10813,7 +11081,7 @@ func (ec *executionContext) _RideHailingDriverVerify_delete_at(ctx context.Conte
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.DeleteAt, nil
+		return obj.DeletedAt, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -10827,7 +11095,7 @@ func (ec *executionContext) _RideHailingDriverVerify_delete_at(ctx context.Conte
 	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _RideHailingDriverVerify_delete_by(ctx context.Context, field graphql.CollectedField, obj *model1.RideHailingDriverVerify) (ret graphql.Marshaler) {
+func (ec *executionContext) _RideHailingDriverVerify_deleted_by(ctx context.Context, field graphql.CollectedField, obj *model1.RideHailingDriverVerify) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -10845,7 +11113,7 @@ func (ec *executionContext) _RideHailingDriverVerify_delete_by(ctx context.Conte
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.DeleteBy, nil
+		return obj.DeletedBy, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -10859,7 +11127,7 @@ func (ec *executionContext) _RideHailingDriverVerify_delete_by(ctx context.Conte
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _RideHailingDriverVerify_is_delete(ctx context.Context, field graphql.CollectedField, obj *model1.RideHailingDriverVerify) (ret graphql.Marshaler) {
+func (ec *executionContext) _RideHailingDriverVerify_is_deleted(ctx context.Context, field graphql.CollectedField, obj *model1.RideHailingDriverVerify) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -10877,7 +11145,7 @@ func (ec *executionContext) _RideHailingDriverVerify_is_delete(ctx context.Conte
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.IsDelete, nil
+		return obj.IsDeleted, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -11950,7 +12218,7 @@ func (ec *executionContext) _RideHailingDriverVerifyMaxFields_driving_exam_time(
 	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _RideHailingDriverVerifyMaxFields_create_at(ctx context.Context, field graphql.CollectedField, obj *model.RideHailingDriverVerifyMaxFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _RideHailingDriverVerifyMaxFields_created_at(ctx context.Context, field graphql.CollectedField, obj *model.RideHailingDriverVerifyMaxFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -11968,7 +12236,7 @@ func (ec *executionContext) _RideHailingDriverVerifyMaxFields_create_at(ctx cont
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.CreateAt, nil
+		return obj.CreatedAt, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -11982,7 +12250,7 @@ func (ec *executionContext) _RideHailingDriverVerifyMaxFields_create_at(ctx cont
 	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _RideHailingDriverVerifyMaxFields_create_by(ctx context.Context, field graphql.CollectedField, obj *model.RideHailingDriverVerifyMaxFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _RideHailingDriverVerifyMaxFields_created_by(ctx context.Context, field graphql.CollectedField, obj *model.RideHailingDriverVerifyMaxFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -12000,7 +12268,7 @@ func (ec *executionContext) _RideHailingDriverVerifyMaxFields_create_by(ctx cont
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.CreateBy, nil
+		return obj.CreatedBy, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -12014,7 +12282,7 @@ func (ec *executionContext) _RideHailingDriverVerifyMaxFields_create_by(ctx cont
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _RideHailingDriverVerifyMaxFields_update_at(ctx context.Context, field graphql.CollectedField, obj *model.RideHailingDriverVerifyMaxFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _RideHailingDriverVerifyMaxFields_updated_at(ctx context.Context, field graphql.CollectedField, obj *model.RideHailingDriverVerifyMaxFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -12032,7 +12300,7 @@ func (ec *executionContext) _RideHailingDriverVerifyMaxFields_update_at(ctx cont
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.UpdateAt, nil
+		return obj.UpdatedAt, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -12078,7 +12346,7 @@ func (ec *executionContext) _RideHailingDriverVerifyMaxFields_update_by(ctx cont
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _RideHailingDriverVerifyMaxFields_delete_at(ctx context.Context, field graphql.CollectedField, obj *model.RideHailingDriverVerifyMaxFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _RideHailingDriverVerifyMaxFields_deleted_at(ctx context.Context, field graphql.CollectedField, obj *model.RideHailingDriverVerifyMaxFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -12096,7 +12364,7 @@ func (ec *executionContext) _RideHailingDriverVerifyMaxFields_delete_at(ctx cont
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.DeleteAt, nil
+		return obj.DeletedAt, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -12110,7 +12378,7 @@ func (ec *executionContext) _RideHailingDriverVerifyMaxFields_delete_at(ctx cont
 	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _RideHailingDriverVerifyMaxFields_delete_by(ctx context.Context, field graphql.CollectedField, obj *model.RideHailingDriverVerifyMaxFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _RideHailingDriverVerifyMaxFields_deleted_by(ctx context.Context, field graphql.CollectedField, obj *model.RideHailingDriverVerifyMaxFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -12128,7 +12396,7 @@ func (ec *executionContext) _RideHailingDriverVerifyMaxFields_delete_by(ctx cont
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.DeleteBy, nil
+		return obj.DeletedBy, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -12142,7 +12410,7 @@ func (ec *executionContext) _RideHailingDriverVerifyMaxFields_delete_by(ctx cont
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _RideHailingDriverVerifyMaxFields_is_delete(ctx context.Context, field graphql.CollectedField, obj *model.RideHailingDriverVerifyMaxFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _RideHailingDriverVerifyMaxFields_is_deleted(ctx context.Context, field graphql.CollectedField, obj *model.RideHailingDriverVerifyMaxFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -12160,7 +12428,7 @@ func (ec *executionContext) _RideHailingDriverVerifyMaxFields_is_delete(ctx cont
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.IsDelete, nil
+		return obj.IsDeleted, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -12814,7 +13082,7 @@ func (ec *executionContext) _RideHailingDriverVerifyMinFields_driving_exam_time(
 	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _RideHailingDriverVerifyMinFields_create_at(ctx context.Context, field graphql.CollectedField, obj *model.RideHailingDriverVerifyMinFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _RideHailingDriverVerifyMinFields_created_at(ctx context.Context, field graphql.CollectedField, obj *model.RideHailingDriverVerifyMinFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -12832,7 +13100,7 @@ func (ec *executionContext) _RideHailingDriverVerifyMinFields_create_at(ctx cont
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.CreateAt, nil
+		return obj.CreatedAt, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -12846,7 +13114,7 @@ func (ec *executionContext) _RideHailingDriverVerifyMinFields_create_at(ctx cont
 	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _RideHailingDriverVerifyMinFields_create_by(ctx context.Context, field graphql.CollectedField, obj *model.RideHailingDriverVerifyMinFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _RideHailingDriverVerifyMinFields_created_by(ctx context.Context, field graphql.CollectedField, obj *model.RideHailingDriverVerifyMinFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -12864,7 +13132,7 @@ func (ec *executionContext) _RideHailingDriverVerifyMinFields_create_by(ctx cont
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.CreateBy, nil
+		return obj.CreatedBy, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -12878,7 +13146,7 @@ func (ec *executionContext) _RideHailingDriverVerifyMinFields_create_by(ctx cont
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _RideHailingDriverVerifyMinFields_update_at(ctx context.Context, field graphql.CollectedField, obj *model.RideHailingDriverVerifyMinFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _RideHailingDriverVerifyMinFields_updated_at(ctx context.Context, field graphql.CollectedField, obj *model.RideHailingDriverVerifyMinFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -12896,7 +13164,7 @@ func (ec *executionContext) _RideHailingDriverVerifyMinFields_update_at(ctx cont
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.UpdateAt, nil
+		return obj.UpdatedAt, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -12942,7 +13210,7 @@ func (ec *executionContext) _RideHailingDriverVerifyMinFields_update_by(ctx cont
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _RideHailingDriverVerifyMinFields_delete_at(ctx context.Context, field graphql.CollectedField, obj *model.RideHailingDriverVerifyMinFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _RideHailingDriverVerifyMinFields_deleted_at(ctx context.Context, field graphql.CollectedField, obj *model.RideHailingDriverVerifyMinFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -12960,7 +13228,7 @@ func (ec *executionContext) _RideHailingDriverVerifyMinFields_delete_at(ctx cont
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.DeleteAt, nil
+		return obj.DeletedAt, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -12974,7 +13242,7 @@ func (ec *executionContext) _RideHailingDriverVerifyMinFields_delete_at(ctx cont
 	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _RideHailingDriverVerifyMinFields_delete_by(ctx context.Context, field graphql.CollectedField, obj *model.RideHailingDriverVerifyMinFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _RideHailingDriverVerifyMinFields_deleted_by(ctx context.Context, field graphql.CollectedField, obj *model.RideHailingDriverVerifyMinFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -12992,7 +13260,7 @@ func (ec *executionContext) _RideHailingDriverVerifyMinFields_delete_by(ctx cont
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.DeleteBy, nil
+		return obj.DeletedBy, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -13006,7 +13274,7 @@ func (ec *executionContext) _RideHailingDriverVerifyMinFields_delete_by(ctx cont
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _RideHailingDriverVerifyMinFields_is_delete(ctx context.Context, field graphql.CollectedField, obj *model.RideHailingDriverVerifyMinFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _RideHailingDriverVerifyMinFields_is_deleted(ctx context.Context, field graphql.CollectedField, obj *model.RideHailingDriverVerifyMinFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -13024,7 +13292,7 @@ func (ec *executionContext) _RideHailingDriverVerifyMinFields_is_delete(ctx cont
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.IsDelete, nil
+		return obj.IsDeleted, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -15229,35 +15497,35 @@ func (ec *executionContext) unmarshalInputRideHailingDriverBoolExp(ctx context.C
 			if err != nil {
 				return it, err
 			}
-		case "create_at":
+		case "created_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_at"))
-			it.CreateAt, err = ec.unmarshalOTimestamptzComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
+			it.CreatedAt, err = ec.unmarshalOTimestamptzComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "create_by":
+		case "created_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_by"))
-			it.CreateBy, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
+			it.CreatedBy, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "update_at":
+		case "updated_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_at"))
-			it.UpdateAt, err = ec.unmarshalOTimestamptzComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("updated_at"))
+			it.UpdatedAt, err = ec.unmarshalOTimestamptzComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "update_by":
+		case "updated_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_by"))
-			it.UpdateBy, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("updated_by"))
+			it.UpdatedBy, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -15277,11 +15545,27 @@ func (ec *executionContext) unmarshalInputRideHailingDriverBoolExp(ctx context.C
 			if err != nil {
 				return it, err
 			}
-		case "is_delete":
+		case "is_deleted":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_delete"))
-			it.IsDelete, err = ec.unmarshalOBooleanComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐBooleanComparisonExp(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_deleted"))
+			it.IsDeleted, err = ec.unmarshalOBooleanComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐBooleanComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "deleted_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_at"))
+			it.DeletedAt, err = ec.unmarshalOTimestamptzComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "deleted_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_by"))
+			it.DeletedBy, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -15525,35 +15809,35 @@ func (ec *executionContext) unmarshalInputRideHailingDriverInsertInput(ctx conte
 			if err != nil {
 				return it, err
 			}
-		case "create_at":
+		case "created_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_at"))
-			it.CreateAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
+			it.CreatedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "create_by":
+		case "created_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_by"))
-			it.CreateBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
+			it.CreatedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "update_at":
+		case "updated_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_at"))
-			it.UpdateAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("updated_at"))
+			it.UpdatedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "update_by":
+		case "updated_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_by"))
-			it.UpdateBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("updated_by"))
+			it.UpdatedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -15573,11 +15857,27 @@ func (ec *executionContext) unmarshalInputRideHailingDriverInsertInput(ctx conte
 			if err != nil {
 				return it, err
 			}
-		case "is_delete":
+		case "is_deleted":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_delete"))
-			it.IsDelete, err = ec.unmarshalNBoolean2bool(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_deleted"))
+			it.IsDeleted, err = ec.unmarshalNBoolean2bool(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "deleted_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_at"))
+			it.DeletedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "deleted_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_by"))
+			it.DeletedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -15785,35 +16085,35 @@ func (ec *executionContext) unmarshalInputRideHailingDriverOrderBy(ctx context.C
 			if err != nil {
 				return it, err
 			}
-		case "create_at":
+		case "created_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_at"))
-			it.CreateAt, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
+			it.CreatedAt, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "create_by":
+		case "created_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_by"))
-			it.CreateBy, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
+			it.CreatedBy, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "update_at":
+		case "updated_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_at"))
-			it.UpdateAt, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("updated_at"))
+			it.UpdatedAt, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "update_by":
+		case "updated_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_by"))
-			it.UpdateBy, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("updated_by"))
+			it.UpdatedBy, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -15833,11 +16133,27 @@ func (ec *executionContext) unmarshalInputRideHailingDriverOrderBy(ctx context.C
 			if err != nil {
 				return it, err
 			}
-		case "is_delete":
+		case "is_deleted":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_delete"))
-			it.IsDelete, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_deleted"))
+			it.IsDeleted, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "deleted_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_at"))
+			it.DeletedAt, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "deleted_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_by"))
+			it.DeletedBy, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16045,35 +16361,35 @@ func (ec *executionContext) unmarshalInputRideHailingDriverSetInput(ctx context.
 			if err != nil {
 				return it, err
 			}
-		case "create_at":
+		case "created_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_at"))
-			it.CreateAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
+			it.CreatedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "create_by":
+		case "created_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_by"))
-			it.CreateBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
+			it.CreatedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "update_at":
+		case "updated_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_at"))
-			it.UpdateAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("updated_at"))
+			it.UpdatedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "update_by":
+		case "updated_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_by"))
-			it.UpdateBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("updated_by"))
+			it.UpdatedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16093,11 +16409,27 @@ func (ec *executionContext) unmarshalInputRideHailingDriverSetInput(ctx context.
 			if err != nil {
 				return it, err
 			}
-		case "is_delete":
+		case "is_deleted":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_delete"))
-			it.IsDelete, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_deleted"))
+			it.IsDeleted, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "deleted_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_at"))
+			it.DeletedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "deleted_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_by"))
+			it.DeletedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16297,27 +16629,27 @@ func (ec *executionContext) unmarshalInputRideHailingDriverVerifyBoolExp(ctx con
 			if err != nil {
 				return it, err
 			}
-		case "create_at":
+		case "created_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_at"))
-			it.CreateAt, err = ec.unmarshalOTimestamptzComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
+			it.CreatedAt, err = ec.unmarshalOTimestamptzComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "create_by":
+		case "created_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_by"))
-			it.CreateBy, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
+			it.CreatedBy, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "update_at":
+		case "updated_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_at"))
-			it.UpdateAt, err = ec.unmarshalOTimestamptzComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("updated_at"))
+			it.UpdatedAt, err = ec.unmarshalOTimestamptzComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16329,27 +16661,27 @@ func (ec *executionContext) unmarshalInputRideHailingDriverVerifyBoolExp(ctx con
 			if err != nil {
 				return it, err
 			}
-		case "delete_at":
+		case "deleted_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_at"))
-			it.DeleteAt, err = ec.unmarshalOTimestamptzComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_at"))
+			it.DeletedAt, err = ec.unmarshalOTimestamptzComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "delete_by":
+		case "deleted_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_by"))
-			it.DeleteBy, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_by"))
+			it.DeletedBy, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "is_delete":
+		case "is_deleted":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_delete"))
-			it.IsDelete, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_deleted"))
+			it.IsDeleted, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16537,27 +16869,27 @@ func (ec *executionContext) unmarshalInputRideHailingDriverVerifyInsertInput(ctx
 			if err != nil {
 				return it, err
 			}
-		case "create_at":
+		case "created_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_at"))
-			it.CreateAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
+			it.CreatedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "create_by":
+		case "created_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_by"))
-			it.CreateBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
+			it.CreatedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "update_at":
+		case "updated_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_at"))
-			it.UpdateAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("updated_at"))
+			it.UpdatedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16569,27 +16901,27 @@ func (ec *executionContext) unmarshalInputRideHailingDriverVerifyInsertInput(ctx
 			if err != nil {
 				return it, err
 			}
-		case "delete_at":
+		case "deleted_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_at"))
-			it.DeleteAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_at"))
+			it.DeletedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "delete_by":
+		case "deleted_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_by"))
-			it.DeleteBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_by"))
+			it.DeletedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "is_delete":
+		case "is_deleted":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_delete"))
-			it.IsDelete, err = ec.unmarshalNString2string(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_deleted"))
+			it.IsDeleted, err = ec.unmarshalNString2string(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16765,27 +17097,27 @@ func (ec *executionContext) unmarshalInputRideHailingDriverVerifyOrderBy(ctx con
 			if err != nil {
 				return it, err
 			}
-		case "create_at":
+		case "created_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_at"))
-			it.CreateAt, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
+			it.CreatedAt, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "create_by":
+		case "created_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_by"))
-			it.CreateBy, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
+			it.CreatedBy, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "update_at":
+		case "updated_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_at"))
-			it.UpdateAt, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("updated_at"))
+			it.UpdatedAt, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16797,27 +17129,27 @@ func (ec *executionContext) unmarshalInputRideHailingDriverVerifyOrderBy(ctx con
 			if err != nil {
 				return it, err
 			}
-		case "delete_at":
+		case "deleted_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_at"))
-			it.DeleteAt, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_at"))
+			it.DeletedAt, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "delete_by":
+		case "deleted_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_by"))
-			it.DeleteBy, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_by"))
+			it.DeletedBy, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "is_delete":
+		case "is_deleted":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_delete"))
-			it.IsDelete, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_deleted"))
+			it.IsDeleted, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16993,27 +17325,27 @@ func (ec *executionContext) unmarshalInputRideHailingDriverVerifySetInput(ctx co
 			if err != nil {
 				return it, err
 			}
-		case "create_at":
+		case "created_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_at"))
-			it.CreateAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
+			it.CreatedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "create_by":
+		case "created_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_by"))
-			it.CreateBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
+			it.CreatedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "update_at":
+		case "updated_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_at"))
-			it.UpdateAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("updated_at"))
+			it.UpdatedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -17025,27 +17357,27 @@ func (ec *executionContext) unmarshalInputRideHailingDriverVerifySetInput(ctx co
 			if err != nil {
 				return it, err
 			}
-		case "delete_at":
+		case "deleted_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_at"))
-			it.DeleteAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_at"))
+			it.DeletedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "delete_by":
+		case "deleted_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_by"))
-			it.DeleteBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_by"))
+			it.DeletedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "is_delete":
+		case "is_deleted":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_delete"))
-			it.IsDelete, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_deleted"))
+			it.IsDeleted, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -17544,23 +17876,27 @@ func (ec *executionContext) _RideHailingDriver(ctx context.Context, sel ast.Sele
 			out.Values[i] = ec._RideHailingDriver_check_station(ctx, field, obj)
 		case "update_time_in":
 			out.Values[i] = ec._RideHailingDriver_update_time_in(ctx, field, obj)
-		case "create_at":
-			out.Values[i] = ec._RideHailingDriver_create_at(ctx, field, obj)
-		case "create_by":
-			out.Values[i] = ec._RideHailingDriver_create_by(ctx, field, obj)
-		case "update_at":
-			out.Values[i] = ec._RideHailingDriver_update_at(ctx, field, obj)
-		case "update_by":
-			out.Values[i] = ec._RideHailingDriver_update_by(ctx, field, obj)
+		case "created_at":
+			out.Values[i] = ec._RideHailingDriver_created_at(ctx, field, obj)
+		case "created_by":
+			out.Values[i] = ec._RideHailingDriver_created_by(ctx, field, obj)
+		case "updated_at":
+			out.Values[i] = ec._RideHailingDriver_updated_at(ctx, field, obj)
+		case "updated_by":
+			out.Values[i] = ec._RideHailingDriver_updated_by(ctx, field, obj)
 		case "operator_id":
 			out.Values[i] = ec._RideHailingDriver_operator_id(ctx, field, obj)
 		case "remarks":
 			out.Values[i] = ec._RideHailingDriver_remarks(ctx, field, obj)
-		case "is_delete":
-			out.Values[i] = ec._RideHailingDriver_is_delete(ctx, field, obj)
+		case "is_deleted":
+			out.Values[i] = ec._RideHailingDriver_is_deleted(ctx, field, obj)
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
+		case "deleted_at":
+			out.Values[i] = ec._RideHailingDriver_deleted_at(ctx, field, obj)
+		case "deleted_by":
+			out.Values[i] = ec._RideHailingDriver_deleted_by(ctx, field, obj)
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}
@@ -17729,20 +18065,24 @@ func (ec *executionContext) _RideHailingDriverMaxFields(ctx context.Context, sel
 			out.Values[i] = ec._RideHailingDriverMaxFields_check_station(ctx, field, obj)
 		case "update_time_in":
 			out.Values[i] = ec._RideHailingDriverMaxFields_update_time_in(ctx, field, obj)
-		case "create_at":
-			out.Values[i] = ec._RideHailingDriverMaxFields_create_at(ctx, field, obj)
-		case "create_by":
-			out.Values[i] = ec._RideHailingDriverMaxFields_create_by(ctx, field, obj)
-		case "update_at":
-			out.Values[i] = ec._RideHailingDriverMaxFields_update_at(ctx, field, obj)
-		case "update_by":
-			out.Values[i] = ec._RideHailingDriverMaxFields_update_by(ctx, field, obj)
+		case "created_at":
+			out.Values[i] = ec._RideHailingDriverMaxFields_created_at(ctx, field, obj)
+		case "created_by":
+			out.Values[i] = ec._RideHailingDriverMaxFields_created_by(ctx, field, obj)
+		case "updated_at":
+			out.Values[i] = ec._RideHailingDriverMaxFields_updated_at(ctx, field, obj)
+		case "updated_by":
+			out.Values[i] = ec._RideHailingDriverMaxFields_updated_by(ctx, field, obj)
 		case "operator_id":
 			out.Values[i] = ec._RideHailingDriverMaxFields_operator_id(ctx, field, obj)
 		case "remarks":
 			out.Values[i] = ec._RideHailingDriverMaxFields_remarks(ctx, field, obj)
-		case "is_delete":
-			out.Values[i] = ec._RideHailingDriverMaxFields_is_delete(ctx, field, obj)
+		case "is_deleted":
+			out.Values[i] = ec._RideHailingDriverMaxFields_is_deleted(ctx, field, obj)
+		case "deleted_at":
+			out.Values[i] = ec._RideHailingDriverMaxFields_deleted_at(ctx, field, obj)
+		case "deleted_by":
+			out.Values[i] = ec._RideHailingDriverMaxFields_deleted_by(ctx, field, obj)
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}
@@ -17813,20 +18153,24 @@ func (ec *executionContext) _RideHailingDriverMinFields(ctx context.Context, sel
 			out.Values[i] = ec._RideHailingDriverMinFields_check_station(ctx, field, obj)
 		case "update_time_in":
 			out.Values[i] = ec._RideHailingDriverMinFields_update_time_in(ctx, field, obj)
-		case "create_at":
-			out.Values[i] = ec._RideHailingDriverMinFields_create_at(ctx, field, obj)
-		case "create_by":
-			out.Values[i] = ec._RideHailingDriverMinFields_create_by(ctx, field, obj)
-		case "update_at":
-			out.Values[i] = ec._RideHailingDriverMinFields_update_at(ctx, field, obj)
-		case "update_by":
-			out.Values[i] = ec._RideHailingDriverMinFields_update_by(ctx, field, obj)
+		case "created_at":
+			out.Values[i] = ec._RideHailingDriverMinFields_created_at(ctx, field, obj)
+		case "created_by":
+			out.Values[i] = ec._RideHailingDriverMinFields_created_by(ctx, field, obj)
+		case "updated_at":
+			out.Values[i] = ec._RideHailingDriverMinFields_updated_at(ctx, field, obj)
+		case "updated_by":
+			out.Values[i] = ec._RideHailingDriverMinFields_updated_by(ctx, field, obj)
 		case "operator_id":
 			out.Values[i] = ec._RideHailingDriverMinFields_operator_id(ctx, field, obj)
 		case "remarks":
 			out.Values[i] = ec._RideHailingDriverMinFields_remarks(ctx, field, obj)
-		case "is_delete":
-			out.Values[i] = ec._RideHailingDriverMinFields_is_delete(ctx, field, obj)
+		case "is_deleted":
+			out.Values[i] = ec._RideHailingDriverMinFields_is_deleted(ctx, field, obj)
+		case "deleted_at":
+			out.Values[i] = ec._RideHailingDriverMinFields_deleted_at(ctx, field, obj)
+		case "deleted_by":
+			out.Values[i] = ec._RideHailingDriverMinFields_deleted_by(ctx, field, obj)
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}
@@ -18137,20 +18481,20 @@ func (ec *executionContext) _RideHailingDriverVerify(ctx context.Context, sel as
 			out.Values[i] = ec._RideHailingDriverVerify_is_pass_driving_exam(ctx, field, obj)
 		case "driving_exam_time":
 			out.Values[i] = ec._RideHailingDriverVerify_driving_exam_time(ctx, field, obj)
-		case "create_at":
-			out.Values[i] = ec._RideHailingDriverVerify_create_at(ctx, field, obj)
-		case "create_by":
-			out.Values[i] = ec._RideHailingDriverVerify_create_by(ctx, field, obj)
-		case "update_at":
-			out.Values[i] = ec._RideHailingDriverVerify_update_at(ctx, field, obj)
+		case "created_at":
+			out.Values[i] = ec._RideHailingDriverVerify_created_at(ctx, field, obj)
+		case "created_by":
+			out.Values[i] = ec._RideHailingDriverVerify_created_by(ctx, field, obj)
+		case "updated_at":
+			out.Values[i] = ec._RideHailingDriverVerify_updated_at(ctx, field, obj)
 		case "update_by":
 			out.Values[i] = ec._RideHailingDriverVerify_update_by(ctx, field, obj)
-		case "delete_at":
-			out.Values[i] = ec._RideHailingDriverVerify_delete_at(ctx, field, obj)
-		case "delete_by":
-			out.Values[i] = ec._RideHailingDriverVerify_delete_by(ctx, field, obj)
-		case "is_delete":
-			out.Values[i] = ec._RideHailingDriverVerify_is_delete(ctx, field, obj)
+		case "deleted_at":
+			out.Values[i] = ec._RideHailingDriverVerify_deleted_at(ctx, field, obj)
+		case "deleted_by":
+			out.Values[i] = ec._RideHailingDriverVerify_deleted_by(ctx, field, obj)
+		case "is_deleted":
+			out.Values[i] = ec._RideHailingDriverVerify_is_deleted(ctx, field, obj)
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
@@ -18308,20 +18652,20 @@ func (ec *executionContext) _RideHailingDriverVerifyMaxFields(ctx context.Contex
 			out.Values[i] = ec._RideHailingDriverVerifyMaxFields_is_pass_driving_exam(ctx, field, obj)
 		case "driving_exam_time":
 			out.Values[i] = ec._RideHailingDriverVerifyMaxFields_driving_exam_time(ctx, field, obj)
-		case "create_at":
-			out.Values[i] = ec._RideHailingDriverVerifyMaxFields_create_at(ctx, field, obj)
-		case "create_by":
-			out.Values[i] = ec._RideHailingDriverVerifyMaxFields_create_by(ctx, field, obj)
-		case "update_at":
-			out.Values[i] = ec._RideHailingDriverVerifyMaxFields_update_at(ctx, field, obj)
+		case "created_at":
+			out.Values[i] = ec._RideHailingDriverVerifyMaxFields_created_at(ctx, field, obj)
+		case "created_by":
+			out.Values[i] = ec._RideHailingDriverVerifyMaxFields_created_by(ctx, field, obj)
+		case "updated_at":
+			out.Values[i] = ec._RideHailingDriverVerifyMaxFields_updated_at(ctx, field, obj)
 		case "update_by":
 			out.Values[i] = ec._RideHailingDriverVerifyMaxFields_update_by(ctx, field, obj)
-		case "delete_at":
-			out.Values[i] = ec._RideHailingDriverVerifyMaxFields_delete_at(ctx, field, obj)
-		case "delete_by":
-			out.Values[i] = ec._RideHailingDriverVerifyMaxFields_delete_by(ctx, field, obj)
-		case "is_delete":
-			out.Values[i] = ec._RideHailingDriverVerifyMaxFields_is_delete(ctx, field, obj)
+		case "deleted_at":
+			out.Values[i] = ec._RideHailingDriverVerifyMaxFields_deleted_at(ctx, field, obj)
+		case "deleted_by":
+			out.Values[i] = ec._RideHailingDriverVerifyMaxFields_deleted_by(ctx, field, obj)
+		case "is_deleted":
+			out.Values[i] = ec._RideHailingDriverVerifyMaxFields_is_deleted(ctx, field, obj)
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}
@@ -18384,20 +18728,20 @@ func (ec *executionContext) _RideHailingDriverVerifyMinFields(ctx context.Contex
 			out.Values[i] = ec._RideHailingDriverVerifyMinFields_is_pass_driving_exam(ctx, field, obj)
 		case "driving_exam_time":
 			out.Values[i] = ec._RideHailingDriverVerifyMinFields_driving_exam_time(ctx, field, obj)
-		case "create_at":
-			out.Values[i] = ec._RideHailingDriverVerifyMinFields_create_at(ctx, field, obj)
-		case "create_by":
-			out.Values[i] = ec._RideHailingDriverVerifyMinFields_create_by(ctx, field, obj)
-		case "update_at":
-			out.Values[i] = ec._RideHailingDriverVerifyMinFields_update_at(ctx, field, obj)
+		case "created_at":
+			out.Values[i] = ec._RideHailingDriverVerifyMinFields_created_at(ctx, field, obj)
+		case "created_by":
+			out.Values[i] = ec._RideHailingDriverVerifyMinFields_created_by(ctx, field, obj)
+		case "updated_at":
+			out.Values[i] = ec._RideHailingDriverVerifyMinFields_updated_at(ctx, field, obj)
 		case "update_by":
 			out.Values[i] = ec._RideHailingDriverVerifyMinFields_update_by(ctx, field, obj)
-		case "delete_at":
-			out.Values[i] = ec._RideHailingDriverVerifyMinFields_delete_at(ctx, field, obj)
-		case "delete_by":
-			out.Values[i] = ec._RideHailingDriverVerifyMinFields_delete_by(ctx, field, obj)
-		case "is_delete":
-			out.Values[i] = ec._RideHailingDriverVerifyMinFields_is_delete(ctx, field, obj)
+		case "deleted_at":
+			out.Values[i] = ec._RideHailingDriverVerifyMinFields_deleted_at(ctx, field, obj)
+		case "deleted_by":
+			out.Values[i] = ec._RideHailingDriverVerifyMinFields_deleted_by(ctx, field, obj)
+		case "is_deleted":
+			out.Values[i] = ec._RideHailingDriverVerifyMinFields_is_deleted(ctx, field, obj)
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}

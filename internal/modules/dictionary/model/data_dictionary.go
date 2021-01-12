@@ -21,17 +21,17 @@ type DataDictionary struct {
 	// 备注
 	Remarks *string `json:"remarks"`
 	// 创建时间
-	CreateAt time.Time `json:"create_at"`
+	CreatedAt time.Time `json:"created_at"`
 	// 创建人
-	CreateBy *string `json:"create_by"`
+	CreatedBy *string `json:"created_by"`
 	// 修改时间
-	UpdateAt *time.Time `json:"update_at"`
+	UpdatedAt *time.Time `json:"updated_at"`
 	// 修改人
-	UpdateBy *string `json:"update_by"`
+	UpdatedBy *string `json:"updated_by"`
 	// 删除时间
-	DeleteAt *time.Time `json:"delete_at"`
+	DeletedAt *time.Time `json:"deleted_at"`
 	// 删除人
-	DeleteBy *string `json:"delete_by"`
+	DeletedBy *string `json:"deleted_by"`
 	// 是否删除
-	IsDelete bool `json:"is_delete"`
+	IsDeleted bool `json:"is_deleted"`
 }

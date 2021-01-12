@@ -23,9 +23,9 @@ type TerminalChange struct {
 	// 所在部门ID
 	DeptID *string `json:"dept_id"`
 	// 创建时间
-	CreateAt time.Time `json:"create_at"`
+	CreatedAt time.Time `json:"created_at"`
 	// 创建人
-	CreateBy *string `json:"create_by"`
+	CreatedBy *string `json:"created_by"`
 	// 备注
 	Remark *string `json:"remark"`
 }

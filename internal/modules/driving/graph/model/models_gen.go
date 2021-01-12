@@ -55,13 +55,13 @@ type ControlLineBoolExp struct {
 	CheckTime     *model.TimestamptzComparisonExp `json:"check_time"`
 	CheckUserID   *model.StringComparisonExp      `json:"check_user_id"`
 	RejectReason  *model.StringComparisonExp      `json:"reject_reason"`
-	CreateAt      *model.TimestamptzComparisonExp `json:"create_at"`
-	CreateBy      *model.StringComparisonExp      `json:"create_by"`
-	UpdateAt      *model.TimestamptzComparisonExp `json:"update_at"`
-	UpdateBy      *model.StringComparisonExp      `json:"update_by"`
-	DeleteAt      *model.TimestamptzComparisonExp `json:"delete_at"`
-	DeleteBy      *model.StringComparisonExp      `json:"delete_by"`
-	IsDelete      *model.BooleanComparisonExp     `json:"is_delete"`
+	CreatedAt     *model.TimestamptzComparisonExp `json:"created_at"`
+	CreatedBy     *model.StringComparisonExp      `json:"created_by"`
+	UpdatedAt     *model.TimestamptzComparisonExp `json:"updated_at"`
+	UpdatedBy     *model.StringComparisonExp      `json:"updated_by"`
+	DeletedAt     *model.TimestamptzComparisonExp `json:"deleted_at"`
+	DeletedBy     *model.StringComparisonExp      `json:"deleted_by"`
+	IsDeleted     *model.BooleanComparisonExp     `json:"is_deleted"`
 	GisData       *model.StringComparisonExp      `json:"gis_data"`
 }
 
@@ -85,13 +85,13 @@ type ControlLineInsertInput struct {
 	CheckTime     *time.Time `json:"check_time"`
 	CheckUserID   *string    `json:"check_user_id"`
 	RejectReason  *string    `json:"reject_reason"`
-	CreateAt      time.Time  `json:"create_at"`
-	CreateBy      *string    `json:"create_by"`
-	UpdateAt      *time.Time `json:"update_at"`
-	UpdateBy      *string    `json:"update_by"`
-	DeleteAt      *time.Time `json:"delete_at"`
-	DeleteBy      *string    `json:"delete_by"`
-	IsDelete      bool       `json:"is_delete"`
+	CreatedAt     time.Time  `json:"created_at"`
+	CreatedBy     *string    `json:"created_by"`
+	UpdatedAt     *time.Time `json:"updated_at"`
+	UpdatedBy     *string    `json:"updated_by"`
+	DeletedAt     *time.Time `json:"deleted_at"`
+	DeletedBy     *string    `json:"deleted_by"`
+	IsDeleted     bool       `json:"is_deleted"`
 	GisData       *string    `json:"gis_data"`
 }
 
@@ -108,13 +108,13 @@ type ControlLineMaxFields struct {
 	CheckTime     *time.Time `json:"check_time"`
 	CheckUserID   *string    `json:"check_user_id"`
 	RejectReason  *string    `json:"reject_reason"`
-	CreateAt      *time.Time `json:"create_at"`
-	CreateBy      *string    `json:"create_by"`
-	UpdateAt      *time.Time `json:"update_at"`
-	UpdateBy      *string    `json:"update_by"`
-	DeleteAt      *time.Time `json:"delete_at"`
-	DeleteBy      *string    `json:"delete_by"`
-	IsDelete      *bool      `json:"is_delete"`
+	CreatedAt     *time.Time `json:"created_at"`
+	CreatedBy     *string    `json:"created_by"`
+	UpdatedAt     *time.Time `json:"updated_at"`
+	UpdatedBy     *string    `json:"updated_by"`
+	DeletedAt     *time.Time `json:"deleted_at"`
+	DeletedBy     *string    `json:"deleted_by"`
+	IsDeleted     *bool      `json:"is_deleted"`
 	GisData       *string    `json:"gis_data"`
 }
 
@@ -131,13 +131,13 @@ type ControlLineMinFields struct {
 	CheckTime     *time.Time `json:"check_time"`
 	CheckUserID   *string    `json:"check_user_id"`
 	RejectReason  *string    `json:"reject_reason"`
-	CreateAt      *time.Time `json:"create_at"`
-	CreateBy      *string    `json:"create_by"`
-	UpdateAt      *time.Time `json:"update_at"`
-	UpdateBy      *string    `json:"update_by"`
-	DeleteAt      *time.Time `json:"delete_at"`
-	DeleteBy      *string    `json:"delete_by"`
-	IsDelete      *bool      `json:"is_delete"`
+	CreatedAt     *time.Time `json:"created_at"`
+	CreatedBy     *string    `json:"created_by"`
+	UpdatedAt     *time.Time `json:"updated_at"`
+	UpdatedBy     *string    `json:"updated_by"`
+	DeletedAt     *time.Time `json:"deleted_at"`
+	DeletedBy     *string    `json:"deleted_by"`
+	IsDeleted     *bool      `json:"is_deleted"`
 	GisData       *string    `json:"gis_data"`
 }
 
@@ -160,13 +160,13 @@ type ControlLineOrderBy struct {
 	CheckTime     *model.OrderBy `json:"check_time"`
 	CheckUserID   *model.OrderBy `json:"check_user_id"`
 	RejectReason  *model.OrderBy `json:"reject_reason"`
-	CreateAt      *model.OrderBy `json:"create_at"`
-	CreateBy      *model.OrderBy `json:"create_by"`
-	UpdateAt      *model.OrderBy `json:"update_at"`
-	UpdateBy      *model.OrderBy `json:"update_by"`
-	DeleteAt      *model.OrderBy `json:"delete_at"`
-	DeleteBy      *model.OrderBy `json:"delete_by"`
-	IsDelete      *model.OrderBy `json:"is_delete"`
+	CreatedAt     *model.OrderBy `json:"created_at"`
+	CreatedBy     *model.OrderBy `json:"created_by"`
+	UpdatedAt     *model.OrderBy `json:"updated_at"`
+	UpdatedBy     *model.OrderBy `json:"updated_by"`
+	DeletedAt     *model.OrderBy `json:"deleted_at"`
+	DeletedBy     *model.OrderBy `json:"deleted_by"`
+	IsDeleted     *model.OrderBy `json:"is_deleted"`
 	GisData       *model.OrderBy `json:"gis_data"`
 }
 
@@ -183,13 +183,13 @@ type ControlLineSetInput struct {
 	CheckTime     *time.Time `json:"check_time"`
 	CheckUserID   *string    `json:"check_user_id"`
 	RejectReason  *string    `json:"reject_reason"`
-	CreateAt      *time.Time `json:"create_at"`
-	CreateBy      *string    `json:"create_by"`
-	UpdateAt      *time.Time `json:"update_at"`
-	UpdateBy      *string    `json:"update_by"`
-	DeleteAt      *time.Time `json:"delete_at"`
-	DeleteBy      *string    `json:"delete_by"`
-	IsDelete      *bool      `json:"is_delete"`
+	CreatedAt     *time.Time `json:"created_at"`
+	CreatedBy     *string    `json:"created_by"`
+	UpdatedAt     *time.Time `json:"updated_at"`
+	UpdatedBy     *string    `json:"updated_by"`
+	DeletedAt     *time.Time `json:"deleted_at"`
+	DeletedBy     *string    `json:"deleted_by"`
+	IsDeleted     *bool      `json:"is_deleted"`
 	GisData       *string    `json:"gis_data"`
 }
 
@@ -260,13 +260,13 @@ type ControlLineTimeBoolExp struct {
 	ControlLineID     *model.StringComparisonExp      `json:"control_line_id"`
 	StartTime         *model.TimestamptzComparisonExp `json:"start_time"`
 	EndTime           *model.TimestamptzComparisonExp `json:"end_time"`
-	CreateAt          *model.TimestamptzComparisonExp `json:"create_at"`
-	CreateBy          *model.StringComparisonExp      `json:"create_by"`
-	UpdateAt          *model.TimestamptzComparisonExp `json:"update_at"`
-	UpdateBy          *model.StringComparisonExp      `json:"update_by"`
-	DeleteAt          *model.TimestamptzComparisonExp `json:"delete_at"`
-	DeleteBy          *model.StringComparisonExp      `json:"delete_by"`
-	IsDelete          *model.BooleanComparisonExp     `json:"is_delete"`
+	CreatedAt         *model.TimestamptzComparisonExp `json:"created_at"`
+	CreatedBy         *model.StringComparisonExp      `json:"created_by"`
+	UpdatedAt         *model.TimestamptzComparisonExp `json:"updated_at"`
+	UpdatedBy         *model.StringComparisonExp      `json:"updated_by"`
+	DeletedAt         *model.TimestamptzComparisonExp `json:"deleted_at"`
+	DeletedBy         *model.StringComparisonExp      `json:"deleted_by"`
+	IsDeleted         *model.BooleanComparisonExp     `json:"is_deleted"`
 }
 
 // input type for incrementing integer column in table "control_line_time"
@@ -280,13 +280,13 @@ type ControlLineTimeInsertInput struct {
 	ControlLineID     string     `json:"control_line_id"`
 	StartTime         time.Time  `json:"start_time"`
 	EndTime           time.Time  `json:"end_time"`
-	CreateAt          time.Time  `json:"create_at"`
-	CreateBy          *string    `json:"create_by"`
-	UpdateAt          *time.Time `json:"update_at"`
-	UpdateBy          *string    `json:"update_by"`
-	DeleteAt          *time.Time `json:"delete_at"`
-	DeleteBy          *string    `json:"delete_by"`
-	IsDelete          bool       `json:"is_delete"`
+	CreatedAt         time.Time  `json:"created_at"`
+	CreatedBy         *string    `json:"created_by"`
+	UpdatedAt         *time.Time `json:"updated_at"`
+	UpdatedBy         *string    `json:"updated_by"`
+	DeletedAt         *time.Time `json:"deleted_at"`
+	DeletedBy         *string    `json:"deleted_by"`
+	IsDeleted         bool       `json:"is_deleted"`
 }
 
 // aggregate max on columns of table "control_line_time"
@@ -296,13 +296,13 @@ type ControlLineTimeMaxFields struct {
 	ControlLineID     *string    `json:"control_line_id"`
 	StartTime         *time.Time `json:"start_time"`
 	EndTime           *time.Time `json:"end_time"`
-	CreateAt          *time.Time `json:"create_at"`
-	CreateBy          *string    `json:"create_by"`
-	UpdateAt          *time.Time `json:"update_at"`
-	UpdateBy          *string    `json:"update_by"`
-	DeleteAt          *time.Time `json:"delete_at"`
-	DeleteBy          *string    `json:"delete_by"`
-	IsDelete          *bool      `json:"is_delete"`
+	CreatedAt         *time.Time `json:"created_at"`
+	CreatedBy         *string    `json:"created_by"`
+	UpdatedAt         *time.Time `json:"updated_at"`
+	UpdatedBy         *string    `json:"updated_by"`
+	DeletedAt         *time.Time `json:"deleted_at"`
+	DeletedBy         *string    `json:"deleted_by"`
+	IsDeleted         *bool      `json:"is_deleted"`
 }
 
 // aggregate min on columns of table "control_line_time"
@@ -312,13 +312,13 @@ type ControlLineTimeMinFields struct {
 	ControlLineID     *string    `json:"control_line_id"`
 	StartTime         *time.Time `json:"start_time"`
 	EndTime           *time.Time `json:"end_time"`
-	CreateAt          *time.Time `json:"create_at"`
-	CreateBy          *string    `json:"create_by"`
-	UpdateAt          *time.Time `json:"update_at"`
-	UpdateBy          *string    `json:"update_by"`
-	DeleteAt          *time.Time `json:"delete_at"`
-	DeleteBy          *string    `json:"delete_by"`
-	IsDelete          *bool      `json:"is_delete"`
+	CreatedAt         *time.Time `json:"created_at"`
+	CreatedBy         *string    `json:"created_by"`
+	UpdatedAt         *time.Time `json:"updated_at"`
+	UpdatedBy         *string    `json:"updated_by"`
+	DeletedAt         *time.Time `json:"deleted_at"`
+	DeletedBy         *string    `json:"deleted_by"`
+	IsDeleted         *bool      `json:"is_deleted"`
 }
 
 // response of any mutation on the table "control_line_time"
@@ -334,13 +334,13 @@ type ControlLineTimeOrderBy struct {
 	ControlLineID     *model.OrderBy `json:"control_line_id"`
 	StartTime         *model.OrderBy `json:"start_time"`
 	EndTime           *model.OrderBy `json:"end_time"`
-	CreateAt          *model.OrderBy `json:"create_at"`
-	CreateBy          *model.OrderBy `json:"create_by"`
-	UpdateAt          *model.OrderBy `json:"update_at"`
-	UpdateBy          *model.OrderBy `json:"update_by"`
-	DeleteAt          *model.OrderBy `json:"delete_at"`
-	DeleteBy          *model.OrderBy `json:"delete_by"`
-	IsDelete          *model.OrderBy `json:"is_delete"`
+	CreatedAt         *model.OrderBy `json:"created_at"`
+	CreatedBy         *model.OrderBy `json:"created_by"`
+	UpdatedAt         *model.OrderBy `json:"updated_at"`
+	UpdatedBy         *model.OrderBy `json:"updated_by"`
+	DeletedAt         *model.OrderBy `json:"deleted_at"`
+	DeletedBy         *model.OrderBy `json:"deleted_by"`
+	IsDeleted         *model.OrderBy `json:"is_deleted"`
 }
 
 // input type for updating data in table "control_line_time"
@@ -350,13 +350,13 @@ type ControlLineTimeSetInput struct {
 	ControlLineID     *string    `json:"control_line_id"`
 	StartTime         *time.Time `json:"start_time"`
 	EndTime           *time.Time `json:"end_time"`
-	CreateAt          *time.Time `json:"create_at"`
-	CreateBy          *string    `json:"create_by"`
-	UpdateAt          *time.Time `json:"update_at"`
-	UpdateBy          *string    `json:"update_by"`
-	DeleteAt          *time.Time `json:"delete_at"`
-	DeleteBy          *string    `json:"delete_by"`
-	IsDelete          *bool      `json:"is_delete"`
+	CreatedAt         *time.Time `json:"created_at"`
+	CreatedBy         *string    `json:"created_by"`
+	UpdatedAt         *time.Time `json:"updated_at"`
+	UpdatedBy         *string    `json:"updated_by"`
+	DeletedAt         *time.Time `json:"deleted_at"`
+	DeletedBy         *string    `json:"deleted_by"`
+	IsDeleted         *bool      `json:"is_deleted"`
 }
 
 // aggregate stddev on columns of table "control_line_time"
@@ -460,13 +460,13 @@ type EcdFileCheckHisBoolExp struct {
 	OperTime    *model.TimestamptzComparisonExp `json:"oper_time"`
 	Suggest     *model.StringComparisonExp      `json:"suggest"`
 	Remark      *model.StringComparisonExp      `json:"remark"`
-	CreateAt    *model.TimestamptzComparisonExp `json:"create_at"`
-	CreateBy    *model.StringComparisonExp      `json:"create_by"`
-	UpdateAt    *model.TimestamptzComparisonExp `json:"update_at"`
-	UpdateBy    *model.StringComparisonExp      `json:"update_by"`
-	DeleteAt    *model.TimestamptzComparisonExp `json:"delete_at"`
-	DeleteBy    *model.StringComparisonExp      `json:"delete_by"`
-	IsDelete    *model.BooleanComparisonExp     `json:"is_delete"`
+	CreatedAt   *model.TimestamptzComparisonExp `json:"created_at"`
+	CreatedBy   *model.StringComparisonExp      `json:"created_by"`
+	UpdatedAt   *model.TimestamptzComparisonExp `json:"updated_at"`
+	UpdatedBy   *model.StringComparisonExp      `json:"updated_by"`
+	DeletedAt   *model.TimestamptzComparisonExp `json:"deleted_at"`
+	DeletedBy   *model.StringComparisonExp      `json:"deleted_by"`
+	IsDeleted   *model.BooleanComparisonExp     `json:"is_deleted"`
 }
 
 // input type for incrementing integer column in table "ecd_file_check_his"
@@ -487,13 +487,13 @@ type EcdFileCheckHisInsertInput struct {
 	OperTime    *time.Time `json:"oper_time"`
 	Suggest     *string    `json:"suggest"`
 	Remark      *string    `json:"remark"`
-	CreateAt    time.Time  `json:"create_at"`
-	CreateBy    *string    `json:"create_by"`
-	UpdateAt    *time.Time `json:"update_at"`
-	UpdateBy    *string    `json:"update_by"`
-	DeleteAt    *time.Time `json:"delete_at"`
-	DeleteBy    *string    `json:"delete_by"`
-	IsDelete    *bool      `json:"is_delete"`
+	CreatedAt   time.Time  `json:"created_at"`
+	CreatedBy   *string    `json:"created_by"`
+	UpdatedAt   *time.Time `json:"updated_at"`
+	UpdatedBy   *string    `json:"updated_by"`
+	DeletedAt   *time.Time `json:"deleted_at"`
+	DeletedBy   *string    `json:"deleted_by"`
+	IsDeleted   *bool      `json:"is_deleted"`
 }
 
 // aggregate max on columns of table "ecd_file_check_his"
@@ -508,13 +508,13 @@ type EcdFileCheckHisMaxFields struct {
 	OperTime    *time.Time `json:"oper_time"`
 	Suggest     *string    `json:"suggest"`
 	Remark      *string    `json:"remark"`
-	CreateAt    *time.Time `json:"create_at"`
-	CreateBy    *string    `json:"create_by"`
-	UpdateAt    *time.Time `json:"update_at"`
-	UpdateBy    *string    `json:"update_by"`
-	DeleteAt    *time.Time `json:"delete_at"`
-	DeleteBy    *string    `json:"delete_by"`
-	IsDelete    *bool      `json:"is_delete"`
+	CreatedAt   *time.Time `json:"created_at"`
+	CreatedBy   *string    `json:"created_by"`
+	UpdatedAt   *time.Time `json:"updated_at"`
+	UpdatedBy   *string    `json:"updated_by"`
+	DeletedAt   *time.Time `json:"deleted_at"`
+	DeletedBy   *string    `json:"deleted_by"`
+	IsDeleted   *bool      `json:"is_deleted"`
 }
 
 // aggregate min on columns of table "ecd_file_check_his"
@@ -529,13 +529,13 @@ type EcdFileCheckHisMinFields struct {
 	OperTime    *time.Time `json:"oper_time"`
 	Suggest     *string    `json:"suggest"`
 	Remark      *string    `json:"remark"`
-	CreateAt    *time.Time `json:"create_at"`
-	CreateBy    *string    `json:"create_by"`
-	UpdateAt    *time.Time `json:"update_at"`
-	UpdateBy    *string    `json:"update_by"`
-	DeleteAt    *time.Time `json:"delete_at"`
-	DeleteBy    *string    `json:"delete_by"`
-	IsDelete    *bool      `json:"is_delete"`
+	CreatedAt   *time.Time `json:"created_at"`
+	CreatedBy   *string    `json:"created_by"`
+	UpdatedAt   *time.Time `json:"updated_at"`
+	UpdatedBy   *string    `json:"updated_by"`
+	DeletedAt   *time.Time `json:"deleted_at"`
+	DeletedBy   *string    `json:"deleted_by"`
+	IsDeleted   *bool      `json:"is_deleted"`
 }
 
 // response of any mutation on the table "ecd_file_check_his"
@@ -556,13 +556,13 @@ type EcdFileCheckHisOrderBy struct {
 	OperTime    *model.OrderBy `json:"oper_time"`
 	Suggest     *model.OrderBy `json:"suggest"`
 	Remark      *model.OrderBy `json:"remark"`
-	CreateAt    *model.OrderBy `json:"create_at"`
-	CreateBy    *model.OrderBy `json:"create_by"`
-	UpdateAt    *model.OrderBy `json:"update_at"`
-	UpdateBy    *model.OrderBy `json:"update_by"`
-	DeleteAt    *model.OrderBy `json:"delete_at"`
-	DeleteBy    *model.OrderBy `json:"delete_by"`
-	IsDelete    *model.OrderBy `json:"is_delete"`
+	CreatedAt   *model.OrderBy `json:"created_at"`
+	CreatedBy   *model.OrderBy `json:"created_by"`
+	UpdatedAt   *model.OrderBy `json:"updated_at"`
+	UpdatedBy   *model.OrderBy `json:"updated_by"`
+	DeletedAt   *model.OrderBy `json:"deleted_at"`
+	DeletedBy   *model.OrderBy `json:"deleted_by"`
+	IsDeleted   *model.OrderBy `json:"is_deleted"`
 }
 
 // input type for updating data in table "ecd_file_check_his"
@@ -577,13 +577,13 @@ type EcdFileCheckHisSetInput struct {
 	OperTime    *time.Time `json:"oper_time"`
 	Suggest     *string    `json:"suggest"`
 	Remark      *string    `json:"remark"`
-	CreateAt    *time.Time `json:"create_at"`
-	CreateBy    *string    `json:"create_by"`
-	UpdateAt    *time.Time `json:"update_at"`
-	UpdateBy    *string    `json:"update_by"`
-	DeleteAt    *time.Time `json:"delete_at"`
-	DeleteBy    *string    `json:"delete_by"`
-	IsDelete    *bool      `json:"is_delete"`
+	CreatedAt   *time.Time `json:"created_at"`
+	CreatedBy   *string    `json:"created_by"`
+	UpdatedAt   *time.Time `json:"updated_at"`
+	UpdatedBy   *string    `json:"updated_by"`
+	DeletedAt   *time.Time `json:"deleted_at"`
+	DeletedBy   *string    `json:"deleted_by"`
+	IsDeleted   *bool      `json:"is_deleted"`
 }
 
 // aggregate stddev on columns of table "ecd_file_check_his"
@@ -669,13 +669,13 @@ type EcdFileDistrictBoolExp struct {
 	FileDistrictID *model.StringComparisonExp      `json:"file_district_id"`
 	FileMainID     *model.StringComparisonExp      `json:"file_main_id"`
 	DistrictID     *model.StringComparisonExp      `json:"district_id"`
-	CreateAt       *model.TimestamptzComparisonExp `json:"create_at"`
-	CreateBy       *model.StringComparisonExp      `json:"create_by"`
-	UpdateAt       *model.TimestamptzComparisonExp `json:"update_at"`
-	UpdateBy       *model.StringComparisonExp      `json:"update_by"`
-	DeleteAt       *model.TimestamptzComparisonExp `json:"delete_at"`
-	DeleteBy       *model.StringComparisonExp      `json:"delete_by"`
-	IsDelete       *model.BooleanComparisonExp     `json:"is_delete"`
+	CreatedAt      *model.TimestamptzComparisonExp `json:"created_at"`
+	CreatedBy      *model.StringComparisonExp      `json:"created_by"`
+	UpdatedAt      *model.TimestamptzComparisonExp `json:"updated_at"`
+	UpdatedBy      *model.StringComparisonExp      `json:"updated_by"`
+	DeletedAt      *model.TimestamptzComparisonExp `json:"deleted_at"`
+	DeletedBy      *model.StringComparisonExp      `json:"deleted_by"`
+	IsDeleted      *model.BooleanComparisonExp     `json:"is_deleted"`
 }
 
 // input type for incrementing integer column in table "ecd_file_district"
@@ -688,13 +688,13 @@ type EcdFileDistrictInsertInput struct {
 	FileDistrictID string     `json:"file_district_id"`
 	FileMainID     string     `json:"file_main_id"`
 	DistrictID     string     `json:"district_id"`
-	CreateAt       time.Time  `json:"create_at"`
-	CreateBy       *string    `json:"create_by"`
-	UpdateAt       *time.Time `json:"update_at"`
-	UpdateBy       *string    `json:"update_by"`
-	DeleteAt       *time.Time `json:"delete_at"`
-	DeleteBy       *string    `json:"delete_by"`
-	IsDelete       bool       `json:"is_delete"`
+	CreatedAt      time.Time  `json:"created_at"`
+	CreatedBy      *string    `json:"created_by"`
+	UpdatedAt      *time.Time `json:"updated_at"`
+	UpdatedBy      *string    `json:"updated_by"`
+	DeletedAt      *time.Time `json:"deleted_at"`
+	DeletedBy      *string    `json:"deleted_by"`
+	IsDeleted      bool       `json:"is_deleted"`
 }
 
 // aggregate max on columns of table "ecd_file_district"
@@ -703,13 +703,13 @@ type EcdFileDistrictMaxFields struct {
 	FileDistrictID *string    `json:"file_district_id"`
 	FileMainID     *string    `json:"file_main_id"`
 	DistrictID     *string    `json:"district_id"`
-	CreateAt       *time.Time `json:"create_at"`
-	CreateBy       *string    `json:"create_by"`
-	UpdateAt       *time.Time `json:"update_at"`
-	UpdateBy       *string    `json:"update_by"`
-	DeleteAt       *time.Time `json:"delete_at"`
-	DeleteBy       *string    `json:"delete_by"`
-	IsDelete       *bool      `json:"is_delete"`
+	CreatedAt      *time.Time `json:"created_at"`
+	CreatedBy      *string    `json:"created_by"`
+	UpdatedAt      *time.Time `json:"updated_at"`
+	UpdatedBy      *string    `json:"updated_by"`
+	DeletedAt      *time.Time `json:"deleted_at"`
+	DeletedBy      *string    `json:"deleted_by"`
+	IsDeleted      *bool      `json:"is_deleted"`
 }
 
 // aggregate min on columns of table "ecd_file_district"
@@ -718,13 +718,13 @@ type EcdFileDistrictMinFields struct {
 	FileDistrictID *string    `json:"file_district_id"`
 	FileMainID     *string    `json:"file_main_id"`
 	DistrictID     *string    `json:"district_id"`
-	CreateAt       *time.Time `json:"create_at"`
-	CreateBy       *string    `json:"create_by"`
-	UpdateAt       *time.Time `json:"update_at"`
-	UpdateBy       *string    `json:"update_by"`
-	DeleteAt       *time.Time `json:"delete_at"`
-	DeleteBy       *string    `json:"delete_by"`
-	IsDelete       *bool      `json:"is_delete"`
+	CreatedAt      *time.Time `json:"created_at"`
+	CreatedBy      *string    `json:"created_by"`
+	UpdatedAt      *time.Time `json:"updated_at"`
+	UpdatedBy      *string    `json:"updated_by"`
+	DeletedAt      *time.Time `json:"deleted_at"`
+	DeletedBy      *string    `json:"deleted_by"`
+	IsDeleted      *bool      `json:"is_deleted"`
 }
 
 // response of any mutation on the table "ecd_file_district"
@@ -739,13 +739,13 @@ type EcdFileDistrictOrderBy struct {
 	FileDistrictID *model.OrderBy `json:"file_district_id"`
 	FileMainID     *model.OrderBy `json:"file_main_id"`
 	DistrictID     *model.OrderBy `json:"district_id"`
-	CreateAt       *model.OrderBy `json:"create_at"`
-	CreateBy       *model.OrderBy `json:"create_by"`
-	UpdateAt       *model.OrderBy `json:"update_at"`
-	UpdateBy       *model.OrderBy `json:"update_by"`
-	DeleteAt       *model.OrderBy `json:"delete_at"`
-	DeleteBy       *model.OrderBy `json:"delete_by"`
-	IsDelete       *model.OrderBy `json:"is_delete"`
+	CreatedAt      *model.OrderBy `json:"created_at"`
+	CreatedBy      *model.OrderBy `json:"created_by"`
+	UpdatedAt      *model.OrderBy `json:"updated_at"`
+	UpdatedBy      *model.OrderBy `json:"updated_by"`
+	DeletedAt      *model.OrderBy `json:"deleted_at"`
+	DeletedBy      *model.OrderBy `json:"deleted_by"`
+	IsDeleted      *model.OrderBy `json:"is_deleted"`
 }
 
 // input type for updating data in table "ecd_file_district"
@@ -754,13 +754,13 @@ type EcdFileDistrictSetInput struct {
 	FileDistrictID *string    `json:"file_district_id"`
 	FileMainID     *string    `json:"file_main_id"`
 	DistrictID     *string    `json:"district_id"`
-	CreateAt       *time.Time `json:"create_at"`
-	CreateBy       *string    `json:"create_by"`
-	UpdateAt       *time.Time `json:"update_at"`
-	UpdateBy       *string    `json:"update_by"`
-	DeleteAt       *time.Time `json:"delete_at"`
-	DeleteBy       *string    `json:"delete_by"`
-	IsDelete       *bool      `json:"is_delete"`
+	CreatedAt      *time.Time `json:"created_at"`
+	CreatedBy      *string    `json:"created_by"`
+	UpdatedAt      *time.Time `json:"updated_at"`
+	UpdatedBy      *string    `json:"updated_by"`
+	DeletedAt      *time.Time `json:"deleted_at"`
+	DeletedBy      *string    `json:"deleted_by"`
+	IsDeleted      *bool      `json:"is_deleted"`
 }
 
 // aggregate stddev on columns of table "ecd_file_district"
@@ -837,13 +837,13 @@ type EcdFileLinePointBoolExp struct {
 	LinePointName   *model.StringComparisonExp      `json:"line_point_name"`
 	LinePointRemark *model.StringComparisonExp      `json:"line_point_remark"`
 	PointType       *model.IntComparisonExp         `json:"point_type"`
-	CreateAt        *model.TimestamptzComparisonExp `json:"create_at"`
-	CreateBy        *model.StringComparisonExp      `json:"create_by"`
-	UpdateAt        *model.TimestamptzComparisonExp `json:"update_at"`
-	UpdateBy        *model.StringComparisonExp      `json:"update_by"`
-	DeleteAt        *model.TimestamptzComparisonExp `json:"delete_at"`
-	DeleteBy        *model.StringComparisonExp      `json:"delete_by"`
-	IsDelete        *model.BooleanComparisonExp     `json:"is_delete"`
+	CreatedAt       *model.TimestamptzComparisonExp `json:"created_at"`
+	CreatedBy       *model.StringComparisonExp      `json:"created_by"`
+	UpdatedAt       *model.TimestamptzComparisonExp `json:"updated_at"`
+	UpdatedBy       *model.StringComparisonExp      `json:"updated_by"`
+	DeletedAt       *model.TimestamptzComparisonExp `json:"deleted_at"`
+	DeletedBy       *model.StringComparisonExp      `json:"deleted_by"`
+	IsDeleted       *model.BooleanComparisonExp     `json:"is_deleted"`
 }
 
 // input type for incrementing integer column in table "ecd_file_line_point"
@@ -861,13 +861,13 @@ type EcdFileLinePointInsertInput struct {
 	LinePointName   *string    `json:"line_point_name"`
 	LinePointRemark *string    `json:"line_point_remark"`
 	PointType       *int       `json:"point_type"`
-	CreateAt        time.Time  `json:"create_at"`
-	CreateBy        *string    `json:"create_by"`
-	UpdateAt        *time.Time `json:"update_at"`
-	UpdateBy        *string    `json:"update_by"`
-	DeleteAt        *time.Time `json:"delete_at"`
-	DeleteBy        *string    `json:"delete_by"`
-	IsDelete        bool       `json:"is_delete"`
+	CreatedAt       time.Time  `json:"created_at"`
+	CreatedBy       *string    `json:"created_by"`
+	UpdatedAt       *time.Time `json:"updated_at"`
+	UpdatedBy       *string    `json:"updated_by"`
+	DeletedAt       *time.Time `json:"deleted_at"`
+	DeletedBy       *string    `json:"deleted_by"`
+	IsDeleted       bool       `json:"is_deleted"`
 }
 
 // aggregate max on columns of table "ecd_file_line_point"
@@ -880,13 +880,13 @@ type EcdFileLinePointMaxFields struct {
 	LinePointName   *string    `json:"line_point_name"`
 	LinePointRemark *string    `json:"line_point_remark"`
 	PointType       *int       `json:"point_type"`
-	CreateAt        *time.Time `json:"create_at"`
-	CreateBy        *string    `json:"create_by"`
-	UpdateAt        *time.Time `json:"update_at"`
-	UpdateBy        *string    `json:"update_by"`
-	DeleteAt        *time.Time `json:"delete_at"`
-	DeleteBy        *string    `json:"delete_by"`
-	IsDelete        *bool      `json:"is_delete"`
+	CreatedAt       *time.Time `json:"created_at"`
+	CreatedBy       *string    `json:"created_by"`
+	UpdatedAt       *time.Time `json:"updated_at"`
+	UpdatedBy       *string    `json:"updated_by"`
+	DeletedAt       *time.Time `json:"deleted_at"`
+	DeletedBy       *string    `json:"deleted_by"`
+	IsDeleted       *bool      `json:"is_deleted"`
 }
 
 // aggregate min on columns of table "ecd_file_line_point"
@@ -899,13 +899,13 @@ type EcdFileLinePointMinFields struct {
 	LinePointName   *string    `json:"line_point_name"`
 	LinePointRemark *string    `json:"line_point_remark"`
 	PointType       *int       `json:"point_type"`
-	CreateAt        *time.Time `json:"create_at"`
-	CreateBy        *string    `json:"create_by"`
-	UpdateAt        *time.Time `json:"update_at"`
-	UpdateBy        *string    `json:"update_by"`
-	DeleteAt        *time.Time `json:"delete_at"`
-	DeleteBy        *string    `json:"delete_by"`
-	IsDelete        *bool      `json:"is_delete"`
+	CreatedAt       *time.Time `json:"created_at"`
+	CreatedBy       *string    `json:"created_by"`
+	UpdatedAt       *time.Time `json:"updated_at"`
+	UpdatedBy       *string    `json:"updated_by"`
+	DeletedAt       *time.Time `json:"deleted_at"`
+	DeletedBy       *string    `json:"deleted_by"`
+	IsDeleted       *bool      `json:"is_deleted"`
 }
 
 // response of any mutation on the table "ecd_file_line_point"
@@ -924,13 +924,13 @@ type EcdFileLinePointOrderBy struct {
 	LinePointName   *model.OrderBy `json:"line_point_name"`
 	LinePointRemark *model.OrderBy `json:"line_point_remark"`
 	PointType       *model.OrderBy `json:"point_type"`
-	CreateAt        *model.OrderBy `json:"create_at"`
-	CreateBy        *model.OrderBy `json:"create_by"`
-	UpdateAt        *model.OrderBy `json:"update_at"`
-	UpdateBy        *model.OrderBy `json:"update_by"`
-	DeleteAt        *model.OrderBy `json:"delete_at"`
-	DeleteBy        *model.OrderBy `json:"delete_by"`
-	IsDelete        *model.OrderBy `json:"is_delete"`
+	CreatedAt       *model.OrderBy `json:"created_at"`
+	CreatedBy       *model.OrderBy `json:"created_by"`
+	UpdatedAt       *model.OrderBy `json:"updated_at"`
+	UpdatedBy       *model.OrderBy `json:"updated_by"`
+	DeletedAt       *model.OrderBy `json:"deleted_at"`
+	DeletedBy       *model.OrderBy `json:"deleted_by"`
+	IsDeleted       *model.OrderBy `json:"is_deleted"`
 }
 
 // input type for updating data in table "ecd_file_line_point"
@@ -943,13 +943,13 @@ type EcdFileLinePointSetInput struct {
 	LinePointName   *string    `json:"line_point_name"`
 	LinePointRemark *string    `json:"line_point_remark"`
 	PointType       *int       `json:"point_type"`
-	CreateAt        *time.Time `json:"create_at"`
-	CreateBy        *string    `json:"create_by"`
-	UpdateAt        *time.Time `json:"update_at"`
-	UpdateBy        *string    `json:"update_by"`
-	DeleteAt        *time.Time `json:"delete_at"`
-	DeleteBy        *string    `json:"delete_by"`
-	IsDelete        *bool      `json:"is_delete"`
+	CreatedAt       *time.Time `json:"created_at"`
+	CreatedBy       *string    `json:"created_by"`
+	UpdatedAt       *time.Time `json:"updated_at"`
+	UpdatedBy       *string    `json:"updated_by"`
+	DeletedAt       *time.Time `json:"deleted_at"`
+	DeletedBy       *string    `json:"deleted_by"`
+	IsDeleted       *bool      `json:"is_deleted"`
 }
 
 // aggregate stddev on columns of table "ecd_file_line_point"
@@ -1061,13 +1061,13 @@ type EcdFileMainBoolExp struct {
 	ConstructGarbageAllowFile   *model.StringComparisonExp      `json:"construct_garbage_allow_file"`
 	ConstructSiteEnterancePhoto *model.StringComparisonExp      `json:"construct_site_enterance_photo"`
 	ConstructWashCarPlacePhoto  *model.StringComparisonExp      `json:"construct_wash_car_place_photo"`
-	CreateAt                    *model.TimestamptzComparisonExp `json:"create_at"`
-	CreateBy                    *model.StringComparisonExp      `json:"create_by"`
-	UpdateAt                    *model.TimestamptzComparisonExp `json:"update_at"`
-	UpdateBy                    *model.StringComparisonExp      `json:"update_by"`
-	DeleteAt                    *model.TimestamptzComparisonExp `json:"delete_at"`
-	DeleteBy                    *model.StringComparisonExp      `json:"delete_by"`
-	IsDelete                    *model.BooleanComparisonExp     `json:"is_delete"`
+	CreatedAt                   *model.TimestamptzComparisonExp `json:"created_at"`
+	CreatedBy                   *model.StringComparisonExp      `json:"created_by"`
+	UpdatedAt                   *model.TimestamptzComparisonExp `json:"updated_at"`
+	UpdatedBy                   *model.StringComparisonExp      `json:"updated_by"`
+	DeletedAt                   *model.TimestamptzComparisonExp `json:"deleted_at"`
+	DeletedBy                   *model.StringComparisonExp      `json:"deleted_by"`
+	IsDeleted                   *model.BooleanComparisonExp     `json:"is_deleted"`
 	Remark                      *model.StringComparisonExp      `json:"remark"`
 }
 
@@ -1114,13 +1114,13 @@ type EcdFileMainInsertInput struct {
 	ConstructGarbageAllowFile   *string    `json:"construct_garbage_allow_file"`
 	ConstructSiteEnterancePhoto *string    `json:"construct_site_enterance_photo"`
 	ConstructWashCarPlacePhoto  *string    `json:"construct_wash_car_place_photo"`
-	CreateAt                    time.Time  `json:"create_at"`
-	CreateBy                    *string    `json:"create_by"`
-	UpdateAt                    *time.Time `json:"update_at"`
-	UpdateBy                    *string    `json:"update_by"`
-	DeleteAt                    *time.Time `json:"delete_at"`
-	DeleteBy                    *string    `json:"delete_by"`
-	IsDelete                    bool       `json:"is_delete"`
+	CreatedAt                   time.Time  `json:"created_at"`
+	CreatedBy                   *string    `json:"created_by"`
+	UpdatedAt                   *time.Time `json:"updated_at"`
+	UpdatedBy                   *string    `json:"updated_by"`
+	DeletedAt                   *time.Time `json:"deleted_at"`
+	DeletedBy                   *string    `json:"deleted_by"`
+	IsDeleted                   bool       `json:"is_deleted"`
 	Remark                      *string    `json:"remark"`
 }
 
@@ -1160,13 +1160,13 @@ type EcdFileMainMaxFields struct {
 	ConstructGarbageAllowFile   *string    `json:"construct_garbage_allow_file"`
 	ConstructSiteEnterancePhoto *string    `json:"construct_site_enterance_photo"`
 	ConstructWashCarPlacePhoto  *string    `json:"construct_wash_car_place_photo"`
-	CreateAt                    *time.Time `json:"create_at"`
-	CreateBy                    *string    `json:"create_by"`
-	UpdateAt                    *time.Time `json:"update_at"`
-	UpdateBy                    *string    `json:"update_by"`
-	DeleteAt                    *time.Time `json:"delete_at"`
-	DeleteBy                    *string    `json:"delete_by"`
-	IsDelete                    *bool      `json:"is_delete"`
+	CreatedAt                   *time.Time `json:"created_at"`
+	CreatedBy                   *string    `json:"created_by"`
+	UpdatedAt                   *time.Time `json:"updated_at"`
+	UpdatedBy                   *string    `json:"updated_by"`
+	DeletedAt                   *time.Time `json:"deleted_at"`
+	DeletedBy                   *string    `json:"deleted_by"`
+	IsDeleted                   *bool      `json:"is_deleted"`
 	Remark                      *string    `json:"remark"`
 }
 
@@ -1206,13 +1206,13 @@ type EcdFileMainMinFields struct {
 	ConstructGarbageAllowFile   *string    `json:"construct_garbage_allow_file"`
 	ConstructSiteEnterancePhoto *string    `json:"construct_site_enterance_photo"`
 	ConstructWashCarPlacePhoto  *string    `json:"construct_wash_car_place_photo"`
-	CreateAt                    *time.Time `json:"create_at"`
-	CreateBy                    *string    `json:"create_by"`
-	UpdateAt                    *time.Time `json:"update_at"`
-	UpdateBy                    *string    `json:"update_by"`
-	DeleteAt                    *time.Time `json:"delete_at"`
-	DeleteBy                    *string    `json:"delete_by"`
-	IsDelete                    *bool      `json:"is_delete"`
+	CreatedAt                   *time.Time `json:"created_at"`
+	CreatedBy                   *string    `json:"created_by"`
+	UpdatedAt                   *time.Time `json:"updated_at"`
+	UpdatedBy                   *string    `json:"updated_by"`
+	DeletedAt                   *time.Time `json:"deleted_at"`
+	DeletedBy                   *string    `json:"deleted_by"`
+	IsDeleted                   *bool      `json:"is_deleted"`
 	Remark                      *string    `json:"remark"`
 }
 
@@ -1258,13 +1258,13 @@ type EcdFileMainOrderBy struct {
 	ConstructGarbageAllowFile   *model.OrderBy `json:"construct_garbage_allow_file"`
 	ConstructSiteEnterancePhoto *model.OrderBy `json:"construct_site_enterance_photo"`
 	ConstructWashCarPlacePhoto  *model.OrderBy `json:"construct_wash_car_place_photo"`
-	CreateAt                    *model.OrderBy `json:"create_at"`
-	CreateBy                    *model.OrderBy `json:"create_by"`
-	UpdateAt                    *model.OrderBy `json:"update_at"`
-	UpdateBy                    *model.OrderBy `json:"update_by"`
-	DeleteAt                    *model.OrderBy `json:"delete_at"`
-	DeleteBy                    *model.OrderBy `json:"delete_by"`
-	IsDelete                    *model.OrderBy `json:"is_delete"`
+	CreatedAt                   *model.OrderBy `json:"created_at"`
+	CreatedBy                   *model.OrderBy `json:"created_by"`
+	UpdatedAt                   *model.OrderBy `json:"updated_at"`
+	UpdatedBy                   *model.OrderBy `json:"updated_by"`
+	DeletedAt                   *model.OrderBy `json:"deleted_at"`
+	DeletedBy                   *model.OrderBy `json:"deleted_by"`
+	IsDeleted                   *model.OrderBy `json:"is_deleted"`
 	Remark                      *model.OrderBy `json:"remark"`
 }
 
@@ -1304,13 +1304,13 @@ type EcdFileMainSetInput struct {
 	ConstructGarbageAllowFile   *string    `json:"construct_garbage_allow_file"`
 	ConstructSiteEnterancePhoto *string    `json:"construct_site_enterance_photo"`
 	ConstructWashCarPlacePhoto  *string    `json:"construct_wash_car_place_photo"`
-	CreateAt                    *time.Time `json:"create_at"`
-	CreateBy                    *string    `json:"create_by"`
-	UpdateAt                    *time.Time `json:"update_at"`
-	UpdateBy                    *string    `json:"update_by"`
-	DeleteAt                    *time.Time `json:"delete_at"`
-	DeleteBy                    *string    `json:"delete_by"`
-	IsDelete                    *bool      `json:"is_delete"`
+	CreatedAt                   *time.Time `json:"created_at"`
+	CreatedBy                   *string    `json:"created_by"`
+	UpdatedAt                   *time.Time `json:"updated_at"`
+	UpdatedBy                   *string    `json:"updated_by"`
+	DeletedAt                   *time.Time `json:"deleted_at"`
+	DeletedBy                   *string    `json:"deleted_by"`
+	IsDeleted                   *bool      `json:"is_deleted"`
 	Remark                      *string    `json:"remark"`
 }
 
@@ -1396,13 +1396,13 @@ type EcdFileMainSubBoolExp struct {
 	PackageDirectorName   *model.StringComparisonExp      `json:"package_director_name"`
 	PackagePhone          *model.StringComparisonExp      `json:"package_phone"`
 	Facts                 *model.StringComparisonExp      `json:"facts"`
-	CreateAt              *model.TimestamptzComparisonExp `json:"create_at"`
-	CreateBy              *model.StringComparisonExp      `json:"create_by"`
-	UpdateAt              *model.TimestamptzComparisonExp `json:"update_at"`
-	UpdateBy              *model.StringComparisonExp      `json:"update_by"`
-	DeleteAt              *model.TimestamptzComparisonExp `json:"delete_at"`
-	DeleteBy              *model.StringComparisonExp      `json:"delete_by"`
-	IsDelete              *model.BooleanComparisonExp     `json:"is_delete"`
+	CreatedAt             *model.TimestamptzComparisonExp `json:"created_at"`
+	CreatedBy             *model.StringComparisonExp      `json:"created_by"`
+	UpdatedAt             *model.TimestamptzComparisonExp `json:"updated_at"`
+	UpdatedBy             *model.StringComparisonExp      `json:"updated_by"`
+	DeletedAt             *model.TimestamptzComparisonExp `json:"deleted_at"`
+	DeletedBy             *model.StringComparisonExp      `json:"deleted_by"`
+	IsDeleted             *model.BooleanComparisonExp     `json:"is_deleted"`
 }
 
 // input type for incrementing integer column in table "ecd_file_main_sub"
@@ -1439,13 +1439,13 @@ type EcdFileMainSubInsertInput struct {
 	PackageDirectorName   *string    `json:"package_director_name"`
 	PackagePhone          *string    `json:"package_phone"`
 	Facts                 *string    `json:"facts"`
-	CreateAt              time.Time  `json:"create_at"`
-	CreateBy              *string    `json:"create_by"`
-	UpdateAt              *time.Time `json:"update_at"`
-	UpdateBy              *string    `json:"update_by"`
-	DeleteAt              *time.Time `json:"delete_at"`
-	DeleteBy              *string    `json:"delete_by"`
-	IsDelete              bool       `json:"is_delete"`
+	CreatedAt             time.Time  `json:"created_at"`
+	CreatedBy             *string    `json:"created_by"`
+	UpdatedAt             *time.Time `json:"updated_at"`
+	UpdatedBy             *string    `json:"updated_by"`
+	DeletedAt             *time.Time `json:"deleted_at"`
+	DeletedBy             *string    `json:"deleted_by"`
+	IsDeleted             bool       `json:"is_deleted"`
 }
 
 // aggregate max on columns of table "ecd_file_main_sub"
@@ -1477,13 +1477,13 @@ type EcdFileMainSubMaxFields struct {
 	PackageDirectorName   *string    `json:"package_director_name"`
 	PackagePhone          *string    `json:"package_phone"`
 	Facts                 *string    `json:"facts"`
-	CreateAt              *time.Time `json:"create_at"`
-	CreateBy              *string    `json:"create_by"`
-	UpdateAt              *time.Time `json:"update_at"`
-	UpdateBy              *string    `json:"update_by"`
-	DeleteAt              *time.Time `json:"delete_at"`
-	DeleteBy              *string    `json:"delete_by"`
-	IsDelete              *bool      `json:"is_delete"`
+	CreatedAt             *time.Time `json:"created_at"`
+	CreatedBy             *string    `json:"created_by"`
+	UpdatedAt             *time.Time `json:"updated_at"`
+	UpdatedBy             *string    `json:"updated_by"`
+	DeletedAt             *time.Time `json:"deleted_at"`
+	DeletedBy             *string    `json:"deleted_by"`
+	IsDeleted             *bool      `json:"is_deleted"`
 }
 
 // aggregate min on columns of table "ecd_file_main_sub"
@@ -1515,13 +1515,13 @@ type EcdFileMainSubMinFields struct {
 	PackageDirectorName   *string    `json:"package_director_name"`
 	PackagePhone          *string    `json:"package_phone"`
 	Facts                 *string    `json:"facts"`
-	CreateAt              *time.Time `json:"create_at"`
-	CreateBy              *string    `json:"create_by"`
-	UpdateAt              *time.Time `json:"update_at"`
-	UpdateBy              *string    `json:"update_by"`
-	DeleteAt              *time.Time `json:"delete_at"`
-	DeleteBy              *string    `json:"delete_by"`
-	IsDelete              *bool      `json:"is_delete"`
+	CreatedAt             *time.Time `json:"created_at"`
+	CreatedBy             *string    `json:"created_by"`
+	UpdatedAt             *time.Time `json:"updated_at"`
+	UpdatedBy             *string    `json:"updated_by"`
+	DeletedAt             *time.Time `json:"deleted_at"`
+	DeletedBy             *string    `json:"deleted_by"`
+	IsDeleted             *bool      `json:"is_deleted"`
 }
 
 // response of any mutation on the table "ecd_file_main_sub"
@@ -1559,13 +1559,13 @@ type EcdFileMainSubOrderBy struct {
 	PackageDirectorName   *model.OrderBy `json:"package_director_name"`
 	PackagePhone          *model.OrderBy `json:"package_phone"`
 	Facts                 *model.OrderBy `json:"facts"`
-	CreateAt              *model.OrderBy `json:"create_at"`
-	CreateBy              *model.OrderBy `json:"create_by"`
-	UpdateAt              *model.OrderBy `json:"update_at"`
-	UpdateBy              *model.OrderBy `json:"update_by"`
-	DeleteAt              *model.OrderBy `json:"delete_at"`
-	DeleteBy              *model.OrderBy `json:"delete_by"`
-	IsDelete              *model.OrderBy `json:"is_delete"`
+	CreatedAt             *model.OrderBy `json:"created_at"`
+	CreatedBy             *model.OrderBy `json:"created_by"`
+	UpdatedAt             *model.OrderBy `json:"updated_at"`
+	UpdatedBy             *model.OrderBy `json:"updated_by"`
+	DeletedAt             *model.OrderBy `json:"deleted_at"`
+	DeletedBy             *model.OrderBy `json:"deleted_by"`
+	IsDeleted             *model.OrderBy `json:"is_deleted"`
 }
 
 // input type for updating data in table "ecd_file_main_sub"
@@ -1597,13 +1597,13 @@ type EcdFileMainSubSetInput struct {
 	PackageDirectorName   *string    `json:"package_director_name"`
 	PackagePhone          *string    `json:"package_phone"`
 	Facts                 *string    `json:"facts"`
-	CreateAt              *time.Time `json:"create_at"`
-	CreateBy              *string    `json:"create_by"`
-	UpdateAt              *time.Time `json:"update_at"`
-	UpdateBy              *string    `json:"update_by"`
-	DeleteAt              *time.Time `json:"delete_at"`
-	DeleteBy              *string    `json:"delete_by"`
-	IsDelete              *bool      `json:"is_delete"`
+	CreatedAt             *time.Time `json:"created_at"`
+	CreatedBy             *string    `json:"created_by"`
+	UpdatedAt             *time.Time `json:"updated_at"`
+	UpdatedBy             *string    `json:"updated_by"`
+	DeletedAt             *time.Time `json:"deleted_at"`
+	DeletedBy             *string    `json:"deleted_by"`
+	IsDeleted             *bool      `json:"is_deleted"`
 }
 
 // aggregate stddev on columns of table "ecd_file_main_sub"
@@ -1716,13 +1716,13 @@ type EcdFileVehicleBoolExp struct {
 	FileMainID    *model.StringComparisonExp      `json:"file_main_id"`
 	VehicleID     *model.StringComparisonExp      `json:"vehicle_id"`
 	CheckStatus   *model.IntComparisonExp         `json:"check_status"`
-	CreateAt      *model.TimestamptzComparisonExp `json:"create_at"`
-	CreateBy      *model.StringComparisonExp      `json:"create_by"`
-	UpdateAt      *model.TimestamptzComparisonExp `json:"update_at"`
-	UpdateBy      *model.StringComparisonExp      `json:"update_by"`
-	DeleteAt      *model.TimestamptzComparisonExp `json:"delete_at"`
-	DeleteBy      *model.StringComparisonExp      `json:"delete_by"`
-	IsDelete      *model.BooleanComparisonExp     `json:"is_delete"`
+	CreatedAt     *model.TimestamptzComparisonExp `json:"created_at"`
+	CreatedBy     *model.StringComparisonExp      `json:"created_by"`
+	UpdatedAt     *model.TimestamptzComparisonExp `json:"updated_at"`
+	UpdatedBy     *model.StringComparisonExp      `json:"updated_by"`
+	DeletedAt     *model.TimestamptzComparisonExp `json:"deleted_at"`
+	DeletedBy     *model.StringComparisonExp      `json:"deleted_by"`
+	IsDeleted     *model.BooleanComparisonExp     `json:"is_deleted"`
 }
 
 // input type for incrementing integer column in table "ecd_file_vehicle"
@@ -1737,13 +1737,13 @@ type EcdFileVehicleInsertInput struct {
 	FileMainID    string     `json:"file_main_id"`
 	VehicleID     *string    `json:"vehicle_id"`
 	CheckStatus   *int       `json:"check_status"`
-	CreateAt      time.Time  `json:"create_at"`
-	CreateBy      *string    `json:"create_by"`
-	UpdateAt      *time.Time `json:"update_at"`
-	UpdateBy      *string    `json:"update_by"`
-	DeleteAt      *time.Time `json:"delete_at"`
-	DeleteBy      *string    `json:"delete_by"`
-	IsDelete      bool       `json:"is_delete"`
+	CreatedAt     time.Time  `json:"created_at"`
+	CreatedBy     *string    `json:"created_by"`
+	UpdatedAt     *time.Time `json:"updated_at"`
+	UpdatedBy     *string    `json:"updated_by"`
+	DeletedAt     *time.Time `json:"deleted_at"`
+	DeletedBy     *string    `json:"deleted_by"`
+	IsDeleted     bool       `json:"is_deleted"`
 }
 
 // aggregate max on columns of table "ecd_file_vehicle"
@@ -1753,13 +1753,13 @@ type EcdFileVehicleMaxFields struct {
 	FileMainID    *string    `json:"file_main_id"`
 	VehicleID     *string    `json:"vehicle_id"`
 	CheckStatus   *int       `json:"check_status"`
-	CreateAt      *time.Time `json:"create_at"`
-	CreateBy      *string    `json:"create_by"`
-	UpdateAt      *time.Time `json:"update_at"`
-	UpdateBy      *string    `json:"update_by"`
-	DeleteAt      *time.Time `json:"delete_at"`
-	DeleteBy      *string    `json:"delete_by"`
-	IsDelete      *bool      `json:"is_delete"`
+	CreatedAt     *time.Time `json:"created_at"`
+	CreatedBy     *string    `json:"created_by"`
+	UpdatedAt     *time.Time `json:"updated_at"`
+	UpdatedBy     *string    `json:"updated_by"`
+	DeletedAt     *time.Time `json:"deleted_at"`
+	DeletedBy     *string    `json:"deleted_by"`
+	IsDeleted     *bool      `json:"is_deleted"`
 }
 
 // aggregate min on columns of table "ecd_file_vehicle"
@@ -1769,13 +1769,13 @@ type EcdFileVehicleMinFields struct {
 	FileMainID    *string    `json:"file_main_id"`
 	VehicleID     *string    `json:"vehicle_id"`
 	CheckStatus   *int       `json:"check_status"`
-	CreateAt      *time.Time `json:"create_at"`
-	CreateBy      *string    `json:"create_by"`
-	UpdateAt      *time.Time `json:"update_at"`
-	UpdateBy      *string    `json:"update_by"`
-	DeleteAt      *time.Time `json:"delete_at"`
-	DeleteBy      *string    `json:"delete_by"`
-	IsDelete      *bool      `json:"is_delete"`
+	CreatedAt     *time.Time `json:"created_at"`
+	CreatedBy     *string    `json:"created_by"`
+	UpdatedAt     *time.Time `json:"updated_at"`
+	UpdatedBy     *string    `json:"updated_by"`
+	DeletedAt     *time.Time `json:"deleted_at"`
+	DeletedBy     *string    `json:"deleted_by"`
+	IsDeleted     *bool      `json:"is_deleted"`
 }
 
 // response of any mutation on the table "ecd_file_vehicle"
@@ -1791,13 +1791,13 @@ type EcdFileVehicleOrderBy struct {
 	FileMainID    *model.OrderBy `json:"file_main_id"`
 	VehicleID     *model.OrderBy `json:"vehicle_id"`
 	CheckStatus   *model.OrderBy `json:"check_status"`
-	CreateAt      *model.OrderBy `json:"create_at"`
-	CreateBy      *model.OrderBy `json:"create_by"`
-	UpdateAt      *model.OrderBy `json:"update_at"`
-	UpdateBy      *model.OrderBy `json:"update_by"`
-	DeleteAt      *model.OrderBy `json:"delete_at"`
-	DeleteBy      *model.OrderBy `json:"delete_by"`
-	IsDelete      *model.OrderBy `json:"is_delete"`
+	CreatedAt     *model.OrderBy `json:"created_at"`
+	CreatedBy     *model.OrderBy `json:"created_by"`
+	UpdatedAt     *model.OrderBy `json:"updated_at"`
+	UpdatedBy     *model.OrderBy `json:"updated_by"`
+	DeletedAt     *model.OrderBy `json:"deleted_at"`
+	DeletedBy     *model.OrderBy `json:"deleted_by"`
+	IsDeleted     *model.OrderBy `json:"is_deleted"`
 }
 
 // input type for updating data in table "ecd_file_vehicle"
@@ -1807,13 +1807,13 @@ type EcdFileVehicleSetInput struct {
 	FileMainID    *string    `json:"file_main_id"`
 	VehicleID     *string    `json:"vehicle_id"`
 	CheckStatus   *int       `json:"check_status"`
-	CreateAt      *time.Time `json:"create_at"`
-	CreateBy      *string    `json:"create_by"`
-	UpdateAt      *time.Time `json:"update_at"`
-	UpdateBy      *string    `json:"update_by"`
-	DeleteAt      *time.Time `json:"delete_at"`
-	DeleteBy      *string    `json:"delete_by"`
-	IsDelete      *bool      `json:"is_delete"`
+	CreatedAt     *time.Time `json:"created_at"`
+	CreatedBy     *string    `json:"created_by"`
+	UpdatedAt     *time.Time `json:"updated_at"`
+	UpdatedBy     *string    `json:"updated_by"`
+	DeletedAt     *time.Time `json:"deleted_at"`
+	DeletedBy     *string    `json:"deleted_by"`
+	IsDeleted     *bool      `json:"is_deleted"`
 }
 
 // aggregate stddev on columns of table "ecd_file_vehicle"
@@ -1883,13 +1883,13 @@ type EcdFileVehicleTimeBoolExp struct {
 	IsCheck       *model.BooleanComparisonExp     `json:"is_check"`
 	CheckTime     *model.TimestamptzComparisonExp `json:"check_time"`
 	LineID        *model.StringComparisonExp      `json:"line_id"`
-	CreateAt      *model.TimestamptzComparisonExp `json:"create_at"`
-	CreateBy      *model.StringComparisonExp      `json:"create_by"`
-	UpdateAt      *model.TimestamptzComparisonExp `json:"update_at"`
-	UpdateBy      *model.StringComparisonExp      `json:"update_by"`
-	DeleteAt      *model.TimestamptzComparisonExp `json:"delete_at"`
-	DeleteBy      *model.StringComparisonExp      `json:"delete_by"`
-	IsDelete      *model.BooleanComparisonExp     `json:"is_delete"`
+	CreatedAt     *model.TimestamptzComparisonExp `json:"created_at"`
+	CreatedBy     *model.StringComparisonExp      `json:"created_by"`
+	UpdatedAt     *model.TimestamptzComparisonExp `json:"updated_at"`
+	UpdatedBy     *model.StringComparisonExp      `json:"updated_by"`
+	DeletedAt     *model.TimestamptzComparisonExp `json:"deleted_at"`
+	DeletedBy     *model.StringComparisonExp      `json:"deleted_by"`
+	IsDeleted     *model.BooleanComparisonExp     `json:"is_deleted"`
 }
 
 // input type for incrementing integer column in table "ecd_file_vehicle_time"
@@ -1911,13 +1911,13 @@ type EcdFileVehicleTimeInsertInput struct {
 	IsCheck       bool       `json:"is_check"`
 	CheckTime     *time.Time `json:"check_time"`
 	LineID        *string    `json:"line_id"`
-	CreateAt      time.Time  `json:"create_at"`
-	CreateBy      *string    `json:"create_by"`
-	UpdateAt      *time.Time `json:"update_at"`
-	UpdateBy      *string    `json:"update_by"`
-	DeleteAt      *time.Time `json:"delete_at"`
-	DeleteBy      *string    `json:"delete_by"`
-	IsDelete      bool       `json:"is_delete"`
+	CreatedAt     time.Time  `json:"created_at"`
+	CreatedBy     *string    `json:"created_by"`
+	UpdatedAt     *time.Time `json:"updated_at"`
+	UpdatedBy     *string    `json:"updated_by"`
+	DeletedAt     *time.Time `json:"deleted_at"`
+	DeletedBy     *string    `json:"deleted_by"`
+	IsDeleted     bool       `json:"is_deleted"`
 }
 
 // aggregate max on columns of table "ecd_file_vehicle_time"
@@ -1934,13 +1934,13 @@ type EcdFileVehicleTimeMaxFields struct {
 	IsCheck       *bool      `json:"is_check"`
 	CheckTime     *time.Time `json:"check_time"`
 	LineID        *string    `json:"line_id"`
-	CreateAt      *time.Time `json:"create_at"`
-	CreateBy      *string    `json:"create_by"`
-	UpdateAt      *time.Time `json:"update_at"`
-	UpdateBy      *string    `json:"update_by"`
-	DeleteAt      *time.Time `json:"delete_at"`
-	DeleteBy      *string    `json:"delete_by"`
-	IsDelete      *bool      `json:"is_delete"`
+	CreatedAt     *time.Time `json:"created_at"`
+	CreatedBy     *string    `json:"created_by"`
+	UpdatedAt     *time.Time `json:"updated_at"`
+	UpdatedBy     *string    `json:"updated_by"`
+	DeletedAt     *time.Time `json:"deleted_at"`
+	DeletedBy     *string    `json:"deleted_by"`
+	IsDeleted     *bool      `json:"is_deleted"`
 }
 
 // aggregate min on columns of table "ecd_file_vehicle_time"
@@ -1957,13 +1957,13 @@ type EcdFileVehicleTimeMinFields struct {
 	IsCheck       *bool      `json:"is_check"`
 	CheckTime     *time.Time `json:"check_time"`
 	LineID        *string    `json:"line_id"`
-	CreateAt      *time.Time `json:"create_at"`
-	CreateBy      *string    `json:"create_by"`
-	UpdateAt      *time.Time `json:"update_at"`
-	UpdateBy      *string    `json:"update_by"`
-	DeleteAt      *time.Time `json:"delete_at"`
-	DeleteBy      *string    `json:"delete_by"`
-	IsDelete      *bool      `json:"is_delete"`
+	CreatedAt     *time.Time `json:"created_at"`
+	CreatedBy     *string    `json:"created_by"`
+	UpdatedAt     *time.Time `json:"updated_at"`
+	UpdatedBy     *string    `json:"updated_by"`
+	DeletedAt     *time.Time `json:"deleted_at"`
+	DeletedBy     *string    `json:"deleted_by"`
+	IsDeleted     *bool      `json:"is_deleted"`
 }
 
 // response of any mutation on the table "ecd_file_vehicle_time"
@@ -1986,13 +1986,13 @@ type EcdFileVehicleTimeOrderBy struct {
 	IsCheck       *model.OrderBy `json:"is_check"`
 	CheckTime     *model.OrderBy `json:"check_time"`
 	LineID        *model.OrderBy `json:"line_id"`
-	CreateAt      *model.OrderBy `json:"create_at"`
-	CreateBy      *model.OrderBy `json:"create_by"`
-	UpdateAt      *model.OrderBy `json:"update_at"`
-	UpdateBy      *model.OrderBy `json:"update_by"`
-	DeleteAt      *model.OrderBy `json:"delete_at"`
-	DeleteBy      *model.OrderBy `json:"delete_by"`
-	IsDelete      *model.OrderBy `json:"is_delete"`
+	CreatedAt     *model.OrderBy `json:"created_at"`
+	CreatedBy     *model.OrderBy `json:"created_by"`
+	UpdatedAt     *model.OrderBy `json:"updated_at"`
+	UpdatedBy     *model.OrderBy `json:"updated_by"`
+	DeletedAt     *model.OrderBy `json:"deleted_at"`
+	DeletedBy     *model.OrderBy `json:"deleted_by"`
+	IsDeleted     *model.OrderBy `json:"is_deleted"`
 }
 
 // input type for updating data in table "ecd_file_vehicle_time"
@@ -2009,13 +2009,13 @@ type EcdFileVehicleTimeSetInput struct {
 	IsCheck       *bool      `json:"is_check"`
 	CheckTime     *time.Time `json:"check_time"`
 	LineID        *string    `json:"line_id"`
-	CreateAt      *time.Time `json:"create_at"`
-	CreateBy      *string    `json:"create_by"`
-	UpdateAt      *time.Time `json:"update_at"`
-	UpdateBy      *string    `json:"update_by"`
-	DeleteAt      *time.Time `json:"delete_at"`
-	DeleteBy      *string    `json:"delete_by"`
-	IsDelete      *bool      `json:"is_delete"`
+	CreatedAt     *time.Time `json:"created_at"`
+	CreatedBy     *string    `json:"created_by"`
+	UpdatedAt     *time.Time `json:"updated_at"`
+	UpdatedBy     *string    `json:"updated_by"`
+	DeletedAt     *time.Time `json:"deleted_at"`
+	DeletedBy     *string    `json:"deleted_by"`
+	IsDeleted     *bool      `json:"is_deleted"`
 }
 
 // aggregate stddev on columns of table "ecd_file_vehicle_time"
@@ -2116,13 +2116,13 @@ type EcdLineBoolExp struct {
 	AuditUserID   *model.StringComparisonExp      `json:"audit_user_id"`
 	AuditTime     *model.TimestamptzComparisonExp `json:"audit_time"`
 	IsResolveDesc *model.BooleanComparisonExp     `json:"is_resolve_desc"`
-	CreateAt      *model.TimestamptzComparisonExp `json:"create_at"`
-	CreateBy      *model.StringComparisonExp      `json:"create_by"`
-	UpdateAt      *model.TimestamptzComparisonExp `json:"update_at"`
-	UpdateBy      *model.StringComparisonExp      `json:"update_by"`
-	DeleteAt      *model.TimestamptzComparisonExp `json:"delete_at"`
-	DeleteBy      *model.StringComparisonExp      `json:"delete_by"`
-	IsDelete      *model.BooleanComparisonExp     `json:"is_delete"`
+	CreatedAt     *model.TimestamptzComparisonExp `json:"created_at"`
+	CreatedBy     *model.StringComparisonExp      `json:"created_by"`
+	UpdatedAt     *model.TimestamptzComparisonExp `json:"updated_at"`
+	UpdatedBy     *model.StringComparisonExp      `json:"updated_by"`
+	DeletedAt     *model.TimestamptzComparisonExp `json:"deleted_at"`
+	DeletedBy     *model.StringComparisonExp      `json:"deleted_by"`
+	IsDeleted     *model.BooleanComparisonExp     `json:"is_deleted"`
 	GisData       *model.StringComparisonExp      `json:"gis_data"`
 }
 
@@ -2140,13 +2140,13 @@ type EcdLineInsertInput struct {
 	AuditUserID   *string    `json:"audit_user_id"`
 	AuditTime     *time.Time `json:"audit_time"`
 	IsResolveDesc bool       `json:"is_resolve_desc"`
-	CreateAt      time.Time  `json:"create_at"`
-	CreateBy      *string    `json:"create_by"`
-	UpdateAt      *time.Time `json:"update_at"`
-	UpdateBy      *string    `json:"update_by"`
-	DeleteAt      *time.Time `json:"delete_at"`
-	DeleteBy      *string    `json:"delete_by"`
-	IsDelete      bool       `json:"is_delete"`
+	CreatedAt     time.Time  `json:"created_at"`
+	CreatedBy     *string    `json:"created_by"`
+	UpdatedAt     *time.Time `json:"updated_at"`
+	UpdatedBy     *string    `json:"updated_by"`
+	DeletedAt     *time.Time `json:"deleted_at"`
+	DeletedBy     *string    `json:"deleted_by"`
+	IsDeleted     bool       `json:"is_deleted"`
 	GisData       *string    `json:"gis_data"`
 }
 
@@ -2160,13 +2160,13 @@ type EcdLineMaxFields struct {
 	AuditUserID   *string    `json:"audit_user_id"`
 	AuditTime     *time.Time `json:"audit_time"`
 	IsResolveDesc *bool      `json:"is_resolve_desc"`
-	CreateAt      *time.Time `json:"create_at"`
-	CreateBy      *string    `json:"create_by"`
-	UpdateAt      *time.Time `json:"update_at"`
-	UpdateBy      *string    `json:"update_by"`
-	DeleteAt      *time.Time `json:"delete_at"`
-	DeleteBy      *string    `json:"delete_by"`
-	IsDelete      *bool      `json:"is_delete"`
+	CreatedAt     *time.Time `json:"created_at"`
+	CreatedBy     *string    `json:"created_by"`
+	UpdatedAt     *time.Time `json:"updated_at"`
+	UpdatedBy     *string    `json:"updated_by"`
+	DeletedAt     *time.Time `json:"deleted_at"`
+	DeletedBy     *string    `json:"deleted_by"`
+	IsDeleted     *bool      `json:"is_deleted"`
 	GisData       *string    `json:"gis_data"`
 }
 
@@ -2180,13 +2180,13 @@ type EcdLineMinFields struct {
 	AuditUserID   *string    `json:"audit_user_id"`
 	AuditTime     *time.Time `json:"audit_time"`
 	IsResolveDesc *bool      `json:"is_resolve_desc"`
-	CreateAt      *time.Time `json:"create_at"`
-	CreateBy      *string    `json:"create_by"`
-	UpdateAt      *time.Time `json:"update_at"`
-	UpdateBy      *string    `json:"update_by"`
-	DeleteAt      *time.Time `json:"delete_at"`
-	DeleteBy      *string    `json:"delete_by"`
-	IsDelete      *bool      `json:"is_delete"`
+	CreatedAt     *time.Time `json:"created_at"`
+	CreatedBy     *string    `json:"created_by"`
+	UpdatedAt     *time.Time `json:"updated_at"`
+	UpdatedBy     *string    `json:"updated_by"`
+	DeletedAt     *time.Time `json:"deleted_at"`
+	DeletedBy     *string    `json:"deleted_by"`
+	IsDeleted     *bool      `json:"is_deleted"`
 	GisData       *string    `json:"gis_data"`
 }
 
@@ -2206,13 +2206,13 @@ type EcdLineOrderBy struct {
 	AuditUserID   *model.OrderBy `json:"audit_user_id"`
 	AuditTime     *model.OrderBy `json:"audit_time"`
 	IsResolveDesc *model.OrderBy `json:"is_resolve_desc"`
-	CreateAt      *model.OrderBy `json:"create_at"`
-	CreateBy      *model.OrderBy `json:"create_by"`
-	UpdateAt      *model.OrderBy `json:"update_at"`
-	UpdateBy      *model.OrderBy `json:"update_by"`
-	DeleteAt      *model.OrderBy `json:"delete_at"`
-	DeleteBy      *model.OrderBy `json:"delete_by"`
-	IsDelete      *model.OrderBy `json:"is_delete"`
+	CreatedAt     *model.OrderBy `json:"created_at"`
+	CreatedBy     *model.OrderBy `json:"created_by"`
+	UpdatedAt     *model.OrderBy `json:"updated_at"`
+	UpdatedBy     *model.OrderBy `json:"updated_by"`
+	DeletedAt     *model.OrderBy `json:"deleted_at"`
+	DeletedBy     *model.OrderBy `json:"deleted_by"`
+	IsDeleted     *model.OrderBy `json:"is_deleted"`
 	GisData       *model.OrderBy `json:"gis_data"`
 }
 
@@ -2226,13 +2226,13 @@ type EcdLineSetInput struct {
 	AuditUserID   *string    `json:"audit_user_id"`
 	AuditTime     *time.Time `json:"audit_time"`
 	IsResolveDesc *bool      `json:"is_resolve_desc"`
-	CreateAt      *time.Time `json:"create_at"`
-	CreateBy      *string    `json:"create_by"`
-	UpdateAt      *time.Time `json:"update_at"`
-	UpdateBy      *string    `json:"update_by"`
-	DeleteAt      *time.Time `json:"delete_at"`
-	DeleteBy      *string    `json:"delete_by"`
-	IsDelete      *bool      `json:"is_delete"`
+	CreatedAt     *time.Time `json:"created_at"`
+	CreatedBy     *string    `json:"created_by"`
+	UpdatedAt     *time.Time `json:"updated_at"`
+	UpdatedBy     *string    `json:"updated_by"`
+	DeletedAt     *time.Time `json:"deleted_at"`
+	DeletedBy     *string    `json:"deleted_by"`
+	IsDeleted     *bool      `json:"is_deleted"`
 	GisData       *string    `json:"gis_data"`
 }
 
@@ -2310,13 +2310,13 @@ type ElectricFenceBoolExp struct {
 	FenceName       *model.StringComparisonExp      `json:"fence_name"`
 	Address         *model.StringComparisonExp      `json:"address"`
 	DistrictID      *model.StringComparisonExp      `json:"district_id"`
-	CreateAt        *model.TimestamptzComparisonExp `json:"create_at"`
-	CreateBy        *model.StringComparisonExp      `json:"create_by"`
-	UpdateAt        *model.TimestamptzComparisonExp `json:"update_at"`
-	UpdateBy        *model.StringComparisonExp      `json:"update_by"`
-	DeleteAt        *model.TimestamptzComparisonExp `json:"delete_at"`
-	DeleteBy        *model.StringComparisonExp      `json:"delete_by"`
-	IsDelete        *model.BooleanComparisonExp     `json:"is_delete"`
+	CreatedAt       *model.TimestamptzComparisonExp `json:"created_at"`
+	CreatedBy       *model.StringComparisonExp      `json:"created_by"`
+	UpdatedAt       *model.TimestamptzComparisonExp `json:"updated_at"`
+	UpdatedBy       *model.StringComparisonExp      `json:"updated_by"`
+	DeletedAt       *model.TimestamptzComparisonExp `json:"deleted_at"`
+	DeletedBy       *model.StringComparisonExp      `json:"deleted_by"`
+	IsDeleted       *model.BooleanComparisonExp     `json:"is_deleted"`
 	GisData         *model.StringComparisonExp      `json:"gis_data"`
 }
 
@@ -2359,13 +2359,13 @@ type ElectricFenceEnteranceRecordBoolExp struct {
 	IsOut           *model.BooleanComparisonExp            `json:"is_out"`
 	Position        *model.PointComparisonExp              `json:"position"`
 	IsOnline        *model.BooleanComparisonExp            `json:"is_online"`
-	CreateAt        *model.TimestamptzComparisonExp        `json:"create_at"`
-	CreateBy        *model.StringComparisonExp             `json:"create_by"`
-	UpdateAt        *model.TimestamptzComparisonExp        `json:"update_at"`
-	UpdateBy        *model.StringComparisonExp             `json:"update_by"`
-	DeleteAt        *model.TimestamptzComparisonExp        `json:"delete_at"`
-	DeleteBy        *model.StringComparisonExp             `json:"delete_by"`
-	IsDelete        *model.BooleanComparisonExp            `json:"is_delete"`
+	CreatedAt       *model.TimestamptzComparisonExp        `json:"created_at"`
+	CreatedBy       *model.StringComparisonExp             `json:"created_by"`
+	UpdatedAt       *model.TimestamptzComparisonExp        `json:"updated_at"`
+	UpdatedBy       *model.StringComparisonExp             `json:"updated_by"`
+	DeletedAt       *model.TimestamptzComparisonExp        `json:"deleted_at"`
+	DeletedBy       *model.StringComparisonExp             `json:"deleted_by"`
+	IsDeleted       *model.BooleanComparisonExp            `json:"is_deleted"`
 }
 
 // input type for incrementing integer column in table "electric_fence_enterance_record"
@@ -2383,13 +2383,13 @@ type ElectricFenceEnteranceRecordInsertInput struct {
 	IsOut           *bool      `json:"is_out"`
 	Position        *string    `json:"position"`
 	IsOnline        *bool      `json:"is_online"`
-	CreateAt        time.Time  `json:"create_at"`
-	CreateBy        *string    `json:"create_by"`
-	UpdateAt        *time.Time `json:"update_at"`
-	UpdateBy        *string    `json:"update_by"`
-	DeleteAt        *time.Time `json:"delete_at"`
-	DeleteBy        *string    `json:"delete_by"`
-	IsDelete        bool       `json:"is_delete"`
+	CreatedAt       time.Time  `json:"created_at"`
+	CreatedBy       *string    `json:"created_by"`
+	UpdatedAt       *time.Time `json:"updated_at"`
+	UpdatedBy       *string    `json:"updated_by"`
+	DeletedAt       *time.Time `json:"deleted_at"`
+	DeletedBy       *string    `json:"deleted_by"`
+	IsDeleted       bool       `json:"is_deleted"`
 }
 
 // aggregate max on columns of table "electric_fence_enterance_record"
@@ -2403,13 +2403,13 @@ type ElectricFenceEnteranceRecordMaxFields struct {
 	IsOut           *bool      `json:"is_out"`
 	Position        *string    `json:"position"`
 	IsOnline        *bool      `json:"is_online"`
-	CreateAt        *time.Time `json:"create_at"`
-	CreateBy        *string    `json:"create_by"`
-	UpdateAt        *time.Time `json:"update_at"`
-	UpdateBy        *string    `json:"update_by"`
-	DeleteAt        *time.Time `json:"delete_at"`
-	DeleteBy        *string    `json:"delete_by"`
-	IsDelete        *bool      `json:"is_delete"`
+	CreatedAt       *time.Time `json:"created_at"`
+	CreatedBy       *string    `json:"created_by"`
+	UpdatedAt       *time.Time `json:"updated_at"`
+	UpdatedBy       *string    `json:"updated_by"`
+	DeletedAt       *time.Time `json:"deleted_at"`
+	DeletedBy       *string    `json:"deleted_by"`
+	IsDeleted       *bool      `json:"is_deleted"`
 }
 
 // aggregate min on columns of table "electric_fence_enterance_record"
@@ -2423,13 +2423,13 @@ type ElectricFenceEnteranceRecordMinFields struct {
 	IsOut           *bool      `json:"is_out"`
 	Position        *string    `json:"position"`
 	IsOnline        *bool      `json:"is_online"`
-	CreateAt        *time.Time `json:"create_at"`
-	CreateBy        *string    `json:"create_by"`
-	UpdateAt        *time.Time `json:"update_at"`
-	UpdateBy        *string    `json:"update_by"`
-	DeleteAt        *time.Time `json:"delete_at"`
-	DeleteBy        *string    `json:"delete_by"`
-	IsDelete        *bool      `json:"is_delete"`
+	CreatedAt       *time.Time `json:"created_at"`
+	CreatedBy       *string    `json:"created_by"`
+	UpdatedAt       *time.Time `json:"updated_at"`
+	UpdatedBy       *string    `json:"updated_by"`
+	DeletedAt       *time.Time `json:"deleted_at"`
+	DeletedBy       *string    `json:"deleted_by"`
+	IsDeleted       *bool      `json:"is_deleted"`
 }
 
 // response of any mutation on the table "electric_fence_enterance_record"
@@ -2449,13 +2449,13 @@ type ElectricFenceEnteranceRecordOrderBy struct {
 	IsOut           *model.OrderBy `json:"is_out"`
 	Position        *model.OrderBy `json:"position"`
 	IsOnline        *model.OrderBy `json:"is_online"`
-	CreateAt        *model.OrderBy `json:"create_at"`
-	CreateBy        *model.OrderBy `json:"create_by"`
-	UpdateAt        *model.OrderBy `json:"update_at"`
-	UpdateBy        *model.OrderBy `json:"update_by"`
-	DeleteAt        *model.OrderBy `json:"delete_at"`
-	DeleteBy        *model.OrderBy `json:"delete_by"`
-	IsDelete        *model.OrderBy `json:"is_delete"`
+	CreatedAt       *model.OrderBy `json:"created_at"`
+	CreatedBy       *model.OrderBy `json:"created_by"`
+	UpdatedAt       *model.OrderBy `json:"updated_at"`
+	UpdatedBy       *model.OrderBy `json:"updated_by"`
+	DeletedAt       *model.OrderBy `json:"deleted_at"`
+	DeletedBy       *model.OrderBy `json:"deleted_by"`
+	IsDeleted       *model.OrderBy `json:"is_deleted"`
 }
 
 // input type for updating data in table "electric_fence_enterance_record"
@@ -2469,13 +2469,13 @@ type ElectricFenceEnteranceRecordSetInput struct {
 	IsOut           *bool      `json:"is_out"`
 	Position        *string    `json:"position"`
 	IsOnline        *bool      `json:"is_online"`
-	CreateAt        *time.Time `json:"create_at"`
-	CreateBy        *string    `json:"create_by"`
-	UpdateAt        *time.Time `json:"update_at"`
-	UpdateBy        *string    `json:"update_by"`
-	DeleteAt        *time.Time `json:"delete_at"`
-	DeleteBy        *string    `json:"delete_by"`
-	IsDelete        *bool      `json:"is_delete"`
+	CreatedAt       *time.Time `json:"created_at"`
+	CreatedBy       *string    `json:"created_by"`
+	UpdatedAt       *time.Time `json:"updated_at"`
+	UpdatedBy       *string    `json:"updated_by"`
+	DeletedAt       *time.Time `json:"deleted_at"`
+	DeletedBy       *string    `json:"deleted_by"`
+	IsDeleted       *bool      `json:"is_deleted"`
 }
 
 // aggregate stddev on columns of table "electric_fence_enterance_record"
@@ -2528,13 +2528,13 @@ type ElectricFenceInsertInput struct {
 	FenceName       *string    `json:"fence_name"`
 	Address         *string    `json:"address"`
 	DistrictID      *string    `json:"district_id"`
-	CreateAt        time.Time  `json:"create_at"`
-	CreateBy        *string    `json:"create_by"`
-	UpdateAt        *time.Time `json:"update_at"`
-	UpdateBy        *string    `json:"update_by"`
-	DeleteAt        *time.Time `json:"delete_at"`
-	DeleteBy        *string    `json:"delete_by"`
-	IsDelete        bool       `json:"is_delete"`
+	CreatedAt       time.Time  `json:"created_at"`
+	CreatedBy       *string    `json:"created_by"`
+	UpdatedAt       *time.Time `json:"updated_at"`
+	UpdatedBy       *string    `json:"updated_by"`
+	DeletedAt       *time.Time `json:"deleted_at"`
+	DeletedBy       *string    `json:"deleted_by"`
+	IsDeleted       bool       `json:"is_deleted"`
 	GisData         *string    `json:"gis_data"`
 }
 
@@ -2547,13 +2547,13 @@ type ElectricFenceMaxFields struct {
 	FenceName       *string    `json:"fence_name"`
 	Address         *string    `json:"address"`
 	DistrictID      *string    `json:"district_id"`
-	CreateAt        *time.Time `json:"create_at"`
-	CreateBy        *string    `json:"create_by"`
-	UpdateAt        *time.Time `json:"update_at"`
-	UpdateBy        *string    `json:"update_by"`
-	DeleteAt        *time.Time `json:"delete_at"`
-	DeleteBy        *string    `json:"delete_by"`
-	IsDelete        *bool      `json:"is_delete"`
+	CreatedAt       *time.Time `json:"created_at"`
+	CreatedBy       *string    `json:"created_by"`
+	UpdatedAt       *time.Time `json:"updated_at"`
+	UpdatedBy       *string    `json:"updated_by"`
+	DeletedAt       *time.Time `json:"deleted_at"`
+	DeletedBy       *string    `json:"deleted_by"`
+	IsDeleted       *bool      `json:"is_deleted"`
 	GisData         *string    `json:"gis_data"`
 }
 
@@ -2566,13 +2566,13 @@ type ElectricFenceMinFields struct {
 	FenceName       *string    `json:"fence_name"`
 	Address         *string    `json:"address"`
 	DistrictID      *string    `json:"district_id"`
-	CreateAt        *time.Time `json:"create_at"`
-	CreateBy        *string    `json:"create_by"`
-	UpdateAt        *time.Time `json:"update_at"`
-	UpdateBy        *string    `json:"update_by"`
-	DeleteAt        *time.Time `json:"delete_at"`
-	DeleteBy        *string    `json:"delete_by"`
-	IsDelete        *bool      `json:"is_delete"`
+	CreatedAt       *time.Time `json:"created_at"`
+	CreatedBy       *string    `json:"created_by"`
+	UpdatedAt       *time.Time `json:"updated_at"`
+	UpdatedBy       *string    `json:"updated_by"`
+	DeletedAt       *time.Time `json:"deleted_at"`
+	DeletedBy       *string    `json:"deleted_by"`
+	IsDeleted       *bool      `json:"is_deleted"`
 	GisData         *string    `json:"gis_data"`
 }
 
@@ -2591,13 +2591,13 @@ type ElectricFenceOrderBy struct {
 	FenceName       *model.OrderBy `json:"fence_name"`
 	Address         *model.OrderBy `json:"address"`
 	DistrictID      *model.OrderBy `json:"district_id"`
-	CreateAt        *model.OrderBy `json:"create_at"`
-	CreateBy        *model.OrderBy `json:"create_by"`
-	UpdateAt        *model.OrderBy `json:"update_at"`
-	UpdateBy        *model.OrderBy `json:"update_by"`
-	DeleteAt        *model.OrderBy `json:"delete_at"`
-	DeleteBy        *model.OrderBy `json:"delete_by"`
-	IsDelete        *model.OrderBy `json:"is_delete"`
+	CreatedAt       *model.OrderBy `json:"created_at"`
+	CreatedBy       *model.OrderBy `json:"created_by"`
+	UpdatedAt       *model.OrderBy `json:"updated_at"`
+	UpdatedBy       *model.OrderBy `json:"updated_by"`
+	DeletedAt       *model.OrderBy `json:"deleted_at"`
+	DeletedBy       *model.OrderBy `json:"deleted_by"`
+	IsDeleted       *model.OrderBy `json:"is_deleted"`
 	GisData         *model.OrderBy `json:"gis_data"`
 }
 
@@ -2610,13 +2610,13 @@ type ElectricFenceSetInput struct {
 	FenceName       *string    `json:"fence_name"`
 	Address         *string    `json:"address"`
 	DistrictID      *string    `json:"district_id"`
-	CreateAt        *time.Time `json:"create_at"`
-	CreateBy        *string    `json:"create_by"`
-	UpdateAt        *time.Time `json:"update_at"`
-	UpdateBy        *string    `json:"update_by"`
-	DeleteAt        *time.Time `json:"delete_at"`
-	DeleteBy        *string    `json:"delete_by"`
-	IsDelete        *bool      `json:"is_delete"`
+	CreatedAt       *time.Time `json:"created_at"`
+	CreatedBy       *string    `json:"created_by"`
+	UpdatedAt       *time.Time `json:"updated_at"`
+	UpdatedBy       *string    `json:"updated_by"`
+	DeletedAt       *time.Time `json:"deleted_at"`
+	DeletedBy       *string    `json:"deleted_by"`
+	IsDeleted       *bool      `json:"is_deleted"`
 	GisData         *string    `json:"gis_data"`
 }
 
@@ -2713,13 +2713,13 @@ type LimitSpeedLineBoolExp struct {
 	CheckTime        *model.TimestamptzComparisonExp `json:"check_time"`
 	CheckUserID      *model.StringComparisonExp      `json:"check_user_id"`
 	RejectReason     *model.StringComparisonExp      `json:"reject_reason"`
-	CreateAt         *model.TimestamptzComparisonExp `json:"create_at"`
-	CreateBy         *model.StringComparisonExp      `json:"create_by"`
-	UpdateAt         *model.TimestamptzComparisonExp `json:"update_at"`
-	UpdateBy         *model.StringComparisonExp      `json:"update_by"`
-	DeleteAt         *model.TimestamptzComparisonExp `json:"delete_at"`
-	DeleteBy         *model.StringComparisonExp      `json:"delete_by"`
-	IsDelete         *model.BooleanComparisonExp     `json:"is_delete"`
+	CreatedAt        *model.TimestamptzComparisonExp `json:"created_at"`
+	CreatedBy        *model.StringComparisonExp      `json:"created_by"`
+	UpdatedAt        *model.TimestamptzComparisonExp `json:"updated_at"`
+	UpdatedBy        *model.StringComparisonExp      `json:"updated_by"`
+	DeletedAt        *model.TimestamptzComparisonExp `json:"deleted_at"`
+	DeletedBy        *model.StringComparisonExp      `json:"deleted_by"`
+	IsDeleted        *model.BooleanComparisonExp     `json:"is_deleted"`
 	GisData          *model.StringComparisonExp      `json:"gis_data"`
 }
 
@@ -2743,13 +2743,13 @@ type LimitSpeedLineInsertInput struct {
 	CheckTime        *time.Time `json:"check_time"`
 	CheckUserID      *string    `json:"check_user_id"`
 	RejectReason     *string    `json:"reject_reason"`
-	CreateAt         time.Time  `json:"create_at"`
-	CreateBy         *string    `json:"create_by"`
-	UpdateAt         *time.Time `json:"update_at"`
-	UpdateBy         *string    `json:"update_by"`
-	DeleteAt         *time.Time `json:"delete_at"`
-	DeleteBy         *string    `json:"delete_by"`
-	IsDelete         bool       `json:"is_delete"`
+	CreatedAt        time.Time  `json:"created_at"`
+	CreatedBy        *string    `json:"created_by"`
+	UpdatedAt        *time.Time `json:"updated_at"`
+	UpdatedBy        *string    `json:"updated_by"`
+	DeletedAt        *time.Time `json:"deleted_at"`
+	DeletedBy        *string    `json:"deleted_by"`
+	IsDeleted        bool       `json:"is_deleted"`
 	GisData          *string    `json:"gis_data"`
 }
 
@@ -2766,13 +2766,13 @@ type LimitSpeedLineMaxFields struct {
 	CheckTime        *time.Time `json:"check_time"`
 	CheckUserID      *string    `json:"check_user_id"`
 	RejectReason     *string    `json:"reject_reason"`
-	CreateAt         *time.Time `json:"create_at"`
-	CreateBy         *string    `json:"create_by"`
-	UpdateAt         *time.Time `json:"update_at"`
-	UpdateBy         *string    `json:"update_by"`
-	DeleteAt         *time.Time `json:"delete_at"`
-	DeleteBy         *string    `json:"delete_by"`
-	IsDelete         *bool      `json:"is_delete"`
+	CreatedAt        *time.Time `json:"created_at"`
+	CreatedBy        *string    `json:"created_by"`
+	UpdatedAt        *time.Time `json:"updated_at"`
+	UpdatedBy        *string    `json:"updated_by"`
+	DeletedAt        *time.Time `json:"deleted_at"`
+	DeletedBy        *string    `json:"deleted_by"`
+	IsDeleted        *bool      `json:"is_deleted"`
 	GisData          *string    `json:"gis_data"`
 }
 
@@ -2789,13 +2789,13 @@ type LimitSpeedLineMinFields struct {
 	CheckTime        *time.Time `json:"check_time"`
 	CheckUserID      *string    `json:"check_user_id"`
 	RejectReason     *string    `json:"reject_reason"`
-	CreateAt         *time.Time `json:"create_at"`
-	CreateBy         *string    `json:"create_by"`
-	UpdateAt         *time.Time `json:"update_at"`
-	UpdateBy         *string    `json:"update_by"`
-	DeleteAt         *time.Time `json:"delete_at"`
-	DeleteBy         *string    `json:"delete_by"`
-	IsDelete         *bool      `json:"is_delete"`
+	CreatedAt        *time.Time `json:"created_at"`
+	CreatedBy        *string    `json:"created_by"`
+	UpdatedAt        *time.Time `json:"updated_at"`
+	UpdatedBy        *string    `json:"updated_by"`
+	DeletedAt        *time.Time `json:"deleted_at"`
+	DeletedBy        *string    `json:"deleted_by"`
+	IsDeleted        *bool      `json:"is_deleted"`
 	GisData          *string    `json:"gis_data"`
 }
 
@@ -2818,13 +2818,13 @@ type LimitSpeedLineOrderBy struct {
 	CheckTime        *model.OrderBy `json:"check_time"`
 	CheckUserID      *model.OrderBy `json:"check_user_id"`
 	RejectReason     *model.OrderBy `json:"reject_reason"`
-	CreateAt         *model.OrderBy `json:"create_at"`
-	CreateBy         *model.OrderBy `json:"create_by"`
-	UpdateAt         *model.OrderBy `json:"update_at"`
-	UpdateBy         *model.OrderBy `json:"update_by"`
-	DeleteAt         *model.OrderBy `json:"delete_at"`
-	DeleteBy         *model.OrderBy `json:"delete_by"`
-	IsDelete         *model.OrderBy `json:"is_delete"`
+	CreatedAt        *model.OrderBy `json:"created_at"`
+	CreatedBy        *model.OrderBy `json:"created_by"`
+	UpdatedAt        *model.OrderBy `json:"updated_at"`
+	UpdatedBy        *model.OrderBy `json:"updated_by"`
+	DeletedAt        *model.OrderBy `json:"deleted_at"`
+	DeletedBy        *model.OrderBy `json:"deleted_by"`
+	IsDeleted        *model.OrderBy `json:"is_deleted"`
 	GisData          *model.OrderBy `json:"gis_data"`
 }
 
@@ -2841,13 +2841,13 @@ type LimitSpeedLineSetInput struct {
 	CheckTime        *time.Time `json:"check_time"`
 	CheckUserID      *string    `json:"check_user_id"`
 	RejectReason     *string    `json:"reject_reason"`
-	CreateAt         *time.Time `json:"create_at"`
-	CreateBy         *string    `json:"create_by"`
-	UpdateAt         *time.Time `json:"update_at"`
-	UpdateBy         *string    `json:"update_by"`
-	DeleteAt         *time.Time `json:"delete_at"`
-	DeleteBy         *string    `json:"delete_by"`
-	IsDelete         *bool      `json:"is_delete"`
+	CreatedAt        *time.Time `json:"created_at"`
+	CreatedBy        *string    `json:"created_by"`
+	UpdatedAt        *time.Time `json:"updated_at"`
+	UpdatedBy        *string    `json:"updated_by"`
+	DeletedAt        *time.Time `json:"deleted_at"`
+	DeletedBy        *string    `json:"deleted_by"`
+	IsDeleted        *bool      `json:"is_deleted"`
 	GisData          *string    `json:"gis_data"`
 }
 
@@ -2919,13 +2919,13 @@ type LimitSpeedLineTimeBoolExp struct {
 	LimitSpeedLineID     *model.StringComparisonExp      `json:"limit_speed_line_id"`
 	StartTime            *model.TimestamptzComparisonExp `json:"start_time"`
 	EndTime              *model.TimestamptzComparisonExp `json:"end_time"`
-	CreateAt             *model.TimestamptzComparisonExp `json:"create_at"`
-	CreateBy             *model.StringComparisonExp      `json:"create_by"`
-	UpdateAt             *model.TimestamptzComparisonExp `json:"update_at"`
-	UpdateBy             *model.StringComparisonExp      `json:"update_by"`
-	DeleteAt             *model.TimestamptzComparisonExp `json:"delete_at"`
-	DeleteBy             *model.StringComparisonExp      `json:"delete_by"`
-	IsDelete             *model.BooleanComparisonExp     `json:"is_delete"`
+	CreatedAt            *model.TimestamptzComparisonExp `json:"created_at"`
+	CreatedBy            *model.StringComparisonExp      `json:"created_by"`
+	UpdatedAt            *model.TimestamptzComparisonExp `json:"updated_at"`
+	UpdatedBy            *model.StringComparisonExp      `json:"updated_by"`
+	DeletedAt            *model.TimestamptzComparisonExp `json:"deleted_at"`
+	DeletedBy            *model.StringComparisonExp      `json:"deleted_by"`
+	IsDeleted            *model.BooleanComparisonExp     `json:"is_deleted"`
 	Speed                *model.NumericComparisonExp     `json:"speed"`
 }
 
@@ -2941,13 +2941,13 @@ type LimitSpeedLineTimeInsertInput struct {
 	LimitSpeedLineID     string     `json:"limit_speed_line_id"`
 	StartTime            time.Time  `json:"start_time"`
 	EndTime              time.Time  `json:"end_time"`
-	CreateAt             time.Time  `json:"create_at"`
-	CreateBy             *string    `json:"create_by"`
-	UpdateAt             *time.Time `json:"update_at"`
-	UpdateBy             *string    `json:"update_by"`
-	DeleteAt             *time.Time `json:"delete_at"`
-	DeleteBy             *string    `json:"delete_by"`
-	IsDelete             bool       `json:"is_delete"`
+	CreatedAt            time.Time  `json:"created_at"`
+	CreatedBy            *string    `json:"created_by"`
+	UpdatedAt            *time.Time `json:"updated_at"`
+	UpdatedBy            *string    `json:"updated_by"`
+	DeletedAt            *time.Time `json:"deleted_at"`
+	DeletedBy            *string    `json:"deleted_by"`
+	IsDeleted            bool       `json:"is_deleted"`
 	Speed                float64    `json:"speed"`
 }
 
@@ -2958,13 +2958,13 @@ type LimitSpeedLineTimeMaxFields struct {
 	LimitSpeedLineID     *string    `json:"limit_speed_line_id"`
 	StartTime            *time.Time `json:"start_time"`
 	EndTime              *time.Time `json:"end_time"`
-	CreateAt             *time.Time `json:"create_at"`
-	CreateBy             *string    `json:"create_by"`
-	UpdateAt             *time.Time `json:"update_at"`
-	UpdateBy             *string    `json:"update_by"`
-	DeleteAt             *time.Time `json:"delete_at"`
-	DeleteBy             *string    `json:"delete_by"`
-	IsDelete             *bool      `json:"is_delete"`
+	CreatedAt            *time.Time `json:"created_at"`
+	CreatedBy            *string    `json:"created_by"`
+	UpdatedAt            *time.Time `json:"updated_at"`
+	UpdatedBy            *string    `json:"updated_by"`
+	DeletedAt            *time.Time `json:"deleted_at"`
+	DeletedBy            *string    `json:"deleted_by"`
+	IsDeleted            *bool      `json:"is_deleted"`
 	Speed                *float64   `json:"speed"`
 }
 
@@ -2975,13 +2975,13 @@ type LimitSpeedLineTimeMinFields struct {
 	LimitSpeedLineID     *string    `json:"limit_speed_line_id"`
 	StartTime            *time.Time `json:"start_time"`
 	EndTime              *time.Time `json:"end_time"`
-	CreateAt             *time.Time `json:"create_at"`
-	CreateBy             *string    `json:"create_by"`
-	UpdateAt             *time.Time `json:"update_at"`
-	UpdateBy             *string    `json:"update_by"`
-	DeleteAt             *time.Time `json:"delete_at"`
-	DeleteBy             *string    `json:"delete_by"`
-	IsDelete             *bool      `json:"is_delete"`
+	CreatedAt            *time.Time `json:"created_at"`
+	CreatedBy            *string    `json:"created_by"`
+	UpdatedAt            *time.Time `json:"updated_at"`
+	UpdatedBy            *string    `json:"updated_by"`
+	DeletedAt            *time.Time `json:"deleted_at"`
+	DeletedBy            *string    `json:"deleted_by"`
+	IsDeleted            *bool      `json:"is_deleted"`
 	Speed                *float64   `json:"speed"`
 }
 
@@ -2998,13 +2998,13 @@ type LimitSpeedLineTimeOrderBy struct {
 	LimitSpeedLineID     *model.OrderBy `json:"limit_speed_line_id"`
 	StartTime            *model.OrderBy `json:"start_time"`
 	EndTime              *model.OrderBy `json:"end_time"`
-	CreateAt             *model.OrderBy `json:"create_at"`
-	CreateBy             *model.OrderBy `json:"create_by"`
-	UpdateAt             *model.OrderBy `json:"update_at"`
-	UpdateBy             *model.OrderBy `json:"update_by"`
-	DeleteAt             *model.OrderBy `json:"delete_at"`
-	DeleteBy             *model.OrderBy `json:"delete_by"`
-	IsDelete             *model.OrderBy `json:"is_delete"`
+	CreatedAt            *model.OrderBy `json:"created_at"`
+	CreatedBy            *model.OrderBy `json:"created_by"`
+	UpdatedAt            *model.OrderBy `json:"updated_at"`
+	UpdatedBy            *model.OrderBy `json:"updated_by"`
+	DeletedAt            *model.OrderBy `json:"deleted_at"`
+	DeletedBy            *model.OrderBy `json:"deleted_by"`
+	IsDeleted            *model.OrderBy `json:"is_deleted"`
 	Speed                *model.OrderBy `json:"speed"`
 }
 
@@ -3015,13 +3015,13 @@ type LimitSpeedLineTimeSetInput struct {
 	LimitSpeedLineID     *string    `json:"limit_speed_line_id"`
 	StartTime            *time.Time `json:"start_time"`
 	EndTime              *time.Time `json:"end_time"`
-	CreateAt             *time.Time `json:"create_at"`
-	CreateBy             *string    `json:"create_by"`
-	UpdateAt             *time.Time `json:"update_at"`
-	UpdateBy             *string    `json:"update_by"`
-	DeleteAt             *time.Time `json:"delete_at"`
-	DeleteBy             *string    `json:"delete_by"`
-	IsDelete             *bool      `json:"is_delete"`
+	CreatedAt            *time.Time `json:"created_at"`
+	CreatedBy            *string    `json:"created_by"`
+	UpdatedAt            *time.Time `json:"updated_at"`
+	UpdatedBy            *string    `json:"updated_by"`
+	DeletedAt            *time.Time `json:"deleted_at"`
+	DeletedBy            *string    `json:"deleted_by"`
+	IsDeleted            *bool      `json:"is_deleted"`
 	Speed                *float64   `json:"speed"`
 }
 
@@ -3126,13 +3126,13 @@ type LimitSpeedPlanBoolExp struct {
 	EnterpriseID     *model.StringComparisonExp      `json:"enterprise_id"`
 	PlanName         *model.StringComparisonExp      `json:"plan_name"`
 	Remark           *model.StringComparisonExp      `json:"remark"`
-	CreateAt         *model.TimestamptzComparisonExp `json:"create_at"`
-	CreateBy         *model.StringComparisonExp      `json:"create_by"`
-	UpdateAt         *model.TimestamptzComparisonExp `json:"update_at"`
-	UpdateBy         *model.StringComparisonExp      `json:"update_by"`
-	DeleteAt         *model.TimestamptzComparisonExp `json:"delete_at"`
-	DeleteBy         *model.StringComparisonExp      `json:"delete_by"`
-	IsDelete         *model.BooleanComparisonExp     `json:"is_delete"`
+	CreatedAt        *model.TimestamptzComparisonExp `json:"created_at"`
+	CreatedBy        *model.StringComparisonExp      `json:"created_by"`
+	UpdatedAt        *model.TimestamptzComparisonExp `json:"updated_at"`
+	UpdatedBy        *model.StringComparisonExp      `json:"updated_by"`
+	DeletedAt        *model.TimestamptzComparisonExp `json:"deleted_at"`
+	DeletedBy        *model.StringComparisonExp      `json:"deleted_by"`
+	IsDeleted        *model.BooleanComparisonExp     `json:"is_deleted"`
 }
 
 // aggregated selection of "limit_speed_plan_detail"
@@ -3177,13 +3177,13 @@ type LimitSpeedPlanDetailBoolExp struct {
 	NightTimeEnd    *model.TimestamptzComparisonExp `json:"night_time_end"`
 	RoadLevel       *model.IntComparisonExp         `json:"road_level"`
 	LimitSpeed      *model.NumericComparisonExp     `json:"limit_speed"`
-	CreateAt        *model.TimestamptzComparisonExp `json:"create_at"`
-	CreateBy        *model.StringComparisonExp      `json:"create_by"`
-	UpdateAt        *model.TimestamptzComparisonExp `json:"update_at"`
-	UpdateBy        *model.StringComparisonExp      `json:"update_by"`
-	DeleteAt        *model.TimestamptzComparisonExp `json:"delete_at"`
-	DeleteBy        *model.StringComparisonExp      `json:"delete_by"`
-	IsDelete        *model.BooleanComparisonExp     `json:"is_delete"`
+	CreatedAt       *model.TimestamptzComparisonExp `json:"created_at"`
+	CreatedBy       *model.StringComparisonExp      `json:"created_by"`
+	UpdatedAt       *model.TimestamptzComparisonExp `json:"updated_at"`
+	UpdatedBy       *model.StringComparisonExp      `json:"updated_by"`
+	DeletedAt       *model.TimestamptzComparisonExp `json:"deleted_at"`
+	DeletedBy       *model.StringComparisonExp      `json:"deleted_by"`
+	IsDeleted       *model.BooleanComparisonExp     `json:"is_deleted"`
 }
 
 // input type for incrementing integer column in table "limit_speed_plan_detail"
@@ -3204,13 +3204,13 @@ type LimitSpeedPlanDetailInsertInput struct {
 	NightTimeEnd    *time.Time `json:"night_time_end"`
 	RoadLevel       *int       `json:"road_level"`
 	LimitSpeed      *float64   `json:"limit_speed"`
-	CreateAt        time.Time  `json:"create_at"`
-	CreateBy        *string    `json:"create_by"`
-	UpdateAt        *time.Time `json:"update_at"`
-	UpdateBy        *string    `json:"update_by"`
-	DeleteAt        *time.Time `json:"delete_at"`
-	DeleteBy        *string    `json:"delete_by"`
-	IsDelete        bool       `json:"is_delete"`
+	CreatedAt       time.Time  `json:"created_at"`
+	CreatedBy       *string    `json:"created_by"`
+	UpdatedAt       *time.Time `json:"updated_at"`
+	UpdatedBy       *string    `json:"updated_by"`
+	DeletedAt       *time.Time `json:"deleted_at"`
+	DeletedBy       *string    `json:"deleted_by"`
+	IsDeleted       bool       `json:"is_deleted"`
 }
 
 // aggregate max on columns of table "limit_speed_plan_detail"
@@ -3224,13 +3224,13 @@ type LimitSpeedPlanDetailMaxFields struct {
 	NightTimeEnd    *time.Time `json:"night_time_end"`
 	RoadLevel       *int       `json:"road_level"`
 	LimitSpeed      *float64   `json:"limit_speed"`
-	CreateAt        *time.Time `json:"create_at"`
-	CreateBy        *string    `json:"create_by"`
-	UpdateAt        *time.Time `json:"update_at"`
-	UpdateBy        *string    `json:"update_by"`
-	DeleteAt        *time.Time `json:"delete_at"`
-	DeleteBy        *string    `json:"delete_by"`
-	IsDelete        *bool      `json:"is_delete"`
+	CreatedAt       *time.Time `json:"created_at"`
+	CreatedBy       *string    `json:"created_by"`
+	UpdatedAt       *time.Time `json:"updated_at"`
+	UpdatedBy       *string    `json:"updated_by"`
+	DeletedAt       *time.Time `json:"deleted_at"`
+	DeletedBy       *string    `json:"deleted_by"`
+	IsDeleted       *bool      `json:"is_deleted"`
 }
 
 // aggregate min on columns of table "limit_speed_plan_detail"
@@ -3244,13 +3244,13 @@ type LimitSpeedPlanDetailMinFields struct {
 	NightTimeEnd    *time.Time `json:"night_time_end"`
 	RoadLevel       *int       `json:"road_level"`
 	LimitSpeed      *float64   `json:"limit_speed"`
-	CreateAt        *time.Time `json:"create_at"`
-	CreateBy        *string    `json:"create_by"`
-	UpdateAt        *time.Time `json:"update_at"`
-	UpdateBy        *string    `json:"update_by"`
-	DeleteAt        *time.Time `json:"delete_at"`
-	DeleteBy        *string    `json:"delete_by"`
-	IsDelete        *bool      `json:"is_delete"`
+	CreatedAt       *time.Time `json:"created_at"`
+	CreatedBy       *string    `json:"created_by"`
+	UpdatedAt       *time.Time `json:"updated_at"`
+	UpdatedBy       *string    `json:"updated_by"`
+	DeletedAt       *time.Time `json:"deleted_at"`
+	DeletedBy       *string    `json:"deleted_by"`
+	IsDeleted       *bool      `json:"is_deleted"`
 }
 
 // response of any mutation on the table "limit_speed_plan_detail"
@@ -3270,13 +3270,13 @@ type LimitSpeedPlanDetailOrderBy struct {
 	NightTimeEnd    *model.OrderBy `json:"night_time_end"`
 	RoadLevel       *model.OrderBy `json:"road_level"`
 	LimitSpeed      *model.OrderBy `json:"limit_speed"`
-	CreateAt        *model.OrderBy `json:"create_at"`
-	CreateBy        *model.OrderBy `json:"create_by"`
-	UpdateAt        *model.OrderBy `json:"update_at"`
-	UpdateBy        *model.OrderBy `json:"update_by"`
-	DeleteAt        *model.OrderBy `json:"delete_at"`
-	DeleteBy        *model.OrderBy `json:"delete_by"`
-	IsDelete        *model.OrderBy `json:"is_delete"`
+	CreatedAt       *model.OrderBy `json:"created_at"`
+	CreatedBy       *model.OrderBy `json:"created_by"`
+	UpdatedAt       *model.OrderBy `json:"updated_at"`
+	UpdatedBy       *model.OrderBy `json:"updated_by"`
+	DeletedAt       *model.OrderBy `json:"deleted_at"`
+	DeletedBy       *model.OrderBy `json:"deleted_by"`
+	IsDeleted       *model.OrderBy `json:"is_deleted"`
 }
 
 // input type for updating data in table "limit_speed_plan_detail"
@@ -3290,13 +3290,13 @@ type LimitSpeedPlanDetailSetInput struct {
 	NightTimeEnd    *time.Time `json:"night_time_end"`
 	RoadLevel       *int       `json:"road_level"`
 	LimitSpeed      *float64   `json:"limit_speed"`
-	CreateAt        *time.Time `json:"create_at"`
-	CreateBy        *string    `json:"create_by"`
-	UpdateAt        *time.Time `json:"update_at"`
-	UpdateBy        *string    `json:"update_by"`
-	DeleteAt        *time.Time `json:"delete_at"`
-	DeleteBy        *string    `json:"delete_by"`
-	IsDelete        *bool      `json:"is_delete"`
+	CreatedAt       *time.Time `json:"created_at"`
+	CreatedBy       *string    `json:"created_by"`
+	UpdatedAt       *time.Time `json:"updated_at"`
+	UpdatedBy       *string    `json:"updated_by"`
+	DeletedAt       *time.Time `json:"deleted_at"`
+	DeletedBy       *string    `json:"deleted_by"`
+	IsDeleted       *bool      `json:"is_deleted"`
 }
 
 // aggregate stddev on columns of table "limit_speed_plan_detail"
@@ -3366,13 +3366,13 @@ type LimitSpeedPlanInsertInput struct {
 	EnterpriseID     string     `json:"enterprise_id"`
 	PlanName         string     `json:"plan_name"`
 	Remark           *string    `json:"remark"`
-	CreateAt         time.Time  `json:"create_at"`
-	CreateBy         *string    `json:"create_by"`
-	UpdateAt         *time.Time `json:"update_at"`
-	UpdateBy         *string    `json:"update_by"`
-	DeleteAt         *time.Time `json:"delete_at"`
-	DeleteBy         *string    `json:"delete_by"`
-	IsDelete         bool       `json:"is_delete"`
+	CreatedAt        time.Time  `json:"created_at"`
+	CreatedBy        *string    `json:"created_by"`
+	UpdatedAt        *time.Time `json:"updated_at"`
+	UpdatedBy        *string    `json:"updated_by"`
+	DeletedAt        *time.Time `json:"deleted_at"`
+	DeletedBy        *string    `json:"deleted_by"`
+	IsDeleted        bool       `json:"is_deleted"`
 }
 
 // aggregate max on columns of table "limit_speed_plan"
@@ -3382,13 +3382,13 @@ type LimitSpeedPlanMaxFields struct {
 	EnterpriseID     *string    `json:"enterprise_id"`
 	PlanName         *string    `json:"plan_name"`
 	Remark           *string    `json:"remark"`
-	CreateAt         *time.Time `json:"create_at"`
-	CreateBy         *string    `json:"create_by"`
-	UpdateAt         *time.Time `json:"update_at"`
-	UpdateBy         *string    `json:"update_by"`
-	DeleteAt         *time.Time `json:"delete_at"`
-	DeleteBy         *string    `json:"delete_by"`
-	IsDelete         *bool      `json:"is_delete"`
+	CreatedAt        *time.Time `json:"created_at"`
+	CreatedBy        *string    `json:"created_by"`
+	UpdatedAt        *time.Time `json:"updated_at"`
+	UpdatedBy        *string    `json:"updated_by"`
+	DeletedAt        *time.Time `json:"deleted_at"`
+	DeletedBy        *string    `json:"deleted_by"`
+	IsDeleted        *bool      `json:"is_deleted"`
 }
 
 // aggregate min on columns of table "limit_speed_plan"
@@ -3398,13 +3398,13 @@ type LimitSpeedPlanMinFields struct {
 	EnterpriseID     *string    `json:"enterprise_id"`
 	PlanName         *string    `json:"plan_name"`
 	Remark           *string    `json:"remark"`
-	CreateAt         *time.Time `json:"create_at"`
-	CreateBy         *string    `json:"create_by"`
-	UpdateAt         *time.Time `json:"update_at"`
-	UpdateBy         *string    `json:"update_by"`
-	DeleteAt         *time.Time `json:"delete_at"`
-	DeleteBy         *string    `json:"delete_by"`
-	IsDelete         *bool      `json:"is_delete"`
+	CreatedAt        *time.Time `json:"created_at"`
+	CreatedBy        *string    `json:"created_by"`
+	UpdatedAt        *time.Time `json:"updated_at"`
+	UpdatedBy        *string    `json:"updated_by"`
+	DeletedAt        *time.Time `json:"deleted_at"`
+	DeletedBy        *string    `json:"deleted_by"`
+	IsDeleted        *bool      `json:"is_deleted"`
 }
 
 // response of any mutation on the table "limit_speed_plan"
@@ -3420,13 +3420,13 @@ type LimitSpeedPlanOrderBy struct {
 	EnterpriseID     *model.OrderBy `json:"enterprise_id"`
 	PlanName         *model.OrderBy `json:"plan_name"`
 	Remark           *model.OrderBy `json:"remark"`
-	CreateAt         *model.OrderBy `json:"create_at"`
-	CreateBy         *model.OrderBy `json:"create_by"`
-	UpdateAt         *model.OrderBy `json:"update_at"`
-	UpdateBy         *model.OrderBy `json:"update_by"`
-	DeleteAt         *model.OrderBy `json:"delete_at"`
-	DeleteBy         *model.OrderBy `json:"delete_by"`
-	IsDelete         *model.OrderBy `json:"is_delete"`
+	CreatedAt        *model.OrderBy `json:"created_at"`
+	CreatedBy        *model.OrderBy `json:"created_by"`
+	UpdatedAt        *model.OrderBy `json:"updated_at"`
+	UpdatedBy        *model.OrderBy `json:"updated_by"`
+	DeletedAt        *model.OrderBy `json:"deleted_at"`
+	DeletedBy        *model.OrderBy `json:"deleted_by"`
+	IsDeleted        *model.OrderBy `json:"is_deleted"`
 }
 
 // input type for updating data in table "limit_speed_plan"
@@ -3436,13 +3436,13 @@ type LimitSpeedPlanSetInput struct {
 	EnterpriseID     *string    `json:"enterprise_id"`
 	PlanName         *string    `json:"plan_name"`
 	Remark           *string    `json:"remark"`
-	CreateAt         *time.Time `json:"create_at"`
-	CreateBy         *string    `json:"create_by"`
-	UpdateAt         *time.Time `json:"update_at"`
-	UpdateBy         *string    `json:"update_by"`
-	DeleteAt         *time.Time `json:"delete_at"`
-	DeleteBy         *string    `json:"delete_by"`
-	IsDelete         *bool      `json:"is_delete"`
+	CreatedAt        *time.Time `json:"created_at"`
+	CreatedBy        *string    `json:"created_by"`
+	UpdatedAt        *time.Time `json:"updated_at"`
+	UpdatedBy        *string    `json:"updated_by"`
+	DeletedAt        *time.Time `json:"deleted_at"`
+	DeletedBy        *string    `json:"deleted_by"`
+	IsDeleted        *bool      `json:"is_deleted"`
 }
 
 // aggregate stddev on columns of table "limit_speed_plan"
@@ -3956,19 +3956,19 @@ const (
 	// 退回原因
 	ControlLineSelectColumnRejectReason ControlLineSelectColumn = "reject_reason"
 	// 创建时间
-	ControlLineSelectColumnCreateAt ControlLineSelectColumn = "create_at"
+	ControlLineSelectColumnCreatedAt ControlLineSelectColumn = "created_at"
 	// 创建人
-	ControlLineSelectColumnCreateBy ControlLineSelectColumn = "create_by"
+	ControlLineSelectColumnCreatedBy ControlLineSelectColumn = "created_by"
 	// 更新时间
-	ControlLineSelectColumnUpdateAt ControlLineSelectColumn = "update_at"
+	ControlLineSelectColumnUpdatedAt ControlLineSelectColumn = "updated_at"
 	// 更新人
-	ControlLineSelectColumnUpdateBy ControlLineSelectColumn = "update_by"
+	ControlLineSelectColumnUpdatedBy ControlLineSelectColumn = "updated_by"
 	// 删除时间
-	ControlLineSelectColumnDeleteAt ControlLineSelectColumn = "delete_at"
+	ControlLineSelectColumnDeletedAt ControlLineSelectColumn = "deleted_at"
 	// 删除人
-	ControlLineSelectColumnDeleteBy ControlLineSelectColumn = "delete_by"
+	ControlLineSelectColumnDeletedBy ControlLineSelectColumn = "deleted_by"
 	// 是否删除
-	ControlLineSelectColumnIsDelete ControlLineSelectColumn = "is_delete"
+	ControlLineSelectColumnIsDeleted ControlLineSelectColumn = "is_deleted"
 	// 线路数据
 	ControlLineSelectColumnGisData ControlLineSelectColumn = "gis_data"
 )
@@ -3985,19 +3985,19 @@ var AllControlLineSelectColumn = []ControlLineSelectColumn{
 	ControlLineSelectColumnCheckTime,
 	ControlLineSelectColumnCheckUserID,
 	ControlLineSelectColumnRejectReason,
-	ControlLineSelectColumnCreateAt,
-	ControlLineSelectColumnCreateBy,
-	ControlLineSelectColumnUpdateAt,
-	ControlLineSelectColumnUpdateBy,
-	ControlLineSelectColumnDeleteAt,
-	ControlLineSelectColumnDeleteBy,
-	ControlLineSelectColumnIsDelete,
+	ControlLineSelectColumnCreatedAt,
+	ControlLineSelectColumnCreatedBy,
+	ControlLineSelectColumnUpdatedAt,
+	ControlLineSelectColumnUpdatedBy,
+	ControlLineSelectColumnDeletedAt,
+	ControlLineSelectColumnDeletedBy,
+	ControlLineSelectColumnIsDeleted,
 	ControlLineSelectColumnGisData,
 }
 
 func (e ControlLineSelectColumn) IsValid() bool {
 	switch e {
-	case ControlLineSelectColumnID, ControlLineSelectColumnControlLineID, ControlLineSelectColumnLineName, ControlLineSelectColumnLineType, ControlLineSelectColumnDistrictID, ControlLineSelectColumnControlLevel, ControlLineSelectColumnApplyReason, ControlLineSelectColumnCheckStatus, ControlLineSelectColumnCheckTime, ControlLineSelectColumnCheckUserID, ControlLineSelectColumnRejectReason, ControlLineSelectColumnCreateAt, ControlLineSelectColumnCreateBy, ControlLineSelectColumnUpdateAt, ControlLineSelectColumnUpdateBy, ControlLineSelectColumnDeleteAt, ControlLineSelectColumnDeleteBy, ControlLineSelectColumnIsDelete, ControlLineSelectColumnGisData:
+	case ControlLineSelectColumnID, ControlLineSelectColumnControlLineID, ControlLineSelectColumnLineName, ControlLineSelectColumnLineType, ControlLineSelectColumnDistrictID, ControlLineSelectColumnControlLevel, ControlLineSelectColumnApplyReason, ControlLineSelectColumnCheckStatus, ControlLineSelectColumnCheckTime, ControlLineSelectColumnCheckUserID, ControlLineSelectColumnRejectReason, ControlLineSelectColumnCreatedAt, ControlLineSelectColumnCreatedBy, ControlLineSelectColumnUpdatedAt, ControlLineSelectColumnUpdatedBy, ControlLineSelectColumnDeletedAt, ControlLineSelectColumnDeletedBy, ControlLineSelectColumnIsDeleted, ControlLineSelectColumnGisData:
 		return true
 	}
 	return false
@@ -4039,19 +4039,19 @@ const (
 	// 结束时间
 	ControlLineTimeSelectColumnEndTime ControlLineTimeSelectColumn = "end_time"
 	// 创建时间
-	ControlLineTimeSelectColumnCreateAt ControlLineTimeSelectColumn = "create_at"
+	ControlLineTimeSelectColumnCreatedAt ControlLineTimeSelectColumn = "created_at"
 	// 创建人
-	ControlLineTimeSelectColumnCreateBy ControlLineTimeSelectColumn = "create_by"
+	ControlLineTimeSelectColumnCreatedBy ControlLineTimeSelectColumn = "created_by"
 	// 更新时间
-	ControlLineTimeSelectColumnUpdateAt ControlLineTimeSelectColumn = "update_at"
+	ControlLineTimeSelectColumnUpdatedAt ControlLineTimeSelectColumn = "updated_at"
 	// 更新人
-	ControlLineTimeSelectColumnUpdateBy ControlLineTimeSelectColumn = "update_by"
+	ControlLineTimeSelectColumnUpdatedBy ControlLineTimeSelectColumn = "updated_by"
 	// 删除时间
-	ControlLineTimeSelectColumnDeleteAt ControlLineTimeSelectColumn = "delete_at"
+	ControlLineTimeSelectColumnDeletedAt ControlLineTimeSelectColumn = "deleted_at"
 	// 删除人
-	ControlLineTimeSelectColumnDeleteBy ControlLineTimeSelectColumn = "delete_by"
+	ControlLineTimeSelectColumnDeletedBy ControlLineTimeSelectColumn = "deleted_by"
 	// 是否删除
-	ControlLineTimeSelectColumnIsDelete ControlLineTimeSelectColumn = "is_delete"
+	ControlLineTimeSelectColumnIsDeleted ControlLineTimeSelectColumn = "is_deleted"
 )
 
 var AllControlLineTimeSelectColumn = []ControlLineTimeSelectColumn{
@@ -4060,18 +4060,18 @@ var AllControlLineTimeSelectColumn = []ControlLineTimeSelectColumn{
 	ControlLineTimeSelectColumnControlLineID,
 	ControlLineTimeSelectColumnStartTime,
 	ControlLineTimeSelectColumnEndTime,
-	ControlLineTimeSelectColumnCreateAt,
-	ControlLineTimeSelectColumnCreateBy,
-	ControlLineTimeSelectColumnUpdateAt,
-	ControlLineTimeSelectColumnUpdateBy,
-	ControlLineTimeSelectColumnDeleteAt,
-	ControlLineTimeSelectColumnDeleteBy,
-	ControlLineTimeSelectColumnIsDelete,
+	ControlLineTimeSelectColumnCreatedAt,
+	ControlLineTimeSelectColumnCreatedBy,
+	ControlLineTimeSelectColumnUpdatedAt,
+	ControlLineTimeSelectColumnUpdatedBy,
+	ControlLineTimeSelectColumnDeletedAt,
+	ControlLineTimeSelectColumnDeletedBy,
+	ControlLineTimeSelectColumnIsDeleted,
 }
 
 func (e ControlLineTimeSelectColumn) IsValid() bool {
 	switch e {
-	case ControlLineTimeSelectColumnID, ControlLineTimeSelectColumnControlLineTimeID, ControlLineTimeSelectColumnControlLineID, ControlLineTimeSelectColumnStartTime, ControlLineTimeSelectColumnEndTime, ControlLineTimeSelectColumnCreateAt, ControlLineTimeSelectColumnCreateBy, ControlLineTimeSelectColumnUpdateAt, ControlLineTimeSelectColumnUpdateBy, ControlLineTimeSelectColumnDeleteAt, ControlLineTimeSelectColumnDeleteBy, ControlLineTimeSelectColumnIsDelete:
+	case ControlLineTimeSelectColumnID, ControlLineTimeSelectColumnControlLineTimeID, ControlLineTimeSelectColumnControlLineID, ControlLineTimeSelectColumnStartTime, ControlLineTimeSelectColumnEndTime, ControlLineTimeSelectColumnCreatedAt, ControlLineTimeSelectColumnCreatedBy, ControlLineTimeSelectColumnUpdatedAt, ControlLineTimeSelectColumnUpdatedBy, ControlLineTimeSelectColumnDeletedAt, ControlLineTimeSelectColumnDeletedBy, ControlLineTimeSelectColumnIsDeleted:
 		return true
 	}
 	return false
@@ -4123,19 +4123,19 @@ const (
 	// 备注
 	EcdFileCheckHisSelectColumnRemark EcdFileCheckHisSelectColumn = "remark"
 	// 创建时间
-	EcdFileCheckHisSelectColumnCreateAt EcdFileCheckHisSelectColumn = "create_at"
+	EcdFileCheckHisSelectColumnCreatedAt EcdFileCheckHisSelectColumn = "created_at"
 	// 创建人
-	EcdFileCheckHisSelectColumnCreateBy EcdFileCheckHisSelectColumn = "create_by"
+	EcdFileCheckHisSelectColumnCreatedBy EcdFileCheckHisSelectColumn = "created_by"
 	// 更新时间
-	EcdFileCheckHisSelectColumnUpdateAt EcdFileCheckHisSelectColumn = "update_at"
+	EcdFileCheckHisSelectColumnUpdatedAt EcdFileCheckHisSelectColumn = "updated_at"
 	// 更新人
-	EcdFileCheckHisSelectColumnUpdateBy EcdFileCheckHisSelectColumn = "update_by"
+	EcdFileCheckHisSelectColumnUpdatedBy EcdFileCheckHisSelectColumn = "updated_by"
 	// 删除时间
-	EcdFileCheckHisSelectColumnDeleteAt EcdFileCheckHisSelectColumn = "delete_at"
+	EcdFileCheckHisSelectColumnDeletedAt EcdFileCheckHisSelectColumn = "deleted_at"
 	// 删除人
-	EcdFileCheckHisSelectColumnDeleteBy EcdFileCheckHisSelectColumn = "delete_by"
+	EcdFileCheckHisSelectColumnDeletedBy EcdFileCheckHisSelectColumn = "deleted_by"
 	// 是否删除
-	EcdFileCheckHisSelectColumnIsDelete EcdFileCheckHisSelectColumn = "is_delete"
+	EcdFileCheckHisSelectColumnIsDeleted EcdFileCheckHisSelectColumn = "is_deleted"
 )
 
 var AllEcdFileCheckHisSelectColumn = []EcdFileCheckHisSelectColumn{
@@ -4149,18 +4149,18 @@ var AllEcdFileCheckHisSelectColumn = []EcdFileCheckHisSelectColumn{
 	EcdFileCheckHisSelectColumnOperTime,
 	EcdFileCheckHisSelectColumnSuggest,
 	EcdFileCheckHisSelectColumnRemark,
-	EcdFileCheckHisSelectColumnCreateAt,
-	EcdFileCheckHisSelectColumnCreateBy,
-	EcdFileCheckHisSelectColumnUpdateAt,
-	EcdFileCheckHisSelectColumnUpdateBy,
-	EcdFileCheckHisSelectColumnDeleteAt,
-	EcdFileCheckHisSelectColumnDeleteBy,
-	EcdFileCheckHisSelectColumnIsDelete,
+	EcdFileCheckHisSelectColumnCreatedAt,
+	EcdFileCheckHisSelectColumnCreatedBy,
+	EcdFileCheckHisSelectColumnUpdatedAt,
+	EcdFileCheckHisSelectColumnUpdatedBy,
+	EcdFileCheckHisSelectColumnDeletedAt,
+	EcdFileCheckHisSelectColumnDeletedBy,
+	EcdFileCheckHisSelectColumnIsDeleted,
 }
 
 func (e EcdFileCheckHisSelectColumn) IsValid() bool {
 	switch e {
-	case EcdFileCheckHisSelectColumnID, EcdFileCheckHisSelectColumnHisID, EcdFileCheckHisSelectColumnFileMainID, EcdFileCheckHisSelectColumnUserID, EcdFileCheckHisSelectColumnOperType, EcdFileCheckHisSelectColumnCheckStatus, EcdFileCheckHisSelectColumnRecTime, EcdFileCheckHisSelectColumnOperTime, EcdFileCheckHisSelectColumnSuggest, EcdFileCheckHisSelectColumnRemark, EcdFileCheckHisSelectColumnCreateAt, EcdFileCheckHisSelectColumnCreateBy, EcdFileCheckHisSelectColumnUpdateAt, EcdFileCheckHisSelectColumnUpdateBy, EcdFileCheckHisSelectColumnDeleteAt, EcdFileCheckHisSelectColumnDeleteBy, EcdFileCheckHisSelectColumnIsDelete:
+	case EcdFileCheckHisSelectColumnID, EcdFileCheckHisSelectColumnHisID, EcdFileCheckHisSelectColumnFileMainID, EcdFileCheckHisSelectColumnUserID, EcdFileCheckHisSelectColumnOperType, EcdFileCheckHisSelectColumnCheckStatus, EcdFileCheckHisSelectColumnRecTime, EcdFileCheckHisSelectColumnOperTime, EcdFileCheckHisSelectColumnSuggest, EcdFileCheckHisSelectColumnRemark, EcdFileCheckHisSelectColumnCreatedAt, EcdFileCheckHisSelectColumnCreatedBy, EcdFileCheckHisSelectColumnUpdatedAt, EcdFileCheckHisSelectColumnUpdatedBy, EcdFileCheckHisSelectColumnDeletedAt, EcdFileCheckHisSelectColumnDeletedBy, EcdFileCheckHisSelectColumnIsDeleted:
 		return true
 	}
 	return false
@@ -4200,19 +4200,19 @@ const (
 	// 区域ID
 	EcdFileDistrictSelectColumnDistrictID EcdFileDistrictSelectColumn = "district_id"
 	// 创建时间
-	EcdFileDistrictSelectColumnCreateAt EcdFileDistrictSelectColumn = "create_at"
+	EcdFileDistrictSelectColumnCreatedAt EcdFileDistrictSelectColumn = "created_at"
 	// 创建人
-	EcdFileDistrictSelectColumnCreateBy EcdFileDistrictSelectColumn = "create_by"
+	EcdFileDistrictSelectColumnCreatedBy EcdFileDistrictSelectColumn = "created_by"
 	// 更新时间
-	EcdFileDistrictSelectColumnUpdateAt EcdFileDistrictSelectColumn = "update_at"
+	EcdFileDistrictSelectColumnUpdatedAt EcdFileDistrictSelectColumn = "updated_at"
 	// 更新人
-	EcdFileDistrictSelectColumnUpdateBy EcdFileDistrictSelectColumn = "update_by"
+	EcdFileDistrictSelectColumnUpdatedBy EcdFileDistrictSelectColumn = "updated_by"
 	// 删除时间
-	EcdFileDistrictSelectColumnDeleteAt EcdFileDistrictSelectColumn = "delete_at"
+	EcdFileDistrictSelectColumnDeletedAt EcdFileDistrictSelectColumn = "deleted_at"
 	// 删除人
-	EcdFileDistrictSelectColumnDeleteBy EcdFileDistrictSelectColumn = "delete_by"
+	EcdFileDistrictSelectColumnDeletedBy EcdFileDistrictSelectColumn = "deleted_by"
 	// 是否删除
-	EcdFileDistrictSelectColumnIsDelete EcdFileDistrictSelectColumn = "is_delete"
+	EcdFileDistrictSelectColumnIsDeleted EcdFileDistrictSelectColumn = "is_deleted"
 )
 
 var AllEcdFileDistrictSelectColumn = []EcdFileDistrictSelectColumn{
@@ -4220,18 +4220,18 @@ var AllEcdFileDistrictSelectColumn = []EcdFileDistrictSelectColumn{
 	EcdFileDistrictSelectColumnFileDistrictID,
 	EcdFileDistrictSelectColumnFileMainID,
 	EcdFileDistrictSelectColumnDistrictID,
-	EcdFileDistrictSelectColumnCreateAt,
-	EcdFileDistrictSelectColumnCreateBy,
-	EcdFileDistrictSelectColumnUpdateAt,
-	EcdFileDistrictSelectColumnUpdateBy,
-	EcdFileDistrictSelectColumnDeleteAt,
-	EcdFileDistrictSelectColumnDeleteBy,
-	EcdFileDistrictSelectColumnIsDelete,
+	EcdFileDistrictSelectColumnCreatedAt,
+	EcdFileDistrictSelectColumnCreatedBy,
+	EcdFileDistrictSelectColumnUpdatedAt,
+	EcdFileDistrictSelectColumnUpdatedBy,
+	EcdFileDistrictSelectColumnDeletedAt,
+	EcdFileDistrictSelectColumnDeletedBy,
+	EcdFileDistrictSelectColumnIsDeleted,
 }
 
 func (e EcdFileDistrictSelectColumn) IsValid() bool {
 	switch e {
-	case EcdFileDistrictSelectColumnID, EcdFileDistrictSelectColumnFileDistrictID, EcdFileDistrictSelectColumnFileMainID, EcdFileDistrictSelectColumnDistrictID, EcdFileDistrictSelectColumnCreateAt, EcdFileDistrictSelectColumnCreateBy, EcdFileDistrictSelectColumnUpdateAt, EcdFileDistrictSelectColumnUpdateBy, EcdFileDistrictSelectColumnDeleteAt, EcdFileDistrictSelectColumnDeleteBy, EcdFileDistrictSelectColumnIsDelete:
+	case EcdFileDistrictSelectColumnID, EcdFileDistrictSelectColumnFileDistrictID, EcdFileDistrictSelectColumnFileMainID, EcdFileDistrictSelectColumnDistrictID, EcdFileDistrictSelectColumnCreatedAt, EcdFileDistrictSelectColumnCreatedBy, EcdFileDistrictSelectColumnUpdatedAt, EcdFileDistrictSelectColumnUpdatedBy, EcdFileDistrictSelectColumnDeletedAt, EcdFileDistrictSelectColumnDeletedBy, EcdFileDistrictSelectColumnIsDeleted:
 		return true
 	}
 	return false
@@ -4279,19 +4279,19 @@ const (
 	// 信息点类型 0停车点 1起点 2终点 3修车点
 	EcdFileLinePointSelectColumnPointType EcdFileLinePointSelectColumn = "point_type"
 	// 创建时间
-	EcdFileLinePointSelectColumnCreateAt EcdFileLinePointSelectColumn = "create_at"
+	EcdFileLinePointSelectColumnCreatedAt EcdFileLinePointSelectColumn = "created_at"
 	// 创建人
-	EcdFileLinePointSelectColumnCreateBy EcdFileLinePointSelectColumn = "create_by"
+	EcdFileLinePointSelectColumnCreatedBy EcdFileLinePointSelectColumn = "created_by"
 	// 更新时间
-	EcdFileLinePointSelectColumnUpdateAt EcdFileLinePointSelectColumn = "update_at"
+	EcdFileLinePointSelectColumnUpdatedAt EcdFileLinePointSelectColumn = "updated_at"
 	// 更新人
-	EcdFileLinePointSelectColumnUpdateBy EcdFileLinePointSelectColumn = "update_by"
+	EcdFileLinePointSelectColumnUpdatedBy EcdFileLinePointSelectColumn = "updated_by"
 	// 删除时间
-	EcdFileLinePointSelectColumnDeleteAt EcdFileLinePointSelectColumn = "delete_at"
+	EcdFileLinePointSelectColumnDeletedAt EcdFileLinePointSelectColumn = "deleted_at"
 	// 删除人
-	EcdFileLinePointSelectColumnDeleteBy EcdFileLinePointSelectColumn = "delete_by"
+	EcdFileLinePointSelectColumnDeletedBy EcdFileLinePointSelectColumn = "deleted_by"
 	// 是否删除
-	EcdFileLinePointSelectColumnIsDelete EcdFileLinePointSelectColumn = "is_delete"
+	EcdFileLinePointSelectColumnIsDeleted EcdFileLinePointSelectColumn = "is_deleted"
 )
 
 var AllEcdFileLinePointSelectColumn = []EcdFileLinePointSelectColumn{
@@ -4303,18 +4303,18 @@ var AllEcdFileLinePointSelectColumn = []EcdFileLinePointSelectColumn{
 	EcdFileLinePointSelectColumnLinePointName,
 	EcdFileLinePointSelectColumnLinePointRemark,
 	EcdFileLinePointSelectColumnPointType,
-	EcdFileLinePointSelectColumnCreateAt,
-	EcdFileLinePointSelectColumnCreateBy,
-	EcdFileLinePointSelectColumnUpdateAt,
-	EcdFileLinePointSelectColumnUpdateBy,
-	EcdFileLinePointSelectColumnDeleteAt,
-	EcdFileLinePointSelectColumnDeleteBy,
-	EcdFileLinePointSelectColumnIsDelete,
+	EcdFileLinePointSelectColumnCreatedAt,
+	EcdFileLinePointSelectColumnCreatedBy,
+	EcdFileLinePointSelectColumnUpdatedAt,
+	EcdFileLinePointSelectColumnUpdatedBy,
+	EcdFileLinePointSelectColumnDeletedAt,
+	EcdFileLinePointSelectColumnDeletedBy,
+	EcdFileLinePointSelectColumnIsDeleted,
 }
 
 func (e EcdFileLinePointSelectColumn) IsValid() bool {
 	switch e {
-	case EcdFileLinePointSelectColumnID, EcdFileLinePointSelectColumnLinePointID, EcdFileLinePointSelectColumnFileMainID, EcdFileLinePointSelectColumnGpsPoint, EcdFileLinePointSelectColumnMapPoint, EcdFileLinePointSelectColumnLinePointName, EcdFileLinePointSelectColumnLinePointRemark, EcdFileLinePointSelectColumnPointType, EcdFileLinePointSelectColumnCreateAt, EcdFileLinePointSelectColumnCreateBy, EcdFileLinePointSelectColumnUpdateAt, EcdFileLinePointSelectColumnUpdateBy, EcdFileLinePointSelectColumnDeleteAt, EcdFileLinePointSelectColumnDeleteBy, EcdFileLinePointSelectColumnIsDelete:
+	case EcdFileLinePointSelectColumnID, EcdFileLinePointSelectColumnLinePointID, EcdFileLinePointSelectColumnFileMainID, EcdFileLinePointSelectColumnGpsPoint, EcdFileLinePointSelectColumnMapPoint, EcdFileLinePointSelectColumnLinePointName, EcdFileLinePointSelectColumnLinePointRemark, EcdFileLinePointSelectColumnPointType, EcdFileLinePointSelectColumnCreatedAt, EcdFileLinePointSelectColumnCreatedBy, EcdFileLinePointSelectColumnUpdatedAt, EcdFileLinePointSelectColumnUpdatedBy, EcdFileLinePointSelectColumnDeletedAt, EcdFileLinePointSelectColumnDeletedBy, EcdFileLinePointSelectColumnIsDeleted:
 		return true
 	}
 	return false
@@ -4414,19 +4414,19 @@ const (
 	// 工地洗车台照片
 	EcdFileMainSelectColumnConstructWashCarPlacePhoto EcdFileMainSelectColumn = "construct_wash_car_place_photo"
 	// 创建时间
-	EcdFileMainSelectColumnCreateAt EcdFileMainSelectColumn = "create_at"
+	EcdFileMainSelectColumnCreatedAt EcdFileMainSelectColumn = "created_at"
 	// 创建人
-	EcdFileMainSelectColumnCreateBy EcdFileMainSelectColumn = "create_by"
+	EcdFileMainSelectColumnCreatedBy EcdFileMainSelectColumn = "created_by"
 	// 更新时间
-	EcdFileMainSelectColumnUpdateAt EcdFileMainSelectColumn = "update_at"
+	EcdFileMainSelectColumnUpdatedAt EcdFileMainSelectColumn = "updated_at"
 	// 更新人
-	EcdFileMainSelectColumnUpdateBy EcdFileMainSelectColumn = "update_by"
+	EcdFileMainSelectColumnUpdatedBy EcdFileMainSelectColumn = "updated_by"
 	// 删除时间
-	EcdFileMainSelectColumnDeleteAt EcdFileMainSelectColumn = "delete_at"
+	EcdFileMainSelectColumnDeletedAt EcdFileMainSelectColumn = "deleted_at"
 	// 删除人
-	EcdFileMainSelectColumnDeleteBy EcdFileMainSelectColumn = "delete_by"
+	EcdFileMainSelectColumnDeletedBy EcdFileMainSelectColumn = "deleted_by"
 	// 是否删除
-	EcdFileMainSelectColumnIsDelete EcdFileMainSelectColumn = "is_delete"
+	EcdFileMainSelectColumnIsDeleted EcdFileMainSelectColumn = "is_deleted"
 	// 备注
 	EcdFileMainSelectColumnRemark EcdFileMainSelectColumn = "remark"
 )
@@ -4466,19 +4466,19 @@ var AllEcdFileMainSelectColumn = []EcdFileMainSelectColumn{
 	EcdFileMainSelectColumnConstructGarbageAllowFile,
 	EcdFileMainSelectColumnConstructSiteEnterancePhoto,
 	EcdFileMainSelectColumnConstructWashCarPlacePhoto,
-	EcdFileMainSelectColumnCreateAt,
-	EcdFileMainSelectColumnCreateBy,
-	EcdFileMainSelectColumnUpdateAt,
-	EcdFileMainSelectColumnUpdateBy,
-	EcdFileMainSelectColumnDeleteAt,
-	EcdFileMainSelectColumnDeleteBy,
-	EcdFileMainSelectColumnIsDelete,
+	EcdFileMainSelectColumnCreatedAt,
+	EcdFileMainSelectColumnCreatedBy,
+	EcdFileMainSelectColumnUpdatedAt,
+	EcdFileMainSelectColumnUpdatedBy,
+	EcdFileMainSelectColumnDeletedAt,
+	EcdFileMainSelectColumnDeletedBy,
+	EcdFileMainSelectColumnIsDeleted,
 	EcdFileMainSelectColumnRemark,
 }
 
 func (e EcdFileMainSelectColumn) IsValid() bool {
 	switch e {
-	case EcdFileMainSelectColumnID, EcdFileMainSelectColumnFileMainID, EcdFileMainSelectColumnFileID, EcdFileMainSelectColumnEnterpriseID, EcdFileMainSelectColumnDistrictID, EcdFileMainSelectColumnIsCrossDistrict, EcdFileMainSelectColumnFirstCrossPid, EcdFileMainSelectColumnPlanStartTime, EcdFileMainSelectColumnPlanEndTime, EcdFileMainSelectColumnCheckTime, EcdFileMainSelectColumnCheckStatus, EcdFileMainSelectColumnPhoneNum, EcdFileMainSelectColumnPointState, EcdFileMainSelectColumnEndState, EcdFileMainSelectColumnTitle, EcdFileMainSelectColumnAddDistrictID, EcdFileMainSelectColumnStartPointCheckerSign, EcdFileMainSelectColumnEndPointCheckerSign, EcdFileMainSelectColumnRouteCheckerSign, EcdFileMainSelectColumnSpeedTimeCheckerSign, EcdFileMainSelectColumnReturnSuggest, EcdFileMainSelectColumnConstructTitle, EcdFileMainSelectColumnConstructID, EcdFileMainSelectColumnIsMatchConstruction, EcdFileMainSelectColumnClientReportTime, EcdFileMainSelectColumnConstructProveFile, EcdFileMainSelectColumnDoConstructProveFile, EcdFileMainSelectColumnSubPackageProveFile, EcdFileMainSelectColumnTrafficProveFile, EcdFileMainSelectColumnRouteBoardPromiseFile, EcdFileMainSelectColumnTrafficeObjectPromiseFile, EcdFileMainSelectColumnConstructGarbageAllowFile, EcdFileMainSelectColumnConstructSiteEnterancePhoto, EcdFileMainSelectColumnConstructWashCarPlacePhoto, EcdFileMainSelectColumnCreateAt, EcdFileMainSelectColumnCreateBy, EcdFileMainSelectColumnUpdateAt, EcdFileMainSelectColumnUpdateBy, EcdFileMainSelectColumnDeleteAt, EcdFileMainSelectColumnDeleteBy, EcdFileMainSelectColumnIsDelete, EcdFileMainSelectColumnRemark:
+	case EcdFileMainSelectColumnID, EcdFileMainSelectColumnFileMainID, EcdFileMainSelectColumnFileID, EcdFileMainSelectColumnEnterpriseID, EcdFileMainSelectColumnDistrictID, EcdFileMainSelectColumnIsCrossDistrict, EcdFileMainSelectColumnFirstCrossPid, EcdFileMainSelectColumnPlanStartTime, EcdFileMainSelectColumnPlanEndTime, EcdFileMainSelectColumnCheckTime, EcdFileMainSelectColumnCheckStatus, EcdFileMainSelectColumnPhoneNum, EcdFileMainSelectColumnPointState, EcdFileMainSelectColumnEndState, EcdFileMainSelectColumnTitle, EcdFileMainSelectColumnAddDistrictID, EcdFileMainSelectColumnStartPointCheckerSign, EcdFileMainSelectColumnEndPointCheckerSign, EcdFileMainSelectColumnRouteCheckerSign, EcdFileMainSelectColumnSpeedTimeCheckerSign, EcdFileMainSelectColumnReturnSuggest, EcdFileMainSelectColumnConstructTitle, EcdFileMainSelectColumnConstructID, EcdFileMainSelectColumnIsMatchConstruction, EcdFileMainSelectColumnClientReportTime, EcdFileMainSelectColumnConstructProveFile, EcdFileMainSelectColumnDoConstructProveFile, EcdFileMainSelectColumnSubPackageProveFile, EcdFileMainSelectColumnTrafficProveFile, EcdFileMainSelectColumnRouteBoardPromiseFile, EcdFileMainSelectColumnTrafficeObjectPromiseFile, EcdFileMainSelectColumnConstructGarbageAllowFile, EcdFileMainSelectColumnConstructSiteEnterancePhoto, EcdFileMainSelectColumnConstructWashCarPlacePhoto, EcdFileMainSelectColumnCreatedAt, EcdFileMainSelectColumnCreatedBy, EcdFileMainSelectColumnUpdatedAt, EcdFileMainSelectColumnUpdatedBy, EcdFileMainSelectColumnDeletedAt, EcdFileMainSelectColumnDeletedBy, EcdFileMainSelectColumnIsDeleted, EcdFileMainSelectColumnRemark:
 		return true
 	}
 	return false
@@ -4564,19 +4564,19 @@ const (
 	// 工程概况
 	EcdFileMainSubSelectColumnFacts EcdFileMainSubSelectColumn = "facts"
 	// 创建时间
-	EcdFileMainSubSelectColumnCreateAt EcdFileMainSubSelectColumn = "create_at"
+	EcdFileMainSubSelectColumnCreatedAt EcdFileMainSubSelectColumn = "created_at"
 	// 创建人
-	EcdFileMainSubSelectColumnCreateBy EcdFileMainSubSelectColumn = "create_by"
+	EcdFileMainSubSelectColumnCreatedBy EcdFileMainSubSelectColumn = "created_by"
 	// 更新时间
-	EcdFileMainSubSelectColumnUpdateAt EcdFileMainSubSelectColumn = "update_at"
+	EcdFileMainSubSelectColumnUpdatedAt EcdFileMainSubSelectColumn = "updated_at"
 	// 更新人
-	EcdFileMainSubSelectColumnUpdateBy EcdFileMainSubSelectColumn = "update_by"
+	EcdFileMainSubSelectColumnUpdatedBy EcdFileMainSubSelectColumn = "updated_by"
 	// 删除时间
-	EcdFileMainSubSelectColumnDeleteAt EcdFileMainSubSelectColumn = "delete_at"
+	EcdFileMainSubSelectColumnDeletedAt EcdFileMainSubSelectColumn = "deleted_at"
 	// 删除人
-	EcdFileMainSubSelectColumnDeleteBy EcdFileMainSubSelectColumn = "delete_by"
+	EcdFileMainSubSelectColumnDeletedBy EcdFileMainSubSelectColumn = "deleted_by"
 	// 是否删除
-	EcdFileMainSubSelectColumnIsDelete EcdFileMainSubSelectColumn = "is_delete"
+	EcdFileMainSubSelectColumnIsDeleted EcdFileMainSubSelectColumn = "is_deleted"
 )
 
 var AllEcdFileMainSubSelectColumn = []EcdFileMainSubSelectColumn{
@@ -4607,18 +4607,18 @@ var AllEcdFileMainSubSelectColumn = []EcdFileMainSubSelectColumn{
 	EcdFileMainSubSelectColumnPackageDirectorName,
 	EcdFileMainSubSelectColumnPackagePhone,
 	EcdFileMainSubSelectColumnFacts,
-	EcdFileMainSubSelectColumnCreateAt,
-	EcdFileMainSubSelectColumnCreateBy,
-	EcdFileMainSubSelectColumnUpdateAt,
-	EcdFileMainSubSelectColumnUpdateBy,
-	EcdFileMainSubSelectColumnDeleteAt,
-	EcdFileMainSubSelectColumnDeleteBy,
-	EcdFileMainSubSelectColumnIsDelete,
+	EcdFileMainSubSelectColumnCreatedAt,
+	EcdFileMainSubSelectColumnCreatedBy,
+	EcdFileMainSubSelectColumnUpdatedAt,
+	EcdFileMainSubSelectColumnUpdatedBy,
+	EcdFileMainSubSelectColumnDeletedAt,
+	EcdFileMainSubSelectColumnDeletedBy,
+	EcdFileMainSubSelectColumnIsDeleted,
 }
 
 func (e EcdFileMainSubSelectColumn) IsValid() bool {
 	switch e {
-	case EcdFileMainSubSelectColumnID, EcdFileMainSubSelectColumnFileMainSubID, EcdFileMainSubSelectColumnFileMainID, EcdFileMainSubSelectColumnAddress, EcdFileMainSubSelectColumnConstructUnit, EcdFileMainSubSelectColumnConstructDirectorName, EcdFileMainSubSelectColumnConstructPhone, EcdFileMainSubSelectColumnContractUnit, EcdFileMainSubSelectColumnContractDirectorName, EcdFileMainSubSelectColumnContractPhone, EcdFileMainSubSelectColumnTrafficUnit, EcdFileMainSubSelectColumnTrafficDirectorName, EcdFileMainSubSelectColumnTrafficPhone, EcdFileMainSubSelectColumnWlType, EcdFileMainSubSelectColumnPlanDealArea, EcdFileMainSubSelectColumnPlanTransVolume, EcdFileMainSubSelectColumnPlanStartTime, EcdFileMainSubSelectColumnPlanEndTime, EcdFileMainSubSelectColumnPlanTransLines, EcdFileMainSubSelectColumnConstructProveNum, EcdFileMainSubSelectColumnContractProveNum, EcdFileMainSubSelectColumnTrafficProveNum, EcdFileMainSubSelectColumnSubPackageUnit, EcdFileMainSubSelectColumnPackageProveNum, EcdFileMainSubSelectColumnPackageDirectorName, EcdFileMainSubSelectColumnPackagePhone, EcdFileMainSubSelectColumnFacts, EcdFileMainSubSelectColumnCreateAt, EcdFileMainSubSelectColumnCreateBy, EcdFileMainSubSelectColumnUpdateAt, EcdFileMainSubSelectColumnUpdateBy, EcdFileMainSubSelectColumnDeleteAt, EcdFileMainSubSelectColumnDeleteBy, EcdFileMainSubSelectColumnIsDelete:
+	case EcdFileMainSubSelectColumnID, EcdFileMainSubSelectColumnFileMainSubID, EcdFileMainSubSelectColumnFileMainID, EcdFileMainSubSelectColumnAddress, EcdFileMainSubSelectColumnConstructUnit, EcdFileMainSubSelectColumnConstructDirectorName, EcdFileMainSubSelectColumnConstructPhone, EcdFileMainSubSelectColumnContractUnit, EcdFileMainSubSelectColumnContractDirectorName, EcdFileMainSubSelectColumnContractPhone, EcdFileMainSubSelectColumnTrafficUnit, EcdFileMainSubSelectColumnTrafficDirectorName, EcdFileMainSubSelectColumnTrafficPhone, EcdFileMainSubSelectColumnWlType, EcdFileMainSubSelectColumnPlanDealArea, EcdFileMainSubSelectColumnPlanTransVolume, EcdFileMainSubSelectColumnPlanStartTime, EcdFileMainSubSelectColumnPlanEndTime, EcdFileMainSubSelectColumnPlanTransLines, EcdFileMainSubSelectColumnConstructProveNum, EcdFileMainSubSelectColumnContractProveNum, EcdFileMainSubSelectColumnTrafficProveNum, EcdFileMainSubSelectColumnSubPackageUnit, EcdFileMainSubSelectColumnPackageProveNum, EcdFileMainSubSelectColumnPackageDirectorName, EcdFileMainSubSelectColumnPackagePhone, EcdFileMainSubSelectColumnFacts, EcdFileMainSubSelectColumnCreatedAt, EcdFileMainSubSelectColumnCreatedBy, EcdFileMainSubSelectColumnUpdatedAt, EcdFileMainSubSelectColumnUpdatedBy, EcdFileMainSubSelectColumnDeletedAt, EcdFileMainSubSelectColumnDeletedBy, EcdFileMainSubSelectColumnIsDeleted:
 		return true
 	}
 	return false
@@ -4660,19 +4660,19 @@ const (
 	// 审核状态
 	EcdFileVehicleSelectColumnCheckStatus EcdFileVehicleSelectColumn = "check_status"
 	// 创建时间
-	EcdFileVehicleSelectColumnCreateAt EcdFileVehicleSelectColumn = "create_at"
+	EcdFileVehicleSelectColumnCreatedAt EcdFileVehicleSelectColumn = "created_at"
 	// 创建人
-	EcdFileVehicleSelectColumnCreateBy EcdFileVehicleSelectColumn = "create_by"
+	EcdFileVehicleSelectColumnCreatedBy EcdFileVehicleSelectColumn = "created_by"
 	// 更新时间
-	EcdFileVehicleSelectColumnUpdateAt EcdFileVehicleSelectColumn = "update_at"
+	EcdFileVehicleSelectColumnUpdatedAt EcdFileVehicleSelectColumn = "updated_at"
 	// 更新人
-	EcdFileVehicleSelectColumnUpdateBy EcdFileVehicleSelectColumn = "update_by"
+	EcdFileVehicleSelectColumnUpdatedBy EcdFileVehicleSelectColumn = "updated_by"
 	// 删除时间
-	EcdFileVehicleSelectColumnDeleteAt EcdFileVehicleSelectColumn = "delete_at"
+	EcdFileVehicleSelectColumnDeletedAt EcdFileVehicleSelectColumn = "deleted_at"
 	// 删除人
-	EcdFileVehicleSelectColumnDeleteBy EcdFileVehicleSelectColumn = "delete_by"
+	EcdFileVehicleSelectColumnDeletedBy EcdFileVehicleSelectColumn = "deleted_by"
 	// 是否删除
-	EcdFileVehicleSelectColumnIsDelete EcdFileVehicleSelectColumn = "is_delete"
+	EcdFileVehicleSelectColumnIsDeleted EcdFileVehicleSelectColumn = "is_deleted"
 )
 
 var AllEcdFileVehicleSelectColumn = []EcdFileVehicleSelectColumn{
@@ -4681,18 +4681,18 @@ var AllEcdFileVehicleSelectColumn = []EcdFileVehicleSelectColumn{
 	EcdFileVehicleSelectColumnFileMainID,
 	EcdFileVehicleSelectColumnVehicleID,
 	EcdFileVehicleSelectColumnCheckStatus,
-	EcdFileVehicleSelectColumnCreateAt,
-	EcdFileVehicleSelectColumnCreateBy,
-	EcdFileVehicleSelectColumnUpdateAt,
-	EcdFileVehicleSelectColumnUpdateBy,
-	EcdFileVehicleSelectColumnDeleteAt,
-	EcdFileVehicleSelectColumnDeleteBy,
-	EcdFileVehicleSelectColumnIsDelete,
+	EcdFileVehicleSelectColumnCreatedAt,
+	EcdFileVehicleSelectColumnCreatedBy,
+	EcdFileVehicleSelectColumnUpdatedAt,
+	EcdFileVehicleSelectColumnUpdatedBy,
+	EcdFileVehicleSelectColumnDeletedAt,
+	EcdFileVehicleSelectColumnDeletedBy,
+	EcdFileVehicleSelectColumnIsDeleted,
 }
 
 func (e EcdFileVehicleSelectColumn) IsValid() bool {
 	switch e {
-	case EcdFileVehicleSelectColumnID, EcdFileVehicleSelectColumnFileVehicleID, EcdFileVehicleSelectColumnFileMainID, EcdFileVehicleSelectColumnVehicleID, EcdFileVehicleSelectColumnCheckStatus, EcdFileVehicleSelectColumnCreateAt, EcdFileVehicleSelectColumnCreateBy, EcdFileVehicleSelectColumnUpdateAt, EcdFileVehicleSelectColumnUpdateBy, EcdFileVehicleSelectColumnDeleteAt, EcdFileVehicleSelectColumnDeleteBy, EcdFileVehicleSelectColumnIsDelete:
+	case EcdFileVehicleSelectColumnID, EcdFileVehicleSelectColumnFileVehicleID, EcdFileVehicleSelectColumnFileMainID, EcdFileVehicleSelectColumnVehicleID, EcdFileVehicleSelectColumnCheckStatus, EcdFileVehicleSelectColumnCreatedAt, EcdFileVehicleSelectColumnCreatedBy, EcdFileVehicleSelectColumnUpdatedAt, EcdFileVehicleSelectColumnUpdatedBy, EcdFileVehicleSelectColumnDeletedAt, EcdFileVehicleSelectColumnDeletedBy, EcdFileVehicleSelectColumnIsDeleted:
 		return true
 	}
 	return false
@@ -4748,19 +4748,19 @@ const (
 	// 路线ID
 	EcdFileVehicleTimeSelectColumnLineID EcdFileVehicleTimeSelectColumn = "line_id"
 	// 创建时间
-	EcdFileVehicleTimeSelectColumnCreateAt EcdFileVehicleTimeSelectColumn = "create_at"
+	EcdFileVehicleTimeSelectColumnCreatedAt EcdFileVehicleTimeSelectColumn = "created_at"
 	// 创建人
-	EcdFileVehicleTimeSelectColumnCreateBy EcdFileVehicleTimeSelectColumn = "create_by"
+	EcdFileVehicleTimeSelectColumnCreatedBy EcdFileVehicleTimeSelectColumn = "created_by"
 	// 修改时间
-	EcdFileVehicleTimeSelectColumnUpdateAt EcdFileVehicleTimeSelectColumn = "update_at"
+	EcdFileVehicleTimeSelectColumnUpdatedAt EcdFileVehicleTimeSelectColumn = "updated_at"
 	// 修改人
-	EcdFileVehicleTimeSelectColumnUpdateBy EcdFileVehicleTimeSelectColumn = "update_by"
+	EcdFileVehicleTimeSelectColumnUpdatedBy EcdFileVehicleTimeSelectColumn = "updated_by"
 	// 删除时间
-	EcdFileVehicleTimeSelectColumnDeleteAt EcdFileVehicleTimeSelectColumn = "delete_at"
+	EcdFileVehicleTimeSelectColumnDeletedAt EcdFileVehicleTimeSelectColumn = "deleted_at"
 	// 删除人
-	EcdFileVehicleTimeSelectColumnDeleteBy EcdFileVehicleTimeSelectColumn = "delete_by"
+	EcdFileVehicleTimeSelectColumnDeletedBy EcdFileVehicleTimeSelectColumn = "deleted_by"
 	// 是否删除
-	EcdFileVehicleTimeSelectColumnIsDelete EcdFileVehicleTimeSelectColumn = "is_delete"
+	EcdFileVehicleTimeSelectColumnIsDeleted EcdFileVehicleTimeSelectColumn = "is_deleted"
 )
 
 var AllEcdFileVehicleTimeSelectColumn = []EcdFileVehicleTimeSelectColumn{
@@ -4776,18 +4776,18 @@ var AllEcdFileVehicleTimeSelectColumn = []EcdFileVehicleTimeSelectColumn{
 	EcdFileVehicleTimeSelectColumnIsCheck,
 	EcdFileVehicleTimeSelectColumnCheckTime,
 	EcdFileVehicleTimeSelectColumnLineID,
-	EcdFileVehicleTimeSelectColumnCreateAt,
-	EcdFileVehicleTimeSelectColumnCreateBy,
-	EcdFileVehicleTimeSelectColumnUpdateAt,
-	EcdFileVehicleTimeSelectColumnUpdateBy,
-	EcdFileVehicleTimeSelectColumnDeleteAt,
-	EcdFileVehicleTimeSelectColumnDeleteBy,
-	EcdFileVehicleTimeSelectColumnIsDelete,
+	EcdFileVehicleTimeSelectColumnCreatedAt,
+	EcdFileVehicleTimeSelectColumnCreatedBy,
+	EcdFileVehicleTimeSelectColumnUpdatedAt,
+	EcdFileVehicleTimeSelectColumnUpdatedBy,
+	EcdFileVehicleTimeSelectColumnDeletedAt,
+	EcdFileVehicleTimeSelectColumnDeletedBy,
+	EcdFileVehicleTimeSelectColumnIsDeleted,
 }
 
 func (e EcdFileVehicleTimeSelectColumn) IsValid() bool {
 	switch e {
-	case EcdFileVehicleTimeSelectColumnID, EcdFileVehicleTimeSelectColumnVehicleTimeID, EcdFileVehicleTimeSelectColumnFileMainID, EcdFileVehicleTimeSelectColumnVechileID, EcdFileVehicleTimeSelectColumnStartDate, EcdFileVehicleTimeSelectColumnEndDate, EcdFileVehicleTimeSelectColumnStartTime, EcdFileVehicleTimeSelectColumnEndTime, EcdFileVehicleTimeSelectColumnCheckStatus, EcdFileVehicleTimeSelectColumnIsCheck, EcdFileVehicleTimeSelectColumnCheckTime, EcdFileVehicleTimeSelectColumnLineID, EcdFileVehicleTimeSelectColumnCreateAt, EcdFileVehicleTimeSelectColumnCreateBy, EcdFileVehicleTimeSelectColumnUpdateAt, EcdFileVehicleTimeSelectColumnUpdateBy, EcdFileVehicleTimeSelectColumnDeleteAt, EcdFileVehicleTimeSelectColumnDeleteBy, EcdFileVehicleTimeSelectColumnIsDelete:
+	case EcdFileVehicleTimeSelectColumnID, EcdFileVehicleTimeSelectColumnVehicleTimeID, EcdFileVehicleTimeSelectColumnFileMainID, EcdFileVehicleTimeSelectColumnVechileID, EcdFileVehicleTimeSelectColumnStartDate, EcdFileVehicleTimeSelectColumnEndDate, EcdFileVehicleTimeSelectColumnStartTime, EcdFileVehicleTimeSelectColumnEndTime, EcdFileVehicleTimeSelectColumnCheckStatus, EcdFileVehicleTimeSelectColumnIsCheck, EcdFileVehicleTimeSelectColumnCheckTime, EcdFileVehicleTimeSelectColumnLineID, EcdFileVehicleTimeSelectColumnCreatedAt, EcdFileVehicleTimeSelectColumnCreatedBy, EcdFileVehicleTimeSelectColumnUpdatedAt, EcdFileVehicleTimeSelectColumnUpdatedBy, EcdFileVehicleTimeSelectColumnDeletedAt, EcdFileVehicleTimeSelectColumnDeletedBy, EcdFileVehicleTimeSelectColumnIsDeleted:
 		return true
 	}
 	return false
@@ -4835,19 +4835,19 @@ const (
 	// 是否解析描述
 	EcdLineSelectColumnIsResolveDesc EcdLineSelectColumn = "is_resolve_desc"
 	// 创建时间
-	EcdLineSelectColumnCreateAt EcdLineSelectColumn = "create_at"
+	EcdLineSelectColumnCreatedAt EcdLineSelectColumn = "created_at"
 	// 创建人
-	EcdLineSelectColumnCreateBy EcdLineSelectColumn = "create_by"
+	EcdLineSelectColumnCreatedBy EcdLineSelectColumn = "created_by"
 	// 更新时间
-	EcdLineSelectColumnUpdateAt EcdLineSelectColumn = "update_at"
+	EcdLineSelectColumnUpdatedAt EcdLineSelectColumn = "updated_at"
 	// 更新人
-	EcdLineSelectColumnUpdateBy EcdLineSelectColumn = "update_by"
+	EcdLineSelectColumnUpdatedBy EcdLineSelectColumn = "updated_by"
 	// 删除时间
-	EcdLineSelectColumnDeleteAt EcdLineSelectColumn = "delete_at"
+	EcdLineSelectColumnDeletedAt EcdLineSelectColumn = "deleted_at"
 	// 删除人
-	EcdLineSelectColumnDeleteBy EcdLineSelectColumn = "delete_by"
+	EcdLineSelectColumnDeletedBy EcdLineSelectColumn = "deleted_by"
 	// 是否删除
-	EcdLineSelectColumnIsDelete EcdLineSelectColumn = "is_delete"
+	EcdLineSelectColumnIsDeleted EcdLineSelectColumn = "is_deleted"
 	// 线路数据
 	EcdLineSelectColumnGisData EcdLineSelectColumn = "gis_data"
 )
@@ -4861,19 +4861,19 @@ var AllEcdLineSelectColumn = []EcdLineSelectColumn{
 	EcdLineSelectColumnAuditUserID,
 	EcdLineSelectColumnAuditTime,
 	EcdLineSelectColumnIsResolveDesc,
-	EcdLineSelectColumnCreateAt,
-	EcdLineSelectColumnCreateBy,
-	EcdLineSelectColumnUpdateAt,
-	EcdLineSelectColumnUpdateBy,
-	EcdLineSelectColumnDeleteAt,
-	EcdLineSelectColumnDeleteBy,
-	EcdLineSelectColumnIsDelete,
+	EcdLineSelectColumnCreatedAt,
+	EcdLineSelectColumnCreatedBy,
+	EcdLineSelectColumnUpdatedAt,
+	EcdLineSelectColumnUpdatedBy,
+	EcdLineSelectColumnDeletedAt,
+	EcdLineSelectColumnDeletedBy,
+	EcdLineSelectColumnIsDeleted,
 	EcdLineSelectColumnGisData,
 }
 
 func (e EcdLineSelectColumn) IsValid() bool {
 	switch e {
-	case EcdLineSelectColumnID, EcdLineSelectColumnLineID, EcdLineSelectColumnLineName, EcdLineSelectColumnEnterpriseID, EcdLineSelectColumnLineDesc, EcdLineSelectColumnAuditUserID, EcdLineSelectColumnAuditTime, EcdLineSelectColumnIsResolveDesc, EcdLineSelectColumnCreateAt, EcdLineSelectColumnCreateBy, EcdLineSelectColumnUpdateAt, EcdLineSelectColumnUpdateBy, EcdLineSelectColumnDeleteAt, EcdLineSelectColumnDeleteBy, EcdLineSelectColumnIsDelete, EcdLineSelectColumnGisData:
+	case EcdLineSelectColumnID, EcdLineSelectColumnLineID, EcdLineSelectColumnLineName, EcdLineSelectColumnEnterpriseID, EcdLineSelectColumnLineDesc, EcdLineSelectColumnAuditUserID, EcdLineSelectColumnAuditTime, EcdLineSelectColumnIsResolveDesc, EcdLineSelectColumnCreatedAt, EcdLineSelectColumnCreatedBy, EcdLineSelectColumnUpdatedAt, EcdLineSelectColumnUpdatedBy, EcdLineSelectColumnDeletedAt, EcdLineSelectColumnDeletedBy, EcdLineSelectColumnIsDeleted, EcdLineSelectColumnGisData:
 		return true
 	}
 	return false
@@ -4923,19 +4923,19 @@ const (
 	// 是否在线
 	ElectricFenceEnteranceRecordSelectColumnIsOnline ElectricFenceEnteranceRecordSelectColumn = "is_online"
 	// 创建时间
-	ElectricFenceEnteranceRecordSelectColumnCreateAt ElectricFenceEnteranceRecordSelectColumn = "create_at"
+	ElectricFenceEnteranceRecordSelectColumnCreatedAt ElectricFenceEnteranceRecordSelectColumn = "created_at"
 	// 创建人
-	ElectricFenceEnteranceRecordSelectColumnCreateBy ElectricFenceEnteranceRecordSelectColumn = "create_by"
+	ElectricFenceEnteranceRecordSelectColumnCreatedBy ElectricFenceEnteranceRecordSelectColumn = "created_by"
 	// 更新时间
-	ElectricFenceEnteranceRecordSelectColumnUpdateAt ElectricFenceEnteranceRecordSelectColumn = "update_at"
+	ElectricFenceEnteranceRecordSelectColumnUpdatedAt ElectricFenceEnteranceRecordSelectColumn = "updated_at"
 	// 更新人
-	ElectricFenceEnteranceRecordSelectColumnUpdateBy ElectricFenceEnteranceRecordSelectColumn = "update_by"
+	ElectricFenceEnteranceRecordSelectColumnUpdatedBy ElectricFenceEnteranceRecordSelectColumn = "updated_by"
 	// 删除时间
-	ElectricFenceEnteranceRecordSelectColumnDeleteAt ElectricFenceEnteranceRecordSelectColumn = "delete_at"
+	ElectricFenceEnteranceRecordSelectColumnDeletedAt ElectricFenceEnteranceRecordSelectColumn = "deleted_at"
 	// 删除人
-	ElectricFenceEnteranceRecordSelectColumnDeleteBy ElectricFenceEnteranceRecordSelectColumn = "delete_by"
+	ElectricFenceEnteranceRecordSelectColumnDeletedBy ElectricFenceEnteranceRecordSelectColumn = "deleted_by"
 	// 是否删除
-	ElectricFenceEnteranceRecordSelectColumnIsDelete ElectricFenceEnteranceRecordSelectColumn = "is_delete"
+	ElectricFenceEnteranceRecordSelectColumnIsDeleted ElectricFenceEnteranceRecordSelectColumn = "is_deleted"
 )
 
 var AllElectricFenceEnteranceRecordSelectColumn = []ElectricFenceEnteranceRecordSelectColumn{
@@ -4948,18 +4948,18 @@ var AllElectricFenceEnteranceRecordSelectColumn = []ElectricFenceEnteranceRecord
 	ElectricFenceEnteranceRecordSelectColumnIsOut,
 	ElectricFenceEnteranceRecordSelectColumnPosition,
 	ElectricFenceEnteranceRecordSelectColumnIsOnline,
-	ElectricFenceEnteranceRecordSelectColumnCreateAt,
-	ElectricFenceEnteranceRecordSelectColumnCreateBy,
-	ElectricFenceEnteranceRecordSelectColumnUpdateAt,
-	ElectricFenceEnteranceRecordSelectColumnUpdateBy,
-	ElectricFenceEnteranceRecordSelectColumnDeleteAt,
-	ElectricFenceEnteranceRecordSelectColumnDeleteBy,
-	ElectricFenceEnteranceRecordSelectColumnIsDelete,
+	ElectricFenceEnteranceRecordSelectColumnCreatedAt,
+	ElectricFenceEnteranceRecordSelectColumnCreatedBy,
+	ElectricFenceEnteranceRecordSelectColumnUpdatedAt,
+	ElectricFenceEnteranceRecordSelectColumnUpdatedBy,
+	ElectricFenceEnteranceRecordSelectColumnDeletedAt,
+	ElectricFenceEnteranceRecordSelectColumnDeletedBy,
+	ElectricFenceEnteranceRecordSelectColumnIsDeleted,
 }
 
 func (e ElectricFenceEnteranceRecordSelectColumn) IsValid() bool {
 	switch e {
-	case ElectricFenceEnteranceRecordSelectColumnID, ElectricFenceEnteranceRecordSelectColumnRecordID, ElectricFenceEnteranceRecordSelectColumnVehicleID, ElectricFenceEnteranceRecordSelectColumnElectricFenceID, ElectricFenceEnteranceRecordSelectColumnInTime, ElectricFenceEnteranceRecordSelectColumnOutTime, ElectricFenceEnteranceRecordSelectColumnIsOut, ElectricFenceEnteranceRecordSelectColumnPosition, ElectricFenceEnteranceRecordSelectColumnIsOnline, ElectricFenceEnteranceRecordSelectColumnCreateAt, ElectricFenceEnteranceRecordSelectColumnCreateBy, ElectricFenceEnteranceRecordSelectColumnUpdateAt, ElectricFenceEnteranceRecordSelectColumnUpdateBy, ElectricFenceEnteranceRecordSelectColumnDeleteAt, ElectricFenceEnteranceRecordSelectColumnDeleteBy, ElectricFenceEnteranceRecordSelectColumnIsDelete:
+	case ElectricFenceEnteranceRecordSelectColumnID, ElectricFenceEnteranceRecordSelectColumnRecordID, ElectricFenceEnteranceRecordSelectColumnVehicleID, ElectricFenceEnteranceRecordSelectColumnElectricFenceID, ElectricFenceEnteranceRecordSelectColumnInTime, ElectricFenceEnteranceRecordSelectColumnOutTime, ElectricFenceEnteranceRecordSelectColumnIsOut, ElectricFenceEnteranceRecordSelectColumnPosition, ElectricFenceEnteranceRecordSelectColumnIsOnline, ElectricFenceEnteranceRecordSelectColumnCreatedAt, ElectricFenceEnteranceRecordSelectColumnCreatedBy, ElectricFenceEnteranceRecordSelectColumnUpdatedAt, ElectricFenceEnteranceRecordSelectColumnUpdatedBy, ElectricFenceEnteranceRecordSelectColumnDeletedAt, ElectricFenceEnteranceRecordSelectColumnDeletedBy, ElectricFenceEnteranceRecordSelectColumnIsDeleted:
 		return true
 	}
 	return false
@@ -5005,19 +5005,19 @@ const (
 	// 所属区域
 	ElectricFenceSelectColumnDistrictID ElectricFenceSelectColumn = "district_id"
 	// 创建时间
-	ElectricFenceSelectColumnCreateAt ElectricFenceSelectColumn = "create_at"
+	ElectricFenceSelectColumnCreatedAt ElectricFenceSelectColumn = "created_at"
 	// 创建人
-	ElectricFenceSelectColumnCreateBy ElectricFenceSelectColumn = "create_by"
+	ElectricFenceSelectColumnCreatedBy ElectricFenceSelectColumn = "created_by"
 	// 更新时间
-	ElectricFenceSelectColumnUpdateAt ElectricFenceSelectColumn = "update_at"
+	ElectricFenceSelectColumnUpdatedAt ElectricFenceSelectColumn = "updated_at"
 	// 更新人
-	ElectricFenceSelectColumnUpdateBy ElectricFenceSelectColumn = "update_by"
+	ElectricFenceSelectColumnUpdatedBy ElectricFenceSelectColumn = "updated_by"
 	// 删除时间
-	ElectricFenceSelectColumnDeleteAt ElectricFenceSelectColumn = "delete_at"
+	ElectricFenceSelectColumnDeletedAt ElectricFenceSelectColumn = "deleted_at"
 	// 删除人
-	ElectricFenceSelectColumnDeleteBy ElectricFenceSelectColumn = "delete_by"
+	ElectricFenceSelectColumnDeletedBy ElectricFenceSelectColumn = "deleted_by"
 	// 是否删除
-	ElectricFenceSelectColumnIsDelete ElectricFenceSelectColumn = "is_delete"
+	ElectricFenceSelectColumnIsDeleted ElectricFenceSelectColumn = "is_deleted"
 	// 围栏数据
 	ElectricFenceSelectColumnGisData ElectricFenceSelectColumn = "gis_data"
 )
@@ -5030,19 +5030,19 @@ var AllElectricFenceSelectColumn = []ElectricFenceSelectColumn{
 	ElectricFenceSelectColumnFenceName,
 	ElectricFenceSelectColumnAddress,
 	ElectricFenceSelectColumnDistrictID,
-	ElectricFenceSelectColumnCreateAt,
-	ElectricFenceSelectColumnCreateBy,
-	ElectricFenceSelectColumnUpdateAt,
-	ElectricFenceSelectColumnUpdateBy,
-	ElectricFenceSelectColumnDeleteAt,
-	ElectricFenceSelectColumnDeleteBy,
-	ElectricFenceSelectColumnIsDelete,
+	ElectricFenceSelectColumnCreatedAt,
+	ElectricFenceSelectColumnCreatedBy,
+	ElectricFenceSelectColumnUpdatedAt,
+	ElectricFenceSelectColumnUpdatedBy,
+	ElectricFenceSelectColumnDeletedAt,
+	ElectricFenceSelectColumnDeletedBy,
+	ElectricFenceSelectColumnIsDeleted,
 	ElectricFenceSelectColumnGisData,
 }
 
 func (e ElectricFenceSelectColumn) IsValid() bool {
 	switch e {
-	case ElectricFenceSelectColumnID, ElectricFenceSelectColumnElectricFenceID, ElectricFenceSelectColumnAreaType, ElectricFenceSelectColumnFenceType, ElectricFenceSelectColumnFenceName, ElectricFenceSelectColumnAddress, ElectricFenceSelectColumnDistrictID, ElectricFenceSelectColumnCreateAt, ElectricFenceSelectColumnCreateBy, ElectricFenceSelectColumnUpdateAt, ElectricFenceSelectColumnUpdateBy, ElectricFenceSelectColumnDeleteAt, ElectricFenceSelectColumnDeleteBy, ElectricFenceSelectColumnIsDelete, ElectricFenceSelectColumnGisData:
+	case ElectricFenceSelectColumnID, ElectricFenceSelectColumnElectricFenceID, ElectricFenceSelectColumnAreaType, ElectricFenceSelectColumnFenceType, ElectricFenceSelectColumnFenceName, ElectricFenceSelectColumnAddress, ElectricFenceSelectColumnDistrictID, ElectricFenceSelectColumnCreatedAt, ElectricFenceSelectColumnCreatedBy, ElectricFenceSelectColumnUpdatedAt, ElectricFenceSelectColumnUpdatedBy, ElectricFenceSelectColumnDeletedAt, ElectricFenceSelectColumnDeletedBy, ElectricFenceSelectColumnIsDeleted, ElectricFenceSelectColumnGisData:
 		return true
 	}
 	return false
@@ -5096,19 +5096,19 @@ const (
 	// 退回原因
 	LimitSpeedLineSelectColumnRejectReason LimitSpeedLineSelectColumn = "reject_reason"
 	// 创建时间
-	LimitSpeedLineSelectColumnCreateAt LimitSpeedLineSelectColumn = "create_at"
+	LimitSpeedLineSelectColumnCreatedAt LimitSpeedLineSelectColumn = "created_at"
 	// 创建人
-	LimitSpeedLineSelectColumnCreateBy LimitSpeedLineSelectColumn = "create_by"
+	LimitSpeedLineSelectColumnCreatedBy LimitSpeedLineSelectColumn = "created_by"
 	// 更新时间
-	LimitSpeedLineSelectColumnUpdateAt LimitSpeedLineSelectColumn = "update_at"
+	LimitSpeedLineSelectColumnUpdatedAt LimitSpeedLineSelectColumn = "updated_at"
 	// 更新人
-	LimitSpeedLineSelectColumnUpdateBy LimitSpeedLineSelectColumn = "update_by"
+	LimitSpeedLineSelectColumnUpdatedBy LimitSpeedLineSelectColumn = "updated_by"
 	// 删除时间
-	LimitSpeedLineSelectColumnDeleteAt LimitSpeedLineSelectColumn = "delete_at"
+	LimitSpeedLineSelectColumnDeletedAt LimitSpeedLineSelectColumn = "deleted_at"
 	// 删除人
-	LimitSpeedLineSelectColumnDeleteBy LimitSpeedLineSelectColumn = "delete_by"
+	LimitSpeedLineSelectColumnDeletedBy LimitSpeedLineSelectColumn = "deleted_by"
 	// 是否删除
-	LimitSpeedLineSelectColumnIsDelete LimitSpeedLineSelectColumn = "is_delete"
+	LimitSpeedLineSelectColumnIsDeleted LimitSpeedLineSelectColumn = "is_deleted"
 	// 线路数据
 	LimitSpeedLineSelectColumnGisData LimitSpeedLineSelectColumn = "gis_data"
 )
@@ -5125,19 +5125,19 @@ var AllLimitSpeedLineSelectColumn = []LimitSpeedLineSelectColumn{
 	LimitSpeedLineSelectColumnCheckTime,
 	LimitSpeedLineSelectColumnCheckUserID,
 	LimitSpeedLineSelectColumnRejectReason,
-	LimitSpeedLineSelectColumnCreateAt,
-	LimitSpeedLineSelectColumnCreateBy,
-	LimitSpeedLineSelectColumnUpdateAt,
-	LimitSpeedLineSelectColumnUpdateBy,
-	LimitSpeedLineSelectColumnDeleteAt,
-	LimitSpeedLineSelectColumnDeleteBy,
-	LimitSpeedLineSelectColumnIsDelete,
+	LimitSpeedLineSelectColumnCreatedAt,
+	LimitSpeedLineSelectColumnCreatedBy,
+	LimitSpeedLineSelectColumnUpdatedAt,
+	LimitSpeedLineSelectColumnUpdatedBy,
+	LimitSpeedLineSelectColumnDeletedAt,
+	LimitSpeedLineSelectColumnDeletedBy,
+	LimitSpeedLineSelectColumnIsDeleted,
 	LimitSpeedLineSelectColumnGisData,
 }
 
 func (e LimitSpeedLineSelectColumn) IsValid() bool {
 	switch e {
-	case LimitSpeedLineSelectColumnID, LimitSpeedLineSelectColumnLimitSpeedLineID, LimitSpeedLineSelectColumnLineName, LimitSpeedLineSelectColumnLineType, LimitSpeedLineSelectColumnDistrictID, LimitSpeedLineSelectColumnControlLevel, LimitSpeedLineSelectColumnApplyReason, LimitSpeedLineSelectColumnCheckStatus, LimitSpeedLineSelectColumnCheckTime, LimitSpeedLineSelectColumnCheckUserID, LimitSpeedLineSelectColumnRejectReason, LimitSpeedLineSelectColumnCreateAt, LimitSpeedLineSelectColumnCreateBy, LimitSpeedLineSelectColumnUpdateAt, LimitSpeedLineSelectColumnUpdateBy, LimitSpeedLineSelectColumnDeleteAt, LimitSpeedLineSelectColumnDeleteBy, LimitSpeedLineSelectColumnIsDelete, LimitSpeedLineSelectColumnGisData:
+	case LimitSpeedLineSelectColumnID, LimitSpeedLineSelectColumnLimitSpeedLineID, LimitSpeedLineSelectColumnLineName, LimitSpeedLineSelectColumnLineType, LimitSpeedLineSelectColumnDistrictID, LimitSpeedLineSelectColumnControlLevel, LimitSpeedLineSelectColumnApplyReason, LimitSpeedLineSelectColumnCheckStatus, LimitSpeedLineSelectColumnCheckTime, LimitSpeedLineSelectColumnCheckUserID, LimitSpeedLineSelectColumnRejectReason, LimitSpeedLineSelectColumnCreatedAt, LimitSpeedLineSelectColumnCreatedBy, LimitSpeedLineSelectColumnUpdatedAt, LimitSpeedLineSelectColumnUpdatedBy, LimitSpeedLineSelectColumnDeletedAt, LimitSpeedLineSelectColumnDeletedBy, LimitSpeedLineSelectColumnIsDeleted, LimitSpeedLineSelectColumnGisData:
 		return true
 	}
 	return false
@@ -5179,19 +5179,19 @@ const (
 	// 结束时间
 	LimitSpeedLineTimeSelectColumnEndTime LimitSpeedLineTimeSelectColumn = "end_time"
 	// 创建时间
-	LimitSpeedLineTimeSelectColumnCreateAt LimitSpeedLineTimeSelectColumn = "create_at"
+	LimitSpeedLineTimeSelectColumnCreatedAt LimitSpeedLineTimeSelectColumn = "created_at"
 	// 创建人
-	LimitSpeedLineTimeSelectColumnCreateBy LimitSpeedLineTimeSelectColumn = "create_by"
+	LimitSpeedLineTimeSelectColumnCreatedBy LimitSpeedLineTimeSelectColumn = "created_by"
 	// 更新时间
-	LimitSpeedLineTimeSelectColumnUpdateAt LimitSpeedLineTimeSelectColumn = "update_at"
+	LimitSpeedLineTimeSelectColumnUpdatedAt LimitSpeedLineTimeSelectColumn = "updated_at"
 	// 更新人
-	LimitSpeedLineTimeSelectColumnUpdateBy LimitSpeedLineTimeSelectColumn = "update_by"
+	LimitSpeedLineTimeSelectColumnUpdatedBy LimitSpeedLineTimeSelectColumn = "updated_by"
 	// 删除时间
-	LimitSpeedLineTimeSelectColumnDeleteAt LimitSpeedLineTimeSelectColumn = "delete_at"
+	LimitSpeedLineTimeSelectColumnDeletedAt LimitSpeedLineTimeSelectColumn = "deleted_at"
 	// 删除人
-	LimitSpeedLineTimeSelectColumnDeleteBy LimitSpeedLineTimeSelectColumn = "delete_by"
+	LimitSpeedLineTimeSelectColumnDeletedBy LimitSpeedLineTimeSelectColumn = "deleted_by"
 	// 是否删除
-	LimitSpeedLineTimeSelectColumnIsDelete LimitSpeedLineTimeSelectColumn = "is_delete"
+	LimitSpeedLineTimeSelectColumnIsDeleted LimitSpeedLineTimeSelectColumn = "is_deleted"
 	// 限速值
 	LimitSpeedLineTimeSelectColumnSpeed LimitSpeedLineTimeSelectColumn = "speed"
 )
@@ -5202,19 +5202,19 @@ var AllLimitSpeedLineTimeSelectColumn = []LimitSpeedLineTimeSelectColumn{
 	LimitSpeedLineTimeSelectColumnLimitSpeedLineID,
 	LimitSpeedLineTimeSelectColumnStartTime,
 	LimitSpeedLineTimeSelectColumnEndTime,
-	LimitSpeedLineTimeSelectColumnCreateAt,
-	LimitSpeedLineTimeSelectColumnCreateBy,
-	LimitSpeedLineTimeSelectColumnUpdateAt,
-	LimitSpeedLineTimeSelectColumnUpdateBy,
-	LimitSpeedLineTimeSelectColumnDeleteAt,
-	LimitSpeedLineTimeSelectColumnDeleteBy,
-	LimitSpeedLineTimeSelectColumnIsDelete,
+	LimitSpeedLineTimeSelectColumnCreatedAt,
+	LimitSpeedLineTimeSelectColumnCreatedBy,
+	LimitSpeedLineTimeSelectColumnUpdatedAt,
+	LimitSpeedLineTimeSelectColumnUpdatedBy,
+	LimitSpeedLineTimeSelectColumnDeletedAt,
+	LimitSpeedLineTimeSelectColumnDeletedBy,
+	LimitSpeedLineTimeSelectColumnIsDeleted,
 	LimitSpeedLineTimeSelectColumnSpeed,
 }
 
 func (e LimitSpeedLineTimeSelectColumn) IsValid() bool {
 	switch e {
-	case LimitSpeedLineTimeSelectColumnID, LimitSpeedLineTimeSelectColumnLimitSpeedLineTimeID, LimitSpeedLineTimeSelectColumnLimitSpeedLineID, LimitSpeedLineTimeSelectColumnStartTime, LimitSpeedLineTimeSelectColumnEndTime, LimitSpeedLineTimeSelectColumnCreateAt, LimitSpeedLineTimeSelectColumnCreateBy, LimitSpeedLineTimeSelectColumnUpdateAt, LimitSpeedLineTimeSelectColumnUpdateBy, LimitSpeedLineTimeSelectColumnDeleteAt, LimitSpeedLineTimeSelectColumnDeleteBy, LimitSpeedLineTimeSelectColumnIsDelete, LimitSpeedLineTimeSelectColumnSpeed:
+	case LimitSpeedLineTimeSelectColumnID, LimitSpeedLineTimeSelectColumnLimitSpeedLineTimeID, LimitSpeedLineTimeSelectColumnLimitSpeedLineID, LimitSpeedLineTimeSelectColumnStartTime, LimitSpeedLineTimeSelectColumnEndTime, LimitSpeedLineTimeSelectColumnCreatedAt, LimitSpeedLineTimeSelectColumnCreatedBy, LimitSpeedLineTimeSelectColumnUpdatedAt, LimitSpeedLineTimeSelectColumnUpdatedBy, LimitSpeedLineTimeSelectColumnDeletedAt, LimitSpeedLineTimeSelectColumnDeletedBy, LimitSpeedLineTimeSelectColumnIsDeleted, LimitSpeedLineTimeSelectColumnSpeed:
 		return true
 	}
 	return false
@@ -5264,19 +5264,19 @@ const (
 	// 限速值
 	LimitSpeedPlanDetailSelectColumnLimitSpeed LimitSpeedPlanDetailSelectColumn = "limit_speed"
 	// 创建时间
-	LimitSpeedPlanDetailSelectColumnCreateAt LimitSpeedPlanDetailSelectColumn = "create_at"
+	LimitSpeedPlanDetailSelectColumnCreatedAt LimitSpeedPlanDetailSelectColumn = "created_at"
 	// 创建人
-	LimitSpeedPlanDetailSelectColumnCreateBy LimitSpeedPlanDetailSelectColumn = "create_by"
+	LimitSpeedPlanDetailSelectColumnCreatedBy LimitSpeedPlanDetailSelectColumn = "created_by"
 	// 更新时间
-	LimitSpeedPlanDetailSelectColumnUpdateAt LimitSpeedPlanDetailSelectColumn = "update_at"
+	LimitSpeedPlanDetailSelectColumnUpdatedAt LimitSpeedPlanDetailSelectColumn = "updated_at"
 	// 更新人
-	LimitSpeedPlanDetailSelectColumnUpdateBy LimitSpeedPlanDetailSelectColumn = "update_by"
+	LimitSpeedPlanDetailSelectColumnUpdatedBy LimitSpeedPlanDetailSelectColumn = "updated_by"
 	// 删除时间
-	LimitSpeedPlanDetailSelectColumnDeleteAt LimitSpeedPlanDetailSelectColumn = "delete_at"
+	LimitSpeedPlanDetailSelectColumnDeletedAt LimitSpeedPlanDetailSelectColumn = "deleted_at"
 	// 删除人
-	LimitSpeedPlanDetailSelectColumnDeleteBy LimitSpeedPlanDetailSelectColumn = "delete_by"
+	LimitSpeedPlanDetailSelectColumnDeletedBy LimitSpeedPlanDetailSelectColumn = "deleted_by"
 	// 是否删除
-	LimitSpeedPlanDetailSelectColumnIsDelete LimitSpeedPlanDetailSelectColumn = "is_delete"
+	LimitSpeedPlanDetailSelectColumnIsDeleted LimitSpeedPlanDetailSelectColumn = "is_deleted"
 )
 
 var AllLimitSpeedPlanDetailSelectColumn = []LimitSpeedPlanDetailSelectColumn{
@@ -5289,18 +5289,18 @@ var AllLimitSpeedPlanDetailSelectColumn = []LimitSpeedPlanDetailSelectColumn{
 	LimitSpeedPlanDetailSelectColumnNightTimeEnd,
 	LimitSpeedPlanDetailSelectColumnRoadLevel,
 	LimitSpeedPlanDetailSelectColumnLimitSpeed,
-	LimitSpeedPlanDetailSelectColumnCreateAt,
-	LimitSpeedPlanDetailSelectColumnCreateBy,
-	LimitSpeedPlanDetailSelectColumnUpdateAt,
-	LimitSpeedPlanDetailSelectColumnUpdateBy,
-	LimitSpeedPlanDetailSelectColumnDeleteAt,
-	LimitSpeedPlanDetailSelectColumnDeleteBy,
-	LimitSpeedPlanDetailSelectColumnIsDelete,
+	LimitSpeedPlanDetailSelectColumnCreatedAt,
+	LimitSpeedPlanDetailSelectColumnCreatedBy,
+	LimitSpeedPlanDetailSelectColumnUpdatedAt,
+	LimitSpeedPlanDetailSelectColumnUpdatedBy,
+	LimitSpeedPlanDetailSelectColumnDeletedAt,
+	LimitSpeedPlanDetailSelectColumnDeletedBy,
+	LimitSpeedPlanDetailSelectColumnIsDeleted,
 }
 
 func (e LimitSpeedPlanDetailSelectColumn) IsValid() bool {
 	switch e {
-	case LimitSpeedPlanDetailSelectColumnID, LimitSpeedPlanDetailSelectColumnDetailID, LimitSpeedPlanDetailSelectColumnPlanID, LimitSpeedPlanDetailSelectColumnIsNightLimit, LimitSpeedPlanDetailSelectColumnNightLimitSpeed, LimitSpeedPlanDetailSelectColumnNightTimeBegin, LimitSpeedPlanDetailSelectColumnNightTimeEnd, LimitSpeedPlanDetailSelectColumnRoadLevel, LimitSpeedPlanDetailSelectColumnLimitSpeed, LimitSpeedPlanDetailSelectColumnCreateAt, LimitSpeedPlanDetailSelectColumnCreateBy, LimitSpeedPlanDetailSelectColumnUpdateAt, LimitSpeedPlanDetailSelectColumnUpdateBy, LimitSpeedPlanDetailSelectColumnDeleteAt, LimitSpeedPlanDetailSelectColumnDeleteBy, LimitSpeedPlanDetailSelectColumnIsDelete:
+	case LimitSpeedPlanDetailSelectColumnID, LimitSpeedPlanDetailSelectColumnDetailID, LimitSpeedPlanDetailSelectColumnPlanID, LimitSpeedPlanDetailSelectColumnIsNightLimit, LimitSpeedPlanDetailSelectColumnNightLimitSpeed, LimitSpeedPlanDetailSelectColumnNightTimeBegin, LimitSpeedPlanDetailSelectColumnNightTimeEnd, LimitSpeedPlanDetailSelectColumnRoadLevel, LimitSpeedPlanDetailSelectColumnLimitSpeed, LimitSpeedPlanDetailSelectColumnCreatedAt, LimitSpeedPlanDetailSelectColumnCreatedBy, LimitSpeedPlanDetailSelectColumnUpdatedAt, LimitSpeedPlanDetailSelectColumnUpdatedBy, LimitSpeedPlanDetailSelectColumnDeletedAt, LimitSpeedPlanDetailSelectColumnDeletedBy, LimitSpeedPlanDetailSelectColumnIsDeleted:
 		return true
 	}
 	return false
@@ -5342,19 +5342,19 @@ const (
 	// 备注
 	LimitSpeedPlanSelectColumnRemark LimitSpeedPlanSelectColumn = "remark"
 	// 创建时间
-	LimitSpeedPlanSelectColumnCreateAt LimitSpeedPlanSelectColumn = "create_at"
+	LimitSpeedPlanSelectColumnCreatedAt LimitSpeedPlanSelectColumn = "created_at"
 	// 创建人
-	LimitSpeedPlanSelectColumnCreateBy LimitSpeedPlanSelectColumn = "create_by"
+	LimitSpeedPlanSelectColumnCreatedBy LimitSpeedPlanSelectColumn = "created_by"
 	// 更新时间
-	LimitSpeedPlanSelectColumnUpdateAt LimitSpeedPlanSelectColumn = "update_at"
+	LimitSpeedPlanSelectColumnUpdatedAt LimitSpeedPlanSelectColumn = "updated_at"
 	// 更新人
-	LimitSpeedPlanSelectColumnUpdateBy LimitSpeedPlanSelectColumn = "update_by"
+	LimitSpeedPlanSelectColumnUpdatedBy LimitSpeedPlanSelectColumn = "updated_by"
 	// 删除时间
-	LimitSpeedPlanSelectColumnDeleteAt LimitSpeedPlanSelectColumn = "delete_at"
+	LimitSpeedPlanSelectColumnDeletedAt LimitSpeedPlanSelectColumn = "deleted_at"
 	// 删除人
-	LimitSpeedPlanSelectColumnDeleteBy LimitSpeedPlanSelectColumn = "delete_by"
+	LimitSpeedPlanSelectColumnDeletedBy LimitSpeedPlanSelectColumn = "deleted_by"
 	// 是否删除
-	LimitSpeedPlanSelectColumnIsDelete LimitSpeedPlanSelectColumn = "is_delete"
+	LimitSpeedPlanSelectColumnIsDeleted LimitSpeedPlanSelectColumn = "is_deleted"
 )
 
 var AllLimitSpeedPlanSelectColumn = []LimitSpeedPlanSelectColumn{
@@ -5363,18 +5363,18 @@ var AllLimitSpeedPlanSelectColumn = []LimitSpeedPlanSelectColumn{
 	LimitSpeedPlanSelectColumnEnterpriseID,
 	LimitSpeedPlanSelectColumnPlanName,
 	LimitSpeedPlanSelectColumnRemark,
-	LimitSpeedPlanSelectColumnCreateAt,
-	LimitSpeedPlanSelectColumnCreateBy,
-	LimitSpeedPlanSelectColumnUpdateAt,
-	LimitSpeedPlanSelectColumnUpdateBy,
-	LimitSpeedPlanSelectColumnDeleteAt,
-	LimitSpeedPlanSelectColumnDeleteBy,
-	LimitSpeedPlanSelectColumnIsDelete,
+	LimitSpeedPlanSelectColumnCreatedAt,
+	LimitSpeedPlanSelectColumnCreatedBy,
+	LimitSpeedPlanSelectColumnUpdatedAt,
+	LimitSpeedPlanSelectColumnUpdatedBy,
+	LimitSpeedPlanSelectColumnDeletedAt,
+	LimitSpeedPlanSelectColumnDeletedBy,
+	LimitSpeedPlanSelectColumnIsDeleted,
 }
 
 func (e LimitSpeedPlanSelectColumn) IsValid() bool {
 	switch e {
-	case LimitSpeedPlanSelectColumnID, LimitSpeedPlanSelectColumnLimitSpeedPlanID, LimitSpeedPlanSelectColumnEnterpriseID, LimitSpeedPlanSelectColumnPlanName, LimitSpeedPlanSelectColumnRemark, LimitSpeedPlanSelectColumnCreateAt, LimitSpeedPlanSelectColumnCreateBy, LimitSpeedPlanSelectColumnUpdateAt, LimitSpeedPlanSelectColumnUpdateBy, LimitSpeedPlanSelectColumnDeleteAt, LimitSpeedPlanSelectColumnDeleteBy, LimitSpeedPlanSelectColumnIsDelete:
+	case LimitSpeedPlanSelectColumnID, LimitSpeedPlanSelectColumnLimitSpeedPlanID, LimitSpeedPlanSelectColumnEnterpriseID, LimitSpeedPlanSelectColumnPlanName, LimitSpeedPlanSelectColumnRemark, LimitSpeedPlanSelectColumnCreatedAt, LimitSpeedPlanSelectColumnCreatedBy, LimitSpeedPlanSelectColumnUpdatedAt, LimitSpeedPlanSelectColumnUpdatedBy, LimitSpeedPlanSelectColumnDeletedAt, LimitSpeedPlanSelectColumnDeletedBy, LimitSpeedPlanSelectColumnIsDeleted:
 		return true
 	}
 	return false

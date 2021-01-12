@@ -23,7 +23,7 @@ func (r *mutationResolver) DeleteFingerprint(ctx context.Context, where model.Fi
 	qt := util.NewQueryTranslator(db.DB, m)
 	tx := qt.Where(where).Finish()
 
-	tx = tx.Select(m.PrimaryColumnName())
+	tx = tx.Select(m.PrimaryColumnName(), m.UnionPrimaryColumnName())
 
 	tx = tx.Find(&rs)
 	// 删除
@@ -48,12 +48,16 @@ func (r *mutationResolver) DeleteFingerprint(ctx context.Context, where model.Fi
 		rsLen := len(rs)
 		var ids = make([]string, 0, rsLen)
 
+		var unionIds = make([]string, 0, rsLen)
+
 		for i := 0; i < rsLen; i++ {
 			ids[i] = util2.ToStr(rs[i].GetPrimary())
 
+			unionIds[i] = rs[i].GetUnionPrimary()
+
 		}
 
-		_ = cacheAspect.OnListRemove(ctx, ids, nil)
+		_ = cacheAspect.OnListRemove(ctx, ids, unionIds)
 
 	}
 	return &model.FingerprintMutationResponse{
@@ -84,6 +88,34 @@ func (r *mutationResolver) DeleteFingerprintByPk(ctx context.Context, id int64) 
 	if cacheErr == nil {
 		_ = cacheAspect.OnPkRemove(ctx, util2.ToStr(rs.GetPrimary()))
 
+		_ = cacheAspect.OnUnionPkRemove(ctx, rs.GetUnionPrimary())
+
+	}
+	return &rs, nil
+}
+
+func (r *mutationResolver) DeleteFingerprintByUnionPk(ctx context.Context, fingerprintID string) (*model1.Fingerprint, error) {
+	var rs model1.Fingerprint
+	m := &model1.Fingerprint{}
+	tx := db.DB.Model(&model1.Fingerprint{})
+	// 查询
+	tx = tx.Where(rs.UnionPrimaryColumnName()+" = ?", fingerprintID).First(&rs)
+	if err := tx.Error; err != nil {
+		if errors.Is(err, gorm.ErrRecordNotFound) {
+			return nil, nil
+		}
+		return nil, err
+	}
+	// 删除
+	tx = tx.Delete(nil)
+	if err := tx.Error; err != nil {
+		return nil, err
+	}
+	// 删除缓存
+	cacheAspect, cacheErr := cache.GetGqlCacheAspect(m.TableName())
+	if cacheErr == nil {
+		_ = cacheAspect.OnPkRemove(ctx, util2.ToStr(rs.GetPrimary()))
+		_ = cacheAspect.OnUnionPkRemove(ctx, rs.GetUnionPrimary())
 	}
 	return &rs, nil
 }
@@ -164,12 +196,16 @@ func (r *mutationResolver) UpdateFingerprint(ctx context.Context, inc *model.Fin
 		rsLen := len(rs)
 		var ids = make([]string, 0, rsLen)
 
+		var unionIds = make([]string, 0, rsLen)
+
 		for i := 0; i < rsLen; i++ {
 			ids[i] = util2.ToStr(rs[i].GetPrimary())
 
+			unionIds[i] = rs[i].GetUnionPrimary()
+
 		}
 
-		_ = cacheAspect.OnListUpdate(ctx, ids, nil)
+		_ = cacheAspect.OnListUpdate(ctx, ids, unionIds)
 
 	}
 	return &model.FingerprintMutationResponse{
@@ -198,6 +234,32 @@ func (r *mutationResolver) UpdateFingerprintByPk(ctx context.Context, inc *model
 	if cacheErr == nil {
 		_ = cacheAspect.OnPkRemove(ctx, util2.ToStr(rs.GetPrimary()))
 
+		_ = cacheAspect.OnUnionPkRemove(ctx, rs.GetUnionPrimary())
+
+	}
+	return &rs, nil
+}
+
+func (r *mutationResolver) UpdateFingerprintByUnionPk(ctx context.Context, inc *model.FingerprintIncInput, set *model.FingerprintSetInput, fingerprintID string) (*model1.Fingerprint, error) {
+	var rs model1.Fingerprint
+	var m = &model1.Fingerprint{}
+	// 更新数据库
+	tx := db.DB.Where(rs.UnionPrimaryColumnName()+" = ?", fingerprintID)
+	qt := util.NewQueryTranslator(tx, &model1.Fingerprint{})
+	tx = qt.Inc(inc).Set(set).DoUpdate()
+	if err := tx.Error; err != nil {
+		return nil, err
+	}
+	// 查询数据库
+	tx = tx.First(&rs)
+	if err := tx.Error; err != nil {
+		return &rs, err
+	}
+	// 清理缓存
+	cacheAspect, cacheErr := cache.GetGqlCacheAspect(m.TableName())
+	if cacheErr == nil {
+		_ = cacheAspect.OnPkRemove(ctx, util2.ToStr(rs.GetPrimary()))
+		_ = cacheAspect.OnUnionPkRemove(ctx, rs.GetUnionPrimary())
 	}
 	return &rs, nil
 }
@@ -358,6 +420,52 @@ func (r *queryResolver) FingerprintByPk(ctx context.Context, id int64) (*model1.
 	tx := db.DB.Model(m).First(&rs, id)
 	err := tx.Error
 	if err != nil {
+		return nil, err
+	}
+	return &rs, nil
+}
+
+func (r *queryResolver) FingerprintByUnionPk(ctx context.Context, fingerprintID string) (*model1.Fingerprint, error) {
+	var rs model1.Fingerprint
+	var m = &model1.Fingerprint{}
+	if middle.IsEnableGqlCache(ctx) {
+		// 如果启用缓存，则从缓存中查询数据
+		cacheAspect, cacheErr := cache.GetGqlCacheAspect(rs.TableName())
+		cacheKey := fingerprintID
+		if cacheErr == nil {
+			exist, err := cacheAspect.OnUnionPkQuery(ctx, cacheKey, &rs)
+			if err != nil {
+				return nil, err
+			}
+			if exist {
+				return &rs, err
+			}
+		}
+		// 缓存中找不到数据的话，查询数据库获取数据
+		tx := db.DB.Model(m).Where(rs.UnionPrimaryColumnName()+" = ?", fingerprintID).First(&rs)
+		err := tx.Error
+		if err != nil {
+			if err == gorm.ErrRecordNotFound {
+				if cacheErr == nil {
+					_ = cacheAspect.SetNotExistUnionPkQueryCache(ctx, cacheKey, model1.Fingerprint{})
+				}
+				return &rs, nil
+			}
+			return nil, err
+		}
+		// 设置数据到缓存
+		if cacheErr == nil {
+			_ = cacheAspect.SetUnionPkQueryCache(ctx, cacheKey, rs)
+		}
+		return &rs, nil
+	}
+	// 如果没启用缓存，则直接从数据库中查询
+	tx := db.DB.Model(m).Where(rs.UnionPrimaryColumnName()+" = ?", fingerprintID).First(&rs)
+	err := tx.Error
+	if err != nil {
+		if err == gorm.ErrRecordNotFound {
+			return &rs, nil
+		}
 		return nil, err
 	}
 	return &rs, nil

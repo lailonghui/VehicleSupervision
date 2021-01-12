@@ -68,13 +68,15 @@ type RideHailingDriverBoolExp struct {
 	IsFormerDriver            *model.BooleanComparisonExp     `json:"is_former_driver"`
 	CheckStation              *model.IntComparisonExp         `json:"check_station"`
 	UpdateTimeIn              *model.TimestamptzComparisonExp `json:"update_time_in"`
-	CreateAt                  *model.TimestamptzComparisonExp `json:"create_at"`
-	CreateBy                  *model.StringComparisonExp      `json:"create_by"`
-	UpdateAt                  *model.TimestamptzComparisonExp `json:"update_at"`
-	UpdateBy                  *model.StringComparisonExp      `json:"update_by"`
+	CreatedAt                 *model.TimestamptzComparisonExp `json:"created_at"`
+	CreatedBy                 *model.StringComparisonExp      `json:"created_by"`
+	UpdatedAt                 *model.TimestamptzComparisonExp `json:"updated_at"`
+	UpdatedBy                 *model.StringComparisonExp      `json:"updated_by"`
 	OperatorID                *model.StringComparisonExp      `json:"operator_id"`
 	Remarks                   *model.StringComparisonExp      `json:"remarks"`
-	IsDelete                  *model.BooleanComparisonExp     `json:"is_delete"`
+	IsDeleted                 *model.BooleanComparisonExp     `json:"is_deleted"`
+	DeletedAt                 *model.TimestamptzComparisonExp `json:"deleted_at"`
+	DeletedBy                 *model.StringComparisonExp      `json:"deleted_by"`
 }
 
 // input type for incrementing integer column in table "ride_hailing_driver"
@@ -110,13 +112,15 @@ type RideHailingDriverInsertInput struct {
 	IsFormerDriver            *bool      `json:"is_former_driver"`
 	CheckStation              *int       `json:"check_station"`
 	UpdateTimeIn              *time.Time `json:"update_time_in"`
-	CreateAt                  *time.Time `json:"create_at"`
-	CreateBy                  *string    `json:"create_by"`
-	UpdateAt                  *time.Time `json:"update_at"`
-	UpdateBy                  *string    `json:"update_by"`
+	CreatedAt                 *time.Time `json:"created_at"`
+	CreatedBy                 *string    `json:"created_by"`
+	UpdatedAt                 *time.Time `json:"updated_at"`
+	UpdatedBy                 *string    `json:"updated_by"`
 	OperatorID                *string    `json:"operator_id"`
 	Remarks                   *string    `json:"remarks"`
-	IsDelete                  bool       `json:"is_delete"`
+	IsDeleted                 bool       `json:"is_deleted"`
+	DeletedAt                 *time.Time `json:"deleted_at"`
+	DeletedBy                 *string    `json:"deleted_by"`
 }
 
 // aggregate max on columns of table "ride_hailing_driver"
@@ -145,13 +149,15 @@ type RideHailingDriverMaxFields struct {
 	IsFormerDriver            *bool      `json:"is_former_driver"`
 	CheckStation              *int       `json:"check_station"`
 	UpdateTimeIn              *time.Time `json:"update_time_in"`
-	CreateAt                  *time.Time `json:"create_at"`
-	CreateBy                  *string    `json:"create_by"`
-	UpdateAt                  *time.Time `json:"update_at"`
-	UpdateBy                  *string    `json:"update_by"`
+	CreatedAt                 *time.Time `json:"created_at"`
+	CreatedBy                 *string    `json:"created_by"`
+	UpdatedAt                 *time.Time `json:"updated_at"`
+	UpdatedBy                 *string    `json:"updated_by"`
 	OperatorID                *string    `json:"operator_id"`
 	Remarks                   *string    `json:"remarks"`
-	IsDelete                  *bool      `json:"is_delete"`
+	IsDeleted                 *bool      `json:"is_deleted"`
+	DeletedAt                 *time.Time `json:"deleted_at"`
+	DeletedBy                 *string    `json:"deleted_by"`
 }
 
 // aggregate min on columns of table "ride_hailing_driver"
@@ -180,13 +186,15 @@ type RideHailingDriverMinFields struct {
 	IsFormerDriver            *bool      `json:"is_former_driver"`
 	CheckStation              *int       `json:"check_station"`
 	UpdateTimeIn              *time.Time `json:"update_time_in"`
-	CreateAt                  *time.Time `json:"create_at"`
-	CreateBy                  *string    `json:"create_by"`
-	UpdateAt                  *time.Time `json:"update_at"`
-	UpdateBy                  *string    `json:"update_by"`
+	CreatedAt                 *time.Time `json:"created_at"`
+	CreatedBy                 *string    `json:"created_by"`
+	UpdatedAt                 *time.Time `json:"updated_at"`
+	UpdatedBy                 *string    `json:"updated_by"`
 	OperatorID                *string    `json:"operator_id"`
 	Remarks                   *string    `json:"remarks"`
-	IsDelete                  *bool      `json:"is_delete"`
+	IsDeleted                 *bool      `json:"is_deleted"`
+	DeletedAt                 *time.Time `json:"deleted_at"`
+	DeletedBy                 *string    `json:"deleted_by"`
 }
 
 // response of any mutation on the table "ride_hailing_driver"
@@ -221,13 +229,15 @@ type RideHailingDriverOrderBy struct {
 	IsFormerDriver            *model.OrderBy `json:"is_former_driver"`
 	CheckStation              *model.OrderBy `json:"check_station"`
 	UpdateTimeIn              *model.OrderBy `json:"update_time_in"`
-	CreateAt                  *model.OrderBy `json:"create_at"`
-	CreateBy                  *model.OrderBy `json:"create_by"`
-	UpdateAt                  *model.OrderBy `json:"update_at"`
-	UpdateBy                  *model.OrderBy `json:"update_by"`
+	CreatedAt                 *model.OrderBy `json:"created_at"`
+	CreatedBy                 *model.OrderBy `json:"created_by"`
+	UpdatedAt                 *model.OrderBy `json:"updated_at"`
+	UpdatedBy                 *model.OrderBy `json:"updated_by"`
 	OperatorID                *model.OrderBy `json:"operator_id"`
 	Remarks                   *model.OrderBy `json:"remarks"`
-	IsDelete                  *model.OrderBy `json:"is_delete"`
+	IsDeleted                 *model.OrderBy `json:"is_deleted"`
+	DeletedAt                 *model.OrderBy `json:"deleted_at"`
+	DeletedBy                 *model.OrderBy `json:"deleted_by"`
 }
 
 // input type for updating data in table "ride_hailing_driver"
@@ -256,13 +266,15 @@ type RideHailingDriverSetInput struct {
 	IsFormerDriver            *bool      `json:"is_former_driver"`
 	CheckStation              *int       `json:"check_station"`
 	UpdateTimeIn              *time.Time `json:"update_time_in"`
-	CreateAt                  *time.Time `json:"create_at"`
-	CreateBy                  *string    `json:"create_by"`
-	UpdateAt                  *time.Time `json:"update_at"`
-	UpdateBy                  *string    `json:"update_by"`
+	CreatedAt                 *time.Time `json:"created_at"`
+	CreatedBy                 *string    `json:"created_by"`
+	UpdatedAt                 *time.Time `json:"updated_at"`
+	UpdatedBy                 *string    `json:"updated_by"`
 	OperatorID                *string    `json:"operator_id"`
 	Remarks                   *string    `json:"remarks"`
-	IsDelete                  *bool      `json:"is_delete"`
+	IsDeleted                 *bool      `json:"is_deleted"`
+	DeletedAt                 *time.Time `json:"deleted_at"`
+	DeletedBy                 *string    `json:"deleted_by"`
 }
 
 // aggregate stddev on columns of table "ride_hailing_driver"
@@ -371,13 +383,13 @@ type RideHailingDriverVerifyBoolExp struct {
 	DrunkDrugDrivingExamineTime      *model.TimestamptzComparisonExp   `json:"drunk_drug_driving_examine_time"`
 	IsPassDrivingExam                *model.BooleanComparisonExp       `json:"is_pass_driving_exam"`
 	DrivingExamTime                  *model.TimestamptzComparisonExp   `json:"driving_exam_time"`
-	CreateAt                         *model.TimestamptzComparisonExp   `json:"create_at"`
-	CreateBy                         *model.StringComparisonExp        `json:"create_by"`
-	UpdateAt                         *model.TimestamptzComparisonExp   `json:"update_at"`
+	CreatedAt                        *model.TimestamptzComparisonExp   `json:"created_at"`
+	CreatedBy                        *model.StringComparisonExp        `json:"created_by"`
+	UpdatedAt                        *model.TimestamptzComparisonExp   `json:"updated_at"`
 	UpdateBy                         *model.StringComparisonExp        `json:"update_by"`
-	DeleteAt                         *model.TimestamptzComparisonExp   `json:"delete_at"`
-	DeleteBy                         *model.StringComparisonExp        `json:"delete_by"`
-	IsDelete                         *model.StringComparisonExp        `json:"is_delete"`
+	DeletedAt                        *model.TimestamptzComparisonExp   `json:"deleted_at"`
+	DeletedBy                        *model.StringComparisonExp        `json:"deleted_by"`
+	IsDeleted                        *model.StringComparisonExp        `json:"is_deleted"`
 }
 
 // input type for incrementing integer column in table "ride_hailing_driver_verify"
@@ -406,13 +418,13 @@ type RideHailingDriverVerifyInsertInput struct {
 	DrunkDrugDrivingExamineTime      *time.Time `json:"drunk_drug_driving_examine_time"`
 	IsPassDrivingExam                *bool      `json:"is_pass_driving_exam"`
 	DrivingExamTime                  *time.Time `json:"driving_exam_time"`
-	CreateAt                         *time.Time `json:"create_at"`
-	CreateBy                         *string    `json:"create_by"`
-	UpdateAt                         *time.Time `json:"update_at"`
+	CreatedAt                        *time.Time `json:"created_at"`
+	CreatedBy                        *string    `json:"created_by"`
+	UpdatedAt                        *time.Time `json:"updated_at"`
 	UpdateBy                         *string    `json:"update_by"`
-	DeleteAt                         *time.Time `json:"delete_at"`
-	DeleteBy                         *string    `json:"delete_by"`
-	IsDelete                         string     `json:"is_delete"`
+	DeletedAt                        *time.Time `json:"deleted_at"`
+	DeletedBy                        *string    `json:"deleted_by"`
+	IsDeleted                        string     `json:"is_deleted"`
 }
 
 // aggregate max on columns of table "ride_hailing_driver_verify"
@@ -437,13 +449,13 @@ type RideHailingDriverVerifyMaxFields struct {
 	DrunkDrugDrivingExamineTime      *time.Time `json:"drunk_drug_driving_examine_time"`
 	IsPassDrivingExam                *bool      `json:"is_pass_driving_exam"`
 	DrivingExamTime                  *time.Time `json:"driving_exam_time"`
-	CreateAt                         *time.Time `json:"create_at"`
-	CreateBy                         *string    `json:"create_by"`
-	UpdateAt                         *time.Time `json:"update_at"`
+	CreatedAt                        *time.Time `json:"created_at"`
+	CreatedBy                        *string    `json:"created_by"`
+	UpdatedAt                        *time.Time `json:"updated_at"`
 	UpdateBy                         *string    `json:"update_by"`
-	DeleteAt                         *time.Time `json:"delete_at"`
-	DeleteBy                         *string    `json:"delete_by"`
-	IsDelete                         *string    `json:"is_delete"`
+	DeletedAt                        *time.Time `json:"deleted_at"`
+	DeletedBy                        *string    `json:"deleted_by"`
+	IsDeleted                        *string    `json:"is_deleted"`
 }
 
 // aggregate min on columns of table "ride_hailing_driver_verify"
@@ -468,13 +480,13 @@ type RideHailingDriverVerifyMinFields struct {
 	DrunkDrugDrivingExamineTime      *time.Time `json:"drunk_drug_driving_examine_time"`
 	IsPassDrivingExam                *bool      `json:"is_pass_driving_exam"`
 	DrivingExamTime                  *time.Time `json:"driving_exam_time"`
-	CreateAt                         *time.Time `json:"create_at"`
-	CreateBy                         *string    `json:"create_by"`
-	UpdateAt                         *time.Time `json:"update_at"`
+	CreatedAt                        *time.Time `json:"created_at"`
+	CreatedBy                        *string    `json:"created_by"`
+	UpdatedAt                        *time.Time `json:"updated_at"`
 	UpdateBy                         *string    `json:"update_by"`
-	DeleteAt                         *time.Time `json:"delete_at"`
-	DeleteBy                         *string    `json:"delete_by"`
-	IsDelete                         *string    `json:"is_delete"`
+	DeletedAt                        *time.Time `json:"deleted_at"`
+	DeletedBy                        *string    `json:"deleted_by"`
+	IsDeleted                        *string    `json:"is_deleted"`
 }
 
 // response of any mutation on the table "ride_hailing_driver_verify"
@@ -505,13 +517,13 @@ type RideHailingDriverVerifyOrderBy struct {
 	DrunkDrugDrivingExamineTime      *model.OrderBy `json:"drunk_drug_driving_examine_time"`
 	IsPassDrivingExam                *model.OrderBy `json:"is_pass_driving_exam"`
 	DrivingExamTime                  *model.OrderBy `json:"driving_exam_time"`
-	CreateAt                         *model.OrderBy `json:"create_at"`
-	CreateBy                         *model.OrderBy `json:"create_by"`
-	UpdateAt                         *model.OrderBy `json:"update_at"`
+	CreatedAt                        *model.OrderBy `json:"created_at"`
+	CreatedBy                        *model.OrderBy `json:"created_by"`
+	UpdatedAt                        *model.OrderBy `json:"updated_at"`
 	UpdateBy                         *model.OrderBy `json:"update_by"`
-	DeleteAt                         *model.OrderBy `json:"delete_at"`
-	DeleteBy                         *model.OrderBy `json:"delete_by"`
-	IsDelete                         *model.OrderBy `json:"is_delete"`
+	DeletedAt                        *model.OrderBy `json:"deleted_at"`
+	DeletedBy                        *model.OrderBy `json:"deleted_by"`
+	IsDeleted                        *model.OrderBy `json:"is_deleted"`
 }
 
 // input type for updating data in table "ride_hailing_driver_verify"
@@ -536,13 +548,13 @@ type RideHailingDriverVerifySetInput struct {
 	DrunkDrugDrivingExamineTime      *time.Time `json:"drunk_drug_driving_examine_time"`
 	IsPassDrivingExam                *bool      `json:"is_pass_driving_exam"`
 	DrivingExamTime                  *time.Time `json:"driving_exam_time"`
-	CreateAt                         *time.Time `json:"create_at"`
-	CreateBy                         *string    `json:"create_by"`
-	UpdateAt                         *time.Time `json:"update_at"`
+	CreatedAt                        *time.Time `json:"created_at"`
+	CreatedBy                        *string    `json:"created_by"`
+	UpdatedAt                        *time.Time `json:"updated_at"`
 	UpdateBy                         *string    `json:"update_by"`
-	DeleteAt                         *time.Time `json:"delete_at"`
-	DeleteBy                         *string    `json:"delete_by"`
-	IsDelete                         *string    `json:"is_delete"`
+	DeletedAt                        *time.Time `json:"deleted_at"`
+	DeletedBy                        *string    `json:"deleted_by"`
+	IsDeleted                        *string    `json:"is_deleted"`
 }
 
 // aggregate stddev on columns of table "ride_hailing_driver_verify"
@@ -633,19 +645,23 @@ const (
 	// 内网更新时间
 	RideHailingDriverSelectColumnUpdateTimeIn RideHailingDriverSelectColumn = "update_time_in"
 	// 记录时间
-	RideHailingDriverSelectColumnCreateAt RideHailingDriverSelectColumn = "create_at"
+	RideHailingDriverSelectColumnCreatedAt RideHailingDriverSelectColumn = "created_at"
 	// 记录人员ID
-	RideHailingDriverSelectColumnCreateBy RideHailingDriverSelectColumn = "create_by"
+	RideHailingDriverSelectColumnCreatedBy RideHailingDriverSelectColumn = "created_by"
 	// 更新时间
-	RideHailingDriverSelectColumnUpdateAt RideHailingDriverSelectColumn = "update_at"
+	RideHailingDriverSelectColumnUpdatedAt RideHailingDriverSelectColumn = "updated_at"
 	// 更新人员id
-	RideHailingDriverSelectColumnUpdateBy RideHailingDriverSelectColumn = "update_by"
+	RideHailingDriverSelectColumnUpdatedBy RideHailingDriverSelectColumn = "updated_by"
 	// 操作员id
 	RideHailingDriverSelectColumnOperatorID RideHailingDriverSelectColumn = "operator_id"
 	// 备注
 	RideHailingDriverSelectColumnRemarks RideHailingDriverSelectColumn = "remarks"
 	// 是否删除
-	RideHailingDriverSelectColumnIsDelete RideHailingDriverSelectColumn = "is_delete"
+	RideHailingDriverSelectColumnIsDeleted RideHailingDriverSelectColumn = "is_deleted"
+	// 删除时间
+	RideHailingDriverSelectColumnDeletedAt RideHailingDriverSelectColumn = "deleted_at"
+	// 删除人ID
+	RideHailingDriverSelectColumnDeletedBy RideHailingDriverSelectColumn = "deleted_by"
 )
 
 var AllRideHailingDriverSelectColumn = []RideHailingDriverSelectColumn{
@@ -673,18 +689,20 @@ var AllRideHailingDriverSelectColumn = []RideHailingDriverSelectColumn{
 	RideHailingDriverSelectColumnIsFormerDriver,
 	RideHailingDriverSelectColumnCheckStation,
 	RideHailingDriverSelectColumnUpdateTimeIn,
-	RideHailingDriverSelectColumnCreateAt,
-	RideHailingDriverSelectColumnCreateBy,
-	RideHailingDriverSelectColumnUpdateAt,
-	RideHailingDriverSelectColumnUpdateBy,
+	RideHailingDriverSelectColumnCreatedAt,
+	RideHailingDriverSelectColumnCreatedBy,
+	RideHailingDriverSelectColumnUpdatedAt,
+	RideHailingDriverSelectColumnUpdatedBy,
 	RideHailingDriverSelectColumnOperatorID,
 	RideHailingDriverSelectColumnRemarks,
-	RideHailingDriverSelectColumnIsDelete,
+	RideHailingDriverSelectColumnIsDeleted,
+	RideHailingDriverSelectColumnDeletedAt,
+	RideHailingDriverSelectColumnDeletedBy,
 }
 
 func (e RideHailingDriverSelectColumn) IsValid() bool {
 	switch e {
-	case RideHailingDriverSelectColumnID, RideHailingDriverSelectColumnRideHailingDriverID, RideHailingDriverSelectColumnRideHailingDriverVerifyID, RideHailingDriverSelectColumnDriverName, RideHailingDriverSelectColumnPhoneNumber, RideHailingDriverSelectColumnIDNumber, RideHailingDriverSelectColumnSex, RideHailingDriverSelectColumnBirthday, RideHailingDriverSelectColumnNation, RideHailingDriverSelectColumnSignGov, RideHailingDriverSelectColumnIDAddress, RideHailingDriverSelectColumnStartValidDate, RideHailingDriverSelectColumnEndValidDate, RideHailingDriverSelectColumnIdcardPhoto, RideHailingDriverSelectColumnQuasiDrivingModels, RideHailingDriverSelectColumnDriverSchoolID, RideHailingDriverSelectColumnFirstTimeReceivedDate, RideHailingDriverSelectColumnSignnaturePhoto, RideHailingDriverSelectColumnHandleIDPhoto, RideHailingDriverSelectColumnCurrentAddress, RideHailingDriverSelectColumnQualificationNumber, RideHailingDriverSelectColumnIsFormerDriver, RideHailingDriverSelectColumnCheckStation, RideHailingDriverSelectColumnUpdateTimeIn, RideHailingDriverSelectColumnCreateAt, RideHailingDriverSelectColumnCreateBy, RideHailingDriverSelectColumnUpdateAt, RideHailingDriverSelectColumnUpdateBy, RideHailingDriverSelectColumnOperatorID, RideHailingDriverSelectColumnRemarks, RideHailingDriverSelectColumnIsDelete:
+	case RideHailingDriverSelectColumnID, RideHailingDriverSelectColumnRideHailingDriverID, RideHailingDriverSelectColumnRideHailingDriverVerifyID, RideHailingDriverSelectColumnDriverName, RideHailingDriverSelectColumnPhoneNumber, RideHailingDriverSelectColumnIDNumber, RideHailingDriverSelectColumnSex, RideHailingDriverSelectColumnBirthday, RideHailingDriverSelectColumnNation, RideHailingDriverSelectColumnSignGov, RideHailingDriverSelectColumnIDAddress, RideHailingDriverSelectColumnStartValidDate, RideHailingDriverSelectColumnEndValidDate, RideHailingDriverSelectColumnIdcardPhoto, RideHailingDriverSelectColumnQuasiDrivingModels, RideHailingDriverSelectColumnDriverSchoolID, RideHailingDriverSelectColumnFirstTimeReceivedDate, RideHailingDriverSelectColumnSignnaturePhoto, RideHailingDriverSelectColumnHandleIDPhoto, RideHailingDriverSelectColumnCurrentAddress, RideHailingDriverSelectColumnQualificationNumber, RideHailingDriverSelectColumnIsFormerDriver, RideHailingDriverSelectColumnCheckStation, RideHailingDriverSelectColumnUpdateTimeIn, RideHailingDriverSelectColumnCreatedAt, RideHailingDriverSelectColumnCreatedBy, RideHailingDriverSelectColumnUpdatedAt, RideHailingDriverSelectColumnUpdatedBy, RideHailingDriverSelectColumnOperatorID, RideHailingDriverSelectColumnRemarks, RideHailingDriverSelectColumnIsDeleted, RideHailingDriverSelectColumnDeletedAt, RideHailingDriverSelectColumnDeletedBy:
 		return true
 	}
 	return false
@@ -756,19 +774,19 @@ const (
 	// 交通局考试认定时间
 	RideHailingDriverVerifySelectColumnDrivingExamTime RideHailingDriverVerifySelectColumn = "driving_exam_time"
 	// 创建时间
-	RideHailingDriverVerifySelectColumnCreateAt RideHailingDriverVerifySelectColumn = "create_at"
+	RideHailingDriverVerifySelectColumnCreatedAt RideHailingDriverVerifySelectColumn = "created_at"
 	// 创建人
-	RideHailingDriverVerifySelectColumnCreateBy RideHailingDriverVerifySelectColumn = "create_by"
+	RideHailingDriverVerifySelectColumnCreatedBy RideHailingDriverVerifySelectColumn = "created_by"
 	// 修改时间
-	RideHailingDriverVerifySelectColumnUpdateAt RideHailingDriverVerifySelectColumn = "update_at"
+	RideHailingDriverVerifySelectColumnUpdatedAt RideHailingDriverVerifySelectColumn = "updated_at"
 	// 修改人
 	RideHailingDriverVerifySelectColumnUpdateBy RideHailingDriverVerifySelectColumn = "update_by"
 	// 删除时间
-	RideHailingDriverVerifySelectColumnDeleteAt RideHailingDriverVerifySelectColumn = "delete_at"
+	RideHailingDriverVerifySelectColumnDeletedAt RideHailingDriverVerifySelectColumn = "deleted_at"
 	// 删除人
-	RideHailingDriverVerifySelectColumnDeleteBy RideHailingDriverVerifySelectColumn = "delete_by"
+	RideHailingDriverVerifySelectColumnDeletedBy RideHailingDriverVerifySelectColumn = "deleted_by"
 	// 是否删除
-	RideHailingDriverVerifySelectColumnIsDelete RideHailingDriverVerifySelectColumn = "is_delete"
+	RideHailingDriverVerifySelectColumnIsDeleted RideHailingDriverVerifySelectColumn = "is_deleted"
 )
 
 var AllRideHailingDriverVerifySelectColumn = []RideHailingDriverVerifySelectColumn{
@@ -792,18 +810,18 @@ var AllRideHailingDriverVerifySelectColumn = []RideHailingDriverVerifySelectColu
 	RideHailingDriverVerifySelectColumnDrunkDrugDrivingExamineTime,
 	RideHailingDriverVerifySelectColumnIsPassDrivingExam,
 	RideHailingDriverVerifySelectColumnDrivingExamTime,
-	RideHailingDriverVerifySelectColumnCreateAt,
-	RideHailingDriverVerifySelectColumnCreateBy,
-	RideHailingDriverVerifySelectColumnUpdateAt,
+	RideHailingDriverVerifySelectColumnCreatedAt,
+	RideHailingDriverVerifySelectColumnCreatedBy,
+	RideHailingDriverVerifySelectColumnUpdatedAt,
 	RideHailingDriverVerifySelectColumnUpdateBy,
-	RideHailingDriverVerifySelectColumnDeleteAt,
-	RideHailingDriverVerifySelectColumnDeleteBy,
-	RideHailingDriverVerifySelectColumnIsDelete,
+	RideHailingDriverVerifySelectColumnDeletedAt,
+	RideHailingDriverVerifySelectColumnDeletedBy,
+	RideHailingDriverVerifySelectColumnIsDeleted,
 }
 
 func (e RideHailingDriverVerifySelectColumn) IsValid() bool {
 	switch e {
-	case RideHailingDriverVerifySelectColumnID, RideHailingDriverVerifySelectColumnRideHailingDriverVerifyID, RideHailingDriverVerifySelectColumnIsViolentCrime, RideHailingDriverVerifySelectColumnViolentCrimeRemark, RideHailingDriverVerifySelectColumnViolentCrimeExamineTime, RideHailingDriverVerifySelectColumnIsDrugHistory, RideHailingDriverVerifySelectColumnDrugHistoryRemark, RideHailingDriverVerifySelectColumnDrugHistoryExamineTime, RideHailingDriverVerifySelectColumnIsThreeYearsDrivingExperience, RideHailingDriverVerifySelectColumnDrivingExperienceRemark, RideHailingDriverVerifySelectColumnDrivingExperienceExamineTime, RideHailingDriverVerifySelectColumnIsThreeCycleTwelve, RideHailingDriverVerifySelectColumnIsTrafficAccidentEscapeRecord, RideHailingDriverVerifySelectColumnTrafficAccidentEscapeRemark, RideHailingDriverVerifySelectColumnTrafficAccidentEscapeExamineTime, RideHailingDriverVerifySelectColumnIsDrunkDrugDriving, RideHailingDriverVerifySelectColumnDrunkDrugDrivingRemark, RideHailingDriverVerifySelectColumnDrunkDrugDrivingExamineTime, RideHailingDriverVerifySelectColumnIsPassDrivingExam, RideHailingDriverVerifySelectColumnDrivingExamTime, RideHailingDriverVerifySelectColumnCreateAt, RideHailingDriverVerifySelectColumnCreateBy, RideHailingDriverVerifySelectColumnUpdateAt, RideHailingDriverVerifySelectColumnUpdateBy, RideHailingDriverVerifySelectColumnDeleteAt, RideHailingDriverVerifySelectColumnDeleteBy, RideHailingDriverVerifySelectColumnIsDelete:
+	case RideHailingDriverVerifySelectColumnID, RideHailingDriverVerifySelectColumnRideHailingDriverVerifyID, RideHailingDriverVerifySelectColumnIsViolentCrime, RideHailingDriverVerifySelectColumnViolentCrimeRemark, RideHailingDriverVerifySelectColumnViolentCrimeExamineTime, RideHailingDriverVerifySelectColumnIsDrugHistory, RideHailingDriverVerifySelectColumnDrugHistoryRemark, RideHailingDriverVerifySelectColumnDrugHistoryExamineTime, RideHailingDriverVerifySelectColumnIsThreeYearsDrivingExperience, RideHailingDriverVerifySelectColumnDrivingExperienceRemark, RideHailingDriverVerifySelectColumnDrivingExperienceExamineTime, RideHailingDriverVerifySelectColumnIsThreeCycleTwelve, RideHailingDriverVerifySelectColumnIsTrafficAccidentEscapeRecord, RideHailingDriverVerifySelectColumnTrafficAccidentEscapeRemark, RideHailingDriverVerifySelectColumnTrafficAccidentEscapeExamineTime, RideHailingDriverVerifySelectColumnIsDrunkDrugDriving, RideHailingDriverVerifySelectColumnDrunkDrugDrivingRemark, RideHailingDriverVerifySelectColumnDrunkDrugDrivingExamineTime, RideHailingDriverVerifySelectColumnIsPassDrivingExam, RideHailingDriverVerifySelectColumnDrivingExamTime, RideHailingDriverVerifySelectColumnCreatedAt, RideHailingDriverVerifySelectColumnCreatedBy, RideHailingDriverVerifySelectColumnUpdatedAt, RideHailingDriverVerifySelectColumnUpdateBy, RideHailingDriverVerifySelectColumnDeletedAt, RideHailingDriverVerifySelectColumnDeletedBy, RideHailingDriverVerifySelectColumnIsDeleted:
 		return true
 	}
 	return false

@@ -105,7 +105,7 @@ type SystemUser {
 	"""
 	是否删除
 	"""
-	is_delete: Boolean!
+	is_deleted: Boolean!
 	"""
 	备注
 	"""
@@ -172,7 +172,7 @@ type SystemUserMaxFields {
 	update_by: String
 	delete_at: Timestamptz
 	delete_by: String
-	is_delete: Boolean
+	is_deleted: Boolean
 	remarks: String
 }
 """
@@ -204,7 +204,7 @@ type SystemUserMinFields {
 	update_by: String
 	delete_at: Timestamptz
 	delete_by: String
-	is_delete: Boolean
+	is_deleted: Boolean
 	remarks: String
 }
 """
@@ -313,7 +313,7 @@ input SystemUserOrderBy {
 	update_by: OrderBy
 	delete_at: OrderBy
 	delete_by: OrderBy
-	is_delete: OrderBy
+	is_deleted: OrderBy
 	remarks: OrderBy
 }
 """
@@ -348,7 +348,7 @@ input SystemUserBoolExp {
 	update_by: StringComparisonExp
 	delete_at: TimestamptzComparisonExp
 	delete_by: StringComparisonExp
-	is_delete: BooleanComparisonExp
+	is_deleted: BooleanComparisonExp
 	remarks: StringComparisonExp
 }
 """
@@ -379,7 +379,7 @@ input SystemUserInsertInput {
 	update_by: String
 	delete_at: Timestamptz
 	delete_by: String
-	is_delete: Boolean!
+	is_deleted: Boolean!
 	remarks: String
 }
 """
@@ -421,7 +421,7 @@ input SystemUserSetInput {
 	update_by: String
 	delete_at: Timestamptz
 	delete_by: String
-	is_delete: Boolean
+	is_deleted: Boolean
 	remarks: String
 }
 """
@@ -531,7 +531,7 @@ enum SystemUserSelectColumn {
 	"""
 	是否删除
 	"""
-	is_delete
+	is_deleted
 	"""
 	备注
 	"""

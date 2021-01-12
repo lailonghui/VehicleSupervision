@@ -38,12 +38,12 @@ type FingerprintAvgFields struct {
 
 // Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'fingerprint'.
 type FingerprintBoolExp struct {
-	And      []*FingerprintBoolExp      `json:"_and"`
-	Not      *FingerprintBoolExp        `json:"_not"`
-	Or       []*FingerprintBoolExp      `json:"_or"`
-	ID       *model.BigintComparisonExp `json:"id"`
-	FingerID *model.StringComparisonExp `json:"finger_id"`
-	Content  *model.StringComparisonExp `json:"content"`
+	And           []*FingerprintBoolExp      `json:"_and"`
+	Not           *FingerprintBoolExp        `json:"_not"`
+	Or            []*FingerprintBoolExp      `json:"_or"`
+	ID            *model.BigintComparisonExp `json:"id"`
+	FingerprintID *model.StringComparisonExp `json:"fingerprint_id"`
+	Content       *model.StringComparisonExp `json:"content"`
 }
 
 // aggregated selection of "fingerprint_driver"
@@ -82,13 +82,13 @@ type FingerprintDriverBoolExp struct {
 	FingerName          *model.StringComparisonExp      `json:"finger_name"`
 	FingerID            *model.StringComparisonExp      `json:"finger_id"`
 	PicURL              *model.StringComparisonExp      `json:"pic_url"`
-	CreateAt            *model.TimestamptzComparisonExp `json:"create_at"`
-	CreateBy            *model.StringComparisonExp      `json:"create_by"`
-	UpdateAt            *model.TimestamptzComparisonExp `json:"update_at"`
-	UpdateBy            *model.StringComparisonExp      `json:"update_by"`
-	DeleteAt            *model.TimestamptzComparisonExp `json:"delete_at"`
-	DeleteBy            *model.StringComparisonExp      `json:"delete_by"`
-	IsDelete            *model.BooleanComparisonExp     `json:"is_delete"`
+	CreatedAt           *model.TimestamptzComparisonExp `json:"created_at"`
+	CreatedBy           *model.StringComparisonExp      `json:"created_by"`
+	UpdatedAt           *model.TimestamptzComparisonExp `json:"updated_at"`
+	UpdatedBy           *model.StringComparisonExp      `json:"updated_by"`
+	DeletedAt           *model.TimestamptzComparisonExp `json:"deleted_at"`
+	DeletedBy           *model.StringComparisonExp      `json:"deleted_by"`
+	IsDeleted           *model.BooleanComparisonExp     `json:"is_deleted"`
 	Remark              *model.StringComparisonExp      `json:"remark"`
 }
 
@@ -104,13 +104,13 @@ type FingerprintDriverInsertInput struct {
 	FingerName          *string    `json:"finger_name"`
 	FingerID            *string    `json:"finger_id"`
 	PicURL              *string    `json:"pic_url"`
-	CreateAt            time.Time  `json:"create_at"`
-	CreateBy            *string    `json:"create_by"`
-	UpdateAt            *time.Time `json:"update_at"`
-	UpdateBy            *string    `json:"update_by"`
-	DeleteAt            *time.Time `json:"delete_at"`
-	DeleteBy            *string    `json:"delete_by"`
-	IsDelete            bool       `json:"is_delete"`
+	CreatedAt           time.Time  `json:"created_at"`
+	CreatedBy           *string    `json:"created_by"`
+	UpdatedAt           *time.Time `json:"updated_at"`
+	UpdatedBy           *string    `json:"updated_by"`
+	DeletedAt           *time.Time `json:"deleted_at"`
+	DeletedBy           *string    `json:"deleted_by"`
+	IsDeleted           bool       `json:"is_deleted"`
 	Remark              *string    `json:"remark"`
 }
 
@@ -122,13 +122,13 @@ type FingerprintDriverMaxFields struct {
 	FingerName          *string    `json:"finger_name"`
 	FingerID            *string    `json:"finger_id"`
 	PicURL              *string    `json:"pic_url"`
-	CreateAt            *time.Time `json:"create_at"`
-	CreateBy            *string    `json:"create_by"`
-	UpdateAt            *time.Time `json:"update_at"`
-	UpdateBy            *string    `json:"update_by"`
-	DeleteAt            *time.Time `json:"delete_at"`
-	DeleteBy            *string    `json:"delete_by"`
-	IsDelete            *bool      `json:"is_delete"`
+	CreatedAt           *time.Time `json:"created_at"`
+	CreatedBy           *string    `json:"created_by"`
+	UpdatedAt           *time.Time `json:"updated_at"`
+	UpdatedBy           *string    `json:"updated_by"`
+	DeletedAt           *time.Time `json:"deleted_at"`
+	DeletedBy           *string    `json:"deleted_by"`
+	IsDeleted           *bool      `json:"is_deleted"`
 	Remark              *string    `json:"remark"`
 }
 
@@ -140,13 +140,13 @@ type FingerprintDriverMinFields struct {
 	FingerName          *string    `json:"finger_name"`
 	FingerID            *string    `json:"finger_id"`
 	PicURL              *string    `json:"pic_url"`
-	CreateAt            *time.Time `json:"create_at"`
-	CreateBy            *string    `json:"create_by"`
-	UpdateAt            *time.Time `json:"update_at"`
-	UpdateBy            *string    `json:"update_by"`
-	DeleteAt            *time.Time `json:"delete_at"`
-	DeleteBy            *string    `json:"delete_by"`
-	IsDelete            *bool      `json:"is_delete"`
+	CreatedAt           *time.Time `json:"created_at"`
+	CreatedBy           *string    `json:"created_by"`
+	UpdatedAt           *time.Time `json:"updated_at"`
+	UpdatedBy           *string    `json:"updated_by"`
+	DeletedAt           *time.Time `json:"deleted_at"`
+	DeletedBy           *string    `json:"deleted_by"`
+	IsDeleted           *bool      `json:"is_deleted"`
 	Remark              *string    `json:"remark"`
 }
 
@@ -164,13 +164,13 @@ type FingerprintDriverOrderBy struct {
 	FingerName          *model.OrderBy `json:"finger_name"`
 	FingerID            *model.OrderBy `json:"finger_id"`
 	PicURL              *model.OrderBy `json:"pic_url"`
-	CreateAt            *model.OrderBy `json:"create_at"`
-	CreateBy            *model.OrderBy `json:"create_by"`
-	UpdateAt            *model.OrderBy `json:"update_at"`
-	UpdateBy            *model.OrderBy `json:"update_by"`
-	DeleteAt            *model.OrderBy `json:"delete_at"`
-	DeleteBy            *model.OrderBy `json:"delete_by"`
-	IsDelete            *model.OrderBy `json:"is_delete"`
+	CreatedAt           *model.OrderBy `json:"created_at"`
+	CreatedBy           *model.OrderBy `json:"created_by"`
+	UpdatedAt           *model.OrderBy `json:"updated_at"`
+	UpdatedBy           *model.OrderBy `json:"updated_by"`
+	DeletedAt           *model.OrderBy `json:"deleted_at"`
+	DeletedBy           *model.OrderBy `json:"deleted_by"`
+	IsDeleted           *model.OrderBy `json:"is_deleted"`
 	Remark              *model.OrderBy `json:"remark"`
 }
 
@@ -182,13 +182,13 @@ type FingerprintDriverSetInput struct {
 	FingerName          *string    `json:"finger_name"`
 	FingerID            *string    `json:"finger_id"`
 	PicURL              *string    `json:"pic_url"`
-	CreateAt            *time.Time `json:"create_at"`
-	CreateBy            *string    `json:"create_by"`
-	UpdateAt            *time.Time `json:"update_at"`
-	UpdateBy            *string    `json:"update_by"`
-	DeleteAt            *time.Time `json:"delete_at"`
-	DeleteBy            *string    `json:"delete_by"`
-	IsDelete            *bool      `json:"is_delete"`
+	CreatedAt           *time.Time `json:"created_at"`
+	CreatedBy           *string    `json:"created_by"`
+	UpdatedAt           *time.Time `json:"updated_at"`
+	UpdatedBy           *string    `json:"updated_by"`
+	DeletedAt           *time.Time `json:"deleted_at"`
+	DeletedBy           *string    `json:"deleted_by"`
+	IsDeleted           *bool      `json:"is_deleted"`
 	Remark              *string    `json:"remark"`
 }
 
@@ -436,22 +436,22 @@ type FingerprintInformationVarianceFields struct {
 
 // input type for inserting data into table "fingerprint"
 type FingerprintInsertInput struct {
-	FingerID string `json:"finger_id"`
-	Content  string `json:"content"`
+	FingerprintID string `json:"fingerprint_id"`
+	Content       string `json:"content"`
 }
 
 // aggregate max on columns of table "fingerprint"
 type FingerprintMaxFields struct {
-	ID       *int64  `json:"id"`
-	FingerID *string `json:"finger_id"`
-	Content  *string `json:"content"`
+	ID            *int64  `json:"id"`
+	FingerprintID *string `json:"fingerprint_id"`
+	Content       *string `json:"content"`
 }
 
 // aggregate min on columns of table "fingerprint"
 type FingerprintMinFields struct {
-	ID       *int64  `json:"id"`
-	FingerID *string `json:"finger_id"`
-	Content  *string `json:"content"`
+	ID            *int64  `json:"id"`
+	FingerprintID *string `json:"fingerprint_id"`
+	Content       *string `json:"content"`
 }
 
 // response of any mutation on the table "fingerprint"
@@ -462,16 +462,16 @@ type FingerprintMutationResponse struct {
 
 // ordering options when selecting data from "fingerprint"
 type FingerprintOrderBy struct {
-	ID       *model.OrderBy `json:"id"`
-	FingerID *model.OrderBy `json:"finger_id"`
-	Content  *model.OrderBy `json:"content"`
+	ID            *model.OrderBy `json:"id"`
+	FingerprintID *model.OrderBy `json:"fingerprint_id"`
+	Content       *model.OrderBy `json:"content"`
 }
 
 // input type for updating data in table "fingerprint"
 type FingerprintSetInput struct {
-	ID       *int64  `json:"id"`
-	FingerID *string `json:"finger_id"`
-	Content  *string `json:"content"`
+	ID            *int64  `json:"id"`
+	FingerprintID *string `json:"fingerprint_id"`
+	Content       *string `json:"content"`
 }
 
 // aggregate stddev on columns of table "fingerprint"
@@ -576,13 +576,13 @@ type SimCardAllBoolExp struct {
 	UserID         *model.StringComparisonExp      `json:"user_id"`
 	MobileType     *model.IntComparisonExp         `json:"mobile_type"`
 	UpdateCause    *model.StringComparisonExp      `json:"update_cause"`
-	CreateAt       *model.TimestamptzComparisonExp `json:"create_at"`
-	CreateBy       *model.StringComparisonExp      `json:"create_by"`
-	UpdateAt       *model.TimestamptzComparisonExp `json:"update_at"`
-	UpdateBy       *model.StringComparisonExp      `json:"update_by"`
-	DeleteAt       *model.TimestamptzComparisonExp `json:"delete_at"`
-	DeleteBy       *model.StringComparisonExp      `json:"delete_by"`
-	IsDelete       *model.BooleanComparisonExp     `json:"is_delete"`
+	CreatedAt      *model.TimestamptzComparisonExp `json:"created_at"`
+	CreatedBy      *model.StringComparisonExp      `json:"created_by"`
+	UpdatedAt      *model.TimestamptzComparisonExp `json:"updated_at"`
+	UpdatedBy      *model.StringComparisonExp      `json:"updated_by"`
+	DeletedAt      *model.TimestamptzComparisonExp `json:"deleted_at"`
+	DeletedBy      *model.StringComparisonExp      `json:"deleted_by"`
+	IsDeleted      *model.BooleanComparisonExp     `json:"is_deleted"`
 	Remark         *model.StringComparisonExp      `json:"remark"`
 }
 
@@ -609,13 +609,13 @@ type SimCardAllInsertInput struct {
 	UserID         *string    `json:"user_id"`
 	MobileType     *int       `json:"mobile_type"`
 	UpdateCause    *string    `json:"update_cause"`
-	CreateAt       time.Time  `json:"create_at"`
-	CreateBy       *string    `json:"create_by"`
-	UpdateAt       *time.Time `json:"update_at"`
-	UpdateBy       *string    `json:"update_by"`
-	DeleteAt       *time.Time `json:"delete_at"`
-	DeleteBy       *string    `json:"delete_by"`
-	IsDelete       bool       `json:"is_delete"`
+	CreatedAt      time.Time  `json:"created_at"`
+	CreatedBy      *string    `json:"created_by"`
+	UpdatedAt      *time.Time `json:"updated_at"`
+	UpdatedBy      *string    `json:"updated_by"`
+	DeletedAt      *time.Time `json:"deleted_at"`
+	DeletedBy      *string    `json:"deleted_by"`
+	IsDeleted      bool       `json:"is_deleted"`
 	Remark         *string    `json:"remark"`
 }
 
@@ -636,13 +636,13 @@ type SimCardAllMaxFields struct {
 	UserID         *string    `json:"user_id"`
 	MobileType     *int       `json:"mobile_type"`
 	UpdateCause    *string    `json:"update_cause"`
-	CreateAt       *time.Time `json:"create_at"`
-	CreateBy       *string    `json:"create_by"`
-	UpdateAt       *time.Time `json:"update_at"`
-	UpdateBy       *string    `json:"update_by"`
-	DeleteAt       *time.Time `json:"delete_at"`
-	DeleteBy       *string    `json:"delete_by"`
-	IsDelete       *bool      `json:"is_delete"`
+	CreatedAt      *time.Time `json:"created_at"`
+	CreatedBy      *string    `json:"created_by"`
+	UpdatedAt      *time.Time `json:"updated_at"`
+	UpdatedBy      *string    `json:"updated_by"`
+	DeletedAt      *time.Time `json:"deleted_at"`
+	DeletedBy      *string    `json:"deleted_by"`
+	IsDeleted      *bool      `json:"is_deleted"`
 	Remark         *string    `json:"remark"`
 }
 
@@ -663,13 +663,13 @@ type SimCardAllMinFields struct {
 	UserID         *string    `json:"user_id"`
 	MobileType     *int       `json:"mobile_type"`
 	UpdateCause    *string    `json:"update_cause"`
-	CreateAt       *time.Time `json:"create_at"`
-	CreateBy       *string    `json:"create_by"`
-	UpdateAt       *time.Time `json:"update_at"`
-	UpdateBy       *string    `json:"update_by"`
-	DeleteAt       *time.Time `json:"delete_at"`
-	DeleteBy       *string    `json:"delete_by"`
-	IsDelete       *bool      `json:"is_delete"`
+	CreatedAt      *time.Time `json:"created_at"`
+	CreatedBy      *string    `json:"created_by"`
+	UpdatedAt      *time.Time `json:"updated_at"`
+	UpdatedBy      *string    `json:"updated_by"`
+	DeletedAt      *time.Time `json:"deleted_at"`
+	DeletedBy      *string    `json:"deleted_by"`
+	IsDeleted      *bool      `json:"is_deleted"`
 	Remark         *string    `json:"remark"`
 }
 
@@ -696,13 +696,13 @@ type SimCardAllOrderBy struct {
 	UserID         *model.OrderBy `json:"user_id"`
 	MobileType     *model.OrderBy `json:"mobile_type"`
 	UpdateCause    *model.OrderBy `json:"update_cause"`
-	CreateAt       *model.OrderBy `json:"create_at"`
-	CreateBy       *model.OrderBy `json:"create_by"`
-	UpdateAt       *model.OrderBy `json:"update_at"`
-	UpdateBy       *model.OrderBy `json:"update_by"`
-	DeleteAt       *model.OrderBy `json:"delete_at"`
-	DeleteBy       *model.OrderBy `json:"delete_by"`
-	IsDelete       *model.OrderBy `json:"is_delete"`
+	CreatedAt      *model.OrderBy `json:"created_at"`
+	CreatedBy      *model.OrderBy `json:"created_by"`
+	UpdatedAt      *model.OrderBy `json:"updated_at"`
+	UpdatedBy      *model.OrderBy `json:"updated_by"`
+	DeletedAt      *model.OrderBy `json:"deleted_at"`
+	DeletedBy      *model.OrderBy `json:"deleted_by"`
+	IsDeleted      *model.OrderBy `json:"is_deleted"`
 	Remark         *model.OrderBy `json:"remark"`
 }
 
@@ -723,13 +723,13 @@ type SimCardAllSetInput struct {
 	UserID         *string    `json:"user_id"`
 	MobileType     *int       `json:"mobile_type"`
 	UpdateCause    *string    `json:"update_cause"`
-	CreateAt       *time.Time `json:"create_at"`
-	CreateBy       *string    `json:"create_by"`
-	UpdateAt       *time.Time `json:"update_at"`
-	UpdateBy       *string    `json:"update_by"`
-	DeleteAt       *time.Time `json:"delete_at"`
-	DeleteBy       *string    `json:"delete_by"`
-	IsDelete       *bool      `json:"is_delete"`
+	CreatedAt      *time.Time `json:"created_at"`
+	CreatedBy      *string    `json:"created_by"`
+	UpdatedAt      *time.Time `json:"updated_at"`
+	UpdatedBy      *string    `json:"updated_by"`
+	DeletedAt      *time.Time `json:"deleted_at"`
+	DeletedBy      *string    `json:"deleted_by"`
+	IsDeleted      *bool      `json:"is_deleted"`
 	Remark         *string    `json:"remark"`
 }
 
@@ -803,13 +803,13 @@ type SimCardBoolExp struct {
 	SimNumber   *model.StringComparisonExp      `json:"sim_number"`
 	MobileType  *model.IntComparisonExp         `json:"mobile_type"`
 	Remark      *model.StringComparisonExp      `json:"remark"`
-	CreateAt    *model.TimestamptzComparisonExp `json:"create_at"`
-	CreateBy    *model.StringComparisonExp      `json:"create_by"`
-	UpdateAt    *model.TimestamptzComparisonExp `json:"update_at"`
-	UpdateBy    *model.StringComparisonExp      `json:"update_by"`
-	DeleteAt    *model.TimestamptzComparisonExp `json:"delete_at"`
-	DeleteBy    *model.StringComparisonExp      `json:"delete_by"`
-	IsDelete    *model.BooleanComparisonExp     `json:"is_delete"`
+	CreatedAt   *model.TimestamptzComparisonExp `json:"created_at"`
+	CreatedBy   *model.StringComparisonExp      `json:"created_by"`
+	UpdatedAt   *model.TimestamptzComparisonExp `json:"updated_at"`
+	UpdatedBy   *model.StringComparisonExp      `json:"updated_by"`
+	DeletedAt   *model.TimestamptzComparisonExp `json:"deleted_at"`
+	DeletedBy   *model.StringComparisonExp      `json:"deleted_by"`
+	IsDeleted   *model.BooleanComparisonExp     `json:"is_deleted"`
 	Source      *model.IntComparisonExp         `json:"source"`
 }
 
@@ -870,13 +870,13 @@ type SimCardFlowBoolExp struct {
 	SuitSmsLeftNum *model.IntComparisonExp         `json:"suit_sms_left_num"`
 	SuitSmsOverNum *model.IntComparisonExp         `json:"suit_sms_over_num"`
 	IsSharePool    *model.BooleanComparisonExp     `json:"is_share_pool"`
-	IsDelete       *model.BooleanComparisonExp     `json:"is_delete"`
-	CreateAt       *model.TimestamptzComparisonExp `json:"create_at"`
-	CreateBy       *model.StringComparisonExp      `json:"create_by"`
-	UpdateAt       *model.TimestamptzComparisonExp `json:"update_at"`
-	UpdateBy       *model.StringComparisonExp      `json:"update_by"`
-	DeleteAt       *model.TimestamptzComparisonExp `json:"delete_at"`
-	DeleteBy       *model.StringComparisonExp      `json:"delete_by"`
+	IsDeleted      *model.BooleanComparisonExp     `json:"is_deleted"`
+	CreatedAt      *model.TimestamptzComparisonExp `json:"created_at"`
+	CreatedBy      *model.StringComparisonExp      `json:"created_by"`
+	UpdatedAt      *model.TimestamptzComparisonExp `json:"updated_at"`
+	UpdatedBy      *model.StringComparisonExp      `json:"updated_by"`
+	DeletedAt      *model.TimestamptzComparisonExp `json:"deleted_at"`
+	DeletedBy      *model.StringComparisonExp      `json:"deleted_by"`
 }
 
 // input type for incrementing integer column in table "sim_card_flow"
@@ -912,13 +912,13 @@ type SimCardFlowInsertInput struct {
 	SuitSmsLeftNum *int       `json:"suit_sms_left_num"`
 	SuitSmsOverNum *int       `json:"suit_sms_over_num"`
 	IsSharePool    bool       `json:"is_share_pool"`
-	IsDelete       bool       `json:"is_delete"`
-	CreateAt       time.Time  `json:"create_at"`
-	CreateBy       *string    `json:"create_by"`
-	UpdateAt       *time.Time `json:"update_at"`
-	UpdateBy       *string    `json:"update_by"`
-	DeleteAt       *time.Time `json:"delete_at"`
-	DeleteBy       *string    `json:"delete_by"`
+	IsDeleted      bool       `json:"is_deleted"`
+	CreatedAt      time.Time  `json:"created_at"`
+	CreatedBy      *string    `json:"created_by"`
+	UpdatedAt      *time.Time `json:"updated_at"`
+	UpdatedBy      *string    `json:"updated_by"`
+	DeletedAt      *time.Time `json:"deleted_at"`
+	DeletedBy      *string    `json:"deleted_by"`
 }
 
 // aggregate max on columns of table "sim_card_flow"
@@ -940,13 +940,13 @@ type SimCardFlowMaxFields struct {
 	SuitSmsLeftNum *int       `json:"suit_sms_left_num"`
 	SuitSmsOverNum *int       `json:"suit_sms_over_num"`
 	IsSharePool    *bool      `json:"is_share_pool"`
-	IsDelete       *bool      `json:"is_delete"`
-	CreateAt       *time.Time `json:"create_at"`
-	CreateBy       *string    `json:"create_by"`
-	UpdateAt       *time.Time `json:"update_at"`
-	UpdateBy       *string    `json:"update_by"`
-	DeleteAt       *time.Time `json:"delete_at"`
-	DeleteBy       *string    `json:"delete_by"`
+	IsDeleted      *bool      `json:"is_deleted"`
+	CreatedAt      *time.Time `json:"created_at"`
+	CreatedBy      *string    `json:"created_by"`
+	UpdatedAt      *time.Time `json:"updated_at"`
+	UpdatedBy      *string    `json:"updated_by"`
+	DeletedAt      *time.Time `json:"deleted_at"`
+	DeletedBy      *string    `json:"deleted_by"`
 }
 
 // aggregate min on columns of table "sim_card_flow"
@@ -968,13 +968,13 @@ type SimCardFlowMinFields struct {
 	SuitSmsLeftNum *int       `json:"suit_sms_left_num"`
 	SuitSmsOverNum *int       `json:"suit_sms_over_num"`
 	IsSharePool    *bool      `json:"is_share_pool"`
-	IsDelete       *bool      `json:"is_delete"`
-	CreateAt       *time.Time `json:"create_at"`
-	CreateBy       *string    `json:"create_by"`
-	UpdateAt       *time.Time `json:"update_at"`
-	UpdateBy       *string    `json:"update_by"`
-	DeleteAt       *time.Time `json:"delete_at"`
-	DeleteBy       *string    `json:"delete_by"`
+	IsDeleted      *bool      `json:"is_deleted"`
+	CreatedAt      *time.Time `json:"created_at"`
+	CreatedBy      *string    `json:"created_by"`
+	UpdatedAt      *time.Time `json:"updated_at"`
+	UpdatedBy      *string    `json:"updated_by"`
+	DeletedAt      *time.Time `json:"deleted_at"`
+	DeletedBy      *string    `json:"deleted_by"`
 }
 
 // response of any mutation on the table "sim_card_flow"
@@ -1002,13 +1002,13 @@ type SimCardFlowOrderBy struct {
 	SuitSmsLeftNum *model.OrderBy `json:"suit_sms_left_num"`
 	SuitSmsOverNum *model.OrderBy `json:"suit_sms_over_num"`
 	IsSharePool    *model.OrderBy `json:"is_share_pool"`
-	IsDelete       *model.OrderBy `json:"is_delete"`
-	CreateAt       *model.OrderBy `json:"create_at"`
-	CreateBy       *model.OrderBy `json:"create_by"`
-	UpdateAt       *model.OrderBy `json:"update_at"`
-	UpdateBy       *model.OrderBy `json:"update_by"`
-	DeleteAt       *model.OrderBy `json:"delete_at"`
-	DeleteBy       *model.OrderBy `json:"delete_by"`
+	IsDeleted      *model.OrderBy `json:"is_deleted"`
+	CreatedAt      *model.OrderBy `json:"created_at"`
+	CreatedBy      *model.OrderBy `json:"created_by"`
+	UpdatedAt      *model.OrderBy `json:"updated_at"`
+	UpdatedBy      *model.OrderBy `json:"updated_by"`
+	DeletedAt      *model.OrderBy `json:"deleted_at"`
+	DeletedBy      *model.OrderBy `json:"deleted_by"`
 }
 
 // input type for updating data in table "sim_card_flow"
@@ -1030,13 +1030,13 @@ type SimCardFlowSetInput struct {
 	SuitSmsLeftNum *int       `json:"suit_sms_left_num"`
 	SuitSmsOverNum *int       `json:"suit_sms_over_num"`
 	IsSharePool    *bool      `json:"is_share_pool"`
-	IsDelete       *bool      `json:"is_delete"`
-	CreateAt       *time.Time `json:"create_at"`
-	CreateBy       *string    `json:"create_by"`
-	UpdateAt       *time.Time `json:"update_at"`
-	UpdateBy       *string    `json:"update_by"`
-	DeleteAt       *time.Time `json:"delete_at"`
-	DeleteBy       *string    `json:"delete_by"`
+	IsDeleted      *bool      `json:"is_deleted"`
+	CreatedAt      *time.Time `json:"created_at"`
+	CreatedBy      *string    `json:"created_by"`
+	UpdatedAt      *time.Time `json:"updated_at"`
+	UpdatedBy      *string    `json:"updated_by"`
+	DeletedAt      *time.Time `json:"deleted_at"`
+	DeletedBy      *string    `json:"deleted_by"`
 }
 
 // aggregate stddev on columns of table "sim_card_flow"
@@ -1161,13 +1161,13 @@ type SimCardInsertInput struct {
 	SimNumber   *string    `json:"sim_number"`
 	MobileType  *int       `json:"mobile_type"`
 	Remark      *string    `json:"remark"`
-	CreateAt    time.Time  `json:"create_at"`
-	CreateBy    *string    `json:"create_by"`
-	UpdateAt    *time.Time `json:"update_at"`
-	UpdateBy    *string    `json:"update_by"`
-	DeleteAt    *time.Time `json:"delete_at"`
-	DeleteBy    *string    `json:"delete_by"`
-	IsDelete    bool       `json:"is_delete"`
+	CreatedAt   time.Time  `json:"created_at"`
+	CreatedBy   *string    `json:"created_by"`
+	UpdatedAt   *time.Time `json:"updated_at"`
+	UpdatedBy   *string    `json:"updated_by"`
+	DeletedAt   *time.Time `json:"deleted_at"`
+	DeletedBy   *string    `json:"deleted_by"`
+	IsDeleted   bool       `json:"is_deleted"`
 	Source      *int       `json:"source"`
 }
 
@@ -1182,13 +1182,13 @@ type SimCardMaxFields struct {
 	SimNumber   *string    `json:"sim_number"`
 	MobileType  *int       `json:"mobile_type"`
 	Remark      *string    `json:"remark"`
-	CreateAt    *time.Time `json:"create_at"`
-	CreateBy    *string    `json:"create_by"`
-	UpdateAt    *time.Time `json:"update_at"`
-	UpdateBy    *string    `json:"update_by"`
-	DeleteAt    *time.Time `json:"delete_at"`
-	DeleteBy    *string    `json:"delete_by"`
-	IsDelete    *bool      `json:"is_delete"`
+	CreatedAt   *time.Time `json:"created_at"`
+	CreatedBy   *string    `json:"created_by"`
+	UpdatedAt   *time.Time `json:"updated_at"`
+	UpdatedBy   *string    `json:"updated_by"`
+	DeletedAt   *time.Time `json:"deleted_at"`
+	DeletedBy   *string    `json:"deleted_by"`
+	IsDeleted   *bool      `json:"is_deleted"`
 	Source      *int       `json:"source"`
 }
 
@@ -1247,13 +1247,13 @@ type SimCardMgrBoolExp struct {
 	SimNumber10 *model.StringComparisonExp      `json:"sim_number10"`
 	CancelTime  *model.TimestamptzComparisonExp `json:"cancel_time"`
 	CancelCause *model.StringComparisonExp      `json:"cancel_cause"`
-	CreateAt    *model.TimestamptzComparisonExp `json:"create_at"`
-	CreateBy    *model.StringComparisonExp      `json:"create_by"`
-	UpdateAt    *model.TimestamptzComparisonExp `json:"update_at"`
-	UpdateBy    *model.StringComparisonExp      `json:"update_by"`
-	DeleteAt    *model.TimestamptzComparisonExp `json:"delete_at"`
-	DeleteBy    *model.StringComparisonExp      `json:"delete_by"`
-	IsDelete    *model.BooleanComparisonExp     `json:"is_delete"`
+	CreatedAt   *model.TimestamptzComparisonExp `json:"created_at"`
+	CreatedBy   *model.StringComparisonExp      `json:"created_by"`
+	UpdatedAt   *model.TimestamptzComparisonExp `json:"updated_at"`
+	UpdatedBy   *model.StringComparisonExp      `json:"updated_by"`
+	DeletedAt   *model.TimestamptzComparisonExp `json:"deleted_at"`
+	DeletedBy   *model.StringComparisonExp      `json:"deleted_by"`
+	IsDeleted   *model.BooleanComparisonExp     `json:"is_deleted"`
 	Remark      *model.StringComparisonExp      `json:"remark"`
 }
 
@@ -1288,13 +1288,13 @@ type SimCardMgrInsertInput struct {
 	SimNumber10 *string    `json:"sim_number10"`
 	CancelTime  *time.Time `json:"cancel_time"`
 	CancelCause *string    `json:"cancel_cause"`
-	CreateAt    time.Time  `json:"create_at"`
-	CreateBy    *string    `json:"create_by"`
-	UpdateAt    *time.Time `json:"update_at"`
-	UpdateBy    *string    `json:"update_by"`
-	DeleteAt    *time.Time `json:"delete_at"`
-	DeleteBy    *string    `json:"delete_by"`
-	IsDelete    bool       `json:"is_delete"`
+	CreatedAt   time.Time  `json:"created_at"`
+	CreatedBy   *string    `json:"created_by"`
+	UpdatedAt   *time.Time `json:"updated_at"`
+	UpdatedBy   *string    `json:"updated_by"`
+	DeletedAt   *time.Time `json:"deleted_at"`
+	DeletedBy   *string    `json:"deleted_by"`
+	IsDeleted   bool       `json:"is_deleted"`
 	Remark      *string    `json:"remark"`
 }
 
@@ -1321,13 +1321,13 @@ type SimCardMgrMaxFields struct {
 	SimNumber10 *string    `json:"sim_number10"`
 	CancelTime  *time.Time `json:"cancel_time"`
 	CancelCause *string    `json:"cancel_cause"`
-	CreateAt    *time.Time `json:"create_at"`
-	CreateBy    *string    `json:"create_by"`
-	UpdateAt    *time.Time `json:"update_at"`
-	UpdateBy    *string    `json:"update_by"`
-	DeleteAt    *time.Time `json:"delete_at"`
-	DeleteBy    *string    `json:"delete_by"`
-	IsDelete    *bool      `json:"is_delete"`
+	CreatedAt   *time.Time `json:"created_at"`
+	CreatedBy   *string    `json:"created_by"`
+	UpdatedAt   *time.Time `json:"updated_at"`
+	UpdatedBy   *string    `json:"updated_by"`
+	DeletedAt   *time.Time `json:"deleted_at"`
+	DeletedBy   *string    `json:"deleted_by"`
+	IsDeleted   *bool      `json:"is_deleted"`
 	Remark      *string    `json:"remark"`
 }
 
@@ -1354,13 +1354,13 @@ type SimCardMgrMinFields struct {
 	SimNumber10 *string    `json:"sim_number10"`
 	CancelTime  *time.Time `json:"cancel_time"`
 	CancelCause *string    `json:"cancel_cause"`
-	CreateAt    *time.Time `json:"create_at"`
-	CreateBy    *string    `json:"create_by"`
-	UpdateAt    *time.Time `json:"update_at"`
-	UpdateBy    *string    `json:"update_by"`
-	DeleteAt    *time.Time `json:"delete_at"`
-	DeleteBy    *string    `json:"delete_by"`
-	IsDelete    *bool      `json:"is_delete"`
+	CreatedAt   *time.Time `json:"created_at"`
+	CreatedBy   *string    `json:"created_by"`
+	UpdatedAt   *time.Time `json:"updated_at"`
+	UpdatedBy   *string    `json:"updated_by"`
+	DeletedAt   *time.Time `json:"deleted_at"`
+	DeletedBy   *string    `json:"deleted_by"`
+	IsDeleted   *bool      `json:"is_deleted"`
 	Remark      *string    `json:"remark"`
 }
 
@@ -1393,13 +1393,13 @@ type SimCardMgrOrderBy struct {
 	SimNumber10 *model.OrderBy `json:"sim_number10"`
 	CancelTime  *model.OrderBy `json:"cancel_time"`
 	CancelCause *model.OrderBy `json:"cancel_cause"`
-	CreateAt    *model.OrderBy `json:"create_at"`
-	CreateBy    *model.OrderBy `json:"create_by"`
-	UpdateAt    *model.OrderBy `json:"update_at"`
-	UpdateBy    *model.OrderBy `json:"update_by"`
-	DeleteAt    *model.OrderBy `json:"delete_at"`
-	DeleteBy    *model.OrderBy `json:"delete_by"`
-	IsDelete    *model.OrderBy `json:"is_delete"`
+	CreatedAt   *model.OrderBy `json:"created_at"`
+	CreatedBy   *model.OrderBy `json:"created_by"`
+	UpdatedAt   *model.OrderBy `json:"updated_at"`
+	UpdatedBy   *model.OrderBy `json:"updated_by"`
+	DeletedAt   *model.OrderBy `json:"deleted_at"`
+	DeletedBy   *model.OrderBy `json:"deleted_by"`
+	IsDeleted   *model.OrderBy `json:"is_deleted"`
 	Remark      *model.OrderBy `json:"remark"`
 }
 
@@ -1426,13 +1426,13 @@ type SimCardMgrSetInput struct {
 	SimNumber10 *string    `json:"sim_number10"`
 	CancelTime  *time.Time `json:"cancel_time"`
 	CancelCause *string    `json:"cancel_cause"`
-	CreateAt    *time.Time `json:"create_at"`
-	CreateBy    *string    `json:"create_by"`
-	UpdateAt    *time.Time `json:"update_at"`
-	UpdateBy    *string    `json:"update_by"`
-	DeleteAt    *time.Time `json:"delete_at"`
-	DeleteBy    *string    `json:"delete_by"`
-	IsDelete    *bool      `json:"is_delete"`
+	CreatedAt   *time.Time `json:"created_at"`
+	CreatedBy   *string    `json:"created_by"`
+	UpdatedAt   *time.Time `json:"updated_at"`
+	UpdatedBy   *string    `json:"updated_by"`
+	DeletedAt   *time.Time `json:"deleted_at"`
+	DeletedBy   *string    `json:"deleted_by"`
+	IsDeleted   *bool      `json:"is_deleted"`
 	Remark      *string    `json:"remark"`
 }
 
@@ -1510,13 +1510,13 @@ type SimCardMinFields struct {
 	SimNumber   *string    `json:"sim_number"`
 	MobileType  *int       `json:"mobile_type"`
 	Remark      *string    `json:"remark"`
-	CreateAt    *time.Time `json:"create_at"`
-	CreateBy    *string    `json:"create_by"`
-	UpdateAt    *time.Time `json:"update_at"`
-	UpdateBy    *string    `json:"update_by"`
-	DeleteAt    *time.Time `json:"delete_at"`
-	DeleteBy    *string    `json:"delete_by"`
-	IsDelete    *bool      `json:"is_delete"`
+	CreatedAt   *time.Time `json:"created_at"`
+	CreatedBy   *string    `json:"created_by"`
+	UpdatedAt   *time.Time `json:"updated_at"`
+	UpdatedBy   *string    `json:"updated_by"`
+	DeletedAt   *time.Time `json:"deleted_at"`
+	DeletedBy   *string    `json:"deleted_by"`
+	IsDeleted   *bool      `json:"is_deleted"`
 	Source      *int       `json:"source"`
 }
 
@@ -1537,13 +1537,13 @@ type SimCardOrderBy struct {
 	SimNumber   *model.OrderBy `json:"sim_number"`
 	MobileType  *model.OrderBy `json:"mobile_type"`
 	Remark      *model.OrderBy `json:"remark"`
-	CreateAt    *model.OrderBy `json:"create_at"`
-	CreateBy    *model.OrderBy `json:"create_by"`
-	UpdateAt    *model.OrderBy `json:"update_at"`
-	UpdateBy    *model.OrderBy `json:"update_by"`
-	DeleteAt    *model.OrderBy `json:"delete_at"`
-	DeleteBy    *model.OrderBy `json:"delete_by"`
-	IsDelete    *model.OrderBy `json:"is_delete"`
+	CreatedAt   *model.OrderBy `json:"created_at"`
+	CreatedBy   *model.OrderBy `json:"created_by"`
+	UpdatedAt   *model.OrderBy `json:"updated_at"`
+	UpdatedBy   *model.OrderBy `json:"updated_by"`
+	DeletedAt   *model.OrderBy `json:"deleted_at"`
+	DeletedBy   *model.OrderBy `json:"deleted_by"`
+	IsDeleted   *model.OrderBy `json:"is_deleted"`
 	Source      *model.OrderBy `json:"source"`
 }
 
@@ -1558,13 +1558,13 @@ type SimCardSetInput struct {
 	SimNumber   *string    `json:"sim_number"`
 	MobileType  *int       `json:"mobile_type"`
 	Remark      *string    `json:"remark"`
-	CreateAt    *time.Time `json:"create_at"`
-	CreateBy    *string    `json:"create_by"`
-	UpdateAt    *time.Time `json:"update_at"`
-	UpdateBy    *string    `json:"update_by"`
-	DeleteAt    *time.Time `json:"delete_at"`
-	DeleteBy    *string    `json:"delete_by"`
-	IsDelete    *bool      `json:"is_delete"`
+	CreatedAt   *time.Time `json:"created_at"`
+	CreatedBy   *string    `json:"created_by"`
+	UpdatedAt   *time.Time `json:"updated_at"`
+	UpdatedBy   *string    `json:"updated_by"`
+	DeletedAt   *time.Time `json:"deleted_at"`
+	DeletedBy   *string    `json:"deleted_by"`
+	IsDeleted   *bool      `json:"is_deleted"`
 	Source      *int       `json:"source"`
 }
 
@@ -1614,13 +1614,13 @@ type SimCardStatusBoolExp struct {
 	SimNumber10     *model.StringComparisonExp      `json:"sim_number10"`
 	PlateNumber     *model.StringComparisonExp      `json:"plate_number"`
 	FeeEndDate      *model.TimestamptzComparisonExp `json:"fee_end_date"`
-	CreateAt        *model.TimestamptzComparisonExp `json:"create_at"`
-	CreateBy        *model.StringComparisonExp      `json:"create_by"`
-	UpdateAt        *model.TimestamptzComparisonExp `json:"update_at"`
-	UpdateBy        *model.StringComparisonExp      `json:"update_by"`
-	DeleteAt        *model.TimestamptzComparisonExp `json:"delete_at"`
-	DeleteBy        *model.StringComparisonExp      `json:"delete_by"`
-	IsDelete        *model.BooleanComparisonExp     `json:"is_delete"`
+	CreatedAt       *model.TimestamptzComparisonExp `json:"created_at"`
+	CreatedBy       *model.StringComparisonExp      `json:"created_by"`
+	UpdatedAt       *model.TimestamptzComparisonExp `json:"updated_at"`
+	UpdatedBy       *model.StringComparisonExp      `json:"updated_by"`
+	DeletedAt       *model.TimestamptzComparisonExp `json:"deleted_at"`
+	DeletedBy       *model.StringComparisonExp      `json:"deleted_by"`
+	IsDeleted       *model.BooleanComparisonExp     `json:"is_deleted"`
 	Remark          *model.StringComparisonExp      `json:"remark"`
 }
 
@@ -1646,13 +1646,13 @@ type SimCardStatusInsertInput struct {
 	SimNumber10     *string    `json:"sim_number10"`
 	PlateNumber     *string    `json:"plate_number"`
 	FeeEndDate      *time.Time `json:"fee_end_date"`
-	CreateAt        time.Time  `json:"create_at"`
-	CreateBy        *string    `json:"create_by"`
-	UpdateAt        *time.Time `json:"update_at"`
-	UpdateBy        *string    `json:"update_by"`
-	DeleteAt        *time.Time `json:"delete_at"`
-	DeleteBy        *string    `json:"delete_by"`
-	IsDelete        bool       `json:"is_delete"`
+	CreatedAt       time.Time  `json:"created_at"`
+	CreatedBy       *string    `json:"created_by"`
+	UpdatedAt       *time.Time `json:"updated_at"`
+	UpdatedBy       *string    `json:"updated_by"`
+	DeletedAt       *time.Time `json:"deleted_at"`
+	DeletedBy       *string    `json:"deleted_by"`
+	IsDeleted       bool       `json:"is_deleted"`
 	Remark          *string    `json:"remark"`
 }
 
@@ -1672,13 +1672,13 @@ type SimCardStatusMaxFields struct {
 	SimNumber10     *string    `json:"sim_number10"`
 	PlateNumber     *string    `json:"plate_number"`
 	FeeEndDate      *time.Time `json:"fee_end_date"`
-	CreateAt        *time.Time `json:"create_at"`
-	CreateBy        *string    `json:"create_by"`
-	UpdateAt        *time.Time `json:"update_at"`
-	UpdateBy        *string    `json:"update_by"`
-	DeleteAt        *time.Time `json:"delete_at"`
-	DeleteBy        *string    `json:"delete_by"`
-	IsDelete        *bool      `json:"is_delete"`
+	CreatedAt       *time.Time `json:"created_at"`
+	CreatedBy       *string    `json:"created_by"`
+	UpdatedAt       *time.Time `json:"updated_at"`
+	UpdatedBy       *string    `json:"updated_by"`
+	DeletedAt       *time.Time `json:"deleted_at"`
+	DeletedBy       *string    `json:"deleted_by"`
+	IsDeleted       *bool      `json:"is_deleted"`
 	Remark          *string    `json:"remark"`
 }
 
@@ -1698,13 +1698,13 @@ type SimCardStatusMinFields struct {
 	SimNumber10     *string    `json:"sim_number10"`
 	PlateNumber     *string    `json:"plate_number"`
 	FeeEndDate      *time.Time `json:"fee_end_date"`
-	CreateAt        *time.Time `json:"create_at"`
-	CreateBy        *string    `json:"create_by"`
-	UpdateAt        *time.Time `json:"update_at"`
-	UpdateBy        *string    `json:"update_by"`
-	DeleteAt        *time.Time `json:"delete_at"`
-	DeleteBy        *string    `json:"delete_by"`
-	IsDelete        *bool      `json:"is_delete"`
+	CreatedAt       *time.Time `json:"created_at"`
+	CreatedBy       *string    `json:"created_by"`
+	UpdatedAt       *time.Time `json:"updated_at"`
+	UpdatedBy       *string    `json:"updated_by"`
+	DeletedAt       *time.Time `json:"deleted_at"`
+	DeletedBy       *string    `json:"deleted_by"`
+	IsDeleted       *bool      `json:"is_deleted"`
 	Remark          *string    `json:"remark"`
 }
 
@@ -1730,13 +1730,13 @@ type SimCardStatusOrderBy struct {
 	SimNumber10     *model.OrderBy `json:"sim_number10"`
 	PlateNumber     *model.OrderBy `json:"plate_number"`
 	FeeEndDate      *model.OrderBy `json:"fee_end_date"`
-	CreateAt        *model.OrderBy `json:"create_at"`
-	CreateBy        *model.OrderBy `json:"create_by"`
-	UpdateAt        *model.OrderBy `json:"update_at"`
-	UpdateBy        *model.OrderBy `json:"update_by"`
-	DeleteAt        *model.OrderBy `json:"delete_at"`
-	DeleteBy        *model.OrderBy `json:"delete_by"`
-	IsDelete        *model.OrderBy `json:"is_delete"`
+	CreatedAt       *model.OrderBy `json:"created_at"`
+	CreatedBy       *model.OrderBy `json:"created_by"`
+	UpdatedAt       *model.OrderBy `json:"updated_at"`
+	UpdatedBy       *model.OrderBy `json:"updated_by"`
+	DeletedAt       *model.OrderBy `json:"deleted_at"`
+	DeletedBy       *model.OrderBy `json:"deleted_by"`
+	IsDeleted       *model.OrderBy `json:"is_deleted"`
 	Remark          *model.OrderBy `json:"remark"`
 }
 
@@ -1756,13 +1756,13 @@ type SimCardStatusSetInput struct {
 	SimNumber10     *string    `json:"sim_number10"`
 	PlateNumber     *string    `json:"plate_number"`
 	FeeEndDate      *time.Time `json:"fee_end_date"`
-	CreateAt        *time.Time `json:"create_at"`
-	CreateBy        *string    `json:"create_by"`
-	UpdateAt        *time.Time `json:"update_at"`
-	UpdateBy        *string    `json:"update_by"`
-	DeleteAt        *time.Time `json:"delete_at"`
-	DeleteBy        *string    `json:"delete_by"`
-	IsDelete        *bool      `json:"is_delete"`
+	CreatedAt       *time.Time `json:"created_at"`
+	CreatedBy       *string    `json:"created_by"`
+	UpdatedAt       *time.Time `json:"updated_at"`
+	UpdatedBy       *string    `json:"updated_by"`
+	DeletedAt       *time.Time `json:"deleted_at"`
+	DeletedBy       *string    `json:"deleted_by"`
+	IsDeleted       *bool      `json:"is_deleted"`
 	Remark          *string    `json:"remark"`
 }
 
@@ -1926,13 +1926,13 @@ type TerminalBeidouValidBoolExp struct {
 	TerminalModalID       *model.StringComparisonExp      `json:"terminal_modal_id"`
 	IsBind                *model.BooleanComparisonExp     `json:"is_bind"`
 	BuyBill               *model.StringComparisonExp      `json:"buy_bill"`
-	CreateAt              *model.TimestamptzComparisonExp `json:"create_at"`
-	CreateBy              *model.StringComparisonExp      `json:"create_by"`
-	UpdateAt              *model.TimestamptzComparisonExp `json:"update_at"`
-	UpdateBy              *model.StringComparisonExp      `json:"update_by"`
-	DeleteAt              *model.TimestamptzComparisonExp `json:"delete_at"`
-	DeleteBy              *model.StringComparisonExp      `json:"delete_by"`
-	IsDelete              *model.BooleanComparisonExp     `json:"is_delete"`
+	CreatedAt             *model.TimestamptzComparisonExp `json:"created_at"`
+	CreatedBy             *model.StringComparisonExp      `json:"created_by"`
+	UpdatedAt             *model.TimestamptzComparisonExp `json:"updated_at"`
+	UpdatedBy             *model.StringComparisonExp      `json:"updated_by"`
+	DeletedAt             *model.TimestamptzComparisonExp `json:"deleted_at"`
+	DeletedBy             *model.StringComparisonExp      `json:"deleted_by"`
+	IsDeleted             *model.BooleanComparisonExp     `json:"is_deleted"`
 }
 
 // input type for incrementing integer column in table "terminal_beidou_valid"
@@ -1947,13 +1947,13 @@ type TerminalBeidouValidInsertInput struct {
 	TerminalModalID       *string    `json:"terminal_modal_id"`
 	IsBind                bool       `json:"is_bind"`
 	BuyBill               *string    `json:"buy_bill"`
-	CreateAt              time.Time  `json:"create_at"`
-	CreateBy              *string    `json:"create_by"`
-	UpdateAt              *time.Time `json:"update_at"`
-	UpdateBy              *string    `json:"update_by"`
-	DeleteAt              *time.Time `json:"delete_at"`
-	DeleteBy              *string    `json:"delete_by"`
-	IsDelete              bool       `json:"is_delete"`
+	CreatedAt             time.Time  `json:"created_at"`
+	CreatedBy             *string    `json:"created_by"`
+	UpdatedAt             *time.Time `json:"updated_at"`
+	UpdatedBy             *string    `json:"updated_by"`
+	DeletedAt             *time.Time `json:"deleted_at"`
+	DeletedBy             *string    `json:"deleted_by"`
+	IsDeleted             bool       `json:"is_deleted"`
 }
 
 // aggregate max on columns of table "terminal_beidou_valid"
@@ -1964,13 +1964,13 @@ type TerminalBeidouValidMaxFields struct {
 	TerminalModalID       *string    `json:"terminal_modal_id"`
 	IsBind                *bool      `json:"is_bind"`
 	BuyBill               *string    `json:"buy_bill"`
-	CreateAt              *time.Time `json:"create_at"`
-	CreateBy              *string    `json:"create_by"`
-	UpdateAt              *time.Time `json:"update_at"`
-	UpdateBy              *string    `json:"update_by"`
-	DeleteAt              *time.Time `json:"delete_at"`
-	DeleteBy              *string    `json:"delete_by"`
-	IsDelete              *bool      `json:"is_delete"`
+	CreatedAt             *time.Time `json:"created_at"`
+	CreatedBy             *string    `json:"created_by"`
+	UpdatedAt             *time.Time `json:"updated_at"`
+	UpdatedBy             *string    `json:"updated_by"`
+	DeletedAt             *time.Time `json:"deleted_at"`
+	DeletedBy             *string    `json:"deleted_by"`
+	IsDeleted             *bool      `json:"is_deleted"`
 }
 
 // aggregate min on columns of table "terminal_beidou_valid"
@@ -1981,13 +1981,13 @@ type TerminalBeidouValidMinFields struct {
 	TerminalModalID       *string    `json:"terminal_modal_id"`
 	IsBind                *bool      `json:"is_bind"`
 	BuyBill               *string    `json:"buy_bill"`
-	CreateAt              *time.Time `json:"create_at"`
-	CreateBy              *string    `json:"create_by"`
-	UpdateAt              *time.Time `json:"update_at"`
-	UpdateBy              *string    `json:"update_by"`
-	DeleteAt              *time.Time `json:"delete_at"`
-	DeleteBy              *string    `json:"delete_by"`
-	IsDelete              *bool      `json:"is_delete"`
+	CreatedAt             *time.Time `json:"created_at"`
+	CreatedBy             *string    `json:"created_by"`
+	UpdatedAt             *time.Time `json:"updated_at"`
+	UpdatedBy             *string    `json:"updated_by"`
+	DeletedAt             *time.Time `json:"deleted_at"`
+	DeletedBy             *string    `json:"deleted_by"`
+	IsDeleted             *bool      `json:"is_deleted"`
 }
 
 // response of any mutation on the table "terminal_beidou_valid"
@@ -2004,13 +2004,13 @@ type TerminalBeidouValidOrderBy struct {
 	TerminalModalID       *model.OrderBy `json:"terminal_modal_id"`
 	IsBind                *model.OrderBy `json:"is_bind"`
 	BuyBill               *model.OrderBy `json:"buy_bill"`
-	CreateAt              *model.OrderBy `json:"create_at"`
-	CreateBy              *model.OrderBy `json:"create_by"`
-	UpdateAt              *model.OrderBy `json:"update_at"`
-	UpdateBy              *model.OrderBy `json:"update_by"`
-	DeleteAt              *model.OrderBy `json:"delete_at"`
-	DeleteBy              *model.OrderBy `json:"delete_by"`
-	IsDelete              *model.OrderBy `json:"is_delete"`
+	CreatedAt             *model.OrderBy `json:"created_at"`
+	CreatedBy             *model.OrderBy `json:"created_by"`
+	UpdatedAt             *model.OrderBy `json:"updated_at"`
+	UpdatedBy             *model.OrderBy `json:"updated_by"`
+	DeletedAt             *model.OrderBy `json:"deleted_at"`
+	DeletedBy             *model.OrderBy `json:"deleted_by"`
+	IsDeleted             *model.OrderBy `json:"is_deleted"`
 }
 
 // input type for updating data in table "terminal_beidou_valid"
@@ -2021,13 +2021,13 @@ type TerminalBeidouValidSetInput struct {
 	TerminalModalID       *string    `json:"terminal_modal_id"`
 	IsBind                *bool      `json:"is_bind"`
 	BuyBill               *string    `json:"buy_bill"`
-	CreateAt              *time.Time `json:"create_at"`
-	CreateBy              *string    `json:"create_by"`
-	UpdateAt              *time.Time `json:"update_at"`
-	UpdateBy              *string    `json:"update_by"`
-	DeleteAt              *time.Time `json:"delete_at"`
-	DeleteBy              *string    `json:"delete_by"`
-	IsDelete              *bool      `json:"is_delete"`
+	CreatedAt             *time.Time `json:"created_at"`
+	CreatedBy             *string    `json:"created_by"`
+	UpdatedAt             *time.Time `json:"updated_at"`
+	UpdatedBy             *string    `json:"updated_by"`
+	DeletedAt             *time.Time `json:"deleted_at"`
+	DeletedBy             *string    `json:"deleted_by"`
+	IsDeleted             *bool      `json:"is_deleted"`
 }
 
 // aggregate stddev on columns of table "terminal_beidou_valid"
@@ -2099,12 +2099,12 @@ type TerminalBoolExp struct {
 	ProveProxyrgID   *model.StringComparisonExp      `json:"prove_proxyrg_id"`
 	IsDelete         *model.BooleanComparisonExp     `json:"is_delete"`
 	Remarks          *model.StringComparisonExp      `json:"remarks"`
-	CreateAt         *model.TimestamptzComparisonExp `json:"create_at"`
-	CreateBy         *model.StringComparisonExp      `json:"create_by"`
-	UpdateAt         *model.TimestamptzComparisonExp `json:"update_at"`
-	UpdateBy         *model.StringComparisonExp      `json:"update_by"`
-	DeleteAt         *model.TimestamptzComparisonExp `json:"delete_at"`
-	DeleteBy         *model.StringComparisonExp      `json:"delete_by"`
+	CreatedAt        *model.TimestamptzComparisonExp `json:"created_at"`
+	CreatedBy        *model.StringComparisonExp      `json:"created_by"`
+	UpdatedAt        *model.TimestamptzComparisonExp `json:"updated_at"`
+	UpdatedBy        *model.StringComparisonExp      `json:"updated_by"`
+	DeletedAt        *model.TimestamptzComparisonExp `json:"deleted_at"`
+	DeletedBy        *model.StringComparisonExp      `json:"deleted_by"`
 }
 
 // aggregated selection of "terminal_buy_bill"
@@ -2152,13 +2152,13 @@ type TerminalBuyBillBoolExp struct {
 	SnCount      *model.BigintComparisonExp      `json:"sn_count"`
 	UseSnCount   *model.BigintComparisonExp      `json:"use_sn_count"`
 	IsSnUseOver  *model.BooleanComparisonExp     `json:"is_sn_use_over"`
-	CreateAt     *model.TimestamptzComparisonExp `json:"create_at"`
-	CreateBy     *model.StringComparisonExp      `json:"create_by"`
-	UpdateAt     *model.TimestamptzComparisonExp `json:"update_at"`
-	UpdateBy     *model.StringComparisonExp      `json:"update_by"`
-	DeleteAt     *model.TimestamptzComparisonExp `json:"delete_at"`
-	DeleteBy     *model.StringComparisonExp      `json:"delete_by"`
-	IsDelete     *model.BooleanComparisonExp     `json:"is_delete"`
+	CreatedAt    *model.TimestamptzComparisonExp `json:"created_at"`
+	CreatedBy    *model.StringComparisonExp      `json:"created_by"`
+	UpdatedAt    *model.TimestamptzComparisonExp `json:"updated_at"`
+	UpdatedBy    *model.StringComparisonExp      `json:"updated_by"`
+	DeletedAt    *model.TimestamptzComparisonExp `json:"deleted_at"`
+	DeletedBy    *model.StringComparisonExp      `json:"deleted_by"`
+	IsDeleted    *model.BooleanComparisonExp     `json:"is_deleted"`
 	Remark       *model.StringComparisonExp      `json:"remark"`
 }
 
@@ -2183,13 +2183,13 @@ type TerminalBuyBillInsertInput struct {
 	SnCount      *int64     `json:"sn_count"`
 	UseSnCount   *int64     `json:"use_sn_count"`
 	IsSnUseOver  bool       `json:"is_sn_use_over"`
-	CreateAt     time.Time  `json:"create_at"`
-	CreateBy     *string    `json:"create_by"`
-	UpdateAt     *time.Time `json:"update_at"`
-	UpdateBy     *string    `json:"update_by"`
-	DeleteAt     *time.Time `json:"delete_at"`
-	DeleteBy     *string    `json:"delete_by"`
-	IsDelete     bool       `json:"is_delete"`
+	CreatedAt    time.Time  `json:"created_at"`
+	CreatedBy    *string    `json:"created_by"`
+	UpdatedAt    *time.Time `json:"updated_at"`
+	UpdatedBy    *string    `json:"updated_by"`
+	DeletedAt    *time.Time `json:"deleted_at"`
+	DeletedBy    *string    `json:"deleted_by"`
+	IsDeleted    bool       `json:"is_deleted"`
 	Remark       *string    `json:"remark"`
 }
 
@@ -2205,13 +2205,13 @@ type TerminalBuyBillMaxFields struct {
 	SnCount      *int64     `json:"sn_count"`
 	UseSnCount   *int64     `json:"use_sn_count"`
 	IsSnUseOver  *bool      `json:"is_sn_use_over"`
-	CreateAt     *time.Time `json:"create_at"`
-	CreateBy     *string    `json:"create_by"`
-	UpdateAt     *time.Time `json:"update_at"`
-	UpdateBy     *string    `json:"update_by"`
-	DeleteAt     *time.Time `json:"delete_at"`
-	DeleteBy     *string    `json:"delete_by"`
-	IsDelete     *bool      `json:"is_delete"`
+	CreatedAt    *time.Time `json:"created_at"`
+	CreatedBy    *string    `json:"created_by"`
+	UpdatedAt    *time.Time `json:"updated_at"`
+	UpdatedBy    *string    `json:"updated_by"`
+	DeletedAt    *time.Time `json:"deleted_at"`
+	DeletedBy    *string    `json:"deleted_by"`
+	IsDeleted    *bool      `json:"is_deleted"`
 	Remark       *string    `json:"remark"`
 }
 
@@ -2227,13 +2227,13 @@ type TerminalBuyBillMinFields struct {
 	SnCount      *int64     `json:"sn_count"`
 	UseSnCount   *int64     `json:"use_sn_count"`
 	IsSnUseOver  *bool      `json:"is_sn_use_over"`
-	CreateAt     *time.Time `json:"create_at"`
-	CreateBy     *string    `json:"create_by"`
-	UpdateAt     *time.Time `json:"update_at"`
-	UpdateBy     *string    `json:"update_by"`
-	DeleteAt     *time.Time `json:"delete_at"`
-	DeleteBy     *string    `json:"delete_by"`
-	IsDelete     *bool      `json:"is_delete"`
+	CreatedAt    *time.Time `json:"created_at"`
+	CreatedBy    *string    `json:"created_by"`
+	UpdatedAt    *time.Time `json:"updated_at"`
+	UpdatedBy    *string    `json:"updated_by"`
+	DeletedAt    *time.Time `json:"deleted_at"`
+	DeletedBy    *string    `json:"deleted_by"`
+	IsDeleted    *bool      `json:"is_deleted"`
 	Remark       *string    `json:"remark"`
 }
 
@@ -2255,13 +2255,13 @@ type TerminalBuyBillOrderBy struct {
 	SnCount      *model.OrderBy `json:"sn_count"`
 	UseSnCount   *model.OrderBy `json:"use_sn_count"`
 	IsSnUseOver  *model.OrderBy `json:"is_sn_use_over"`
-	CreateAt     *model.OrderBy `json:"create_at"`
-	CreateBy     *model.OrderBy `json:"create_by"`
-	UpdateAt     *model.OrderBy `json:"update_at"`
-	UpdateBy     *model.OrderBy `json:"update_by"`
-	DeleteAt     *model.OrderBy `json:"delete_at"`
-	DeleteBy     *model.OrderBy `json:"delete_by"`
-	IsDelete     *model.OrderBy `json:"is_delete"`
+	CreatedAt    *model.OrderBy `json:"created_at"`
+	CreatedBy    *model.OrderBy `json:"created_by"`
+	UpdatedAt    *model.OrderBy `json:"updated_at"`
+	UpdatedBy    *model.OrderBy `json:"updated_by"`
+	DeletedAt    *model.OrderBy `json:"deleted_at"`
+	DeletedBy    *model.OrderBy `json:"deleted_by"`
+	IsDeleted    *model.OrderBy `json:"is_deleted"`
 	Remark       *model.OrderBy `json:"remark"`
 }
 
@@ -2277,13 +2277,13 @@ type TerminalBuyBillSetInput struct {
 	SnCount      *int64     `json:"sn_count"`
 	UseSnCount   *int64     `json:"use_sn_count"`
 	IsSnUseOver  *bool      `json:"is_sn_use_over"`
-	CreateAt     *time.Time `json:"create_at"`
-	CreateBy     *string    `json:"create_by"`
-	UpdateAt     *time.Time `json:"update_at"`
-	UpdateBy     *string    `json:"update_by"`
-	DeleteAt     *time.Time `json:"delete_at"`
-	DeleteBy     *string    `json:"delete_by"`
-	IsDelete     *bool      `json:"is_delete"`
+	CreatedAt    *time.Time `json:"created_at"`
+	CreatedBy    *string    `json:"created_by"`
+	UpdatedAt    *time.Time `json:"updated_at"`
+	UpdatedBy    *string    `json:"updated_by"`
+	DeletedAt    *time.Time `json:"deleted_at"`
+	DeletedBy    *string    `json:"deleted_by"`
+	IsDeleted    *bool      `json:"is_deleted"`
 	Remark       *string    `json:"remark"`
 }
 
@@ -2394,8 +2394,8 @@ type TerminalChangeBoolExp struct {
 	TerminalTypeID *model.StringComparisonExp      `json:"terminal_type_id"`
 	OldPlateNumber *model.StringComparisonExp      `json:"old_plate_number"`
 	DeptID         *model.StringComparisonExp      `json:"dept_id"`
-	CreateAt       *model.TimestamptzComparisonExp `json:"create_at"`
-	CreateBy       *model.StringComparisonExp      `json:"create_by"`
+	CreatedAt      *model.TimestamptzComparisonExp `json:"created_at"`
+	CreatedBy      *model.StringComparisonExp      `json:"created_by"`
 	Remark         *model.StringComparisonExp      `json:"remark"`
 }
 
@@ -2412,8 +2412,8 @@ type TerminalChangeInsertInput struct {
 	TerminalTypeID *string   `json:"terminal_type_id"`
 	OldPlateNumber string    `json:"old_plate_number"`
 	DeptID         *string   `json:"dept_id"`
-	CreateAt       time.Time `json:"create_at"`
-	CreateBy       *string   `json:"create_by"`
+	CreatedAt      time.Time `json:"created_at"`
+	CreatedBy      *string   `json:"created_by"`
 	Remark         *string   `json:"remark"`
 }
 
@@ -2426,8 +2426,8 @@ type TerminalChangeMaxFields struct {
 	TerminalTypeID *string    `json:"terminal_type_id"`
 	OldPlateNumber *string    `json:"old_plate_number"`
 	DeptID         *string    `json:"dept_id"`
-	CreateAt       *time.Time `json:"create_at"`
-	CreateBy       *string    `json:"create_by"`
+	CreatedAt      *time.Time `json:"created_at"`
+	CreatedBy      *string    `json:"created_by"`
 	Remark         *string    `json:"remark"`
 }
 
@@ -2440,8 +2440,8 @@ type TerminalChangeMinFields struct {
 	TerminalTypeID *string    `json:"terminal_type_id"`
 	OldPlateNumber *string    `json:"old_plate_number"`
 	DeptID         *string    `json:"dept_id"`
-	CreateAt       *time.Time `json:"create_at"`
-	CreateBy       *string    `json:"create_by"`
+	CreatedAt      *time.Time `json:"created_at"`
+	CreatedBy      *string    `json:"created_by"`
 	Remark         *string    `json:"remark"`
 }
 
@@ -2460,8 +2460,8 @@ type TerminalChangeOrderBy struct {
 	TerminalTypeID *model.OrderBy `json:"terminal_type_id"`
 	OldPlateNumber *model.OrderBy `json:"old_plate_number"`
 	DeptID         *model.OrderBy `json:"dept_id"`
-	CreateAt       *model.OrderBy `json:"create_at"`
-	CreateBy       *model.OrderBy `json:"create_by"`
+	CreatedAt      *model.OrderBy `json:"created_at"`
+	CreatedBy      *model.OrderBy `json:"created_by"`
 	Remark         *model.OrderBy `json:"remark"`
 }
 
@@ -2474,8 +2474,8 @@ type TerminalChangeSetInput struct {
 	TerminalTypeID *string    `json:"terminal_type_id"`
 	OldPlateNumber *string    `json:"old_plate_number"`
 	DeptID         *string    `json:"dept_id"`
-	CreateAt       *time.Time `json:"create_at"`
-	CreateBy       *string    `json:"create_by"`
+	CreatedAt      *time.Time `json:"created_at"`
+	CreatedBy      *string    `json:"created_by"`
 	Remark         *string    `json:"remark"`
 }
 
@@ -2574,13 +2574,13 @@ type TerminalCheckBoolExp struct {
 	IsImpulseSpeed   *model.BooleanComparisonExp     `json:"is_impulse_speed"`
 	FaultEndTime     *model.TimestamptzComparisonExp `json:"fault_end_time"`
 	VideoPass        *model.StringComparisonExp      `json:"video_pass"`
-	CreateAt         *model.TimestamptzComparisonExp `json:"create_at"`
-	CreateBy         *model.StringComparisonExp      `json:"create_by"`
-	UpdateAt         *model.TimestamptzComparisonExp `json:"update_at"`
-	UpdateBy         *model.StringComparisonExp      `json:"update_by"`
-	DeleteAt         *model.TimestamptzComparisonExp `json:"delete_at"`
-	DeleteBy         *model.StringComparisonExp      `json:"delete_by"`
-	IsDelete         *model.BooleanComparisonExp     `json:"is_delete"`
+	CreatedAt        *model.TimestamptzComparisonExp `json:"created_at"`
+	CreatedBy        *model.StringComparisonExp      `json:"created_by"`
+	UpdatedAt        *model.TimestamptzComparisonExp `json:"updated_at"`
+	UpdatedBy        *model.StringComparisonExp      `json:"updated_by"`
+	DeletedAt        *model.TimestamptzComparisonExp `json:"deleted_at"`
+	DeletedBy        *model.StringComparisonExp      `json:"deleted_by"`
+	IsDeleted        *model.BooleanComparisonExp     `json:"is_deleted"`
 }
 
 // input type for incrementing integer column in table "terminal_check"
@@ -2619,13 +2619,13 @@ type TerminalCheckInsertInput struct {
 	IsImpulseSpeed   bool       `json:"is_impulse_speed"`
 	FaultEndTime     *time.Time `json:"fault_end_time"`
 	VideoPass        *string    `json:"video_pass"`
-	CreateAt         time.Time  `json:"create_at"`
-	CreateBy         *string    `json:"create_by"`
-	UpdateAt         *time.Time `json:"update_at"`
-	UpdateBy         *string    `json:"update_by"`
-	DeleteAt         *time.Time `json:"delete_at"`
-	DeleteBy         *string    `json:"delete_by"`
-	IsDelete         bool       `json:"is_delete"`
+	CreatedAt        time.Time  `json:"created_at"`
+	CreatedBy        *string    `json:"created_by"`
+	UpdatedAt        *time.Time `json:"updated_at"`
+	UpdatedBy        *string    `json:"updated_by"`
+	DeletedAt        *time.Time `json:"deleted_at"`
+	DeletedBy        *string    `json:"deleted_by"`
+	IsDeleted        bool       `json:"is_deleted"`
 }
 
 // aggregated selection of "terminal_check_last"
@@ -2675,13 +2675,13 @@ type TerminalCheckLastBoolExp struct {
 	Camera              *model.StringComparisonExp      `json:"camera"`
 	VehicleSpeed        *model.StringComparisonExp      `json:"vehicle_speed"`
 	Remark              *model.StringComparisonExp      `json:"remark"`
-	CreateAt            *model.TimestamptzComparisonExp `json:"create_at"`
-	CreateBy            *model.StringComparisonExp      `json:"create_by"`
-	UpdateAt            *model.TimestamptzComparisonExp `json:"update_at"`
-	UpdateBy            *model.StringComparisonExp      `json:"update_by"`
-	DeleteAt            *model.TimestamptzComparisonExp `json:"delete_at"`
-	DeleteBy            *model.StringComparisonExp      `json:"delete_by"`
-	IsDelete            *model.BooleanComparisonExp     `json:"is_delete"`
+	CreatedAt           *model.TimestamptzComparisonExp `json:"created_at"`
+	CreatedBy           *model.StringComparisonExp      `json:"created_by"`
+	UpdatedAt           *model.TimestamptzComparisonExp `json:"updated_at"`
+	UpdatedBy           *model.StringComparisonExp      `json:"updated_by"`
+	DeletedAt           *model.TimestamptzComparisonExp `json:"deleted_at"`
+	DeletedBy           *model.StringComparisonExp      `json:"deleted_by"`
+	IsDeleted           *model.BooleanComparisonExp     `json:"is_deleted"`
 }
 
 // input type for incrementing integer column in table "terminal_check_last"
@@ -2707,13 +2707,13 @@ type TerminalCheckLastInsertInput struct {
 	Camera              *string    `json:"camera"`
 	VehicleSpeed        *string    `json:"vehicle_speed"`
 	Remark              *string    `json:"remark"`
-	CreateAt            time.Time  `json:"create_at"`
-	CreateBy            *string    `json:"create_by"`
-	UpdateAt            *time.Time `json:"update_at"`
-	UpdateBy            *string    `json:"update_by"`
-	DeleteAt            *time.Time `json:"delete_at"`
-	DeleteBy            *string    `json:"delete_by"`
-	IsDelete            bool       `json:"is_delete"`
+	CreatedAt           time.Time  `json:"created_at"`
+	CreatedBy           *string    `json:"created_by"`
+	UpdatedAt           *time.Time `json:"updated_at"`
+	UpdatedBy           *string    `json:"updated_by"`
+	DeletedAt           *time.Time `json:"deleted_at"`
+	DeletedBy           *string    `json:"deleted_by"`
+	IsDeleted           bool       `json:"is_deleted"`
 }
 
 // aggregate max on columns of table "terminal_check_last"
@@ -2735,13 +2735,13 @@ type TerminalCheckLastMaxFields struct {
 	Camera              *string    `json:"camera"`
 	VehicleSpeed        *string    `json:"vehicle_speed"`
 	Remark              *string    `json:"remark"`
-	CreateAt            *time.Time `json:"create_at"`
-	CreateBy            *string    `json:"create_by"`
-	UpdateAt            *time.Time `json:"update_at"`
-	UpdateBy            *string    `json:"update_by"`
-	DeleteAt            *time.Time `json:"delete_at"`
-	DeleteBy            *string    `json:"delete_by"`
-	IsDelete            *bool      `json:"is_delete"`
+	CreatedAt           *time.Time `json:"created_at"`
+	CreatedBy           *string    `json:"created_by"`
+	UpdatedAt           *time.Time `json:"updated_at"`
+	UpdatedBy           *string    `json:"updated_by"`
+	DeletedAt           *time.Time `json:"deleted_at"`
+	DeletedBy           *string    `json:"deleted_by"`
+	IsDeleted           *bool      `json:"is_deleted"`
 }
 
 // aggregate min on columns of table "terminal_check_last"
@@ -2763,13 +2763,13 @@ type TerminalCheckLastMinFields struct {
 	Camera              *string    `json:"camera"`
 	VehicleSpeed        *string    `json:"vehicle_speed"`
 	Remark              *string    `json:"remark"`
-	CreateAt            *time.Time `json:"create_at"`
-	CreateBy            *string    `json:"create_by"`
-	UpdateAt            *time.Time `json:"update_at"`
-	UpdateBy            *string    `json:"update_by"`
-	DeleteAt            *time.Time `json:"delete_at"`
-	DeleteBy            *string    `json:"delete_by"`
-	IsDelete            *bool      `json:"is_delete"`
+	CreatedAt           *time.Time `json:"created_at"`
+	CreatedBy           *string    `json:"created_by"`
+	UpdatedAt           *time.Time `json:"updated_at"`
+	UpdatedBy           *string    `json:"updated_by"`
+	DeletedAt           *time.Time `json:"deleted_at"`
+	DeletedBy           *string    `json:"deleted_by"`
+	IsDeleted           *bool      `json:"is_deleted"`
 }
 
 // response of any mutation on the table "terminal_check_last"
@@ -2797,13 +2797,13 @@ type TerminalCheckLastOrderBy struct {
 	Camera              *model.OrderBy `json:"camera"`
 	VehicleSpeed        *model.OrderBy `json:"vehicle_speed"`
 	Remark              *model.OrderBy `json:"remark"`
-	CreateAt            *model.OrderBy `json:"create_at"`
-	CreateBy            *model.OrderBy `json:"create_by"`
-	UpdateAt            *model.OrderBy `json:"update_at"`
-	UpdateBy            *model.OrderBy `json:"update_by"`
-	DeleteAt            *model.OrderBy `json:"delete_at"`
-	DeleteBy            *model.OrderBy `json:"delete_by"`
-	IsDelete            *model.OrderBy `json:"is_delete"`
+	CreatedAt           *model.OrderBy `json:"created_at"`
+	CreatedBy           *model.OrderBy `json:"created_by"`
+	UpdatedAt           *model.OrderBy `json:"updated_at"`
+	UpdatedBy           *model.OrderBy `json:"updated_by"`
+	DeletedAt           *model.OrderBy `json:"deleted_at"`
+	DeletedBy           *model.OrderBy `json:"deleted_by"`
+	IsDeleted           *model.OrderBy `json:"is_deleted"`
 }
 
 // input type for updating data in table "terminal_check_last"
@@ -2825,13 +2825,13 @@ type TerminalCheckLastSetInput struct {
 	Camera              *string    `json:"camera"`
 	VehicleSpeed        *string    `json:"vehicle_speed"`
 	Remark              *string    `json:"remark"`
-	CreateAt            *time.Time `json:"create_at"`
-	CreateBy            *string    `json:"create_by"`
-	UpdateAt            *time.Time `json:"update_at"`
-	UpdateBy            *string    `json:"update_by"`
-	DeleteAt            *time.Time `json:"delete_at"`
-	DeleteBy            *string    `json:"delete_by"`
-	IsDelete            *bool      `json:"is_delete"`
+	CreatedAt           *time.Time `json:"created_at"`
+	CreatedBy           *string    `json:"created_by"`
+	UpdatedAt           *time.Time `json:"updated_at"`
+	UpdatedBy           *string    `json:"updated_by"`
+	DeletedAt           *time.Time `json:"deleted_at"`
+	DeletedBy           *string    `json:"deleted_by"`
+	IsDeleted           *bool      `json:"is_deleted"`
 }
 
 // aggregate stddev on columns of table "terminal_check_last"
@@ -2901,13 +2901,13 @@ type TerminalCheckMaxFields struct {
 	IsImpulseSpeed   *bool      `json:"is_impulse_speed"`
 	FaultEndTime     *time.Time `json:"fault_end_time"`
 	VideoPass        *string    `json:"video_pass"`
-	CreateAt         *time.Time `json:"create_at"`
-	CreateBy         *string    `json:"create_by"`
-	UpdateAt         *time.Time `json:"update_at"`
-	UpdateBy         *string    `json:"update_by"`
-	DeleteAt         *time.Time `json:"delete_at"`
-	DeleteBy         *string    `json:"delete_by"`
-	IsDelete         *bool      `json:"is_delete"`
+	CreatedAt        *time.Time `json:"created_at"`
+	CreatedBy        *string    `json:"created_by"`
+	UpdatedAt        *time.Time `json:"updated_at"`
+	UpdatedBy        *string    `json:"updated_by"`
+	DeletedAt        *time.Time `json:"deleted_at"`
+	DeletedBy        *string    `json:"deleted_by"`
+	IsDeleted        *bool      `json:"is_deleted"`
 }
 
 // aggregate min on columns of table "terminal_check"
@@ -2942,13 +2942,13 @@ type TerminalCheckMinFields struct {
 	IsImpulseSpeed   *bool      `json:"is_impulse_speed"`
 	FaultEndTime     *time.Time `json:"fault_end_time"`
 	VideoPass        *string    `json:"video_pass"`
-	CreateAt         *time.Time `json:"create_at"`
-	CreateBy         *string    `json:"create_by"`
-	UpdateAt         *time.Time `json:"update_at"`
-	UpdateBy         *string    `json:"update_by"`
-	DeleteAt         *time.Time `json:"delete_at"`
-	DeleteBy         *string    `json:"delete_by"`
-	IsDelete         *bool      `json:"is_delete"`
+	CreatedAt        *time.Time `json:"created_at"`
+	CreatedBy        *string    `json:"created_by"`
+	UpdatedAt        *time.Time `json:"updated_at"`
+	UpdatedBy        *string    `json:"updated_by"`
+	DeletedAt        *time.Time `json:"deleted_at"`
+	DeletedBy        *string    `json:"deleted_by"`
+	IsDeleted        *bool      `json:"is_deleted"`
 }
 
 // response of any mutation on the table "terminal_check"
@@ -2989,13 +2989,13 @@ type TerminalCheckOrderBy struct {
 	IsImpulseSpeed   *model.OrderBy `json:"is_impulse_speed"`
 	FaultEndTime     *model.OrderBy `json:"fault_end_time"`
 	VideoPass        *model.OrderBy `json:"video_pass"`
-	CreateAt         *model.OrderBy `json:"create_at"`
-	CreateBy         *model.OrderBy `json:"create_by"`
-	UpdateAt         *model.OrderBy `json:"update_at"`
-	UpdateBy         *model.OrderBy `json:"update_by"`
-	DeleteAt         *model.OrderBy `json:"delete_at"`
-	DeleteBy         *model.OrderBy `json:"delete_by"`
-	IsDelete         *model.OrderBy `json:"is_delete"`
+	CreatedAt        *model.OrderBy `json:"created_at"`
+	CreatedBy        *model.OrderBy `json:"created_by"`
+	UpdatedAt        *model.OrderBy `json:"updated_at"`
+	UpdatedBy        *model.OrderBy `json:"updated_by"`
+	DeletedAt        *model.OrderBy `json:"deleted_at"`
+	DeletedBy        *model.OrderBy `json:"deleted_by"`
+	IsDeleted        *model.OrderBy `json:"is_deleted"`
 }
 
 // aggregated selection of "terminal_check_param"
@@ -3271,13 +3271,13 @@ type TerminalCheckSetInput struct {
 	IsImpulseSpeed   *bool      `json:"is_impulse_speed"`
 	FaultEndTime     *time.Time `json:"fault_end_time"`
 	VideoPass        *string    `json:"video_pass"`
-	CreateAt         *time.Time `json:"create_at"`
-	CreateBy         *string    `json:"create_by"`
-	UpdateAt         *time.Time `json:"update_at"`
-	UpdateBy         *string    `json:"update_by"`
-	DeleteAt         *time.Time `json:"delete_at"`
-	DeleteBy         *string    `json:"delete_by"`
-	IsDelete         *bool      `json:"is_delete"`
+	CreatedAt        *time.Time `json:"created_at"`
+	CreatedBy        *string    `json:"created_by"`
+	UpdatedAt        *time.Time `json:"updated_at"`
+	UpdatedBy        *string    `json:"updated_by"`
+	DeletedAt        *time.Time `json:"deleted_at"`
+	DeletedBy        *string    `json:"deleted_by"`
+	IsDeleted        *bool      `json:"is_deleted"`
 }
 
 // aggregate stddev on columns of table "terminal_check"
@@ -3354,13 +3354,13 @@ type TerminalFactoryBoolExp struct {
 	Address          *model.StringComparisonExp      `json:"address"`
 	TechContact      *model.StringComparisonExp      `json:"tech_contact"`
 	TechContactPhone *model.StringComparisonExp      `json:"tech_contact_phone"`
-	CreateAt         *model.TimestamptzComparisonExp `json:"create_at"`
-	CreateBy         *model.StringComparisonExp      `json:"create_by"`
-	UpdateAt         *model.TimestamptzComparisonExp `json:"update_at"`
-	UpdateBy         *model.StringComparisonExp      `json:"update_by"`
-	DeleteAt         *model.TimestamptzComparisonExp `json:"delete_at"`
-	DeleteBy         *model.StringComparisonExp      `json:"delete_by"`
-	IsDelete         *model.BooleanComparisonExp     `json:"is_delete"`
+	CreatedAt        *model.TimestamptzComparisonExp `json:"created_at"`
+	CreatedBy        *model.StringComparisonExp      `json:"created_by"`
+	UpdatedAt        *model.TimestamptzComparisonExp `json:"updated_at"`
+	UpdatedBy        *model.StringComparisonExp      `json:"updated_by"`
+	DeletedAt        *model.TimestamptzComparisonExp `json:"deleted_at"`
+	DeletedBy        *model.StringComparisonExp      `json:"deleted_by"`
+	IsDeleted        *model.BooleanComparisonExp     `json:"is_deleted"`
 }
 
 // input type for incrementing integer column in table "terminal_factory"
@@ -3378,13 +3378,13 @@ type TerminalFactoryInsertInput struct {
 	Address          *string    `json:"address"`
 	TechContact      *string    `json:"tech_contact"`
 	TechContactPhone *string    `json:"tech_contact_phone"`
-	CreateAt         *time.Time `json:"create_at"`
-	CreateBy         *string    `json:"create_by"`
-	UpdateAt         *time.Time `json:"update_at"`
-	UpdateBy         *string    `json:"update_by"`
-	DeleteAt         *time.Time `json:"delete_at"`
-	DeleteBy         *string    `json:"delete_by"`
-	IsDelete         bool       `json:"is_delete"`
+	CreatedAt        *time.Time `json:"created_at"`
+	CreatedBy        *string    `json:"created_by"`
+	UpdatedAt        *time.Time `json:"updated_at"`
+	UpdatedBy        *string    `json:"updated_by"`
+	DeletedAt        *time.Time `json:"deleted_at"`
+	DeletedBy        *string    `json:"deleted_by"`
+	IsDeleted        bool       `json:"is_deleted"`
 }
 
 // aggregate max on columns of table "terminal_factory"
@@ -3398,13 +3398,13 @@ type TerminalFactoryMaxFields struct {
 	Address          *string    `json:"address"`
 	TechContact      *string    `json:"tech_contact"`
 	TechContactPhone *string    `json:"tech_contact_phone"`
-	CreateAt         *time.Time `json:"create_at"`
-	CreateBy         *string    `json:"create_by"`
-	UpdateAt         *time.Time `json:"update_at"`
-	UpdateBy         *string    `json:"update_by"`
-	DeleteAt         *time.Time `json:"delete_at"`
-	DeleteBy         *string    `json:"delete_by"`
-	IsDelete         *bool      `json:"is_delete"`
+	CreatedAt        *time.Time `json:"created_at"`
+	CreatedBy        *string    `json:"created_by"`
+	UpdatedAt        *time.Time `json:"updated_at"`
+	UpdatedBy        *string    `json:"updated_by"`
+	DeletedAt        *time.Time `json:"deleted_at"`
+	DeletedBy        *string    `json:"deleted_by"`
+	IsDeleted        *bool      `json:"is_deleted"`
 }
 
 // aggregate min on columns of table "terminal_factory"
@@ -3418,13 +3418,13 @@ type TerminalFactoryMinFields struct {
 	Address          *string    `json:"address"`
 	TechContact      *string    `json:"tech_contact"`
 	TechContactPhone *string    `json:"tech_contact_phone"`
-	CreateAt         *time.Time `json:"create_at"`
-	CreateBy         *string    `json:"create_by"`
-	UpdateAt         *time.Time `json:"update_at"`
-	UpdateBy         *string    `json:"update_by"`
-	DeleteAt         *time.Time `json:"delete_at"`
-	DeleteBy         *string    `json:"delete_by"`
-	IsDelete         *bool      `json:"is_delete"`
+	CreatedAt        *time.Time `json:"created_at"`
+	CreatedBy        *string    `json:"created_by"`
+	UpdatedAt        *time.Time `json:"updated_at"`
+	UpdatedBy        *string    `json:"updated_by"`
+	DeletedAt        *time.Time `json:"deleted_at"`
+	DeletedBy        *string    `json:"deleted_by"`
+	IsDeleted        *bool      `json:"is_deleted"`
 }
 
 // response of any mutation on the table "terminal_factory"
@@ -3444,13 +3444,13 @@ type TerminalFactoryOrderBy struct {
 	Address          *model.OrderBy `json:"address"`
 	TechContact      *model.OrderBy `json:"tech_contact"`
 	TechContactPhone *model.OrderBy `json:"tech_contact_phone"`
-	CreateAt         *model.OrderBy `json:"create_at"`
-	CreateBy         *model.OrderBy `json:"create_by"`
-	UpdateAt         *model.OrderBy `json:"update_at"`
-	UpdateBy         *model.OrderBy `json:"update_by"`
-	DeleteAt         *model.OrderBy `json:"delete_at"`
-	DeleteBy         *model.OrderBy `json:"delete_by"`
-	IsDelete         *model.OrderBy `json:"is_delete"`
+	CreatedAt        *model.OrderBy `json:"created_at"`
+	CreatedBy        *model.OrderBy `json:"created_by"`
+	UpdatedAt        *model.OrderBy `json:"updated_at"`
+	UpdatedBy        *model.OrderBy `json:"updated_by"`
+	DeletedAt        *model.OrderBy `json:"deleted_at"`
+	DeletedBy        *model.OrderBy `json:"deleted_by"`
+	IsDeleted        *model.OrderBy `json:"is_deleted"`
 }
 
 // input type for updating data in table "terminal_factory"
@@ -3464,13 +3464,13 @@ type TerminalFactorySetInput struct {
 	Address          *string    `json:"address"`
 	TechContact      *string    `json:"tech_contact"`
 	TechContactPhone *string    `json:"tech_contact_phone"`
-	CreateAt         *time.Time `json:"create_at"`
-	CreateBy         *string    `json:"create_by"`
-	UpdateAt         *time.Time `json:"update_at"`
-	UpdateBy         *string    `json:"update_by"`
-	DeleteAt         *time.Time `json:"delete_at"`
-	DeleteBy         *string    `json:"delete_by"`
-	IsDelete         *bool      `json:"is_delete"`
+	CreatedAt        *time.Time `json:"created_at"`
+	CreatedBy        *string    `json:"created_by"`
+	UpdatedAt        *time.Time `json:"updated_at"`
+	UpdatedBy        *string    `json:"updated_by"`
+	DeletedAt        *time.Time `json:"deleted_at"`
+	DeletedBy        *string    `json:"deleted_by"`
+	IsDeleted        *bool      `json:"is_deleted"`
 }
 
 // aggregate stddev on columns of table "terminal_factory"
@@ -3544,12 +3544,12 @@ type TerminalInsertInput struct {
 	ProveProxyrgID   *string    `json:"prove_proxyrg_id"`
 	IsDelete         bool       `json:"is_delete"`
 	Remarks          *string    `json:"remarks"`
-	CreateAt         time.Time  `json:"create_at"`
-	CreateBy         *string    `json:"create_by"`
-	UpdateAt         *time.Time `json:"update_at"`
-	UpdateBy         *string    `json:"update_by"`
-	DeleteAt         *time.Time `json:"delete_at"`
-	DeleteBy         *string    `json:"delete_by"`
+	CreatedAt        time.Time  `json:"created_at"`
+	CreatedBy        *string    `json:"created_by"`
+	UpdatedAt        *time.Time `json:"updated_at"`
+	UpdatedBy        *string    `json:"updated_by"`
+	DeletedAt        *time.Time `json:"deleted_at"`
+	DeletedBy        *string    `json:"deleted_by"`
 }
 
 // aggregate max on columns of table "terminal"
@@ -3583,12 +3583,12 @@ type TerminalMaxFields struct {
 	ProveProxyrgID   *string    `json:"prove_proxyrg_id"`
 	IsDelete         *bool      `json:"is_delete"`
 	Remarks          *string    `json:"remarks"`
-	CreateAt         *time.Time `json:"create_at"`
-	CreateBy         *string    `json:"create_by"`
-	UpdateAt         *time.Time `json:"update_at"`
-	UpdateBy         *string    `json:"update_by"`
-	DeleteAt         *time.Time `json:"delete_at"`
-	DeleteBy         *string    `json:"delete_by"`
+	CreatedAt        *time.Time `json:"created_at"`
+	CreatedBy        *string    `json:"created_by"`
+	UpdatedAt        *time.Time `json:"updated_at"`
+	UpdatedBy        *string    `json:"updated_by"`
+	DeletedAt        *time.Time `json:"deleted_at"`
+	DeletedBy        *string    `json:"deleted_by"`
 }
 
 // aggregate min on columns of table "terminal"
@@ -3622,12 +3622,12 @@ type TerminalMinFields struct {
 	ProveProxyrgID   *string    `json:"prove_proxyrg_id"`
 	IsDelete         *bool      `json:"is_delete"`
 	Remarks          *string    `json:"remarks"`
-	CreateAt         *time.Time `json:"create_at"`
-	CreateBy         *string    `json:"create_by"`
-	UpdateAt         *time.Time `json:"update_at"`
-	UpdateBy         *string    `json:"update_by"`
-	DeleteAt         *time.Time `json:"delete_at"`
-	DeleteBy         *string    `json:"delete_by"`
+	CreatedAt        *time.Time `json:"created_at"`
+	CreatedBy        *string    `json:"created_by"`
+	UpdatedAt        *time.Time `json:"updated_at"`
+	UpdatedBy        *string    `json:"updated_by"`
+	DeletedAt        *time.Time `json:"deleted_at"`
+	DeletedBy        *string    `json:"deleted_by"`
 }
 
 // aggregated selection of "terminal_modal"
@@ -3673,13 +3673,13 @@ type TerminalModalBoolExp struct {
 	IsTransportDept4g     *model.BooleanComparisonExp     `json:"is_transport_dept_4g"`
 	IsTestingSituation    *model.BooleanComparisonExp     `json:"is_testing_situation"`
 	IsElectronicsPostCard *model.BooleanComparisonExp     `json:"is_electronics_post_card"`
-	CreateAt              *model.TimestamptzComparisonExp `json:"create_at"`
-	CreateBy              *model.StringComparisonExp      `json:"create_by"`
-	UpdateAt              *model.TimestamptzComparisonExp `json:"update_at"`
-	UpdateBy              *model.StringComparisonExp      `json:"update_by"`
-	DeleteAt              *model.TimestamptzComparisonExp `json:"delete_at"`
-	DeleteBy              *model.StringComparisonExp      `json:"delete_by"`
-	IsDelete              *model.BooleanComparisonExp     `json:"is_delete"`
+	CreatedAt             *model.TimestamptzComparisonExp `json:"created_at"`
+	CreatedBy             *model.StringComparisonExp      `json:"created_by"`
+	UpdatedAt             *model.TimestamptzComparisonExp `json:"updated_at"`
+	UpdatedBy             *model.StringComparisonExp      `json:"updated_by"`
+	DeletedAt             *model.TimestamptzComparisonExp `json:"deleted_at"`
+	DeletedBy             *model.StringComparisonExp      `json:"deleted_by"`
+	IsDeleted             *model.BooleanComparisonExp     `json:"is_deleted"`
 }
 
 // input type for incrementing integer column in table "terminal_modal"
@@ -3701,13 +3701,13 @@ type TerminalModalInsertInput struct {
 	IsTransportDept4g     *bool      `json:"is_transport_dept_4g"`
 	IsTestingSituation    *bool      `json:"is_testing_situation"`
 	IsElectronicsPostCard *bool      `json:"is_electronics_post_card"`
-	CreateAt              time.Time  `json:"create_at"`
-	CreateBy              *string    `json:"create_by"`
-	UpdateAt              *time.Time `json:"update_at"`
-	UpdateBy              *string    `json:"update_by"`
-	DeleteAt              *time.Time `json:"delete_at"`
-	DeleteBy              *string    `json:"delete_by"`
-	IsDelete              bool       `json:"is_delete"`
+	CreatedAt             time.Time  `json:"created_at"`
+	CreatedBy             *string    `json:"created_by"`
+	UpdatedAt             *time.Time `json:"updated_at"`
+	UpdatedBy             *string    `json:"updated_by"`
+	DeletedAt             *time.Time `json:"deleted_at"`
+	DeletedBy             *string    `json:"deleted_by"`
+	IsDeleted             bool       `json:"is_deleted"`
 }
 
 // aggregate max on columns of table "terminal_modal"
@@ -3725,13 +3725,13 @@ type TerminalModalMaxFields struct {
 	IsTransportDept4g     *bool      `json:"is_transport_dept_4g"`
 	IsTestingSituation    *bool      `json:"is_testing_situation"`
 	IsElectronicsPostCard *bool      `json:"is_electronics_post_card"`
-	CreateAt              *time.Time `json:"create_at"`
-	CreateBy              *string    `json:"create_by"`
-	UpdateAt              *time.Time `json:"update_at"`
-	UpdateBy              *string    `json:"update_by"`
-	DeleteAt              *time.Time `json:"delete_at"`
-	DeleteBy              *string    `json:"delete_by"`
-	IsDelete              *bool      `json:"is_delete"`
+	CreatedAt             *time.Time `json:"created_at"`
+	CreatedBy             *string    `json:"created_by"`
+	UpdatedAt             *time.Time `json:"updated_at"`
+	UpdatedBy             *string    `json:"updated_by"`
+	DeletedAt             *time.Time `json:"deleted_at"`
+	DeletedBy             *string    `json:"deleted_by"`
+	IsDeleted             *bool      `json:"is_deleted"`
 }
 
 // aggregate min on columns of table "terminal_modal"
@@ -3749,13 +3749,13 @@ type TerminalModalMinFields struct {
 	IsTransportDept4g     *bool      `json:"is_transport_dept_4g"`
 	IsTestingSituation    *bool      `json:"is_testing_situation"`
 	IsElectronicsPostCard *bool      `json:"is_electronics_post_card"`
-	CreateAt              *time.Time `json:"create_at"`
-	CreateBy              *string    `json:"create_by"`
-	UpdateAt              *time.Time `json:"update_at"`
-	UpdateBy              *string    `json:"update_by"`
-	DeleteAt              *time.Time `json:"delete_at"`
-	DeleteBy              *string    `json:"delete_by"`
-	IsDelete              *bool      `json:"is_delete"`
+	CreatedAt             *time.Time `json:"created_at"`
+	CreatedBy             *string    `json:"created_by"`
+	UpdatedAt             *time.Time `json:"updated_at"`
+	UpdatedBy             *string    `json:"updated_by"`
+	DeletedAt             *time.Time `json:"deleted_at"`
+	DeletedBy             *string    `json:"deleted_by"`
+	IsDeleted             *bool      `json:"is_deleted"`
 }
 
 // response of any mutation on the table "terminal_modal"
@@ -3779,13 +3779,13 @@ type TerminalModalOrderBy struct {
 	IsTransportDept4g     *model.OrderBy `json:"is_transport_dept_4g"`
 	IsTestingSituation    *model.OrderBy `json:"is_testing_situation"`
 	IsElectronicsPostCard *model.OrderBy `json:"is_electronics_post_card"`
-	CreateAt              *model.OrderBy `json:"create_at"`
-	CreateBy              *model.OrderBy `json:"create_by"`
-	UpdateAt              *model.OrderBy `json:"update_at"`
-	UpdateBy              *model.OrderBy `json:"update_by"`
-	DeleteAt              *model.OrderBy `json:"delete_at"`
-	DeleteBy              *model.OrderBy `json:"delete_by"`
-	IsDelete              *model.OrderBy `json:"is_delete"`
+	CreatedAt             *model.OrderBy `json:"created_at"`
+	CreatedBy             *model.OrderBy `json:"created_by"`
+	UpdatedAt             *model.OrderBy `json:"updated_at"`
+	UpdatedBy             *model.OrderBy `json:"updated_by"`
+	DeletedAt             *model.OrderBy `json:"deleted_at"`
+	DeletedBy             *model.OrderBy `json:"deleted_by"`
+	IsDeleted             *model.OrderBy `json:"is_deleted"`
 }
 
 // input type for updating data in table "terminal_modal"
@@ -3803,13 +3803,13 @@ type TerminalModalSetInput struct {
 	IsTransportDept4g     *bool      `json:"is_transport_dept_4g"`
 	IsTestingSituation    *bool      `json:"is_testing_situation"`
 	IsElectronicsPostCard *bool      `json:"is_electronics_post_card"`
-	CreateAt              *time.Time `json:"create_at"`
-	CreateBy              *string    `json:"create_by"`
-	UpdateAt              *time.Time `json:"update_at"`
-	UpdateBy              *string    `json:"update_by"`
-	DeleteAt              *time.Time `json:"delete_at"`
-	DeleteBy              *string    `json:"delete_by"`
-	IsDelete              *bool      `json:"is_delete"`
+	CreatedAt             *time.Time `json:"created_at"`
+	CreatedBy             *string    `json:"created_by"`
+	UpdatedAt             *time.Time `json:"updated_at"`
+	UpdatedBy             *string    `json:"updated_by"`
+	DeletedAt             *time.Time `json:"deleted_at"`
+	DeletedBy             *string    `json:"deleted_by"`
+	IsDeleted             *bool      `json:"is_deleted"`
 }
 
 // aggregate stddev on columns of table "terminal_modal"
@@ -3895,13 +3895,13 @@ type TerminalOperLogBoolExp struct {
 	State       *model.IntComparisonExp         `json:"state"`
 	ReqTime     *model.TimestamptzComparisonExp `json:"req_time"`
 	RespTime    *model.TimestamptzComparisonExp `json:"resp_time"`
-	CreateAt    *model.TimestamptzComparisonExp `json:"create_at"`
-	CreateBy    *model.StringComparisonExp      `json:"create_by"`
-	UpdateAt    *model.TimestamptzComparisonExp `json:"update_at"`
-	UpdateBy    *model.StringComparisonExp      `json:"update_by"`
-	DeleteAt    *model.TimestamptzComparisonExp `json:"delete_at"`
-	DeleteBy    *model.StringComparisonExp      `json:"delete_by"`
-	IsDelete    *model.BooleanComparisonExp     `json:"is_delete"`
+	CreatedAt   *model.TimestamptzComparisonExp `json:"created_at"`
+	CreatedBy   *model.StringComparisonExp      `json:"created_by"`
+	UpdatedAt   *model.TimestamptzComparisonExp `json:"updated_at"`
+	UpdatedBy   *model.StringComparisonExp      `json:"updated_by"`
+	DeletedAt   *model.TimestamptzComparisonExp `json:"deleted_at"`
+	DeletedBy   *model.StringComparisonExp      `json:"deleted_by"`
+	IsDeleted   *model.BooleanComparisonExp     `json:"is_deleted"`
 }
 
 // input type for incrementing integer column in table "terminal_oper_log"
@@ -3922,13 +3922,13 @@ type TerminalOperLogInsertInput struct {
 	State       int        `json:"state"`
 	ReqTime     time.Time  `json:"req_time"`
 	RespTime    *time.Time `json:"resp_time"`
-	CreateAt    time.Time  `json:"create_at"`
-	CreateBy    *string    `json:"create_by"`
-	UpdateAt    *time.Time `json:"update_at"`
-	UpdateBy    *string    `json:"update_by"`
-	DeleteAt    *time.Time `json:"delete_at"`
-	DeleteBy    *string    `json:"delete_by"`
-	IsDelete    bool       `json:"is_delete"`
+	CreatedAt   time.Time  `json:"created_at"`
+	CreatedBy   *string    `json:"created_by"`
+	UpdatedAt   *time.Time `json:"updated_at"`
+	UpdatedBy   *string    `json:"updated_by"`
+	DeletedAt   *time.Time `json:"deleted_at"`
+	DeletedBy   *string    `json:"deleted_by"`
+	IsDeleted   bool       `json:"is_deleted"`
 }
 
 // aggregate max on columns of table "terminal_oper_log"
@@ -3943,13 +3943,13 @@ type TerminalOperLogMaxFields struct {
 	State       *int       `json:"state"`
 	ReqTime     *time.Time `json:"req_time"`
 	RespTime    *time.Time `json:"resp_time"`
-	CreateAt    *time.Time `json:"create_at"`
-	CreateBy    *string    `json:"create_by"`
-	UpdateAt    *time.Time `json:"update_at"`
-	UpdateBy    *string    `json:"update_by"`
-	DeleteAt    *time.Time `json:"delete_at"`
-	DeleteBy    *string    `json:"delete_by"`
-	IsDelete    *bool      `json:"is_delete"`
+	CreatedAt   *time.Time `json:"created_at"`
+	CreatedBy   *string    `json:"created_by"`
+	UpdatedAt   *time.Time `json:"updated_at"`
+	UpdatedBy   *string    `json:"updated_by"`
+	DeletedAt   *time.Time `json:"deleted_at"`
+	DeletedBy   *string    `json:"deleted_by"`
+	IsDeleted   *bool      `json:"is_deleted"`
 }
 
 // aggregate min on columns of table "terminal_oper_log"
@@ -3964,13 +3964,13 @@ type TerminalOperLogMinFields struct {
 	State       *int       `json:"state"`
 	ReqTime     *time.Time `json:"req_time"`
 	RespTime    *time.Time `json:"resp_time"`
-	CreateAt    *time.Time `json:"create_at"`
-	CreateBy    *string    `json:"create_by"`
-	UpdateAt    *time.Time `json:"update_at"`
-	UpdateBy    *string    `json:"update_by"`
-	DeleteAt    *time.Time `json:"delete_at"`
-	DeleteBy    *string    `json:"delete_by"`
-	IsDelete    *bool      `json:"is_delete"`
+	CreatedAt   *time.Time `json:"created_at"`
+	CreatedBy   *string    `json:"created_by"`
+	UpdatedAt   *time.Time `json:"updated_at"`
+	UpdatedBy   *string    `json:"updated_by"`
+	DeletedAt   *time.Time `json:"deleted_at"`
+	DeletedBy   *string    `json:"deleted_by"`
+	IsDeleted   *bool      `json:"is_deleted"`
 }
 
 // response of any mutation on the table "terminal_oper_log"
@@ -3991,13 +3991,13 @@ type TerminalOperLogOrderBy struct {
 	State       *model.OrderBy `json:"state"`
 	ReqTime     *model.OrderBy `json:"req_time"`
 	RespTime    *model.OrderBy `json:"resp_time"`
-	CreateAt    *model.OrderBy `json:"create_at"`
-	CreateBy    *model.OrderBy `json:"create_by"`
-	UpdateAt    *model.OrderBy `json:"update_at"`
-	UpdateBy    *model.OrderBy `json:"update_by"`
-	DeleteAt    *model.OrderBy `json:"delete_at"`
-	DeleteBy    *model.OrderBy `json:"delete_by"`
-	IsDelete    *model.OrderBy `json:"is_delete"`
+	CreatedAt   *model.OrderBy `json:"created_at"`
+	CreatedBy   *model.OrderBy `json:"created_by"`
+	UpdatedAt   *model.OrderBy `json:"updated_at"`
+	UpdatedBy   *model.OrderBy `json:"updated_by"`
+	DeletedAt   *model.OrderBy `json:"deleted_at"`
+	DeletedBy   *model.OrderBy `json:"deleted_by"`
+	IsDeleted   *model.OrderBy `json:"is_deleted"`
 }
 
 // input type for updating data in table "terminal_oper_log"
@@ -4012,13 +4012,13 @@ type TerminalOperLogSetInput struct {
 	State       *int       `json:"state"`
 	ReqTime     *time.Time `json:"req_time"`
 	RespTime    *time.Time `json:"resp_time"`
-	CreateAt    *time.Time `json:"create_at"`
-	CreateBy    *string    `json:"create_by"`
-	UpdateAt    *time.Time `json:"update_at"`
-	UpdateBy    *string    `json:"update_by"`
-	DeleteAt    *time.Time `json:"delete_at"`
-	DeleteBy    *string    `json:"delete_by"`
-	IsDelete    *bool      `json:"is_delete"`
+	CreatedAt   *time.Time `json:"created_at"`
+	CreatedBy   *string    `json:"created_by"`
+	UpdatedAt   *time.Time `json:"updated_at"`
+	UpdatedBy   *string    `json:"updated_by"`
+	DeletedAt   *time.Time `json:"deleted_at"`
+	DeletedBy   *string    `json:"deleted_by"`
+	IsDeleted   *bool      `json:"is_deleted"`
 }
 
 // aggregate stddev on columns of table "terminal_oper_log"
@@ -4101,12 +4101,12 @@ type TerminalOrderBy struct {
 	ProveProxyrgID   *model.OrderBy `json:"prove_proxyrg_id"`
 	IsDelete         *model.OrderBy `json:"is_delete"`
 	Remarks          *model.OrderBy `json:"remarks"`
-	CreateAt         *model.OrderBy `json:"create_at"`
-	CreateBy         *model.OrderBy `json:"create_by"`
-	UpdateAt         *model.OrderBy `json:"update_at"`
-	UpdateBy         *model.OrderBy `json:"update_by"`
-	DeleteAt         *model.OrderBy `json:"delete_at"`
-	DeleteBy         *model.OrderBy `json:"delete_by"`
+	CreatedAt        *model.OrderBy `json:"created_at"`
+	CreatedBy        *model.OrderBy `json:"created_by"`
+	UpdatedAt        *model.OrderBy `json:"updated_at"`
+	UpdatedBy        *model.OrderBy `json:"updated_by"`
+	DeletedAt        *model.OrderBy `json:"deleted_at"`
+	DeletedBy        *model.OrderBy `json:"deleted_by"`
 }
 
 // aggregated selection of "terminal_param_config"
@@ -4150,13 +4150,13 @@ type TerminalParamConfigBoolExp struct {
 	LastStateTime *model.TimestamptzComparisonExp `json:"last_state_time"`
 	SuccessTime   *model.TimestamptzComparisonExp `json:"success_time"`
 	LastOperator  *model.StringComparisonExp      `json:"last_operator"`
-	CreateAt      *model.TimestamptzComparisonExp `json:"create_at"`
-	CreateBy      *model.StringComparisonExp      `json:"create_by"`
-	UpdateAt      *model.TimestamptzComparisonExp `json:"update_at"`
-	UpdateBy      *model.StringComparisonExp      `json:"update_by"`
-	DeleteAt      *model.TimestamptzComparisonExp `json:"delete_at"`
-	DeleteBy      *model.StringComparisonExp      `json:"delete_by"`
-	IsDelete      *model.BooleanComparisonExp     `json:"is_delete"`
+	CreatedAt     *model.TimestamptzComparisonExp `json:"created_at"`
+	CreatedBy     *model.StringComparisonExp      `json:"created_by"`
+	UpdatedAt     *model.TimestamptzComparisonExp `json:"updated_at"`
+	UpdatedBy     *model.StringComparisonExp      `json:"updated_by"`
+	DeletedAt     *model.TimestamptzComparisonExp `json:"deleted_at"`
+	DeletedBy     *model.StringComparisonExp      `json:"deleted_by"`
+	IsDeleted     *model.BooleanComparisonExp     `json:"is_deleted"`
 	Remark        *model.StringComparisonExp      `json:"remark"`
 }
 
@@ -4177,13 +4177,13 @@ type TerminalParamConfigInsertInput struct {
 	LastStateTime *time.Time `json:"last_state_time"`
 	SuccessTime   *time.Time `json:"success_time"`
 	LastOperator  *string    `json:"last_operator"`
-	CreateAt      time.Time  `json:"create_at"`
-	CreateBy      *string    `json:"create_by"`
-	UpdateAt      *time.Time `json:"update_at"`
-	UpdateBy      *string    `json:"update_by"`
-	DeleteAt      *time.Time `json:"delete_at"`
-	DeleteBy      *string    `json:"delete_by"`
-	IsDelete      bool       `json:"is_delete"`
+	CreatedAt     time.Time  `json:"created_at"`
+	CreatedBy     *string    `json:"created_by"`
+	UpdatedAt     *time.Time `json:"updated_at"`
+	UpdatedBy     *string    `json:"updated_by"`
+	DeletedAt     *time.Time `json:"deleted_at"`
+	DeletedBy     *string    `json:"deleted_by"`
+	IsDeleted     bool       `json:"is_deleted"`
 	Remark        *string    `json:"remark"`
 }
 
@@ -4199,13 +4199,13 @@ type TerminalParamConfigMaxFields struct {
 	LastStateTime *time.Time `json:"last_state_time"`
 	SuccessTime   *time.Time `json:"success_time"`
 	LastOperator  *string    `json:"last_operator"`
-	CreateAt      *time.Time `json:"create_at"`
-	CreateBy      *string    `json:"create_by"`
-	UpdateAt      *time.Time `json:"update_at"`
-	UpdateBy      *string    `json:"update_by"`
-	DeleteAt      *time.Time `json:"delete_at"`
-	DeleteBy      *string    `json:"delete_by"`
-	IsDelete      *bool      `json:"is_delete"`
+	CreatedAt     *time.Time `json:"created_at"`
+	CreatedBy     *string    `json:"created_by"`
+	UpdatedAt     *time.Time `json:"updated_at"`
+	UpdatedBy     *string    `json:"updated_by"`
+	DeletedAt     *time.Time `json:"deleted_at"`
+	DeletedBy     *string    `json:"deleted_by"`
+	IsDeleted     *bool      `json:"is_deleted"`
 	Remark        *string    `json:"remark"`
 }
 
@@ -4221,13 +4221,13 @@ type TerminalParamConfigMinFields struct {
 	LastStateTime *time.Time `json:"last_state_time"`
 	SuccessTime   *time.Time `json:"success_time"`
 	LastOperator  *string    `json:"last_operator"`
-	CreateAt      *time.Time `json:"create_at"`
-	CreateBy      *string    `json:"create_by"`
-	UpdateAt      *time.Time `json:"update_at"`
-	UpdateBy      *string    `json:"update_by"`
-	DeleteAt      *time.Time `json:"delete_at"`
-	DeleteBy      *string    `json:"delete_by"`
-	IsDelete      *bool      `json:"is_delete"`
+	CreatedAt     *time.Time `json:"created_at"`
+	CreatedBy     *string    `json:"created_by"`
+	UpdatedAt     *time.Time `json:"updated_at"`
+	UpdatedBy     *string    `json:"updated_by"`
+	DeletedAt     *time.Time `json:"deleted_at"`
+	DeletedBy     *string    `json:"deleted_by"`
+	IsDeleted     *bool      `json:"is_deleted"`
 	Remark        *string    `json:"remark"`
 }
 
@@ -4249,13 +4249,13 @@ type TerminalParamConfigOrderBy struct {
 	LastStateTime *model.OrderBy `json:"last_state_time"`
 	SuccessTime   *model.OrderBy `json:"success_time"`
 	LastOperator  *model.OrderBy `json:"last_operator"`
-	CreateAt      *model.OrderBy `json:"create_at"`
-	CreateBy      *model.OrderBy `json:"create_by"`
-	UpdateAt      *model.OrderBy `json:"update_at"`
-	UpdateBy      *model.OrderBy `json:"update_by"`
-	DeleteAt      *model.OrderBy `json:"delete_at"`
-	DeleteBy      *model.OrderBy `json:"delete_by"`
-	IsDelete      *model.OrderBy `json:"is_delete"`
+	CreatedAt     *model.OrderBy `json:"created_at"`
+	CreatedBy     *model.OrderBy `json:"created_by"`
+	UpdatedAt     *model.OrderBy `json:"updated_at"`
+	UpdatedBy     *model.OrderBy `json:"updated_by"`
+	DeletedAt     *model.OrderBy `json:"deleted_at"`
+	DeletedBy     *model.OrderBy `json:"deleted_by"`
+	IsDeleted     *model.OrderBy `json:"is_deleted"`
 	Remark        *model.OrderBy `json:"remark"`
 }
 
@@ -4271,13 +4271,13 @@ type TerminalParamConfigSetInput struct {
 	LastStateTime *time.Time `json:"last_state_time"`
 	SuccessTime   *time.Time `json:"success_time"`
 	LastOperator  *string    `json:"last_operator"`
-	CreateAt      *time.Time `json:"create_at"`
-	CreateBy      *string    `json:"create_by"`
-	UpdateAt      *time.Time `json:"update_at"`
-	UpdateBy      *string    `json:"update_by"`
-	DeleteAt      *time.Time `json:"delete_at"`
-	DeleteBy      *string    `json:"delete_by"`
-	IsDelete      *bool      `json:"is_delete"`
+	CreatedAt     *time.Time `json:"created_at"`
+	CreatedBy     *string    `json:"created_by"`
+	UpdatedAt     *time.Time `json:"updated_at"`
+	UpdatedBy     *string    `json:"updated_by"`
+	DeletedAt     *time.Time `json:"deleted_at"`
+	DeletedBy     *string    `json:"deleted_by"`
+	IsDeleted     *bool      `json:"is_deleted"`
 	Remark        *string    `json:"remark"`
 }
 
@@ -4361,13 +4361,13 @@ type TerminalParamItemBoolExp struct {
 	DataType      *model.IntComparisonExp         `json:"data_type"`
 	IsEnum        *model.BooleanComparisonExp     `json:"is_enum"`
 	HasSubparam   *model.BooleanComparisonExp     `json:"has_subparam"`
-	CreateAt      *model.TimestamptzComparisonExp `json:"create_at"`
-	CreateBy      *model.StringComparisonExp      `json:"create_by"`
-	UpdateAt      *model.TimestamptzComparisonExp `json:"update_at"`
-	UpdateBy      *model.StringComparisonExp      `json:"update_by"`
-	DeleteAt      *model.TimestamptzComparisonExp `json:"delete_at"`
-	DeleteBy      *model.StringComparisonExp      `json:"delete_by"`
-	IsDelete      *model.BooleanComparisonExp     `json:"is_delete"`
+	CreatedAt     *model.TimestamptzComparisonExp `json:"created_at"`
+	CreatedBy     *model.StringComparisonExp      `json:"created_by"`
+	UpdatedAt     *model.TimestamptzComparisonExp `json:"updated_at"`
+	UpdatedBy     *model.StringComparisonExp      `json:"updated_by"`
+	DeletedAt     *model.TimestamptzComparisonExp `json:"deleted_at"`
+	DeletedBy     *model.StringComparisonExp      `json:"deleted_by"`
+	IsDeleted     *model.BooleanComparisonExp     `json:"is_deleted"`
 	Remark        *model.StringComparisonExp      `json:"remark"`
 	DictID        *model.StringComparisonExp      `json:"dict_id"`
 }
@@ -4386,13 +4386,13 @@ type TerminalParamItemInsertInput struct {
 	DataType      int        `json:"data_type"`
 	IsEnum        bool       `json:"is_enum"`
 	HasSubparam   bool       `json:"has_subparam"`
-	CreateAt      time.Time  `json:"create_at"`
-	CreateBy      *string    `json:"create_by"`
-	UpdateAt      *time.Time `json:"update_at"`
-	UpdateBy      *string    `json:"update_by"`
-	DeleteAt      *time.Time `json:"delete_at"`
-	DeleteBy      *string    `json:"delete_by"`
-	IsDelete      bool       `json:"is_delete"`
+	CreatedAt     time.Time  `json:"created_at"`
+	CreatedBy     *string    `json:"created_by"`
+	UpdatedAt     *time.Time `json:"updated_at"`
+	UpdatedBy     *string    `json:"updated_by"`
+	DeletedAt     *time.Time `json:"deleted_at"`
+	DeletedBy     *string    `json:"deleted_by"`
+	IsDeleted     bool       `json:"is_deleted"`
 	Remark        *string    `json:"remark"`
 	DictID        *string    `json:"dict_id"`
 }
@@ -4406,13 +4406,13 @@ type TerminalParamItemMaxFields struct {
 	DataType      *int       `json:"data_type"`
 	IsEnum        *bool      `json:"is_enum"`
 	HasSubparam   *bool      `json:"has_subparam"`
-	CreateAt      *time.Time `json:"create_at"`
-	CreateBy      *string    `json:"create_by"`
-	UpdateAt      *time.Time `json:"update_at"`
-	UpdateBy      *string    `json:"update_by"`
-	DeleteAt      *time.Time `json:"delete_at"`
-	DeleteBy      *string    `json:"delete_by"`
-	IsDelete      *bool      `json:"is_delete"`
+	CreatedAt     *time.Time `json:"created_at"`
+	CreatedBy     *string    `json:"created_by"`
+	UpdatedAt     *time.Time `json:"updated_at"`
+	UpdatedBy     *string    `json:"updated_by"`
+	DeletedAt     *time.Time `json:"deleted_at"`
+	DeletedBy     *string    `json:"deleted_by"`
+	IsDeleted     *bool      `json:"is_deleted"`
 	Remark        *string    `json:"remark"`
 	DictID        *string    `json:"dict_id"`
 }
@@ -4426,13 +4426,13 @@ type TerminalParamItemMinFields struct {
 	DataType      *int       `json:"data_type"`
 	IsEnum        *bool      `json:"is_enum"`
 	HasSubparam   *bool      `json:"has_subparam"`
-	CreateAt      *time.Time `json:"create_at"`
-	CreateBy      *string    `json:"create_by"`
-	UpdateAt      *time.Time `json:"update_at"`
-	UpdateBy      *string    `json:"update_by"`
-	DeleteAt      *time.Time `json:"delete_at"`
-	DeleteBy      *string    `json:"delete_by"`
-	IsDelete      *bool      `json:"is_delete"`
+	CreatedAt     *time.Time `json:"created_at"`
+	CreatedBy     *string    `json:"created_by"`
+	UpdatedAt     *time.Time `json:"updated_at"`
+	UpdatedBy     *string    `json:"updated_by"`
+	DeletedAt     *time.Time `json:"deleted_at"`
+	DeletedBy     *string    `json:"deleted_by"`
+	IsDeleted     *bool      `json:"is_deleted"`
 	Remark        *string    `json:"remark"`
 	DictID        *string    `json:"dict_id"`
 }
@@ -4452,13 +4452,13 @@ type TerminalParamItemOrderBy struct {
 	DataType      *model.OrderBy `json:"data_type"`
 	IsEnum        *model.OrderBy `json:"is_enum"`
 	HasSubparam   *model.OrderBy `json:"has_subparam"`
-	CreateAt      *model.OrderBy `json:"create_at"`
-	CreateBy      *model.OrderBy `json:"create_by"`
-	UpdateAt      *model.OrderBy `json:"update_at"`
-	UpdateBy      *model.OrderBy `json:"update_by"`
-	DeleteAt      *model.OrderBy `json:"delete_at"`
-	DeleteBy      *model.OrderBy `json:"delete_by"`
-	IsDelete      *model.OrderBy `json:"is_delete"`
+	CreatedAt     *model.OrderBy `json:"created_at"`
+	CreatedBy     *model.OrderBy `json:"created_by"`
+	UpdatedAt     *model.OrderBy `json:"updated_at"`
+	UpdatedBy     *model.OrderBy `json:"updated_by"`
+	DeletedAt     *model.OrderBy `json:"deleted_at"`
+	DeletedBy     *model.OrderBy `json:"deleted_by"`
+	IsDeleted     *model.OrderBy `json:"is_deleted"`
 	Remark        *model.OrderBy `json:"remark"`
 	DictID        *model.OrderBy `json:"dict_id"`
 }
@@ -4472,13 +4472,13 @@ type TerminalParamItemSetInput struct {
 	DataType      *int       `json:"data_type"`
 	IsEnum        *bool      `json:"is_enum"`
 	HasSubparam   *bool      `json:"has_subparam"`
-	CreateAt      *time.Time `json:"create_at"`
-	CreateBy      *string    `json:"create_by"`
-	UpdateAt      *time.Time `json:"update_at"`
-	UpdateBy      *string    `json:"update_by"`
-	DeleteAt      *time.Time `json:"delete_at"`
-	DeleteBy      *string    `json:"delete_by"`
-	IsDelete      *bool      `json:"is_delete"`
+	CreatedAt     *time.Time `json:"created_at"`
+	CreatedBy     *string    `json:"created_by"`
+	UpdatedAt     *time.Time `json:"updated_at"`
+	UpdatedBy     *string    `json:"updated_by"`
+	DeletedAt     *time.Time `json:"deleted_at"`
+	DeletedBy     *string    `json:"deleted_by"`
+	IsDeleted     *bool      `json:"is_deleted"`
 	Remark        *string    `json:"remark"`
 	DictID        *string    `json:"dict_id"`
 }
@@ -4566,13 +4566,13 @@ type TerminalParamSubBoolExp struct {
 	IsEnum       *model.BooleanComparisonExp     `json:"is_enum"`
 	EnumDictID   *model.StringComparisonExp      `json:"enum_dict_id"`
 	ParamValue   *model.StringComparisonExp      `json:"param_value"`
-	CreateAt     *model.TimestamptzComparisonExp `json:"create_at"`
-	CreateBy     *model.StringComparisonExp      `json:"create_by"`
-	UpdateAt     *model.TimestamptzComparisonExp `json:"update_at"`
-	UpdateBy     *model.StringComparisonExp      `json:"update_by"`
-	DeleteAt     *model.TimestamptzComparisonExp `json:"delete_at"`
-	DeleteBy     *model.StringComparisonExp      `json:"delete_by"`
-	IsDelete     *model.BooleanComparisonExp     `json:"is_delete"`
+	CreatedAt    *model.TimestamptzComparisonExp `json:"created_at"`
+	CreatedBy    *model.StringComparisonExp      `json:"created_by"`
+	UpdatedAt    *model.TimestamptzComparisonExp `json:"updated_at"`
+	UpdatedBy    *model.StringComparisonExp      `json:"updated_by"`
+	DeletedAt    *model.TimestamptzComparisonExp `json:"deleted_at"`
+	DeletedBy    *model.StringComparisonExp      `json:"deleted_by"`
+	IsDeleted    *model.BooleanComparisonExp     `json:"is_deleted"`
 	Remark       *model.StringComparisonExp      `json:"remark"`
 }
 
@@ -4593,13 +4593,13 @@ type TerminalParamSubInsertInput struct {
 	IsEnum       bool       `json:"is_enum"`
 	EnumDictID   *string    `json:"enum_dict_id"`
 	ParamValue   *string    `json:"param_value"`
-	CreateAt     time.Time  `json:"create_at"`
-	CreateBy     *string    `json:"create_by"`
-	UpdateAt     *time.Time `json:"update_at"`
-	UpdateBy     *string    `json:"update_by"`
-	DeleteAt     *time.Time `json:"delete_at"`
-	DeleteBy     *string    `json:"delete_by"`
-	IsDelete     bool       `json:"is_delete"`
+	CreatedAt    time.Time  `json:"created_at"`
+	CreatedBy    *string    `json:"created_by"`
+	UpdatedAt    *time.Time `json:"updated_at"`
+	UpdatedBy    *string    `json:"updated_by"`
+	DeletedAt    *time.Time `json:"deleted_at"`
+	DeletedBy    *string    `json:"deleted_by"`
+	IsDeleted    bool       `json:"is_deleted"`
 	Remark       *string    `json:"remark"`
 }
 
@@ -4614,13 +4614,13 @@ type TerminalParamSubMaxFields struct {
 	IsEnum       *bool      `json:"is_enum"`
 	EnumDictID   *string    `json:"enum_dict_id"`
 	ParamValue   *string    `json:"param_value"`
-	CreateAt     *time.Time `json:"create_at"`
-	CreateBy     *string    `json:"create_by"`
-	UpdateAt     *time.Time `json:"update_at"`
-	UpdateBy     *string    `json:"update_by"`
-	DeleteAt     *time.Time `json:"delete_at"`
-	DeleteBy     *string    `json:"delete_by"`
-	IsDelete     *bool      `json:"is_delete"`
+	CreatedAt    *time.Time `json:"created_at"`
+	CreatedBy    *string    `json:"created_by"`
+	UpdatedAt    *time.Time `json:"updated_at"`
+	UpdatedBy    *string    `json:"updated_by"`
+	DeletedAt    *time.Time `json:"deleted_at"`
+	DeletedBy    *string    `json:"deleted_by"`
+	IsDeleted    *bool      `json:"is_deleted"`
 	Remark       *string    `json:"remark"`
 }
 
@@ -4635,13 +4635,13 @@ type TerminalParamSubMinFields struct {
 	IsEnum       *bool      `json:"is_enum"`
 	EnumDictID   *string    `json:"enum_dict_id"`
 	ParamValue   *string    `json:"param_value"`
-	CreateAt     *time.Time `json:"create_at"`
-	CreateBy     *string    `json:"create_by"`
-	UpdateAt     *time.Time `json:"update_at"`
-	UpdateBy     *string    `json:"update_by"`
-	DeleteAt     *time.Time `json:"delete_at"`
-	DeleteBy     *string    `json:"delete_by"`
-	IsDelete     *bool      `json:"is_delete"`
+	CreatedAt    *time.Time `json:"created_at"`
+	CreatedBy    *string    `json:"created_by"`
+	UpdatedAt    *time.Time `json:"updated_at"`
+	UpdatedBy    *string    `json:"updated_by"`
+	DeletedAt    *time.Time `json:"deleted_at"`
+	DeletedBy    *string    `json:"deleted_by"`
+	IsDeleted    *bool      `json:"is_deleted"`
 	Remark       *string    `json:"remark"`
 }
 
@@ -4662,13 +4662,13 @@ type TerminalParamSubOrderBy struct {
 	IsEnum       *model.OrderBy `json:"is_enum"`
 	EnumDictID   *model.OrderBy `json:"enum_dict_id"`
 	ParamValue   *model.OrderBy `json:"param_value"`
-	CreateAt     *model.OrderBy `json:"create_at"`
-	CreateBy     *model.OrderBy `json:"create_by"`
-	UpdateAt     *model.OrderBy `json:"update_at"`
-	UpdateBy     *model.OrderBy `json:"update_by"`
-	DeleteAt     *model.OrderBy `json:"delete_at"`
-	DeleteBy     *model.OrderBy `json:"delete_by"`
-	IsDelete     *model.OrderBy `json:"is_delete"`
+	CreatedAt    *model.OrderBy `json:"created_at"`
+	CreatedBy    *model.OrderBy `json:"created_by"`
+	UpdatedAt    *model.OrderBy `json:"updated_at"`
+	UpdatedBy    *model.OrderBy `json:"updated_by"`
+	DeletedAt    *model.OrderBy `json:"deleted_at"`
+	DeletedBy    *model.OrderBy `json:"deleted_by"`
+	IsDeleted    *model.OrderBy `json:"is_deleted"`
 	Remark       *model.OrderBy `json:"remark"`
 }
 
@@ -4683,13 +4683,13 @@ type TerminalParamSubSetInput struct {
 	IsEnum       *bool      `json:"is_enum"`
 	EnumDictID   *string    `json:"enum_dict_id"`
 	ParamValue   *string    `json:"param_value"`
-	CreateAt     *time.Time `json:"create_at"`
-	CreateBy     *string    `json:"create_by"`
-	UpdateAt     *time.Time `json:"update_at"`
-	UpdateBy     *string    `json:"update_by"`
-	DeleteAt     *time.Time `json:"delete_at"`
-	DeleteBy     *string    `json:"delete_by"`
-	IsDelete     *bool      `json:"is_delete"`
+	CreatedAt    *time.Time `json:"created_at"`
+	CreatedBy    *string    `json:"created_by"`
+	UpdatedAt    *time.Time `json:"updated_at"`
+	UpdatedBy    *string    `json:"updated_by"`
+	DeletedAt    *time.Time `json:"deleted_at"`
+	DeletedBy    *string    `json:"deleted_by"`
+	IsDeleted    *bool      `json:"is_deleted"`
 	Remark       *string    `json:"remark"`
 }
 
@@ -4776,13 +4776,13 @@ type TerminalParamTypeBoolExp struct {
 	ParamTypeID       *model.StringComparisonExp      `json:"param_type_id"`
 	ParamTypeName     *model.StringComparisonExp      `json:"param_type_name"`
 	ParentParamTypeID *model.StringComparisonExp      `json:"parent_param_type_id"`
-	CreateAt          *model.TimestamptzComparisonExp `json:"create_at"`
-	CreateBy          *model.StringComparisonExp      `json:"create_by"`
-	UpdateAt          *model.TimestamptzComparisonExp `json:"update_at"`
-	UpdateBy          *model.StringComparisonExp      `json:"update_by"`
-	DeleteAt          *model.TimestamptzComparisonExp `json:"delete_at"`
-	DeleteBy          *model.StringComparisonExp      `json:"delete_by"`
-	IsDelete          *model.BooleanComparisonExp     `json:"is_delete"`
+	CreatedAt         *model.TimestamptzComparisonExp `json:"created_at"`
+	CreatedBy         *model.StringComparisonExp      `json:"created_by"`
+	UpdatedAt         *model.TimestamptzComparisonExp `json:"updated_at"`
+	UpdatedBy         *model.StringComparisonExp      `json:"updated_by"`
+	DeletedAt         *model.TimestamptzComparisonExp `json:"deleted_at"`
+	DeletedBy         *model.StringComparisonExp      `json:"deleted_by"`
+	IsDeleted         *model.BooleanComparisonExp     `json:"is_deleted"`
 	Remark            *model.StringComparisonExp      `json:"remark"`
 }
 
@@ -4796,13 +4796,13 @@ type TerminalParamTypeInsertInput struct {
 	ParamTypeID       string     `json:"param_type_id"`
 	ParamTypeName     *string    `json:"param_type_name"`
 	ParentParamTypeID *string    `json:"parent_param_type_id"`
-	CreateAt          time.Time  `json:"create_at"`
-	CreateBy          *string    `json:"create_by"`
-	UpdateAt          *time.Time `json:"update_at"`
-	UpdateBy          *string    `json:"update_by"`
-	DeleteAt          *time.Time `json:"delete_at"`
-	DeleteBy          *string    `json:"delete_by"`
-	IsDelete          bool       `json:"is_delete"`
+	CreatedAt         time.Time  `json:"created_at"`
+	CreatedBy         *string    `json:"created_by"`
+	UpdatedAt         *time.Time `json:"updated_at"`
+	UpdatedBy         *string    `json:"updated_by"`
+	DeletedAt         *time.Time `json:"deleted_at"`
+	DeletedBy         *string    `json:"deleted_by"`
+	IsDeleted         bool       `json:"is_deleted"`
 	Remark            *string    `json:"remark"`
 }
 
@@ -4812,13 +4812,13 @@ type TerminalParamTypeMaxFields struct {
 	ParamTypeID       *string    `json:"param_type_id"`
 	ParamTypeName     *string    `json:"param_type_name"`
 	ParentParamTypeID *string    `json:"parent_param_type_id"`
-	CreateAt          *time.Time `json:"create_at"`
-	CreateBy          *string    `json:"create_by"`
-	UpdateAt          *time.Time `json:"update_at"`
-	UpdateBy          *string    `json:"update_by"`
-	DeleteAt          *time.Time `json:"delete_at"`
-	DeleteBy          *string    `json:"delete_by"`
-	IsDelete          *bool      `json:"is_delete"`
+	CreatedAt         *time.Time `json:"created_at"`
+	CreatedBy         *string    `json:"created_by"`
+	UpdatedAt         *time.Time `json:"updated_at"`
+	UpdatedBy         *string    `json:"updated_by"`
+	DeletedAt         *time.Time `json:"deleted_at"`
+	DeletedBy         *string    `json:"deleted_by"`
+	IsDeleted         *bool      `json:"is_deleted"`
 	Remark            *string    `json:"remark"`
 }
 
@@ -4828,13 +4828,13 @@ type TerminalParamTypeMinFields struct {
 	ParamTypeID       *string    `json:"param_type_id"`
 	ParamTypeName     *string    `json:"param_type_name"`
 	ParentParamTypeID *string    `json:"parent_param_type_id"`
-	CreateAt          *time.Time `json:"create_at"`
-	CreateBy          *string    `json:"create_by"`
-	UpdateAt          *time.Time `json:"update_at"`
-	UpdateBy          *string    `json:"update_by"`
-	DeleteAt          *time.Time `json:"delete_at"`
-	DeleteBy          *string    `json:"delete_by"`
-	IsDelete          *bool      `json:"is_delete"`
+	CreatedAt         *time.Time `json:"created_at"`
+	CreatedBy         *string    `json:"created_by"`
+	UpdatedAt         *time.Time `json:"updated_at"`
+	UpdatedBy         *string    `json:"updated_by"`
+	DeletedAt         *time.Time `json:"deleted_at"`
+	DeletedBy         *string    `json:"deleted_by"`
+	IsDeleted         *bool      `json:"is_deleted"`
 	Remark            *string    `json:"remark"`
 }
 
@@ -4850,13 +4850,13 @@ type TerminalParamTypeOrderBy struct {
 	ParamTypeID       *model.OrderBy `json:"param_type_id"`
 	ParamTypeName     *model.OrderBy `json:"param_type_name"`
 	ParentParamTypeID *model.OrderBy `json:"parent_param_type_id"`
-	CreateAt          *model.OrderBy `json:"create_at"`
-	CreateBy          *model.OrderBy `json:"create_by"`
-	UpdateAt          *model.OrderBy `json:"update_at"`
-	UpdateBy          *model.OrderBy `json:"update_by"`
-	DeleteAt          *model.OrderBy `json:"delete_at"`
-	DeleteBy          *model.OrderBy `json:"delete_by"`
-	IsDelete          *model.OrderBy `json:"is_delete"`
+	CreatedAt         *model.OrderBy `json:"created_at"`
+	CreatedBy         *model.OrderBy `json:"created_by"`
+	UpdatedAt         *model.OrderBy `json:"updated_at"`
+	UpdatedBy         *model.OrderBy `json:"updated_by"`
+	DeletedAt         *model.OrderBy `json:"deleted_at"`
+	DeletedBy         *model.OrderBy `json:"deleted_by"`
+	IsDeleted         *model.OrderBy `json:"is_deleted"`
 	Remark            *model.OrderBy `json:"remark"`
 }
 
@@ -4866,13 +4866,13 @@ type TerminalParamTypeSetInput struct {
 	ParamTypeID       *string    `json:"param_type_id"`
 	ParamTypeName     *string    `json:"param_type_name"`
 	ParentParamTypeID *string    `json:"parent_param_type_id"`
-	CreateAt          *time.Time `json:"create_at"`
-	CreateBy          *string    `json:"create_by"`
-	UpdateAt          *time.Time `json:"update_at"`
-	UpdateBy          *string    `json:"update_by"`
-	DeleteAt          *time.Time `json:"delete_at"`
-	DeleteBy          *string    `json:"delete_by"`
-	IsDelete          *bool      `json:"is_delete"`
+	CreatedAt         *time.Time `json:"created_at"`
+	CreatedBy         *string    `json:"created_by"`
+	UpdatedAt         *time.Time `json:"updated_at"`
+	UpdatedBy         *string    `json:"updated_by"`
+	DeletedAt         *time.Time `json:"deleted_at"`
+	DeletedBy         *string    `json:"deleted_by"`
+	IsDeleted         *bool      `json:"is_deleted"`
 	Remark            *string    `json:"remark"`
 }
 
@@ -4984,13 +4984,13 @@ type TerminalProveBoolExp struct {
 	FillRemark             *model.StringComparisonExp      `json:"fill_remark"`
 	DelRemark              *model.StringComparisonExp      `json:"del_remark"`
 	SvNum                  *model.StringComparisonExp      `json:"sv_num"`
-	CreateAt               *model.TimestamptzComparisonExp `json:"create_at"`
-	CreateBy               *model.StringComparisonExp      `json:"create_by"`
-	UpdateAt               *model.TimestamptzComparisonExp `json:"update_at"`
-	UpdateBy               *model.StringComparisonExp      `json:"update_by"`
-	DeleteAt               *model.TimestamptzComparisonExp `json:"delete_at"`
-	DeleteBy               *model.StringComparisonExp      `json:"delete_by"`
-	IsDelete               *model.BooleanComparisonExp     `json:"is_delete"`
+	CreatedAt              *model.TimestamptzComparisonExp `json:"created_at"`
+	CreatedBy              *model.StringComparisonExp      `json:"created_by"`
+	UpdatedAt              *model.TimestamptzComparisonExp `json:"updated_at"`
+	UpdatedBy              *model.StringComparisonExp      `json:"updated_by"`
+	DeletedAt              *model.TimestamptzComparisonExp `json:"deleted_at"`
+	DeletedBy              *model.StringComparisonExp      `json:"deleted_by"`
+	IsDeleted              *model.BooleanComparisonExp     `json:"is_deleted"`
 }
 
 // input type for incrementing integer column in table "terminal_prove"
@@ -5042,13 +5042,13 @@ type TerminalProveInsertInput struct {
 	FillRemark             *string    `json:"fill_remark"`
 	DelRemark              *string    `json:"del_remark"`
 	SvNum                  *string    `json:"sv_num"`
-	CreateAt               time.Time  `json:"create_at"`
-	CreateBy               *string    `json:"create_by"`
-	UpdateAt               *time.Time `json:"update_at"`
-	UpdateBy               *string    `json:"update_by"`
-	DeleteAt               *time.Time `json:"delete_at"`
-	DeleteBy               *string    `json:"delete_by"`
-	IsDelete               bool       `json:"is_delete"`
+	CreatedAt              time.Time  `json:"created_at"`
+	CreatedBy              *string    `json:"created_by"`
+	UpdatedAt              *time.Time `json:"updated_at"`
+	UpdatedBy              *string    `json:"updated_by"`
+	DeletedAt              *time.Time `json:"deleted_at"`
+	DeletedBy              *string    `json:"deleted_by"`
+	IsDeleted              bool       `json:"is_deleted"`
 }
 
 // aggregate max on columns of table "terminal_prove"
@@ -5094,13 +5094,13 @@ type TerminalProveMaxFields struct {
 	FillRemark             *string    `json:"fill_remark"`
 	DelRemark              *string    `json:"del_remark"`
 	SvNum                  *string    `json:"sv_num"`
-	CreateAt               *time.Time `json:"create_at"`
-	CreateBy               *string    `json:"create_by"`
-	UpdateAt               *time.Time `json:"update_at"`
-	UpdateBy               *string    `json:"update_by"`
-	DeleteAt               *time.Time `json:"delete_at"`
-	DeleteBy               *string    `json:"delete_by"`
-	IsDelete               *bool      `json:"is_delete"`
+	CreatedAt              *time.Time `json:"created_at"`
+	CreatedBy              *string    `json:"created_by"`
+	UpdatedAt              *time.Time `json:"updated_at"`
+	UpdatedBy              *string    `json:"updated_by"`
+	DeletedAt              *time.Time `json:"deleted_at"`
+	DeletedBy              *string    `json:"deleted_by"`
+	IsDeleted              *bool      `json:"is_deleted"`
 }
 
 // aggregate min on columns of table "terminal_prove"
@@ -5146,13 +5146,13 @@ type TerminalProveMinFields struct {
 	FillRemark             *string    `json:"fill_remark"`
 	DelRemark              *string    `json:"del_remark"`
 	SvNum                  *string    `json:"sv_num"`
-	CreateAt               *time.Time `json:"create_at"`
-	CreateBy               *string    `json:"create_by"`
-	UpdateAt               *time.Time `json:"update_at"`
-	UpdateBy               *string    `json:"update_by"`
-	DeleteAt               *time.Time `json:"delete_at"`
-	DeleteBy               *string    `json:"delete_by"`
-	IsDelete               *bool      `json:"is_delete"`
+	CreatedAt              *time.Time `json:"created_at"`
+	CreatedBy              *string    `json:"created_by"`
+	UpdatedAt              *time.Time `json:"updated_at"`
+	UpdatedBy              *string    `json:"updated_by"`
+	DeletedAt              *time.Time `json:"deleted_at"`
+	DeletedBy              *string    `json:"deleted_by"`
+	IsDeleted              *bool      `json:"is_deleted"`
 }
 
 // response of any mutation on the table "terminal_prove"
@@ -5204,13 +5204,13 @@ type TerminalProveOrderBy struct {
 	FillRemark             *model.OrderBy `json:"fill_remark"`
 	DelRemark              *model.OrderBy `json:"del_remark"`
 	SvNum                  *model.OrderBy `json:"sv_num"`
-	CreateAt               *model.OrderBy `json:"create_at"`
-	CreateBy               *model.OrderBy `json:"create_by"`
-	UpdateAt               *model.OrderBy `json:"update_at"`
-	UpdateBy               *model.OrderBy `json:"update_by"`
-	DeleteAt               *model.OrderBy `json:"delete_at"`
-	DeleteBy               *model.OrderBy `json:"delete_by"`
-	IsDelete               *model.OrderBy `json:"is_delete"`
+	CreatedAt              *model.OrderBy `json:"created_at"`
+	CreatedBy              *model.OrderBy `json:"created_by"`
+	UpdatedAt              *model.OrderBy `json:"updated_at"`
+	UpdatedBy              *model.OrderBy `json:"updated_by"`
+	DeletedAt              *model.OrderBy `json:"deleted_at"`
+	DeletedBy              *model.OrderBy `json:"deleted_by"`
+	IsDeleted              *model.OrderBy `json:"is_deleted"`
 }
 
 // input type for updating data in table "terminal_prove"
@@ -5256,13 +5256,13 @@ type TerminalProveSetInput struct {
 	FillRemark             *string    `json:"fill_remark"`
 	DelRemark              *string    `json:"del_remark"`
 	SvNum                  *string    `json:"sv_num"`
-	CreateAt               *time.Time `json:"create_at"`
-	CreateBy               *string    `json:"create_by"`
-	UpdateAt               *time.Time `json:"update_at"`
-	UpdateBy               *string    `json:"update_by"`
-	DeleteAt               *time.Time `json:"delete_at"`
-	DeleteBy               *string    `json:"delete_by"`
-	IsDelete               *bool      `json:"is_delete"`
+	CreatedAt              *time.Time `json:"created_at"`
+	CreatedBy              *string    `json:"created_by"`
+	UpdatedAt              *time.Time `json:"updated_at"`
+	UpdatedBy              *string    `json:"updated_by"`
+	DeletedAt              *time.Time `json:"deleted_at"`
+	DeletedBy              *string    `json:"deleted_by"`
+	IsDeleted              *bool      `json:"is_deleted"`
 }
 
 // aggregate stddev on columns of table "terminal_prove"
@@ -5364,13 +5364,13 @@ type TerminalRegLogBoolExp struct {
 	EndTime                *model.TimestamptzComparisonExp `json:"end_time"`
 	IsNew                  *model.BooleanComparisonExp     `json:"is_new"`
 	RegErrorCount          *model.IntComparisonExp         `json:"reg_error_count"`
-	CreateAt               *model.TimestamptzComparisonExp `json:"create_at"`
-	CreateBy               *model.StringComparisonExp      `json:"create_by"`
-	UpdateAt               *model.TimestamptzComparisonExp `json:"update_at"`
-	UpdateBy               *model.StringComparisonExp      `json:"update_by"`
-	DeleteAt               *model.TimestamptzComparisonExp `json:"delete_at"`
-	DeleteBy               *model.StringComparisonExp      `json:"delete_by"`
-	IsDelete               *model.BooleanComparisonExp     `json:"is_delete"`
+	CreatedAt              *model.TimestamptzComparisonExp `json:"created_at"`
+	CreatedBy              *model.StringComparisonExp      `json:"created_by"`
+	UpdatedAt              *model.TimestamptzComparisonExp `json:"updated_at"`
+	UpdatedBy              *model.StringComparisonExp      `json:"updated_by"`
+	DeletedAt              *model.TimestamptzComparisonExp `json:"deleted_at"`
+	DeletedBy              *model.StringComparisonExp      `json:"deleted_by"`
+	IsDeleted              *model.BooleanComparisonExp     `json:"is_deleted"`
 	Remark                 *model.StringComparisonExp      `json:"remark"`
 }
 
@@ -5400,13 +5400,13 @@ type TerminalRegLogInsertInput struct {
 	EndTime                *time.Time `json:"end_time"`
 	IsNew                  bool       `json:"is_new"`
 	RegErrorCount          int        `json:"reg_error_count"`
-	CreateAt               time.Time  `json:"create_at"`
-	CreateBy               *string    `json:"create_by"`
-	UpdateAt               *time.Time `json:"update_at"`
-	UpdateBy               *string    `json:"update_by"`
-	DeleteAt               *time.Time `json:"delete_at"`
-	DeleteBy               *string    `json:"delete_by"`
-	IsDelete               bool       `json:"is_delete"`
+	CreatedAt              time.Time  `json:"created_at"`
+	CreatedBy              *string    `json:"created_by"`
+	UpdatedAt              *time.Time `json:"updated_at"`
+	UpdatedBy              *string    `json:"updated_by"`
+	DeletedAt              *time.Time `json:"deleted_at"`
+	DeletedBy              *string    `json:"deleted_by"`
+	IsDeleted              bool       `json:"is_deleted"`
 	Remark                 *string    `json:"remark"`
 }
 
@@ -5431,13 +5431,13 @@ type TerminalRegLogMaxFields struct {
 	EndTime                *time.Time `json:"end_time"`
 	IsNew                  *bool      `json:"is_new"`
 	RegErrorCount          *int       `json:"reg_error_count"`
-	CreateAt               *time.Time `json:"create_at"`
-	CreateBy               *string    `json:"create_by"`
-	UpdateAt               *time.Time `json:"update_at"`
-	UpdateBy               *string    `json:"update_by"`
-	DeleteAt               *time.Time `json:"delete_at"`
-	DeleteBy               *string    `json:"delete_by"`
-	IsDelete               *bool      `json:"is_delete"`
+	CreatedAt              *time.Time `json:"created_at"`
+	CreatedBy              *string    `json:"created_by"`
+	UpdatedAt              *time.Time `json:"updated_at"`
+	UpdatedBy              *string    `json:"updated_by"`
+	DeletedAt              *time.Time `json:"deleted_at"`
+	DeletedBy              *string    `json:"deleted_by"`
+	IsDeleted              *bool      `json:"is_deleted"`
 	Remark                 *string    `json:"remark"`
 }
 
@@ -5462,13 +5462,13 @@ type TerminalRegLogMinFields struct {
 	EndTime                *time.Time `json:"end_time"`
 	IsNew                  *bool      `json:"is_new"`
 	RegErrorCount          *int       `json:"reg_error_count"`
-	CreateAt               *time.Time `json:"create_at"`
-	CreateBy               *string    `json:"create_by"`
-	UpdateAt               *time.Time `json:"update_at"`
-	UpdateBy               *string    `json:"update_by"`
-	DeleteAt               *time.Time `json:"delete_at"`
-	DeleteBy               *string    `json:"delete_by"`
-	IsDelete               *bool      `json:"is_delete"`
+	CreatedAt              *time.Time `json:"created_at"`
+	CreatedBy              *string    `json:"created_by"`
+	UpdatedAt              *time.Time `json:"updated_at"`
+	UpdatedBy              *string    `json:"updated_by"`
+	DeletedAt              *time.Time `json:"deleted_at"`
+	DeletedBy              *string    `json:"deleted_by"`
+	IsDeleted              *bool      `json:"is_deleted"`
 	Remark                 *string    `json:"remark"`
 }
 
@@ -5499,13 +5499,13 @@ type TerminalRegLogOrderBy struct {
 	EndTime                *model.OrderBy `json:"end_time"`
 	IsNew                  *model.OrderBy `json:"is_new"`
 	RegErrorCount          *model.OrderBy `json:"reg_error_count"`
-	CreateAt               *model.OrderBy `json:"create_at"`
-	CreateBy               *model.OrderBy `json:"create_by"`
-	UpdateAt               *model.OrderBy `json:"update_at"`
-	UpdateBy               *model.OrderBy `json:"update_by"`
-	DeleteAt               *model.OrderBy `json:"delete_at"`
-	DeleteBy               *model.OrderBy `json:"delete_by"`
-	IsDelete               *model.OrderBy `json:"is_delete"`
+	CreatedAt              *model.OrderBy `json:"created_at"`
+	CreatedBy              *model.OrderBy `json:"created_by"`
+	UpdatedAt              *model.OrderBy `json:"updated_at"`
+	UpdatedBy              *model.OrderBy `json:"updated_by"`
+	DeletedAt              *model.OrderBy `json:"deleted_at"`
+	DeletedBy              *model.OrderBy `json:"deleted_by"`
+	IsDeleted              *model.OrderBy `json:"is_deleted"`
 	Remark                 *model.OrderBy `json:"remark"`
 }
 
@@ -5530,13 +5530,13 @@ type TerminalRegLogSetInput struct {
 	EndTime                *time.Time `json:"end_time"`
 	IsNew                  *bool      `json:"is_new"`
 	RegErrorCount          *int       `json:"reg_error_count"`
-	CreateAt               *time.Time `json:"create_at"`
-	CreateBy               *string    `json:"create_by"`
-	UpdateAt               *time.Time `json:"update_at"`
-	UpdateBy               *string    `json:"update_by"`
-	DeleteAt               *time.Time `json:"delete_at"`
-	DeleteBy               *string    `json:"delete_by"`
-	IsDelete               *bool      `json:"is_delete"`
+	CreatedAt              *time.Time `json:"created_at"`
+	CreatedBy              *string    `json:"created_by"`
+	UpdatedAt              *time.Time `json:"updated_at"`
+	UpdatedBy              *string    `json:"updated_by"`
+	DeletedAt              *time.Time `json:"deleted_at"`
+	DeletedBy              *string    `json:"deleted_by"`
+	IsDeleted              *bool      `json:"is_deleted"`
 	Remark                 *string    `json:"remark"`
 }
 
@@ -5613,12 +5613,12 @@ type TerminalSetInput struct {
 	ProveProxyrgID   *string    `json:"prove_proxyrg_id"`
 	IsDelete         *bool      `json:"is_delete"`
 	Remarks          *string    `json:"remarks"`
-	CreateAt         *time.Time `json:"create_at"`
-	CreateBy         *string    `json:"create_by"`
-	UpdateAt         *time.Time `json:"update_at"`
-	UpdateBy         *string    `json:"update_by"`
-	DeleteAt         *time.Time `json:"delete_at"`
-	DeleteBy         *string    `json:"delete_by"`
+	CreatedAt        *time.Time `json:"created_at"`
+	CreatedBy        *string    `json:"created_by"`
+	UpdatedAt        *time.Time `json:"updated_at"`
+	UpdatedBy        *string    `json:"updated_by"`
+	DeletedAt        *time.Time `json:"deleted_at"`
+	DeletedBy        *string    `json:"deleted_by"`
 }
 
 // aggregate stddev on columns of table "terminal"
@@ -5679,13 +5679,13 @@ type TerminalTypesBoolExp struct {
 	TypeID       *model.StringComparisonExp      `json:"type_id"`
 	ProtocolName *model.StringComparisonExp      `json:"protocol_name"`
 	Remark       *model.StringComparisonExp      `json:"remark"`
-	CreateAt     *model.TimestamptzComparisonExp `json:"create_at"`
-	CreateBy     *model.StringComparisonExp      `json:"create_by"`
-	UpdateAt     *model.TimestamptzComparisonExp `json:"update_at"`
-	UpdateBy     *model.StringComparisonExp      `json:"update_by"`
-	DeleteAt     *model.TimestamptzComparisonExp `json:"delete_at"`
-	DeleteBy     *model.StringComparisonExp      `json:"delete_by"`
-	IsDelete     *model.BooleanComparisonExp     `json:"is_delete"`
+	CreatedAt    *model.TimestamptzComparisonExp `json:"created_at"`
+	CreatedBy    *model.StringComparisonExp      `json:"created_by"`
+	UpdatedAt    *model.TimestamptzComparisonExp `json:"updated_at"`
+	UpdatedBy    *model.StringComparisonExp      `json:"updated_by"`
+	DeletedAt    *model.TimestamptzComparisonExp `json:"deleted_at"`
+	DeletedBy    *model.StringComparisonExp      `json:"deleted_by"`
+	IsDeleted    *model.BooleanComparisonExp     `json:"is_deleted"`
 }
 
 // input type for incrementing integer column in table "terminal_types"
@@ -5698,13 +5698,13 @@ type TerminalTypesInsertInput struct {
 	TypeID       string     `json:"type_id"`
 	ProtocolName string     `json:"protocol_name"`
 	Remark       *string    `json:"remark"`
-	CreateAt     time.Time  `json:"create_at"`
-	CreateBy     *string    `json:"create_by"`
-	UpdateAt     *time.Time `json:"update_at"`
-	UpdateBy     *string    `json:"update_by"`
-	DeleteAt     *time.Time `json:"delete_at"`
-	DeleteBy     *string    `json:"delete_by"`
-	IsDelete     bool       `json:"is_delete"`
+	CreatedAt    time.Time  `json:"created_at"`
+	CreatedBy    *string    `json:"created_by"`
+	UpdatedAt    *time.Time `json:"updated_at"`
+	UpdatedBy    *string    `json:"updated_by"`
+	DeletedAt    *time.Time `json:"deleted_at"`
+	DeletedBy    *string    `json:"deleted_by"`
+	IsDeleted    bool       `json:"is_deleted"`
 }
 
 // aggregate max on columns of table "terminal_types"
@@ -5713,13 +5713,13 @@ type TerminalTypesMaxFields struct {
 	TypeID       *string    `json:"type_id"`
 	ProtocolName *string    `json:"protocol_name"`
 	Remark       *string    `json:"remark"`
-	CreateAt     *time.Time `json:"create_at"`
-	CreateBy     *string    `json:"create_by"`
-	UpdateAt     *time.Time `json:"update_at"`
-	UpdateBy     *string    `json:"update_by"`
-	DeleteAt     *time.Time `json:"delete_at"`
-	DeleteBy     *string    `json:"delete_by"`
-	IsDelete     *bool      `json:"is_delete"`
+	CreatedAt    *time.Time `json:"created_at"`
+	CreatedBy    *string    `json:"created_by"`
+	UpdatedAt    *time.Time `json:"updated_at"`
+	UpdatedBy    *string    `json:"updated_by"`
+	DeletedAt    *time.Time `json:"deleted_at"`
+	DeletedBy    *string    `json:"deleted_by"`
+	IsDeleted    *bool      `json:"is_deleted"`
 }
 
 // aggregate min on columns of table "terminal_types"
@@ -5728,13 +5728,13 @@ type TerminalTypesMinFields struct {
 	TypeID       *string    `json:"type_id"`
 	ProtocolName *string    `json:"protocol_name"`
 	Remark       *string    `json:"remark"`
-	CreateAt     *time.Time `json:"create_at"`
-	CreateBy     *string    `json:"create_by"`
-	UpdateAt     *time.Time `json:"update_at"`
-	UpdateBy     *string    `json:"update_by"`
-	DeleteAt     *time.Time `json:"delete_at"`
-	DeleteBy     *string    `json:"delete_by"`
-	IsDelete     *bool      `json:"is_delete"`
+	CreatedAt    *time.Time `json:"created_at"`
+	CreatedBy    *string    `json:"created_by"`
+	UpdatedAt    *time.Time `json:"updated_at"`
+	UpdatedBy    *string    `json:"updated_by"`
+	DeletedAt    *time.Time `json:"deleted_at"`
+	DeletedBy    *string    `json:"deleted_by"`
+	IsDeleted    *bool      `json:"is_deleted"`
 }
 
 // response of any mutation on the table "terminal_types"
@@ -5749,13 +5749,13 @@ type TerminalTypesOrderBy struct {
 	TypeID       *model.OrderBy `json:"type_id"`
 	ProtocolName *model.OrderBy `json:"protocol_name"`
 	Remark       *model.OrderBy `json:"remark"`
-	CreateAt     *model.OrderBy `json:"create_at"`
-	CreateBy     *model.OrderBy `json:"create_by"`
-	UpdateAt     *model.OrderBy `json:"update_at"`
-	UpdateBy     *model.OrderBy `json:"update_by"`
-	DeleteAt     *model.OrderBy `json:"delete_at"`
-	DeleteBy     *model.OrderBy `json:"delete_by"`
-	IsDelete     *model.OrderBy `json:"is_delete"`
+	CreatedAt    *model.OrderBy `json:"created_at"`
+	CreatedBy    *model.OrderBy `json:"created_by"`
+	UpdatedAt    *model.OrderBy `json:"updated_at"`
+	UpdatedBy    *model.OrderBy `json:"updated_by"`
+	DeletedAt    *model.OrderBy `json:"deleted_at"`
+	DeletedBy    *model.OrderBy `json:"deleted_by"`
+	IsDeleted    *model.OrderBy `json:"is_deleted"`
 }
 
 // input type for updating data in table "terminal_types"
@@ -5764,13 +5764,13 @@ type TerminalTypesSetInput struct {
 	TypeID       *string    `json:"type_id"`
 	ProtocolName *string    `json:"protocol_name"`
 	Remark       *string    `json:"remark"`
-	CreateAt     *time.Time `json:"create_at"`
-	CreateBy     *string    `json:"create_by"`
-	UpdateAt     *time.Time `json:"update_at"`
-	UpdateBy     *string    `json:"update_by"`
-	DeleteAt     *time.Time `json:"delete_at"`
-	DeleteBy     *string    `json:"delete_by"`
-	IsDelete     *bool      `json:"is_delete"`
+	CreatedAt    *time.Time `json:"created_at"`
+	CreatedBy    *string    `json:"created_by"`
+	UpdatedAt    *time.Time `json:"updated_at"`
+	UpdatedBy    *string    `json:"updated_by"`
+	DeletedAt    *time.Time `json:"deleted_at"`
+	DeletedBy    *string    `json:"deleted_by"`
+	IsDeleted    *bool      `json:"is_deleted"`
 }
 
 // aggregate stddev on columns of table "terminal_types"
@@ -5843,19 +5843,19 @@ const (
 	// 图片地址
 	FingerprintDriverSelectColumnPicURL FingerprintDriverSelectColumn = "pic_url"
 	// 创建时间
-	FingerprintDriverSelectColumnCreateAt FingerprintDriverSelectColumn = "create_at"
+	FingerprintDriverSelectColumnCreatedAt FingerprintDriverSelectColumn = "created_at"
 	// 创建人
-	FingerprintDriverSelectColumnCreateBy FingerprintDriverSelectColumn = "create_by"
+	FingerprintDriverSelectColumnCreatedBy FingerprintDriverSelectColumn = "created_by"
 	// 更新时间
-	FingerprintDriverSelectColumnUpdateAt FingerprintDriverSelectColumn = "update_at"
+	FingerprintDriverSelectColumnUpdatedAt FingerprintDriverSelectColumn = "updated_at"
 	// 更新人
-	FingerprintDriverSelectColumnUpdateBy FingerprintDriverSelectColumn = "update_by"
+	FingerprintDriverSelectColumnUpdatedBy FingerprintDriverSelectColumn = "updated_by"
 	// 删除时间
-	FingerprintDriverSelectColumnDeleteAt FingerprintDriverSelectColumn = "delete_at"
+	FingerprintDriverSelectColumnDeletedAt FingerprintDriverSelectColumn = "deleted_at"
 	// 删除人
-	FingerprintDriverSelectColumnDeleteBy FingerprintDriverSelectColumn = "delete_by"
+	FingerprintDriverSelectColumnDeletedBy FingerprintDriverSelectColumn = "deleted_by"
 	// 是否删除
-	FingerprintDriverSelectColumnIsDelete FingerprintDriverSelectColumn = "is_delete"
+	FingerprintDriverSelectColumnIsDeleted FingerprintDriverSelectColumn = "is_deleted"
 	// 备注
 	FingerprintDriverSelectColumnRemark FingerprintDriverSelectColumn = "remark"
 )
@@ -5867,19 +5867,19 @@ var AllFingerprintDriverSelectColumn = []FingerprintDriverSelectColumn{
 	FingerprintDriverSelectColumnFingerName,
 	FingerprintDriverSelectColumnFingerID,
 	FingerprintDriverSelectColumnPicURL,
-	FingerprintDriverSelectColumnCreateAt,
-	FingerprintDriverSelectColumnCreateBy,
-	FingerprintDriverSelectColumnUpdateAt,
-	FingerprintDriverSelectColumnUpdateBy,
-	FingerprintDriverSelectColumnDeleteAt,
-	FingerprintDriverSelectColumnDeleteBy,
-	FingerprintDriverSelectColumnIsDelete,
+	FingerprintDriverSelectColumnCreatedAt,
+	FingerprintDriverSelectColumnCreatedBy,
+	FingerprintDriverSelectColumnUpdatedAt,
+	FingerprintDriverSelectColumnUpdatedBy,
+	FingerprintDriverSelectColumnDeletedAt,
+	FingerprintDriverSelectColumnDeletedBy,
+	FingerprintDriverSelectColumnIsDeleted,
 	FingerprintDriverSelectColumnRemark,
 }
 
 func (e FingerprintDriverSelectColumn) IsValid() bool {
 	switch e {
-	case FingerprintDriverSelectColumnID, FingerprintDriverSelectColumnFingerprintDriverID, FingerprintDriverSelectColumnDriverID, FingerprintDriverSelectColumnFingerName, FingerprintDriverSelectColumnFingerID, FingerprintDriverSelectColumnPicURL, FingerprintDriverSelectColumnCreateAt, FingerprintDriverSelectColumnCreateBy, FingerprintDriverSelectColumnUpdateAt, FingerprintDriverSelectColumnUpdateBy, FingerprintDriverSelectColumnDeleteAt, FingerprintDriverSelectColumnDeleteBy, FingerprintDriverSelectColumnIsDelete, FingerprintDriverSelectColumnRemark:
+	case FingerprintDriverSelectColumnID, FingerprintDriverSelectColumnFingerprintDriverID, FingerprintDriverSelectColumnDriverID, FingerprintDriverSelectColumnFingerName, FingerprintDriverSelectColumnFingerID, FingerprintDriverSelectColumnPicURL, FingerprintDriverSelectColumnCreatedAt, FingerprintDriverSelectColumnCreatedBy, FingerprintDriverSelectColumnUpdatedAt, FingerprintDriverSelectColumnUpdatedBy, FingerprintDriverSelectColumnDeletedAt, FingerprintDriverSelectColumnDeletedBy, FingerprintDriverSelectColumnIsDeleted, FingerprintDriverSelectColumnRemark:
 		return true
 	}
 	return false
@@ -5999,20 +5999,20 @@ const (
 	// ID
 	FingerprintSelectColumnID FingerprintSelectColumn = "id"
 	// 指纹ID
-	FingerprintSelectColumnFingerID FingerprintSelectColumn = "finger_id"
+	FingerprintSelectColumnFingerprintID FingerprintSelectColumn = "fingerprint_id"
 	// 指纹内容
 	FingerprintSelectColumnContent FingerprintSelectColumn = "content"
 )
 
 var AllFingerprintSelectColumn = []FingerprintSelectColumn{
 	FingerprintSelectColumnID,
-	FingerprintSelectColumnFingerID,
+	FingerprintSelectColumnFingerprintID,
 	FingerprintSelectColumnContent,
 }
 
 func (e FingerprintSelectColumn) IsValid() bool {
 	switch e {
-	case FingerprintSelectColumnID, FingerprintSelectColumnFingerID, FingerprintSelectColumnContent:
+	case FingerprintSelectColumnID, FingerprintSelectColumnFingerprintID, FingerprintSelectColumnContent:
 		return true
 	}
 	return false
@@ -6074,19 +6074,19 @@ const (
 	// 解绑原因
 	SimCardAllSelectColumnUpdateCause SimCardAllSelectColumn = "update_cause"
 	// 创建时间
-	SimCardAllSelectColumnCreateAt SimCardAllSelectColumn = "create_at"
+	SimCardAllSelectColumnCreatedAt SimCardAllSelectColumn = "created_at"
 	// 创建人
-	SimCardAllSelectColumnCreateBy SimCardAllSelectColumn = "create_by"
+	SimCardAllSelectColumnCreatedBy SimCardAllSelectColumn = "created_by"
 	// 更新时间
-	SimCardAllSelectColumnUpdateAt SimCardAllSelectColumn = "update_at"
+	SimCardAllSelectColumnUpdatedAt SimCardAllSelectColumn = "updated_at"
 	// 更新人
-	SimCardAllSelectColumnUpdateBy SimCardAllSelectColumn = "update_by"
+	SimCardAllSelectColumnUpdatedBy SimCardAllSelectColumn = "updated_by"
 	// 删除时间
-	SimCardAllSelectColumnDeleteAt SimCardAllSelectColumn = "delete_at"
+	SimCardAllSelectColumnDeletedAt SimCardAllSelectColumn = "deleted_at"
 	// 删除人
-	SimCardAllSelectColumnDeleteBy SimCardAllSelectColumn = "delete_by"
+	SimCardAllSelectColumnDeletedBy SimCardAllSelectColumn = "deleted_by"
 	// 是否删除
-	SimCardAllSelectColumnIsDelete SimCardAllSelectColumn = "is_delete"
+	SimCardAllSelectColumnIsDeleted SimCardAllSelectColumn = "is_deleted"
 	// 备注
 	SimCardAllSelectColumnRemark SimCardAllSelectColumn = "remark"
 )
@@ -6107,19 +6107,19 @@ var AllSimCardAllSelectColumn = []SimCardAllSelectColumn{
 	SimCardAllSelectColumnUserID,
 	SimCardAllSelectColumnMobileType,
 	SimCardAllSelectColumnUpdateCause,
-	SimCardAllSelectColumnCreateAt,
-	SimCardAllSelectColumnCreateBy,
-	SimCardAllSelectColumnUpdateAt,
-	SimCardAllSelectColumnUpdateBy,
-	SimCardAllSelectColumnDeleteAt,
-	SimCardAllSelectColumnDeleteBy,
-	SimCardAllSelectColumnIsDelete,
+	SimCardAllSelectColumnCreatedAt,
+	SimCardAllSelectColumnCreatedBy,
+	SimCardAllSelectColumnUpdatedAt,
+	SimCardAllSelectColumnUpdatedBy,
+	SimCardAllSelectColumnDeletedAt,
+	SimCardAllSelectColumnDeletedBy,
+	SimCardAllSelectColumnIsDeleted,
 	SimCardAllSelectColumnRemark,
 }
 
 func (e SimCardAllSelectColumn) IsValid() bool {
 	switch e {
-	case SimCardAllSelectColumnID, SimCardAllSelectColumnSimcardAllID, SimCardAllSelectColumnPlateNumber, SimCardAllSelectColumnPlateColor, SimCardAllSelectColumnDeptID, SimCardAllSelectColumnProxyrgID, SimCardAllSelectColumnEnterpriseID, SimCardAllSelectColumnSimNumber, SimCardAllSelectColumnServiceEndTime, SimCardAllSelectColumnTerminalID, SimCardAllSelectColumnSystemName, SimCardAllSelectColumnSimType, SimCardAllSelectColumnUserID, SimCardAllSelectColumnMobileType, SimCardAllSelectColumnUpdateCause, SimCardAllSelectColumnCreateAt, SimCardAllSelectColumnCreateBy, SimCardAllSelectColumnUpdateAt, SimCardAllSelectColumnUpdateBy, SimCardAllSelectColumnDeleteAt, SimCardAllSelectColumnDeleteBy, SimCardAllSelectColumnIsDelete, SimCardAllSelectColumnRemark:
+	case SimCardAllSelectColumnID, SimCardAllSelectColumnSimcardAllID, SimCardAllSelectColumnPlateNumber, SimCardAllSelectColumnPlateColor, SimCardAllSelectColumnDeptID, SimCardAllSelectColumnProxyrgID, SimCardAllSelectColumnEnterpriseID, SimCardAllSelectColumnSimNumber, SimCardAllSelectColumnServiceEndTime, SimCardAllSelectColumnTerminalID, SimCardAllSelectColumnSystemName, SimCardAllSelectColumnSimType, SimCardAllSelectColumnUserID, SimCardAllSelectColumnMobileType, SimCardAllSelectColumnUpdateCause, SimCardAllSelectColumnCreatedAt, SimCardAllSelectColumnCreatedBy, SimCardAllSelectColumnUpdatedAt, SimCardAllSelectColumnUpdatedBy, SimCardAllSelectColumnDeletedAt, SimCardAllSelectColumnDeletedBy, SimCardAllSelectColumnIsDeleted, SimCardAllSelectColumnRemark:
 		return true
 	}
 	return false
@@ -6185,19 +6185,19 @@ const (
 	// 是否共享池
 	SimCardFlowSelectColumnIsSharePool SimCardFlowSelectColumn = "is_share_pool"
 	// 是否删除
-	SimCardFlowSelectColumnIsDelete SimCardFlowSelectColumn = "is_delete"
+	SimCardFlowSelectColumnIsDeleted SimCardFlowSelectColumn = "is_deleted"
 	// 创建时间
-	SimCardFlowSelectColumnCreateAt SimCardFlowSelectColumn = "create_at"
+	SimCardFlowSelectColumnCreatedAt SimCardFlowSelectColumn = "created_at"
 	// 创建人
-	SimCardFlowSelectColumnCreateBy SimCardFlowSelectColumn = "create_by"
+	SimCardFlowSelectColumnCreatedBy SimCardFlowSelectColumn = "created_by"
 	// 修改时间
-	SimCardFlowSelectColumnUpdateAt SimCardFlowSelectColumn = "update_at"
+	SimCardFlowSelectColumnUpdatedAt SimCardFlowSelectColumn = "updated_at"
 	// 修改人
-	SimCardFlowSelectColumnUpdateBy SimCardFlowSelectColumn = "update_by"
+	SimCardFlowSelectColumnUpdatedBy SimCardFlowSelectColumn = "updated_by"
 	// 删除时间
-	SimCardFlowSelectColumnDeleteAt SimCardFlowSelectColumn = "delete_at"
+	SimCardFlowSelectColumnDeletedAt SimCardFlowSelectColumn = "deleted_at"
 	// 删除人
-	SimCardFlowSelectColumnDeleteBy SimCardFlowSelectColumn = "delete_by"
+	SimCardFlowSelectColumnDeletedBy SimCardFlowSelectColumn = "deleted_by"
 )
 
 var AllSimCardFlowSelectColumn = []SimCardFlowSelectColumn{
@@ -6218,18 +6218,18 @@ var AllSimCardFlowSelectColumn = []SimCardFlowSelectColumn{
 	SimCardFlowSelectColumnSuitSmsLeftNum,
 	SimCardFlowSelectColumnSuitSmsOverNum,
 	SimCardFlowSelectColumnIsSharePool,
-	SimCardFlowSelectColumnIsDelete,
-	SimCardFlowSelectColumnCreateAt,
-	SimCardFlowSelectColumnCreateBy,
-	SimCardFlowSelectColumnUpdateAt,
-	SimCardFlowSelectColumnUpdateBy,
-	SimCardFlowSelectColumnDeleteAt,
-	SimCardFlowSelectColumnDeleteBy,
+	SimCardFlowSelectColumnIsDeleted,
+	SimCardFlowSelectColumnCreatedAt,
+	SimCardFlowSelectColumnCreatedBy,
+	SimCardFlowSelectColumnUpdatedAt,
+	SimCardFlowSelectColumnUpdatedBy,
+	SimCardFlowSelectColumnDeletedAt,
+	SimCardFlowSelectColumnDeletedBy,
 }
 
 func (e SimCardFlowSelectColumn) IsValid() bool {
 	switch e {
-	case SimCardFlowSelectColumnID, SimCardFlowSelectColumnSimCardFlowID, SimCardFlowSelectColumnSimCardID, SimCardFlowSelectColumnCardNoRemark, SimCardFlowSelectColumnIccid, SimCardFlowSelectColumnEnterpriseID, SimCardFlowSelectColumnUseFlow, SimCardFlowSelectColumnCardAvgFlow, SimCardFlowSelectColumnPoolAvgFlow, SimCardFlowSelectColumnSuitFlow, SimCardFlowSelectColumnSuitLeftFlow, SimCardFlowSelectColumnSuitOverFlow, SimCardFlowSelectColumnSuitUseSmsNum, SimCardFlowSelectColumnSuitSmsNum, SimCardFlowSelectColumnSuitSmsLeftNum, SimCardFlowSelectColumnSuitSmsOverNum, SimCardFlowSelectColumnIsSharePool, SimCardFlowSelectColumnIsDelete, SimCardFlowSelectColumnCreateAt, SimCardFlowSelectColumnCreateBy, SimCardFlowSelectColumnUpdateAt, SimCardFlowSelectColumnUpdateBy, SimCardFlowSelectColumnDeleteAt, SimCardFlowSelectColumnDeleteBy:
+	case SimCardFlowSelectColumnID, SimCardFlowSelectColumnSimCardFlowID, SimCardFlowSelectColumnSimCardID, SimCardFlowSelectColumnCardNoRemark, SimCardFlowSelectColumnIccid, SimCardFlowSelectColumnEnterpriseID, SimCardFlowSelectColumnUseFlow, SimCardFlowSelectColumnCardAvgFlow, SimCardFlowSelectColumnPoolAvgFlow, SimCardFlowSelectColumnSuitFlow, SimCardFlowSelectColumnSuitLeftFlow, SimCardFlowSelectColumnSuitOverFlow, SimCardFlowSelectColumnSuitUseSmsNum, SimCardFlowSelectColumnSuitSmsNum, SimCardFlowSelectColumnSuitSmsLeftNum, SimCardFlowSelectColumnSuitSmsOverNum, SimCardFlowSelectColumnIsSharePool, SimCardFlowSelectColumnIsDeleted, SimCardFlowSelectColumnCreatedAt, SimCardFlowSelectColumnCreatedBy, SimCardFlowSelectColumnUpdatedAt, SimCardFlowSelectColumnUpdatedBy, SimCardFlowSelectColumnDeletedAt, SimCardFlowSelectColumnDeletedBy:
 		return true
 	}
 	return false
@@ -6303,19 +6303,19 @@ const (
 	// 注销原因
 	SimCardMgrSelectColumnCancelCause SimCardMgrSelectColumn = "cancel_cause"
 	// 创建时间
-	SimCardMgrSelectColumnCreateAt SimCardMgrSelectColumn = "create_at"
+	SimCardMgrSelectColumnCreatedAt SimCardMgrSelectColumn = "created_at"
 	// 创建人
-	SimCardMgrSelectColumnCreateBy SimCardMgrSelectColumn = "create_by"
+	SimCardMgrSelectColumnCreatedBy SimCardMgrSelectColumn = "created_by"
 	// 更新时间
-	SimCardMgrSelectColumnUpdateAt SimCardMgrSelectColumn = "update_at"
+	SimCardMgrSelectColumnUpdatedAt SimCardMgrSelectColumn = "updated_at"
 	// 更新人
-	SimCardMgrSelectColumnUpdateBy SimCardMgrSelectColumn = "update_by"
+	SimCardMgrSelectColumnUpdatedBy SimCardMgrSelectColumn = "updated_by"
 	// 删除时间
-	SimCardMgrSelectColumnDeleteAt SimCardMgrSelectColumn = "delete_at"
+	SimCardMgrSelectColumnDeletedAt SimCardMgrSelectColumn = "deleted_at"
 	// 删除人
-	SimCardMgrSelectColumnDeleteBy SimCardMgrSelectColumn = "delete_by"
+	SimCardMgrSelectColumnDeletedBy SimCardMgrSelectColumn = "deleted_by"
 	// 是否删除
-	SimCardMgrSelectColumnIsDelete SimCardMgrSelectColumn = "is_delete"
+	SimCardMgrSelectColumnIsDeleted SimCardMgrSelectColumn = "is_deleted"
 	// 备注
 	SimCardMgrSelectColumnRemark SimCardMgrSelectColumn = "remark"
 )
@@ -6342,19 +6342,19 @@ var AllSimCardMgrSelectColumn = []SimCardMgrSelectColumn{
 	SimCardMgrSelectColumnSimNumber10,
 	SimCardMgrSelectColumnCancelTime,
 	SimCardMgrSelectColumnCancelCause,
-	SimCardMgrSelectColumnCreateAt,
-	SimCardMgrSelectColumnCreateBy,
-	SimCardMgrSelectColumnUpdateAt,
-	SimCardMgrSelectColumnUpdateBy,
-	SimCardMgrSelectColumnDeleteAt,
-	SimCardMgrSelectColumnDeleteBy,
-	SimCardMgrSelectColumnIsDelete,
+	SimCardMgrSelectColumnCreatedAt,
+	SimCardMgrSelectColumnCreatedBy,
+	SimCardMgrSelectColumnUpdatedAt,
+	SimCardMgrSelectColumnUpdatedBy,
+	SimCardMgrSelectColumnDeletedAt,
+	SimCardMgrSelectColumnDeletedBy,
+	SimCardMgrSelectColumnIsDeleted,
 	SimCardMgrSelectColumnRemark,
 }
 
 func (e SimCardMgrSelectColumn) IsValid() bool {
 	switch e {
-	case SimCardMgrSelectColumnID, SimCardMgrSelectColumnMgrID, SimCardMgrSelectColumnStatus, SimCardMgrSelectColumnTerminalID, SimCardMgrSelectColumnMobileType, SimCardMgrSelectColumnProxyrgID, SimCardMgrSelectColumnDeptID, SimCardMgrSelectColumnSimType, SimCardMgrSelectColumnUseType, SimCardMgrSelectColumnUseUserID, SimCardMgrSelectColumnSystemName, SimCardMgrSelectColumnSimNumber, SimCardMgrSelectColumnIsOutside, SimCardMgrSelectColumnUpdateCause, SimCardMgrSelectColumnSimArea, SimCardMgrSelectColumnSimNumber12, SimCardMgrSelectColumnSimNumber23, SimCardMgrSelectColumnSimBak, SimCardMgrSelectColumnSimNumber10, SimCardMgrSelectColumnCancelTime, SimCardMgrSelectColumnCancelCause, SimCardMgrSelectColumnCreateAt, SimCardMgrSelectColumnCreateBy, SimCardMgrSelectColumnUpdateAt, SimCardMgrSelectColumnUpdateBy, SimCardMgrSelectColumnDeleteAt, SimCardMgrSelectColumnDeleteBy, SimCardMgrSelectColumnIsDelete, SimCardMgrSelectColumnRemark:
+	case SimCardMgrSelectColumnID, SimCardMgrSelectColumnMgrID, SimCardMgrSelectColumnStatus, SimCardMgrSelectColumnTerminalID, SimCardMgrSelectColumnMobileType, SimCardMgrSelectColumnProxyrgID, SimCardMgrSelectColumnDeptID, SimCardMgrSelectColumnSimType, SimCardMgrSelectColumnUseType, SimCardMgrSelectColumnUseUserID, SimCardMgrSelectColumnSystemName, SimCardMgrSelectColumnSimNumber, SimCardMgrSelectColumnIsOutside, SimCardMgrSelectColumnUpdateCause, SimCardMgrSelectColumnSimArea, SimCardMgrSelectColumnSimNumber12, SimCardMgrSelectColumnSimNumber23, SimCardMgrSelectColumnSimBak, SimCardMgrSelectColumnSimNumber10, SimCardMgrSelectColumnCancelTime, SimCardMgrSelectColumnCancelCause, SimCardMgrSelectColumnCreatedAt, SimCardMgrSelectColumnCreatedBy, SimCardMgrSelectColumnUpdatedAt, SimCardMgrSelectColumnUpdatedBy, SimCardMgrSelectColumnDeletedAt, SimCardMgrSelectColumnDeletedBy, SimCardMgrSelectColumnIsDeleted, SimCardMgrSelectColumnRemark:
 		return true
 	}
 	return false
@@ -6404,19 +6404,19 @@ const (
 	// 备注
 	SimCardSelectColumnRemark SimCardSelectColumn = "remark"
 	// 创建时间
-	SimCardSelectColumnCreateAt SimCardSelectColumn = "create_at"
+	SimCardSelectColumnCreatedAt SimCardSelectColumn = "created_at"
 	// 创建人
-	SimCardSelectColumnCreateBy SimCardSelectColumn = "create_by"
+	SimCardSelectColumnCreatedBy SimCardSelectColumn = "created_by"
 	// 修改时间
-	SimCardSelectColumnUpdateAt SimCardSelectColumn = "update_at"
+	SimCardSelectColumnUpdatedAt SimCardSelectColumn = "updated_at"
 	// 修改人
-	SimCardSelectColumnUpdateBy SimCardSelectColumn = "update_by"
+	SimCardSelectColumnUpdatedBy SimCardSelectColumn = "updated_by"
 	// 删除时间
-	SimCardSelectColumnDeleteAt SimCardSelectColumn = "delete_at"
+	SimCardSelectColumnDeletedAt SimCardSelectColumn = "deleted_at"
 	// 删除人
-	SimCardSelectColumnDeleteBy SimCardSelectColumn = "delete_by"
+	SimCardSelectColumnDeletedBy SimCardSelectColumn = "deleted_by"
 	// 是否删除
-	SimCardSelectColumnIsDelete SimCardSelectColumn = "is_delete"
+	SimCardSelectColumnIsDeleted SimCardSelectColumn = "is_deleted"
 	// sim卡来源，1-平台，2-其他平台
 	SimCardSelectColumnSource SimCardSelectColumn = "source"
 )
@@ -6431,19 +6431,19 @@ var AllSimCardSelectColumn = []SimCardSelectColumn{
 	SimCardSelectColumnSimNumber,
 	SimCardSelectColumnMobileType,
 	SimCardSelectColumnRemark,
-	SimCardSelectColumnCreateAt,
-	SimCardSelectColumnCreateBy,
-	SimCardSelectColumnUpdateAt,
-	SimCardSelectColumnUpdateBy,
-	SimCardSelectColumnDeleteAt,
-	SimCardSelectColumnDeleteBy,
-	SimCardSelectColumnIsDelete,
+	SimCardSelectColumnCreatedAt,
+	SimCardSelectColumnCreatedBy,
+	SimCardSelectColumnUpdatedAt,
+	SimCardSelectColumnUpdatedBy,
+	SimCardSelectColumnDeletedAt,
+	SimCardSelectColumnDeletedBy,
+	SimCardSelectColumnIsDeleted,
 	SimCardSelectColumnSource,
 }
 
 func (e SimCardSelectColumn) IsValid() bool {
 	switch e {
-	case SimCardSelectColumnID, SimCardSelectColumnSimCardID, SimCardSelectColumnDeptID, SimCardSelectColumnTerminalID, SimCardSelectColumnProxyrgID, SimCardSelectColumnOperatorsID, SimCardSelectColumnSimNumber, SimCardSelectColumnMobileType, SimCardSelectColumnRemark, SimCardSelectColumnCreateAt, SimCardSelectColumnCreateBy, SimCardSelectColumnUpdateAt, SimCardSelectColumnUpdateBy, SimCardSelectColumnDeleteAt, SimCardSelectColumnDeleteBy, SimCardSelectColumnIsDelete, SimCardSelectColumnSource:
+	case SimCardSelectColumnID, SimCardSelectColumnSimCardID, SimCardSelectColumnDeptID, SimCardSelectColumnTerminalID, SimCardSelectColumnProxyrgID, SimCardSelectColumnOperatorsID, SimCardSelectColumnSimNumber, SimCardSelectColumnMobileType, SimCardSelectColumnRemark, SimCardSelectColumnCreatedAt, SimCardSelectColumnCreatedBy, SimCardSelectColumnUpdatedAt, SimCardSelectColumnUpdatedBy, SimCardSelectColumnDeletedAt, SimCardSelectColumnDeletedBy, SimCardSelectColumnIsDeleted, SimCardSelectColumnSource:
 		return true
 	}
 	return false
@@ -6503,19 +6503,19 @@ const (
 	// 费用截止日期
 	SimCardStatusSelectColumnFeeEndDate SimCardStatusSelectColumn = "fee_end_date"
 	// 创建时间
-	SimCardStatusSelectColumnCreateAt SimCardStatusSelectColumn = "create_at"
+	SimCardStatusSelectColumnCreatedAt SimCardStatusSelectColumn = "created_at"
 	// 创建人
-	SimCardStatusSelectColumnCreateBy SimCardStatusSelectColumn = "create_by"
+	SimCardStatusSelectColumnCreatedBy SimCardStatusSelectColumn = "created_by"
 	// 更新时间
-	SimCardStatusSelectColumnUpdateAt SimCardStatusSelectColumn = "update_at"
+	SimCardStatusSelectColumnUpdatedAt SimCardStatusSelectColumn = "updated_at"
 	// 更新人
-	SimCardStatusSelectColumnUpdateBy SimCardStatusSelectColumn = "update_by"
+	SimCardStatusSelectColumnUpdatedBy SimCardStatusSelectColumn = "updated_by"
 	// 删除时间
-	SimCardStatusSelectColumnDeleteAt SimCardStatusSelectColumn = "delete_at"
+	SimCardStatusSelectColumnDeletedAt SimCardStatusSelectColumn = "deleted_at"
 	// 删除人
-	SimCardStatusSelectColumnDeleteBy SimCardStatusSelectColumn = "delete_by"
+	SimCardStatusSelectColumnDeletedBy SimCardStatusSelectColumn = "deleted_by"
 	// 是否删除
-	SimCardStatusSelectColumnIsDelete SimCardStatusSelectColumn = "is_delete"
+	SimCardStatusSelectColumnIsDeleted SimCardStatusSelectColumn = "is_deleted"
 	// 备注
 	SimCardStatusSelectColumnRemark SimCardStatusSelectColumn = "remark"
 )
@@ -6535,19 +6535,19 @@ var AllSimCardStatusSelectColumn = []SimCardStatusSelectColumn{
 	SimCardStatusSelectColumnSimNumber10,
 	SimCardStatusSelectColumnPlateNumber,
 	SimCardStatusSelectColumnFeeEndDate,
-	SimCardStatusSelectColumnCreateAt,
-	SimCardStatusSelectColumnCreateBy,
-	SimCardStatusSelectColumnUpdateAt,
-	SimCardStatusSelectColumnUpdateBy,
-	SimCardStatusSelectColumnDeleteAt,
-	SimCardStatusSelectColumnDeleteBy,
-	SimCardStatusSelectColumnIsDelete,
+	SimCardStatusSelectColumnCreatedAt,
+	SimCardStatusSelectColumnCreatedBy,
+	SimCardStatusSelectColumnUpdatedAt,
+	SimCardStatusSelectColumnUpdatedBy,
+	SimCardStatusSelectColumnDeletedAt,
+	SimCardStatusSelectColumnDeletedBy,
+	SimCardStatusSelectColumnIsDeleted,
 	SimCardStatusSelectColumnRemark,
 }
 
 func (e SimCardStatusSelectColumn) IsValid() bool {
 	switch e {
-	case SimCardStatusSelectColumnID, SimCardStatusSelectColumnSimCardStatusID, SimCardStatusSelectColumnStatus, SimCardStatusSelectColumnTerminalModalID, SimCardStatusSelectColumnMobileType, SimCardStatusSelectColumnProxyrgID, SimCardStatusSelectColumnEnterpriseID, SimCardStatusSelectColumnSystemName, SimCardStatusSelectColumnSimNumber, SimCardStatusSelectColumnCancelTime, SimCardStatusSelectColumnCancelCause, SimCardStatusSelectColumnSimNumber10, SimCardStatusSelectColumnPlateNumber, SimCardStatusSelectColumnFeeEndDate, SimCardStatusSelectColumnCreateAt, SimCardStatusSelectColumnCreateBy, SimCardStatusSelectColumnUpdateAt, SimCardStatusSelectColumnUpdateBy, SimCardStatusSelectColumnDeleteAt, SimCardStatusSelectColumnDeleteBy, SimCardStatusSelectColumnIsDelete, SimCardStatusSelectColumnRemark:
+	case SimCardStatusSelectColumnID, SimCardStatusSelectColumnSimCardStatusID, SimCardStatusSelectColumnStatus, SimCardStatusSelectColumnTerminalModalID, SimCardStatusSelectColumnMobileType, SimCardStatusSelectColumnProxyrgID, SimCardStatusSelectColumnEnterpriseID, SimCardStatusSelectColumnSystemName, SimCardStatusSelectColumnSimNumber, SimCardStatusSelectColumnCancelTime, SimCardStatusSelectColumnCancelCause, SimCardStatusSelectColumnSimNumber10, SimCardStatusSelectColumnPlateNumber, SimCardStatusSelectColumnFeeEndDate, SimCardStatusSelectColumnCreatedAt, SimCardStatusSelectColumnCreatedBy, SimCardStatusSelectColumnUpdatedAt, SimCardStatusSelectColumnUpdatedBy, SimCardStatusSelectColumnDeletedAt, SimCardStatusSelectColumnDeletedBy, SimCardStatusSelectColumnIsDeleted, SimCardStatusSelectColumnRemark:
 		return true
 	}
 	return false
@@ -6591,19 +6591,19 @@ const (
 	// 采购单号
 	TerminalBeidouValidSelectColumnBuyBill TerminalBeidouValidSelectColumn = "buy_bill"
 	// 创建时间
-	TerminalBeidouValidSelectColumnCreateAt TerminalBeidouValidSelectColumn = "create_at"
+	TerminalBeidouValidSelectColumnCreatedAt TerminalBeidouValidSelectColumn = "created_at"
 	// 创建人
-	TerminalBeidouValidSelectColumnCreateBy TerminalBeidouValidSelectColumn = "create_by"
+	TerminalBeidouValidSelectColumnCreatedBy TerminalBeidouValidSelectColumn = "created_by"
 	// 修改时间
-	TerminalBeidouValidSelectColumnUpdateAt TerminalBeidouValidSelectColumn = "update_at"
+	TerminalBeidouValidSelectColumnUpdatedAt TerminalBeidouValidSelectColumn = "updated_at"
 	// 修改人
-	TerminalBeidouValidSelectColumnUpdateBy TerminalBeidouValidSelectColumn = "update_by"
+	TerminalBeidouValidSelectColumnUpdatedBy TerminalBeidouValidSelectColumn = "updated_by"
 	// 删除时间
-	TerminalBeidouValidSelectColumnDeleteAt TerminalBeidouValidSelectColumn = "delete_at"
+	TerminalBeidouValidSelectColumnDeletedAt TerminalBeidouValidSelectColumn = "deleted_at"
 	// 删除人
-	TerminalBeidouValidSelectColumnDeleteBy TerminalBeidouValidSelectColumn = "delete_by"
+	TerminalBeidouValidSelectColumnDeletedBy TerminalBeidouValidSelectColumn = "deleted_by"
 	// 是否删除
-	TerminalBeidouValidSelectColumnIsDelete TerminalBeidouValidSelectColumn = "is_delete"
+	TerminalBeidouValidSelectColumnIsDeleted TerminalBeidouValidSelectColumn = "is_deleted"
 )
 
 var AllTerminalBeidouValidSelectColumn = []TerminalBeidouValidSelectColumn{
@@ -6613,18 +6613,18 @@ var AllTerminalBeidouValidSelectColumn = []TerminalBeidouValidSelectColumn{
 	TerminalBeidouValidSelectColumnTerminalModalID,
 	TerminalBeidouValidSelectColumnIsBind,
 	TerminalBeidouValidSelectColumnBuyBill,
-	TerminalBeidouValidSelectColumnCreateAt,
-	TerminalBeidouValidSelectColumnCreateBy,
-	TerminalBeidouValidSelectColumnUpdateAt,
-	TerminalBeidouValidSelectColumnUpdateBy,
-	TerminalBeidouValidSelectColumnDeleteAt,
-	TerminalBeidouValidSelectColumnDeleteBy,
-	TerminalBeidouValidSelectColumnIsDelete,
+	TerminalBeidouValidSelectColumnCreatedAt,
+	TerminalBeidouValidSelectColumnCreatedBy,
+	TerminalBeidouValidSelectColumnUpdatedAt,
+	TerminalBeidouValidSelectColumnUpdatedBy,
+	TerminalBeidouValidSelectColumnDeletedAt,
+	TerminalBeidouValidSelectColumnDeletedBy,
+	TerminalBeidouValidSelectColumnIsDeleted,
 }
 
 func (e TerminalBeidouValidSelectColumn) IsValid() bool {
 	switch e {
-	case TerminalBeidouValidSelectColumnID, TerminalBeidouValidSelectColumnTerminalBeidouValidID, TerminalBeidouValidSelectColumnTerminalID, TerminalBeidouValidSelectColumnTerminalModalID, TerminalBeidouValidSelectColumnIsBind, TerminalBeidouValidSelectColumnBuyBill, TerminalBeidouValidSelectColumnCreateAt, TerminalBeidouValidSelectColumnCreateBy, TerminalBeidouValidSelectColumnUpdateAt, TerminalBeidouValidSelectColumnUpdateBy, TerminalBeidouValidSelectColumnDeleteAt, TerminalBeidouValidSelectColumnDeleteBy, TerminalBeidouValidSelectColumnIsDelete:
+	case TerminalBeidouValidSelectColumnID, TerminalBeidouValidSelectColumnTerminalBeidouValidID, TerminalBeidouValidSelectColumnTerminalID, TerminalBeidouValidSelectColumnTerminalModalID, TerminalBeidouValidSelectColumnIsBind, TerminalBeidouValidSelectColumnBuyBill, TerminalBeidouValidSelectColumnCreatedAt, TerminalBeidouValidSelectColumnCreatedBy, TerminalBeidouValidSelectColumnUpdatedAt, TerminalBeidouValidSelectColumnUpdatedBy, TerminalBeidouValidSelectColumnDeletedAt, TerminalBeidouValidSelectColumnDeletedBy, TerminalBeidouValidSelectColumnIsDeleted:
 		return true
 	}
 	return false
@@ -6676,19 +6676,19 @@ const (
 	// 终端数是否用完
 	TerminalBuyBillSelectColumnIsSnUseOver TerminalBuyBillSelectColumn = "is_sn_use_over"
 	// 创建时间
-	TerminalBuyBillSelectColumnCreateAt TerminalBuyBillSelectColumn = "create_at"
+	TerminalBuyBillSelectColumnCreatedAt TerminalBuyBillSelectColumn = "created_at"
 	// 创建人
-	TerminalBuyBillSelectColumnCreateBy TerminalBuyBillSelectColumn = "create_by"
+	TerminalBuyBillSelectColumnCreatedBy TerminalBuyBillSelectColumn = "created_by"
 	// 修改时间
-	TerminalBuyBillSelectColumnUpdateAt TerminalBuyBillSelectColumn = "update_at"
+	TerminalBuyBillSelectColumnUpdatedAt TerminalBuyBillSelectColumn = "updated_at"
 	// 修改人
-	TerminalBuyBillSelectColumnUpdateBy TerminalBuyBillSelectColumn = "update_by"
+	TerminalBuyBillSelectColumnUpdatedBy TerminalBuyBillSelectColumn = "updated_by"
 	// 删除时间
-	TerminalBuyBillSelectColumnDeleteAt TerminalBuyBillSelectColumn = "delete_at"
+	TerminalBuyBillSelectColumnDeletedAt TerminalBuyBillSelectColumn = "deleted_at"
 	// 删除人
-	TerminalBuyBillSelectColumnDeleteBy TerminalBuyBillSelectColumn = "delete_by"
+	TerminalBuyBillSelectColumnDeletedBy TerminalBuyBillSelectColumn = "deleted_by"
 	// 是否删除
-	TerminalBuyBillSelectColumnIsDelete TerminalBuyBillSelectColumn = "is_delete"
+	TerminalBuyBillSelectColumnIsDeleted TerminalBuyBillSelectColumn = "is_deleted"
 	// 备注
 	TerminalBuyBillSelectColumnRemark TerminalBuyBillSelectColumn = "remark"
 )
@@ -6704,19 +6704,19 @@ var AllTerminalBuyBillSelectColumn = []TerminalBuyBillSelectColumn{
 	TerminalBuyBillSelectColumnSnCount,
 	TerminalBuyBillSelectColumnUseSnCount,
 	TerminalBuyBillSelectColumnIsSnUseOver,
-	TerminalBuyBillSelectColumnCreateAt,
-	TerminalBuyBillSelectColumnCreateBy,
-	TerminalBuyBillSelectColumnUpdateAt,
-	TerminalBuyBillSelectColumnUpdateBy,
-	TerminalBuyBillSelectColumnDeleteAt,
-	TerminalBuyBillSelectColumnDeleteBy,
-	TerminalBuyBillSelectColumnIsDelete,
+	TerminalBuyBillSelectColumnCreatedAt,
+	TerminalBuyBillSelectColumnCreatedBy,
+	TerminalBuyBillSelectColumnUpdatedAt,
+	TerminalBuyBillSelectColumnUpdatedBy,
+	TerminalBuyBillSelectColumnDeletedAt,
+	TerminalBuyBillSelectColumnDeletedBy,
+	TerminalBuyBillSelectColumnIsDeleted,
 	TerminalBuyBillSelectColumnRemark,
 }
 
 func (e TerminalBuyBillSelectColumn) IsValid() bool {
 	switch e {
-	case TerminalBuyBillSelectColumnID, TerminalBuyBillSelectColumnBillID, TerminalBuyBillSelectColumnTerminalType, TerminalBuyBillSelectColumnStartSn, TerminalBuyBillSelectColumnEndSn, TerminalBuyBillSelectColumnBuyerID, TerminalBuyBillSelectColumnBuyDate, TerminalBuyBillSelectColumnSnCount, TerminalBuyBillSelectColumnUseSnCount, TerminalBuyBillSelectColumnIsSnUseOver, TerminalBuyBillSelectColumnCreateAt, TerminalBuyBillSelectColumnCreateBy, TerminalBuyBillSelectColumnUpdateAt, TerminalBuyBillSelectColumnUpdateBy, TerminalBuyBillSelectColumnDeleteAt, TerminalBuyBillSelectColumnDeleteBy, TerminalBuyBillSelectColumnIsDelete, TerminalBuyBillSelectColumnRemark:
+	case TerminalBuyBillSelectColumnID, TerminalBuyBillSelectColumnBillID, TerminalBuyBillSelectColumnTerminalType, TerminalBuyBillSelectColumnStartSn, TerminalBuyBillSelectColumnEndSn, TerminalBuyBillSelectColumnBuyerID, TerminalBuyBillSelectColumnBuyDate, TerminalBuyBillSelectColumnSnCount, TerminalBuyBillSelectColumnUseSnCount, TerminalBuyBillSelectColumnIsSnUseOver, TerminalBuyBillSelectColumnCreatedAt, TerminalBuyBillSelectColumnCreatedBy, TerminalBuyBillSelectColumnUpdatedAt, TerminalBuyBillSelectColumnUpdatedBy, TerminalBuyBillSelectColumnDeletedAt, TerminalBuyBillSelectColumnDeletedBy, TerminalBuyBillSelectColumnIsDeleted, TerminalBuyBillSelectColumnRemark:
 		return true
 	}
 	return false
@@ -6762,9 +6762,9 @@ const (
 	// 所在部门ID
 	TerminalChangeSelectColumnDeptID TerminalChangeSelectColumn = "dept_id"
 	// 创建时间
-	TerminalChangeSelectColumnCreateAt TerminalChangeSelectColumn = "create_at"
+	TerminalChangeSelectColumnCreatedAt TerminalChangeSelectColumn = "created_at"
 	// 创建人
-	TerminalChangeSelectColumnCreateBy TerminalChangeSelectColumn = "create_by"
+	TerminalChangeSelectColumnCreatedBy TerminalChangeSelectColumn = "created_by"
 	// 备注
 	TerminalChangeSelectColumnRemark TerminalChangeSelectColumn = "remark"
 )
@@ -6777,14 +6777,14 @@ var AllTerminalChangeSelectColumn = []TerminalChangeSelectColumn{
 	TerminalChangeSelectColumnTerminalTypeID,
 	TerminalChangeSelectColumnOldPlateNumber,
 	TerminalChangeSelectColumnDeptID,
-	TerminalChangeSelectColumnCreateAt,
-	TerminalChangeSelectColumnCreateBy,
+	TerminalChangeSelectColumnCreatedAt,
+	TerminalChangeSelectColumnCreatedBy,
 	TerminalChangeSelectColumnRemark,
 }
 
 func (e TerminalChangeSelectColumn) IsValid() bool {
 	switch e {
-	case TerminalChangeSelectColumnID, TerminalChangeSelectColumnChangeID, TerminalChangeSelectColumnNewPlateNumber, TerminalChangeSelectColumnTerminalID, TerminalChangeSelectColumnTerminalTypeID, TerminalChangeSelectColumnOldPlateNumber, TerminalChangeSelectColumnDeptID, TerminalChangeSelectColumnCreateAt, TerminalChangeSelectColumnCreateBy, TerminalChangeSelectColumnRemark:
+	case TerminalChangeSelectColumnID, TerminalChangeSelectColumnChangeID, TerminalChangeSelectColumnNewPlateNumber, TerminalChangeSelectColumnTerminalID, TerminalChangeSelectColumnTerminalTypeID, TerminalChangeSelectColumnOldPlateNumber, TerminalChangeSelectColumnDeptID, TerminalChangeSelectColumnCreatedAt, TerminalChangeSelectColumnCreatedBy, TerminalChangeSelectColumnRemark:
 		return true
 	}
 	return false
@@ -6850,19 +6850,19 @@ const (
 	// 备注
 	TerminalCheckLastSelectColumnRemark TerminalCheckLastSelectColumn = "remark"
 	// 创建时间
-	TerminalCheckLastSelectColumnCreateAt TerminalCheckLastSelectColumn = "create_at"
+	TerminalCheckLastSelectColumnCreatedAt TerminalCheckLastSelectColumn = "created_at"
 	// 创建人
-	TerminalCheckLastSelectColumnCreateBy TerminalCheckLastSelectColumn = "create_by"
+	TerminalCheckLastSelectColumnCreatedBy TerminalCheckLastSelectColumn = "created_by"
 	// 修改时间
-	TerminalCheckLastSelectColumnUpdateAt TerminalCheckLastSelectColumn = "update_at"
+	TerminalCheckLastSelectColumnUpdatedAt TerminalCheckLastSelectColumn = "updated_at"
 	// 修改人
-	TerminalCheckLastSelectColumnUpdateBy TerminalCheckLastSelectColumn = "update_by"
+	TerminalCheckLastSelectColumnUpdatedBy TerminalCheckLastSelectColumn = "updated_by"
 	// 删除时间
-	TerminalCheckLastSelectColumnDeleteAt TerminalCheckLastSelectColumn = "delete_at"
+	TerminalCheckLastSelectColumnDeletedAt TerminalCheckLastSelectColumn = "deleted_at"
 	// 删除人
-	TerminalCheckLastSelectColumnDeleteBy TerminalCheckLastSelectColumn = "delete_by"
+	TerminalCheckLastSelectColumnDeletedBy TerminalCheckLastSelectColumn = "deleted_by"
 	// 是否删除
-	TerminalCheckLastSelectColumnIsDelete TerminalCheckLastSelectColumn = "is_delete"
+	TerminalCheckLastSelectColumnIsDeleted TerminalCheckLastSelectColumn = "is_deleted"
 )
 
 var AllTerminalCheckLastSelectColumn = []TerminalCheckLastSelectColumn{
@@ -6883,18 +6883,18 @@ var AllTerminalCheckLastSelectColumn = []TerminalCheckLastSelectColumn{
 	TerminalCheckLastSelectColumnCamera,
 	TerminalCheckLastSelectColumnVehicleSpeed,
 	TerminalCheckLastSelectColumnRemark,
-	TerminalCheckLastSelectColumnCreateAt,
-	TerminalCheckLastSelectColumnCreateBy,
-	TerminalCheckLastSelectColumnUpdateAt,
-	TerminalCheckLastSelectColumnUpdateBy,
-	TerminalCheckLastSelectColumnDeleteAt,
-	TerminalCheckLastSelectColumnDeleteBy,
-	TerminalCheckLastSelectColumnIsDelete,
+	TerminalCheckLastSelectColumnCreatedAt,
+	TerminalCheckLastSelectColumnCreatedBy,
+	TerminalCheckLastSelectColumnUpdatedAt,
+	TerminalCheckLastSelectColumnUpdatedBy,
+	TerminalCheckLastSelectColumnDeletedAt,
+	TerminalCheckLastSelectColumnDeletedBy,
+	TerminalCheckLastSelectColumnIsDeleted,
 }
 
 func (e TerminalCheckLastSelectColumn) IsValid() bool {
 	switch e {
-	case TerminalCheckLastSelectColumnID, TerminalCheckLastSelectColumnTerminalCheckLastID, TerminalCheckLastSelectColumnTerminalID, TerminalCheckLastSelectColumnAcc, TerminalCheckLastSelectColumnBrake, TerminalCheckLastSelectColumnLeftLamp, TerminalCheckLastSelectColumnRightLamp, TerminalCheckLastSelectColumnNearLamp, TerminalCheckLastSelectColumnFarLamp, TerminalCheckLastSelectColumnLoudSpeaker, TerminalCheckLastSelectColumnLocate, TerminalCheckLastSelectColumnFrontDoor, TerminalCheckLastSelectColumnGpsOpen, TerminalCheckLastSelectColumnBdOpen, TerminalCheckLastSelectColumnCamera, TerminalCheckLastSelectColumnVehicleSpeed, TerminalCheckLastSelectColumnRemark, TerminalCheckLastSelectColumnCreateAt, TerminalCheckLastSelectColumnCreateBy, TerminalCheckLastSelectColumnUpdateAt, TerminalCheckLastSelectColumnUpdateBy, TerminalCheckLastSelectColumnDeleteAt, TerminalCheckLastSelectColumnDeleteBy, TerminalCheckLastSelectColumnIsDelete:
+	case TerminalCheckLastSelectColumnID, TerminalCheckLastSelectColumnTerminalCheckLastID, TerminalCheckLastSelectColumnTerminalID, TerminalCheckLastSelectColumnAcc, TerminalCheckLastSelectColumnBrake, TerminalCheckLastSelectColumnLeftLamp, TerminalCheckLastSelectColumnRightLamp, TerminalCheckLastSelectColumnNearLamp, TerminalCheckLastSelectColumnFarLamp, TerminalCheckLastSelectColumnLoudSpeaker, TerminalCheckLastSelectColumnLocate, TerminalCheckLastSelectColumnFrontDoor, TerminalCheckLastSelectColumnGpsOpen, TerminalCheckLastSelectColumnBdOpen, TerminalCheckLastSelectColumnCamera, TerminalCheckLastSelectColumnVehicleSpeed, TerminalCheckLastSelectColumnRemark, TerminalCheckLastSelectColumnCreatedAt, TerminalCheckLastSelectColumnCreatedBy, TerminalCheckLastSelectColumnUpdatedAt, TerminalCheckLastSelectColumnUpdatedBy, TerminalCheckLastSelectColumnDeletedAt, TerminalCheckLastSelectColumnDeletedBy, TerminalCheckLastSelectColumnIsDeleted:
 		return true
 	}
 	return false
@@ -7096,19 +7096,19 @@ const (
 	// 视频情况
 	TerminalCheckSelectColumnVideoPass TerminalCheckSelectColumn = "video_pass"
 	// 创建时间
-	TerminalCheckSelectColumnCreateAt TerminalCheckSelectColumn = "create_at"
+	TerminalCheckSelectColumnCreatedAt TerminalCheckSelectColumn = "created_at"
 	// 创建人
-	TerminalCheckSelectColumnCreateBy TerminalCheckSelectColumn = "create_by"
+	TerminalCheckSelectColumnCreatedBy TerminalCheckSelectColumn = "created_by"
 	// 更新时间
-	TerminalCheckSelectColumnUpdateAt TerminalCheckSelectColumn = "update_at"
+	TerminalCheckSelectColumnUpdatedAt TerminalCheckSelectColumn = "updated_at"
 	// 更新人
-	TerminalCheckSelectColumnUpdateBy TerminalCheckSelectColumn = "update_by"
+	TerminalCheckSelectColumnUpdatedBy TerminalCheckSelectColumn = "updated_by"
 	// 删除时间
-	TerminalCheckSelectColumnDeleteAt TerminalCheckSelectColumn = "delete_at"
+	TerminalCheckSelectColumnDeletedAt TerminalCheckSelectColumn = "deleted_at"
 	// 删除人
-	TerminalCheckSelectColumnDeleteBy TerminalCheckSelectColumn = "delete_by"
+	TerminalCheckSelectColumnDeletedBy TerminalCheckSelectColumn = "deleted_by"
 	// 是否删除
-	TerminalCheckSelectColumnIsDelete TerminalCheckSelectColumn = "is_delete"
+	TerminalCheckSelectColumnIsDeleted TerminalCheckSelectColumn = "is_deleted"
 )
 
 var AllTerminalCheckSelectColumn = []TerminalCheckSelectColumn{
@@ -7142,18 +7142,18 @@ var AllTerminalCheckSelectColumn = []TerminalCheckSelectColumn{
 	TerminalCheckSelectColumnIsImpulseSpeed,
 	TerminalCheckSelectColumnFaultEndTime,
 	TerminalCheckSelectColumnVideoPass,
-	TerminalCheckSelectColumnCreateAt,
-	TerminalCheckSelectColumnCreateBy,
-	TerminalCheckSelectColumnUpdateAt,
-	TerminalCheckSelectColumnUpdateBy,
-	TerminalCheckSelectColumnDeleteAt,
-	TerminalCheckSelectColumnDeleteBy,
-	TerminalCheckSelectColumnIsDelete,
+	TerminalCheckSelectColumnCreatedAt,
+	TerminalCheckSelectColumnCreatedBy,
+	TerminalCheckSelectColumnUpdatedAt,
+	TerminalCheckSelectColumnUpdatedBy,
+	TerminalCheckSelectColumnDeletedAt,
+	TerminalCheckSelectColumnDeletedBy,
+	TerminalCheckSelectColumnIsDeleted,
 }
 
 func (e TerminalCheckSelectColumn) IsValid() bool {
 	switch e {
-	case TerminalCheckSelectColumnID, TerminalCheckSelectColumnTerminalCheckID, TerminalCheckSelectColumnTerminalID, TerminalCheckSelectColumnAcc, TerminalCheckSelectColumnBrake, TerminalCheckSelectColumnLeftLamp, TerminalCheckSelectColumnRightLamp, TerminalCheckSelectColumnNearLamp, TerminalCheckSelectColumnFarLamp, TerminalCheckSelectColumnLoudSpeaker, TerminalCheckSelectColumnReverse, TerminalCheckSelectColumnLocate, TerminalCheckSelectColumnFrontDoor, TerminalCheckSelectColumnMiddleDoor, TerminalCheckSelectColumnBackDoor, TerminalCheckSelectColumnGpsOpen, TerminalCheckSelectColumnBdOpen, TerminalCheckSelectColumnVoiceDevice, TerminalCheckSelectColumnCamera, TerminalCheckSelectColumnEmergencyAlarm, TerminalCheckSelectColumnMileage, TerminalCheckSelectColumnOilmass, TerminalCheckSelectColumnVehicleSpeed, TerminalCheckSelectColumnPowerAlarm, TerminalCheckSelectColumnPass, TerminalCheckSelectColumnAirConditioning, TerminalCheckSelectColumnAutoVehicleSpeed, TerminalCheckSelectColumnIsImpulseSpeed, TerminalCheckSelectColumnFaultEndTime, TerminalCheckSelectColumnVideoPass, TerminalCheckSelectColumnCreateAt, TerminalCheckSelectColumnCreateBy, TerminalCheckSelectColumnUpdateAt, TerminalCheckSelectColumnUpdateBy, TerminalCheckSelectColumnDeleteAt, TerminalCheckSelectColumnDeleteBy, TerminalCheckSelectColumnIsDelete:
+	case TerminalCheckSelectColumnID, TerminalCheckSelectColumnTerminalCheckID, TerminalCheckSelectColumnTerminalID, TerminalCheckSelectColumnAcc, TerminalCheckSelectColumnBrake, TerminalCheckSelectColumnLeftLamp, TerminalCheckSelectColumnRightLamp, TerminalCheckSelectColumnNearLamp, TerminalCheckSelectColumnFarLamp, TerminalCheckSelectColumnLoudSpeaker, TerminalCheckSelectColumnReverse, TerminalCheckSelectColumnLocate, TerminalCheckSelectColumnFrontDoor, TerminalCheckSelectColumnMiddleDoor, TerminalCheckSelectColumnBackDoor, TerminalCheckSelectColumnGpsOpen, TerminalCheckSelectColumnBdOpen, TerminalCheckSelectColumnVoiceDevice, TerminalCheckSelectColumnCamera, TerminalCheckSelectColumnEmergencyAlarm, TerminalCheckSelectColumnMileage, TerminalCheckSelectColumnOilmass, TerminalCheckSelectColumnVehicleSpeed, TerminalCheckSelectColumnPowerAlarm, TerminalCheckSelectColumnPass, TerminalCheckSelectColumnAirConditioning, TerminalCheckSelectColumnAutoVehicleSpeed, TerminalCheckSelectColumnIsImpulseSpeed, TerminalCheckSelectColumnFaultEndTime, TerminalCheckSelectColumnVideoPass, TerminalCheckSelectColumnCreatedAt, TerminalCheckSelectColumnCreatedBy, TerminalCheckSelectColumnUpdatedAt, TerminalCheckSelectColumnUpdatedBy, TerminalCheckSelectColumnDeletedAt, TerminalCheckSelectColumnDeletedBy, TerminalCheckSelectColumnIsDeleted:
 		return true
 	}
 	return false
@@ -7203,19 +7203,19 @@ const (
 	// 技术支持电话
 	TerminalFactorySelectColumnTechContactPhone TerminalFactorySelectColumn = "tech_contact_phone"
 	// 创建时间
-	TerminalFactorySelectColumnCreateAt TerminalFactorySelectColumn = "create_at"
+	TerminalFactorySelectColumnCreatedAt TerminalFactorySelectColumn = "created_at"
 	// 创建人
-	TerminalFactorySelectColumnCreateBy TerminalFactorySelectColumn = "create_by"
+	TerminalFactorySelectColumnCreatedBy TerminalFactorySelectColumn = "created_by"
 	// 更新时间
-	TerminalFactorySelectColumnUpdateAt TerminalFactorySelectColumn = "update_at"
+	TerminalFactorySelectColumnUpdatedAt TerminalFactorySelectColumn = "updated_at"
 	// 更新人
-	TerminalFactorySelectColumnUpdateBy TerminalFactorySelectColumn = "update_by"
+	TerminalFactorySelectColumnUpdatedBy TerminalFactorySelectColumn = "updated_by"
 	// 删除时间
-	TerminalFactorySelectColumnDeleteAt TerminalFactorySelectColumn = "delete_at"
+	TerminalFactorySelectColumnDeletedAt TerminalFactorySelectColumn = "deleted_at"
 	// 删除人
-	TerminalFactorySelectColumnDeleteBy TerminalFactorySelectColumn = "delete_by"
+	TerminalFactorySelectColumnDeletedBy TerminalFactorySelectColumn = "deleted_by"
 	// 是否删除
-	TerminalFactorySelectColumnIsDelete TerminalFactorySelectColumn = "is_delete"
+	TerminalFactorySelectColumnIsDeleted TerminalFactorySelectColumn = "is_deleted"
 )
 
 var AllTerminalFactorySelectColumn = []TerminalFactorySelectColumn{
@@ -7228,18 +7228,18 @@ var AllTerminalFactorySelectColumn = []TerminalFactorySelectColumn{
 	TerminalFactorySelectColumnAddress,
 	TerminalFactorySelectColumnTechContact,
 	TerminalFactorySelectColumnTechContactPhone,
-	TerminalFactorySelectColumnCreateAt,
-	TerminalFactorySelectColumnCreateBy,
-	TerminalFactorySelectColumnUpdateAt,
-	TerminalFactorySelectColumnUpdateBy,
-	TerminalFactorySelectColumnDeleteAt,
-	TerminalFactorySelectColumnDeleteBy,
-	TerminalFactorySelectColumnIsDelete,
+	TerminalFactorySelectColumnCreatedAt,
+	TerminalFactorySelectColumnCreatedBy,
+	TerminalFactorySelectColumnUpdatedAt,
+	TerminalFactorySelectColumnUpdatedBy,
+	TerminalFactorySelectColumnDeletedAt,
+	TerminalFactorySelectColumnDeletedBy,
+	TerminalFactorySelectColumnIsDeleted,
 }
 
 func (e TerminalFactorySelectColumn) IsValid() bool {
 	switch e {
-	case TerminalFactorySelectColumnID, TerminalFactorySelectColumnFactoryID, TerminalFactorySelectColumnFactoryName, TerminalFactorySelectColumnRemark, TerminalFactorySelectColumnContact, TerminalFactorySelectColumnContactPhone, TerminalFactorySelectColumnAddress, TerminalFactorySelectColumnTechContact, TerminalFactorySelectColumnTechContactPhone, TerminalFactorySelectColumnCreateAt, TerminalFactorySelectColumnCreateBy, TerminalFactorySelectColumnUpdateAt, TerminalFactorySelectColumnUpdateBy, TerminalFactorySelectColumnDeleteAt, TerminalFactorySelectColumnDeleteBy, TerminalFactorySelectColumnIsDelete:
+	case TerminalFactorySelectColumnID, TerminalFactorySelectColumnFactoryID, TerminalFactorySelectColumnFactoryName, TerminalFactorySelectColumnRemark, TerminalFactorySelectColumnContact, TerminalFactorySelectColumnContactPhone, TerminalFactorySelectColumnAddress, TerminalFactorySelectColumnTechContact, TerminalFactorySelectColumnTechContactPhone, TerminalFactorySelectColumnCreatedAt, TerminalFactorySelectColumnCreatedBy, TerminalFactorySelectColumnUpdatedAt, TerminalFactorySelectColumnUpdatedBy, TerminalFactorySelectColumnDeletedAt, TerminalFactorySelectColumnDeletedBy, TerminalFactorySelectColumnIsDeleted:
 		return true
 	}
 	return false
@@ -7297,19 +7297,19 @@ const (
 	// 终端具备出租汽车电召、电子上岗证等功能
 	TerminalModalSelectColumnIsElectronicsPostCard TerminalModalSelectColumn = "is_electronics_post_card"
 	// 创建时间
-	TerminalModalSelectColumnCreateAt TerminalModalSelectColumn = "create_at"
+	TerminalModalSelectColumnCreatedAt TerminalModalSelectColumn = "created_at"
 	// 创建人
-	TerminalModalSelectColumnCreateBy TerminalModalSelectColumn = "create_by"
+	TerminalModalSelectColumnCreatedBy TerminalModalSelectColumn = "created_by"
 	// 修改时间
-	TerminalModalSelectColumnUpdateAt TerminalModalSelectColumn = "update_at"
+	TerminalModalSelectColumnUpdatedAt TerminalModalSelectColumn = "updated_at"
 	// 修改人
-	TerminalModalSelectColumnUpdateBy TerminalModalSelectColumn = "update_by"
+	TerminalModalSelectColumnUpdatedBy TerminalModalSelectColumn = "updated_by"
 	// 删除时间
-	TerminalModalSelectColumnDeleteAt TerminalModalSelectColumn = "delete_at"
+	TerminalModalSelectColumnDeletedAt TerminalModalSelectColumn = "deleted_at"
 	// 删除人
-	TerminalModalSelectColumnDeleteBy TerminalModalSelectColumn = "delete_by"
+	TerminalModalSelectColumnDeletedBy TerminalModalSelectColumn = "deleted_by"
 	// 是否被删除
-	TerminalModalSelectColumnIsDelete TerminalModalSelectColumn = "is_delete"
+	TerminalModalSelectColumnIsDeleted TerminalModalSelectColumn = "is_deleted"
 )
 
 var AllTerminalModalSelectColumn = []TerminalModalSelectColumn{
@@ -7326,18 +7326,18 @@ var AllTerminalModalSelectColumn = []TerminalModalSelectColumn{
 	TerminalModalSelectColumnIsTransportDept4g,
 	TerminalModalSelectColumnIsTestingSituation,
 	TerminalModalSelectColumnIsElectronicsPostCard,
-	TerminalModalSelectColumnCreateAt,
-	TerminalModalSelectColumnCreateBy,
-	TerminalModalSelectColumnUpdateAt,
-	TerminalModalSelectColumnUpdateBy,
-	TerminalModalSelectColumnDeleteAt,
-	TerminalModalSelectColumnDeleteBy,
-	TerminalModalSelectColumnIsDelete,
+	TerminalModalSelectColumnCreatedAt,
+	TerminalModalSelectColumnCreatedBy,
+	TerminalModalSelectColumnUpdatedAt,
+	TerminalModalSelectColumnUpdatedBy,
+	TerminalModalSelectColumnDeletedAt,
+	TerminalModalSelectColumnDeletedBy,
+	TerminalModalSelectColumnIsDeleted,
 }
 
 func (e TerminalModalSelectColumn) IsValid() bool {
 	switch e {
-	case TerminalModalSelectColumnID, TerminalModalSelectColumnTerminalModalID, TerminalModalSelectColumnFactoryID, TerminalModalSelectColumnTerminalTypeID, TerminalModalSelectColumnModalName, TerminalModalSelectColumnRemark, TerminalModalSelectColumnRecordNo, TerminalModalSelectColumnProxyrgID, TerminalModalSelectColumnAdasModal, TerminalModalSelectColumnIsSlagCarTeminal, TerminalModalSelectColumnIsTransportDept4g, TerminalModalSelectColumnIsTestingSituation, TerminalModalSelectColumnIsElectronicsPostCard, TerminalModalSelectColumnCreateAt, TerminalModalSelectColumnCreateBy, TerminalModalSelectColumnUpdateAt, TerminalModalSelectColumnUpdateBy, TerminalModalSelectColumnDeleteAt, TerminalModalSelectColumnDeleteBy, TerminalModalSelectColumnIsDelete:
+	case TerminalModalSelectColumnID, TerminalModalSelectColumnTerminalModalID, TerminalModalSelectColumnFactoryID, TerminalModalSelectColumnTerminalTypeID, TerminalModalSelectColumnModalName, TerminalModalSelectColumnRemark, TerminalModalSelectColumnRecordNo, TerminalModalSelectColumnProxyrgID, TerminalModalSelectColumnAdasModal, TerminalModalSelectColumnIsSlagCarTeminal, TerminalModalSelectColumnIsTransportDept4g, TerminalModalSelectColumnIsTestingSituation, TerminalModalSelectColumnIsElectronicsPostCard, TerminalModalSelectColumnCreatedAt, TerminalModalSelectColumnCreatedBy, TerminalModalSelectColumnUpdatedAt, TerminalModalSelectColumnUpdatedBy, TerminalModalSelectColumnDeletedAt, TerminalModalSelectColumnDeletedBy, TerminalModalSelectColumnIsDeleted:
 		return true
 	}
 	return false
@@ -7389,19 +7389,19 @@ const (
 	// 应答时间
 	TerminalOperLogSelectColumnRespTime TerminalOperLogSelectColumn = "resp_time"
 	// 创建时间
-	TerminalOperLogSelectColumnCreateAt TerminalOperLogSelectColumn = "create_at"
+	TerminalOperLogSelectColumnCreatedAt TerminalOperLogSelectColumn = "created_at"
 	// 创建人
-	TerminalOperLogSelectColumnCreateBy TerminalOperLogSelectColumn = "create_by"
+	TerminalOperLogSelectColumnCreatedBy TerminalOperLogSelectColumn = "created_by"
 	// 更新时间
-	TerminalOperLogSelectColumnUpdateAt TerminalOperLogSelectColumn = "update_at"
+	TerminalOperLogSelectColumnUpdatedAt TerminalOperLogSelectColumn = "updated_at"
 	// 更新人
-	TerminalOperLogSelectColumnUpdateBy TerminalOperLogSelectColumn = "update_by"
+	TerminalOperLogSelectColumnUpdatedBy TerminalOperLogSelectColumn = "updated_by"
 	// 删除时间
-	TerminalOperLogSelectColumnDeleteAt TerminalOperLogSelectColumn = "delete_at"
+	TerminalOperLogSelectColumnDeletedAt TerminalOperLogSelectColumn = "deleted_at"
 	// 删除人
-	TerminalOperLogSelectColumnDeleteBy TerminalOperLogSelectColumn = "delete_by"
+	TerminalOperLogSelectColumnDeletedBy TerminalOperLogSelectColumn = "deleted_by"
 	// 是否删除
-	TerminalOperLogSelectColumnIsDelete TerminalOperLogSelectColumn = "is_delete"
+	TerminalOperLogSelectColumnIsDeleted TerminalOperLogSelectColumn = "is_deleted"
 )
 
 var AllTerminalOperLogSelectColumn = []TerminalOperLogSelectColumn{
@@ -7415,18 +7415,18 @@ var AllTerminalOperLogSelectColumn = []TerminalOperLogSelectColumn{
 	TerminalOperLogSelectColumnState,
 	TerminalOperLogSelectColumnReqTime,
 	TerminalOperLogSelectColumnRespTime,
-	TerminalOperLogSelectColumnCreateAt,
-	TerminalOperLogSelectColumnCreateBy,
-	TerminalOperLogSelectColumnUpdateAt,
-	TerminalOperLogSelectColumnUpdateBy,
-	TerminalOperLogSelectColumnDeleteAt,
-	TerminalOperLogSelectColumnDeleteBy,
-	TerminalOperLogSelectColumnIsDelete,
+	TerminalOperLogSelectColumnCreatedAt,
+	TerminalOperLogSelectColumnCreatedBy,
+	TerminalOperLogSelectColumnUpdatedAt,
+	TerminalOperLogSelectColumnUpdatedBy,
+	TerminalOperLogSelectColumnDeletedAt,
+	TerminalOperLogSelectColumnDeletedBy,
+	TerminalOperLogSelectColumnIsDeleted,
 }
 
 func (e TerminalOperLogSelectColumn) IsValid() bool {
 	switch e {
-	case TerminalOperLogSelectColumnID, TerminalOperLogSelectColumnLogID, TerminalOperLogSelectColumnTerminalID, TerminalOperLogSelectColumnOperateType, TerminalOperLogSelectColumnReqInfo, TerminalOperLogSelectColumnRespInfo, TerminalOperLogSelectColumnOperDetail, TerminalOperLogSelectColumnState, TerminalOperLogSelectColumnReqTime, TerminalOperLogSelectColumnRespTime, TerminalOperLogSelectColumnCreateAt, TerminalOperLogSelectColumnCreateBy, TerminalOperLogSelectColumnUpdateAt, TerminalOperLogSelectColumnUpdateBy, TerminalOperLogSelectColumnDeleteAt, TerminalOperLogSelectColumnDeleteBy, TerminalOperLogSelectColumnIsDelete:
+	case TerminalOperLogSelectColumnID, TerminalOperLogSelectColumnLogID, TerminalOperLogSelectColumnTerminalID, TerminalOperLogSelectColumnOperateType, TerminalOperLogSelectColumnReqInfo, TerminalOperLogSelectColumnRespInfo, TerminalOperLogSelectColumnOperDetail, TerminalOperLogSelectColumnState, TerminalOperLogSelectColumnReqTime, TerminalOperLogSelectColumnRespTime, TerminalOperLogSelectColumnCreatedAt, TerminalOperLogSelectColumnCreatedBy, TerminalOperLogSelectColumnUpdatedAt, TerminalOperLogSelectColumnUpdatedBy, TerminalOperLogSelectColumnDeletedAt, TerminalOperLogSelectColumnDeletedBy, TerminalOperLogSelectColumnIsDeleted:
 		return true
 	}
 	return false
@@ -7478,19 +7478,19 @@ const (
 	// 上次操作人
 	TerminalParamConfigSelectColumnLastOperator TerminalParamConfigSelectColumn = "last_operator"
 	// 创建时间
-	TerminalParamConfigSelectColumnCreateAt TerminalParamConfigSelectColumn = "create_at"
+	TerminalParamConfigSelectColumnCreatedAt TerminalParamConfigSelectColumn = "created_at"
 	// 创建人
-	TerminalParamConfigSelectColumnCreateBy TerminalParamConfigSelectColumn = "create_by"
+	TerminalParamConfigSelectColumnCreatedBy TerminalParamConfigSelectColumn = "created_by"
 	// 修改时间
-	TerminalParamConfigSelectColumnUpdateAt TerminalParamConfigSelectColumn = "update_at"
+	TerminalParamConfigSelectColumnUpdatedAt TerminalParamConfigSelectColumn = "updated_at"
 	// 修改人
-	TerminalParamConfigSelectColumnUpdateBy TerminalParamConfigSelectColumn = "update_by"
+	TerminalParamConfigSelectColumnUpdatedBy TerminalParamConfigSelectColumn = "updated_by"
 	// 删除时间
-	TerminalParamConfigSelectColumnDeleteAt TerminalParamConfigSelectColumn = "delete_at"
+	TerminalParamConfigSelectColumnDeletedAt TerminalParamConfigSelectColumn = "deleted_at"
 	// 删除人
-	TerminalParamConfigSelectColumnDeleteBy TerminalParamConfigSelectColumn = "delete_by"
+	TerminalParamConfigSelectColumnDeletedBy TerminalParamConfigSelectColumn = "deleted_by"
 	// 是否删除
-	TerminalParamConfigSelectColumnIsDelete TerminalParamConfigSelectColumn = "is_delete"
+	TerminalParamConfigSelectColumnIsDeleted TerminalParamConfigSelectColumn = "is_deleted"
 	// 备注
 	TerminalParamConfigSelectColumnRemark TerminalParamConfigSelectColumn = "remark"
 )
@@ -7506,19 +7506,19 @@ var AllTerminalParamConfigSelectColumn = []TerminalParamConfigSelectColumn{
 	TerminalParamConfigSelectColumnLastStateTime,
 	TerminalParamConfigSelectColumnSuccessTime,
 	TerminalParamConfigSelectColumnLastOperator,
-	TerminalParamConfigSelectColumnCreateAt,
-	TerminalParamConfigSelectColumnCreateBy,
-	TerminalParamConfigSelectColumnUpdateAt,
-	TerminalParamConfigSelectColumnUpdateBy,
-	TerminalParamConfigSelectColumnDeleteAt,
-	TerminalParamConfigSelectColumnDeleteBy,
-	TerminalParamConfigSelectColumnIsDelete,
+	TerminalParamConfigSelectColumnCreatedAt,
+	TerminalParamConfigSelectColumnCreatedBy,
+	TerminalParamConfigSelectColumnUpdatedAt,
+	TerminalParamConfigSelectColumnUpdatedBy,
+	TerminalParamConfigSelectColumnDeletedAt,
+	TerminalParamConfigSelectColumnDeletedBy,
+	TerminalParamConfigSelectColumnIsDeleted,
 	TerminalParamConfigSelectColumnRemark,
 }
 
 func (e TerminalParamConfigSelectColumn) IsValid() bool {
 	switch e {
-	case TerminalParamConfigSelectColumnID, TerminalParamConfigSelectColumnConfigID, TerminalParamConfigSelectColumnParamItemID, TerminalParamConfigSelectColumnParamValue, TerminalParamConfigSelectColumnTerminalID, TerminalParamConfigSelectColumnSuccessValue, TerminalParamConfigSelectColumnLastState, TerminalParamConfigSelectColumnLastStateTime, TerminalParamConfigSelectColumnSuccessTime, TerminalParamConfigSelectColumnLastOperator, TerminalParamConfigSelectColumnCreateAt, TerminalParamConfigSelectColumnCreateBy, TerminalParamConfigSelectColumnUpdateAt, TerminalParamConfigSelectColumnUpdateBy, TerminalParamConfigSelectColumnDeleteAt, TerminalParamConfigSelectColumnDeleteBy, TerminalParamConfigSelectColumnIsDelete, TerminalParamConfigSelectColumnRemark:
+	case TerminalParamConfigSelectColumnID, TerminalParamConfigSelectColumnConfigID, TerminalParamConfigSelectColumnParamItemID, TerminalParamConfigSelectColumnParamValue, TerminalParamConfigSelectColumnTerminalID, TerminalParamConfigSelectColumnSuccessValue, TerminalParamConfigSelectColumnLastState, TerminalParamConfigSelectColumnLastStateTime, TerminalParamConfigSelectColumnSuccessTime, TerminalParamConfigSelectColumnLastOperator, TerminalParamConfigSelectColumnCreatedAt, TerminalParamConfigSelectColumnCreatedBy, TerminalParamConfigSelectColumnUpdatedAt, TerminalParamConfigSelectColumnUpdatedBy, TerminalParamConfigSelectColumnDeletedAt, TerminalParamConfigSelectColumnDeletedBy, TerminalParamConfigSelectColumnIsDeleted, TerminalParamConfigSelectColumnRemark:
 		return true
 	}
 	return false
@@ -7564,19 +7564,19 @@ const (
 	// 是否含有子参数
 	TerminalParamItemSelectColumnHasSubparam TerminalParamItemSelectColumn = "has_subparam"
 	// 创建时间
-	TerminalParamItemSelectColumnCreateAt TerminalParamItemSelectColumn = "create_at"
+	TerminalParamItemSelectColumnCreatedAt TerminalParamItemSelectColumn = "created_at"
 	// 创建人
-	TerminalParamItemSelectColumnCreateBy TerminalParamItemSelectColumn = "create_by"
+	TerminalParamItemSelectColumnCreatedBy TerminalParamItemSelectColumn = "created_by"
 	// 更新时间
-	TerminalParamItemSelectColumnUpdateAt TerminalParamItemSelectColumn = "update_at"
+	TerminalParamItemSelectColumnUpdatedAt TerminalParamItemSelectColumn = "updated_at"
 	// 更新人
-	TerminalParamItemSelectColumnUpdateBy TerminalParamItemSelectColumn = "update_by"
+	TerminalParamItemSelectColumnUpdatedBy TerminalParamItemSelectColumn = "updated_by"
 	// 删除时间
-	TerminalParamItemSelectColumnDeleteAt TerminalParamItemSelectColumn = "delete_at"
+	TerminalParamItemSelectColumnDeletedAt TerminalParamItemSelectColumn = "deleted_at"
 	// 删除人
-	TerminalParamItemSelectColumnDeleteBy TerminalParamItemSelectColumn = "delete_by"
+	TerminalParamItemSelectColumnDeletedBy TerminalParamItemSelectColumn = "deleted_by"
 	// 是否删除
-	TerminalParamItemSelectColumnIsDelete TerminalParamItemSelectColumn = "is_delete"
+	TerminalParamItemSelectColumnIsDeleted TerminalParamItemSelectColumn = "is_deleted"
 	// 备注
 	TerminalParamItemSelectColumnRemark TerminalParamItemSelectColumn = "remark"
 	// 枚举关联字典ID
@@ -7591,20 +7591,20 @@ var AllTerminalParamItemSelectColumn = []TerminalParamItemSelectColumn{
 	TerminalParamItemSelectColumnDataType,
 	TerminalParamItemSelectColumnIsEnum,
 	TerminalParamItemSelectColumnHasSubparam,
-	TerminalParamItemSelectColumnCreateAt,
-	TerminalParamItemSelectColumnCreateBy,
-	TerminalParamItemSelectColumnUpdateAt,
-	TerminalParamItemSelectColumnUpdateBy,
-	TerminalParamItemSelectColumnDeleteAt,
-	TerminalParamItemSelectColumnDeleteBy,
-	TerminalParamItemSelectColumnIsDelete,
+	TerminalParamItemSelectColumnCreatedAt,
+	TerminalParamItemSelectColumnCreatedBy,
+	TerminalParamItemSelectColumnUpdatedAt,
+	TerminalParamItemSelectColumnUpdatedBy,
+	TerminalParamItemSelectColumnDeletedAt,
+	TerminalParamItemSelectColumnDeletedBy,
+	TerminalParamItemSelectColumnIsDeleted,
 	TerminalParamItemSelectColumnRemark,
 	TerminalParamItemSelectColumnDictID,
 }
 
 func (e TerminalParamItemSelectColumn) IsValid() bool {
 	switch e {
-	case TerminalParamItemSelectColumnID, TerminalParamItemSelectColumnParamItemID, TerminalParamItemSelectColumnParamItemName, TerminalParamItemSelectColumnParamTypeID, TerminalParamItemSelectColumnDataType, TerminalParamItemSelectColumnIsEnum, TerminalParamItemSelectColumnHasSubparam, TerminalParamItemSelectColumnCreateAt, TerminalParamItemSelectColumnCreateBy, TerminalParamItemSelectColumnUpdateAt, TerminalParamItemSelectColumnUpdateBy, TerminalParamItemSelectColumnDeleteAt, TerminalParamItemSelectColumnDeleteBy, TerminalParamItemSelectColumnIsDelete, TerminalParamItemSelectColumnRemark, TerminalParamItemSelectColumnDictID:
+	case TerminalParamItemSelectColumnID, TerminalParamItemSelectColumnParamItemID, TerminalParamItemSelectColumnParamItemName, TerminalParamItemSelectColumnParamTypeID, TerminalParamItemSelectColumnDataType, TerminalParamItemSelectColumnIsEnum, TerminalParamItemSelectColumnHasSubparam, TerminalParamItemSelectColumnCreatedAt, TerminalParamItemSelectColumnCreatedBy, TerminalParamItemSelectColumnUpdatedAt, TerminalParamItemSelectColumnUpdatedBy, TerminalParamItemSelectColumnDeletedAt, TerminalParamItemSelectColumnDeletedBy, TerminalParamItemSelectColumnIsDeleted, TerminalParamItemSelectColumnRemark, TerminalParamItemSelectColumnDictID:
 		return true
 	}
 	return false
@@ -7654,19 +7654,19 @@ const (
 	// 参数值
 	TerminalParamSubSelectColumnParamValue TerminalParamSubSelectColumn = "param_value"
 	// 添加时间
-	TerminalParamSubSelectColumnCreateAt TerminalParamSubSelectColumn = "create_at"
+	TerminalParamSubSelectColumnCreatedAt TerminalParamSubSelectColumn = "created_at"
 	// 添加人
-	TerminalParamSubSelectColumnCreateBy TerminalParamSubSelectColumn = "create_by"
+	TerminalParamSubSelectColumnCreatedBy TerminalParamSubSelectColumn = "created_by"
 	// 更新时间
-	TerminalParamSubSelectColumnUpdateAt TerminalParamSubSelectColumn = "update_at"
+	TerminalParamSubSelectColumnUpdatedAt TerminalParamSubSelectColumn = "updated_at"
 	// 更新人
-	TerminalParamSubSelectColumnUpdateBy TerminalParamSubSelectColumn = "update_by"
+	TerminalParamSubSelectColumnUpdatedBy TerminalParamSubSelectColumn = "updated_by"
 	// 删除时间
-	TerminalParamSubSelectColumnDeleteAt TerminalParamSubSelectColumn = "delete_at"
+	TerminalParamSubSelectColumnDeletedAt TerminalParamSubSelectColumn = "deleted_at"
 	// 删除人
-	TerminalParamSubSelectColumnDeleteBy TerminalParamSubSelectColumn = "delete_by"
+	TerminalParamSubSelectColumnDeletedBy TerminalParamSubSelectColumn = "deleted_by"
 	// 是否删除
-	TerminalParamSubSelectColumnIsDelete TerminalParamSubSelectColumn = "is_delete"
+	TerminalParamSubSelectColumnIsDeleted TerminalParamSubSelectColumn = "is_deleted"
 	// 备注
 	TerminalParamSubSelectColumnRemark TerminalParamSubSelectColumn = "remark"
 )
@@ -7681,19 +7681,19 @@ var AllTerminalParamSubSelectColumn = []TerminalParamSubSelectColumn{
 	TerminalParamSubSelectColumnIsEnum,
 	TerminalParamSubSelectColumnEnumDictID,
 	TerminalParamSubSelectColumnParamValue,
-	TerminalParamSubSelectColumnCreateAt,
-	TerminalParamSubSelectColumnCreateBy,
-	TerminalParamSubSelectColumnUpdateAt,
-	TerminalParamSubSelectColumnUpdateBy,
-	TerminalParamSubSelectColumnDeleteAt,
-	TerminalParamSubSelectColumnDeleteBy,
-	TerminalParamSubSelectColumnIsDelete,
+	TerminalParamSubSelectColumnCreatedAt,
+	TerminalParamSubSelectColumnCreatedBy,
+	TerminalParamSubSelectColumnUpdatedAt,
+	TerminalParamSubSelectColumnUpdatedBy,
+	TerminalParamSubSelectColumnDeletedAt,
+	TerminalParamSubSelectColumnDeletedBy,
+	TerminalParamSubSelectColumnIsDeleted,
 	TerminalParamSubSelectColumnRemark,
 }
 
 func (e TerminalParamSubSelectColumn) IsValid() bool {
 	switch e {
-	case TerminalParamSubSelectColumnID, TerminalParamSubSelectColumnParamSubID, TerminalParamSubSelectColumnParamID, TerminalParamSubSelectColumnBitStart, TerminalParamSubSelectColumnBitEnd, TerminalParamSubSelectColumnParamSubName, TerminalParamSubSelectColumnIsEnum, TerminalParamSubSelectColumnEnumDictID, TerminalParamSubSelectColumnParamValue, TerminalParamSubSelectColumnCreateAt, TerminalParamSubSelectColumnCreateBy, TerminalParamSubSelectColumnUpdateAt, TerminalParamSubSelectColumnUpdateBy, TerminalParamSubSelectColumnDeleteAt, TerminalParamSubSelectColumnDeleteBy, TerminalParamSubSelectColumnIsDelete, TerminalParamSubSelectColumnRemark:
+	case TerminalParamSubSelectColumnID, TerminalParamSubSelectColumnParamSubID, TerminalParamSubSelectColumnParamID, TerminalParamSubSelectColumnBitStart, TerminalParamSubSelectColumnBitEnd, TerminalParamSubSelectColumnParamSubName, TerminalParamSubSelectColumnIsEnum, TerminalParamSubSelectColumnEnumDictID, TerminalParamSubSelectColumnParamValue, TerminalParamSubSelectColumnCreatedAt, TerminalParamSubSelectColumnCreatedBy, TerminalParamSubSelectColumnUpdatedAt, TerminalParamSubSelectColumnUpdatedBy, TerminalParamSubSelectColumnDeletedAt, TerminalParamSubSelectColumnDeletedBy, TerminalParamSubSelectColumnIsDeleted, TerminalParamSubSelectColumnRemark:
 		return true
 	}
 	return false
@@ -7733,19 +7733,19 @@ const (
 	// 上级指令类型ID
 	TerminalParamTypeSelectColumnParentParamTypeID TerminalParamTypeSelectColumn = "parent_param_type_id"
 	// 创建时间
-	TerminalParamTypeSelectColumnCreateAt TerminalParamTypeSelectColumn = "create_at"
+	TerminalParamTypeSelectColumnCreatedAt TerminalParamTypeSelectColumn = "created_at"
 	// 创建人
-	TerminalParamTypeSelectColumnCreateBy TerminalParamTypeSelectColumn = "create_by"
+	TerminalParamTypeSelectColumnCreatedBy TerminalParamTypeSelectColumn = "created_by"
 	// 更新时间
-	TerminalParamTypeSelectColumnUpdateAt TerminalParamTypeSelectColumn = "update_at"
+	TerminalParamTypeSelectColumnUpdatedAt TerminalParamTypeSelectColumn = "updated_at"
 	// 更新人
-	TerminalParamTypeSelectColumnUpdateBy TerminalParamTypeSelectColumn = "update_by"
+	TerminalParamTypeSelectColumnUpdatedBy TerminalParamTypeSelectColumn = "updated_by"
 	// 删除时间
-	TerminalParamTypeSelectColumnDeleteAt TerminalParamTypeSelectColumn = "delete_at"
+	TerminalParamTypeSelectColumnDeletedAt TerminalParamTypeSelectColumn = "deleted_at"
 	// 删除人
-	TerminalParamTypeSelectColumnDeleteBy TerminalParamTypeSelectColumn = "delete_by"
+	TerminalParamTypeSelectColumnDeletedBy TerminalParamTypeSelectColumn = "deleted_by"
 	// 是否删除
-	TerminalParamTypeSelectColumnIsDelete TerminalParamTypeSelectColumn = "is_delete"
+	TerminalParamTypeSelectColumnIsDeleted TerminalParamTypeSelectColumn = "is_deleted"
 	// 备注
 	TerminalParamTypeSelectColumnRemark TerminalParamTypeSelectColumn = "remark"
 )
@@ -7755,19 +7755,19 @@ var AllTerminalParamTypeSelectColumn = []TerminalParamTypeSelectColumn{
 	TerminalParamTypeSelectColumnParamTypeID,
 	TerminalParamTypeSelectColumnParamTypeName,
 	TerminalParamTypeSelectColumnParentParamTypeID,
-	TerminalParamTypeSelectColumnCreateAt,
-	TerminalParamTypeSelectColumnCreateBy,
-	TerminalParamTypeSelectColumnUpdateAt,
-	TerminalParamTypeSelectColumnUpdateBy,
-	TerminalParamTypeSelectColumnDeleteAt,
-	TerminalParamTypeSelectColumnDeleteBy,
-	TerminalParamTypeSelectColumnIsDelete,
+	TerminalParamTypeSelectColumnCreatedAt,
+	TerminalParamTypeSelectColumnCreatedBy,
+	TerminalParamTypeSelectColumnUpdatedAt,
+	TerminalParamTypeSelectColumnUpdatedBy,
+	TerminalParamTypeSelectColumnDeletedAt,
+	TerminalParamTypeSelectColumnDeletedBy,
+	TerminalParamTypeSelectColumnIsDeleted,
 	TerminalParamTypeSelectColumnRemark,
 }
 
 func (e TerminalParamTypeSelectColumn) IsValid() bool {
 	switch e {
-	case TerminalParamTypeSelectColumnID, TerminalParamTypeSelectColumnParamTypeID, TerminalParamTypeSelectColumnParamTypeName, TerminalParamTypeSelectColumnParentParamTypeID, TerminalParamTypeSelectColumnCreateAt, TerminalParamTypeSelectColumnCreateBy, TerminalParamTypeSelectColumnUpdateAt, TerminalParamTypeSelectColumnUpdateBy, TerminalParamTypeSelectColumnDeleteAt, TerminalParamTypeSelectColumnDeleteBy, TerminalParamTypeSelectColumnIsDelete, TerminalParamTypeSelectColumnRemark:
+	case TerminalParamTypeSelectColumnID, TerminalParamTypeSelectColumnParamTypeID, TerminalParamTypeSelectColumnParamTypeName, TerminalParamTypeSelectColumnParentParamTypeID, TerminalParamTypeSelectColumnCreatedAt, TerminalParamTypeSelectColumnCreatedBy, TerminalParamTypeSelectColumnUpdatedAt, TerminalParamTypeSelectColumnUpdatedBy, TerminalParamTypeSelectColumnDeletedAt, TerminalParamTypeSelectColumnDeletedBy, TerminalParamTypeSelectColumnIsDeleted, TerminalParamTypeSelectColumnRemark:
 		return true
 	}
 	return false
@@ -7881,19 +7881,19 @@ const (
 	// 工程车自编号
 	TerminalProveSelectColumnSvNum TerminalProveSelectColumn = "sv_num"
 	// 创建时间
-	TerminalProveSelectColumnCreateAt TerminalProveSelectColumn = "create_at"
+	TerminalProveSelectColumnCreatedAt TerminalProveSelectColumn = "created_at"
 	// 创建人
-	TerminalProveSelectColumnCreateBy TerminalProveSelectColumn = "create_by"
+	TerminalProveSelectColumnCreatedBy TerminalProveSelectColumn = "created_by"
 	// 更新时间
-	TerminalProveSelectColumnUpdateAt TerminalProveSelectColumn = "update_at"
+	TerminalProveSelectColumnUpdatedAt TerminalProveSelectColumn = "updated_at"
 	// 更新人
-	TerminalProveSelectColumnUpdateBy TerminalProveSelectColumn = "update_by"
+	TerminalProveSelectColumnUpdatedBy TerminalProveSelectColumn = "updated_by"
 	// 删除时间
-	TerminalProveSelectColumnDeleteAt TerminalProveSelectColumn = "delete_at"
+	TerminalProveSelectColumnDeletedAt TerminalProveSelectColumn = "deleted_at"
 	// 删除时间
-	TerminalProveSelectColumnDeleteBy TerminalProveSelectColumn = "delete_by"
+	TerminalProveSelectColumnDeletedBy TerminalProveSelectColumn = "deleted_by"
 	// 是否删除
-	TerminalProveSelectColumnIsDelete TerminalProveSelectColumn = "is_delete"
+	TerminalProveSelectColumnIsDeleted TerminalProveSelectColumn = "is_deleted"
 )
 
 var AllTerminalProveSelectColumn = []TerminalProveSelectColumn{
@@ -7938,18 +7938,18 @@ var AllTerminalProveSelectColumn = []TerminalProveSelectColumn{
 	TerminalProveSelectColumnFillRemark,
 	TerminalProveSelectColumnDelRemark,
 	TerminalProveSelectColumnSvNum,
-	TerminalProveSelectColumnCreateAt,
-	TerminalProveSelectColumnCreateBy,
-	TerminalProveSelectColumnUpdateAt,
-	TerminalProveSelectColumnUpdateBy,
-	TerminalProveSelectColumnDeleteAt,
-	TerminalProveSelectColumnDeleteBy,
-	TerminalProveSelectColumnIsDelete,
+	TerminalProveSelectColumnCreatedAt,
+	TerminalProveSelectColumnCreatedBy,
+	TerminalProveSelectColumnUpdatedAt,
+	TerminalProveSelectColumnUpdatedBy,
+	TerminalProveSelectColumnDeletedAt,
+	TerminalProveSelectColumnDeletedBy,
+	TerminalProveSelectColumnIsDeleted,
 }
 
 func (e TerminalProveSelectColumn) IsValid() bool {
 	switch e {
-	case TerminalProveSelectColumnID, TerminalProveSelectColumnProveID, TerminalProveSelectColumnPlateNumber, TerminalProveSelectColumnPlateColor, TerminalProveSelectColumnVehicleType, TerminalProveSelectColumnContractNum, TerminalProveSelectColumnSignDate, TerminalProveSelectColumnContractEndTime, TerminalProveSelectColumnTerminalTypeID, TerminalProveSelectColumnTerminalID, TerminalProveSelectColumnTerminalImei, TerminalProveSelectColumnInstallDate, TerminalProveSelectColumnTerminalRecordNum, TerminalProveSelectColumnInstallManSignPhoto, TerminalProveSelectColumnProxyrgID, TerminalProveSelectColumnElectronicInduction, TerminalProveSelectColumnTestReportNum, TerminalProveSelectColumnBatch, TerminalProveSelectColumnPlateformNum, TerminalProveSelectColumnPlatformRecordNum, TerminalProveSelectColumnBusinessLicenseNum, TerminalProveSelectColumnBusinessLicenseEndDate, TerminalProveSelectColumnLevelProtectRecordNum, TerminalProveSelectColumnLevelProtectSignDate, TerminalProveSelectColumnEnterpriseID, TerminalProveSelectColumnFillManID, TerminalProveSelectColumnVerifyManID, TerminalProveSelectColumnSealManID, TerminalProveSelectColumnFillManName, TerminalProveSelectColumnVerifyManName, TerminalProveSelectColumnSealManName, TerminalProveSelectColumnCheckStatus, TerminalProveSelectColumnIsCheckEnd, TerminalProveSelectColumnCheckTime, TerminalProveSelectColumnFillTime, TerminalProveSelectColumnFillID, TerminalProveSelectColumnVehicleID, TerminalProveSelectColumnCheckRemark, TerminalProveSelectColumnFillRemark, TerminalProveSelectColumnDelRemark, TerminalProveSelectColumnSvNum, TerminalProveSelectColumnCreateAt, TerminalProveSelectColumnCreateBy, TerminalProveSelectColumnUpdateAt, TerminalProveSelectColumnUpdateBy, TerminalProveSelectColumnDeleteAt, TerminalProveSelectColumnDeleteBy, TerminalProveSelectColumnIsDelete:
+	case TerminalProveSelectColumnID, TerminalProveSelectColumnProveID, TerminalProveSelectColumnPlateNumber, TerminalProveSelectColumnPlateColor, TerminalProveSelectColumnVehicleType, TerminalProveSelectColumnContractNum, TerminalProveSelectColumnSignDate, TerminalProveSelectColumnContractEndTime, TerminalProveSelectColumnTerminalTypeID, TerminalProveSelectColumnTerminalID, TerminalProveSelectColumnTerminalImei, TerminalProveSelectColumnInstallDate, TerminalProveSelectColumnTerminalRecordNum, TerminalProveSelectColumnInstallManSignPhoto, TerminalProveSelectColumnProxyrgID, TerminalProveSelectColumnElectronicInduction, TerminalProveSelectColumnTestReportNum, TerminalProveSelectColumnBatch, TerminalProveSelectColumnPlateformNum, TerminalProveSelectColumnPlatformRecordNum, TerminalProveSelectColumnBusinessLicenseNum, TerminalProveSelectColumnBusinessLicenseEndDate, TerminalProveSelectColumnLevelProtectRecordNum, TerminalProveSelectColumnLevelProtectSignDate, TerminalProveSelectColumnEnterpriseID, TerminalProveSelectColumnFillManID, TerminalProveSelectColumnVerifyManID, TerminalProveSelectColumnSealManID, TerminalProveSelectColumnFillManName, TerminalProveSelectColumnVerifyManName, TerminalProveSelectColumnSealManName, TerminalProveSelectColumnCheckStatus, TerminalProveSelectColumnIsCheckEnd, TerminalProveSelectColumnCheckTime, TerminalProveSelectColumnFillTime, TerminalProveSelectColumnFillID, TerminalProveSelectColumnVehicleID, TerminalProveSelectColumnCheckRemark, TerminalProveSelectColumnFillRemark, TerminalProveSelectColumnDelRemark, TerminalProveSelectColumnSvNum, TerminalProveSelectColumnCreatedAt, TerminalProveSelectColumnCreatedBy, TerminalProveSelectColumnUpdatedAt, TerminalProveSelectColumnUpdatedBy, TerminalProveSelectColumnDeletedAt, TerminalProveSelectColumnDeletedBy, TerminalProveSelectColumnIsDeleted:
 		return true
 	}
 	return false
@@ -8019,19 +8019,19 @@ const (
 	// 注册错误次数
 	TerminalRegLogSelectColumnRegErrorCount TerminalRegLogSelectColumn = "reg_error_count"
 	// 创建时间
-	TerminalRegLogSelectColumnCreateAt TerminalRegLogSelectColumn = "create_at"
+	TerminalRegLogSelectColumnCreatedAt TerminalRegLogSelectColumn = "created_at"
 	// 创建人
-	TerminalRegLogSelectColumnCreateBy TerminalRegLogSelectColumn = "create_by"
+	TerminalRegLogSelectColumnCreatedBy TerminalRegLogSelectColumn = "created_by"
 	// 修改时间
-	TerminalRegLogSelectColumnUpdateAt TerminalRegLogSelectColumn = "update_at"
+	TerminalRegLogSelectColumnUpdatedAt TerminalRegLogSelectColumn = "updated_at"
 	// 修改人
-	TerminalRegLogSelectColumnUpdateBy TerminalRegLogSelectColumn = "update_by"
+	TerminalRegLogSelectColumnUpdatedBy TerminalRegLogSelectColumn = "updated_by"
 	// 删除时间
-	TerminalRegLogSelectColumnDeleteAt TerminalRegLogSelectColumn = "delete_at"
+	TerminalRegLogSelectColumnDeletedAt TerminalRegLogSelectColumn = "deleted_at"
 	// 删除人
-	TerminalRegLogSelectColumnDeleteBy TerminalRegLogSelectColumn = "delete_by"
+	TerminalRegLogSelectColumnDeletedBy TerminalRegLogSelectColumn = "deleted_by"
 	// 是否删除
-	TerminalRegLogSelectColumnIsDelete TerminalRegLogSelectColumn = "is_delete"
+	TerminalRegLogSelectColumnIsDeleted TerminalRegLogSelectColumn = "is_deleted"
 	// 备注
 	TerminalRegLogSelectColumnRemark TerminalRegLogSelectColumn = "remark"
 )
@@ -8056,19 +8056,19 @@ var AllTerminalRegLogSelectColumn = []TerminalRegLogSelectColumn{
 	TerminalRegLogSelectColumnEndTime,
 	TerminalRegLogSelectColumnIsNew,
 	TerminalRegLogSelectColumnRegErrorCount,
-	TerminalRegLogSelectColumnCreateAt,
-	TerminalRegLogSelectColumnCreateBy,
-	TerminalRegLogSelectColumnUpdateAt,
-	TerminalRegLogSelectColumnUpdateBy,
-	TerminalRegLogSelectColumnDeleteAt,
-	TerminalRegLogSelectColumnDeleteBy,
-	TerminalRegLogSelectColumnIsDelete,
+	TerminalRegLogSelectColumnCreatedAt,
+	TerminalRegLogSelectColumnCreatedBy,
+	TerminalRegLogSelectColumnUpdatedAt,
+	TerminalRegLogSelectColumnUpdatedBy,
+	TerminalRegLogSelectColumnDeletedAt,
+	TerminalRegLogSelectColumnDeletedBy,
+	TerminalRegLogSelectColumnIsDeleted,
 	TerminalRegLogSelectColumnRemark,
 }
 
 func (e TerminalRegLogSelectColumn) IsValid() bool {
 	switch e {
-	case TerminalRegLogSelectColumnID, TerminalRegLogSelectColumnTerminalLogID, TerminalRegLogSelectColumnTerminalID, TerminalRegLogSelectColumnPlatProvinceID, TerminalRegLogSelectColumnTerminalProvinceID, TerminalRegLogSelectColumnPlatCityID, TerminalRegLogSelectColumnTerminalCityID, TerminalRegLogSelectColumnPlatTerminalTypeID, TerminalRegLogSelectColumnTerminalTerminalTypeID, TerminalRegLogSelectColumnPlatCarColor, TerminalRegLogSelectColumnTerminalCarColor, TerminalRegLogSelectColumnPlatCarNumber, TerminalRegLogSelectColumnTerminalCarNumber, TerminalRegLogSelectColumnPlatSimNumber, TerminalRegLogSelectColumnTerminalSimNumber, TerminalRegLogSelectColumnBeginTime, TerminalRegLogSelectColumnEndTime, TerminalRegLogSelectColumnIsNew, TerminalRegLogSelectColumnRegErrorCount, TerminalRegLogSelectColumnCreateAt, TerminalRegLogSelectColumnCreateBy, TerminalRegLogSelectColumnUpdateAt, TerminalRegLogSelectColumnUpdateBy, TerminalRegLogSelectColumnDeleteAt, TerminalRegLogSelectColumnDeleteBy, TerminalRegLogSelectColumnIsDelete, TerminalRegLogSelectColumnRemark:
+	case TerminalRegLogSelectColumnID, TerminalRegLogSelectColumnTerminalLogID, TerminalRegLogSelectColumnTerminalID, TerminalRegLogSelectColumnPlatProvinceID, TerminalRegLogSelectColumnTerminalProvinceID, TerminalRegLogSelectColumnPlatCityID, TerminalRegLogSelectColumnTerminalCityID, TerminalRegLogSelectColumnPlatTerminalTypeID, TerminalRegLogSelectColumnTerminalTerminalTypeID, TerminalRegLogSelectColumnPlatCarColor, TerminalRegLogSelectColumnTerminalCarColor, TerminalRegLogSelectColumnPlatCarNumber, TerminalRegLogSelectColumnTerminalCarNumber, TerminalRegLogSelectColumnPlatSimNumber, TerminalRegLogSelectColumnTerminalSimNumber, TerminalRegLogSelectColumnBeginTime, TerminalRegLogSelectColumnEndTime, TerminalRegLogSelectColumnIsNew, TerminalRegLogSelectColumnRegErrorCount, TerminalRegLogSelectColumnCreatedAt, TerminalRegLogSelectColumnCreatedBy, TerminalRegLogSelectColumnUpdatedAt, TerminalRegLogSelectColumnUpdatedBy, TerminalRegLogSelectColumnDeletedAt, TerminalRegLogSelectColumnDeletedBy, TerminalRegLogSelectColumnIsDeleted, TerminalRegLogSelectColumnRemark:
 		return true
 	}
 	return false
@@ -8158,17 +8158,17 @@ const (
 	// 备注
 	TerminalSelectColumnRemarks TerminalSelectColumn = "remarks"
 	// 新建时间
-	TerminalSelectColumnCreateAt TerminalSelectColumn = "create_at"
+	TerminalSelectColumnCreatedAt TerminalSelectColumn = "created_at"
 	// 新建人
-	TerminalSelectColumnCreateBy TerminalSelectColumn = "create_by"
+	TerminalSelectColumnCreatedBy TerminalSelectColumn = "created_by"
 	// 修改时间
-	TerminalSelectColumnUpdateAt TerminalSelectColumn = "update_at"
+	TerminalSelectColumnUpdatedAt TerminalSelectColumn = "updated_at"
 	// 修改人
-	TerminalSelectColumnUpdateBy TerminalSelectColumn = "update_by"
+	TerminalSelectColumnUpdatedBy TerminalSelectColumn = "updated_by"
 	// 删除时间
-	TerminalSelectColumnDeleteAt TerminalSelectColumn = "delete_at"
+	TerminalSelectColumnDeletedAt TerminalSelectColumn = "deleted_at"
 	// 删除人
-	TerminalSelectColumnDeleteBy TerminalSelectColumn = "delete_by"
+	TerminalSelectColumnDeletedBy TerminalSelectColumn = "deleted_by"
 )
 
 var AllTerminalSelectColumn = []TerminalSelectColumn{
@@ -8201,17 +8201,17 @@ var AllTerminalSelectColumn = []TerminalSelectColumn{
 	TerminalSelectColumnProveProxyrgID,
 	TerminalSelectColumnIsDelete,
 	TerminalSelectColumnRemarks,
-	TerminalSelectColumnCreateAt,
-	TerminalSelectColumnCreateBy,
-	TerminalSelectColumnUpdateAt,
-	TerminalSelectColumnUpdateBy,
-	TerminalSelectColumnDeleteAt,
-	TerminalSelectColumnDeleteBy,
+	TerminalSelectColumnCreatedAt,
+	TerminalSelectColumnCreatedBy,
+	TerminalSelectColumnUpdatedAt,
+	TerminalSelectColumnUpdatedBy,
+	TerminalSelectColumnDeletedAt,
+	TerminalSelectColumnDeletedBy,
 }
 
 func (e TerminalSelectColumn) IsValid() bool {
 	switch e {
-	case TerminalSelectColumnID, TerminalSelectColumnTerminalID, TerminalSelectColumnFirstInstallTime, TerminalSelectColumnImei, TerminalSelectColumnProduceDate, TerminalSelectColumnTypeID, TerminalSelectColumnVehicleID, TerminalSelectColumnVersionNumber, TerminalSelectColumnIsReg, TerminalSelectColumnSimID, TerminalSelectColumnRecordDate, TerminalSelectColumnDeptID, TerminalSelectColumnProxyrgID, TerminalSelectColumnInstallManID, TerminalSelectColumnRegID, TerminalSelectColumnProvinceID, TerminalSelectColumnCityID, TerminalSelectColumnAuthKey, TerminalSelectColumnIsSupportPhoto, TerminalSelectColumnMockAuthKey, TerminalSelectColumnSprgID, TerminalSelectColumnRemoveReason, TerminalSelectColumnGuaranteeDate, TerminalSelectColumnCameraNum, TerminalSelectColumnAdasModel, TerminalSelectColumnChannelNo, TerminalSelectColumnProveProxyrgID, TerminalSelectColumnIsDelete, TerminalSelectColumnRemarks, TerminalSelectColumnCreateAt, TerminalSelectColumnCreateBy, TerminalSelectColumnUpdateAt, TerminalSelectColumnUpdateBy, TerminalSelectColumnDeleteAt, TerminalSelectColumnDeleteBy:
+	case TerminalSelectColumnID, TerminalSelectColumnTerminalID, TerminalSelectColumnFirstInstallTime, TerminalSelectColumnImei, TerminalSelectColumnProduceDate, TerminalSelectColumnTypeID, TerminalSelectColumnVehicleID, TerminalSelectColumnVersionNumber, TerminalSelectColumnIsReg, TerminalSelectColumnSimID, TerminalSelectColumnRecordDate, TerminalSelectColumnDeptID, TerminalSelectColumnProxyrgID, TerminalSelectColumnInstallManID, TerminalSelectColumnRegID, TerminalSelectColumnProvinceID, TerminalSelectColumnCityID, TerminalSelectColumnAuthKey, TerminalSelectColumnIsSupportPhoto, TerminalSelectColumnMockAuthKey, TerminalSelectColumnSprgID, TerminalSelectColumnRemoveReason, TerminalSelectColumnGuaranteeDate, TerminalSelectColumnCameraNum, TerminalSelectColumnAdasModel, TerminalSelectColumnChannelNo, TerminalSelectColumnProveProxyrgID, TerminalSelectColumnIsDelete, TerminalSelectColumnRemarks, TerminalSelectColumnCreatedAt, TerminalSelectColumnCreatedBy, TerminalSelectColumnUpdatedAt, TerminalSelectColumnUpdatedBy, TerminalSelectColumnDeletedAt, TerminalSelectColumnDeletedBy:
 		return true
 	}
 	return false
@@ -8251,19 +8251,19 @@ const (
 	// 备注
 	TerminalTypesSelectColumnRemark TerminalTypesSelectColumn = "remark"
 	// 创建时间
-	TerminalTypesSelectColumnCreateAt TerminalTypesSelectColumn = "create_at"
+	TerminalTypesSelectColumnCreatedAt TerminalTypesSelectColumn = "created_at"
 	// 创建人
-	TerminalTypesSelectColumnCreateBy TerminalTypesSelectColumn = "create_by"
+	TerminalTypesSelectColumnCreatedBy TerminalTypesSelectColumn = "created_by"
 	// 修改时间
-	TerminalTypesSelectColumnUpdateAt TerminalTypesSelectColumn = "update_at"
+	TerminalTypesSelectColumnUpdatedAt TerminalTypesSelectColumn = "updated_at"
 	// 修改人
-	TerminalTypesSelectColumnUpdateBy TerminalTypesSelectColumn = "update_by"
+	TerminalTypesSelectColumnUpdatedBy TerminalTypesSelectColumn = "updated_by"
 	// 删除时间
-	TerminalTypesSelectColumnDeleteAt TerminalTypesSelectColumn = "delete_at"
+	TerminalTypesSelectColumnDeletedAt TerminalTypesSelectColumn = "deleted_at"
 	// 删除人
-	TerminalTypesSelectColumnDeleteBy TerminalTypesSelectColumn = "delete_by"
+	TerminalTypesSelectColumnDeletedBy TerminalTypesSelectColumn = "deleted_by"
 	// 是否删除
-	TerminalTypesSelectColumnIsDelete TerminalTypesSelectColumn = "is_delete"
+	TerminalTypesSelectColumnIsDeleted TerminalTypesSelectColumn = "is_deleted"
 )
 
 var AllTerminalTypesSelectColumn = []TerminalTypesSelectColumn{
@@ -8271,18 +8271,18 @@ var AllTerminalTypesSelectColumn = []TerminalTypesSelectColumn{
 	TerminalTypesSelectColumnTypeID,
 	TerminalTypesSelectColumnProtocolName,
 	TerminalTypesSelectColumnRemark,
-	TerminalTypesSelectColumnCreateAt,
-	TerminalTypesSelectColumnCreateBy,
-	TerminalTypesSelectColumnUpdateAt,
-	TerminalTypesSelectColumnUpdateBy,
-	TerminalTypesSelectColumnDeleteAt,
-	TerminalTypesSelectColumnDeleteBy,
-	TerminalTypesSelectColumnIsDelete,
+	TerminalTypesSelectColumnCreatedAt,
+	TerminalTypesSelectColumnCreatedBy,
+	TerminalTypesSelectColumnUpdatedAt,
+	TerminalTypesSelectColumnUpdatedBy,
+	TerminalTypesSelectColumnDeletedAt,
+	TerminalTypesSelectColumnDeletedBy,
+	TerminalTypesSelectColumnIsDeleted,
 }
 
 func (e TerminalTypesSelectColumn) IsValid() bool {
 	switch e {
-	case TerminalTypesSelectColumnID, TerminalTypesSelectColumnTypeID, TerminalTypesSelectColumnProtocolName, TerminalTypesSelectColumnRemark, TerminalTypesSelectColumnCreateAt, TerminalTypesSelectColumnCreateBy, TerminalTypesSelectColumnUpdateAt, TerminalTypesSelectColumnUpdateBy, TerminalTypesSelectColumnDeleteAt, TerminalTypesSelectColumnDeleteBy, TerminalTypesSelectColumnIsDelete:
+	case TerminalTypesSelectColumnID, TerminalTypesSelectColumnTypeID, TerminalTypesSelectColumnProtocolName, TerminalTypesSelectColumnRemark, TerminalTypesSelectColumnCreatedAt, TerminalTypesSelectColumnCreatedBy, TerminalTypesSelectColumnUpdatedAt, TerminalTypesSelectColumnUpdatedBy, TerminalTypesSelectColumnDeletedAt, TerminalTypesSelectColumnDeletedBy, TerminalTypesSelectColumnIsDeleted:
 		return true
 	}
 	return false

@@ -9,7 +9,7 @@ type Fingerprint {
 	"""
 	指纹ID
 	"""
-	finger_id: String!
+	fingerprint_id: String!
 	"""
 	指纹内容
 	"""
@@ -48,7 +48,7 @@ aggregate max on columns of table "fingerprint"
 """
 type FingerprintMaxFields {
 	id: Bigint
-	finger_id: String
+	fingerprint_id: String
 	content: String
 }
 """
@@ -56,7 +56,7 @@ aggregate min on columns of table "fingerprint"
 """
 type FingerprintMinFields {
 	id: Bigint
-	finger_id: String
+	fingerprint_id: String
 	content: String
 }
 """
@@ -113,7 +113,7 @@ ordering options when selecting data from "fingerprint"
 """
 input FingerprintOrderBy {
 	id: OrderBy
-	finger_id: OrderBy
+	fingerprint_id: OrderBy
 	content: OrderBy
 }
 """
@@ -124,14 +124,14 @@ input FingerprintBoolExp {
 	_not: FingerprintBoolExp
 	_or: [FingerprintBoolExp]
 	id: BigintComparisonExp
-	finger_id: StringComparisonExp
+	fingerprint_id: StringComparisonExp
 	content: StringComparisonExp
 }
 """
 input type for inserting data into table "fingerprint"
 """
 input FingerprintInsertInput {
-	finger_id: String!
+	fingerprint_id: String!
 	content: String!
 }
 """
@@ -145,7 +145,7 @@ input type for updating data in table "fingerprint"
 """
 input FingerprintSetInput {
 	id: Bigint
-	finger_id: String
+	fingerprint_id: String
 	content: String
 }
 """
@@ -159,7 +159,7 @@ enum FingerprintSelectColumn {
 	"""
 	指纹ID
 	"""
-	finger_id
+	fingerprint_id
 	"""
 	指纹内容
 	"""
@@ -178,6 +178,10 @@ extend type Query {
 	主键查询
 	"""
 	fingerprint_by_pk(id: Bigint!): Fingerprint!
+	"""
+	联合主键查询
+	"""
+	fingerprint_by_union_pk(fingerprint_id: String!): Fingerprint!
 }
 extend type Mutation {
 	"""
@@ -204,4 +208,12 @@ extend type Mutation {
 	根据主键更新
 	"""
 	update_fingerprint_by_pk(_inc: FingerprintIncInput, _set: FingerprintSetInput, id: Bigint!): Fingerprint
+	"""
+	根据联合主键更新
+	"""
+	update_fingerprint_by_union_pk(_inc: FingerprintIncInput, _set: FingerprintSetInput, fingerprint_id: String!): Fingerprint
+	"""
+	根据联合主键删除记录
+	"""
+	delete_fingerprint_by_union_pk(fingerprint_id: String!): Fingerprint
 }

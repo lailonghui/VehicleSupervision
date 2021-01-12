@@ -51,13 +51,13 @@ type DepartmentBoolExp struct {
 	DepartmentCode       *model.StringComparisonExp      `json:"department_code"`
 	DepartmentCategory   *model.IntComparisonExp         `json:"department_category"`
 	InternalNumber       *model.IntComparisonExp         `json:"internal_number"`
-	CreateAt             *model.TimestamptzComparisonExp `json:"create_at"`
-	CreateBy             *model.StringComparisonExp      `json:"create_by"`
-	UpdateAt             *model.TimestamptzComparisonExp `json:"update_at"`
-	UpdateBy             *model.StringComparisonExp      `json:"update_by"`
-	DeleteAt             *model.TimestamptzComparisonExp `json:"delete_at"`
-	DeleteBy             *model.StringComparisonExp      `json:"delete_by"`
-	IsDelete             *model.BooleanComparisonExp     `json:"is_delete"`
+	CreatedAt            *model.TimestamptzComparisonExp `json:"created_at"`
+	CreatedBy            *model.StringComparisonExp      `json:"created_by"`
+	UpdatedAt            *model.TimestamptzComparisonExp `json:"updated_at"`
+	UpdatedBy            *model.StringComparisonExp      `json:"updated_by"`
+	DeletedAt            *model.TimestamptzComparisonExp `json:"deleted_at"`
+	DeletedBy            *model.StringComparisonExp      `json:"deleted_by"`
+	IsDeleted            *model.BooleanComparisonExp     `json:"is_deleted"`
 	Remarks              *model.StringComparisonExp      `json:"remarks"`
 }
 
@@ -77,13 +77,13 @@ type DepartmentInsertInput struct {
 	DepartmentCode       *string    `json:"department_code"`
 	DepartmentCategory   *int       `json:"department_category"`
 	InternalNumber       *int       `json:"internal_number"`
-	CreateAt             *time.Time `json:"create_at"`
-	CreateBy             *string    `json:"create_by"`
-	UpdateAt             *time.Time `json:"update_at"`
-	UpdateBy             *string    `json:"update_by"`
-	DeleteAt             *time.Time `json:"delete_at"`
-	DeleteBy             *string    `json:"delete_by"`
-	IsDelete             bool       `json:"is_delete"`
+	CreatedAt            *time.Time `json:"created_at"`
+	CreatedBy            *string    `json:"created_by"`
+	UpdatedAt            *time.Time `json:"updated_at"`
+	UpdatedBy            *string    `json:"updated_by"`
+	DeletedAt            *time.Time `json:"deleted_at"`
+	DeletedBy            *string    `json:"deleted_by"`
+	IsDeleted            bool       `json:"is_deleted"`
 	Remarks              *string    `json:"remarks"`
 }
 
@@ -97,13 +97,13 @@ type DepartmentMaxFields struct {
 	DepartmentCode       *string    `json:"department_code"`
 	DepartmentCategory   *int       `json:"department_category"`
 	InternalNumber       *int       `json:"internal_number"`
-	CreateAt             *time.Time `json:"create_at"`
-	CreateBy             *string    `json:"create_by"`
-	UpdateAt             *time.Time `json:"update_at"`
-	UpdateBy             *string    `json:"update_by"`
-	DeleteAt             *time.Time `json:"delete_at"`
-	DeleteBy             *string    `json:"delete_by"`
-	IsDelete             *bool      `json:"is_delete"`
+	CreatedAt            *time.Time `json:"created_at"`
+	CreatedBy            *string    `json:"created_by"`
+	UpdatedAt            *time.Time `json:"updated_at"`
+	UpdatedBy            *string    `json:"updated_by"`
+	DeletedAt            *time.Time `json:"deleted_at"`
+	DeletedBy            *string    `json:"deleted_by"`
+	IsDeleted            *bool      `json:"is_deleted"`
 	Remarks              *string    `json:"remarks"`
 }
 
@@ -117,13 +117,13 @@ type DepartmentMinFields struct {
 	DepartmentCode       *string    `json:"department_code"`
 	DepartmentCategory   *int       `json:"department_category"`
 	InternalNumber       *int       `json:"internal_number"`
-	CreateAt             *time.Time `json:"create_at"`
-	CreateBy             *string    `json:"create_by"`
-	UpdateAt             *time.Time `json:"update_at"`
-	UpdateBy             *string    `json:"update_by"`
-	DeleteAt             *time.Time `json:"delete_at"`
-	DeleteBy             *string    `json:"delete_by"`
-	IsDelete             *bool      `json:"is_delete"`
+	CreatedAt            *time.Time `json:"created_at"`
+	CreatedBy            *string    `json:"created_by"`
+	UpdatedAt            *time.Time `json:"updated_at"`
+	UpdatedBy            *string    `json:"updated_by"`
+	DeletedAt            *time.Time `json:"deleted_at"`
+	DeletedBy            *string    `json:"deleted_by"`
+	IsDeleted            *bool      `json:"is_deleted"`
 	Remarks              *string    `json:"remarks"`
 }
 
@@ -143,13 +143,13 @@ type DepartmentOrderBy struct {
 	DepartmentCode       *model.OrderBy `json:"department_code"`
 	DepartmentCategory   *model.OrderBy `json:"department_category"`
 	InternalNumber       *model.OrderBy `json:"internal_number"`
-	CreateAt             *model.OrderBy `json:"create_at"`
-	CreateBy             *model.OrderBy `json:"create_by"`
-	UpdateAt             *model.OrderBy `json:"update_at"`
-	UpdateBy             *model.OrderBy `json:"update_by"`
-	DeleteAt             *model.OrderBy `json:"delete_at"`
-	DeleteBy             *model.OrderBy `json:"delete_by"`
-	IsDelete             *model.OrderBy `json:"is_delete"`
+	CreatedAt            *model.OrderBy `json:"created_at"`
+	CreatedBy            *model.OrderBy `json:"created_by"`
+	UpdatedAt            *model.OrderBy `json:"updated_at"`
+	UpdatedBy            *model.OrderBy `json:"updated_by"`
+	DeletedAt            *model.OrderBy `json:"deleted_at"`
+	DeletedBy            *model.OrderBy `json:"deleted_by"`
+	IsDeleted            *model.OrderBy `json:"is_deleted"`
 	Remarks              *model.OrderBy `json:"remarks"`
 }
 
@@ -163,13 +163,13 @@ type DepartmentSetInput struct {
 	DepartmentCode       *string    `json:"department_code"`
 	DepartmentCategory   *int       `json:"department_category"`
 	InternalNumber       *int       `json:"internal_number"`
-	CreateAt             *time.Time `json:"create_at"`
-	CreateBy             *string    `json:"create_by"`
-	UpdateAt             *time.Time `json:"update_at"`
-	UpdateBy             *string    `json:"update_by"`
-	DeleteAt             *time.Time `json:"delete_at"`
-	DeleteBy             *string    `json:"delete_by"`
-	IsDelete             *bool      `json:"is_delete"`
+	CreatedAt            *time.Time `json:"created_at"`
+	CreatedBy            *string    `json:"created_by"`
+	UpdatedAt            *time.Time `json:"updated_at"`
+	UpdatedBy            *string    `json:"updated_by"`
+	DeletedAt            *time.Time `json:"deleted_at"`
+	DeletedBy            *string    `json:"deleted_by"`
+	IsDeleted            *bool      `json:"is_deleted"`
 	Remarks              *string    `json:"remarks"`
 }
 
@@ -497,12 +497,12 @@ type EnterpriseBoolExp struct {
 	AssociationReviewOpinion         *model.StringComparisonExp      `json:"association_review_opinion"`
 	AssociationReviewTime            *model.TimestamptzComparisonExp `json:"association_review_time"`
 	AssociationReviewBy              *model.TimestamptzComparisonExp `json:"association_review_by"`
-	CreateAt                         *model.TimestamptzComparisonExp `json:"create_at"`
-	CreateBy                         *model.StringComparisonExp      `json:"create_by"`
-	UpdateAt                         *model.TimestamptzComparisonExp `json:"update_at"`
-	UpdateBy                         *model.StringComparisonExp      `json:"update_by"`
-	DeleteAt                         *model.TimestamptzComparisonExp `json:"delete_at"`
-	DeleteBy                         *model.StringComparisonExp      `json:"delete_by"`
+	CreatedAt                        *model.TimestamptzComparisonExp `json:"created_at"`
+	CreatedBy                        *model.StringComparisonExp      `json:"created_by"`
+	UpdatedAt                        *model.TimestamptzComparisonExp `json:"updated_at"`
+	UpdatedBy                        *model.StringComparisonExp      `json:"updated_by"`
+	DeletedAt                        *model.TimestamptzComparisonExp `json:"deleted_at"`
+	DeletedBy                        *model.StringComparisonExp      `json:"deleted_by"`
 	Remarks                          *model.StringComparisonExp      `json:"remarks"`
 	IsDeleted                        *model.BooleanComparisonExp     `json:"is_deleted"`
 	IsKeyPoint                       *model.BooleanComparisonExp     `json:"is_key_point"`
@@ -554,13 +554,13 @@ type EnterpriseContactBoolExp struct {
 	Phone        *model.StringComparisonExp      `json:"phone"`
 	Email        *model.StringComparisonExp      `json:"email"`
 	SortNum      *model.IntComparisonExp         `json:"sort_num"`
-	CreateAt     *model.TimestamptzComparisonExp `json:"create_at"`
-	CreateBy     *model.StringComparisonExp      `json:"create_by"`
-	UpdateAt     *model.TimestamptzComparisonExp `json:"update_at"`
-	UpdateBy     *model.StringComparisonExp      `json:"update_by"`
-	DeleteAt     *model.TimestamptzComparisonExp `json:"delete_at"`
-	DeleteBy     *model.StringComparisonExp      `json:"delete_by"`
-	IsDelete     *model.BooleanComparisonExp     `json:"is_delete"`
+	CreatedAt    *model.TimestamptzComparisonExp `json:"created_at"`
+	CreatedBy    *model.StringComparisonExp      `json:"created_by"`
+	UpdatedAt    *model.TimestamptzComparisonExp `json:"updated_at"`
+	UpdatedBy    *model.StringComparisonExp      `json:"updated_by"`
+	DeletedAt    *model.TimestamptzComparisonExp `json:"deleted_at"`
+	DeletedBy    *model.StringComparisonExp      `json:"deleted_by"`
+	IsDeleted    *model.BooleanComparisonExp     `json:"is_deleted"`
 }
 
 // input type for incrementing integer column in table "enterprise_contact"
@@ -578,13 +578,13 @@ type EnterpriseContactInsertInput struct {
 	Phone        *string    `json:"phone"`
 	Email        *string    `json:"email"`
 	SortNum      *int       `json:"sort_num"`
-	CreateAt     time.Time  `json:"create_at"`
-	CreateBy     *string    `json:"create_by"`
-	UpdateAt     *time.Time `json:"update_at"`
-	UpdateBy     *string    `json:"update_by"`
-	DeleteAt     *time.Time `json:"delete_at"`
-	DeleteBy     *string    `json:"delete_by"`
-	IsDelete     bool       `json:"is_delete"`
+	CreatedAt    time.Time  `json:"created_at"`
+	CreatedBy    *string    `json:"created_by"`
+	UpdatedAt    *time.Time `json:"updated_at"`
+	UpdatedBy    *string    `json:"updated_by"`
+	DeletedAt    *time.Time `json:"deleted_at"`
+	DeletedBy    *string    `json:"deleted_by"`
+	IsDeleted    bool       `json:"is_deleted"`
 }
 
 // aggregate max on columns of table "enterprise_contact"
@@ -597,13 +597,13 @@ type EnterpriseContactMaxFields struct {
 	Phone        *string    `json:"phone"`
 	Email        *string    `json:"email"`
 	SortNum      *int       `json:"sort_num"`
-	CreateAt     *time.Time `json:"create_at"`
-	CreateBy     *string    `json:"create_by"`
-	UpdateAt     *time.Time `json:"update_at"`
-	UpdateBy     *string    `json:"update_by"`
-	DeleteAt     *time.Time `json:"delete_at"`
-	DeleteBy     *string    `json:"delete_by"`
-	IsDelete     *bool      `json:"is_delete"`
+	CreatedAt    *time.Time `json:"created_at"`
+	CreatedBy    *string    `json:"created_by"`
+	UpdatedAt    *time.Time `json:"updated_at"`
+	UpdatedBy    *string    `json:"updated_by"`
+	DeletedAt    *time.Time `json:"deleted_at"`
+	DeletedBy    *string    `json:"deleted_by"`
+	IsDeleted    *bool      `json:"is_deleted"`
 }
 
 // aggregate min on columns of table "enterprise_contact"
@@ -616,13 +616,13 @@ type EnterpriseContactMinFields struct {
 	Phone        *string    `json:"phone"`
 	Email        *string    `json:"email"`
 	SortNum      *int       `json:"sort_num"`
-	CreateAt     *time.Time `json:"create_at"`
-	CreateBy     *string    `json:"create_by"`
-	UpdateAt     *time.Time `json:"update_at"`
-	UpdateBy     *string    `json:"update_by"`
-	DeleteAt     *time.Time `json:"delete_at"`
-	DeleteBy     *string    `json:"delete_by"`
-	IsDelete     *bool      `json:"is_delete"`
+	CreatedAt    *time.Time `json:"created_at"`
+	CreatedBy    *string    `json:"created_by"`
+	UpdatedAt    *time.Time `json:"updated_at"`
+	UpdatedBy    *string    `json:"updated_by"`
+	DeletedAt    *time.Time `json:"deleted_at"`
+	DeletedBy    *string    `json:"deleted_by"`
+	IsDeleted    *bool      `json:"is_deleted"`
 }
 
 // response of any mutation on the table "enterprise_contact"
@@ -641,13 +641,13 @@ type EnterpriseContactOrderBy struct {
 	Phone        *model.OrderBy `json:"phone"`
 	Email        *model.OrderBy `json:"email"`
 	SortNum      *model.OrderBy `json:"sort_num"`
-	CreateAt     *model.OrderBy `json:"create_at"`
-	CreateBy     *model.OrderBy `json:"create_by"`
-	UpdateAt     *model.OrderBy `json:"update_at"`
-	UpdateBy     *model.OrderBy `json:"update_by"`
-	DeleteAt     *model.OrderBy `json:"delete_at"`
-	DeleteBy     *model.OrderBy `json:"delete_by"`
-	IsDelete     *model.OrderBy `json:"is_delete"`
+	CreatedAt    *model.OrderBy `json:"created_at"`
+	CreatedBy    *model.OrderBy `json:"created_by"`
+	UpdatedAt    *model.OrderBy `json:"updated_at"`
+	UpdatedBy    *model.OrderBy `json:"updated_by"`
+	DeletedAt    *model.OrderBy `json:"deleted_at"`
+	DeletedBy    *model.OrderBy `json:"deleted_by"`
+	IsDeleted    *model.OrderBy `json:"is_deleted"`
 }
 
 // input type for updating data in table "enterprise_contact"
@@ -660,13 +660,13 @@ type EnterpriseContactSetInput struct {
 	Phone        *string    `json:"phone"`
 	Email        *string    `json:"email"`
 	SortNum      *int       `json:"sort_num"`
-	CreateAt     *time.Time `json:"create_at"`
-	CreateBy     *string    `json:"create_by"`
-	UpdateAt     *time.Time `json:"update_at"`
-	UpdateBy     *string    `json:"update_by"`
-	DeleteAt     *time.Time `json:"delete_at"`
-	DeleteBy     *string    `json:"delete_by"`
-	IsDelete     *bool      `json:"is_delete"`
+	CreatedAt    *time.Time `json:"created_at"`
+	CreatedBy    *string    `json:"created_by"`
+	UpdatedAt    *time.Time `json:"updated_at"`
+	UpdatedBy    *string    `json:"updated_by"`
+	DeletedAt    *time.Time `json:"deleted_at"`
+	DeletedBy    *string    `json:"deleted_by"`
+	IsDeleted    *bool      `json:"is_deleted"`
 }
 
 // aggregate stddev on columns of table "enterprise_contact"
@@ -775,12 +775,12 @@ type EnterpriseInsertInput struct {
 	AssociationReviewOpinion         *string    `json:"association_review_opinion"`
 	AssociationReviewTime            *time.Time `json:"association_review_time"`
 	AssociationReviewBy              *time.Time `json:"association_review_by"`
-	CreateAt                         *time.Time `json:"create_at"`
-	CreateBy                         *string    `json:"create_by"`
-	UpdateAt                         *time.Time `json:"update_at"`
-	UpdateBy                         *string    `json:"update_by"`
-	DeleteAt                         *time.Time `json:"delete_at"`
-	DeleteBy                         *string    `json:"delete_by"`
+	CreatedAt                        *time.Time `json:"created_at"`
+	CreatedBy                        *string    `json:"created_by"`
+	UpdatedAt                        *time.Time `json:"updated_at"`
+	UpdatedBy                        *string    `json:"updated_by"`
+	DeletedAt                        *time.Time `json:"deleted_at"`
+	DeletedBy                        *string    `json:"deleted_by"`
 	Remarks                          *string    `json:"remarks"`
 	IsDeleted                        bool       `json:"is_deleted"`
 	IsKeyPoint                       bool       `json:"is_key_point"`
@@ -840,12 +840,12 @@ type EnterpriseMaxFields struct {
 	AssociationReviewOpinion         *string    `json:"association_review_opinion"`
 	AssociationReviewTime            *time.Time `json:"association_review_time"`
 	AssociationReviewBy              *time.Time `json:"association_review_by"`
-	CreateAt                         *time.Time `json:"create_at"`
-	CreateBy                         *string    `json:"create_by"`
-	UpdateAt                         *time.Time `json:"update_at"`
-	UpdateBy                         *string    `json:"update_by"`
-	DeleteAt                         *time.Time `json:"delete_at"`
-	DeleteBy                         *string    `json:"delete_by"`
+	CreatedAt                        *time.Time `json:"created_at"`
+	CreatedBy                        *string    `json:"created_by"`
+	UpdatedAt                        *time.Time `json:"updated_at"`
+	UpdatedBy                        *string    `json:"updated_by"`
+	DeletedAt                        *time.Time `json:"deleted_at"`
+	DeletedBy                        *string    `json:"deleted_by"`
 	Remarks                          *string    `json:"remarks"`
 	IsDeleted                        *bool      `json:"is_deleted"`
 	IsKeyPoint                       *bool      `json:"is_key_point"`
@@ -905,12 +905,12 @@ type EnterpriseMinFields struct {
 	AssociationReviewOpinion         *string    `json:"association_review_opinion"`
 	AssociationReviewTime            *time.Time `json:"association_review_time"`
 	AssociationReviewBy              *time.Time `json:"association_review_by"`
-	CreateAt                         *time.Time `json:"create_at"`
-	CreateBy                         *string    `json:"create_by"`
-	UpdateAt                         *time.Time `json:"update_at"`
-	UpdateBy                         *string    `json:"update_by"`
-	DeleteAt                         *time.Time `json:"delete_at"`
-	DeleteBy                         *string    `json:"delete_by"`
+	CreatedAt                        *time.Time `json:"created_at"`
+	CreatedBy                        *string    `json:"created_by"`
+	UpdatedAt                        *time.Time `json:"updated_at"`
+	UpdatedBy                        *string    `json:"updated_by"`
+	DeletedAt                        *time.Time `json:"deleted_at"`
+	DeletedBy                        *string    `json:"deleted_by"`
 	Remarks                          *string    `json:"remarks"`
 	IsDeleted                        *bool      `json:"is_deleted"`
 	IsKeyPoint                       *bool      `json:"is_key_point"`
@@ -987,13 +987,13 @@ type EnterpriseMuckTrunkBoolExp struct {
 	IsTypeC                     *model.BooleanComparisonExp     `json:"is_type_c"`
 	IsTypeD                     *model.BooleanComparisonExp     `json:"is_type_d"`
 	IsTypeE                     *model.BooleanComparisonExp     `json:"is_type_e"`
-	CreateAt                    *model.TimestamptzComparisonExp `json:"create_at"`
-	CreateBy                    *model.StringComparisonExp      `json:"create_by"`
-	UpdateAt                    *model.TimestamptzComparisonExp `json:"update_at"`
-	UpdateBy                    *model.StringComparisonExp      `json:"update_by"`
-	DeleteAt                    *model.TimestamptzComparisonExp `json:"delete_at"`
-	DeleteBy                    *model.StringComparisonExp      `json:"delete_by"`
-	IsDelete                    *model.BooleanComparisonExp     `json:"is_delete"`
+	CreatedAt                   *model.TimestamptzComparisonExp `json:"created_at"`
+	CreatedBy                   *model.StringComparisonExp      `json:"created_by"`
+	UpdatedAt                   *model.TimestamptzComparisonExp `json:"updated_at"`
+	UpdatedBy                   *model.StringComparisonExp      `json:"updated_by"`
+	DeletedAt                   *model.TimestamptzComparisonExp `json:"deleted_at"`
+	DeletedBy                   *model.StringComparisonExp      `json:"deleted_by"`
+	IsDeleted                   *model.BooleanComparisonExp     `json:"is_deleted"`
 }
 
 // input type for incrementing integer column in table "enterprise_muck_trunk"
@@ -1036,13 +1036,13 @@ type EnterpriseMuckTrunkInsertInput struct {
 	IsTypeC                     bool       `json:"is_type_c"`
 	IsTypeD                     bool       `json:"is_type_d"`
 	IsTypeE                     bool       `json:"is_type_e"`
-	CreateAt                    time.Time  `json:"create_at"`
-	CreateBy                    *string    `json:"create_by"`
-	UpdateAt                    *time.Time `json:"update_at"`
-	UpdateBy                    *string    `json:"update_by"`
-	DeleteAt                    *time.Time `json:"delete_at"`
-	DeleteBy                    *string    `json:"delete_by"`
-	IsDelete                    bool       `json:"is_delete"`
+	CreatedAt                   time.Time  `json:"created_at"`
+	CreatedBy                   *string    `json:"created_by"`
+	UpdatedAt                   *time.Time `json:"updated_at"`
+	UpdatedBy                   *string    `json:"updated_by"`
+	DeletedAt                   *time.Time `json:"deleted_at"`
+	DeletedBy                   *string    `json:"deleted_by"`
+	IsDeleted                   bool       `json:"is_deleted"`
 }
 
 // aggregate max on columns of table "enterprise_muck_trunk"
@@ -1079,13 +1079,13 @@ type EnterpriseMuckTrunkMaxFields struct {
 	IsTypeC                     *bool      `json:"is_type_c"`
 	IsTypeD                     *bool      `json:"is_type_d"`
 	IsTypeE                     *bool      `json:"is_type_e"`
-	CreateAt                    *time.Time `json:"create_at"`
-	CreateBy                    *string    `json:"create_by"`
-	UpdateAt                    *time.Time `json:"update_at"`
-	UpdateBy                    *string    `json:"update_by"`
-	DeleteAt                    *time.Time `json:"delete_at"`
-	DeleteBy                    *string    `json:"delete_by"`
-	IsDelete                    *bool      `json:"is_delete"`
+	CreatedAt                   *time.Time `json:"created_at"`
+	CreatedBy                   *string    `json:"created_by"`
+	UpdatedAt                   *time.Time `json:"updated_at"`
+	UpdatedBy                   *string    `json:"updated_by"`
+	DeletedAt                   *time.Time `json:"deleted_at"`
+	DeletedBy                   *string    `json:"deleted_by"`
+	IsDeleted                   *bool      `json:"is_deleted"`
 }
 
 // aggregate min on columns of table "enterprise_muck_trunk"
@@ -1122,13 +1122,13 @@ type EnterpriseMuckTrunkMinFields struct {
 	IsTypeC                     *bool      `json:"is_type_c"`
 	IsTypeD                     *bool      `json:"is_type_d"`
 	IsTypeE                     *bool      `json:"is_type_e"`
-	CreateAt                    *time.Time `json:"create_at"`
-	CreateBy                    *string    `json:"create_by"`
-	UpdateAt                    *time.Time `json:"update_at"`
-	UpdateBy                    *string    `json:"update_by"`
-	DeleteAt                    *time.Time `json:"delete_at"`
-	DeleteBy                    *string    `json:"delete_by"`
-	IsDelete                    *bool      `json:"is_delete"`
+	CreatedAt                   *time.Time `json:"created_at"`
+	CreatedBy                   *string    `json:"created_by"`
+	UpdatedAt                   *time.Time `json:"updated_at"`
+	UpdatedBy                   *string    `json:"updated_by"`
+	DeletedAt                   *time.Time `json:"deleted_at"`
+	DeletedBy                   *string    `json:"deleted_by"`
+	IsDeleted                   *bool      `json:"is_deleted"`
 }
 
 // response of any mutation on the table "enterprise_muck_trunk"
@@ -1171,13 +1171,13 @@ type EnterpriseMuckTrunkOrderBy struct {
 	IsTypeC                     *model.OrderBy `json:"is_type_c"`
 	IsTypeD                     *model.OrderBy `json:"is_type_d"`
 	IsTypeE                     *model.OrderBy `json:"is_type_e"`
-	CreateAt                    *model.OrderBy `json:"create_at"`
-	CreateBy                    *model.OrderBy `json:"create_by"`
-	UpdateAt                    *model.OrderBy `json:"update_at"`
-	UpdateBy                    *model.OrderBy `json:"update_by"`
-	DeleteAt                    *model.OrderBy `json:"delete_at"`
-	DeleteBy                    *model.OrderBy `json:"delete_by"`
-	IsDelete                    *model.OrderBy `json:"is_delete"`
+	CreatedAt                   *model.OrderBy `json:"created_at"`
+	CreatedBy                   *model.OrderBy `json:"created_by"`
+	UpdatedAt                   *model.OrderBy `json:"updated_at"`
+	UpdatedBy                   *model.OrderBy `json:"updated_by"`
+	DeletedAt                   *model.OrderBy `json:"deleted_at"`
+	DeletedBy                   *model.OrderBy `json:"deleted_by"`
+	IsDeleted                   *model.OrderBy `json:"is_deleted"`
 }
 
 // input type for updating data in table "enterprise_muck_trunk"
@@ -1214,13 +1214,13 @@ type EnterpriseMuckTrunkSetInput struct {
 	IsTypeC                     *bool      `json:"is_type_c"`
 	IsTypeD                     *bool      `json:"is_type_d"`
 	IsTypeE                     *bool      `json:"is_type_e"`
-	CreateAt                    *time.Time `json:"create_at"`
-	CreateBy                    *string    `json:"create_by"`
-	UpdateAt                    *time.Time `json:"update_at"`
-	UpdateBy                    *string    `json:"update_by"`
-	DeleteAt                    *time.Time `json:"delete_at"`
-	DeleteBy                    *string    `json:"delete_by"`
-	IsDelete                    *bool      `json:"is_delete"`
+	CreatedAt                   *time.Time `json:"created_at"`
+	CreatedBy                   *string    `json:"created_by"`
+	UpdatedAt                   *time.Time `json:"updated_at"`
+	UpdatedBy                   *string    `json:"updated_by"`
+	DeletedAt                   *time.Time `json:"deleted_at"`
+	DeletedBy                   *string    `json:"deleted_by"`
+	IsDeleted                   *bool      `json:"is_deleted"`
 }
 
 // aggregate stddev on columns of table "enterprise_muck_trunk"
@@ -1325,12 +1325,12 @@ type EnterpriseOrderBy struct {
 	AssociationReviewOpinion         *model.OrderBy `json:"association_review_opinion"`
 	AssociationReviewTime            *model.OrderBy `json:"association_review_time"`
 	AssociationReviewBy              *model.OrderBy `json:"association_review_by"`
-	CreateAt                         *model.OrderBy `json:"create_at"`
-	CreateBy                         *model.OrderBy `json:"create_by"`
-	UpdateAt                         *model.OrderBy `json:"update_at"`
-	UpdateBy                         *model.OrderBy `json:"update_by"`
-	DeleteAt                         *model.OrderBy `json:"delete_at"`
-	DeleteBy                         *model.OrderBy `json:"delete_by"`
+	CreatedAt                        *model.OrderBy `json:"created_at"`
+	CreatedBy                        *model.OrderBy `json:"created_by"`
+	UpdatedAt                        *model.OrderBy `json:"updated_at"`
+	UpdatedBy                        *model.OrderBy `json:"updated_by"`
+	DeletedAt                        *model.OrderBy `json:"deleted_at"`
+	DeletedBy                        *model.OrderBy `json:"deleted_by"`
 	Remarks                          *model.OrderBy `json:"remarks"`
 	IsDeleted                        *model.OrderBy `json:"is_deleted"`
 	IsKeyPoint                       *model.OrderBy `json:"is_key_point"`
@@ -1383,13 +1383,13 @@ type EnterpriseScoreLogBoolExp struct {
 	Content      *model.StringComparisonExp      `json:"content"`
 	FileURL      *model.StringComparisonExp      `json:"file_url"`
 	ScoreSetID   *model.StringComparisonExp      `json:"score_set_id"`
-	CreateAt     *model.TimestamptzComparisonExp `json:"create_at"`
-	CreateBy     *model.StringComparisonExp      `json:"create_by"`
-	UpdateAt     *model.TimestamptzComparisonExp `json:"update_at"`
-	UpdateBy     *model.StringComparisonExp      `json:"update_by"`
-	DeleteAt     *model.TimestamptzComparisonExp `json:"delete_at"`
-	DeleteBy     *model.StringComparisonExp      `json:"delete_by"`
-	IsDelete     *model.BooleanComparisonExp     `json:"is_delete"`
+	CreatedAt    *model.TimestamptzComparisonExp `json:"created_at"`
+	CreatedBy    *model.StringComparisonExp      `json:"created_by"`
+	UpdatedAt    *model.TimestamptzComparisonExp `json:"updated_at"`
+	UpdatedBy    *model.StringComparisonExp      `json:"updated_by"`
+	DeletedAt    *model.TimestamptzComparisonExp `json:"deleted_at"`
+	DeletedBy    *model.StringComparisonExp      `json:"deleted_by"`
+	IsDeleted    *model.BooleanComparisonExp     `json:"is_deleted"`
 }
 
 // input type for incrementing integer column in table "enterprise_score_log"
@@ -1408,13 +1408,13 @@ type EnterpriseScoreLogInsertInput struct {
 	Content      string     `json:"content"`
 	FileURL      string     `json:"file_url"`
 	ScoreSetID   string     `json:"score_set_id"`
-	CreateAt     time.Time  `json:"create_at"`
-	CreateBy     *string    `json:"create_by"`
-	UpdateAt     *time.Time `json:"update_at"`
-	UpdateBy     *string    `json:"update_by"`
-	DeleteAt     *time.Time `json:"delete_at"`
-	DeleteBy     *string    `json:"delete_by"`
-	IsDelete     bool       `json:"is_delete"`
+	CreatedAt    time.Time  `json:"created_at"`
+	CreatedBy    *string    `json:"created_by"`
+	UpdatedAt    *time.Time `json:"updated_at"`
+	UpdatedBy    *string    `json:"updated_by"`
+	DeletedAt    *time.Time `json:"deleted_at"`
+	DeletedBy    *string    `json:"deleted_by"`
+	IsDeleted    bool       `json:"is_deleted"`
 }
 
 // aggregate max on columns of table "enterprise_score_log"
@@ -1427,13 +1427,13 @@ type EnterpriseScoreLogMaxFields struct {
 	Content      *string    `json:"content"`
 	FileURL      *string    `json:"file_url"`
 	ScoreSetID   *string    `json:"score_set_id"`
-	CreateAt     *time.Time `json:"create_at"`
-	CreateBy     *string    `json:"create_by"`
-	UpdateAt     *time.Time `json:"update_at"`
-	UpdateBy     *string    `json:"update_by"`
-	DeleteAt     *time.Time `json:"delete_at"`
-	DeleteBy     *string    `json:"delete_by"`
-	IsDelete     *bool      `json:"is_delete"`
+	CreatedAt    *time.Time `json:"created_at"`
+	CreatedBy    *string    `json:"created_by"`
+	UpdatedAt    *time.Time `json:"updated_at"`
+	UpdatedBy    *string    `json:"updated_by"`
+	DeletedAt    *time.Time `json:"deleted_at"`
+	DeletedBy    *string    `json:"deleted_by"`
+	IsDeleted    *bool      `json:"is_deleted"`
 }
 
 // aggregate min on columns of table "enterprise_score_log"
@@ -1446,13 +1446,13 @@ type EnterpriseScoreLogMinFields struct {
 	Content      *string    `json:"content"`
 	FileURL      *string    `json:"file_url"`
 	ScoreSetID   *string    `json:"score_set_id"`
-	CreateAt     *time.Time `json:"create_at"`
-	CreateBy     *string    `json:"create_by"`
-	UpdateAt     *time.Time `json:"update_at"`
-	UpdateBy     *string    `json:"update_by"`
-	DeleteAt     *time.Time `json:"delete_at"`
-	DeleteBy     *string    `json:"delete_by"`
-	IsDelete     *bool      `json:"is_delete"`
+	CreatedAt    *time.Time `json:"created_at"`
+	CreatedBy    *string    `json:"created_by"`
+	UpdatedAt    *time.Time `json:"updated_at"`
+	UpdatedBy    *string    `json:"updated_by"`
+	DeletedAt    *time.Time `json:"deleted_at"`
+	DeletedBy    *string    `json:"deleted_by"`
+	IsDeleted    *bool      `json:"is_deleted"`
 }
 
 // response of any mutation on the table "enterprise_score_log"
@@ -1471,13 +1471,13 @@ type EnterpriseScoreLogOrderBy struct {
 	Content      *model.OrderBy `json:"content"`
 	FileURL      *model.OrderBy `json:"file_url"`
 	ScoreSetID   *model.OrderBy `json:"score_set_id"`
-	CreateAt     *model.OrderBy `json:"create_at"`
-	CreateBy     *model.OrderBy `json:"create_by"`
-	UpdateAt     *model.OrderBy `json:"update_at"`
-	UpdateBy     *model.OrderBy `json:"update_by"`
-	DeleteAt     *model.OrderBy `json:"delete_at"`
-	DeleteBy     *model.OrderBy `json:"delete_by"`
-	IsDelete     *model.OrderBy `json:"is_delete"`
+	CreatedAt    *model.OrderBy `json:"created_at"`
+	CreatedBy    *model.OrderBy `json:"created_by"`
+	UpdatedAt    *model.OrderBy `json:"updated_at"`
+	UpdatedBy    *model.OrderBy `json:"updated_by"`
+	DeletedAt    *model.OrderBy `json:"deleted_at"`
+	DeletedBy    *model.OrderBy `json:"deleted_by"`
+	IsDeleted    *model.OrderBy `json:"is_deleted"`
 }
 
 // input type for updating data in table "enterprise_score_log"
@@ -1490,13 +1490,13 @@ type EnterpriseScoreLogSetInput struct {
 	Content      *string    `json:"content"`
 	FileURL      *string    `json:"file_url"`
 	ScoreSetID   *string    `json:"score_set_id"`
-	CreateAt     *time.Time `json:"create_at"`
-	CreateBy     *string    `json:"create_by"`
-	UpdateAt     *time.Time `json:"update_at"`
-	UpdateBy     *string    `json:"update_by"`
-	DeleteAt     *time.Time `json:"delete_at"`
-	DeleteBy     *string    `json:"delete_by"`
-	IsDelete     *bool      `json:"is_delete"`
+	CreatedAt    *time.Time `json:"created_at"`
+	CreatedBy    *string    `json:"created_by"`
+	UpdatedAt    *time.Time `json:"updated_at"`
+	UpdatedBy    *string    `json:"updated_by"`
+	DeletedAt    *time.Time `json:"deleted_at"`
+	DeletedBy    *string    `json:"deleted_by"`
+	IsDeleted    *bool      `json:"is_deleted"`
 }
 
 // aggregate stddev on columns of table "enterprise_score_log"
@@ -1585,13 +1585,13 @@ type EnterpriseScoreSetBoolExp struct {
 	Content    *model.StringComparisonExp      `json:"content"`
 	Type       *model.IntComparisonExp         `json:"type"`
 	Score      *model.FloatComparisonExp       `json:"score"`
-	CreateAt   *model.TimestamptzComparisonExp `json:"create_at"`
-	CreateBy   *model.StringComparisonExp      `json:"create_by"`
-	UpdateAt   *model.TimestamptzComparisonExp `json:"update_at"`
-	UpdateBy   *model.StringComparisonExp      `json:"update_by"`
-	DeleteAt   *model.TimestamptzComparisonExp `json:"delete_at"`
-	DeleteBy   *model.StringComparisonExp      `json:"delete_by"`
-	IsDelete   *model.BooleanComparisonExp     `json:"is_delete"`
+	CreatedAt  *model.TimestamptzComparisonExp `json:"created_at"`
+	CreatedBy  *model.StringComparisonExp      `json:"created_by"`
+	UpdatedAt  *model.TimestamptzComparisonExp `json:"updated_at"`
+	UpdatedBy  *model.StringComparisonExp      `json:"updated_by"`
+	DeletedAt  *model.TimestamptzComparisonExp `json:"deleted_at"`
+	DeletedBy  *model.StringComparisonExp      `json:"deleted_by"`
+	IsDeleted  *model.BooleanComparisonExp     `json:"is_deleted"`
 }
 
 // input type for incrementing integer column in table "enterprise_score_set"
@@ -1607,13 +1607,13 @@ type EnterpriseScoreSetInsertInput struct {
 	Content    string     `json:"content"`
 	Type       int        `json:"type"`
 	Score      float64    `json:"score"`
-	CreateAt   time.Time  `json:"create_at"`
-	CreateBy   *string    `json:"create_by"`
-	UpdateAt   *time.Time `json:"update_at"`
-	UpdateBy   *string    `json:"update_by"`
-	DeleteAt   *time.Time `json:"delete_at"`
-	DeleteBy   *string    `json:"delete_by"`
-	IsDelete   bool       `json:"is_delete"`
+	CreatedAt  time.Time  `json:"created_at"`
+	CreatedBy  *string    `json:"created_by"`
+	UpdatedAt  *time.Time `json:"updated_at"`
+	UpdatedBy  *string    `json:"updated_by"`
+	DeletedAt  *time.Time `json:"deleted_at"`
+	DeletedBy  *string    `json:"deleted_by"`
+	IsDeleted  bool       `json:"is_deleted"`
 }
 
 // aggregate max on columns of table "enterprise_score_set"
@@ -1623,13 +1623,13 @@ type EnterpriseScoreSetMaxFields struct {
 	Content    *string    `json:"content"`
 	Type       *int       `json:"type"`
 	Score      *float64   `json:"score"`
-	CreateAt   *time.Time `json:"create_at"`
-	CreateBy   *string    `json:"create_by"`
-	UpdateAt   *time.Time `json:"update_at"`
-	UpdateBy   *string    `json:"update_by"`
-	DeleteAt   *time.Time `json:"delete_at"`
-	DeleteBy   *string    `json:"delete_by"`
-	IsDelete   *bool      `json:"is_delete"`
+	CreatedAt  *time.Time `json:"created_at"`
+	CreatedBy  *string    `json:"created_by"`
+	UpdatedAt  *time.Time `json:"updated_at"`
+	UpdatedBy  *string    `json:"updated_by"`
+	DeletedAt  *time.Time `json:"deleted_at"`
+	DeletedBy  *string    `json:"deleted_by"`
+	IsDeleted  *bool      `json:"is_deleted"`
 }
 
 // aggregate min on columns of table "enterprise_score_set"
@@ -1639,13 +1639,13 @@ type EnterpriseScoreSetMinFields struct {
 	Content    *string    `json:"content"`
 	Type       *int       `json:"type"`
 	Score      *float64   `json:"score"`
-	CreateAt   *time.Time `json:"create_at"`
-	CreateBy   *string    `json:"create_by"`
-	UpdateAt   *time.Time `json:"update_at"`
-	UpdateBy   *string    `json:"update_by"`
-	DeleteAt   *time.Time `json:"delete_at"`
-	DeleteBy   *string    `json:"delete_by"`
-	IsDelete   *bool      `json:"is_delete"`
+	CreatedAt  *time.Time `json:"created_at"`
+	CreatedBy  *string    `json:"created_by"`
+	UpdatedAt  *time.Time `json:"updated_at"`
+	UpdatedBy  *string    `json:"updated_by"`
+	DeletedAt  *time.Time `json:"deleted_at"`
+	DeletedBy  *string    `json:"deleted_by"`
+	IsDeleted  *bool      `json:"is_deleted"`
 }
 
 // response of any mutation on the table "enterprise_score_set"
@@ -1661,13 +1661,13 @@ type EnterpriseScoreSetOrderBy struct {
 	Content    *model.OrderBy `json:"content"`
 	Type       *model.OrderBy `json:"type"`
 	Score      *model.OrderBy `json:"score"`
-	CreateAt   *model.OrderBy `json:"create_at"`
-	CreateBy   *model.OrderBy `json:"create_by"`
-	UpdateAt   *model.OrderBy `json:"update_at"`
-	UpdateBy   *model.OrderBy `json:"update_by"`
-	DeleteAt   *model.OrderBy `json:"delete_at"`
-	DeleteBy   *model.OrderBy `json:"delete_by"`
-	IsDelete   *model.OrderBy `json:"is_delete"`
+	CreatedAt  *model.OrderBy `json:"created_at"`
+	CreatedBy  *model.OrderBy `json:"created_by"`
+	UpdatedAt  *model.OrderBy `json:"updated_at"`
+	UpdatedBy  *model.OrderBy `json:"updated_by"`
+	DeletedAt  *model.OrderBy `json:"deleted_at"`
+	DeletedBy  *model.OrderBy `json:"deleted_by"`
+	IsDeleted  *model.OrderBy `json:"is_deleted"`
 }
 
 // input type for updating data in table "enterprise_score_set"
@@ -1677,13 +1677,13 @@ type EnterpriseScoreSetSetInput struct {
 	Content    *string    `json:"content"`
 	Type       *int       `json:"type"`
 	Score      *float64   `json:"score"`
-	CreateAt   *time.Time `json:"create_at"`
-	CreateBy   *string    `json:"create_by"`
-	UpdateAt   *time.Time `json:"update_at"`
-	UpdateBy   *string    `json:"update_by"`
-	DeleteAt   *time.Time `json:"delete_at"`
-	DeleteBy   *string    `json:"delete_by"`
-	IsDelete   *bool      `json:"is_delete"`
+	CreatedAt  *time.Time `json:"created_at"`
+	CreatedBy  *string    `json:"created_by"`
+	UpdatedAt  *time.Time `json:"updated_at"`
+	UpdatedBy  *string    `json:"updated_by"`
+	DeletedAt  *time.Time `json:"deleted_at"`
+	DeletedBy  *string    `json:"deleted_by"`
+	IsDeleted  *bool      `json:"is_deleted"`
 }
 
 // aggregate stddev on columns of table "enterprise_score_set"
@@ -1782,12 +1782,12 @@ type EnterpriseSetInput struct {
 	AssociationReviewOpinion         *string    `json:"association_review_opinion"`
 	AssociationReviewTime            *time.Time `json:"association_review_time"`
 	AssociationReviewBy              *time.Time `json:"association_review_by"`
-	CreateAt                         *time.Time `json:"create_at"`
-	CreateBy                         *string    `json:"create_by"`
-	UpdateAt                         *time.Time `json:"update_at"`
-	UpdateBy                         *string    `json:"update_by"`
-	DeleteAt                         *time.Time `json:"delete_at"`
-	DeleteBy                         *string    `json:"delete_by"`
+	CreatedAt                        *time.Time `json:"created_at"`
+	CreatedBy                        *string    `json:"created_by"`
+	UpdatedAt                        *time.Time `json:"updated_at"`
+	UpdatedBy                        *string    `json:"updated_by"`
+	DeletedAt                        *time.Time `json:"deleted_at"`
+	DeletedBy                        *string    `json:"deleted_by"`
 	Remarks                          *string    `json:"remarks"`
 	IsDeleted                        *bool      `json:"is_deleted"`
 	IsKeyPoint                       *bool      `json:"is_key_point"`
@@ -1837,8 +1837,8 @@ type EnterpriseStateHisBoolExp struct {
 	Reason       *model.StringComparisonExp      `json:"reason"`
 	State        *model.IntComparisonExp         `json:"state"`
 	FileURL      *model.StringComparisonExp      `json:"file_url"`
-	CreateAt     *model.TimestamptzComparisonExp `json:"create_at"`
-	CreateBy     *model.StringComparisonExp      `json:"create_by"`
+	CreatedAt    *model.TimestamptzComparisonExp `json:"created_at"`
+	CreatedBy    *model.StringComparisonExp      `json:"created_by"`
 }
 
 // input type for incrementing integer column in table "enterprise_state_his"
@@ -1854,8 +1854,8 @@ type EnterpriseStateHisInsertInput struct {
 	Reason       *string   `json:"reason"`
 	State        int       `json:"state"`
 	FileURL      *string   `json:"file_url"`
-	CreateAt     time.Time `json:"create_at"`
-	CreateBy     *string   `json:"create_by"`
+	CreatedAt    time.Time `json:"created_at"`
+	CreatedBy    *string   `json:"created_by"`
 }
 
 // aggregate max on columns of table "enterprise_state_his"
@@ -1866,8 +1866,8 @@ type EnterpriseStateHisMaxFields struct {
 	Reason       *string    `json:"reason"`
 	State        *int       `json:"state"`
 	FileURL      *string    `json:"file_url"`
-	CreateAt     *time.Time `json:"create_at"`
-	CreateBy     *string    `json:"create_by"`
+	CreatedAt    *time.Time `json:"created_at"`
+	CreatedBy    *string    `json:"created_by"`
 }
 
 // aggregate min on columns of table "enterprise_state_his"
@@ -1878,8 +1878,8 @@ type EnterpriseStateHisMinFields struct {
 	Reason       *string    `json:"reason"`
 	State        *int       `json:"state"`
 	FileURL      *string    `json:"file_url"`
-	CreateAt     *time.Time `json:"create_at"`
-	CreateBy     *string    `json:"create_by"`
+	CreatedAt    *time.Time `json:"created_at"`
+	CreatedBy    *string    `json:"created_by"`
 }
 
 // response of any mutation on the table "enterprise_state_his"
@@ -1896,8 +1896,8 @@ type EnterpriseStateHisOrderBy struct {
 	Reason       *model.OrderBy `json:"reason"`
 	State        *model.OrderBy `json:"state"`
 	FileURL      *model.OrderBy `json:"file_url"`
-	CreateAt     *model.OrderBy `json:"create_at"`
-	CreateBy     *model.OrderBy `json:"create_by"`
+	CreatedAt    *model.OrderBy `json:"created_at"`
+	CreatedBy    *model.OrderBy `json:"created_by"`
 }
 
 // input type for updating data in table "enterprise_state_his"
@@ -1908,8 +1908,8 @@ type EnterpriseStateHisSetInput struct {
 	Reason       *string    `json:"reason"`
 	State        *int       `json:"state"`
 	FileURL      *string    `json:"file_url"`
-	CreateAt     *time.Time `json:"create_at"`
-	CreateBy     *string    `json:"create_by"`
+	CreatedAt    *time.Time `json:"created_at"`
+	CreatedBy    *string    `json:"created_by"`
 }
 
 // aggregate stddev on columns of table "enterprise_state_his"
@@ -2059,13 +2059,13 @@ type EnterpriseUkeyBoolExp struct {
 	ID           *model.BigintComparisonExp      `json:"id"`
 	UkeyID       *model.StringComparisonExp      `json:"ukey_id"`
 	EnterpriseID *model.StringComparisonExp      `json:"enterprise_id"`
-	CreateAt     *model.TimestamptzComparisonExp `json:"create_at"`
-	CreateBy     *model.StringComparisonExp      `json:"create_by"`
-	UpdateAt     *model.TimestamptzComparisonExp `json:"update_at"`
-	UpdateBy     *model.StringComparisonExp      `json:"update_by"`
-	DeleteAt     *model.TimestamptzComparisonExp `json:"delete_at"`
-	DeleteBy     *model.StringComparisonExp      `json:"delete_by"`
-	IsDelete     *model.BooleanComparisonExp     `json:"is_delete"`
+	CreatedAt    *model.TimestamptzComparisonExp `json:"created_at"`
+	CreatedBy    *model.StringComparisonExp      `json:"created_by"`
+	UpdatedAt    *model.TimestamptzComparisonExp `json:"updated_at"`
+	UpdatedBy    *model.StringComparisonExp      `json:"updated_by"`
+	DeletedAt    *model.TimestamptzComparisonExp `json:"deleted_at"`
+	DeletedBy    *model.StringComparisonExp      `json:"deleted_by"`
+	IsDeleted    *model.BooleanComparisonExp     `json:"is_deleted"`
 }
 
 // input type for incrementing integer column in table "enterprise_ukey"
@@ -2077,13 +2077,13 @@ type EnterpriseUkeyIncInput struct {
 type EnterpriseUkeyInsertInput struct {
 	UkeyID       string     `json:"ukey_id"`
 	EnterpriseID string     `json:"enterprise_id"`
-	CreateAt     time.Time  `json:"create_at"`
-	CreateBy     *string    `json:"create_by"`
-	UpdateAt     *time.Time `json:"update_at"`
-	UpdateBy     *string    `json:"update_by"`
-	DeleteAt     *time.Time `json:"delete_at"`
-	DeleteBy     *string    `json:"delete_by"`
-	IsDelete     bool       `json:"is_delete"`
+	CreatedAt    time.Time  `json:"created_at"`
+	CreatedBy    *string    `json:"created_by"`
+	UpdatedAt    *time.Time `json:"updated_at"`
+	UpdatedBy    *string    `json:"updated_by"`
+	DeletedAt    *time.Time `json:"deleted_at"`
+	DeletedBy    *string    `json:"deleted_by"`
+	IsDeleted    bool       `json:"is_deleted"`
 }
 
 // aggregate max on columns of table "enterprise_ukey"
@@ -2091,13 +2091,13 @@ type EnterpriseUkeyMaxFields struct {
 	ID           *int64     `json:"id"`
 	UkeyID       *string    `json:"ukey_id"`
 	EnterpriseID *string    `json:"enterprise_id"`
-	CreateAt     *time.Time `json:"create_at"`
-	CreateBy     *string    `json:"create_by"`
-	UpdateAt     *time.Time `json:"update_at"`
-	UpdateBy     *string    `json:"update_by"`
-	DeleteAt     *time.Time `json:"delete_at"`
-	DeleteBy     *string    `json:"delete_by"`
-	IsDelete     *bool      `json:"is_delete"`
+	CreatedAt    *time.Time `json:"created_at"`
+	CreatedBy    *string    `json:"created_by"`
+	UpdatedAt    *time.Time `json:"updated_at"`
+	UpdatedBy    *string    `json:"updated_by"`
+	DeletedAt    *time.Time `json:"deleted_at"`
+	DeletedBy    *string    `json:"deleted_by"`
+	IsDeleted    *bool      `json:"is_deleted"`
 }
 
 // aggregate min on columns of table "enterprise_ukey"
@@ -2105,13 +2105,13 @@ type EnterpriseUkeyMinFields struct {
 	ID           *int64     `json:"id"`
 	UkeyID       *string    `json:"ukey_id"`
 	EnterpriseID *string    `json:"enterprise_id"`
-	CreateAt     *time.Time `json:"create_at"`
-	CreateBy     *string    `json:"create_by"`
-	UpdateAt     *time.Time `json:"update_at"`
-	UpdateBy     *string    `json:"update_by"`
-	DeleteAt     *time.Time `json:"delete_at"`
-	DeleteBy     *string    `json:"delete_by"`
-	IsDelete     *bool      `json:"is_delete"`
+	CreatedAt    *time.Time `json:"created_at"`
+	CreatedBy    *string    `json:"created_by"`
+	UpdatedAt    *time.Time `json:"updated_at"`
+	UpdatedBy    *string    `json:"updated_by"`
+	DeletedAt    *time.Time `json:"deleted_at"`
+	DeletedBy    *string    `json:"deleted_by"`
+	IsDeleted    *bool      `json:"is_deleted"`
 }
 
 // response of any mutation on the table "enterprise_ukey"
@@ -2125,13 +2125,13 @@ type EnterpriseUkeyOrderBy struct {
 	ID           *model.OrderBy `json:"id"`
 	UkeyID       *model.OrderBy `json:"ukey_id"`
 	EnterpriseID *model.OrderBy `json:"enterprise_id"`
-	CreateAt     *model.OrderBy `json:"create_at"`
-	CreateBy     *model.OrderBy `json:"create_by"`
-	UpdateAt     *model.OrderBy `json:"update_at"`
-	UpdateBy     *model.OrderBy `json:"update_by"`
-	DeleteAt     *model.OrderBy `json:"delete_at"`
-	DeleteBy     *model.OrderBy `json:"delete_by"`
-	IsDelete     *model.OrderBy `json:"is_delete"`
+	CreatedAt    *model.OrderBy `json:"created_at"`
+	CreatedBy    *model.OrderBy `json:"created_by"`
+	UpdatedAt    *model.OrderBy `json:"updated_at"`
+	UpdatedBy    *model.OrderBy `json:"updated_by"`
+	DeletedAt    *model.OrderBy `json:"deleted_at"`
+	DeletedBy    *model.OrderBy `json:"deleted_by"`
+	IsDeleted    *model.OrderBy `json:"is_deleted"`
 }
 
 // input type for updating data in table "enterprise_ukey"
@@ -2139,13 +2139,13 @@ type EnterpriseUkeySetInput struct {
 	ID           *int64     `json:"id"`
 	UkeyID       *string    `json:"ukey_id"`
 	EnterpriseID *string    `json:"enterprise_id"`
-	CreateAt     *time.Time `json:"create_at"`
-	CreateBy     *string    `json:"create_by"`
-	UpdateAt     *time.Time `json:"update_at"`
-	UpdateBy     *string    `json:"update_by"`
-	DeleteAt     *time.Time `json:"delete_at"`
-	DeleteBy     *string    `json:"delete_by"`
-	IsDelete     *bool      `json:"is_delete"`
+	CreatedAt    *time.Time `json:"created_at"`
+	CreatedBy    *string    `json:"created_by"`
+	UpdatedAt    *time.Time `json:"updated_at"`
+	UpdatedBy    *string    `json:"updated_by"`
+	DeletedAt    *time.Time `json:"deleted_at"`
+	DeletedBy    *string    `json:"deleted_by"`
+	IsDeleted    *bool      `json:"is_deleted"`
 }
 
 // aggregate stddev on columns of table "enterprise_ukey"
@@ -2296,7 +2296,7 @@ type SystemUserBoolExp struct {
 	UpdateBy     *model.StringComparisonExp      `json:"update_by"`
 	DeleteAt     *model.TimestamptzComparisonExp `json:"delete_at"`
 	DeleteBy     *model.StringComparisonExp      `json:"delete_by"`
-	IsDelete     *model.BooleanComparisonExp     `json:"is_delete"`
+	IsDeleted    *model.BooleanComparisonExp     `json:"is_deleted"`
 	Remarks      *model.StringComparisonExp      `json:"remarks"`
 }
 
@@ -2335,7 +2335,7 @@ type SystemUserInsertInput struct {
 	UpdateBy     *string    `json:"update_by"`
 	DeleteAt     *time.Time `json:"delete_at"`
 	DeleteBy     *string    `json:"delete_by"`
-	IsDelete     bool       `json:"is_delete"`
+	IsDeleted    bool       `json:"is_deleted"`
 	Remarks      *string    `json:"remarks"`
 }
 
@@ -2366,7 +2366,7 @@ type SystemUserMaxFields struct {
 	UpdateBy     *string    `json:"update_by"`
 	DeleteAt     *time.Time `json:"delete_at"`
 	DeleteBy     *string    `json:"delete_by"`
-	IsDelete     *bool      `json:"is_delete"`
+	IsDeleted    *bool      `json:"is_deleted"`
 	Remarks      *string    `json:"remarks"`
 }
 
@@ -2397,7 +2397,7 @@ type SystemUserMinFields struct {
 	UpdateBy     *string    `json:"update_by"`
 	DeleteAt     *time.Time `json:"delete_at"`
 	DeleteBy     *string    `json:"delete_by"`
-	IsDelete     *bool      `json:"is_delete"`
+	IsDeleted    *bool      `json:"is_deleted"`
 	Remarks      *string    `json:"remarks"`
 }
 
@@ -2434,7 +2434,7 @@ type SystemUserOrderBy struct {
 	UpdateBy     *model.OrderBy `json:"update_by"`
 	DeleteAt     *model.OrderBy `json:"delete_at"`
 	DeleteBy     *model.OrderBy `json:"delete_by"`
-	IsDelete     *model.OrderBy `json:"is_delete"`
+	IsDeleted    *model.OrderBy `json:"is_deleted"`
 	Remarks      *model.OrderBy `json:"remarks"`
 }
 
@@ -2465,7 +2465,7 @@ type SystemUserSetInput struct {
 	UpdateBy     *string    `json:"update_by"`
 	DeleteAt     *time.Time `json:"delete_at"`
 	DeleteBy     *string    `json:"delete_by"`
-	IsDelete     *bool      `json:"is_delete"`
+	IsDeleted    *bool      `json:"is_deleted"`
 	Remarks      *string    `json:"remarks"`
 }
 
@@ -2553,19 +2553,19 @@ const (
 	// 排序
 	DepartmentSelectColumnInternalNumber DepartmentSelectColumn = "internal_number"
 	// 创建时间
-	DepartmentSelectColumnCreateAt DepartmentSelectColumn = "create_at"
+	DepartmentSelectColumnCreatedAt DepartmentSelectColumn = "created_at"
 	// 创建人
-	DepartmentSelectColumnCreateBy DepartmentSelectColumn = "create_by"
+	DepartmentSelectColumnCreatedBy DepartmentSelectColumn = "created_by"
 	// 修改时间
-	DepartmentSelectColumnUpdateAt DepartmentSelectColumn = "update_at"
+	DepartmentSelectColumnUpdatedAt DepartmentSelectColumn = "updated_at"
 	// 修改人
-	DepartmentSelectColumnUpdateBy DepartmentSelectColumn = "update_by"
+	DepartmentSelectColumnUpdatedBy DepartmentSelectColumn = "updated_by"
 	// 删除时间
-	DepartmentSelectColumnDeleteAt DepartmentSelectColumn = "delete_at"
+	DepartmentSelectColumnDeletedAt DepartmentSelectColumn = "deleted_at"
 	// 删除人
-	DepartmentSelectColumnDeleteBy DepartmentSelectColumn = "delete_by"
+	DepartmentSelectColumnDeletedBy DepartmentSelectColumn = "deleted_by"
 	// 是否删除
-	DepartmentSelectColumnIsDelete DepartmentSelectColumn = "is_delete"
+	DepartmentSelectColumnIsDeleted DepartmentSelectColumn = "is_deleted"
 	// 备注
 	DepartmentSelectColumnRemarks DepartmentSelectColumn = "remarks"
 )
@@ -2579,19 +2579,19 @@ var AllDepartmentSelectColumn = []DepartmentSelectColumn{
 	DepartmentSelectColumnDepartmentCode,
 	DepartmentSelectColumnDepartmentCategory,
 	DepartmentSelectColumnInternalNumber,
-	DepartmentSelectColumnCreateAt,
-	DepartmentSelectColumnCreateBy,
-	DepartmentSelectColumnUpdateAt,
-	DepartmentSelectColumnUpdateBy,
-	DepartmentSelectColumnDeleteAt,
-	DepartmentSelectColumnDeleteBy,
-	DepartmentSelectColumnIsDelete,
+	DepartmentSelectColumnCreatedAt,
+	DepartmentSelectColumnCreatedBy,
+	DepartmentSelectColumnUpdatedAt,
+	DepartmentSelectColumnUpdatedBy,
+	DepartmentSelectColumnDeletedAt,
+	DepartmentSelectColumnDeletedBy,
+	DepartmentSelectColumnIsDeleted,
 	DepartmentSelectColumnRemarks,
 }
 
 func (e DepartmentSelectColumn) IsValid() bool {
 	switch e {
-	case DepartmentSelectColumnID, DepartmentSelectColumnDepartmentID, DepartmentSelectColumnEnterpriseID, DepartmentSelectColumnSuperiorDepartmentID, DepartmentSelectColumnDepartmentName, DepartmentSelectColumnDepartmentCode, DepartmentSelectColumnDepartmentCategory, DepartmentSelectColumnInternalNumber, DepartmentSelectColumnCreateAt, DepartmentSelectColumnCreateBy, DepartmentSelectColumnUpdateAt, DepartmentSelectColumnUpdateBy, DepartmentSelectColumnDeleteAt, DepartmentSelectColumnDeleteBy, DepartmentSelectColumnIsDelete, DepartmentSelectColumnRemarks:
+	case DepartmentSelectColumnID, DepartmentSelectColumnDepartmentID, DepartmentSelectColumnEnterpriseID, DepartmentSelectColumnSuperiorDepartmentID, DepartmentSelectColumnDepartmentName, DepartmentSelectColumnDepartmentCode, DepartmentSelectColumnDepartmentCategory, DepartmentSelectColumnInternalNumber, DepartmentSelectColumnCreatedAt, DepartmentSelectColumnCreatedBy, DepartmentSelectColumnUpdatedAt, DepartmentSelectColumnUpdatedBy, DepartmentSelectColumnDeletedAt, DepartmentSelectColumnDeletedBy, DepartmentSelectColumnIsDeleted, DepartmentSelectColumnRemarks:
 		return true
 	}
 	return false
@@ -2722,19 +2722,19 @@ const (
 	// 排序
 	EnterpriseContactSelectColumnSortNum EnterpriseContactSelectColumn = "sort_num"
 	// 创建时间
-	EnterpriseContactSelectColumnCreateAt EnterpriseContactSelectColumn = "create_at"
+	EnterpriseContactSelectColumnCreatedAt EnterpriseContactSelectColumn = "created_at"
 	// 创建人
-	EnterpriseContactSelectColumnCreateBy EnterpriseContactSelectColumn = "create_by"
+	EnterpriseContactSelectColumnCreatedBy EnterpriseContactSelectColumn = "created_by"
 	// 更新时间
-	EnterpriseContactSelectColumnUpdateAt EnterpriseContactSelectColumn = "update_at"
+	EnterpriseContactSelectColumnUpdatedAt EnterpriseContactSelectColumn = "updated_at"
 	// 更新人
-	EnterpriseContactSelectColumnUpdateBy EnterpriseContactSelectColumn = "update_by"
+	EnterpriseContactSelectColumnUpdatedBy EnterpriseContactSelectColumn = "updated_by"
 	// 删除时间
-	EnterpriseContactSelectColumnDeleteAt EnterpriseContactSelectColumn = "delete_at"
+	EnterpriseContactSelectColumnDeletedAt EnterpriseContactSelectColumn = "deleted_at"
 	// 删除人
-	EnterpriseContactSelectColumnDeleteBy EnterpriseContactSelectColumn = "delete_by"
+	EnterpriseContactSelectColumnDeletedBy EnterpriseContactSelectColumn = "deleted_by"
 	// 是否删除
-	EnterpriseContactSelectColumnIsDelete EnterpriseContactSelectColumn = "is_delete"
+	EnterpriseContactSelectColumnIsDeleted EnterpriseContactSelectColumn = "is_deleted"
 )
 
 var AllEnterpriseContactSelectColumn = []EnterpriseContactSelectColumn{
@@ -2746,18 +2746,18 @@ var AllEnterpriseContactSelectColumn = []EnterpriseContactSelectColumn{
 	EnterpriseContactSelectColumnPhone,
 	EnterpriseContactSelectColumnEmail,
 	EnterpriseContactSelectColumnSortNum,
-	EnterpriseContactSelectColumnCreateAt,
-	EnterpriseContactSelectColumnCreateBy,
-	EnterpriseContactSelectColumnUpdateAt,
-	EnterpriseContactSelectColumnUpdateBy,
-	EnterpriseContactSelectColumnDeleteAt,
-	EnterpriseContactSelectColumnDeleteBy,
-	EnterpriseContactSelectColumnIsDelete,
+	EnterpriseContactSelectColumnCreatedAt,
+	EnterpriseContactSelectColumnCreatedBy,
+	EnterpriseContactSelectColumnUpdatedAt,
+	EnterpriseContactSelectColumnUpdatedBy,
+	EnterpriseContactSelectColumnDeletedAt,
+	EnterpriseContactSelectColumnDeletedBy,
+	EnterpriseContactSelectColumnIsDeleted,
 }
 
 func (e EnterpriseContactSelectColumn) IsValid() bool {
 	switch e {
-	case EnterpriseContactSelectColumnID, EnterpriseContactSelectColumnContactID, EnterpriseContactSelectColumnEnterpriseID, EnterpriseContactSelectColumnName, EnterpriseContactSelectColumnMobile, EnterpriseContactSelectColumnPhone, EnterpriseContactSelectColumnEmail, EnterpriseContactSelectColumnSortNum, EnterpriseContactSelectColumnCreateAt, EnterpriseContactSelectColumnCreateBy, EnterpriseContactSelectColumnUpdateAt, EnterpriseContactSelectColumnUpdateBy, EnterpriseContactSelectColumnDeleteAt, EnterpriseContactSelectColumnDeleteBy, EnterpriseContactSelectColumnIsDelete:
+	case EnterpriseContactSelectColumnID, EnterpriseContactSelectColumnContactID, EnterpriseContactSelectColumnEnterpriseID, EnterpriseContactSelectColumnName, EnterpriseContactSelectColumnMobile, EnterpriseContactSelectColumnPhone, EnterpriseContactSelectColumnEmail, EnterpriseContactSelectColumnSortNum, EnterpriseContactSelectColumnCreatedAt, EnterpriseContactSelectColumnCreatedBy, EnterpriseContactSelectColumnUpdatedAt, EnterpriseContactSelectColumnUpdatedBy, EnterpriseContactSelectColumnDeletedAt, EnterpriseContactSelectColumnDeletedBy, EnterpriseContactSelectColumnIsDeleted:
 		return true
 	}
 	return false
@@ -2853,19 +2853,19 @@ const (
 	// 是否e类企业
 	EnterpriseMuckTrunkSelectColumnIsTypeE EnterpriseMuckTrunkSelectColumn = "is_type_e"
 	// 创建时间
-	EnterpriseMuckTrunkSelectColumnCreateAt EnterpriseMuckTrunkSelectColumn = "create_at"
+	EnterpriseMuckTrunkSelectColumnCreatedAt EnterpriseMuckTrunkSelectColumn = "created_at"
 	// 创建人
-	EnterpriseMuckTrunkSelectColumnCreateBy EnterpriseMuckTrunkSelectColumn = "create_by"
+	EnterpriseMuckTrunkSelectColumnCreatedBy EnterpriseMuckTrunkSelectColumn = "created_by"
 	// 更新时间
-	EnterpriseMuckTrunkSelectColumnUpdateAt EnterpriseMuckTrunkSelectColumn = "update_at"
+	EnterpriseMuckTrunkSelectColumnUpdatedAt EnterpriseMuckTrunkSelectColumn = "updated_at"
 	// 更新人
-	EnterpriseMuckTrunkSelectColumnUpdateBy EnterpriseMuckTrunkSelectColumn = "update_by"
+	EnterpriseMuckTrunkSelectColumnUpdatedBy EnterpriseMuckTrunkSelectColumn = "updated_by"
 	// 删除时间
-	EnterpriseMuckTrunkSelectColumnDeleteAt EnterpriseMuckTrunkSelectColumn = "delete_at"
+	EnterpriseMuckTrunkSelectColumnDeletedAt EnterpriseMuckTrunkSelectColumn = "deleted_at"
 	// 删除人
-	EnterpriseMuckTrunkSelectColumnDeleteBy EnterpriseMuckTrunkSelectColumn = "delete_by"
+	EnterpriseMuckTrunkSelectColumnDeletedBy EnterpriseMuckTrunkSelectColumn = "deleted_by"
 	// 是否删除
-	EnterpriseMuckTrunkSelectColumnIsDelete EnterpriseMuckTrunkSelectColumn = "is_delete"
+	EnterpriseMuckTrunkSelectColumnIsDeleted EnterpriseMuckTrunkSelectColumn = "is_deleted"
 )
 
 var AllEnterpriseMuckTrunkSelectColumn = []EnterpriseMuckTrunkSelectColumn{
@@ -2901,18 +2901,18 @@ var AllEnterpriseMuckTrunkSelectColumn = []EnterpriseMuckTrunkSelectColumn{
 	EnterpriseMuckTrunkSelectColumnIsTypeC,
 	EnterpriseMuckTrunkSelectColumnIsTypeD,
 	EnterpriseMuckTrunkSelectColumnIsTypeE,
-	EnterpriseMuckTrunkSelectColumnCreateAt,
-	EnterpriseMuckTrunkSelectColumnCreateBy,
-	EnterpriseMuckTrunkSelectColumnUpdateAt,
-	EnterpriseMuckTrunkSelectColumnUpdateBy,
-	EnterpriseMuckTrunkSelectColumnDeleteAt,
-	EnterpriseMuckTrunkSelectColumnDeleteBy,
-	EnterpriseMuckTrunkSelectColumnIsDelete,
+	EnterpriseMuckTrunkSelectColumnCreatedAt,
+	EnterpriseMuckTrunkSelectColumnCreatedBy,
+	EnterpriseMuckTrunkSelectColumnUpdatedAt,
+	EnterpriseMuckTrunkSelectColumnUpdatedBy,
+	EnterpriseMuckTrunkSelectColumnDeletedAt,
+	EnterpriseMuckTrunkSelectColumnDeletedBy,
+	EnterpriseMuckTrunkSelectColumnIsDeleted,
 }
 
 func (e EnterpriseMuckTrunkSelectColumn) IsValid() bool {
 	switch e {
-	case EnterpriseMuckTrunkSelectColumnID, EnterpriseMuckTrunkSelectColumnEnterpriseMuckTrunkID, EnterpriseMuckTrunkSelectColumnEnterpriseID, EnterpriseMuckTrunkSelectColumnCompanyManager, EnterpriseMuckTrunkSelectColumnCompanyManagerPhone, EnterpriseMuckTrunkSelectColumnCompanyManagerIDCard, EnterpriseMuckTrunkSelectColumnCompanySafeManager, EnterpriseMuckTrunkSelectColumnCompanySafeMangerPhone, EnterpriseMuckTrunkSelectColumnCompanySafeManagerIDCard, EnterpriseMuckTrunkSelectColumnRoadLicense, EnterpriseMuckTrunkSelectColumnRoadLicensePhoto, EnterpriseMuckTrunkSelectColumnOfficeAddress, EnterpriseMuckTrunkSelectColumnOfficeArea, EnterpriseMuckTrunkSelectColumnOfficePhoto, EnterpriseMuckTrunkSelectColumnParkingAddress, EnterpriseMuckTrunkSelectColumnParkingArea, EnterpriseMuckTrunkSelectColumnParkingSingleArea, EnterpriseMuckTrunkSelectColumnSmartCarCount, EnterpriseMuckTrunkSelectColumnIsTransportAdd, EnterpriseMuckTrunkSelectColumnCountyCheckState, EnterpriseMuckTrunkSelectColumnCityCheckState, EnterpriseMuckTrunkSelectColumnAllowGeneratePreviewNum, EnterpriseMuckTrunkSelectColumnPromiseBookURL, EnterpriseMuckTrunkSelectColumnPromiseRemark, EnterpriseMuckTrunkSelectColumnTransportType, EnterpriseMuckTrunkSelectColumnRoutelineCardPromisePhoto, EnterpriseMuckTrunkSelectColumnTransportLiablePromisePhoto, EnterpriseMuckTrunkSelectColumnIsTypeA, EnterpriseMuckTrunkSelectColumnIsTypeB, EnterpriseMuckTrunkSelectColumnIsTypeC, EnterpriseMuckTrunkSelectColumnIsTypeD, EnterpriseMuckTrunkSelectColumnIsTypeE, EnterpriseMuckTrunkSelectColumnCreateAt, EnterpriseMuckTrunkSelectColumnCreateBy, EnterpriseMuckTrunkSelectColumnUpdateAt, EnterpriseMuckTrunkSelectColumnUpdateBy, EnterpriseMuckTrunkSelectColumnDeleteAt, EnterpriseMuckTrunkSelectColumnDeleteBy, EnterpriseMuckTrunkSelectColumnIsDelete:
+	case EnterpriseMuckTrunkSelectColumnID, EnterpriseMuckTrunkSelectColumnEnterpriseMuckTrunkID, EnterpriseMuckTrunkSelectColumnEnterpriseID, EnterpriseMuckTrunkSelectColumnCompanyManager, EnterpriseMuckTrunkSelectColumnCompanyManagerPhone, EnterpriseMuckTrunkSelectColumnCompanyManagerIDCard, EnterpriseMuckTrunkSelectColumnCompanySafeManager, EnterpriseMuckTrunkSelectColumnCompanySafeMangerPhone, EnterpriseMuckTrunkSelectColumnCompanySafeManagerIDCard, EnterpriseMuckTrunkSelectColumnRoadLicense, EnterpriseMuckTrunkSelectColumnRoadLicensePhoto, EnterpriseMuckTrunkSelectColumnOfficeAddress, EnterpriseMuckTrunkSelectColumnOfficeArea, EnterpriseMuckTrunkSelectColumnOfficePhoto, EnterpriseMuckTrunkSelectColumnParkingAddress, EnterpriseMuckTrunkSelectColumnParkingArea, EnterpriseMuckTrunkSelectColumnParkingSingleArea, EnterpriseMuckTrunkSelectColumnSmartCarCount, EnterpriseMuckTrunkSelectColumnIsTransportAdd, EnterpriseMuckTrunkSelectColumnCountyCheckState, EnterpriseMuckTrunkSelectColumnCityCheckState, EnterpriseMuckTrunkSelectColumnAllowGeneratePreviewNum, EnterpriseMuckTrunkSelectColumnPromiseBookURL, EnterpriseMuckTrunkSelectColumnPromiseRemark, EnterpriseMuckTrunkSelectColumnTransportType, EnterpriseMuckTrunkSelectColumnRoutelineCardPromisePhoto, EnterpriseMuckTrunkSelectColumnTransportLiablePromisePhoto, EnterpriseMuckTrunkSelectColumnIsTypeA, EnterpriseMuckTrunkSelectColumnIsTypeB, EnterpriseMuckTrunkSelectColumnIsTypeC, EnterpriseMuckTrunkSelectColumnIsTypeD, EnterpriseMuckTrunkSelectColumnIsTypeE, EnterpriseMuckTrunkSelectColumnCreatedAt, EnterpriseMuckTrunkSelectColumnCreatedBy, EnterpriseMuckTrunkSelectColumnUpdatedAt, EnterpriseMuckTrunkSelectColumnUpdatedBy, EnterpriseMuckTrunkSelectColumnDeletedAt, EnterpriseMuckTrunkSelectColumnDeletedBy, EnterpriseMuckTrunkSelectColumnIsDeleted:
 		return true
 	}
 	return false
@@ -2960,19 +2960,19 @@ const (
 	// 扣分项ID
 	EnterpriseScoreLogSelectColumnScoreSetID EnterpriseScoreLogSelectColumn = "score_set_id"
 	// 创建时间
-	EnterpriseScoreLogSelectColumnCreateAt EnterpriseScoreLogSelectColumn = "create_at"
+	EnterpriseScoreLogSelectColumnCreatedAt EnterpriseScoreLogSelectColumn = "created_at"
 	// 创建人
-	EnterpriseScoreLogSelectColumnCreateBy EnterpriseScoreLogSelectColumn = "create_by"
+	EnterpriseScoreLogSelectColumnCreatedBy EnterpriseScoreLogSelectColumn = "created_by"
 	// 更新时间
-	EnterpriseScoreLogSelectColumnUpdateAt EnterpriseScoreLogSelectColumn = "update_at"
+	EnterpriseScoreLogSelectColumnUpdatedAt EnterpriseScoreLogSelectColumn = "updated_at"
 	// 更新人
-	EnterpriseScoreLogSelectColumnUpdateBy EnterpriseScoreLogSelectColumn = "update_by"
+	EnterpriseScoreLogSelectColumnUpdatedBy EnterpriseScoreLogSelectColumn = "updated_by"
 	// 删除时间
-	EnterpriseScoreLogSelectColumnDeleteAt EnterpriseScoreLogSelectColumn = "delete_at"
+	EnterpriseScoreLogSelectColumnDeletedAt EnterpriseScoreLogSelectColumn = "deleted_at"
 	// 删除人
-	EnterpriseScoreLogSelectColumnDeleteBy EnterpriseScoreLogSelectColumn = "delete_by"
+	EnterpriseScoreLogSelectColumnDeletedBy EnterpriseScoreLogSelectColumn = "deleted_by"
 	// 是否删除
-	EnterpriseScoreLogSelectColumnIsDelete EnterpriseScoreLogSelectColumn = "is_delete"
+	EnterpriseScoreLogSelectColumnIsDeleted EnterpriseScoreLogSelectColumn = "is_deleted"
 )
 
 var AllEnterpriseScoreLogSelectColumn = []EnterpriseScoreLogSelectColumn{
@@ -2984,18 +2984,18 @@ var AllEnterpriseScoreLogSelectColumn = []EnterpriseScoreLogSelectColumn{
 	EnterpriseScoreLogSelectColumnContent,
 	EnterpriseScoreLogSelectColumnFileURL,
 	EnterpriseScoreLogSelectColumnScoreSetID,
-	EnterpriseScoreLogSelectColumnCreateAt,
-	EnterpriseScoreLogSelectColumnCreateBy,
-	EnterpriseScoreLogSelectColumnUpdateAt,
-	EnterpriseScoreLogSelectColumnUpdateBy,
-	EnterpriseScoreLogSelectColumnDeleteAt,
-	EnterpriseScoreLogSelectColumnDeleteBy,
-	EnterpriseScoreLogSelectColumnIsDelete,
+	EnterpriseScoreLogSelectColumnCreatedAt,
+	EnterpriseScoreLogSelectColumnCreatedBy,
+	EnterpriseScoreLogSelectColumnUpdatedAt,
+	EnterpriseScoreLogSelectColumnUpdatedBy,
+	EnterpriseScoreLogSelectColumnDeletedAt,
+	EnterpriseScoreLogSelectColumnDeletedBy,
+	EnterpriseScoreLogSelectColumnIsDeleted,
 }
 
 func (e EnterpriseScoreLogSelectColumn) IsValid() bool {
 	switch e {
-	case EnterpriseScoreLogSelectColumnID, EnterpriseScoreLogSelectColumnLogID, EnterpriseScoreLogSelectColumnEnterpriseID, EnterpriseScoreLogSelectColumnCurrentScore, EnterpriseScoreLogSelectColumnAddScore, EnterpriseScoreLogSelectColumnContent, EnterpriseScoreLogSelectColumnFileURL, EnterpriseScoreLogSelectColumnScoreSetID, EnterpriseScoreLogSelectColumnCreateAt, EnterpriseScoreLogSelectColumnCreateBy, EnterpriseScoreLogSelectColumnUpdateAt, EnterpriseScoreLogSelectColumnUpdateBy, EnterpriseScoreLogSelectColumnDeleteAt, EnterpriseScoreLogSelectColumnDeleteBy, EnterpriseScoreLogSelectColumnIsDelete:
+	case EnterpriseScoreLogSelectColumnID, EnterpriseScoreLogSelectColumnLogID, EnterpriseScoreLogSelectColumnEnterpriseID, EnterpriseScoreLogSelectColumnCurrentScore, EnterpriseScoreLogSelectColumnAddScore, EnterpriseScoreLogSelectColumnContent, EnterpriseScoreLogSelectColumnFileURL, EnterpriseScoreLogSelectColumnScoreSetID, EnterpriseScoreLogSelectColumnCreatedAt, EnterpriseScoreLogSelectColumnCreatedBy, EnterpriseScoreLogSelectColumnUpdatedAt, EnterpriseScoreLogSelectColumnUpdatedBy, EnterpriseScoreLogSelectColumnDeletedAt, EnterpriseScoreLogSelectColumnDeletedBy, EnterpriseScoreLogSelectColumnIsDeleted:
 		return true
 	}
 	return false
@@ -3037,19 +3037,19 @@ const (
 	// 分值
 	EnterpriseScoreSetSelectColumnScore EnterpriseScoreSetSelectColumn = "score"
 	// 创建时间
-	EnterpriseScoreSetSelectColumnCreateAt EnterpriseScoreSetSelectColumn = "create_at"
+	EnterpriseScoreSetSelectColumnCreatedAt EnterpriseScoreSetSelectColumn = "created_at"
 	// 创建人
-	EnterpriseScoreSetSelectColumnCreateBy EnterpriseScoreSetSelectColumn = "create_by"
+	EnterpriseScoreSetSelectColumnCreatedBy EnterpriseScoreSetSelectColumn = "created_by"
 	// 修改时间
-	EnterpriseScoreSetSelectColumnUpdateAt EnterpriseScoreSetSelectColumn = "update_at"
+	EnterpriseScoreSetSelectColumnUpdatedAt EnterpriseScoreSetSelectColumn = "updated_at"
 	// 修改人
-	EnterpriseScoreSetSelectColumnUpdateBy EnterpriseScoreSetSelectColumn = "update_by"
+	EnterpriseScoreSetSelectColumnUpdatedBy EnterpriseScoreSetSelectColumn = "updated_by"
 	// 删除时间
-	EnterpriseScoreSetSelectColumnDeleteAt EnterpriseScoreSetSelectColumn = "delete_at"
+	EnterpriseScoreSetSelectColumnDeletedAt EnterpriseScoreSetSelectColumn = "deleted_at"
 	// 删除人
-	EnterpriseScoreSetSelectColumnDeleteBy EnterpriseScoreSetSelectColumn = "delete_by"
+	EnterpriseScoreSetSelectColumnDeletedBy EnterpriseScoreSetSelectColumn = "deleted_by"
 	// 是否删除
-	EnterpriseScoreSetSelectColumnIsDelete EnterpriseScoreSetSelectColumn = "is_delete"
+	EnterpriseScoreSetSelectColumnIsDeleted EnterpriseScoreSetSelectColumn = "is_deleted"
 )
 
 var AllEnterpriseScoreSetSelectColumn = []EnterpriseScoreSetSelectColumn{
@@ -3058,18 +3058,18 @@ var AllEnterpriseScoreSetSelectColumn = []EnterpriseScoreSetSelectColumn{
 	EnterpriseScoreSetSelectColumnContent,
 	EnterpriseScoreSetSelectColumnType,
 	EnterpriseScoreSetSelectColumnScore,
-	EnterpriseScoreSetSelectColumnCreateAt,
-	EnterpriseScoreSetSelectColumnCreateBy,
-	EnterpriseScoreSetSelectColumnUpdateAt,
-	EnterpriseScoreSetSelectColumnUpdateBy,
-	EnterpriseScoreSetSelectColumnDeleteAt,
-	EnterpriseScoreSetSelectColumnDeleteBy,
-	EnterpriseScoreSetSelectColumnIsDelete,
+	EnterpriseScoreSetSelectColumnCreatedAt,
+	EnterpriseScoreSetSelectColumnCreatedBy,
+	EnterpriseScoreSetSelectColumnUpdatedAt,
+	EnterpriseScoreSetSelectColumnUpdatedBy,
+	EnterpriseScoreSetSelectColumnDeletedAt,
+	EnterpriseScoreSetSelectColumnDeletedBy,
+	EnterpriseScoreSetSelectColumnIsDeleted,
 }
 
 func (e EnterpriseScoreSetSelectColumn) IsValid() bool {
 	switch e {
-	case EnterpriseScoreSetSelectColumnID, EnterpriseScoreSetSelectColumnScoreSetID, EnterpriseScoreSetSelectColumnContent, EnterpriseScoreSetSelectColumnType, EnterpriseScoreSetSelectColumnScore, EnterpriseScoreSetSelectColumnCreateAt, EnterpriseScoreSetSelectColumnCreateBy, EnterpriseScoreSetSelectColumnUpdateAt, EnterpriseScoreSetSelectColumnUpdateBy, EnterpriseScoreSetSelectColumnDeleteAt, EnterpriseScoreSetSelectColumnDeleteBy, EnterpriseScoreSetSelectColumnIsDelete:
+	case EnterpriseScoreSetSelectColumnID, EnterpriseScoreSetSelectColumnScoreSetID, EnterpriseScoreSetSelectColumnContent, EnterpriseScoreSetSelectColumnType, EnterpriseScoreSetSelectColumnScore, EnterpriseScoreSetSelectColumnCreatedAt, EnterpriseScoreSetSelectColumnCreatedBy, EnterpriseScoreSetSelectColumnUpdatedAt, EnterpriseScoreSetSelectColumnUpdatedBy, EnterpriseScoreSetSelectColumnDeletedAt, EnterpriseScoreSetSelectColumnDeletedBy, EnterpriseScoreSetSelectColumnIsDeleted:
 		return true
 	}
 	return false
@@ -3191,17 +3191,17 @@ const (
 	// 协会审核时间
 	EnterpriseSelectColumnAssociationReviewBy EnterpriseSelectColumn = "association_review_by"
 	// 创建时间
-	EnterpriseSelectColumnCreateAt EnterpriseSelectColumn = "create_at"
+	EnterpriseSelectColumnCreatedAt EnterpriseSelectColumn = "created_at"
 	// 创建人
-	EnterpriseSelectColumnCreateBy EnterpriseSelectColumn = "create_by"
+	EnterpriseSelectColumnCreatedBy EnterpriseSelectColumn = "created_by"
 	// 修改时间
-	EnterpriseSelectColumnUpdateAt EnterpriseSelectColumn = "update_at"
+	EnterpriseSelectColumnUpdatedAt EnterpriseSelectColumn = "updated_at"
 	// 修改人
-	EnterpriseSelectColumnUpdateBy EnterpriseSelectColumn = "update_by"
+	EnterpriseSelectColumnUpdatedBy EnterpriseSelectColumn = "updated_by"
 	// 删除时间
-	EnterpriseSelectColumnDeleteAt EnterpriseSelectColumn = "delete_at"
+	EnterpriseSelectColumnDeletedAt EnterpriseSelectColumn = "deleted_at"
 	// 删除人
-	EnterpriseSelectColumnDeleteBy EnterpriseSelectColumn = "delete_by"
+	EnterpriseSelectColumnDeletedBy EnterpriseSelectColumn = "deleted_by"
 	// 备注
 	EnterpriseSelectColumnRemarks EnterpriseSelectColumn = "remarks"
 	// 是否删除
@@ -3270,12 +3270,12 @@ var AllEnterpriseSelectColumn = []EnterpriseSelectColumn{
 	EnterpriseSelectColumnAssociationReviewOpinion,
 	EnterpriseSelectColumnAssociationReviewTime,
 	EnterpriseSelectColumnAssociationReviewBy,
-	EnterpriseSelectColumnCreateAt,
-	EnterpriseSelectColumnCreateBy,
-	EnterpriseSelectColumnUpdateAt,
-	EnterpriseSelectColumnUpdateBy,
-	EnterpriseSelectColumnDeleteAt,
-	EnterpriseSelectColumnDeleteBy,
+	EnterpriseSelectColumnCreatedAt,
+	EnterpriseSelectColumnCreatedBy,
+	EnterpriseSelectColumnUpdatedAt,
+	EnterpriseSelectColumnUpdatedBy,
+	EnterpriseSelectColumnDeletedAt,
+	EnterpriseSelectColumnDeletedBy,
 	EnterpriseSelectColumnRemarks,
 	EnterpriseSelectColumnIsDeleted,
 	EnterpriseSelectColumnIsKeyPoint,
@@ -3290,7 +3290,7 @@ var AllEnterpriseSelectColumn = []EnterpriseSelectColumn{
 
 func (e EnterpriseSelectColumn) IsValid() bool {
 	switch e {
-	case EnterpriseSelectColumnID, EnterpriseSelectColumnEnterpriseID, EnterpriseSelectColumnSuperiorEnterpriseID, EnterpriseSelectColumnEnterpriseCode, EnterpriseSelectColumnEnterpriseName, EnterpriseSelectColumnEnterpriseLevel, EnterpriseSelectColumnDisplayNumber, EnterpriseSelectColumnEnterpriseAddress, EnterpriseSelectColumnBusinessScope, EnterpriseSelectColumnFaxNumber, EnterpriseSelectColumnProvinceID, EnterpriseSelectColumnCityID, EnterpriseSelectColumnDistrictID, EnterpriseSelectColumnInstitutionCategory, EnterpriseSelectColumnOperatingLicensePhoto, EnterpriseSelectColumnBusinessLicensePhoto, EnterpriseSelectColumnBusinessLicenseIssuanceDate, EnterpriseSelectColumnBusinessLicenseExpiryDate, EnterpriseSelectColumnEnterpriseNature, EnterpriseSelectColumnLegalRepresentative, EnterpriseSelectColumnLegalRepresentativePhone, EnterpriseSelectColumnLegalRepresentativeIDCardPhoto, EnterpriseSelectColumnLegalRepresentativeIDCard, EnterpriseSelectColumnEntrustedAgent, EnterpriseSelectColumnEntrustedAgentPhone, EnterpriseSelectColumnEntrustedAgentIDCardPhoto, EnterpriseSelectColumnEntrustedAgentIDCard, EnterpriseSelectColumnOrganizationCode, EnterpriseSelectColumnOrganizationCodeCertificatePhoto, EnterpriseSelectColumnUpdateTimeIn, EnterpriseSelectColumnBusinessPhoto, EnterpriseSelectColumnIsBlack, EnterpriseSelectColumnCheckStatus, EnterpriseSelectColumnIsInstall, EnterpriseSelectColumnIsInput, EnterpriseSelectColumnIsUploadProvince, EnterpriseSelectColumnScore, EnterpriseSelectColumnBrigadeID, EnterpriseSelectColumnPoliceStationID, EnterpriseSelectColumnBrigadeReviewOpinion, EnterpriseSelectColumnBrigadeReviewTime, EnterpriseSelectColumnBrigadeReviewBy, EnterpriseSelectColumnAssociationReviewOpinion, EnterpriseSelectColumnAssociationReviewTime, EnterpriseSelectColumnAssociationReviewBy, EnterpriseSelectColumnCreateAt, EnterpriseSelectColumnCreateBy, EnterpriseSelectColumnUpdateAt, EnterpriseSelectColumnUpdateBy, EnterpriseSelectColumnDeleteAt, EnterpriseSelectColumnDeleteBy, EnterpriseSelectColumnRemarks, EnterpriseSelectColumnIsDeleted, EnterpriseSelectColumnIsKeyPoint, EnterpriseSelectColumnEnterpriseType, EnterpriseSelectColumnIsCatalog, EnterpriseSelectColumnState, EnterpriseSelectColumnProxyEnterpriseID, EnterpriseSelectColumnIsExpire, EnterpriseSelectColumnCreditLevel, EnterpriseSelectColumnCreditLevelRemark:
+	case EnterpriseSelectColumnID, EnterpriseSelectColumnEnterpriseID, EnterpriseSelectColumnSuperiorEnterpriseID, EnterpriseSelectColumnEnterpriseCode, EnterpriseSelectColumnEnterpriseName, EnterpriseSelectColumnEnterpriseLevel, EnterpriseSelectColumnDisplayNumber, EnterpriseSelectColumnEnterpriseAddress, EnterpriseSelectColumnBusinessScope, EnterpriseSelectColumnFaxNumber, EnterpriseSelectColumnProvinceID, EnterpriseSelectColumnCityID, EnterpriseSelectColumnDistrictID, EnterpriseSelectColumnInstitutionCategory, EnterpriseSelectColumnOperatingLicensePhoto, EnterpriseSelectColumnBusinessLicensePhoto, EnterpriseSelectColumnBusinessLicenseIssuanceDate, EnterpriseSelectColumnBusinessLicenseExpiryDate, EnterpriseSelectColumnEnterpriseNature, EnterpriseSelectColumnLegalRepresentative, EnterpriseSelectColumnLegalRepresentativePhone, EnterpriseSelectColumnLegalRepresentativeIDCardPhoto, EnterpriseSelectColumnLegalRepresentativeIDCard, EnterpriseSelectColumnEntrustedAgent, EnterpriseSelectColumnEntrustedAgentPhone, EnterpriseSelectColumnEntrustedAgentIDCardPhoto, EnterpriseSelectColumnEntrustedAgentIDCard, EnterpriseSelectColumnOrganizationCode, EnterpriseSelectColumnOrganizationCodeCertificatePhoto, EnterpriseSelectColumnUpdateTimeIn, EnterpriseSelectColumnBusinessPhoto, EnterpriseSelectColumnIsBlack, EnterpriseSelectColumnCheckStatus, EnterpriseSelectColumnIsInstall, EnterpriseSelectColumnIsInput, EnterpriseSelectColumnIsUploadProvince, EnterpriseSelectColumnScore, EnterpriseSelectColumnBrigadeID, EnterpriseSelectColumnPoliceStationID, EnterpriseSelectColumnBrigadeReviewOpinion, EnterpriseSelectColumnBrigadeReviewTime, EnterpriseSelectColumnBrigadeReviewBy, EnterpriseSelectColumnAssociationReviewOpinion, EnterpriseSelectColumnAssociationReviewTime, EnterpriseSelectColumnAssociationReviewBy, EnterpriseSelectColumnCreatedAt, EnterpriseSelectColumnCreatedBy, EnterpriseSelectColumnUpdatedAt, EnterpriseSelectColumnUpdatedBy, EnterpriseSelectColumnDeletedAt, EnterpriseSelectColumnDeletedBy, EnterpriseSelectColumnRemarks, EnterpriseSelectColumnIsDeleted, EnterpriseSelectColumnIsKeyPoint, EnterpriseSelectColumnEnterpriseType, EnterpriseSelectColumnIsCatalog, EnterpriseSelectColumnState, EnterpriseSelectColumnProxyEnterpriseID, EnterpriseSelectColumnIsExpire, EnterpriseSelectColumnCreditLevel, EnterpriseSelectColumnCreditLevelRemark:
 		return true
 	}
 	return false
@@ -3334,9 +3334,9 @@ const (
 	// 相关文件链接
 	EnterpriseStateHisSelectColumnFileURL EnterpriseStateHisSelectColumn = "file_url"
 	// 创建时间
-	EnterpriseStateHisSelectColumnCreateAt EnterpriseStateHisSelectColumn = "create_at"
+	EnterpriseStateHisSelectColumnCreatedAt EnterpriseStateHisSelectColumn = "created_at"
 	// 创建人
-	EnterpriseStateHisSelectColumnCreateBy EnterpriseStateHisSelectColumn = "create_by"
+	EnterpriseStateHisSelectColumnCreatedBy EnterpriseStateHisSelectColumn = "created_by"
 )
 
 var AllEnterpriseStateHisSelectColumn = []EnterpriseStateHisSelectColumn{
@@ -3346,13 +3346,13 @@ var AllEnterpriseStateHisSelectColumn = []EnterpriseStateHisSelectColumn{
 	EnterpriseStateHisSelectColumnReason,
 	EnterpriseStateHisSelectColumnState,
 	EnterpriseStateHisSelectColumnFileURL,
-	EnterpriseStateHisSelectColumnCreateAt,
-	EnterpriseStateHisSelectColumnCreateBy,
+	EnterpriseStateHisSelectColumnCreatedAt,
+	EnterpriseStateHisSelectColumnCreatedBy,
 }
 
 func (e EnterpriseStateHisSelectColumn) IsValid() bool {
 	switch e {
-	case EnterpriseStateHisSelectColumnID, EnterpriseStateHisSelectColumnStateHisID, EnterpriseStateHisSelectColumnEnterpriseID, EnterpriseStateHisSelectColumnReason, EnterpriseStateHisSelectColumnState, EnterpriseStateHisSelectColumnFileURL, EnterpriseStateHisSelectColumnCreateAt, EnterpriseStateHisSelectColumnCreateBy:
+	case EnterpriseStateHisSelectColumnID, EnterpriseStateHisSelectColumnStateHisID, EnterpriseStateHisSelectColumnEnterpriseID, EnterpriseStateHisSelectColumnReason, EnterpriseStateHisSelectColumnState, EnterpriseStateHisSelectColumnFileURL, EnterpriseStateHisSelectColumnCreatedAt, EnterpriseStateHisSelectColumnCreatedBy:
 		return true
 	}
 	return false
@@ -3390,37 +3390,37 @@ const (
 	// 企业ID
 	EnterpriseUkeySelectColumnEnterpriseID EnterpriseUkeySelectColumn = "enterprise_id"
 	// 创建时间
-	EnterpriseUkeySelectColumnCreateAt EnterpriseUkeySelectColumn = "create_at"
+	EnterpriseUkeySelectColumnCreatedAt EnterpriseUkeySelectColumn = "created_at"
 	// 创建人
-	EnterpriseUkeySelectColumnCreateBy EnterpriseUkeySelectColumn = "create_by"
+	EnterpriseUkeySelectColumnCreatedBy EnterpriseUkeySelectColumn = "created_by"
 	// 更新时间
-	EnterpriseUkeySelectColumnUpdateAt EnterpriseUkeySelectColumn = "update_at"
+	EnterpriseUkeySelectColumnUpdatedAt EnterpriseUkeySelectColumn = "updated_at"
 	// 更新人
-	EnterpriseUkeySelectColumnUpdateBy EnterpriseUkeySelectColumn = "update_by"
+	EnterpriseUkeySelectColumnUpdatedBy EnterpriseUkeySelectColumn = "updated_by"
 	// 删除时间
-	EnterpriseUkeySelectColumnDeleteAt EnterpriseUkeySelectColumn = "delete_at"
+	EnterpriseUkeySelectColumnDeletedAt EnterpriseUkeySelectColumn = "deleted_at"
 	// 删除人
-	EnterpriseUkeySelectColumnDeleteBy EnterpriseUkeySelectColumn = "delete_by"
+	EnterpriseUkeySelectColumnDeletedBy EnterpriseUkeySelectColumn = "deleted_by"
 	// 是否删除
-	EnterpriseUkeySelectColumnIsDelete EnterpriseUkeySelectColumn = "is_delete"
+	EnterpriseUkeySelectColumnIsDeleted EnterpriseUkeySelectColumn = "is_deleted"
 )
 
 var AllEnterpriseUkeySelectColumn = []EnterpriseUkeySelectColumn{
 	EnterpriseUkeySelectColumnID,
 	EnterpriseUkeySelectColumnUkeyID,
 	EnterpriseUkeySelectColumnEnterpriseID,
-	EnterpriseUkeySelectColumnCreateAt,
-	EnterpriseUkeySelectColumnCreateBy,
-	EnterpriseUkeySelectColumnUpdateAt,
-	EnterpriseUkeySelectColumnUpdateBy,
-	EnterpriseUkeySelectColumnDeleteAt,
-	EnterpriseUkeySelectColumnDeleteBy,
-	EnterpriseUkeySelectColumnIsDelete,
+	EnterpriseUkeySelectColumnCreatedAt,
+	EnterpriseUkeySelectColumnCreatedBy,
+	EnterpriseUkeySelectColumnUpdatedAt,
+	EnterpriseUkeySelectColumnUpdatedBy,
+	EnterpriseUkeySelectColumnDeletedAt,
+	EnterpriseUkeySelectColumnDeletedBy,
+	EnterpriseUkeySelectColumnIsDeleted,
 }
 
 func (e EnterpriseUkeySelectColumn) IsValid() bool {
 	switch e {
-	case EnterpriseUkeySelectColumnID, EnterpriseUkeySelectColumnUkeyID, EnterpriseUkeySelectColumnEnterpriseID, EnterpriseUkeySelectColumnCreateAt, EnterpriseUkeySelectColumnCreateBy, EnterpriseUkeySelectColumnUpdateAt, EnterpriseUkeySelectColumnUpdateBy, EnterpriseUkeySelectColumnDeleteAt, EnterpriseUkeySelectColumnDeleteBy, EnterpriseUkeySelectColumnIsDelete:
+	case EnterpriseUkeySelectColumnID, EnterpriseUkeySelectColumnUkeyID, EnterpriseUkeySelectColumnEnterpriseID, EnterpriseUkeySelectColumnCreatedAt, EnterpriseUkeySelectColumnCreatedBy, EnterpriseUkeySelectColumnUpdatedAt, EnterpriseUkeySelectColumnUpdatedBy, EnterpriseUkeySelectColumnDeletedAt, EnterpriseUkeySelectColumnDeletedBy, EnterpriseUkeySelectColumnIsDeleted:
 		return true
 	}
 	return false
@@ -3502,7 +3502,7 @@ const (
 	// 删除人
 	SystemUserSelectColumnDeleteBy SystemUserSelectColumn = "delete_by"
 	// 是否删除
-	SystemUserSelectColumnIsDelete SystemUserSelectColumn = "is_delete"
+	SystemUserSelectColumnIsDeleted SystemUserSelectColumn = "is_deleted"
 	// 备注
 	SystemUserSelectColumnRemarks SystemUserSelectColumn = "remarks"
 )
@@ -3533,13 +3533,13 @@ var AllSystemUserSelectColumn = []SystemUserSelectColumn{
 	SystemUserSelectColumnUpdateBy,
 	SystemUserSelectColumnDeleteAt,
 	SystemUserSelectColumnDeleteBy,
-	SystemUserSelectColumnIsDelete,
+	SystemUserSelectColumnIsDeleted,
 	SystemUserSelectColumnRemarks,
 }
 
 func (e SystemUserSelectColumn) IsValid() bool {
 	switch e {
-	case SystemUserSelectColumnID, SystemUserSelectColumnUserID, SystemUserSelectColumnPassword, SystemUserSelectColumnUername, SystemUserSelectColumnEnterpriseID, SystemUserSelectColumnDepartmentID, SystemUserSelectColumnGrade, SystemUserSelectColumnAuditLevel, SystemUserSelectColumnUserType, SystemUserSelectColumnIsValid, SystemUserSelectColumnUserState, SystemUserSelectColumnIPAddress, SystemUserSelectColumnIsBindIP, SystemUserSelectColumnEmail, SystemUserSelectColumnTelephone, SystemUserSelectColumnMobile, SystemUserSelectColumnUkey, SystemUserSelectColumnMkey, SystemUserSelectColumnAppVersion, SystemUserSelectColumnCreatedAt, SystemUserSelectColumnCreateBy, SystemUserSelectColumnUpdateAt, SystemUserSelectColumnUpdateBy, SystemUserSelectColumnDeleteAt, SystemUserSelectColumnDeleteBy, SystemUserSelectColumnIsDelete, SystemUserSelectColumnRemarks:
+	case SystemUserSelectColumnID, SystemUserSelectColumnUserID, SystemUserSelectColumnPassword, SystemUserSelectColumnUername, SystemUserSelectColumnEnterpriseID, SystemUserSelectColumnDepartmentID, SystemUserSelectColumnGrade, SystemUserSelectColumnAuditLevel, SystemUserSelectColumnUserType, SystemUserSelectColumnIsValid, SystemUserSelectColumnUserState, SystemUserSelectColumnIPAddress, SystemUserSelectColumnIsBindIP, SystemUserSelectColumnEmail, SystemUserSelectColumnTelephone, SystemUserSelectColumnMobile, SystemUserSelectColumnUkey, SystemUserSelectColumnMkey, SystemUserSelectColumnAppVersion, SystemUserSelectColumnCreatedAt, SystemUserSelectColumnCreateBy, SystemUserSelectColumnUpdateAt, SystemUserSelectColumnUpdateBy, SystemUserSelectColumnDeleteAt, SystemUserSelectColumnDeleteBy, SystemUserSelectColumnIsDeleted, SystemUserSelectColumnRemarks:
 		return true
 	}
 	return false

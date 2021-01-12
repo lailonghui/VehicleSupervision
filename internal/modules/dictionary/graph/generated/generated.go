@@ -48,18 +48,18 @@ type DirectiveRoot struct {
 
 type ComplexityRoot struct {
 	DataDictionary struct {
-		CreateAt             func(childComplexity int) int
-		CreateBy             func(childComplexity int) int
-		DeleteAt             func(childComplexity int) int
-		DeleteBy             func(childComplexity int) int
+		CreatedAt            func(childComplexity int) int
+		CreatedBy            func(childComplexity int) int
+		DeletedAt            func(childComplexity int) int
+		DeletedBy            func(childComplexity int) int
 		DictionaryCategoryID func(childComplexity int) int
 		DictionaryID         func(childComplexity int) int
 		ID                   func(childComplexity int) int
-		IsDelete             func(childComplexity int) int
+		IsDeleted            func(childComplexity int) int
 		Name                 func(childComplexity int) int
 		Remarks              func(childComplexity int) int
-		UpdateAt             func(childComplexity int) int
-		UpdateBy             func(childComplexity int) int
+		UpdatedAt            func(childComplexity int) int
+		UpdatedBy            func(childComplexity int) int
 		Value                func(childComplexity int) int
 	}
 
@@ -89,16 +89,16 @@ type ComplexityRoot struct {
 	DataDictionaryCategory struct {
 		CategoryCode         func(childComplexity int) int
 		CategoryName         func(childComplexity int) int
-		CreateAt             func(childComplexity int) int
-		CreateBy             func(childComplexity int) int
-		DeleteAt             func(childComplexity int) int
-		DeleteBy             func(childComplexity int) int
+		CreatedAt            func(childComplexity int) int
+		CreatedBy            func(childComplexity int) int
+		DeletedAt            func(childComplexity int) int
+		DeletedBy            func(childComplexity int) int
 		DictionaryCategoryID func(childComplexity int) int
 		ID                   func(childComplexity int) int
-		IsDelete             func(childComplexity int) int
+		IsDeleted            func(childComplexity int) int
 		Remarks              func(childComplexity int) int
-		UpdateAt             func(childComplexity int) int
-		UpdateBy             func(childComplexity int) int
+		UpdatedAt            func(childComplexity int) int
+		UpdatedBy            func(childComplexity int) int
 	}
 
 	DataDictionaryCategoryAggregate struct {
@@ -126,31 +126,31 @@ type ComplexityRoot struct {
 	DataDictionaryCategoryMaxFields struct {
 		CategoryCode         func(childComplexity int) int
 		CategoryName         func(childComplexity int) int
-		CreateAt             func(childComplexity int) int
-		CreateBy             func(childComplexity int) int
-		DeleteAt             func(childComplexity int) int
-		DeleteBy             func(childComplexity int) int
+		CreatedAt            func(childComplexity int) int
+		CreatedBy            func(childComplexity int) int
+		DeletedAt            func(childComplexity int) int
+		DeletedBy            func(childComplexity int) int
 		DictionaryCategoryID func(childComplexity int) int
 		ID                   func(childComplexity int) int
-		IsDelete             func(childComplexity int) int
+		IsDeleted            func(childComplexity int) int
 		Remarks              func(childComplexity int) int
-		UpdateAt             func(childComplexity int) int
-		UpdateBy             func(childComplexity int) int
+		UpdatedAt            func(childComplexity int) int
+		UpdatedBy            func(childComplexity int) int
 	}
 
 	DataDictionaryCategoryMinFields struct {
 		CategoryCode         func(childComplexity int) int
 		CategoryName         func(childComplexity int) int
-		CreateAt             func(childComplexity int) int
-		CreateBy             func(childComplexity int) int
-		DeleteAt             func(childComplexity int) int
-		DeleteBy             func(childComplexity int) int
+		CreatedAt            func(childComplexity int) int
+		CreatedBy            func(childComplexity int) int
+		DeletedAt            func(childComplexity int) int
+		DeletedBy            func(childComplexity int) int
 		DictionaryCategoryID func(childComplexity int) int
 		ID                   func(childComplexity int) int
-		IsDelete             func(childComplexity int) int
+		IsDeleted            func(childComplexity int) int
 		Remarks              func(childComplexity int) int
-		UpdateAt             func(childComplexity int) int
-		UpdateBy             func(childComplexity int) int
+		UpdatedAt            func(childComplexity int) int
+		UpdatedBy            func(childComplexity int) int
 	}
 
 	DataDictionaryCategoryMutationResponse struct {
@@ -187,34 +187,34 @@ type ComplexityRoot struct {
 	}
 
 	DataDictionaryMaxFields struct {
-		CreateAt             func(childComplexity int) int
-		CreateBy             func(childComplexity int) int
-		DeleteAt             func(childComplexity int) int
-		DeleteBy             func(childComplexity int) int
+		CreatedAt            func(childComplexity int) int
+		CreatedBy            func(childComplexity int) int
+		DeletedAt            func(childComplexity int) int
+		DeletedBy            func(childComplexity int) int
 		DictionaryCategoryID func(childComplexity int) int
 		DictionaryID         func(childComplexity int) int
 		ID                   func(childComplexity int) int
-		IsDelete             func(childComplexity int) int
+		IsDeleted            func(childComplexity int) int
 		Name                 func(childComplexity int) int
 		Remarks              func(childComplexity int) int
-		UpdateAt             func(childComplexity int) int
-		UpdateBy             func(childComplexity int) int
+		UpdatedAt            func(childComplexity int) int
+		UpdatedBy            func(childComplexity int) int
 		Value                func(childComplexity int) int
 	}
 
 	DataDictionaryMinFields struct {
-		CreateAt             func(childComplexity int) int
-		CreateBy             func(childComplexity int) int
-		DeleteAt             func(childComplexity int) int
-		DeleteBy             func(childComplexity int) int
+		CreatedAt            func(childComplexity int) int
+		CreatedBy            func(childComplexity int) int
+		DeletedAt            func(childComplexity int) int
+		DeletedBy            func(childComplexity int) int
 		DictionaryCategoryID func(childComplexity int) int
 		DictionaryID         func(childComplexity int) int
 		ID                   func(childComplexity int) int
-		IsDelete             func(childComplexity int) int
+		IsDeleted            func(childComplexity int) int
 		Name                 func(childComplexity int) int
 		Remarks              func(childComplexity int) int
-		UpdateAt             func(childComplexity int) int
-		UpdateBy             func(childComplexity int) int
+		UpdatedAt            func(childComplexity int) int
+		UpdatedBy            func(childComplexity int) int
 		Value                func(childComplexity int) int
 	}
 
@@ -333,33 +333,33 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 	_ = ec
 	switch typeName + "." + field {
 
-	case "DataDictionary.create_at":
-		if e.complexity.DataDictionary.CreateAt == nil {
+	case "DataDictionary.created_at":
+		if e.complexity.DataDictionary.CreatedAt == nil {
 			break
 		}
 
-		return e.complexity.DataDictionary.CreateAt(childComplexity), true
+		return e.complexity.DataDictionary.CreatedAt(childComplexity), true
 
-	case "DataDictionary.create_by":
-		if e.complexity.DataDictionary.CreateBy == nil {
+	case "DataDictionary.created_by":
+		if e.complexity.DataDictionary.CreatedBy == nil {
 			break
 		}
 
-		return e.complexity.DataDictionary.CreateBy(childComplexity), true
+		return e.complexity.DataDictionary.CreatedBy(childComplexity), true
 
-	case "DataDictionary.delete_at":
-		if e.complexity.DataDictionary.DeleteAt == nil {
+	case "DataDictionary.deleted_at":
+		if e.complexity.DataDictionary.DeletedAt == nil {
 			break
 		}
 
-		return e.complexity.DataDictionary.DeleteAt(childComplexity), true
+		return e.complexity.DataDictionary.DeletedAt(childComplexity), true
 
-	case "DataDictionary.delete_by":
-		if e.complexity.DataDictionary.DeleteBy == nil {
+	case "DataDictionary.deleted_by":
+		if e.complexity.DataDictionary.DeletedBy == nil {
 			break
 		}
 
-		return e.complexity.DataDictionary.DeleteBy(childComplexity), true
+		return e.complexity.DataDictionary.DeletedBy(childComplexity), true
 
 	case "DataDictionary.dictionary_category_id":
 		if e.complexity.DataDictionary.DictionaryCategoryID == nil {
@@ -382,12 +382,12 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.DataDictionary.ID(childComplexity), true
 
-	case "DataDictionary.is_delete":
-		if e.complexity.DataDictionary.IsDelete == nil {
+	case "DataDictionary.is_deleted":
+		if e.complexity.DataDictionary.IsDeleted == nil {
 			break
 		}
 
-		return e.complexity.DataDictionary.IsDelete(childComplexity), true
+		return e.complexity.DataDictionary.IsDeleted(childComplexity), true
 
 	case "DataDictionary.name":
 		if e.complexity.DataDictionary.Name == nil {
@@ -403,19 +403,19 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.DataDictionary.Remarks(childComplexity), true
 
-	case "DataDictionary.update_at":
-		if e.complexity.DataDictionary.UpdateAt == nil {
+	case "DataDictionary.updated_at":
+		if e.complexity.DataDictionary.UpdatedAt == nil {
 			break
 		}
 
-		return e.complexity.DataDictionary.UpdateAt(childComplexity), true
+		return e.complexity.DataDictionary.UpdatedAt(childComplexity), true
 
-	case "DataDictionary.update_by":
-		if e.complexity.DataDictionary.UpdateBy == nil {
+	case "DataDictionary.updated_by":
+		if e.complexity.DataDictionary.UpdatedBy == nil {
 			break
 		}
 
-		return e.complexity.DataDictionary.UpdateBy(childComplexity), true
+		return e.complexity.DataDictionary.UpdatedBy(childComplexity), true
 
 	case "DataDictionary.value":
 		if e.complexity.DataDictionary.Value == nil {
@@ -536,33 +536,33 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.DataDictionaryCategory.CategoryName(childComplexity), true
 
-	case "DataDictionaryCategory.create_at":
-		if e.complexity.DataDictionaryCategory.CreateAt == nil {
+	case "DataDictionaryCategory.created_at":
+		if e.complexity.DataDictionaryCategory.CreatedAt == nil {
 			break
 		}
 
-		return e.complexity.DataDictionaryCategory.CreateAt(childComplexity), true
+		return e.complexity.DataDictionaryCategory.CreatedAt(childComplexity), true
 
-	case "DataDictionaryCategory.create_by":
-		if e.complexity.DataDictionaryCategory.CreateBy == nil {
+	case "DataDictionaryCategory.created_by":
+		if e.complexity.DataDictionaryCategory.CreatedBy == nil {
 			break
 		}
 
-		return e.complexity.DataDictionaryCategory.CreateBy(childComplexity), true
+		return e.complexity.DataDictionaryCategory.CreatedBy(childComplexity), true
 
-	case "DataDictionaryCategory.delete_at":
-		if e.complexity.DataDictionaryCategory.DeleteAt == nil {
+	case "DataDictionaryCategory.deleted_at":
+		if e.complexity.DataDictionaryCategory.DeletedAt == nil {
 			break
 		}
 
-		return e.complexity.DataDictionaryCategory.DeleteAt(childComplexity), true
+		return e.complexity.DataDictionaryCategory.DeletedAt(childComplexity), true
 
-	case "DataDictionaryCategory.delete_by":
-		if e.complexity.DataDictionaryCategory.DeleteBy == nil {
+	case "DataDictionaryCategory.deleted_by":
+		if e.complexity.DataDictionaryCategory.DeletedBy == nil {
 			break
 		}
 
-		return e.complexity.DataDictionaryCategory.DeleteBy(childComplexity), true
+		return e.complexity.DataDictionaryCategory.DeletedBy(childComplexity), true
 
 	case "DataDictionaryCategory.dictionary_category_id":
 		if e.complexity.DataDictionaryCategory.DictionaryCategoryID == nil {
@@ -578,12 +578,12 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.DataDictionaryCategory.ID(childComplexity), true
 
-	case "DataDictionaryCategory.is_delete":
-		if e.complexity.DataDictionaryCategory.IsDelete == nil {
+	case "DataDictionaryCategory.is_deleted":
+		if e.complexity.DataDictionaryCategory.IsDeleted == nil {
 			break
 		}
 
-		return e.complexity.DataDictionaryCategory.IsDelete(childComplexity), true
+		return e.complexity.DataDictionaryCategory.IsDeleted(childComplexity), true
 
 	case "DataDictionaryCategory.remarks":
 		if e.complexity.DataDictionaryCategory.Remarks == nil {
@@ -592,19 +592,19 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.DataDictionaryCategory.Remarks(childComplexity), true
 
-	case "DataDictionaryCategory.update_at":
-		if e.complexity.DataDictionaryCategory.UpdateAt == nil {
+	case "DataDictionaryCategory.updated_at":
+		if e.complexity.DataDictionaryCategory.UpdatedAt == nil {
 			break
 		}
 
-		return e.complexity.DataDictionaryCategory.UpdateAt(childComplexity), true
+		return e.complexity.DataDictionaryCategory.UpdatedAt(childComplexity), true
 
-	case "DataDictionaryCategory.update_by":
-		if e.complexity.DataDictionaryCategory.UpdateBy == nil {
+	case "DataDictionaryCategory.updated_by":
+		if e.complexity.DataDictionaryCategory.UpdatedBy == nil {
 			break
 		}
 
-		return e.complexity.DataDictionaryCategory.UpdateBy(childComplexity), true
+		return e.complexity.DataDictionaryCategory.UpdatedBy(childComplexity), true
 
 	case "DataDictionaryCategoryAggregate.aggregate":
 		if e.complexity.DataDictionaryCategoryAggregate.Aggregate == nil {
@@ -711,33 +711,33 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.DataDictionaryCategoryMaxFields.CategoryName(childComplexity), true
 
-	case "DataDictionaryCategoryMaxFields.create_at":
-		if e.complexity.DataDictionaryCategoryMaxFields.CreateAt == nil {
+	case "DataDictionaryCategoryMaxFields.created_at":
+		if e.complexity.DataDictionaryCategoryMaxFields.CreatedAt == nil {
 			break
 		}
 
-		return e.complexity.DataDictionaryCategoryMaxFields.CreateAt(childComplexity), true
+		return e.complexity.DataDictionaryCategoryMaxFields.CreatedAt(childComplexity), true
 
-	case "DataDictionaryCategoryMaxFields.create_by":
-		if e.complexity.DataDictionaryCategoryMaxFields.CreateBy == nil {
+	case "DataDictionaryCategoryMaxFields.created_by":
+		if e.complexity.DataDictionaryCategoryMaxFields.CreatedBy == nil {
 			break
 		}
 
-		return e.complexity.DataDictionaryCategoryMaxFields.CreateBy(childComplexity), true
+		return e.complexity.DataDictionaryCategoryMaxFields.CreatedBy(childComplexity), true
 
-	case "DataDictionaryCategoryMaxFields.delete_at":
-		if e.complexity.DataDictionaryCategoryMaxFields.DeleteAt == nil {
+	case "DataDictionaryCategoryMaxFields.deleted_at":
+		if e.complexity.DataDictionaryCategoryMaxFields.DeletedAt == nil {
 			break
 		}
 
-		return e.complexity.DataDictionaryCategoryMaxFields.DeleteAt(childComplexity), true
+		return e.complexity.DataDictionaryCategoryMaxFields.DeletedAt(childComplexity), true
 
-	case "DataDictionaryCategoryMaxFields.delete_by":
-		if e.complexity.DataDictionaryCategoryMaxFields.DeleteBy == nil {
+	case "DataDictionaryCategoryMaxFields.deleted_by":
+		if e.complexity.DataDictionaryCategoryMaxFields.DeletedBy == nil {
 			break
 		}
 
-		return e.complexity.DataDictionaryCategoryMaxFields.DeleteBy(childComplexity), true
+		return e.complexity.DataDictionaryCategoryMaxFields.DeletedBy(childComplexity), true
 
 	case "DataDictionaryCategoryMaxFields.dictionary_category_id":
 		if e.complexity.DataDictionaryCategoryMaxFields.DictionaryCategoryID == nil {
@@ -753,12 +753,12 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.DataDictionaryCategoryMaxFields.ID(childComplexity), true
 
-	case "DataDictionaryCategoryMaxFields.is_delete":
-		if e.complexity.DataDictionaryCategoryMaxFields.IsDelete == nil {
+	case "DataDictionaryCategoryMaxFields.is_deleted":
+		if e.complexity.DataDictionaryCategoryMaxFields.IsDeleted == nil {
 			break
 		}
 
-		return e.complexity.DataDictionaryCategoryMaxFields.IsDelete(childComplexity), true
+		return e.complexity.DataDictionaryCategoryMaxFields.IsDeleted(childComplexity), true
 
 	case "DataDictionaryCategoryMaxFields.remarks":
 		if e.complexity.DataDictionaryCategoryMaxFields.Remarks == nil {
@@ -767,19 +767,19 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.DataDictionaryCategoryMaxFields.Remarks(childComplexity), true
 
-	case "DataDictionaryCategoryMaxFields.update_at":
-		if e.complexity.DataDictionaryCategoryMaxFields.UpdateAt == nil {
+	case "DataDictionaryCategoryMaxFields.updated_at":
+		if e.complexity.DataDictionaryCategoryMaxFields.UpdatedAt == nil {
 			break
 		}
 
-		return e.complexity.DataDictionaryCategoryMaxFields.UpdateAt(childComplexity), true
+		return e.complexity.DataDictionaryCategoryMaxFields.UpdatedAt(childComplexity), true
 
-	case "DataDictionaryCategoryMaxFields.update_by":
-		if e.complexity.DataDictionaryCategoryMaxFields.UpdateBy == nil {
+	case "DataDictionaryCategoryMaxFields.updated_by":
+		if e.complexity.DataDictionaryCategoryMaxFields.UpdatedBy == nil {
 			break
 		}
 
-		return e.complexity.DataDictionaryCategoryMaxFields.UpdateBy(childComplexity), true
+		return e.complexity.DataDictionaryCategoryMaxFields.UpdatedBy(childComplexity), true
 
 	case "DataDictionaryCategoryMinFields.category_code":
 		if e.complexity.DataDictionaryCategoryMinFields.CategoryCode == nil {
@@ -795,33 +795,33 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.DataDictionaryCategoryMinFields.CategoryName(childComplexity), true
 
-	case "DataDictionaryCategoryMinFields.create_at":
-		if e.complexity.DataDictionaryCategoryMinFields.CreateAt == nil {
+	case "DataDictionaryCategoryMinFields.created_at":
+		if e.complexity.DataDictionaryCategoryMinFields.CreatedAt == nil {
 			break
 		}
 
-		return e.complexity.DataDictionaryCategoryMinFields.CreateAt(childComplexity), true
+		return e.complexity.DataDictionaryCategoryMinFields.CreatedAt(childComplexity), true
 
-	case "DataDictionaryCategoryMinFields.create_by":
-		if e.complexity.DataDictionaryCategoryMinFields.CreateBy == nil {
+	case "DataDictionaryCategoryMinFields.created_by":
+		if e.complexity.DataDictionaryCategoryMinFields.CreatedBy == nil {
 			break
 		}
 
-		return e.complexity.DataDictionaryCategoryMinFields.CreateBy(childComplexity), true
+		return e.complexity.DataDictionaryCategoryMinFields.CreatedBy(childComplexity), true
 
-	case "DataDictionaryCategoryMinFields.delete_at":
-		if e.complexity.DataDictionaryCategoryMinFields.DeleteAt == nil {
+	case "DataDictionaryCategoryMinFields.deleted_at":
+		if e.complexity.DataDictionaryCategoryMinFields.DeletedAt == nil {
 			break
 		}
 
-		return e.complexity.DataDictionaryCategoryMinFields.DeleteAt(childComplexity), true
+		return e.complexity.DataDictionaryCategoryMinFields.DeletedAt(childComplexity), true
 
-	case "DataDictionaryCategoryMinFields.delete_by":
-		if e.complexity.DataDictionaryCategoryMinFields.DeleteBy == nil {
+	case "DataDictionaryCategoryMinFields.deleted_by":
+		if e.complexity.DataDictionaryCategoryMinFields.DeletedBy == nil {
 			break
 		}
 
-		return e.complexity.DataDictionaryCategoryMinFields.DeleteBy(childComplexity), true
+		return e.complexity.DataDictionaryCategoryMinFields.DeletedBy(childComplexity), true
 
 	case "DataDictionaryCategoryMinFields.dictionary_category_id":
 		if e.complexity.DataDictionaryCategoryMinFields.DictionaryCategoryID == nil {
@@ -837,12 +837,12 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.DataDictionaryCategoryMinFields.ID(childComplexity), true
 
-	case "DataDictionaryCategoryMinFields.is_delete":
-		if e.complexity.DataDictionaryCategoryMinFields.IsDelete == nil {
+	case "DataDictionaryCategoryMinFields.is_deleted":
+		if e.complexity.DataDictionaryCategoryMinFields.IsDeleted == nil {
 			break
 		}
 
-		return e.complexity.DataDictionaryCategoryMinFields.IsDelete(childComplexity), true
+		return e.complexity.DataDictionaryCategoryMinFields.IsDeleted(childComplexity), true
 
 	case "DataDictionaryCategoryMinFields.remarks":
 		if e.complexity.DataDictionaryCategoryMinFields.Remarks == nil {
@@ -851,19 +851,19 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.DataDictionaryCategoryMinFields.Remarks(childComplexity), true
 
-	case "DataDictionaryCategoryMinFields.update_at":
-		if e.complexity.DataDictionaryCategoryMinFields.UpdateAt == nil {
+	case "DataDictionaryCategoryMinFields.updated_at":
+		if e.complexity.DataDictionaryCategoryMinFields.UpdatedAt == nil {
 			break
 		}
 
-		return e.complexity.DataDictionaryCategoryMinFields.UpdateAt(childComplexity), true
+		return e.complexity.DataDictionaryCategoryMinFields.UpdatedAt(childComplexity), true
 
-	case "DataDictionaryCategoryMinFields.update_by":
-		if e.complexity.DataDictionaryCategoryMinFields.UpdateBy == nil {
+	case "DataDictionaryCategoryMinFields.updated_by":
+		if e.complexity.DataDictionaryCategoryMinFields.UpdatedBy == nil {
 			break
 		}
 
-		return e.complexity.DataDictionaryCategoryMinFields.UpdateBy(childComplexity), true
+		return e.complexity.DataDictionaryCategoryMinFields.UpdatedBy(childComplexity), true
 
 	case "DataDictionaryCategoryMutationResponse.affected_rows":
 		if e.complexity.DataDictionaryCategoryMutationResponse.AffectedRows == nil {
@@ -928,33 +928,33 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.DataDictionaryCategoryVarianceFields.ID(childComplexity), true
 
-	case "DataDictionaryMaxFields.create_at":
-		if e.complexity.DataDictionaryMaxFields.CreateAt == nil {
+	case "DataDictionaryMaxFields.created_at":
+		if e.complexity.DataDictionaryMaxFields.CreatedAt == nil {
 			break
 		}
 
-		return e.complexity.DataDictionaryMaxFields.CreateAt(childComplexity), true
+		return e.complexity.DataDictionaryMaxFields.CreatedAt(childComplexity), true
 
-	case "DataDictionaryMaxFields.create_by":
-		if e.complexity.DataDictionaryMaxFields.CreateBy == nil {
+	case "DataDictionaryMaxFields.created_by":
+		if e.complexity.DataDictionaryMaxFields.CreatedBy == nil {
 			break
 		}
 
-		return e.complexity.DataDictionaryMaxFields.CreateBy(childComplexity), true
+		return e.complexity.DataDictionaryMaxFields.CreatedBy(childComplexity), true
 
-	case "DataDictionaryMaxFields.delete_at":
-		if e.complexity.DataDictionaryMaxFields.DeleteAt == nil {
+	case "DataDictionaryMaxFields.deleted_at":
+		if e.complexity.DataDictionaryMaxFields.DeletedAt == nil {
 			break
 		}
 
-		return e.complexity.DataDictionaryMaxFields.DeleteAt(childComplexity), true
+		return e.complexity.DataDictionaryMaxFields.DeletedAt(childComplexity), true
 
-	case "DataDictionaryMaxFields.delete_by":
-		if e.complexity.DataDictionaryMaxFields.DeleteBy == nil {
+	case "DataDictionaryMaxFields.deleted_by":
+		if e.complexity.DataDictionaryMaxFields.DeletedBy == nil {
 			break
 		}
 
-		return e.complexity.DataDictionaryMaxFields.DeleteBy(childComplexity), true
+		return e.complexity.DataDictionaryMaxFields.DeletedBy(childComplexity), true
 
 	case "DataDictionaryMaxFields.dictionary_category_id":
 		if e.complexity.DataDictionaryMaxFields.DictionaryCategoryID == nil {
@@ -977,12 +977,12 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.DataDictionaryMaxFields.ID(childComplexity), true
 
-	case "DataDictionaryMaxFields.is_delete":
-		if e.complexity.DataDictionaryMaxFields.IsDelete == nil {
+	case "DataDictionaryMaxFields.is_deleted":
+		if e.complexity.DataDictionaryMaxFields.IsDeleted == nil {
 			break
 		}
 
-		return e.complexity.DataDictionaryMaxFields.IsDelete(childComplexity), true
+		return e.complexity.DataDictionaryMaxFields.IsDeleted(childComplexity), true
 
 	case "DataDictionaryMaxFields.name":
 		if e.complexity.DataDictionaryMaxFields.Name == nil {
@@ -998,19 +998,19 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.DataDictionaryMaxFields.Remarks(childComplexity), true
 
-	case "DataDictionaryMaxFields.update_at":
-		if e.complexity.DataDictionaryMaxFields.UpdateAt == nil {
+	case "DataDictionaryMaxFields.updated_at":
+		if e.complexity.DataDictionaryMaxFields.UpdatedAt == nil {
 			break
 		}
 
-		return e.complexity.DataDictionaryMaxFields.UpdateAt(childComplexity), true
+		return e.complexity.DataDictionaryMaxFields.UpdatedAt(childComplexity), true
 
-	case "DataDictionaryMaxFields.update_by":
-		if e.complexity.DataDictionaryMaxFields.UpdateBy == nil {
+	case "DataDictionaryMaxFields.updated_by":
+		if e.complexity.DataDictionaryMaxFields.UpdatedBy == nil {
 			break
 		}
 
-		return e.complexity.DataDictionaryMaxFields.UpdateBy(childComplexity), true
+		return e.complexity.DataDictionaryMaxFields.UpdatedBy(childComplexity), true
 
 	case "DataDictionaryMaxFields.value":
 		if e.complexity.DataDictionaryMaxFields.Value == nil {
@@ -1019,33 +1019,33 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.DataDictionaryMaxFields.Value(childComplexity), true
 
-	case "DataDictionaryMinFields.create_at":
-		if e.complexity.DataDictionaryMinFields.CreateAt == nil {
+	case "DataDictionaryMinFields.created_at":
+		if e.complexity.DataDictionaryMinFields.CreatedAt == nil {
 			break
 		}
 
-		return e.complexity.DataDictionaryMinFields.CreateAt(childComplexity), true
+		return e.complexity.DataDictionaryMinFields.CreatedAt(childComplexity), true
 
-	case "DataDictionaryMinFields.create_by":
-		if e.complexity.DataDictionaryMinFields.CreateBy == nil {
+	case "DataDictionaryMinFields.created_by":
+		if e.complexity.DataDictionaryMinFields.CreatedBy == nil {
 			break
 		}
 
-		return e.complexity.DataDictionaryMinFields.CreateBy(childComplexity), true
+		return e.complexity.DataDictionaryMinFields.CreatedBy(childComplexity), true
 
-	case "DataDictionaryMinFields.delete_at":
-		if e.complexity.DataDictionaryMinFields.DeleteAt == nil {
+	case "DataDictionaryMinFields.deleted_at":
+		if e.complexity.DataDictionaryMinFields.DeletedAt == nil {
 			break
 		}
 
-		return e.complexity.DataDictionaryMinFields.DeleteAt(childComplexity), true
+		return e.complexity.DataDictionaryMinFields.DeletedAt(childComplexity), true
 
-	case "DataDictionaryMinFields.delete_by":
-		if e.complexity.DataDictionaryMinFields.DeleteBy == nil {
+	case "DataDictionaryMinFields.deleted_by":
+		if e.complexity.DataDictionaryMinFields.DeletedBy == nil {
 			break
 		}
 
-		return e.complexity.DataDictionaryMinFields.DeleteBy(childComplexity), true
+		return e.complexity.DataDictionaryMinFields.DeletedBy(childComplexity), true
 
 	case "DataDictionaryMinFields.dictionary_category_id":
 		if e.complexity.DataDictionaryMinFields.DictionaryCategoryID == nil {
@@ -1068,12 +1068,12 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.DataDictionaryMinFields.ID(childComplexity), true
 
-	case "DataDictionaryMinFields.is_delete":
-		if e.complexity.DataDictionaryMinFields.IsDelete == nil {
+	case "DataDictionaryMinFields.is_deleted":
+		if e.complexity.DataDictionaryMinFields.IsDeleted == nil {
 			break
 		}
 
-		return e.complexity.DataDictionaryMinFields.IsDelete(childComplexity), true
+		return e.complexity.DataDictionaryMinFields.IsDeleted(childComplexity), true
 
 	case "DataDictionaryMinFields.name":
 		if e.complexity.DataDictionaryMinFields.Name == nil {
@@ -1089,19 +1089,19 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.DataDictionaryMinFields.Remarks(childComplexity), true
 
-	case "DataDictionaryMinFields.update_at":
-		if e.complexity.DataDictionaryMinFields.UpdateAt == nil {
+	case "DataDictionaryMinFields.updated_at":
+		if e.complexity.DataDictionaryMinFields.UpdatedAt == nil {
 			break
 		}
 
-		return e.complexity.DataDictionaryMinFields.UpdateAt(childComplexity), true
+		return e.complexity.DataDictionaryMinFields.UpdatedAt(childComplexity), true
 
-	case "DataDictionaryMinFields.update_by":
-		if e.complexity.DataDictionaryMinFields.UpdateBy == nil {
+	case "DataDictionaryMinFields.updated_by":
+		if e.complexity.DataDictionaryMinFields.UpdatedBy == nil {
 			break
 		}
 
-		return e.complexity.DataDictionaryMinFields.UpdateBy(childComplexity), true
+		return e.complexity.DataDictionaryMinFields.UpdatedBy(childComplexity), true
 
 	case "DataDictionaryMinFields.value":
 		if e.complexity.DataDictionaryMinFields.Value == nil {
@@ -1774,31 +1774,31 @@ type DataDictionary {
 	"""
 	创建时间
 	"""
-	create_at: Timestamptz!
+	created_at: Timestamptz!
 	"""
 	创建人
 	"""
-	create_by: String
+	created_by: String
 	"""
 	修改时间
 	"""
-	update_at: Timestamptz
+	updated_at: Timestamptz
 	"""
 	修改人
 	"""
-	update_by: String
+	updated_by: String
 	"""
 	删除时间
 	"""
-	delete_at: Timestamptz
+	deleted_at: Timestamptz
 	"""
 	删除人
 	"""
-	delete_by: String
+	deleted_by: String
 	"""
 	是否删除
 	"""
-	is_delete: Boolean!
+	is_deleted: Boolean!
 }
 """
 aggregated selection of "data_dictionary"
@@ -1839,13 +1839,13 @@ type DataDictionaryMaxFields {
 	name: String
 	value: Int
 	remarks: String
-	create_at: Timestamptz
-	create_by: String
-	update_at: Timestamptz
-	update_by: String
-	delete_at: Timestamptz
-	delete_by: String
-	is_delete: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+	is_deleted: Boolean
 }
 """
 aggregate min on columns of table "data_dictionary"
@@ -1857,13 +1857,13 @@ type DataDictionaryMinFields {
 	name: String
 	value: Int
 	remarks: String
-	create_at: Timestamptz
-	create_by: String
-	update_at: Timestamptz
-	update_by: String
-	delete_at: Timestamptz
-	delete_by: String
-	is_delete: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+	is_deleted: Boolean
 }
 """
 aggregate stddev on columns of table "data_dictionary"
@@ -1931,13 +1931,13 @@ input DataDictionaryOrderBy {
 	name: OrderBy
 	value: OrderBy
 	remarks: OrderBy
-	create_at: OrderBy
-	create_by: OrderBy
-	update_at: OrderBy
-	update_by: OrderBy
-	delete_at: OrderBy
-	delete_by: OrderBy
-	is_delete: OrderBy
+	created_at: OrderBy
+	created_by: OrderBy
+	updated_at: OrderBy
+	updated_by: OrderBy
+	deleted_at: OrderBy
+	deleted_by: OrderBy
+	is_deleted: OrderBy
 }
 """
 Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'data_dictionary'.
@@ -1952,13 +1952,13 @@ input DataDictionaryBoolExp {
 	name: StringComparisonExp
 	value: IntComparisonExp
 	remarks: StringComparisonExp
-	create_at: TimestamptzComparisonExp
-	create_by: StringComparisonExp
-	update_at: TimestamptzComparisonExp
-	update_by: StringComparisonExp
-	delete_at: TimestamptzComparisonExp
-	delete_by: StringComparisonExp
-	is_delete: BooleanComparisonExp
+	created_at: TimestamptzComparisonExp
+	created_by: StringComparisonExp
+	updated_at: TimestamptzComparisonExp
+	updated_by: StringComparisonExp
+	deleted_at: TimestamptzComparisonExp
+	deleted_by: StringComparisonExp
+	is_deleted: BooleanComparisonExp
 }
 """
 input type for inserting data into table "data_dictionary"
@@ -1969,13 +1969,13 @@ input DataDictionaryInsertInput {
 	name: String!
 	value: Int!
 	remarks: String
-	create_at: Timestamptz!
-	create_by: String
-	update_at: Timestamptz
-	update_by: String
-	delete_at: Timestamptz
-	delete_by: String
-	is_delete: Boolean!
+	created_at: Timestamptz!
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+	is_deleted: Boolean!
 }
 """
 input type for incrementing integer column in table "data_dictionary"
@@ -1994,13 +1994,13 @@ input DataDictionarySetInput {
 	name: String
 	value: Int
 	remarks: String
-	create_at: Timestamptz
-	create_by: String
-	update_at: Timestamptz
-	update_by: String
-	delete_at: Timestamptz
-	delete_by: String
-	is_delete: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+	is_deleted: Boolean
 }
 """
 可选select
@@ -2033,31 +2033,31 @@ enum DataDictionarySelectColumn {
 	"""
 	创建时间
 	"""
-	create_at
+	created_at
 	"""
 	创建人
 	"""
-	create_by
+	created_by
 	"""
 	修改时间
 	"""
-	update_at
+	updated_at
 	"""
 	修改人
 	"""
-	update_by
+	updated_by
 	"""
 	删除时间
 	"""
-	delete_at
+	deleted_at
 	"""
 	删除人
 	"""
-	delete_by
+	deleted_by
 	"""
 	是否删除
 	"""
-	is_delete
+	is_deleted
 }
 extend type Query {
 	"""
@@ -2139,31 +2139,31 @@ type DataDictionaryCategory {
 	"""
 	创建时间
 	"""
-	create_at: Timestamptz!
+	created_at: Timestamptz!
 	"""
 	创建人
 	"""
-	create_by: String
+	created_by: String
 	"""
 	修改时间
 	"""
-	update_at: Timestamptz
+	updated_at: Timestamptz
 	"""
 	修改人
 	"""
-	update_by: String
+	updated_by: String
 	"""
 	删除时间
 	"""
-	delete_at: Timestamptz
+	deleted_at: Timestamptz
 	"""
 	删除人
 	"""
-	delete_by: String
+	deleted_by: String
 	"""
 	是否删除
 	"""
-	is_delete: Boolean!
+	is_deleted: Boolean!
 }
 """
 aggregated selection of "data_dictionary_category"
@@ -2202,13 +2202,13 @@ type DataDictionaryCategoryMaxFields {
 	category_name: String
 	category_code: String
 	remarks: String
-	create_at: Timestamptz
-	create_by: String
-	update_at: Timestamptz
-	update_by: String
-	delete_at: Timestamptz
-	delete_by: String
-	is_delete: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+	is_deleted: Boolean
 }
 """
 aggregate min on columns of table "data_dictionary_category"
@@ -2219,13 +2219,13 @@ type DataDictionaryCategoryMinFields {
 	category_name: String
 	category_code: String
 	remarks: String
-	create_at: Timestamptz
-	create_by: String
-	update_at: Timestamptz
-	update_by: String
-	delete_at: Timestamptz
-	delete_by: String
-	is_delete: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+	is_deleted: Boolean
 }
 """
 aggregate stddev on columns of table "data_dictionary_category"
@@ -2285,13 +2285,13 @@ input DataDictionaryCategoryOrderBy {
 	category_name: OrderBy
 	category_code: OrderBy
 	remarks: OrderBy
-	create_at: OrderBy
-	create_by: OrderBy
-	update_at: OrderBy
-	update_by: OrderBy
-	delete_at: OrderBy
-	delete_by: OrderBy
-	is_delete: OrderBy
+	created_at: OrderBy
+	created_by: OrderBy
+	updated_at: OrderBy
+	updated_by: OrderBy
+	deleted_at: OrderBy
+	deleted_by: OrderBy
+	is_deleted: OrderBy
 }
 """
 Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'data_dictionary_category'.
@@ -2305,13 +2305,13 @@ input DataDictionaryCategoryBoolExp {
 	category_name: StringComparisonExp
 	category_code: StringComparisonExp
 	remarks: StringComparisonExp
-	create_at: TimestamptzComparisonExp
-	create_by: StringComparisonExp
-	update_at: TimestamptzComparisonExp
-	update_by: StringComparisonExp
-	delete_at: TimestamptzComparisonExp
-	delete_by: StringComparisonExp
-	is_delete: BooleanComparisonExp
+	created_at: TimestamptzComparisonExp
+	created_by: StringComparisonExp
+	updated_at: TimestamptzComparisonExp
+	updated_by: StringComparisonExp
+	deleted_at: TimestamptzComparisonExp
+	deleted_by: StringComparisonExp
+	is_deleted: BooleanComparisonExp
 }
 """
 input type for inserting data into table "data_dictionary_category"
@@ -2321,13 +2321,13 @@ input DataDictionaryCategoryInsertInput {
 	category_name: String!
 	category_code: String!
 	remarks: String
-	create_at: Timestamptz!
-	create_by: String
-	update_at: Timestamptz
-	update_by: String
-	delete_at: Timestamptz
-	delete_by: String
-	is_delete: Boolean!
+	created_at: Timestamptz!
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+	is_deleted: Boolean!
 }
 """
 input type for incrementing integer column in table "data_dictionary_category"
@@ -2344,13 +2344,13 @@ input DataDictionaryCategorySetInput {
 	category_name: String
 	category_code: String
 	remarks: String
-	create_at: Timestamptz
-	create_by: String
-	update_at: Timestamptz
-	update_by: String
-	delete_at: Timestamptz
-	delete_by: String
-	is_delete: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+	is_deleted: Boolean
 }
 """
 可选select
@@ -2379,31 +2379,31 @@ enum DataDictionaryCategorySelectColumn {
 	"""
 	创建时间
 	"""
-	create_at
+	created_at
 	"""
 	创建人
 	"""
-	create_by
+	created_by
 	"""
 	修改时间
 	"""
-	update_at
+	updated_at
 	"""
 	修改人
 	"""
-	update_by
+	updated_by
 	"""
 	删除时间
 	"""
-	delete_at
+	deleted_at
 	"""
 	删除人
 	"""
-	delete_by
+	deleted_by
 	"""
 	是否删除
 	"""
-	is_delete
+	is_deleted
 }
 extend type Query {
 	"""
@@ -3337,7 +3337,7 @@ func (ec *executionContext) _DataDictionary_remarks(ctx context.Context, field g
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _DataDictionary_create_at(ctx context.Context, field graphql.CollectedField, obj *model1.DataDictionary) (ret graphql.Marshaler) {
+func (ec *executionContext) _DataDictionary_created_at(ctx context.Context, field graphql.CollectedField, obj *model1.DataDictionary) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -3355,7 +3355,7 @@ func (ec *executionContext) _DataDictionary_create_at(ctx context.Context, field
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.CreateAt, nil
+		return obj.CreatedAt, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -3372,7 +3372,7 @@ func (ec *executionContext) _DataDictionary_create_at(ctx context.Context, field
 	return ec.marshalNTimestamptz2timeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _DataDictionary_create_by(ctx context.Context, field graphql.CollectedField, obj *model1.DataDictionary) (ret graphql.Marshaler) {
+func (ec *executionContext) _DataDictionary_created_by(ctx context.Context, field graphql.CollectedField, obj *model1.DataDictionary) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -3390,7 +3390,7 @@ func (ec *executionContext) _DataDictionary_create_by(ctx context.Context, field
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.CreateBy, nil
+		return obj.CreatedBy, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -3404,7 +3404,7 @@ func (ec *executionContext) _DataDictionary_create_by(ctx context.Context, field
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _DataDictionary_update_at(ctx context.Context, field graphql.CollectedField, obj *model1.DataDictionary) (ret graphql.Marshaler) {
+func (ec *executionContext) _DataDictionary_updated_at(ctx context.Context, field graphql.CollectedField, obj *model1.DataDictionary) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -3422,7 +3422,7 @@ func (ec *executionContext) _DataDictionary_update_at(ctx context.Context, field
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.UpdateAt, nil
+		return obj.UpdatedAt, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -3436,7 +3436,7 @@ func (ec *executionContext) _DataDictionary_update_at(ctx context.Context, field
 	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _DataDictionary_update_by(ctx context.Context, field graphql.CollectedField, obj *model1.DataDictionary) (ret graphql.Marshaler) {
+func (ec *executionContext) _DataDictionary_updated_by(ctx context.Context, field graphql.CollectedField, obj *model1.DataDictionary) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -3454,7 +3454,7 @@ func (ec *executionContext) _DataDictionary_update_by(ctx context.Context, field
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.UpdateBy, nil
+		return obj.UpdatedBy, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -3468,7 +3468,7 @@ func (ec *executionContext) _DataDictionary_update_by(ctx context.Context, field
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _DataDictionary_delete_at(ctx context.Context, field graphql.CollectedField, obj *model1.DataDictionary) (ret graphql.Marshaler) {
+func (ec *executionContext) _DataDictionary_deleted_at(ctx context.Context, field graphql.CollectedField, obj *model1.DataDictionary) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -3486,7 +3486,7 @@ func (ec *executionContext) _DataDictionary_delete_at(ctx context.Context, field
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.DeleteAt, nil
+		return obj.DeletedAt, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -3500,7 +3500,7 @@ func (ec *executionContext) _DataDictionary_delete_at(ctx context.Context, field
 	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _DataDictionary_delete_by(ctx context.Context, field graphql.CollectedField, obj *model1.DataDictionary) (ret graphql.Marshaler) {
+func (ec *executionContext) _DataDictionary_deleted_by(ctx context.Context, field graphql.CollectedField, obj *model1.DataDictionary) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -3518,7 +3518,7 @@ func (ec *executionContext) _DataDictionary_delete_by(ctx context.Context, field
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.DeleteBy, nil
+		return obj.DeletedBy, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -3532,7 +3532,7 @@ func (ec *executionContext) _DataDictionary_delete_by(ctx context.Context, field
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _DataDictionary_is_delete(ctx context.Context, field graphql.CollectedField, obj *model1.DataDictionary) (ret graphql.Marshaler) {
+func (ec *executionContext) _DataDictionary_is_deleted(ctx context.Context, field graphql.CollectedField, obj *model1.DataDictionary) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -3550,7 +3550,7 @@ func (ec *executionContext) _DataDictionary_is_delete(ctx context.Context, field
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.IsDelete, nil
+		return obj.IsDeleted, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -4187,7 +4187,7 @@ func (ec *executionContext) _DataDictionaryCategory_remarks(ctx context.Context,
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _DataDictionaryCategory_create_at(ctx context.Context, field graphql.CollectedField, obj *model1.DataDictionaryCategory) (ret graphql.Marshaler) {
+func (ec *executionContext) _DataDictionaryCategory_created_at(ctx context.Context, field graphql.CollectedField, obj *model1.DataDictionaryCategory) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -4205,7 +4205,7 @@ func (ec *executionContext) _DataDictionaryCategory_create_at(ctx context.Contex
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.CreateAt, nil
+		return obj.CreatedAt, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -4222,7 +4222,7 @@ func (ec *executionContext) _DataDictionaryCategory_create_at(ctx context.Contex
 	return ec.marshalNTimestamptz2timeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _DataDictionaryCategory_create_by(ctx context.Context, field graphql.CollectedField, obj *model1.DataDictionaryCategory) (ret graphql.Marshaler) {
+func (ec *executionContext) _DataDictionaryCategory_created_by(ctx context.Context, field graphql.CollectedField, obj *model1.DataDictionaryCategory) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -4240,7 +4240,7 @@ func (ec *executionContext) _DataDictionaryCategory_create_by(ctx context.Contex
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.CreateBy, nil
+		return obj.CreatedBy, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -4254,7 +4254,7 @@ func (ec *executionContext) _DataDictionaryCategory_create_by(ctx context.Contex
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _DataDictionaryCategory_update_at(ctx context.Context, field graphql.CollectedField, obj *model1.DataDictionaryCategory) (ret graphql.Marshaler) {
+func (ec *executionContext) _DataDictionaryCategory_updated_at(ctx context.Context, field graphql.CollectedField, obj *model1.DataDictionaryCategory) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -4272,7 +4272,7 @@ func (ec *executionContext) _DataDictionaryCategory_update_at(ctx context.Contex
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.UpdateAt, nil
+		return obj.UpdatedAt, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -4286,7 +4286,7 @@ func (ec *executionContext) _DataDictionaryCategory_update_at(ctx context.Contex
 	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _DataDictionaryCategory_update_by(ctx context.Context, field graphql.CollectedField, obj *model1.DataDictionaryCategory) (ret graphql.Marshaler) {
+func (ec *executionContext) _DataDictionaryCategory_updated_by(ctx context.Context, field graphql.CollectedField, obj *model1.DataDictionaryCategory) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -4304,7 +4304,7 @@ func (ec *executionContext) _DataDictionaryCategory_update_by(ctx context.Contex
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.UpdateBy, nil
+		return obj.UpdatedBy, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -4318,7 +4318,7 @@ func (ec *executionContext) _DataDictionaryCategory_update_by(ctx context.Contex
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _DataDictionaryCategory_delete_at(ctx context.Context, field graphql.CollectedField, obj *model1.DataDictionaryCategory) (ret graphql.Marshaler) {
+func (ec *executionContext) _DataDictionaryCategory_deleted_at(ctx context.Context, field graphql.CollectedField, obj *model1.DataDictionaryCategory) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -4336,7 +4336,7 @@ func (ec *executionContext) _DataDictionaryCategory_delete_at(ctx context.Contex
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.DeleteAt, nil
+		return obj.DeletedAt, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -4350,7 +4350,7 @@ func (ec *executionContext) _DataDictionaryCategory_delete_at(ctx context.Contex
 	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _DataDictionaryCategory_delete_by(ctx context.Context, field graphql.CollectedField, obj *model1.DataDictionaryCategory) (ret graphql.Marshaler) {
+func (ec *executionContext) _DataDictionaryCategory_deleted_by(ctx context.Context, field graphql.CollectedField, obj *model1.DataDictionaryCategory) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -4368,7 +4368,7 @@ func (ec *executionContext) _DataDictionaryCategory_delete_by(ctx context.Contex
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.DeleteBy, nil
+		return obj.DeletedBy, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -4382,7 +4382,7 @@ func (ec *executionContext) _DataDictionaryCategory_delete_by(ctx context.Contex
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _DataDictionaryCategory_is_delete(ctx context.Context, field graphql.CollectedField, obj *model1.DataDictionaryCategory) (ret graphql.Marshaler) {
+func (ec *executionContext) _DataDictionaryCategory_is_deleted(ctx context.Context, field graphql.CollectedField, obj *model1.DataDictionaryCategory) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -4400,7 +4400,7 @@ func (ec *executionContext) _DataDictionaryCategory_is_delete(ctx context.Contex
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.IsDelete, nil
+		return obj.IsDeleted, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -4993,7 +4993,7 @@ func (ec *executionContext) _DataDictionaryCategoryMaxFields_remarks(ctx context
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _DataDictionaryCategoryMaxFields_create_at(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryCategoryMaxFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _DataDictionaryCategoryMaxFields_created_at(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryCategoryMaxFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -5011,7 +5011,7 @@ func (ec *executionContext) _DataDictionaryCategoryMaxFields_create_at(ctx conte
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.CreateAt, nil
+		return obj.CreatedAt, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -5025,7 +5025,7 @@ func (ec *executionContext) _DataDictionaryCategoryMaxFields_create_at(ctx conte
 	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _DataDictionaryCategoryMaxFields_create_by(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryCategoryMaxFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _DataDictionaryCategoryMaxFields_created_by(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryCategoryMaxFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -5043,7 +5043,7 @@ func (ec *executionContext) _DataDictionaryCategoryMaxFields_create_by(ctx conte
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.CreateBy, nil
+		return obj.CreatedBy, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -5057,7 +5057,7 @@ func (ec *executionContext) _DataDictionaryCategoryMaxFields_create_by(ctx conte
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _DataDictionaryCategoryMaxFields_update_at(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryCategoryMaxFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _DataDictionaryCategoryMaxFields_updated_at(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryCategoryMaxFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -5075,7 +5075,7 @@ func (ec *executionContext) _DataDictionaryCategoryMaxFields_update_at(ctx conte
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.UpdateAt, nil
+		return obj.UpdatedAt, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -5089,7 +5089,7 @@ func (ec *executionContext) _DataDictionaryCategoryMaxFields_update_at(ctx conte
 	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _DataDictionaryCategoryMaxFields_update_by(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryCategoryMaxFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _DataDictionaryCategoryMaxFields_updated_by(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryCategoryMaxFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -5107,7 +5107,7 @@ func (ec *executionContext) _DataDictionaryCategoryMaxFields_update_by(ctx conte
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.UpdateBy, nil
+		return obj.UpdatedBy, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -5121,7 +5121,7 @@ func (ec *executionContext) _DataDictionaryCategoryMaxFields_update_by(ctx conte
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _DataDictionaryCategoryMaxFields_delete_at(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryCategoryMaxFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _DataDictionaryCategoryMaxFields_deleted_at(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryCategoryMaxFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -5139,7 +5139,7 @@ func (ec *executionContext) _DataDictionaryCategoryMaxFields_delete_at(ctx conte
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.DeleteAt, nil
+		return obj.DeletedAt, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -5153,7 +5153,7 @@ func (ec *executionContext) _DataDictionaryCategoryMaxFields_delete_at(ctx conte
 	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _DataDictionaryCategoryMaxFields_delete_by(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryCategoryMaxFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _DataDictionaryCategoryMaxFields_deleted_by(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryCategoryMaxFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -5171,7 +5171,7 @@ func (ec *executionContext) _DataDictionaryCategoryMaxFields_delete_by(ctx conte
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.DeleteBy, nil
+		return obj.DeletedBy, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -5185,7 +5185,7 @@ func (ec *executionContext) _DataDictionaryCategoryMaxFields_delete_by(ctx conte
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _DataDictionaryCategoryMaxFields_is_delete(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryCategoryMaxFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _DataDictionaryCategoryMaxFields_is_deleted(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryCategoryMaxFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -5203,7 +5203,7 @@ func (ec *executionContext) _DataDictionaryCategoryMaxFields_is_delete(ctx conte
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.IsDelete, nil
+		return obj.IsDeleted, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -5377,7 +5377,7 @@ func (ec *executionContext) _DataDictionaryCategoryMinFields_remarks(ctx context
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _DataDictionaryCategoryMinFields_create_at(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryCategoryMinFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _DataDictionaryCategoryMinFields_created_at(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryCategoryMinFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -5395,7 +5395,7 @@ func (ec *executionContext) _DataDictionaryCategoryMinFields_create_at(ctx conte
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.CreateAt, nil
+		return obj.CreatedAt, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -5409,7 +5409,7 @@ func (ec *executionContext) _DataDictionaryCategoryMinFields_create_at(ctx conte
 	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _DataDictionaryCategoryMinFields_create_by(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryCategoryMinFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _DataDictionaryCategoryMinFields_created_by(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryCategoryMinFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -5427,7 +5427,7 @@ func (ec *executionContext) _DataDictionaryCategoryMinFields_create_by(ctx conte
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.CreateBy, nil
+		return obj.CreatedBy, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -5441,7 +5441,7 @@ func (ec *executionContext) _DataDictionaryCategoryMinFields_create_by(ctx conte
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _DataDictionaryCategoryMinFields_update_at(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryCategoryMinFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _DataDictionaryCategoryMinFields_updated_at(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryCategoryMinFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -5459,7 +5459,7 @@ func (ec *executionContext) _DataDictionaryCategoryMinFields_update_at(ctx conte
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.UpdateAt, nil
+		return obj.UpdatedAt, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -5473,7 +5473,7 @@ func (ec *executionContext) _DataDictionaryCategoryMinFields_update_at(ctx conte
 	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _DataDictionaryCategoryMinFields_update_by(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryCategoryMinFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _DataDictionaryCategoryMinFields_updated_by(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryCategoryMinFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -5491,7 +5491,7 @@ func (ec *executionContext) _DataDictionaryCategoryMinFields_update_by(ctx conte
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.UpdateBy, nil
+		return obj.UpdatedBy, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -5505,7 +5505,7 @@ func (ec *executionContext) _DataDictionaryCategoryMinFields_update_by(ctx conte
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _DataDictionaryCategoryMinFields_delete_at(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryCategoryMinFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _DataDictionaryCategoryMinFields_deleted_at(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryCategoryMinFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -5523,7 +5523,7 @@ func (ec *executionContext) _DataDictionaryCategoryMinFields_delete_at(ctx conte
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.DeleteAt, nil
+		return obj.DeletedAt, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -5537,7 +5537,7 @@ func (ec *executionContext) _DataDictionaryCategoryMinFields_delete_at(ctx conte
 	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _DataDictionaryCategoryMinFields_delete_by(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryCategoryMinFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _DataDictionaryCategoryMinFields_deleted_by(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryCategoryMinFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -5555,7 +5555,7 @@ func (ec *executionContext) _DataDictionaryCategoryMinFields_delete_by(ctx conte
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.DeleteBy, nil
+		return obj.DeletedBy, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -5569,7 +5569,7 @@ func (ec *executionContext) _DataDictionaryCategoryMinFields_delete_by(ctx conte
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _DataDictionaryCategoryMinFields_is_delete(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryCategoryMinFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _DataDictionaryCategoryMinFields_is_deleted(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryCategoryMinFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -5587,7 +5587,7 @@ func (ec *executionContext) _DataDictionaryCategoryMinFields_is_delete(ctx conte
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.IsDelete, nil
+		return obj.IsDeleted, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -6087,7 +6087,7 @@ func (ec *executionContext) _DataDictionaryMaxFields_remarks(ctx context.Context
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _DataDictionaryMaxFields_create_at(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryMaxFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _DataDictionaryMaxFields_created_at(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryMaxFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -6105,7 +6105,7 @@ func (ec *executionContext) _DataDictionaryMaxFields_create_at(ctx context.Conte
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.CreateAt, nil
+		return obj.CreatedAt, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -6119,7 +6119,7 @@ func (ec *executionContext) _DataDictionaryMaxFields_create_at(ctx context.Conte
 	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _DataDictionaryMaxFields_create_by(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryMaxFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _DataDictionaryMaxFields_created_by(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryMaxFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -6137,7 +6137,7 @@ func (ec *executionContext) _DataDictionaryMaxFields_create_by(ctx context.Conte
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.CreateBy, nil
+		return obj.CreatedBy, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -6151,7 +6151,7 @@ func (ec *executionContext) _DataDictionaryMaxFields_create_by(ctx context.Conte
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _DataDictionaryMaxFields_update_at(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryMaxFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _DataDictionaryMaxFields_updated_at(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryMaxFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -6169,7 +6169,7 @@ func (ec *executionContext) _DataDictionaryMaxFields_update_at(ctx context.Conte
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.UpdateAt, nil
+		return obj.UpdatedAt, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -6183,7 +6183,7 @@ func (ec *executionContext) _DataDictionaryMaxFields_update_at(ctx context.Conte
 	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _DataDictionaryMaxFields_update_by(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryMaxFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _DataDictionaryMaxFields_updated_by(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryMaxFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -6201,7 +6201,7 @@ func (ec *executionContext) _DataDictionaryMaxFields_update_by(ctx context.Conte
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.UpdateBy, nil
+		return obj.UpdatedBy, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -6215,7 +6215,7 @@ func (ec *executionContext) _DataDictionaryMaxFields_update_by(ctx context.Conte
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _DataDictionaryMaxFields_delete_at(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryMaxFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _DataDictionaryMaxFields_deleted_at(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryMaxFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -6233,7 +6233,7 @@ func (ec *executionContext) _DataDictionaryMaxFields_delete_at(ctx context.Conte
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.DeleteAt, nil
+		return obj.DeletedAt, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -6247,7 +6247,7 @@ func (ec *executionContext) _DataDictionaryMaxFields_delete_at(ctx context.Conte
 	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _DataDictionaryMaxFields_delete_by(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryMaxFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _DataDictionaryMaxFields_deleted_by(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryMaxFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -6265,7 +6265,7 @@ func (ec *executionContext) _DataDictionaryMaxFields_delete_by(ctx context.Conte
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.DeleteBy, nil
+		return obj.DeletedBy, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -6279,7 +6279,7 @@ func (ec *executionContext) _DataDictionaryMaxFields_delete_by(ctx context.Conte
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _DataDictionaryMaxFields_is_delete(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryMaxFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _DataDictionaryMaxFields_is_deleted(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryMaxFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -6297,7 +6297,7 @@ func (ec *executionContext) _DataDictionaryMaxFields_is_delete(ctx context.Conte
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.IsDelete, nil
+		return obj.IsDeleted, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -6503,7 +6503,7 @@ func (ec *executionContext) _DataDictionaryMinFields_remarks(ctx context.Context
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _DataDictionaryMinFields_create_at(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryMinFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _DataDictionaryMinFields_created_at(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryMinFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -6521,7 +6521,7 @@ func (ec *executionContext) _DataDictionaryMinFields_create_at(ctx context.Conte
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.CreateAt, nil
+		return obj.CreatedAt, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -6535,7 +6535,7 @@ func (ec *executionContext) _DataDictionaryMinFields_create_at(ctx context.Conte
 	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _DataDictionaryMinFields_create_by(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryMinFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _DataDictionaryMinFields_created_by(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryMinFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -6553,7 +6553,7 @@ func (ec *executionContext) _DataDictionaryMinFields_create_by(ctx context.Conte
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.CreateBy, nil
+		return obj.CreatedBy, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -6567,7 +6567,7 @@ func (ec *executionContext) _DataDictionaryMinFields_create_by(ctx context.Conte
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _DataDictionaryMinFields_update_at(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryMinFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _DataDictionaryMinFields_updated_at(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryMinFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -6585,7 +6585,7 @@ func (ec *executionContext) _DataDictionaryMinFields_update_at(ctx context.Conte
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.UpdateAt, nil
+		return obj.UpdatedAt, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -6599,7 +6599,7 @@ func (ec *executionContext) _DataDictionaryMinFields_update_at(ctx context.Conte
 	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _DataDictionaryMinFields_update_by(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryMinFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _DataDictionaryMinFields_updated_by(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryMinFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -6617,7 +6617,7 @@ func (ec *executionContext) _DataDictionaryMinFields_update_by(ctx context.Conte
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.UpdateBy, nil
+		return obj.UpdatedBy, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -6631,7 +6631,7 @@ func (ec *executionContext) _DataDictionaryMinFields_update_by(ctx context.Conte
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _DataDictionaryMinFields_delete_at(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryMinFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _DataDictionaryMinFields_deleted_at(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryMinFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -6649,7 +6649,7 @@ func (ec *executionContext) _DataDictionaryMinFields_delete_at(ctx context.Conte
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.DeleteAt, nil
+		return obj.DeletedAt, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -6663,7 +6663,7 @@ func (ec *executionContext) _DataDictionaryMinFields_delete_at(ctx context.Conte
 	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _DataDictionaryMinFields_delete_by(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryMinFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _DataDictionaryMinFields_deleted_by(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryMinFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -6681,7 +6681,7 @@ func (ec *executionContext) _DataDictionaryMinFields_delete_by(ctx context.Conte
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.DeleteBy, nil
+		return obj.DeletedBy, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -6695,7 +6695,7 @@ func (ec *executionContext) _DataDictionaryMinFields_delete_by(ctx context.Conte
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _DataDictionaryMinFields_is_delete(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryMinFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _DataDictionaryMinFields_is_deleted(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryMinFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -6713,7 +6713,7 @@ func (ec *executionContext) _DataDictionaryMinFields_is_delete(ctx context.Conte
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.IsDelete, nil
+		return obj.IsDeleted, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -9609,59 +9609,59 @@ func (ec *executionContext) unmarshalInputDataDictionaryBoolExp(ctx context.Cont
 			if err != nil {
 				return it, err
 			}
-		case "create_at":
+		case "created_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_at"))
-			it.CreateAt, err = ec.unmarshalOTimestamptzComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
+			it.CreatedAt, err = ec.unmarshalOTimestamptzComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "create_by":
+		case "created_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_by"))
-			it.CreateBy, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
+			it.CreatedBy, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "update_at":
+		case "updated_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_at"))
-			it.UpdateAt, err = ec.unmarshalOTimestamptzComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("updated_at"))
+			it.UpdatedAt, err = ec.unmarshalOTimestamptzComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "update_by":
+		case "updated_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_by"))
-			it.UpdateBy, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("updated_by"))
+			it.UpdatedBy, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "delete_at":
+		case "deleted_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_at"))
-			it.DeleteAt, err = ec.unmarshalOTimestamptzComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_at"))
+			it.DeletedAt, err = ec.unmarshalOTimestamptzComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "delete_by":
+		case "deleted_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_by"))
-			it.DeleteBy, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_by"))
+			it.DeletedBy, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "is_delete":
+		case "is_deleted":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_delete"))
-			it.IsDelete, err = ec.unmarshalOBooleanComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐBooleanComparisonExp(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_deleted"))
+			it.IsDeleted, err = ec.unmarshalOBooleanComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐBooleanComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -9741,59 +9741,59 @@ func (ec *executionContext) unmarshalInputDataDictionaryCategoryBoolExp(ctx cont
 			if err != nil {
 				return it, err
 			}
-		case "create_at":
+		case "created_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_at"))
-			it.CreateAt, err = ec.unmarshalOTimestamptzComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
+			it.CreatedAt, err = ec.unmarshalOTimestamptzComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "create_by":
+		case "created_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_by"))
-			it.CreateBy, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
+			it.CreatedBy, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "update_at":
+		case "updated_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_at"))
-			it.UpdateAt, err = ec.unmarshalOTimestamptzComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("updated_at"))
+			it.UpdatedAt, err = ec.unmarshalOTimestamptzComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "update_by":
+		case "updated_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_by"))
-			it.UpdateBy, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("updated_by"))
+			it.UpdatedBy, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "delete_at":
+		case "deleted_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_at"))
-			it.DeleteAt, err = ec.unmarshalOTimestamptzComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_at"))
+			it.DeletedAt, err = ec.unmarshalOTimestamptzComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "delete_by":
+		case "deleted_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_by"))
-			it.DeleteBy, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_by"))
+			it.DeletedBy, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "is_delete":
+		case "is_deleted":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_delete"))
-			it.IsDelete, err = ec.unmarshalOBooleanComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐBooleanComparisonExp(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_deleted"))
+			it.IsDeleted, err = ec.unmarshalOBooleanComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐBooleanComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -9861,59 +9861,59 @@ func (ec *executionContext) unmarshalInputDataDictionaryCategoryInsertInput(ctx 
 			if err != nil {
 				return it, err
 			}
-		case "create_at":
+		case "created_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_at"))
-			it.CreateAt, err = ec.unmarshalNTimestamptz2timeᚐTime(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
+			it.CreatedAt, err = ec.unmarshalNTimestamptz2timeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "create_by":
+		case "created_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_by"))
-			it.CreateBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
+			it.CreatedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "update_at":
+		case "updated_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_at"))
-			it.UpdateAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("updated_at"))
+			it.UpdatedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "update_by":
+		case "updated_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_by"))
-			it.UpdateBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("updated_by"))
+			it.UpdatedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "delete_at":
+		case "deleted_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_at"))
-			it.DeleteAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_at"))
+			it.DeletedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "delete_by":
+		case "deleted_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_by"))
-			it.DeleteBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_by"))
+			it.DeletedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "is_delete":
+		case "is_deleted":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_delete"))
-			it.IsDelete, err = ec.unmarshalNBoolean2bool(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_deleted"))
+			it.IsDeleted, err = ec.unmarshalNBoolean2bool(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -9969,59 +9969,59 @@ func (ec *executionContext) unmarshalInputDataDictionaryCategoryOrderBy(ctx cont
 			if err != nil {
 				return it, err
 			}
-		case "create_at":
+		case "created_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_at"))
-			it.CreateAt, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
+			it.CreatedAt, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "create_by":
+		case "created_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_by"))
-			it.CreateBy, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
+			it.CreatedBy, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "update_at":
+		case "updated_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_at"))
-			it.UpdateAt, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("updated_at"))
+			it.UpdatedAt, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "update_by":
+		case "updated_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_by"))
-			it.UpdateBy, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("updated_by"))
+			it.UpdatedBy, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "delete_at":
+		case "deleted_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_at"))
-			it.DeleteAt, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_at"))
+			it.DeletedAt, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "delete_by":
+		case "deleted_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_by"))
-			it.DeleteBy, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_by"))
+			it.DeletedBy, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "is_delete":
+		case "is_deleted":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_delete"))
-			it.IsDelete, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_deleted"))
+			it.IsDeleted, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -10077,59 +10077,59 @@ func (ec *executionContext) unmarshalInputDataDictionaryCategorySetInput(ctx con
 			if err != nil {
 				return it, err
 			}
-		case "create_at":
+		case "created_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_at"))
-			it.CreateAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
+			it.CreatedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "create_by":
+		case "created_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_by"))
-			it.CreateBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
+			it.CreatedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "update_at":
+		case "updated_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_at"))
-			it.UpdateAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("updated_at"))
+			it.UpdatedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "update_by":
+		case "updated_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_by"))
-			it.UpdateBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("updated_by"))
+			it.UpdatedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "delete_at":
+		case "deleted_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_at"))
-			it.DeleteAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_at"))
+			it.DeletedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "delete_by":
+		case "deleted_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_by"))
-			it.DeleteBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_by"))
+			it.DeletedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "is_delete":
+		case "is_deleted":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_delete"))
-			it.IsDelete, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_deleted"))
+			it.IsDeleted, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -10213,59 +10213,59 @@ func (ec *executionContext) unmarshalInputDataDictionaryInsertInput(ctx context.
 			if err != nil {
 				return it, err
 			}
-		case "create_at":
+		case "created_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_at"))
-			it.CreateAt, err = ec.unmarshalNTimestamptz2timeᚐTime(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
+			it.CreatedAt, err = ec.unmarshalNTimestamptz2timeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "create_by":
+		case "created_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_by"))
-			it.CreateBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
+			it.CreatedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "update_at":
+		case "updated_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_at"))
-			it.UpdateAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("updated_at"))
+			it.UpdatedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "update_by":
+		case "updated_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_by"))
-			it.UpdateBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("updated_by"))
+			it.UpdatedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "delete_at":
+		case "deleted_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_at"))
-			it.DeleteAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_at"))
+			it.DeletedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "delete_by":
+		case "deleted_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_by"))
-			it.DeleteBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_by"))
+			it.DeletedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "is_delete":
+		case "is_deleted":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_delete"))
-			it.IsDelete, err = ec.unmarshalNBoolean2bool(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_deleted"))
+			it.IsDeleted, err = ec.unmarshalNBoolean2bool(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -10329,59 +10329,59 @@ func (ec *executionContext) unmarshalInputDataDictionaryOrderBy(ctx context.Cont
 			if err != nil {
 				return it, err
 			}
-		case "create_at":
+		case "created_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_at"))
-			it.CreateAt, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
+			it.CreatedAt, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "create_by":
+		case "created_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_by"))
-			it.CreateBy, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
+			it.CreatedBy, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "update_at":
+		case "updated_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_at"))
-			it.UpdateAt, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("updated_at"))
+			it.UpdatedAt, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "update_by":
+		case "updated_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_by"))
-			it.UpdateBy, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("updated_by"))
+			it.UpdatedBy, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "delete_at":
+		case "deleted_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_at"))
-			it.DeleteAt, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_at"))
+			it.DeletedAt, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "delete_by":
+		case "deleted_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_by"))
-			it.DeleteBy, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_by"))
+			it.DeletedBy, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "is_delete":
+		case "is_deleted":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_delete"))
-			it.IsDelete, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_deleted"))
+			it.IsDeleted, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -10445,59 +10445,59 @@ func (ec *executionContext) unmarshalInputDataDictionarySetInput(ctx context.Con
 			if err != nil {
 				return it, err
 			}
-		case "create_at":
+		case "created_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_at"))
-			it.CreateAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
+			it.CreatedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "create_by":
+		case "created_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_by"))
-			it.CreateBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
+			it.CreatedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "update_at":
+		case "updated_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_at"))
-			it.UpdateAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("updated_at"))
+			it.UpdatedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "update_by":
+		case "updated_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_by"))
-			it.UpdateBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("updated_by"))
+			it.UpdatedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "delete_at":
+		case "deleted_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_at"))
-			it.DeleteAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_at"))
+			it.DeletedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "delete_by":
+		case "deleted_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_by"))
-			it.DeleteBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_by"))
+			it.DeletedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "is_delete":
+		case "is_deleted":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_delete"))
-			it.IsDelete, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_deleted"))
+			it.IsDeleted, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -11189,23 +11189,23 @@ func (ec *executionContext) _DataDictionary(ctx context.Context, sel ast.Selecti
 			}
 		case "remarks":
 			out.Values[i] = ec._DataDictionary_remarks(ctx, field, obj)
-		case "create_at":
-			out.Values[i] = ec._DataDictionary_create_at(ctx, field, obj)
+		case "created_at":
+			out.Values[i] = ec._DataDictionary_created_at(ctx, field, obj)
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "create_by":
-			out.Values[i] = ec._DataDictionary_create_by(ctx, field, obj)
-		case "update_at":
-			out.Values[i] = ec._DataDictionary_update_at(ctx, field, obj)
-		case "update_by":
-			out.Values[i] = ec._DataDictionary_update_by(ctx, field, obj)
-		case "delete_at":
-			out.Values[i] = ec._DataDictionary_delete_at(ctx, field, obj)
-		case "delete_by":
-			out.Values[i] = ec._DataDictionary_delete_by(ctx, field, obj)
-		case "is_delete":
-			out.Values[i] = ec._DataDictionary_is_delete(ctx, field, obj)
+		case "created_by":
+			out.Values[i] = ec._DataDictionary_created_by(ctx, field, obj)
+		case "updated_at":
+			out.Values[i] = ec._DataDictionary_updated_at(ctx, field, obj)
+		case "updated_by":
+			out.Values[i] = ec._DataDictionary_updated_by(ctx, field, obj)
+		case "deleted_at":
+			out.Values[i] = ec._DataDictionary_deleted_at(ctx, field, obj)
+		case "deleted_by":
+			out.Values[i] = ec._DataDictionary_deleted_by(ctx, field, obj)
+		case "is_deleted":
+			out.Values[i] = ec._DataDictionary_is_deleted(ctx, field, obj)
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
@@ -11347,23 +11347,23 @@ func (ec *executionContext) _DataDictionaryCategory(ctx context.Context, sel ast
 			}
 		case "remarks":
 			out.Values[i] = ec._DataDictionaryCategory_remarks(ctx, field, obj)
-		case "create_at":
-			out.Values[i] = ec._DataDictionaryCategory_create_at(ctx, field, obj)
+		case "created_at":
+			out.Values[i] = ec._DataDictionaryCategory_created_at(ctx, field, obj)
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "create_by":
-			out.Values[i] = ec._DataDictionaryCategory_create_by(ctx, field, obj)
-		case "update_at":
-			out.Values[i] = ec._DataDictionaryCategory_update_at(ctx, field, obj)
-		case "update_by":
-			out.Values[i] = ec._DataDictionaryCategory_update_by(ctx, field, obj)
-		case "delete_at":
-			out.Values[i] = ec._DataDictionaryCategory_delete_at(ctx, field, obj)
-		case "delete_by":
-			out.Values[i] = ec._DataDictionaryCategory_delete_by(ctx, field, obj)
-		case "is_delete":
-			out.Values[i] = ec._DataDictionaryCategory_is_delete(ctx, field, obj)
+		case "created_by":
+			out.Values[i] = ec._DataDictionaryCategory_created_by(ctx, field, obj)
+		case "updated_at":
+			out.Values[i] = ec._DataDictionaryCategory_updated_at(ctx, field, obj)
+		case "updated_by":
+			out.Values[i] = ec._DataDictionaryCategory_updated_by(ctx, field, obj)
+		case "deleted_at":
+			out.Values[i] = ec._DataDictionaryCategory_deleted_at(ctx, field, obj)
+		case "deleted_by":
+			out.Values[i] = ec._DataDictionaryCategory_deleted_by(ctx, field, obj)
+		case "is_deleted":
+			out.Values[i] = ec._DataDictionaryCategory_is_deleted(ctx, field, obj)
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
@@ -11491,20 +11491,20 @@ func (ec *executionContext) _DataDictionaryCategoryMaxFields(ctx context.Context
 			out.Values[i] = ec._DataDictionaryCategoryMaxFields_category_code(ctx, field, obj)
 		case "remarks":
 			out.Values[i] = ec._DataDictionaryCategoryMaxFields_remarks(ctx, field, obj)
-		case "create_at":
-			out.Values[i] = ec._DataDictionaryCategoryMaxFields_create_at(ctx, field, obj)
-		case "create_by":
-			out.Values[i] = ec._DataDictionaryCategoryMaxFields_create_by(ctx, field, obj)
-		case "update_at":
-			out.Values[i] = ec._DataDictionaryCategoryMaxFields_update_at(ctx, field, obj)
-		case "update_by":
-			out.Values[i] = ec._DataDictionaryCategoryMaxFields_update_by(ctx, field, obj)
-		case "delete_at":
-			out.Values[i] = ec._DataDictionaryCategoryMaxFields_delete_at(ctx, field, obj)
-		case "delete_by":
-			out.Values[i] = ec._DataDictionaryCategoryMaxFields_delete_by(ctx, field, obj)
-		case "is_delete":
-			out.Values[i] = ec._DataDictionaryCategoryMaxFields_is_delete(ctx, field, obj)
+		case "created_at":
+			out.Values[i] = ec._DataDictionaryCategoryMaxFields_created_at(ctx, field, obj)
+		case "created_by":
+			out.Values[i] = ec._DataDictionaryCategoryMaxFields_created_by(ctx, field, obj)
+		case "updated_at":
+			out.Values[i] = ec._DataDictionaryCategoryMaxFields_updated_at(ctx, field, obj)
+		case "updated_by":
+			out.Values[i] = ec._DataDictionaryCategoryMaxFields_updated_by(ctx, field, obj)
+		case "deleted_at":
+			out.Values[i] = ec._DataDictionaryCategoryMaxFields_deleted_at(ctx, field, obj)
+		case "deleted_by":
+			out.Values[i] = ec._DataDictionaryCategoryMaxFields_deleted_by(ctx, field, obj)
+		case "is_deleted":
+			out.Values[i] = ec._DataDictionaryCategoryMaxFields_is_deleted(ctx, field, obj)
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}
@@ -11537,20 +11537,20 @@ func (ec *executionContext) _DataDictionaryCategoryMinFields(ctx context.Context
 			out.Values[i] = ec._DataDictionaryCategoryMinFields_category_code(ctx, field, obj)
 		case "remarks":
 			out.Values[i] = ec._DataDictionaryCategoryMinFields_remarks(ctx, field, obj)
-		case "create_at":
-			out.Values[i] = ec._DataDictionaryCategoryMinFields_create_at(ctx, field, obj)
-		case "create_by":
-			out.Values[i] = ec._DataDictionaryCategoryMinFields_create_by(ctx, field, obj)
-		case "update_at":
-			out.Values[i] = ec._DataDictionaryCategoryMinFields_update_at(ctx, field, obj)
-		case "update_by":
-			out.Values[i] = ec._DataDictionaryCategoryMinFields_update_by(ctx, field, obj)
-		case "delete_at":
-			out.Values[i] = ec._DataDictionaryCategoryMinFields_delete_at(ctx, field, obj)
-		case "delete_by":
-			out.Values[i] = ec._DataDictionaryCategoryMinFields_delete_by(ctx, field, obj)
-		case "is_delete":
-			out.Values[i] = ec._DataDictionaryCategoryMinFields_is_delete(ctx, field, obj)
+		case "created_at":
+			out.Values[i] = ec._DataDictionaryCategoryMinFields_created_at(ctx, field, obj)
+		case "created_by":
+			out.Values[i] = ec._DataDictionaryCategoryMinFields_created_by(ctx, field, obj)
+		case "updated_at":
+			out.Values[i] = ec._DataDictionaryCategoryMinFields_updated_at(ctx, field, obj)
+		case "updated_by":
+			out.Values[i] = ec._DataDictionaryCategoryMinFields_updated_by(ctx, field, obj)
+		case "deleted_at":
+			out.Values[i] = ec._DataDictionaryCategoryMinFields_deleted_at(ctx, field, obj)
+		case "deleted_by":
+			out.Values[i] = ec._DataDictionaryCategoryMinFields_deleted_by(ctx, field, obj)
+		case "is_deleted":
+			out.Values[i] = ec._DataDictionaryCategoryMinFields_is_deleted(ctx, field, obj)
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}
@@ -11785,20 +11785,20 @@ func (ec *executionContext) _DataDictionaryMaxFields(ctx context.Context, sel as
 			out.Values[i] = ec._DataDictionaryMaxFields_value(ctx, field, obj)
 		case "remarks":
 			out.Values[i] = ec._DataDictionaryMaxFields_remarks(ctx, field, obj)
-		case "create_at":
-			out.Values[i] = ec._DataDictionaryMaxFields_create_at(ctx, field, obj)
-		case "create_by":
-			out.Values[i] = ec._DataDictionaryMaxFields_create_by(ctx, field, obj)
-		case "update_at":
-			out.Values[i] = ec._DataDictionaryMaxFields_update_at(ctx, field, obj)
-		case "update_by":
-			out.Values[i] = ec._DataDictionaryMaxFields_update_by(ctx, field, obj)
-		case "delete_at":
-			out.Values[i] = ec._DataDictionaryMaxFields_delete_at(ctx, field, obj)
-		case "delete_by":
-			out.Values[i] = ec._DataDictionaryMaxFields_delete_by(ctx, field, obj)
-		case "is_delete":
-			out.Values[i] = ec._DataDictionaryMaxFields_is_delete(ctx, field, obj)
+		case "created_at":
+			out.Values[i] = ec._DataDictionaryMaxFields_created_at(ctx, field, obj)
+		case "created_by":
+			out.Values[i] = ec._DataDictionaryMaxFields_created_by(ctx, field, obj)
+		case "updated_at":
+			out.Values[i] = ec._DataDictionaryMaxFields_updated_at(ctx, field, obj)
+		case "updated_by":
+			out.Values[i] = ec._DataDictionaryMaxFields_updated_by(ctx, field, obj)
+		case "deleted_at":
+			out.Values[i] = ec._DataDictionaryMaxFields_deleted_at(ctx, field, obj)
+		case "deleted_by":
+			out.Values[i] = ec._DataDictionaryMaxFields_deleted_by(ctx, field, obj)
+		case "is_deleted":
+			out.Values[i] = ec._DataDictionaryMaxFields_is_deleted(ctx, field, obj)
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}
@@ -11833,20 +11833,20 @@ func (ec *executionContext) _DataDictionaryMinFields(ctx context.Context, sel as
 			out.Values[i] = ec._DataDictionaryMinFields_value(ctx, field, obj)
 		case "remarks":
 			out.Values[i] = ec._DataDictionaryMinFields_remarks(ctx, field, obj)
-		case "create_at":
-			out.Values[i] = ec._DataDictionaryMinFields_create_at(ctx, field, obj)
-		case "create_by":
-			out.Values[i] = ec._DataDictionaryMinFields_create_by(ctx, field, obj)
-		case "update_at":
-			out.Values[i] = ec._DataDictionaryMinFields_update_at(ctx, field, obj)
-		case "update_by":
-			out.Values[i] = ec._DataDictionaryMinFields_update_by(ctx, field, obj)
-		case "delete_at":
-			out.Values[i] = ec._DataDictionaryMinFields_delete_at(ctx, field, obj)
-		case "delete_by":
-			out.Values[i] = ec._DataDictionaryMinFields_delete_by(ctx, field, obj)
-		case "is_delete":
-			out.Values[i] = ec._DataDictionaryMinFields_is_delete(ctx, field, obj)
+		case "created_at":
+			out.Values[i] = ec._DataDictionaryMinFields_created_at(ctx, field, obj)
+		case "created_by":
+			out.Values[i] = ec._DataDictionaryMinFields_created_by(ctx, field, obj)
+		case "updated_at":
+			out.Values[i] = ec._DataDictionaryMinFields_updated_at(ctx, field, obj)
+		case "updated_by":
+			out.Values[i] = ec._DataDictionaryMinFields_updated_by(ctx, field, obj)
+		case "deleted_at":
+			out.Values[i] = ec._DataDictionaryMinFields_deleted_at(ctx, field, obj)
+		case "deleted_by":
+			out.Values[i] = ec._DataDictionaryMinFields_deleted_by(ctx, field, obj)
+		case "is_deleted":
+			out.Values[i] = ec._DataDictionaryMinFields_is_deleted(ctx, field, obj)
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}

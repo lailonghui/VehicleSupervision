@@ -51,16 +51,16 @@ type ComplexityRoot struct {
 		ApplyID       func(childComplexity int) int
 		ApplyReason   func(childComplexity int) int
 		BlacklistType func(childComplexity int) int
-		CreateAt      func(childComplexity int) int
-		CreateBy      func(childComplexity int) int
-		DeleteAt      func(childComplexity int) int
-		DeleteBy      func(childComplexity int) int
+		CreatedAt     func(childComplexity int) int
+		CreatedBy     func(childComplexity int) int
+		DeletedAt     func(childComplexity int) int
+		DeletedBy     func(childComplexity int) int
 		DriverID      func(childComplexity int) int
 		ID            func(childComplexity int) int
-		IsDelete      func(childComplexity int) int
+		IsDeleted     func(childComplexity int) int
 		State         func(childComplexity int) int
-		UpdateAt      func(childComplexity int) int
-		UpdateBy      func(childComplexity int) int
+		UpdatedAt     func(childComplexity int) int
+		UpdatedBy     func(childComplexity int) int
 	}
 
 	DriverBlacklistApplyAggregate struct {
@@ -91,32 +91,32 @@ type ComplexityRoot struct {
 		ApplyID       func(childComplexity int) int
 		ApplyReason   func(childComplexity int) int
 		BlacklistType func(childComplexity int) int
-		CreateAt      func(childComplexity int) int
-		CreateBy      func(childComplexity int) int
-		DeleteAt      func(childComplexity int) int
-		DeleteBy      func(childComplexity int) int
+		CreatedAt     func(childComplexity int) int
+		CreatedBy     func(childComplexity int) int
+		DeletedAt     func(childComplexity int) int
+		DeletedBy     func(childComplexity int) int
 		DriverID      func(childComplexity int) int
 		ID            func(childComplexity int) int
-		IsDelete      func(childComplexity int) int
+		IsDeleted     func(childComplexity int) int
 		State         func(childComplexity int) int
-		UpdateAt      func(childComplexity int) int
-		UpdateBy      func(childComplexity int) int
+		UpdatedAt     func(childComplexity int) int
+		UpdatedBy     func(childComplexity int) int
 	}
 
 	DriverBlacklistApplyMinFields struct {
 		ApplyID       func(childComplexity int) int
 		ApplyReason   func(childComplexity int) int
 		BlacklistType func(childComplexity int) int
-		CreateAt      func(childComplexity int) int
-		CreateBy      func(childComplexity int) int
-		DeleteAt      func(childComplexity int) int
-		DeleteBy      func(childComplexity int) int
+		CreatedAt     func(childComplexity int) int
+		CreatedBy     func(childComplexity int) int
+		DeletedAt     func(childComplexity int) int
+		DeletedBy     func(childComplexity int) int
 		DriverID      func(childComplexity int) int
 		ID            func(childComplexity int) int
-		IsDelete      func(childComplexity int) int
+		IsDeleted     func(childComplexity int) int
 		State         func(childComplexity int) int
-		UpdateAt      func(childComplexity int) int
-		UpdateBy      func(childComplexity int) int
+		UpdatedAt     func(childComplexity int) int
+		UpdatedBy     func(childComplexity int) int
 	}
 
 	DriverBlacklistApplyMutationResponse struct {
@@ -170,20 +170,20 @@ type ComplexityRoot struct {
 		ApplyID       func(childComplexity int) int
 		AttachFile    func(childComplexity int) int
 		BlacklistType func(childComplexity int) int
-		CreateAt      func(childComplexity int) int
-		CreateBy      func(childComplexity int) int
-		DeleteAt      func(childComplexity int) int
-		DeleteBy      func(childComplexity int) int
+		CreatedAt     func(childComplexity int) int
+		CreatedBy     func(childComplexity int) int
+		DeletedAt     func(childComplexity int) int
+		DeletedBy     func(childComplexity int) int
 		DriverCardNum func(childComplexity int) int
 		DriverID      func(childComplexity int) int
 		HisID         func(childComplexity int) int
 		ID            func(childComplexity int) int
-		IsDelete      func(childComplexity int) int
+		IsDeleted     func(childComplexity int) int
 		Operate       func(childComplexity int) int
 		Remarks       func(childComplexity int) int
 		Step          func(childComplexity int) int
-		UpdateAt      func(childComplexity int) int
-		UpdateBy      func(childComplexity int) int
+		UpdatedAt     func(childComplexity int) int
+		UpdatedBy     func(childComplexity int) int
 	}
 
 	DriverBlacklistHisAggregate struct {
@@ -215,40 +215,40 @@ type ComplexityRoot struct {
 		ApplyID       func(childComplexity int) int
 		AttachFile    func(childComplexity int) int
 		BlacklistType func(childComplexity int) int
-		CreateAt      func(childComplexity int) int
-		CreateBy      func(childComplexity int) int
-		DeleteAt      func(childComplexity int) int
-		DeleteBy      func(childComplexity int) int
+		CreatedAt     func(childComplexity int) int
+		CreatedBy     func(childComplexity int) int
+		DeletedAt     func(childComplexity int) int
+		DeletedBy     func(childComplexity int) int
 		DriverCardNum func(childComplexity int) int
 		DriverID      func(childComplexity int) int
 		HisID         func(childComplexity int) int
 		ID            func(childComplexity int) int
-		IsDelete      func(childComplexity int) int
+		IsDeleted     func(childComplexity int) int
 		Operate       func(childComplexity int) int
 		Remarks       func(childComplexity int) int
 		Step          func(childComplexity int) int
-		UpdateAt      func(childComplexity int) int
-		UpdateBy      func(childComplexity int) int
+		UpdatedAt     func(childComplexity int) int
+		UpdatedBy     func(childComplexity int) int
 	}
 
 	DriverBlacklistHisMinFields struct {
 		ApplyID       func(childComplexity int) int
 		AttachFile    func(childComplexity int) int
 		BlacklistType func(childComplexity int) int
-		CreateAt      func(childComplexity int) int
-		CreateBy      func(childComplexity int) int
-		DeleteAt      func(childComplexity int) int
-		DeleteBy      func(childComplexity int) int
+		CreatedAt     func(childComplexity int) int
+		CreatedBy     func(childComplexity int) int
+		DeletedAt     func(childComplexity int) int
+		DeletedBy     func(childComplexity int) int
 		DriverCardNum func(childComplexity int) int
 		DriverID      func(childComplexity int) int
 		HisID         func(childComplexity int) int
 		ID            func(childComplexity int) int
-		IsDelete      func(childComplexity int) int
+		IsDeleted     func(childComplexity int) int
 		Operate       func(childComplexity int) int
 		Remarks       func(childComplexity int) int
 		Step          func(childComplexity int) int
-		UpdateAt      func(childComplexity int) int
-		UpdateBy      func(childComplexity int) int
+		UpdatedAt     func(childComplexity int) int
+		UpdatedBy     func(childComplexity int) int
 	}
 
 	DriverBlacklistHisMutationResponse struct {
@@ -307,18 +307,18 @@ type ComplexityRoot struct {
 
 	EnterpriseBlacklistAlarm struct {
 		AlarmID      func(childComplexity int) int
-		CreateAt     func(childComplexity int) int
-		CreateBy     func(childComplexity int) int
-		DeleteAt     func(childComplexity int) int
-		DeleteBy     func(childComplexity int) int
+		CreatedAt    func(childComplexity int) int
+		CreatedBy    func(childComplexity int) int
+		DeletedAt    func(childComplexity int) int
+		DeletedBy    func(childComplexity int) int
 		EnterpriseID func(childComplexity int) int
 		ID           func(childComplexity int) int
 		IsBlack      func(childComplexity int) int
-		IsDelete     func(childComplexity int) int
+		IsDeleted    func(childComplexity int) int
 		IsRank       func(childComplexity int) int
 		Type         func(childComplexity int) int
-		UpdateAt     func(childComplexity int) int
-		UpdateBy     func(childComplexity int) int
+		UpdatedAt    func(childComplexity int) int
+		UpdatedBy    func(childComplexity int) int
 		Year         func(childComplexity int) int
 	}
 
@@ -348,35 +348,35 @@ type ComplexityRoot struct {
 
 	EnterpriseBlacklistAlarmMaxFields struct {
 		AlarmID      func(childComplexity int) int
-		CreateAt     func(childComplexity int) int
-		CreateBy     func(childComplexity int) int
-		DeleteAt     func(childComplexity int) int
-		DeleteBy     func(childComplexity int) int
+		CreatedAt    func(childComplexity int) int
+		CreatedBy    func(childComplexity int) int
+		DeletedAt    func(childComplexity int) int
+		DeletedBy    func(childComplexity int) int
 		EnterpriseID func(childComplexity int) int
 		ID           func(childComplexity int) int
 		IsBlack      func(childComplexity int) int
-		IsDelete     func(childComplexity int) int
+		IsDeleted    func(childComplexity int) int
 		IsRank       func(childComplexity int) int
 		Type         func(childComplexity int) int
-		UpdateAt     func(childComplexity int) int
-		UpdateBy     func(childComplexity int) int
+		UpdatedAt    func(childComplexity int) int
+		UpdatedBy    func(childComplexity int) int
 		Year         func(childComplexity int) int
 	}
 
 	EnterpriseBlacklistAlarmMinFields struct {
 		AlarmID      func(childComplexity int) int
-		CreateAt     func(childComplexity int) int
-		CreateBy     func(childComplexity int) int
-		DeleteAt     func(childComplexity int) int
-		DeleteBy     func(childComplexity int) int
+		CreatedAt    func(childComplexity int) int
+		CreatedBy    func(childComplexity int) int
+		DeletedAt    func(childComplexity int) int
+		DeletedBy    func(childComplexity int) int
 		EnterpriseID func(childComplexity int) int
 		ID           func(childComplexity int) int
 		IsBlack      func(childComplexity int) int
-		IsDelete     func(childComplexity int) int
+		IsDeleted    func(childComplexity int) int
 		IsRank       func(childComplexity int) int
 		Type         func(childComplexity int) int
-		UpdateAt     func(childComplexity int) int
-		UpdateBy     func(childComplexity int) int
+		UpdatedAt    func(childComplexity int) int
+		UpdatedBy    func(childComplexity int) int
 		Year         func(childComplexity int) int
 	}
 
@@ -429,18 +429,18 @@ type ComplexityRoot struct {
 
 	EnterpriseBlacklistHis struct {
 		BlacklistType func(childComplexity int) int
-		CreateAt      func(childComplexity int) int
-		CreateBy      func(childComplexity int) int
-		DeleteAt      func(childComplexity int) int
-		DeleteBy      func(childComplexity int) int
+		CreatedAt     func(childComplexity int) int
+		CreatedBy     func(childComplexity int) int
+		DeletedAt     func(childComplexity int) int
+		DeletedBy     func(childComplexity int) int
 		EnterpriseID  func(childComplexity int) int
 		HisID         func(childComplexity int) int
 		ID            func(childComplexity int) int
-		IsDelete      func(childComplexity int) int
+		IsDeleted     func(childComplexity int) int
 		Operate       func(childComplexity int) int
 		Remarks       func(childComplexity int) int
-		UpdateAt      func(childComplexity int) int
-		UpdateBy      func(childComplexity int) int
+		UpdatedAt     func(childComplexity int) int
+		UpdatedBy     func(childComplexity int) int
 	}
 
 	EnterpriseBlacklistHisAggregate struct {
@@ -469,34 +469,34 @@ type ComplexityRoot struct {
 
 	EnterpriseBlacklistHisMaxFields struct {
 		BlacklistType func(childComplexity int) int
-		CreateAt      func(childComplexity int) int
-		CreateBy      func(childComplexity int) int
-		DeleteAt      func(childComplexity int) int
-		DeleteBy      func(childComplexity int) int
+		CreatedAt     func(childComplexity int) int
+		CreatedBy     func(childComplexity int) int
+		DeletedAt     func(childComplexity int) int
+		DeletedBy     func(childComplexity int) int
 		EnterpriseID  func(childComplexity int) int
 		HisID         func(childComplexity int) int
 		ID            func(childComplexity int) int
-		IsDelete      func(childComplexity int) int
+		IsDeleted     func(childComplexity int) int
 		Operate       func(childComplexity int) int
 		Remarks       func(childComplexity int) int
-		UpdateAt      func(childComplexity int) int
-		UpdateBy      func(childComplexity int) int
+		UpdatedAt     func(childComplexity int) int
+		UpdatedBy     func(childComplexity int) int
 	}
 
 	EnterpriseBlacklistHisMinFields struct {
 		BlacklistType func(childComplexity int) int
-		CreateAt      func(childComplexity int) int
-		CreateBy      func(childComplexity int) int
-		DeleteAt      func(childComplexity int) int
-		DeleteBy      func(childComplexity int) int
+		CreatedAt     func(childComplexity int) int
+		CreatedBy     func(childComplexity int) int
+		DeletedAt     func(childComplexity int) int
+		DeletedBy     func(childComplexity int) int
 		EnterpriseID  func(childComplexity int) int
 		HisID         func(childComplexity int) int
 		ID            func(childComplexity int) int
-		IsDelete      func(childComplexity int) int
+		IsDeleted     func(childComplexity int) int
 		Operate       func(childComplexity int) int
 		Remarks       func(childComplexity int) int
-		UpdateAt      func(childComplexity int) int
-		UpdateBy      func(childComplexity int) int
+		UpdatedAt     func(childComplexity int) int
+		UpdatedBy     func(childComplexity int) int
 	}
 
 	EnterpriseBlacklistHisMutationResponse struct {
@@ -626,17 +626,17 @@ type ComplexityRoot struct {
 
 	VehicleBlacklistAlarm struct {
 		AlarmID            func(childComplexity int) int
-		CreateAt           func(childComplexity int) int
-		CreateBy           func(childComplexity int) int
-		DeleteAt           func(childComplexity int) int
-		DeleteBy           func(childComplexity int) int
+		CreatedAt          func(childComplexity int) int
+		CreatedBy          func(childComplexity int) int
+		DeletedAt          func(childComplexity int) int
+		DeletedBy          func(childComplexity int) int
 		ID                 func(childComplexity int) int
-		IsDelete           func(childComplexity int) int
+		IsDeleted          func(childComplexity int) int
 		LicensePlateNumber func(childComplexity int) int
 		ScoreCount         func(childComplexity int) int
 		ScoreNum           func(childComplexity int) int
-		UpdateAt           func(childComplexity int) int
-		UpdateBy           func(childComplexity int) int
+		UpdatedAt          func(childComplexity int) int
+		UpdatedBy          func(childComplexity int) int
 		VehicleID          func(childComplexity int) int
 		Year               func(childComplexity int) int
 	}
@@ -668,34 +668,34 @@ type ComplexityRoot struct {
 
 	VehicleBlacklistAlarmMaxFields struct {
 		AlarmID            func(childComplexity int) int
-		CreateAt           func(childComplexity int) int
-		CreateBy           func(childComplexity int) int
-		DeleteAt           func(childComplexity int) int
-		DeleteBy           func(childComplexity int) int
+		CreatedAt          func(childComplexity int) int
+		CreatedBy          func(childComplexity int) int
+		DeletedAt          func(childComplexity int) int
+		DeletedBy          func(childComplexity int) int
 		ID                 func(childComplexity int) int
-		IsDelete           func(childComplexity int) int
+		IsDeleted          func(childComplexity int) int
 		LicensePlateNumber func(childComplexity int) int
 		ScoreCount         func(childComplexity int) int
 		ScoreNum           func(childComplexity int) int
-		UpdateAt           func(childComplexity int) int
-		UpdateBy           func(childComplexity int) int
+		UpdatedAt          func(childComplexity int) int
+		UpdatedBy          func(childComplexity int) int
 		VehicleID          func(childComplexity int) int
 		Year               func(childComplexity int) int
 	}
 
 	VehicleBlacklistAlarmMinFields struct {
 		AlarmID            func(childComplexity int) int
-		CreateAt           func(childComplexity int) int
-		CreateBy           func(childComplexity int) int
-		DeleteAt           func(childComplexity int) int
-		DeleteBy           func(childComplexity int) int
+		CreatedAt          func(childComplexity int) int
+		CreatedBy          func(childComplexity int) int
+		DeletedAt          func(childComplexity int) int
+		DeletedBy          func(childComplexity int) int
 		ID                 func(childComplexity int) int
-		IsDelete           func(childComplexity int) int
+		IsDeleted          func(childComplexity int) int
 		LicensePlateNumber func(childComplexity int) int
 		ScoreCount         func(childComplexity int) int
 		ScoreNum           func(childComplexity int) int
-		UpdateAt           func(childComplexity int) int
-		UpdateBy           func(childComplexity int) int
+		UpdatedAt          func(childComplexity int) int
+		UpdatedBy          func(childComplexity int) int
 		VehicleID          func(childComplexity int) int
 		Year               func(childComplexity int) int
 	}
@@ -756,17 +756,17 @@ type ComplexityRoot struct {
 
 	VehicleBlacklistHis struct {
 		BlacklistType func(childComplexity int) int
-		CreateAt      func(childComplexity int) int
-		CreateBy      func(childComplexity int) int
-		DeleteAt      func(childComplexity int) int
-		DeleteBy      func(childComplexity int) int
+		CreatedAt     func(childComplexity int) int
+		CreatedBy     func(childComplexity int) int
+		DeletedAt     func(childComplexity int) int
+		DeletedBy     func(childComplexity int) int
 		HisID         func(childComplexity int) int
 		ID            func(childComplexity int) int
-		IsDelete      func(childComplexity int) int
+		IsDeleted     func(childComplexity int) int
 		Operate       func(childComplexity int) int
 		Remarks       func(childComplexity int) int
-		UpdateAt      func(childComplexity int) int
-		UpdateBy      func(childComplexity int) int
+		UpdatedAt     func(childComplexity int) int
+		UpdatedBy     func(childComplexity int) int
 		VehicleID     func(childComplexity int) int
 	}
 
@@ -796,33 +796,33 @@ type ComplexityRoot struct {
 
 	VehicleBlacklistHisMaxFields struct {
 		BlacklistType func(childComplexity int) int
-		CreateAt      func(childComplexity int) int
-		CreateBy      func(childComplexity int) int
-		DeleteAt      func(childComplexity int) int
-		DeleteBy      func(childComplexity int) int
+		CreatedAt     func(childComplexity int) int
+		CreatedBy     func(childComplexity int) int
+		DeletedAt     func(childComplexity int) int
+		DeletedBy     func(childComplexity int) int
 		HisID         func(childComplexity int) int
 		ID            func(childComplexity int) int
-		IsDelete      func(childComplexity int) int
+		IsDeleted     func(childComplexity int) int
 		Operate       func(childComplexity int) int
 		Remarks       func(childComplexity int) int
-		UpdateAt      func(childComplexity int) int
-		UpdateBy      func(childComplexity int) int
+		UpdatedAt     func(childComplexity int) int
+		UpdatedBy     func(childComplexity int) int
 		VehicleID     func(childComplexity int) int
 	}
 
 	VehicleBlacklistHisMinFields struct {
 		BlacklistType func(childComplexity int) int
-		CreateAt      func(childComplexity int) int
-		CreateBy      func(childComplexity int) int
-		DeleteAt      func(childComplexity int) int
-		DeleteBy      func(childComplexity int) int
+		CreatedAt     func(childComplexity int) int
+		CreatedBy     func(childComplexity int) int
+		DeletedAt     func(childComplexity int) int
+		DeletedBy     func(childComplexity int) int
 		HisID         func(childComplexity int) int
 		ID            func(childComplexity int) int
-		IsDelete      func(childComplexity int) int
+		IsDeleted     func(childComplexity int) int
 		Operate       func(childComplexity int) int
 		Remarks       func(childComplexity int) int
-		UpdateAt      func(childComplexity int) int
-		UpdateBy      func(childComplexity int) int
+		UpdatedAt     func(childComplexity int) int
+		UpdatedBy     func(childComplexity int) int
 		VehicleID     func(childComplexity int) int
 	}
 
@@ -987,33 +987,33 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.DriverBlacklistApply.BlacklistType(childComplexity), true
 
-	case "DriverBlacklistApply.create_at":
-		if e.complexity.DriverBlacklistApply.CreateAt == nil {
+	case "DriverBlacklistApply.created_at":
+		if e.complexity.DriverBlacklistApply.CreatedAt == nil {
 			break
 		}
 
-		return e.complexity.DriverBlacklistApply.CreateAt(childComplexity), true
+		return e.complexity.DriverBlacklistApply.CreatedAt(childComplexity), true
 
-	case "DriverBlacklistApply.create_by":
-		if e.complexity.DriverBlacklistApply.CreateBy == nil {
+	case "DriverBlacklistApply.created_by":
+		if e.complexity.DriverBlacklistApply.CreatedBy == nil {
 			break
 		}
 
-		return e.complexity.DriverBlacklistApply.CreateBy(childComplexity), true
+		return e.complexity.DriverBlacklistApply.CreatedBy(childComplexity), true
 
-	case "DriverBlacklistApply.delete_at":
-		if e.complexity.DriverBlacklistApply.DeleteAt == nil {
+	case "DriverBlacklistApply.deleted_at":
+		if e.complexity.DriverBlacklistApply.DeletedAt == nil {
 			break
 		}
 
-		return e.complexity.DriverBlacklistApply.DeleteAt(childComplexity), true
+		return e.complexity.DriverBlacklistApply.DeletedAt(childComplexity), true
 
-	case "DriverBlacklistApply.delete_by":
-		if e.complexity.DriverBlacklistApply.DeleteBy == nil {
+	case "DriverBlacklistApply.deleted_by":
+		if e.complexity.DriverBlacklistApply.DeletedBy == nil {
 			break
 		}
 
-		return e.complexity.DriverBlacklistApply.DeleteBy(childComplexity), true
+		return e.complexity.DriverBlacklistApply.DeletedBy(childComplexity), true
 
 	case "DriverBlacklistApply.driver_id":
 		if e.complexity.DriverBlacklistApply.DriverID == nil {
@@ -1029,12 +1029,12 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.DriverBlacklistApply.ID(childComplexity), true
 
-	case "DriverBlacklistApply.is_delete":
-		if e.complexity.DriverBlacklistApply.IsDelete == nil {
+	case "DriverBlacklistApply.is_deleted":
+		if e.complexity.DriverBlacklistApply.IsDeleted == nil {
 			break
 		}
 
-		return e.complexity.DriverBlacklistApply.IsDelete(childComplexity), true
+		return e.complexity.DriverBlacklistApply.IsDeleted(childComplexity), true
 
 	case "DriverBlacklistApply.state":
 		if e.complexity.DriverBlacklistApply.State == nil {
@@ -1043,19 +1043,19 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.DriverBlacklistApply.State(childComplexity), true
 
-	case "DriverBlacklistApply.update_at":
-		if e.complexity.DriverBlacklistApply.UpdateAt == nil {
+	case "DriverBlacklistApply.updated_at":
+		if e.complexity.DriverBlacklistApply.UpdatedAt == nil {
 			break
 		}
 
-		return e.complexity.DriverBlacklistApply.UpdateAt(childComplexity), true
+		return e.complexity.DriverBlacklistApply.UpdatedAt(childComplexity), true
 
-	case "DriverBlacklistApply.update_by":
-		if e.complexity.DriverBlacklistApply.UpdateBy == nil {
+	case "DriverBlacklistApply.updated_by":
+		if e.complexity.DriverBlacklistApply.UpdatedBy == nil {
 			break
 		}
 
-		return e.complexity.DriverBlacklistApply.UpdateBy(childComplexity), true
+		return e.complexity.DriverBlacklistApply.UpdatedBy(childComplexity), true
 
 	case "DriverBlacklistApplyAggregate.aggregate":
 		if e.complexity.DriverBlacklistApplyAggregate.Aggregate == nil {
@@ -1183,33 +1183,33 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.DriverBlacklistApplyMaxFields.BlacklistType(childComplexity), true
 
-	case "DriverBlacklistApplyMaxFields.create_at":
-		if e.complexity.DriverBlacklistApplyMaxFields.CreateAt == nil {
+	case "DriverBlacklistApplyMaxFields.created_at":
+		if e.complexity.DriverBlacklistApplyMaxFields.CreatedAt == nil {
 			break
 		}
 
-		return e.complexity.DriverBlacklistApplyMaxFields.CreateAt(childComplexity), true
+		return e.complexity.DriverBlacklistApplyMaxFields.CreatedAt(childComplexity), true
 
-	case "DriverBlacklistApplyMaxFields.create_by":
-		if e.complexity.DriverBlacklistApplyMaxFields.CreateBy == nil {
+	case "DriverBlacklistApplyMaxFields.created_by":
+		if e.complexity.DriverBlacklistApplyMaxFields.CreatedBy == nil {
 			break
 		}
 
-		return e.complexity.DriverBlacklistApplyMaxFields.CreateBy(childComplexity), true
+		return e.complexity.DriverBlacklistApplyMaxFields.CreatedBy(childComplexity), true
 
-	case "DriverBlacklistApplyMaxFields.delete_at":
-		if e.complexity.DriverBlacklistApplyMaxFields.DeleteAt == nil {
+	case "DriverBlacklistApplyMaxFields.deleted_at":
+		if e.complexity.DriverBlacklistApplyMaxFields.DeletedAt == nil {
 			break
 		}
 
-		return e.complexity.DriverBlacklistApplyMaxFields.DeleteAt(childComplexity), true
+		return e.complexity.DriverBlacklistApplyMaxFields.DeletedAt(childComplexity), true
 
-	case "DriverBlacklistApplyMaxFields.delete_by":
-		if e.complexity.DriverBlacklistApplyMaxFields.DeleteBy == nil {
+	case "DriverBlacklistApplyMaxFields.deleted_by":
+		if e.complexity.DriverBlacklistApplyMaxFields.DeletedBy == nil {
 			break
 		}
 
-		return e.complexity.DriverBlacklistApplyMaxFields.DeleteBy(childComplexity), true
+		return e.complexity.DriverBlacklistApplyMaxFields.DeletedBy(childComplexity), true
 
 	case "DriverBlacklistApplyMaxFields.driver_id":
 		if e.complexity.DriverBlacklistApplyMaxFields.DriverID == nil {
@@ -1225,12 +1225,12 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.DriverBlacklistApplyMaxFields.ID(childComplexity), true
 
-	case "DriverBlacklistApplyMaxFields.is_delete":
-		if e.complexity.DriverBlacklistApplyMaxFields.IsDelete == nil {
+	case "DriverBlacklistApplyMaxFields.is_deleted":
+		if e.complexity.DriverBlacklistApplyMaxFields.IsDeleted == nil {
 			break
 		}
 
-		return e.complexity.DriverBlacklistApplyMaxFields.IsDelete(childComplexity), true
+		return e.complexity.DriverBlacklistApplyMaxFields.IsDeleted(childComplexity), true
 
 	case "DriverBlacklistApplyMaxFields.state":
 		if e.complexity.DriverBlacklistApplyMaxFields.State == nil {
@@ -1239,19 +1239,19 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.DriverBlacklistApplyMaxFields.State(childComplexity), true
 
-	case "DriverBlacklistApplyMaxFields.update_at":
-		if e.complexity.DriverBlacklistApplyMaxFields.UpdateAt == nil {
+	case "DriverBlacklistApplyMaxFields.updated_at":
+		if e.complexity.DriverBlacklistApplyMaxFields.UpdatedAt == nil {
 			break
 		}
 
-		return e.complexity.DriverBlacklistApplyMaxFields.UpdateAt(childComplexity), true
+		return e.complexity.DriverBlacklistApplyMaxFields.UpdatedAt(childComplexity), true
 
-	case "DriverBlacklistApplyMaxFields.update_by":
-		if e.complexity.DriverBlacklistApplyMaxFields.UpdateBy == nil {
+	case "DriverBlacklistApplyMaxFields.updated_by":
+		if e.complexity.DriverBlacklistApplyMaxFields.UpdatedBy == nil {
 			break
 		}
 
-		return e.complexity.DriverBlacklistApplyMaxFields.UpdateBy(childComplexity), true
+		return e.complexity.DriverBlacklistApplyMaxFields.UpdatedBy(childComplexity), true
 
 	case "DriverBlacklistApplyMinFields.apply_id":
 		if e.complexity.DriverBlacklistApplyMinFields.ApplyID == nil {
@@ -1274,33 +1274,33 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.DriverBlacklistApplyMinFields.BlacklistType(childComplexity), true
 
-	case "DriverBlacklistApplyMinFields.create_at":
-		if e.complexity.DriverBlacklistApplyMinFields.CreateAt == nil {
+	case "DriverBlacklistApplyMinFields.created_at":
+		if e.complexity.DriverBlacklistApplyMinFields.CreatedAt == nil {
 			break
 		}
 
-		return e.complexity.DriverBlacklistApplyMinFields.CreateAt(childComplexity), true
+		return e.complexity.DriverBlacklistApplyMinFields.CreatedAt(childComplexity), true
 
-	case "DriverBlacklistApplyMinFields.create_by":
-		if e.complexity.DriverBlacklistApplyMinFields.CreateBy == nil {
+	case "DriverBlacklistApplyMinFields.created_by":
+		if e.complexity.DriverBlacklistApplyMinFields.CreatedBy == nil {
 			break
 		}
 
-		return e.complexity.DriverBlacklistApplyMinFields.CreateBy(childComplexity), true
+		return e.complexity.DriverBlacklistApplyMinFields.CreatedBy(childComplexity), true
 
-	case "DriverBlacklistApplyMinFields.delete_at":
-		if e.complexity.DriverBlacklistApplyMinFields.DeleteAt == nil {
+	case "DriverBlacklistApplyMinFields.deleted_at":
+		if e.complexity.DriverBlacklistApplyMinFields.DeletedAt == nil {
 			break
 		}
 
-		return e.complexity.DriverBlacklistApplyMinFields.DeleteAt(childComplexity), true
+		return e.complexity.DriverBlacklistApplyMinFields.DeletedAt(childComplexity), true
 
-	case "DriverBlacklistApplyMinFields.delete_by":
-		if e.complexity.DriverBlacklistApplyMinFields.DeleteBy == nil {
+	case "DriverBlacklistApplyMinFields.deleted_by":
+		if e.complexity.DriverBlacklistApplyMinFields.DeletedBy == nil {
 			break
 		}
 
-		return e.complexity.DriverBlacklistApplyMinFields.DeleteBy(childComplexity), true
+		return e.complexity.DriverBlacklistApplyMinFields.DeletedBy(childComplexity), true
 
 	case "DriverBlacklistApplyMinFields.driver_id":
 		if e.complexity.DriverBlacklistApplyMinFields.DriverID == nil {
@@ -1316,12 +1316,12 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.DriverBlacklistApplyMinFields.ID(childComplexity), true
 
-	case "DriverBlacklistApplyMinFields.is_delete":
-		if e.complexity.DriverBlacklistApplyMinFields.IsDelete == nil {
+	case "DriverBlacklistApplyMinFields.is_deleted":
+		if e.complexity.DriverBlacklistApplyMinFields.IsDeleted == nil {
 			break
 		}
 
-		return e.complexity.DriverBlacklistApplyMinFields.IsDelete(childComplexity), true
+		return e.complexity.DriverBlacklistApplyMinFields.IsDeleted(childComplexity), true
 
 	case "DriverBlacklistApplyMinFields.state":
 		if e.complexity.DriverBlacklistApplyMinFields.State == nil {
@@ -1330,19 +1330,19 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.DriverBlacklistApplyMinFields.State(childComplexity), true
 
-	case "DriverBlacklistApplyMinFields.update_at":
-		if e.complexity.DriverBlacklistApplyMinFields.UpdateAt == nil {
+	case "DriverBlacklistApplyMinFields.updated_at":
+		if e.complexity.DriverBlacklistApplyMinFields.UpdatedAt == nil {
 			break
 		}
 
-		return e.complexity.DriverBlacklistApplyMinFields.UpdateAt(childComplexity), true
+		return e.complexity.DriverBlacklistApplyMinFields.UpdatedAt(childComplexity), true
 
-	case "DriverBlacklistApplyMinFields.update_by":
-		if e.complexity.DriverBlacklistApplyMinFields.UpdateBy == nil {
+	case "DriverBlacklistApplyMinFields.updated_by":
+		if e.complexity.DriverBlacklistApplyMinFields.UpdatedBy == nil {
 			break
 		}
 
-		return e.complexity.DriverBlacklistApplyMinFields.UpdateBy(childComplexity), true
+		return e.complexity.DriverBlacklistApplyMinFields.UpdatedBy(childComplexity), true
 
 	case "DriverBlacklistApplyMutationResponse.affected_rows":
 		if e.complexity.DriverBlacklistApplyMutationResponse.AffectedRows == nil {
@@ -1526,33 +1526,33 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.DriverBlacklistHis.BlacklistType(childComplexity), true
 
-	case "DriverBlacklistHis.create_at":
-		if e.complexity.DriverBlacklistHis.CreateAt == nil {
+	case "DriverBlacklistHis.created_at":
+		if e.complexity.DriverBlacklistHis.CreatedAt == nil {
 			break
 		}
 
-		return e.complexity.DriverBlacklistHis.CreateAt(childComplexity), true
+		return e.complexity.DriverBlacklistHis.CreatedAt(childComplexity), true
 
-	case "DriverBlacklistHis.create_by":
-		if e.complexity.DriverBlacklistHis.CreateBy == nil {
+	case "DriverBlacklistHis.created_by":
+		if e.complexity.DriverBlacklistHis.CreatedBy == nil {
 			break
 		}
 
-		return e.complexity.DriverBlacklistHis.CreateBy(childComplexity), true
+		return e.complexity.DriverBlacklistHis.CreatedBy(childComplexity), true
 
-	case "DriverBlacklistHis.delete_at":
-		if e.complexity.DriverBlacklistHis.DeleteAt == nil {
+	case "DriverBlacklistHis.deleted_at":
+		if e.complexity.DriverBlacklistHis.DeletedAt == nil {
 			break
 		}
 
-		return e.complexity.DriverBlacklistHis.DeleteAt(childComplexity), true
+		return e.complexity.DriverBlacklistHis.DeletedAt(childComplexity), true
 
-	case "DriverBlacklistHis.delete_by":
-		if e.complexity.DriverBlacklistHis.DeleteBy == nil {
+	case "DriverBlacklistHis.deleted_by":
+		if e.complexity.DriverBlacklistHis.DeletedBy == nil {
 			break
 		}
 
-		return e.complexity.DriverBlacklistHis.DeleteBy(childComplexity), true
+		return e.complexity.DriverBlacklistHis.DeletedBy(childComplexity), true
 
 	case "DriverBlacklistHis.driver_card_num":
 		if e.complexity.DriverBlacklistHis.DriverCardNum == nil {
@@ -1582,12 +1582,12 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.DriverBlacklistHis.ID(childComplexity), true
 
-	case "DriverBlacklistHis.is_delete":
-		if e.complexity.DriverBlacklistHis.IsDelete == nil {
+	case "DriverBlacklistHis.is_deleted":
+		if e.complexity.DriverBlacklistHis.IsDeleted == nil {
 			break
 		}
 
-		return e.complexity.DriverBlacklistHis.IsDelete(childComplexity), true
+		return e.complexity.DriverBlacklistHis.IsDeleted(childComplexity), true
 
 	case "DriverBlacklistHis.operate":
 		if e.complexity.DriverBlacklistHis.Operate == nil {
@@ -1610,19 +1610,19 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.DriverBlacklistHis.Step(childComplexity), true
 
-	case "DriverBlacklistHis.update_at":
-		if e.complexity.DriverBlacklistHis.UpdateAt == nil {
+	case "DriverBlacklistHis.updated_at":
+		if e.complexity.DriverBlacklistHis.UpdatedAt == nil {
 			break
 		}
 
-		return e.complexity.DriverBlacklistHis.UpdateAt(childComplexity), true
+		return e.complexity.DriverBlacklistHis.UpdatedAt(childComplexity), true
 
-	case "DriverBlacklistHis.update_by":
-		if e.complexity.DriverBlacklistHis.UpdateBy == nil {
+	case "DriverBlacklistHis.updated_by":
+		if e.complexity.DriverBlacklistHis.UpdatedBy == nil {
 			break
 		}
 
-		return e.complexity.DriverBlacklistHis.UpdateBy(childComplexity), true
+		return e.complexity.DriverBlacklistHis.UpdatedBy(childComplexity), true
 
 	case "DriverBlacklistHisAggregate.aggregate":
 		if e.complexity.DriverBlacklistHisAggregate.Aggregate == nil {
@@ -1757,33 +1757,33 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.DriverBlacklistHisMaxFields.BlacklistType(childComplexity), true
 
-	case "DriverBlacklistHisMaxFields.create_at":
-		if e.complexity.DriverBlacklistHisMaxFields.CreateAt == nil {
+	case "DriverBlacklistHisMaxFields.created_at":
+		if e.complexity.DriverBlacklistHisMaxFields.CreatedAt == nil {
 			break
 		}
 
-		return e.complexity.DriverBlacklistHisMaxFields.CreateAt(childComplexity), true
+		return e.complexity.DriverBlacklistHisMaxFields.CreatedAt(childComplexity), true
 
-	case "DriverBlacklistHisMaxFields.create_by":
-		if e.complexity.DriverBlacklistHisMaxFields.CreateBy == nil {
+	case "DriverBlacklistHisMaxFields.created_by":
+		if e.complexity.DriverBlacklistHisMaxFields.CreatedBy == nil {
 			break
 		}
 
-		return e.complexity.DriverBlacklistHisMaxFields.CreateBy(childComplexity), true
+		return e.complexity.DriverBlacklistHisMaxFields.CreatedBy(childComplexity), true
 
-	case "DriverBlacklistHisMaxFields.delete_at":
-		if e.complexity.DriverBlacklistHisMaxFields.DeleteAt == nil {
+	case "DriverBlacklistHisMaxFields.deleted_at":
+		if e.complexity.DriverBlacklistHisMaxFields.DeletedAt == nil {
 			break
 		}
 
-		return e.complexity.DriverBlacklistHisMaxFields.DeleteAt(childComplexity), true
+		return e.complexity.DriverBlacklistHisMaxFields.DeletedAt(childComplexity), true
 
-	case "DriverBlacklistHisMaxFields.delete_by":
-		if e.complexity.DriverBlacklistHisMaxFields.DeleteBy == nil {
+	case "DriverBlacklistHisMaxFields.deleted_by":
+		if e.complexity.DriverBlacklistHisMaxFields.DeletedBy == nil {
 			break
 		}
 
-		return e.complexity.DriverBlacklistHisMaxFields.DeleteBy(childComplexity), true
+		return e.complexity.DriverBlacklistHisMaxFields.DeletedBy(childComplexity), true
 
 	case "DriverBlacklistHisMaxFields.driver_card_num":
 		if e.complexity.DriverBlacklistHisMaxFields.DriverCardNum == nil {
@@ -1813,12 +1813,12 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.DriverBlacklistHisMaxFields.ID(childComplexity), true
 
-	case "DriverBlacklistHisMaxFields.is_delete":
-		if e.complexity.DriverBlacklistHisMaxFields.IsDelete == nil {
+	case "DriverBlacklistHisMaxFields.is_deleted":
+		if e.complexity.DriverBlacklistHisMaxFields.IsDeleted == nil {
 			break
 		}
 
-		return e.complexity.DriverBlacklistHisMaxFields.IsDelete(childComplexity), true
+		return e.complexity.DriverBlacklistHisMaxFields.IsDeleted(childComplexity), true
 
 	case "DriverBlacklistHisMaxFields.operate":
 		if e.complexity.DriverBlacklistHisMaxFields.Operate == nil {
@@ -1841,19 +1841,19 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.DriverBlacklistHisMaxFields.Step(childComplexity), true
 
-	case "DriverBlacklistHisMaxFields.update_at":
-		if e.complexity.DriverBlacklistHisMaxFields.UpdateAt == nil {
+	case "DriverBlacklistHisMaxFields.updated_at":
+		if e.complexity.DriverBlacklistHisMaxFields.UpdatedAt == nil {
 			break
 		}
 
-		return e.complexity.DriverBlacklistHisMaxFields.UpdateAt(childComplexity), true
+		return e.complexity.DriverBlacklistHisMaxFields.UpdatedAt(childComplexity), true
 
-	case "DriverBlacklistHisMaxFields.update_by":
-		if e.complexity.DriverBlacklistHisMaxFields.UpdateBy == nil {
+	case "DriverBlacklistHisMaxFields.updated_by":
+		if e.complexity.DriverBlacklistHisMaxFields.UpdatedBy == nil {
 			break
 		}
 
-		return e.complexity.DriverBlacklistHisMaxFields.UpdateBy(childComplexity), true
+		return e.complexity.DriverBlacklistHisMaxFields.UpdatedBy(childComplexity), true
 
 	case "DriverBlacklistHisMinFields.apply_id":
 		if e.complexity.DriverBlacklistHisMinFields.ApplyID == nil {
@@ -1876,33 +1876,33 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.DriverBlacklistHisMinFields.BlacklistType(childComplexity), true
 
-	case "DriverBlacklistHisMinFields.create_at":
-		if e.complexity.DriverBlacklistHisMinFields.CreateAt == nil {
+	case "DriverBlacklistHisMinFields.created_at":
+		if e.complexity.DriverBlacklistHisMinFields.CreatedAt == nil {
 			break
 		}
 
-		return e.complexity.DriverBlacklistHisMinFields.CreateAt(childComplexity), true
+		return e.complexity.DriverBlacklistHisMinFields.CreatedAt(childComplexity), true
 
-	case "DriverBlacklistHisMinFields.create_by":
-		if e.complexity.DriverBlacklistHisMinFields.CreateBy == nil {
+	case "DriverBlacklistHisMinFields.created_by":
+		if e.complexity.DriverBlacklistHisMinFields.CreatedBy == nil {
 			break
 		}
 
-		return e.complexity.DriverBlacklistHisMinFields.CreateBy(childComplexity), true
+		return e.complexity.DriverBlacklistHisMinFields.CreatedBy(childComplexity), true
 
-	case "DriverBlacklistHisMinFields.delete_at":
-		if e.complexity.DriverBlacklistHisMinFields.DeleteAt == nil {
+	case "DriverBlacklistHisMinFields.deleted_at":
+		if e.complexity.DriverBlacklistHisMinFields.DeletedAt == nil {
 			break
 		}
 
-		return e.complexity.DriverBlacklistHisMinFields.DeleteAt(childComplexity), true
+		return e.complexity.DriverBlacklistHisMinFields.DeletedAt(childComplexity), true
 
-	case "DriverBlacklistHisMinFields.delete_by":
-		if e.complexity.DriverBlacklistHisMinFields.DeleteBy == nil {
+	case "DriverBlacklistHisMinFields.deleted_by":
+		if e.complexity.DriverBlacklistHisMinFields.DeletedBy == nil {
 			break
 		}
 
-		return e.complexity.DriverBlacklistHisMinFields.DeleteBy(childComplexity), true
+		return e.complexity.DriverBlacklistHisMinFields.DeletedBy(childComplexity), true
 
 	case "DriverBlacklistHisMinFields.driver_card_num":
 		if e.complexity.DriverBlacklistHisMinFields.DriverCardNum == nil {
@@ -1932,12 +1932,12 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.DriverBlacklistHisMinFields.ID(childComplexity), true
 
-	case "DriverBlacklistHisMinFields.is_delete":
-		if e.complexity.DriverBlacklistHisMinFields.IsDelete == nil {
+	case "DriverBlacklistHisMinFields.is_deleted":
+		if e.complexity.DriverBlacklistHisMinFields.IsDeleted == nil {
 			break
 		}
 
-		return e.complexity.DriverBlacklistHisMinFields.IsDelete(childComplexity), true
+		return e.complexity.DriverBlacklistHisMinFields.IsDeleted(childComplexity), true
 
 	case "DriverBlacklistHisMinFields.operate":
 		if e.complexity.DriverBlacklistHisMinFields.Operate == nil {
@@ -1960,19 +1960,19 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.DriverBlacklistHisMinFields.Step(childComplexity), true
 
-	case "DriverBlacklistHisMinFields.update_at":
-		if e.complexity.DriverBlacklistHisMinFields.UpdateAt == nil {
+	case "DriverBlacklistHisMinFields.updated_at":
+		if e.complexity.DriverBlacklistHisMinFields.UpdatedAt == nil {
 			break
 		}
 
-		return e.complexity.DriverBlacklistHisMinFields.UpdateAt(childComplexity), true
+		return e.complexity.DriverBlacklistHisMinFields.UpdatedAt(childComplexity), true
 
-	case "DriverBlacklistHisMinFields.update_by":
-		if e.complexity.DriverBlacklistHisMinFields.UpdateBy == nil {
+	case "DriverBlacklistHisMinFields.updated_by":
+		if e.complexity.DriverBlacklistHisMinFields.UpdatedBy == nil {
 			break
 		}
 
-		return e.complexity.DriverBlacklistHisMinFields.UpdateBy(childComplexity), true
+		return e.complexity.DriverBlacklistHisMinFields.UpdatedBy(childComplexity), true
 
 	case "DriverBlacklistHisMutationResponse.affected_rows":
 		if e.complexity.DriverBlacklistHisMutationResponse.AffectedRows == nil {
@@ -2191,33 +2191,33 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.EnterpriseBlacklistAlarm.AlarmID(childComplexity), true
 
-	case "EnterpriseBlacklistAlarm.create_at":
-		if e.complexity.EnterpriseBlacklistAlarm.CreateAt == nil {
+	case "EnterpriseBlacklistAlarm.created_at":
+		if e.complexity.EnterpriseBlacklistAlarm.CreatedAt == nil {
 			break
 		}
 
-		return e.complexity.EnterpriseBlacklistAlarm.CreateAt(childComplexity), true
+		return e.complexity.EnterpriseBlacklistAlarm.CreatedAt(childComplexity), true
 
-	case "EnterpriseBlacklistAlarm.create_by":
-		if e.complexity.EnterpriseBlacklistAlarm.CreateBy == nil {
+	case "EnterpriseBlacklistAlarm.created_by":
+		if e.complexity.EnterpriseBlacklistAlarm.CreatedBy == nil {
 			break
 		}
 
-		return e.complexity.EnterpriseBlacklistAlarm.CreateBy(childComplexity), true
+		return e.complexity.EnterpriseBlacklistAlarm.CreatedBy(childComplexity), true
 
-	case "EnterpriseBlacklistAlarm.delete_at":
-		if e.complexity.EnterpriseBlacklistAlarm.DeleteAt == nil {
+	case "EnterpriseBlacklistAlarm.deleted_at":
+		if e.complexity.EnterpriseBlacklistAlarm.DeletedAt == nil {
 			break
 		}
 
-		return e.complexity.EnterpriseBlacklistAlarm.DeleteAt(childComplexity), true
+		return e.complexity.EnterpriseBlacklistAlarm.DeletedAt(childComplexity), true
 
-	case "EnterpriseBlacklistAlarm.delete_by":
-		if e.complexity.EnterpriseBlacklistAlarm.DeleteBy == nil {
+	case "EnterpriseBlacklistAlarm.deleted_by":
+		if e.complexity.EnterpriseBlacklistAlarm.DeletedBy == nil {
 			break
 		}
 
-		return e.complexity.EnterpriseBlacklistAlarm.DeleteBy(childComplexity), true
+		return e.complexity.EnterpriseBlacklistAlarm.DeletedBy(childComplexity), true
 
 	case "EnterpriseBlacklistAlarm.enterprise_id":
 		if e.complexity.EnterpriseBlacklistAlarm.EnterpriseID == nil {
@@ -2240,12 +2240,12 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.EnterpriseBlacklistAlarm.IsBlack(childComplexity), true
 
-	case "EnterpriseBlacklistAlarm.is_delete":
-		if e.complexity.EnterpriseBlacklistAlarm.IsDelete == nil {
+	case "EnterpriseBlacklistAlarm.is_deleted":
+		if e.complexity.EnterpriseBlacklistAlarm.IsDeleted == nil {
 			break
 		}
 
-		return e.complexity.EnterpriseBlacklistAlarm.IsDelete(childComplexity), true
+		return e.complexity.EnterpriseBlacklistAlarm.IsDeleted(childComplexity), true
 
 	case "EnterpriseBlacklistAlarm.is_rank":
 		if e.complexity.EnterpriseBlacklistAlarm.IsRank == nil {
@@ -2261,19 +2261,19 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.EnterpriseBlacklistAlarm.Type(childComplexity), true
 
-	case "EnterpriseBlacklistAlarm.update_at":
-		if e.complexity.EnterpriseBlacklistAlarm.UpdateAt == nil {
+	case "EnterpriseBlacklistAlarm.updated_at":
+		if e.complexity.EnterpriseBlacklistAlarm.UpdatedAt == nil {
 			break
 		}
 
-		return e.complexity.EnterpriseBlacklistAlarm.UpdateAt(childComplexity), true
+		return e.complexity.EnterpriseBlacklistAlarm.UpdatedAt(childComplexity), true
 
-	case "EnterpriseBlacklistAlarm.update_by":
-		if e.complexity.EnterpriseBlacklistAlarm.UpdateBy == nil {
+	case "EnterpriseBlacklistAlarm.updated_by":
+		if e.complexity.EnterpriseBlacklistAlarm.UpdatedBy == nil {
 			break
 		}
 
-		return e.complexity.EnterpriseBlacklistAlarm.UpdateBy(childComplexity), true
+		return e.complexity.EnterpriseBlacklistAlarm.UpdatedBy(childComplexity), true
 
 	case "EnterpriseBlacklistAlarm.year":
 		if e.complexity.EnterpriseBlacklistAlarm.Year == nil {
@@ -2394,33 +2394,33 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.EnterpriseBlacklistAlarmMaxFields.AlarmID(childComplexity), true
 
-	case "EnterpriseBlacklistAlarmMaxFields.create_at":
-		if e.complexity.EnterpriseBlacklistAlarmMaxFields.CreateAt == nil {
+	case "EnterpriseBlacklistAlarmMaxFields.created_at":
+		if e.complexity.EnterpriseBlacklistAlarmMaxFields.CreatedAt == nil {
 			break
 		}
 
-		return e.complexity.EnterpriseBlacklistAlarmMaxFields.CreateAt(childComplexity), true
+		return e.complexity.EnterpriseBlacklistAlarmMaxFields.CreatedAt(childComplexity), true
 
-	case "EnterpriseBlacklistAlarmMaxFields.create_by":
-		if e.complexity.EnterpriseBlacklistAlarmMaxFields.CreateBy == nil {
+	case "EnterpriseBlacklistAlarmMaxFields.created_by":
+		if e.complexity.EnterpriseBlacklistAlarmMaxFields.CreatedBy == nil {
 			break
 		}
 
-		return e.complexity.EnterpriseBlacklistAlarmMaxFields.CreateBy(childComplexity), true
+		return e.complexity.EnterpriseBlacklistAlarmMaxFields.CreatedBy(childComplexity), true
 
-	case "EnterpriseBlacklistAlarmMaxFields.delete_at":
-		if e.complexity.EnterpriseBlacklistAlarmMaxFields.DeleteAt == nil {
+	case "EnterpriseBlacklistAlarmMaxFields.deleted_at":
+		if e.complexity.EnterpriseBlacklistAlarmMaxFields.DeletedAt == nil {
 			break
 		}
 
-		return e.complexity.EnterpriseBlacklistAlarmMaxFields.DeleteAt(childComplexity), true
+		return e.complexity.EnterpriseBlacklistAlarmMaxFields.DeletedAt(childComplexity), true
 
-	case "EnterpriseBlacklistAlarmMaxFields.delete_by":
-		if e.complexity.EnterpriseBlacklistAlarmMaxFields.DeleteBy == nil {
+	case "EnterpriseBlacklistAlarmMaxFields.deleted_by":
+		if e.complexity.EnterpriseBlacklistAlarmMaxFields.DeletedBy == nil {
 			break
 		}
 
-		return e.complexity.EnterpriseBlacklistAlarmMaxFields.DeleteBy(childComplexity), true
+		return e.complexity.EnterpriseBlacklistAlarmMaxFields.DeletedBy(childComplexity), true
 
 	case "EnterpriseBlacklistAlarmMaxFields.enterprise_id":
 		if e.complexity.EnterpriseBlacklistAlarmMaxFields.EnterpriseID == nil {
@@ -2443,12 +2443,12 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.EnterpriseBlacklistAlarmMaxFields.IsBlack(childComplexity), true
 
-	case "EnterpriseBlacklistAlarmMaxFields.is_delete":
-		if e.complexity.EnterpriseBlacklistAlarmMaxFields.IsDelete == nil {
+	case "EnterpriseBlacklistAlarmMaxFields.is_deleted":
+		if e.complexity.EnterpriseBlacklistAlarmMaxFields.IsDeleted == nil {
 			break
 		}
 
-		return e.complexity.EnterpriseBlacklistAlarmMaxFields.IsDelete(childComplexity), true
+		return e.complexity.EnterpriseBlacklistAlarmMaxFields.IsDeleted(childComplexity), true
 
 	case "EnterpriseBlacklistAlarmMaxFields.is_rank":
 		if e.complexity.EnterpriseBlacklistAlarmMaxFields.IsRank == nil {
@@ -2464,19 +2464,19 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.EnterpriseBlacklistAlarmMaxFields.Type(childComplexity), true
 
-	case "EnterpriseBlacklistAlarmMaxFields.update_at":
-		if e.complexity.EnterpriseBlacklistAlarmMaxFields.UpdateAt == nil {
+	case "EnterpriseBlacklistAlarmMaxFields.updated_at":
+		if e.complexity.EnterpriseBlacklistAlarmMaxFields.UpdatedAt == nil {
 			break
 		}
 
-		return e.complexity.EnterpriseBlacklistAlarmMaxFields.UpdateAt(childComplexity), true
+		return e.complexity.EnterpriseBlacklistAlarmMaxFields.UpdatedAt(childComplexity), true
 
-	case "EnterpriseBlacklistAlarmMaxFields.update_by":
-		if e.complexity.EnterpriseBlacklistAlarmMaxFields.UpdateBy == nil {
+	case "EnterpriseBlacklistAlarmMaxFields.updated_by":
+		if e.complexity.EnterpriseBlacklistAlarmMaxFields.UpdatedBy == nil {
 			break
 		}
 
-		return e.complexity.EnterpriseBlacklistAlarmMaxFields.UpdateBy(childComplexity), true
+		return e.complexity.EnterpriseBlacklistAlarmMaxFields.UpdatedBy(childComplexity), true
 
 	case "EnterpriseBlacklistAlarmMaxFields.year":
 		if e.complexity.EnterpriseBlacklistAlarmMaxFields.Year == nil {
@@ -2492,33 +2492,33 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.EnterpriseBlacklistAlarmMinFields.AlarmID(childComplexity), true
 
-	case "EnterpriseBlacklistAlarmMinFields.create_at":
-		if e.complexity.EnterpriseBlacklistAlarmMinFields.CreateAt == nil {
+	case "EnterpriseBlacklistAlarmMinFields.created_at":
+		if e.complexity.EnterpriseBlacklistAlarmMinFields.CreatedAt == nil {
 			break
 		}
 
-		return e.complexity.EnterpriseBlacklistAlarmMinFields.CreateAt(childComplexity), true
+		return e.complexity.EnterpriseBlacklistAlarmMinFields.CreatedAt(childComplexity), true
 
-	case "EnterpriseBlacklistAlarmMinFields.create_by":
-		if e.complexity.EnterpriseBlacklistAlarmMinFields.CreateBy == nil {
+	case "EnterpriseBlacklistAlarmMinFields.created_by":
+		if e.complexity.EnterpriseBlacklistAlarmMinFields.CreatedBy == nil {
 			break
 		}
 
-		return e.complexity.EnterpriseBlacklistAlarmMinFields.CreateBy(childComplexity), true
+		return e.complexity.EnterpriseBlacklistAlarmMinFields.CreatedBy(childComplexity), true
 
-	case "EnterpriseBlacklistAlarmMinFields.delete_at":
-		if e.complexity.EnterpriseBlacklistAlarmMinFields.DeleteAt == nil {
+	case "EnterpriseBlacklistAlarmMinFields.deleted_at":
+		if e.complexity.EnterpriseBlacklistAlarmMinFields.DeletedAt == nil {
 			break
 		}
 
-		return e.complexity.EnterpriseBlacklistAlarmMinFields.DeleteAt(childComplexity), true
+		return e.complexity.EnterpriseBlacklistAlarmMinFields.DeletedAt(childComplexity), true
 
-	case "EnterpriseBlacklistAlarmMinFields.delete_by":
-		if e.complexity.EnterpriseBlacklistAlarmMinFields.DeleteBy == nil {
+	case "EnterpriseBlacklistAlarmMinFields.deleted_by":
+		if e.complexity.EnterpriseBlacklistAlarmMinFields.DeletedBy == nil {
 			break
 		}
 
-		return e.complexity.EnterpriseBlacklistAlarmMinFields.DeleteBy(childComplexity), true
+		return e.complexity.EnterpriseBlacklistAlarmMinFields.DeletedBy(childComplexity), true
 
 	case "EnterpriseBlacklistAlarmMinFields.enterprise_id":
 		if e.complexity.EnterpriseBlacklistAlarmMinFields.EnterpriseID == nil {
@@ -2541,12 +2541,12 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.EnterpriseBlacklistAlarmMinFields.IsBlack(childComplexity), true
 
-	case "EnterpriseBlacklistAlarmMinFields.is_delete":
-		if e.complexity.EnterpriseBlacklistAlarmMinFields.IsDelete == nil {
+	case "EnterpriseBlacklistAlarmMinFields.is_deleted":
+		if e.complexity.EnterpriseBlacklistAlarmMinFields.IsDeleted == nil {
 			break
 		}
 
-		return e.complexity.EnterpriseBlacklistAlarmMinFields.IsDelete(childComplexity), true
+		return e.complexity.EnterpriseBlacklistAlarmMinFields.IsDeleted(childComplexity), true
 
 	case "EnterpriseBlacklistAlarmMinFields.is_rank":
 		if e.complexity.EnterpriseBlacklistAlarmMinFields.IsRank == nil {
@@ -2562,19 +2562,19 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.EnterpriseBlacklistAlarmMinFields.Type(childComplexity), true
 
-	case "EnterpriseBlacklistAlarmMinFields.update_at":
-		if e.complexity.EnterpriseBlacklistAlarmMinFields.UpdateAt == nil {
+	case "EnterpriseBlacklistAlarmMinFields.updated_at":
+		if e.complexity.EnterpriseBlacklistAlarmMinFields.UpdatedAt == nil {
 			break
 		}
 
-		return e.complexity.EnterpriseBlacklistAlarmMinFields.UpdateAt(childComplexity), true
+		return e.complexity.EnterpriseBlacklistAlarmMinFields.UpdatedAt(childComplexity), true
 
-	case "EnterpriseBlacklistAlarmMinFields.update_by":
-		if e.complexity.EnterpriseBlacklistAlarmMinFields.UpdateBy == nil {
+	case "EnterpriseBlacklistAlarmMinFields.updated_by":
+		if e.complexity.EnterpriseBlacklistAlarmMinFields.UpdatedBy == nil {
 			break
 		}
 
-		return e.complexity.EnterpriseBlacklistAlarmMinFields.UpdateBy(childComplexity), true
+		return e.complexity.EnterpriseBlacklistAlarmMinFields.UpdatedBy(childComplexity), true
 
 	case "EnterpriseBlacklistAlarmMinFields.year":
 		if e.complexity.EnterpriseBlacklistAlarmMinFields.Year == nil {
@@ -2751,33 +2751,33 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.EnterpriseBlacklistHis.BlacklistType(childComplexity), true
 
-	case "EnterpriseBlacklistHis.create_at":
-		if e.complexity.EnterpriseBlacklistHis.CreateAt == nil {
+	case "EnterpriseBlacklistHis.created_at":
+		if e.complexity.EnterpriseBlacklistHis.CreatedAt == nil {
 			break
 		}
 
-		return e.complexity.EnterpriseBlacklistHis.CreateAt(childComplexity), true
+		return e.complexity.EnterpriseBlacklistHis.CreatedAt(childComplexity), true
 
-	case "EnterpriseBlacklistHis.create_by":
-		if e.complexity.EnterpriseBlacklistHis.CreateBy == nil {
+	case "EnterpriseBlacklistHis.created_by":
+		if e.complexity.EnterpriseBlacklistHis.CreatedBy == nil {
 			break
 		}
 
-		return e.complexity.EnterpriseBlacklistHis.CreateBy(childComplexity), true
+		return e.complexity.EnterpriseBlacklistHis.CreatedBy(childComplexity), true
 
-	case "EnterpriseBlacklistHis.delete_at":
-		if e.complexity.EnterpriseBlacklistHis.DeleteAt == nil {
+	case "EnterpriseBlacklistHis.deleted_at":
+		if e.complexity.EnterpriseBlacklistHis.DeletedAt == nil {
 			break
 		}
 
-		return e.complexity.EnterpriseBlacklistHis.DeleteAt(childComplexity), true
+		return e.complexity.EnterpriseBlacklistHis.DeletedAt(childComplexity), true
 
-	case "EnterpriseBlacklistHis.delete_by":
-		if e.complexity.EnterpriseBlacklistHis.DeleteBy == nil {
+	case "EnterpriseBlacklistHis.deleted_by":
+		if e.complexity.EnterpriseBlacklistHis.DeletedBy == nil {
 			break
 		}
 
-		return e.complexity.EnterpriseBlacklistHis.DeleteBy(childComplexity), true
+		return e.complexity.EnterpriseBlacklistHis.DeletedBy(childComplexity), true
 
 	case "EnterpriseBlacklistHis.enterprise_id":
 		if e.complexity.EnterpriseBlacklistHis.EnterpriseID == nil {
@@ -2800,12 +2800,12 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.EnterpriseBlacklistHis.ID(childComplexity), true
 
-	case "EnterpriseBlacklistHis.is_delete":
-		if e.complexity.EnterpriseBlacklistHis.IsDelete == nil {
+	case "EnterpriseBlacklistHis.is_deleted":
+		if e.complexity.EnterpriseBlacklistHis.IsDeleted == nil {
 			break
 		}
 
-		return e.complexity.EnterpriseBlacklistHis.IsDelete(childComplexity), true
+		return e.complexity.EnterpriseBlacklistHis.IsDeleted(childComplexity), true
 
 	case "EnterpriseBlacklistHis.operate":
 		if e.complexity.EnterpriseBlacklistHis.Operate == nil {
@@ -2821,19 +2821,19 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.EnterpriseBlacklistHis.Remarks(childComplexity), true
 
-	case "EnterpriseBlacklistHis.update_at":
-		if e.complexity.EnterpriseBlacklistHis.UpdateAt == nil {
+	case "EnterpriseBlacklistHis.updated_at":
+		if e.complexity.EnterpriseBlacklistHis.UpdatedAt == nil {
 			break
 		}
 
-		return e.complexity.EnterpriseBlacklistHis.UpdateAt(childComplexity), true
+		return e.complexity.EnterpriseBlacklistHis.UpdatedAt(childComplexity), true
 
-	case "EnterpriseBlacklistHis.update_by":
-		if e.complexity.EnterpriseBlacklistHis.UpdateBy == nil {
+	case "EnterpriseBlacklistHis.updated_by":
+		if e.complexity.EnterpriseBlacklistHis.UpdatedBy == nil {
 			break
 		}
 
-		return e.complexity.EnterpriseBlacklistHis.UpdateBy(childComplexity), true
+		return e.complexity.EnterpriseBlacklistHis.UpdatedBy(childComplexity), true
 
 	case "EnterpriseBlacklistHisAggregate.aggregate":
 		if e.complexity.EnterpriseBlacklistHisAggregate.Aggregate == nil {
@@ -2947,33 +2947,33 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.EnterpriseBlacklistHisMaxFields.BlacklistType(childComplexity), true
 
-	case "EnterpriseBlacklistHisMaxFields.create_at":
-		if e.complexity.EnterpriseBlacklistHisMaxFields.CreateAt == nil {
+	case "EnterpriseBlacklistHisMaxFields.created_at":
+		if e.complexity.EnterpriseBlacklistHisMaxFields.CreatedAt == nil {
 			break
 		}
 
-		return e.complexity.EnterpriseBlacklistHisMaxFields.CreateAt(childComplexity), true
+		return e.complexity.EnterpriseBlacklistHisMaxFields.CreatedAt(childComplexity), true
 
-	case "EnterpriseBlacklistHisMaxFields.create_by":
-		if e.complexity.EnterpriseBlacklistHisMaxFields.CreateBy == nil {
+	case "EnterpriseBlacklistHisMaxFields.created_by":
+		if e.complexity.EnterpriseBlacklistHisMaxFields.CreatedBy == nil {
 			break
 		}
 
-		return e.complexity.EnterpriseBlacklistHisMaxFields.CreateBy(childComplexity), true
+		return e.complexity.EnterpriseBlacklistHisMaxFields.CreatedBy(childComplexity), true
 
-	case "EnterpriseBlacklistHisMaxFields.delete_at":
-		if e.complexity.EnterpriseBlacklistHisMaxFields.DeleteAt == nil {
+	case "EnterpriseBlacklistHisMaxFields.deleted_at":
+		if e.complexity.EnterpriseBlacklistHisMaxFields.DeletedAt == nil {
 			break
 		}
 
-		return e.complexity.EnterpriseBlacklistHisMaxFields.DeleteAt(childComplexity), true
+		return e.complexity.EnterpriseBlacklistHisMaxFields.DeletedAt(childComplexity), true
 
-	case "EnterpriseBlacklistHisMaxFields.delete_by":
-		if e.complexity.EnterpriseBlacklistHisMaxFields.DeleteBy == nil {
+	case "EnterpriseBlacklistHisMaxFields.deleted_by":
+		if e.complexity.EnterpriseBlacklistHisMaxFields.DeletedBy == nil {
 			break
 		}
 
-		return e.complexity.EnterpriseBlacklistHisMaxFields.DeleteBy(childComplexity), true
+		return e.complexity.EnterpriseBlacklistHisMaxFields.DeletedBy(childComplexity), true
 
 	case "EnterpriseBlacklistHisMaxFields.enterprise_id":
 		if e.complexity.EnterpriseBlacklistHisMaxFields.EnterpriseID == nil {
@@ -2996,12 +2996,12 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.EnterpriseBlacklistHisMaxFields.ID(childComplexity), true
 
-	case "EnterpriseBlacklistHisMaxFields.is_delete":
-		if e.complexity.EnterpriseBlacklistHisMaxFields.IsDelete == nil {
+	case "EnterpriseBlacklistHisMaxFields.is_deleted":
+		if e.complexity.EnterpriseBlacklistHisMaxFields.IsDeleted == nil {
 			break
 		}
 
-		return e.complexity.EnterpriseBlacklistHisMaxFields.IsDelete(childComplexity), true
+		return e.complexity.EnterpriseBlacklistHisMaxFields.IsDeleted(childComplexity), true
 
 	case "EnterpriseBlacklistHisMaxFields.operate":
 		if e.complexity.EnterpriseBlacklistHisMaxFields.Operate == nil {
@@ -3017,19 +3017,19 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.EnterpriseBlacklistHisMaxFields.Remarks(childComplexity), true
 
-	case "EnterpriseBlacklistHisMaxFields.update_at":
-		if e.complexity.EnterpriseBlacklistHisMaxFields.UpdateAt == nil {
+	case "EnterpriseBlacklistHisMaxFields.updated_at":
+		if e.complexity.EnterpriseBlacklistHisMaxFields.UpdatedAt == nil {
 			break
 		}
 
-		return e.complexity.EnterpriseBlacklistHisMaxFields.UpdateAt(childComplexity), true
+		return e.complexity.EnterpriseBlacklistHisMaxFields.UpdatedAt(childComplexity), true
 
-	case "EnterpriseBlacklistHisMaxFields.update_by":
-		if e.complexity.EnterpriseBlacklistHisMaxFields.UpdateBy == nil {
+	case "EnterpriseBlacklistHisMaxFields.updated_by":
+		if e.complexity.EnterpriseBlacklistHisMaxFields.UpdatedBy == nil {
 			break
 		}
 
-		return e.complexity.EnterpriseBlacklistHisMaxFields.UpdateBy(childComplexity), true
+		return e.complexity.EnterpriseBlacklistHisMaxFields.UpdatedBy(childComplexity), true
 
 	case "EnterpriseBlacklistHisMinFields.blacklist_type":
 		if e.complexity.EnterpriseBlacklistHisMinFields.BlacklistType == nil {
@@ -3038,33 +3038,33 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.EnterpriseBlacklistHisMinFields.BlacklistType(childComplexity), true
 
-	case "EnterpriseBlacklistHisMinFields.create_at":
-		if e.complexity.EnterpriseBlacklistHisMinFields.CreateAt == nil {
+	case "EnterpriseBlacklistHisMinFields.created_at":
+		if e.complexity.EnterpriseBlacklistHisMinFields.CreatedAt == nil {
 			break
 		}
 
-		return e.complexity.EnterpriseBlacklistHisMinFields.CreateAt(childComplexity), true
+		return e.complexity.EnterpriseBlacklistHisMinFields.CreatedAt(childComplexity), true
 
-	case "EnterpriseBlacklistHisMinFields.create_by":
-		if e.complexity.EnterpriseBlacklistHisMinFields.CreateBy == nil {
+	case "EnterpriseBlacklistHisMinFields.created_by":
+		if e.complexity.EnterpriseBlacklistHisMinFields.CreatedBy == nil {
 			break
 		}
 
-		return e.complexity.EnterpriseBlacklistHisMinFields.CreateBy(childComplexity), true
+		return e.complexity.EnterpriseBlacklistHisMinFields.CreatedBy(childComplexity), true
 
-	case "EnterpriseBlacklistHisMinFields.delete_at":
-		if e.complexity.EnterpriseBlacklistHisMinFields.DeleteAt == nil {
+	case "EnterpriseBlacklistHisMinFields.deleted_at":
+		if e.complexity.EnterpriseBlacklistHisMinFields.DeletedAt == nil {
 			break
 		}
 
-		return e.complexity.EnterpriseBlacklistHisMinFields.DeleteAt(childComplexity), true
+		return e.complexity.EnterpriseBlacklistHisMinFields.DeletedAt(childComplexity), true
 
-	case "EnterpriseBlacklistHisMinFields.delete_by":
-		if e.complexity.EnterpriseBlacklistHisMinFields.DeleteBy == nil {
+	case "EnterpriseBlacklistHisMinFields.deleted_by":
+		if e.complexity.EnterpriseBlacklistHisMinFields.DeletedBy == nil {
 			break
 		}
 
-		return e.complexity.EnterpriseBlacklistHisMinFields.DeleteBy(childComplexity), true
+		return e.complexity.EnterpriseBlacklistHisMinFields.DeletedBy(childComplexity), true
 
 	case "EnterpriseBlacklistHisMinFields.enterprise_id":
 		if e.complexity.EnterpriseBlacklistHisMinFields.EnterpriseID == nil {
@@ -3087,12 +3087,12 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.EnterpriseBlacklistHisMinFields.ID(childComplexity), true
 
-	case "EnterpriseBlacklistHisMinFields.is_delete":
-		if e.complexity.EnterpriseBlacklistHisMinFields.IsDelete == nil {
+	case "EnterpriseBlacklistHisMinFields.is_deleted":
+		if e.complexity.EnterpriseBlacklistHisMinFields.IsDeleted == nil {
 			break
 		}
 
-		return e.complexity.EnterpriseBlacklistHisMinFields.IsDelete(childComplexity), true
+		return e.complexity.EnterpriseBlacklistHisMinFields.IsDeleted(childComplexity), true
 
 	case "EnterpriseBlacklistHisMinFields.operate":
 		if e.complexity.EnterpriseBlacklistHisMinFields.Operate == nil {
@@ -3108,19 +3108,19 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.EnterpriseBlacklistHisMinFields.Remarks(childComplexity), true
 
-	case "EnterpriseBlacklistHisMinFields.update_at":
-		if e.complexity.EnterpriseBlacklistHisMinFields.UpdateAt == nil {
+	case "EnterpriseBlacklistHisMinFields.updated_at":
+		if e.complexity.EnterpriseBlacklistHisMinFields.UpdatedAt == nil {
 			break
 		}
 
-		return e.complexity.EnterpriseBlacklistHisMinFields.UpdateAt(childComplexity), true
+		return e.complexity.EnterpriseBlacklistHisMinFields.UpdatedAt(childComplexity), true
 
-	case "EnterpriseBlacklistHisMinFields.update_by":
-		if e.complexity.EnterpriseBlacklistHisMinFields.UpdateBy == nil {
+	case "EnterpriseBlacklistHisMinFields.updated_by":
+		if e.complexity.EnterpriseBlacklistHisMinFields.UpdatedBy == nil {
 			break
 		}
 
-		return e.complexity.EnterpriseBlacklistHisMinFields.UpdateBy(childComplexity), true
+		return e.complexity.EnterpriseBlacklistHisMinFields.UpdatedBy(childComplexity), true
 
 	case "EnterpriseBlacklistHisMutationResponse.affected_rows":
 		if e.complexity.EnterpriseBlacklistHisMutationResponse.AffectedRows == nil {
@@ -4154,33 +4154,33 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.VehicleBlacklistAlarm.AlarmID(childComplexity), true
 
-	case "VehicleBlacklistAlarm.create_at":
-		if e.complexity.VehicleBlacklistAlarm.CreateAt == nil {
+	case "VehicleBlacklistAlarm.created_at":
+		if e.complexity.VehicleBlacklistAlarm.CreatedAt == nil {
 			break
 		}
 
-		return e.complexity.VehicleBlacklistAlarm.CreateAt(childComplexity), true
+		return e.complexity.VehicleBlacklistAlarm.CreatedAt(childComplexity), true
 
-	case "VehicleBlacklistAlarm.create_by":
-		if e.complexity.VehicleBlacklistAlarm.CreateBy == nil {
+	case "VehicleBlacklistAlarm.created_by":
+		if e.complexity.VehicleBlacklistAlarm.CreatedBy == nil {
 			break
 		}
 
-		return e.complexity.VehicleBlacklistAlarm.CreateBy(childComplexity), true
+		return e.complexity.VehicleBlacklistAlarm.CreatedBy(childComplexity), true
 
-	case "VehicleBlacklistAlarm.delete_at":
-		if e.complexity.VehicleBlacklistAlarm.DeleteAt == nil {
+	case "VehicleBlacklistAlarm.deleted_at":
+		if e.complexity.VehicleBlacklistAlarm.DeletedAt == nil {
 			break
 		}
 
-		return e.complexity.VehicleBlacklistAlarm.DeleteAt(childComplexity), true
+		return e.complexity.VehicleBlacklistAlarm.DeletedAt(childComplexity), true
 
-	case "VehicleBlacklistAlarm.delete_by":
-		if e.complexity.VehicleBlacklistAlarm.DeleteBy == nil {
+	case "VehicleBlacklistAlarm.deleted_by":
+		if e.complexity.VehicleBlacklistAlarm.DeletedBy == nil {
 			break
 		}
 
-		return e.complexity.VehicleBlacklistAlarm.DeleteBy(childComplexity), true
+		return e.complexity.VehicleBlacklistAlarm.DeletedBy(childComplexity), true
 
 	case "VehicleBlacklistAlarm.id":
 		if e.complexity.VehicleBlacklistAlarm.ID == nil {
@@ -4189,12 +4189,12 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.VehicleBlacklistAlarm.ID(childComplexity), true
 
-	case "VehicleBlacklistAlarm.is_delete":
-		if e.complexity.VehicleBlacklistAlarm.IsDelete == nil {
+	case "VehicleBlacklistAlarm.is_deleted":
+		if e.complexity.VehicleBlacklistAlarm.IsDeleted == nil {
 			break
 		}
 
-		return e.complexity.VehicleBlacklistAlarm.IsDelete(childComplexity), true
+		return e.complexity.VehicleBlacklistAlarm.IsDeleted(childComplexity), true
 
 	case "VehicleBlacklistAlarm.license_plate_number":
 		if e.complexity.VehicleBlacklistAlarm.LicensePlateNumber == nil {
@@ -4217,19 +4217,19 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.VehicleBlacklistAlarm.ScoreNum(childComplexity), true
 
-	case "VehicleBlacklistAlarm.update_at":
-		if e.complexity.VehicleBlacklistAlarm.UpdateAt == nil {
+	case "VehicleBlacklistAlarm.updated_at":
+		if e.complexity.VehicleBlacklistAlarm.UpdatedAt == nil {
 			break
 		}
 
-		return e.complexity.VehicleBlacklistAlarm.UpdateAt(childComplexity), true
+		return e.complexity.VehicleBlacklistAlarm.UpdatedAt(childComplexity), true
 
-	case "VehicleBlacklistAlarm.update_by":
-		if e.complexity.VehicleBlacklistAlarm.UpdateBy == nil {
+	case "VehicleBlacklistAlarm.updated_by":
+		if e.complexity.VehicleBlacklistAlarm.UpdatedBy == nil {
 			break
 		}
 
-		return e.complexity.VehicleBlacklistAlarm.UpdateBy(childComplexity), true
+		return e.complexity.VehicleBlacklistAlarm.UpdatedBy(childComplexity), true
 
 	case "VehicleBlacklistAlarm.vehicle_id":
 		if e.complexity.VehicleBlacklistAlarm.VehicleID == nil {
@@ -4364,33 +4364,33 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.VehicleBlacklistAlarmMaxFields.AlarmID(childComplexity), true
 
-	case "VehicleBlacklistAlarmMaxFields.create_at":
-		if e.complexity.VehicleBlacklistAlarmMaxFields.CreateAt == nil {
+	case "VehicleBlacklistAlarmMaxFields.created_at":
+		if e.complexity.VehicleBlacklistAlarmMaxFields.CreatedAt == nil {
 			break
 		}
 
-		return e.complexity.VehicleBlacklistAlarmMaxFields.CreateAt(childComplexity), true
+		return e.complexity.VehicleBlacklistAlarmMaxFields.CreatedAt(childComplexity), true
 
-	case "VehicleBlacklistAlarmMaxFields.create_by":
-		if e.complexity.VehicleBlacklistAlarmMaxFields.CreateBy == nil {
+	case "VehicleBlacklistAlarmMaxFields.created_by":
+		if e.complexity.VehicleBlacklistAlarmMaxFields.CreatedBy == nil {
 			break
 		}
 
-		return e.complexity.VehicleBlacklistAlarmMaxFields.CreateBy(childComplexity), true
+		return e.complexity.VehicleBlacklistAlarmMaxFields.CreatedBy(childComplexity), true
 
-	case "VehicleBlacklistAlarmMaxFields.delete_at":
-		if e.complexity.VehicleBlacklistAlarmMaxFields.DeleteAt == nil {
+	case "VehicleBlacklistAlarmMaxFields.deleted_at":
+		if e.complexity.VehicleBlacklistAlarmMaxFields.DeletedAt == nil {
 			break
 		}
 
-		return e.complexity.VehicleBlacklistAlarmMaxFields.DeleteAt(childComplexity), true
+		return e.complexity.VehicleBlacklistAlarmMaxFields.DeletedAt(childComplexity), true
 
-	case "VehicleBlacklistAlarmMaxFields.delete_by":
-		if e.complexity.VehicleBlacklistAlarmMaxFields.DeleteBy == nil {
+	case "VehicleBlacklistAlarmMaxFields.deleted_by":
+		if e.complexity.VehicleBlacklistAlarmMaxFields.DeletedBy == nil {
 			break
 		}
 
-		return e.complexity.VehicleBlacklistAlarmMaxFields.DeleteBy(childComplexity), true
+		return e.complexity.VehicleBlacklistAlarmMaxFields.DeletedBy(childComplexity), true
 
 	case "VehicleBlacklistAlarmMaxFields.id":
 		if e.complexity.VehicleBlacklistAlarmMaxFields.ID == nil {
@@ -4399,12 +4399,12 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.VehicleBlacklistAlarmMaxFields.ID(childComplexity), true
 
-	case "VehicleBlacklistAlarmMaxFields.is_delete":
-		if e.complexity.VehicleBlacklistAlarmMaxFields.IsDelete == nil {
+	case "VehicleBlacklistAlarmMaxFields.is_deleted":
+		if e.complexity.VehicleBlacklistAlarmMaxFields.IsDeleted == nil {
 			break
 		}
 
-		return e.complexity.VehicleBlacklistAlarmMaxFields.IsDelete(childComplexity), true
+		return e.complexity.VehicleBlacklistAlarmMaxFields.IsDeleted(childComplexity), true
 
 	case "VehicleBlacklistAlarmMaxFields.license_plate_number":
 		if e.complexity.VehicleBlacklistAlarmMaxFields.LicensePlateNumber == nil {
@@ -4427,19 +4427,19 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.VehicleBlacklistAlarmMaxFields.ScoreNum(childComplexity), true
 
-	case "VehicleBlacklistAlarmMaxFields.update_at":
-		if e.complexity.VehicleBlacklistAlarmMaxFields.UpdateAt == nil {
+	case "VehicleBlacklistAlarmMaxFields.updated_at":
+		if e.complexity.VehicleBlacklistAlarmMaxFields.UpdatedAt == nil {
 			break
 		}
 
-		return e.complexity.VehicleBlacklistAlarmMaxFields.UpdateAt(childComplexity), true
+		return e.complexity.VehicleBlacklistAlarmMaxFields.UpdatedAt(childComplexity), true
 
-	case "VehicleBlacklistAlarmMaxFields.update_by":
-		if e.complexity.VehicleBlacklistAlarmMaxFields.UpdateBy == nil {
+	case "VehicleBlacklistAlarmMaxFields.updated_by":
+		if e.complexity.VehicleBlacklistAlarmMaxFields.UpdatedBy == nil {
 			break
 		}
 
-		return e.complexity.VehicleBlacklistAlarmMaxFields.UpdateBy(childComplexity), true
+		return e.complexity.VehicleBlacklistAlarmMaxFields.UpdatedBy(childComplexity), true
 
 	case "VehicleBlacklistAlarmMaxFields.vehicle_id":
 		if e.complexity.VehicleBlacklistAlarmMaxFields.VehicleID == nil {
@@ -4462,33 +4462,33 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.VehicleBlacklistAlarmMinFields.AlarmID(childComplexity), true
 
-	case "VehicleBlacklistAlarmMinFields.create_at":
-		if e.complexity.VehicleBlacklistAlarmMinFields.CreateAt == nil {
+	case "VehicleBlacklistAlarmMinFields.created_at":
+		if e.complexity.VehicleBlacklistAlarmMinFields.CreatedAt == nil {
 			break
 		}
 
-		return e.complexity.VehicleBlacklistAlarmMinFields.CreateAt(childComplexity), true
+		return e.complexity.VehicleBlacklistAlarmMinFields.CreatedAt(childComplexity), true
 
-	case "VehicleBlacklistAlarmMinFields.create_by":
-		if e.complexity.VehicleBlacklistAlarmMinFields.CreateBy == nil {
+	case "VehicleBlacklistAlarmMinFields.created_by":
+		if e.complexity.VehicleBlacklistAlarmMinFields.CreatedBy == nil {
 			break
 		}
 
-		return e.complexity.VehicleBlacklistAlarmMinFields.CreateBy(childComplexity), true
+		return e.complexity.VehicleBlacklistAlarmMinFields.CreatedBy(childComplexity), true
 
-	case "VehicleBlacklistAlarmMinFields.delete_at":
-		if e.complexity.VehicleBlacklistAlarmMinFields.DeleteAt == nil {
+	case "VehicleBlacklistAlarmMinFields.deleted_at":
+		if e.complexity.VehicleBlacklistAlarmMinFields.DeletedAt == nil {
 			break
 		}
 
-		return e.complexity.VehicleBlacklistAlarmMinFields.DeleteAt(childComplexity), true
+		return e.complexity.VehicleBlacklistAlarmMinFields.DeletedAt(childComplexity), true
 
-	case "VehicleBlacklistAlarmMinFields.delete_by":
-		if e.complexity.VehicleBlacklistAlarmMinFields.DeleteBy == nil {
+	case "VehicleBlacklistAlarmMinFields.deleted_by":
+		if e.complexity.VehicleBlacklistAlarmMinFields.DeletedBy == nil {
 			break
 		}
 
-		return e.complexity.VehicleBlacklistAlarmMinFields.DeleteBy(childComplexity), true
+		return e.complexity.VehicleBlacklistAlarmMinFields.DeletedBy(childComplexity), true
 
 	case "VehicleBlacklistAlarmMinFields.id":
 		if e.complexity.VehicleBlacklistAlarmMinFields.ID == nil {
@@ -4497,12 +4497,12 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.VehicleBlacklistAlarmMinFields.ID(childComplexity), true
 
-	case "VehicleBlacklistAlarmMinFields.is_delete":
-		if e.complexity.VehicleBlacklistAlarmMinFields.IsDelete == nil {
+	case "VehicleBlacklistAlarmMinFields.is_deleted":
+		if e.complexity.VehicleBlacklistAlarmMinFields.IsDeleted == nil {
 			break
 		}
 
-		return e.complexity.VehicleBlacklistAlarmMinFields.IsDelete(childComplexity), true
+		return e.complexity.VehicleBlacklistAlarmMinFields.IsDeleted(childComplexity), true
 
 	case "VehicleBlacklistAlarmMinFields.license_plate_number":
 		if e.complexity.VehicleBlacklistAlarmMinFields.LicensePlateNumber == nil {
@@ -4525,19 +4525,19 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.VehicleBlacklistAlarmMinFields.ScoreNum(childComplexity), true
 
-	case "VehicleBlacklistAlarmMinFields.update_at":
-		if e.complexity.VehicleBlacklistAlarmMinFields.UpdateAt == nil {
+	case "VehicleBlacklistAlarmMinFields.updated_at":
+		if e.complexity.VehicleBlacklistAlarmMinFields.UpdatedAt == nil {
 			break
 		}
 
-		return e.complexity.VehicleBlacklistAlarmMinFields.UpdateAt(childComplexity), true
+		return e.complexity.VehicleBlacklistAlarmMinFields.UpdatedAt(childComplexity), true
 
-	case "VehicleBlacklistAlarmMinFields.update_by":
-		if e.complexity.VehicleBlacklistAlarmMinFields.UpdateBy == nil {
+	case "VehicleBlacklistAlarmMinFields.updated_by":
+		if e.complexity.VehicleBlacklistAlarmMinFields.UpdatedBy == nil {
 			break
 		}
 
-		return e.complexity.VehicleBlacklistAlarmMinFields.UpdateBy(childComplexity), true
+		return e.complexity.VehicleBlacklistAlarmMinFields.UpdatedBy(childComplexity), true
 
 	case "VehicleBlacklistAlarmMinFields.vehicle_id":
 		if e.complexity.VehicleBlacklistAlarmMinFields.VehicleID == nil {
@@ -4770,33 +4770,33 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.VehicleBlacklistHis.BlacklistType(childComplexity), true
 
-	case "VehicleBlacklistHis.create_at":
-		if e.complexity.VehicleBlacklistHis.CreateAt == nil {
+	case "VehicleBlacklistHis.created_at":
+		if e.complexity.VehicleBlacklistHis.CreatedAt == nil {
 			break
 		}
 
-		return e.complexity.VehicleBlacklistHis.CreateAt(childComplexity), true
+		return e.complexity.VehicleBlacklistHis.CreatedAt(childComplexity), true
 
-	case "VehicleBlacklistHis.create_by":
-		if e.complexity.VehicleBlacklistHis.CreateBy == nil {
+	case "VehicleBlacklistHis.created_by":
+		if e.complexity.VehicleBlacklistHis.CreatedBy == nil {
 			break
 		}
 
-		return e.complexity.VehicleBlacklistHis.CreateBy(childComplexity), true
+		return e.complexity.VehicleBlacklistHis.CreatedBy(childComplexity), true
 
-	case "VehicleBlacklistHis.delete_at":
-		if e.complexity.VehicleBlacklistHis.DeleteAt == nil {
+	case "VehicleBlacklistHis.deleted_at":
+		if e.complexity.VehicleBlacklistHis.DeletedAt == nil {
 			break
 		}
 
-		return e.complexity.VehicleBlacklistHis.DeleteAt(childComplexity), true
+		return e.complexity.VehicleBlacklistHis.DeletedAt(childComplexity), true
 
-	case "VehicleBlacklistHis.delete_by":
-		if e.complexity.VehicleBlacklistHis.DeleteBy == nil {
+	case "VehicleBlacklistHis.deleted_by":
+		if e.complexity.VehicleBlacklistHis.DeletedBy == nil {
 			break
 		}
 
-		return e.complexity.VehicleBlacklistHis.DeleteBy(childComplexity), true
+		return e.complexity.VehicleBlacklistHis.DeletedBy(childComplexity), true
 
 	case "VehicleBlacklistHis.his_id":
 		if e.complexity.VehicleBlacklistHis.HisID == nil {
@@ -4812,12 +4812,12 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.VehicleBlacklistHis.ID(childComplexity), true
 
-	case "VehicleBlacklistHis.is_delete":
-		if e.complexity.VehicleBlacklistHis.IsDelete == nil {
+	case "VehicleBlacklistHis.is_deleted":
+		if e.complexity.VehicleBlacklistHis.IsDeleted == nil {
 			break
 		}
 
-		return e.complexity.VehicleBlacklistHis.IsDelete(childComplexity), true
+		return e.complexity.VehicleBlacklistHis.IsDeleted(childComplexity), true
 
 	case "VehicleBlacklistHis.operate":
 		if e.complexity.VehicleBlacklistHis.Operate == nil {
@@ -4833,19 +4833,19 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.VehicleBlacklistHis.Remarks(childComplexity), true
 
-	case "VehicleBlacklistHis.update_at":
-		if e.complexity.VehicleBlacklistHis.UpdateAt == nil {
+	case "VehicleBlacklistHis.updated_at":
+		if e.complexity.VehicleBlacklistHis.UpdatedAt == nil {
 			break
 		}
 
-		return e.complexity.VehicleBlacklistHis.UpdateAt(childComplexity), true
+		return e.complexity.VehicleBlacklistHis.UpdatedAt(childComplexity), true
 
-	case "VehicleBlacklistHis.update_by":
-		if e.complexity.VehicleBlacklistHis.UpdateBy == nil {
+	case "VehicleBlacklistHis.updated_by":
+		if e.complexity.VehicleBlacklistHis.UpdatedBy == nil {
 			break
 		}
 
-		return e.complexity.VehicleBlacklistHis.UpdateBy(childComplexity), true
+		return e.complexity.VehicleBlacklistHis.UpdatedBy(childComplexity), true
 
 	case "VehicleBlacklistHis.vehicle_id":
 		if e.complexity.VehicleBlacklistHis.VehicleID == nil {
@@ -4966,33 +4966,33 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.VehicleBlacklistHisMaxFields.BlacklistType(childComplexity), true
 
-	case "VehicleBlacklistHisMaxFields.create_at":
-		if e.complexity.VehicleBlacklistHisMaxFields.CreateAt == nil {
+	case "VehicleBlacklistHisMaxFields.created_at":
+		if e.complexity.VehicleBlacklistHisMaxFields.CreatedAt == nil {
 			break
 		}
 
-		return e.complexity.VehicleBlacklistHisMaxFields.CreateAt(childComplexity), true
+		return e.complexity.VehicleBlacklistHisMaxFields.CreatedAt(childComplexity), true
 
-	case "VehicleBlacklistHisMaxFields.create_by":
-		if e.complexity.VehicleBlacklistHisMaxFields.CreateBy == nil {
+	case "VehicleBlacklistHisMaxFields.created_by":
+		if e.complexity.VehicleBlacklistHisMaxFields.CreatedBy == nil {
 			break
 		}
 
-		return e.complexity.VehicleBlacklistHisMaxFields.CreateBy(childComplexity), true
+		return e.complexity.VehicleBlacklistHisMaxFields.CreatedBy(childComplexity), true
 
-	case "VehicleBlacklistHisMaxFields.delete_at":
-		if e.complexity.VehicleBlacklistHisMaxFields.DeleteAt == nil {
+	case "VehicleBlacklistHisMaxFields.deleted_at":
+		if e.complexity.VehicleBlacklistHisMaxFields.DeletedAt == nil {
 			break
 		}
 
-		return e.complexity.VehicleBlacklistHisMaxFields.DeleteAt(childComplexity), true
+		return e.complexity.VehicleBlacklistHisMaxFields.DeletedAt(childComplexity), true
 
-	case "VehicleBlacklistHisMaxFields.delete_by":
-		if e.complexity.VehicleBlacklistHisMaxFields.DeleteBy == nil {
+	case "VehicleBlacklistHisMaxFields.deleted_by":
+		if e.complexity.VehicleBlacklistHisMaxFields.DeletedBy == nil {
 			break
 		}
 
-		return e.complexity.VehicleBlacklistHisMaxFields.DeleteBy(childComplexity), true
+		return e.complexity.VehicleBlacklistHisMaxFields.DeletedBy(childComplexity), true
 
 	case "VehicleBlacklistHisMaxFields.his_id":
 		if e.complexity.VehicleBlacklistHisMaxFields.HisID == nil {
@@ -5008,12 +5008,12 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.VehicleBlacklistHisMaxFields.ID(childComplexity), true
 
-	case "VehicleBlacklistHisMaxFields.is_delete":
-		if e.complexity.VehicleBlacklistHisMaxFields.IsDelete == nil {
+	case "VehicleBlacklistHisMaxFields.is_deleted":
+		if e.complexity.VehicleBlacklistHisMaxFields.IsDeleted == nil {
 			break
 		}
 
-		return e.complexity.VehicleBlacklistHisMaxFields.IsDelete(childComplexity), true
+		return e.complexity.VehicleBlacklistHisMaxFields.IsDeleted(childComplexity), true
 
 	case "VehicleBlacklistHisMaxFields.operate":
 		if e.complexity.VehicleBlacklistHisMaxFields.Operate == nil {
@@ -5029,19 +5029,19 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.VehicleBlacklistHisMaxFields.Remarks(childComplexity), true
 
-	case "VehicleBlacklistHisMaxFields.update_at":
-		if e.complexity.VehicleBlacklistHisMaxFields.UpdateAt == nil {
+	case "VehicleBlacklistHisMaxFields.updated_at":
+		if e.complexity.VehicleBlacklistHisMaxFields.UpdatedAt == nil {
 			break
 		}
 
-		return e.complexity.VehicleBlacklistHisMaxFields.UpdateAt(childComplexity), true
+		return e.complexity.VehicleBlacklistHisMaxFields.UpdatedAt(childComplexity), true
 
-	case "VehicleBlacklistHisMaxFields.update_by":
-		if e.complexity.VehicleBlacklistHisMaxFields.UpdateBy == nil {
+	case "VehicleBlacklistHisMaxFields.updated_by":
+		if e.complexity.VehicleBlacklistHisMaxFields.UpdatedBy == nil {
 			break
 		}
 
-		return e.complexity.VehicleBlacklistHisMaxFields.UpdateBy(childComplexity), true
+		return e.complexity.VehicleBlacklistHisMaxFields.UpdatedBy(childComplexity), true
 
 	case "VehicleBlacklistHisMaxFields.vehicle_id":
 		if e.complexity.VehicleBlacklistHisMaxFields.VehicleID == nil {
@@ -5057,33 +5057,33 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.VehicleBlacklistHisMinFields.BlacklistType(childComplexity), true
 
-	case "VehicleBlacklistHisMinFields.create_at":
-		if e.complexity.VehicleBlacklistHisMinFields.CreateAt == nil {
+	case "VehicleBlacklistHisMinFields.created_at":
+		if e.complexity.VehicleBlacklistHisMinFields.CreatedAt == nil {
 			break
 		}
 
-		return e.complexity.VehicleBlacklistHisMinFields.CreateAt(childComplexity), true
+		return e.complexity.VehicleBlacklistHisMinFields.CreatedAt(childComplexity), true
 
-	case "VehicleBlacklistHisMinFields.create_by":
-		if e.complexity.VehicleBlacklistHisMinFields.CreateBy == nil {
+	case "VehicleBlacklistHisMinFields.created_by":
+		if e.complexity.VehicleBlacklistHisMinFields.CreatedBy == nil {
 			break
 		}
 
-		return e.complexity.VehicleBlacklistHisMinFields.CreateBy(childComplexity), true
+		return e.complexity.VehicleBlacklistHisMinFields.CreatedBy(childComplexity), true
 
-	case "VehicleBlacklistHisMinFields.delete_at":
-		if e.complexity.VehicleBlacklistHisMinFields.DeleteAt == nil {
+	case "VehicleBlacklistHisMinFields.deleted_at":
+		if e.complexity.VehicleBlacklistHisMinFields.DeletedAt == nil {
 			break
 		}
 
-		return e.complexity.VehicleBlacklistHisMinFields.DeleteAt(childComplexity), true
+		return e.complexity.VehicleBlacklistHisMinFields.DeletedAt(childComplexity), true
 
-	case "VehicleBlacklistHisMinFields.delete_by":
-		if e.complexity.VehicleBlacklistHisMinFields.DeleteBy == nil {
+	case "VehicleBlacklistHisMinFields.deleted_by":
+		if e.complexity.VehicleBlacklistHisMinFields.DeletedBy == nil {
 			break
 		}
 
-		return e.complexity.VehicleBlacklistHisMinFields.DeleteBy(childComplexity), true
+		return e.complexity.VehicleBlacklistHisMinFields.DeletedBy(childComplexity), true
 
 	case "VehicleBlacklistHisMinFields.his_id":
 		if e.complexity.VehicleBlacklistHisMinFields.HisID == nil {
@@ -5099,12 +5099,12 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.VehicleBlacklistHisMinFields.ID(childComplexity), true
 
-	case "VehicleBlacklistHisMinFields.is_delete":
-		if e.complexity.VehicleBlacklistHisMinFields.IsDelete == nil {
+	case "VehicleBlacklistHisMinFields.is_deleted":
+		if e.complexity.VehicleBlacklistHisMinFields.IsDeleted == nil {
 			break
 		}
 
-		return e.complexity.VehicleBlacklistHisMinFields.IsDelete(childComplexity), true
+		return e.complexity.VehicleBlacklistHisMinFields.IsDeleted(childComplexity), true
 
 	case "VehicleBlacklistHisMinFields.operate":
 		if e.complexity.VehicleBlacklistHisMinFields.Operate == nil {
@@ -5120,19 +5120,19 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.VehicleBlacklistHisMinFields.Remarks(childComplexity), true
 
-	case "VehicleBlacklistHisMinFields.update_at":
-		if e.complexity.VehicleBlacklistHisMinFields.UpdateAt == nil {
+	case "VehicleBlacklistHisMinFields.updated_at":
+		if e.complexity.VehicleBlacklistHisMinFields.UpdatedAt == nil {
 			break
 		}
 
-		return e.complexity.VehicleBlacklistHisMinFields.UpdateAt(childComplexity), true
+		return e.complexity.VehicleBlacklistHisMinFields.UpdatedAt(childComplexity), true
 
-	case "VehicleBlacklistHisMinFields.update_by":
-		if e.complexity.VehicleBlacklistHisMinFields.UpdateBy == nil {
+	case "VehicleBlacklistHisMinFields.updated_by":
+		if e.complexity.VehicleBlacklistHisMinFields.UpdatedBy == nil {
 			break
 		}
 
-		return e.complexity.VehicleBlacklistHisMinFields.UpdateBy(childComplexity), true
+		return e.complexity.VehicleBlacklistHisMinFields.UpdatedBy(childComplexity), true
 
 	case "VehicleBlacklistHisMinFields.vehicle_id":
 		if e.complexity.VehicleBlacklistHisMinFields.VehicleID == nil {
@@ -5566,31 +5566,31 @@ type DriverBlacklistApply {
 	"""
 	创建时间
 	"""
-	create_at: Timestamptz!
+	created_at: Timestamptz!
 	"""
 	创建人
 	"""
-	create_by: String
+	created_by: String
 	"""
 	更新时间
 	"""
-	update_at: Timestamptz
+	updated_at: Timestamptz
 	"""
 	更新人
 	"""
-	update_by: String
+	updated_by: String
 	"""
 	删除时间
 	"""
-	delete_at: Timestamptz
+	deleted_at: Timestamptz
 	"""
 	删除人
 	"""
-	delete_by: String
+	deleted_by: String
 	"""
 	是否删除
 	"""
-	is_delete: Boolean!
+	is_deleted: Boolean!
 }
 """
 aggregated selection of "driver_blacklist_apply"
@@ -5632,13 +5632,13 @@ type DriverBlacklistApplyMaxFields {
 	apply_reason: String
 	blacklist_type: Int
 	state: Int
-	create_at: Timestamptz
-	create_by: String
-	update_at: Timestamptz
-	update_by: String
-	delete_at: Timestamptz
-	delete_by: String
-	is_delete: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+	is_deleted: Boolean
 }
 """
 aggregate min on columns of table "driver_blacklist_apply"
@@ -5650,13 +5650,13 @@ type DriverBlacklistApplyMinFields {
 	apply_reason: String
 	blacklist_type: Int
 	state: Int
-	create_at: Timestamptz
-	create_by: String
-	update_at: Timestamptz
-	update_by: String
-	delete_at: Timestamptz
-	delete_by: String
-	is_delete: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+	is_deleted: Boolean
 }
 """
 aggregate stddev on columns of table "driver_blacklist_apply"
@@ -5731,13 +5731,13 @@ input DriverBlacklistApplyOrderBy {
 	apply_reason: OrderBy
 	blacklist_type: OrderBy
 	state: OrderBy
-	create_at: OrderBy
-	create_by: OrderBy
-	update_at: OrderBy
-	update_by: OrderBy
-	delete_at: OrderBy
-	delete_by: OrderBy
-	is_delete: OrderBy
+	created_at: OrderBy
+	created_by: OrderBy
+	updated_at: OrderBy
+	updated_by: OrderBy
+	deleted_at: OrderBy
+	deleted_by: OrderBy
+	is_deleted: OrderBy
 }
 """
 Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'driver_blacklist_apply'.
@@ -5752,13 +5752,13 @@ input DriverBlacklistApplyBoolExp {
 	apply_reason: StringComparisonExp
 	blacklist_type: IntComparisonExp
 	state: IntComparisonExp
-	create_at: TimestamptzComparisonExp
-	create_by: StringComparisonExp
-	update_at: TimestamptzComparisonExp
-	update_by: StringComparisonExp
-	delete_at: TimestamptzComparisonExp
-	delete_by: StringComparisonExp
-	is_delete: BooleanComparisonExp
+	created_at: TimestamptzComparisonExp
+	created_by: StringComparisonExp
+	updated_at: TimestamptzComparisonExp
+	updated_by: StringComparisonExp
+	deleted_at: TimestamptzComparisonExp
+	deleted_by: StringComparisonExp
+	is_deleted: BooleanComparisonExp
 }
 """
 input type for inserting data into table "driver_blacklist_apply"
@@ -5769,13 +5769,13 @@ input DriverBlacklistApplyInsertInput {
 	apply_reason: String
 	blacklist_type: Int
 	state: Int
-	create_at: Timestamptz!
-	create_by: String
-	update_at: Timestamptz
-	update_by: String
-	delete_at: Timestamptz
-	delete_by: String
-	is_delete: Boolean!
+	created_at: Timestamptz!
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+	is_deleted: Boolean!
 }
 """
 input type for incrementing integer column in table "driver_blacklist_apply"
@@ -5795,13 +5795,13 @@ input DriverBlacklistApplySetInput {
 	apply_reason: String
 	blacklist_type: Int
 	state: Int
-	create_at: Timestamptz
-	create_by: String
-	update_at: Timestamptz
-	update_by: String
-	delete_at: Timestamptz
-	delete_by: String
-	is_delete: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+	is_deleted: Boolean
 }
 """
 可选select
@@ -5834,31 +5834,31 @@ enum DriverBlacklistApplySelectColumn {
 	"""
 	创建时间
 	"""
-	create_at
+	created_at
 	"""
 	创建人
 	"""
-	create_by
+	created_by
 	"""
 	更新时间
 	"""
-	update_at
+	updated_at
 	"""
 	更新人
 	"""
-	update_by
+	updated_by
 	"""
 	删除时间
 	"""
-	delete_at
+	deleted_at
 	"""
 	删除人
 	"""
-	delete_by
+	deleted_by
 	"""
 	是否删除
 	"""
-	is_delete
+	is_deleted
 }
 extend type Query {
 	"""
@@ -5944,31 +5944,31 @@ type DriverBlacklistHis {
 	"""
 	创建时间
 	"""
-	create_at: Timestamptz!
+	created_at: Timestamptz!
 	"""
 	创建人
 	"""
-	create_by: String
+	created_by: String
 	"""
 	修改时间
 	"""
-	update_at: Timestamptz
+	updated_at: Timestamptz
 	"""
 	修改人
 	"""
-	update_by: String
+	updated_by: String
 	"""
 	删除时间
 	"""
-	delete_at: Timestamptz
+	deleted_at: Timestamptz
 	"""
 	删除人
 	"""
-	delete_by: String
+	deleted_by: String
 	"""
 	是否删除
 	"""
-	is_delete: Boolean!
+	is_deleted: Boolean!
 	"""
 	附件链接
 	"""
@@ -6027,13 +6027,13 @@ type DriverBlacklistHisMaxFields {
 	blacklist_type: Int
 	operate: Int
 	remarks: String
-	create_at: Timestamptz
-	create_by: String
-	update_at: Timestamptz
-	update_by: String
-	delete_at: Timestamptz
-	delete_by: String
-	is_delete: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+	is_deleted: Boolean
 	attach_file: String
 	step: Int
 	apply_id: String
@@ -6049,13 +6049,13 @@ type DriverBlacklistHisMinFields {
 	blacklist_type: Int
 	operate: Int
 	remarks: String
-	create_at: Timestamptz
-	create_by: String
-	update_at: Timestamptz
-	update_by: String
-	delete_at: Timestamptz
-	delete_by: String
-	is_delete: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+	is_deleted: Boolean
 	attach_file: String
 	step: Int
 	apply_id: String
@@ -6141,13 +6141,13 @@ input DriverBlacklistHisOrderBy {
 	blacklist_type: OrderBy
 	operate: OrderBy
 	remarks: OrderBy
-	create_at: OrderBy
-	create_by: OrderBy
-	update_at: OrderBy
-	update_by: OrderBy
-	delete_at: OrderBy
-	delete_by: OrderBy
-	is_delete: OrderBy
+	created_at: OrderBy
+	created_by: OrderBy
+	updated_at: OrderBy
+	updated_by: OrderBy
+	deleted_at: OrderBy
+	deleted_by: OrderBy
+	is_deleted: OrderBy
 	attach_file: OrderBy
 	step: OrderBy
 	apply_id: OrderBy
@@ -6166,13 +6166,13 @@ input DriverBlacklistHisBoolExp {
 	blacklist_type: IntComparisonExp
 	operate: IntComparisonExp
 	remarks: StringComparisonExp
-	create_at: TimestamptzComparisonExp
-	create_by: StringComparisonExp
-	update_at: TimestamptzComparisonExp
-	update_by: StringComparisonExp
-	delete_at: TimestamptzComparisonExp
-	delete_by: StringComparisonExp
-	is_delete: BooleanComparisonExp
+	created_at: TimestamptzComparisonExp
+	created_by: StringComparisonExp
+	updated_at: TimestamptzComparisonExp
+	updated_by: StringComparisonExp
+	deleted_at: TimestamptzComparisonExp
+	deleted_by: StringComparisonExp
+	is_deleted: BooleanComparisonExp
 	attach_file: StringComparisonExp
 	step: IntComparisonExp
 	apply_id: StringComparisonExp
@@ -6187,13 +6187,13 @@ input DriverBlacklistHisInsertInput {
 	blacklist_type: Int!
 	operate: Int!
 	remarks: String
-	create_at: Timestamptz!
-	create_by: String
-	update_at: Timestamptz
-	update_by: String
-	delete_at: Timestamptz
-	delete_by: String
-	is_delete: Boolean!
+	created_at: Timestamptz!
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+	is_deleted: Boolean!
 	attach_file: String
 	step: Int
 	apply_id: String
@@ -6218,13 +6218,13 @@ input DriverBlacklistHisSetInput {
 	blacklist_type: Int
 	operate: Int
 	remarks: String
-	create_at: Timestamptz
-	create_by: String
-	update_at: Timestamptz
-	update_by: String
-	delete_at: Timestamptz
-	delete_by: String
-	is_delete: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+	is_deleted: Boolean
 	attach_file: String
 	step: Int
 	apply_id: String
@@ -6261,31 +6261,31 @@ enum DriverBlacklistHisSelectColumn {
 	"""
 	创建时间
 	"""
-	create_at
+	created_at
 	"""
 	创建人
 	"""
-	create_by
+	created_by
 	"""
 	修改时间
 	"""
-	update_at
+	updated_at
 	"""
 	修改人
 	"""
-	update_by
+	updated_by
 	"""
 	删除时间
 	"""
-	delete_at
+	deleted_at
 	"""
 	删除人
 	"""
-	delete_by
+	deleted_by
 	"""
 	是否删除
 	"""
-	is_delete
+	is_deleted
 	"""
 	附件链接
 	"""
@@ -6391,31 +6391,31 @@ type EnterpriseBlacklistAlarm {
 	"""
 	创建时间
 	"""
-	create_at: Timestamptz!
+	created_at: Timestamptz!
 	"""
 	创建人
 	"""
-	create_by: String
+	created_by: String
 	"""
 	更新时间
 	"""
-	update_at: Timestamptz
+	updated_at: Timestamptz
 	"""
 	更新人
 	"""
-	update_by: String
+	updated_by: String
 	"""
 	删除时间
 	"""
-	delete_at: Timestamptz
+	deleted_at: Timestamptz
 	"""
 	删除人
 	"""
-	delete_by: String
+	deleted_by: String
 	"""
 	是否删除
 	"""
-	is_delete: Boolean
+	is_deleted: Boolean
 }
 """
 aggregated selection of "enterprise_blacklist_alarm"
@@ -6458,13 +6458,13 @@ type EnterpriseBlacklistAlarmMaxFields {
 	year: Int
 	is_black: Boolean
 	is_rank: Boolean
-	create_at: Timestamptz
-	create_by: String
-	update_at: Timestamptz
-	update_by: String
-	delete_at: Timestamptz
-	delete_by: String
-	is_delete: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+	is_deleted: Boolean
 }
 """
 aggregate min on columns of table "enterprise_blacklist_alarm"
@@ -6477,13 +6477,13 @@ type EnterpriseBlacklistAlarmMinFields {
 	year: Int
 	is_black: Boolean
 	is_rank: Boolean
-	create_at: Timestamptz
-	create_by: String
-	update_at: Timestamptz
-	update_by: String
-	delete_at: Timestamptz
-	delete_by: String
-	is_delete: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+	is_deleted: Boolean
 }
 """
 aggregate stddev on columns of table "enterprise_blacklist_alarm"
@@ -6559,13 +6559,13 @@ input EnterpriseBlacklistAlarmOrderBy {
 	year: OrderBy
 	is_black: OrderBy
 	is_rank: OrderBy
-	create_at: OrderBy
-	create_by: OrderBy
-	update_at: OrderBy
-	update_by: OrderBy
-	delete_at: OrderBy
-	delete_by: OrderBy
-	is_delete: OrderBy
+	created_at: OrderBy
+	created_by: OrderBy
+	updated_at: OrderBy
+	updated_by: OrderBy
+	deleted_at: OrderBy
+	deleted_by: OrderBy
+	is_deleted: OrderBy
 }
 """
 Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'enterprise_blacklist_alarm'.
@@ -6581,13 +6581,13 @@ input EnterpriseBlacklistAlarmBoolExp {
 	year: IntComparisonExp
 	is_black: BooleanComparisonExp
 	is_rank: BooleanComparisonExp
-	create_at: TimestamptzComparisonExp
-	create_by: StringComparisonExp
-	update_at: TimestamptzComparisonExp
-	update_by: StringComparisonExp
-	delete_at: TimestamptzComparisonExp
-	delete_by: StringComparisonExp
-	is_delete: BooleanComparisonExp
+	created_at: TimestamptzComparisonExp
+	created_by: StringComparisonExp
+	updated_at: TimestamptzComparisonExp
+	updated_by: StringComparisonExp
+	deleted_at: TimestamptzComparisonExp
+	deleted_by: StringComparisonExp
+	is_deleted: BooleanComparisonExp
 }
 """
 input type for inserting data into table "enterprise_blacklist_alarm"
@@ -6599,13 +6599,13 @@ input EnterpriseBlacklistAlarmInsertInput {
 	year: Int!
 	is_black: Boolean!
 	is_rank: Boolean!
-	create_at: Timestamptz!
-	create_by: String
-	update_at: Timestamptz
-	update_by: String
-	delete_at: Timestamptz
-	delete_by: String
-	is_delete: Boolean
+	created_at: Timestamptz!
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+	is_deleted: Boolean
 }
 """
 input type for incrementing integer column in table "enterprise_blacklist_alarm"
@@ -6626,13 +6626,13 @@ input EnterpriseBlacklistAlarmSetInput {
 	year: Int
 	is_black: Boolean
 	is_rank: Boolean
-	create_at: Timestamptz
-	create_by: String
-	update_at: Timestamptz
-	update_by: String
-	delete_at: Timestamptz
-	delete_by: String
-	is_delete: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+	is_deleted: Boolean
 }
 """
 可选select
@@ -6669,31 +6669,31 @@ enum EnterpriseBlacklistAlarmSelectColumn {
 	"""
 	创建时间
 	"""
-	create_at
+	created_at
 	"""
 	创建人
 	"""
-	create_by
+	created_by
 	"""
 	更新时间
 	"""
-	update_at
+	updated_at
 	"""
 	更新人
 	"""
-	update_by
+	updated_by
 	"""
 	删除时间
 	"""
-	delete_at
+	deleted_at
 	"""
 	删除人
 	"""
-	delete_by
+	deleted_by
 	"""
 	是否删除
 	"""
-	is_delete
+	is_deleted
 }
 extend type Query {
 	"""
@@ -6779,31 +6779,31 @@ type EnterpriseBlacklistHis {
 	"""
 	创建时间
 	"""
-	create_at: Timestamptz!
+	created_at: Timestamptz!
 	"""
 	创建人
 	"""
-	create_by: String
+	created_by: String
 	"""
 	修改时间
 	"""
-	update_at: Timestamptz
+	updated_at: Timestamptz
 	"""
 	修改人
 	"""
-	update_by: String
+	updated_by: String
 	"""
 	删除时间
 	"""
-	delete_at: Timestamptz
+	deleted_at: Timestamptz
 	"""
 	删除人
 	"""
-	delete_by: String
+	deleted_by: String
 	"""
 	是否删除
 	"""
-	is_delete: Boolean!
+	is_deleted: Boolean!
 }
 """
 aggregated selection of "enterprise_blacklist_his"
@@ -6845,13 +6845,13 @@ type EnterpriseBlacklistHisMaxFields {
 	blacklist_type: Int
 	operate: Int
 	remarks: String
-	create_at: Timestamptz
-	create_by: String
-	update_at: Timestamptz
-	update_by: String
-	delete_at: Timestamptz
-	delete_by: String
-	is_delete: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+	is_deleted: Boolean
 }
 """
 aggregate min on columns of table "enterprise_blacklist_his"
@@ -6863,13 +6863,13 @@ type EnterpriseBlacklistHisMinFields {
 	blacklist_type: Int
 	operate: Int
 	remarks: String
-	create_at: Timestamptz
-	create_by: String
-	update_at: Timestamptz
-	update_by: String
-	delete_at: Timestamptz
-	delete_by: String
-	is_delete: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+	is_deleted: Boolean
 }
 """
 aggregate stddev on columns of table "enterprise_blacklist_his"
@@ -6944,13 +6944,13 @@ input EnterpriseBlacklistHisOrderBy {
 	blacklist_type: OrderBy
 	operate: OrderBy
 	remarks: OrderBy
-	create_at: OrderBy
-	create_by: OrderBy
-	update_at: OrderBy
-	update_by: OrderBy
-	delete_at: OrderBy
-	delete_by: OrderBy
-	is_delete: OrderBy
+	created_at: OrderBy
+	created_by: OrderBy
+	updated_at: OrderBy
+	updated_by: OrderBy
+	deleted_at: OrderBy
+	deleted_by: OrderBy
+	is_deleted: OrderBy
 }
 """
 Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'enterprise_blacklist_his'.
@@ -6965,13 +6965,13 @@ input EnterpriseBlacklistHisBoolExp {
 	blacklist_type: IntComparisonExp
 	operate: IntComparisonExp
 	remarks: StringComparisonExp
-	create_at: TimestamptzComparisonExp
-	create_by: StringComparisonExp
-	update_at: TimestamptzComparisonExp
-	update_by: StringComparisonExp
-	delete_at: TimestamptzComparisonExp
-	delete_by: StringComparisonExp
-	is_delete: BooleanComparisonExp
+	created_at: TimestamptzComparisonExp
+	created_by: StringComparisonExp
+	updated_at: TimestamptzComparisonExp
+	updated_by: StringComparisonExp
+	deleted_at: TimestamptzComparisonExp
+	deleted_by: StringComparisonExp
+	is_deleted: BooleanComparisonExp
 }
 """
 input type for inserting data into table "enterprise_blacklist_his"
@@ -6982,13 +6982,13 @@ input EnterpriseBlacklistHisInsertInput {
 	blacklist_type: Int!
 	operate: Int!
 	remarks: String
-	create_at: Timestamptz!
-	create_by: String
-	update_at: Timestamptz
-	update_by: String
-	delete_at: Timestamptz
-	delete_by: String
-	is_delete: Boolean!
+	created_at: Timestamptz!
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+	is_deleted: Boolean!
 }
 """
 input type for incrementing integer column in table "enterprise_blacklist_his"
@@ -7008,13 +7008,13 @@ input EnterpriseBlacklistHisSetInput {
 	blacklist_type: Int
 	operate: Int
 	remarks: String
-	create_at: Timestamptz
-	create_by: String
-	update_at: Timestamptz
-	update_by: String
-	delete_at: Timestamptz
-	delete_by: String
-	is_delete: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+	is_deleted: Boolean
 }
 """
 可选select
@@ -7047,31 +7047,31 @@ enum EnterpriseBlacklistHisSelectColumn {
 	"""
 	创建时间
 	"""
-	create_at
+	created_at
 	"""
 	创建人
 	"""
-	create_by
+	created_by
 	"""
 	修改时间
 	"""
-	update_at
+	updated_at
 	"""
 	修改人
 	"""
-	update_by
+	updated_by
 	"""
 	删除时间
 	"""
-	delete_at
+	deleted_at
 	"""
 	删除人
 	"""
-	delete_by
+	deleted_by
 	"""
 	是否删除
 	"""
-	is_delete
+	is_deleted
 }
 extend type Query {
 	"""
@@ -7161,31 +7161,31 @@ type VehicleBlacklistAlarm {
 	"""
 	创建时间
 	"""
-	create_at: Timestamptz!
+	created_at: Timestamptz!
 	"""
 	创建人
 	"""
-	create_by: String
+	created_by: String
 	"""
 	更新时间
 	"""
-	update_at: Timestamptz
+	updated_at: Timestamptz
 	"""
 	更新人
 	"""
-	update_by: String
+	updated_by: String
 	"""
 	删除时间
 	"""
-	delete_at: Timestamptz
+	deleted_at: Timestamptz
 	"""
 	删除人
 	"""
-	delete_by: String
+	deleted_by: String
 	"""
 	是否删除
 	"""
-	is_delete: Boolean!
+	is_deleted: Boolean!
 }
 """
 aggregated selection of "vehicle_blacklist_alarm"
@@ -7229,13 +7229,13 @@ type VehicleBlacklistAlarmMaxFields {
 	year: Int
 	score_num: Int
 	score_count: Int
-	create_at: Timestamptz
-	create_by: String
-	update_at: Timestamptz
-	update_by: String
-	delete_at: Timestamptz
-	delete_by: String
-	is_delete: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+	is_deleted: Boolean
 }
 """
 aggregate min on columns of table "vehicle_blacklist_alarm"
@@ -7248,13 +7248,13 @@ type VehicleBlacklistAlarmMinFields {
 	year: Int
 	score_num: Int
 	score_count: Int
-	create_at: Timestamptz
-	create_by: String
-	update_at: Timestamptz
-	update_by: String
-	delete_at: Timestamptz
-	delete_by: String
-	is_delete: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+	is_deleted: Boolean
 }
 """
 aggregate stddev on columns of table "vehicle_blacklist_alarm"
@@ -7337,13 +7337,13 @@ input VehicleBlacklistAlarmOrderBy {
 	year: OrderBy
 	score_num: OrderBy
 	score_count: OrderBy
-	create_at: OrderBy
-	create_by: OrderBy
-	update_at: OrderBy
-	update_by: OrderBy
-	delete_at: OrderBy
-	delete_by: OrderBy
-	is_delete: OrderBy
+	created_at: OrderBy
+	created_by: OrderBy
+	updated_at: OrderBy
+	updated_by: OrderBy
+	deleted_at: OrderBy
+	deleted_by: OrderBy
+	is_deleted: OrderBy
 }
 """
 Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'vehicle_blacklist_alarm'.
@@ -7359,13 +7359,13 @@ input VehicleBlacklistAlarmBoolExp {
 	year: IntComparisonExp
 	score_num: IntComparisonExp
 	score_count: IntComparisonExp
-	create_at: TimestamptzComparisonExp
-	create_by: StringComparisonExp
-	update_at: TimestamptzComparisonExp
-	update_by: StringComparisonExp
-	delete_at: TimestamptzComparisonExp
-	delete_by: StringComparisonExp
-	is_delete: BooleanComparisonExp
+	created_at: TimestamptzComparisonExp
+	created_by: StringComparisonExp
+	updated_at: TimestamptzComparisonExp
+	updated_by: StringComparisonExp
+	deleted_at: TimestamptzComparisonExp
+	deleted_by: StringComparisonExp
+	is_deleted: BooleanComparisonExp
 }
 """
 input type for inserting data into table "vehicle_blacklist_alarm"
@@ -7377,13 +7377,13 @@ input VehicleBlacklistAlarmInsertInput {
 	year: Int
 	score_num: Int
 	score_count: Int
-	create_at: Timestamptz!
-	create_by: String
-	update_at: Timestamptz
-	update_by: String
-	delete_at: Timestamptz
-	delete_by: String
-	is_delete: Boolean!
+	created_at: Timestamptz!
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+	is_deleted: Boolean!
 }
 """
 input type for incrementing integer column in table "vehicle_blacklist_alarm"
@@ -7405,13 +7405,13 @@ input VehicleBlacklistAlarmSetInput {
 	year: Int
 	score_num: Int
 	score_count: Int
-	create_at: Timestamptz
-	create_by: String
-	update_at: Timestamptz
-	update_by: String
-	delete_at: Timestamptz
-	delete_by: String
-	is_delete: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+	is_deleted: Boolean
 }
 """
 可选select
@@ -7448,31 +7448,31 @@ enum VehicleBlacklistAlarmSelectColumn {
 	"""
 	创建时间
 	"""
-	create_at
+	created_at
 	"""
 	创建人
 	"""
-	create_by
+	created_by
 	"""
 	更新时间
 	"""
-	update_at
+	updated_at
 	"""
 	更新人
 	"""
-	update_by
+	updated_by
 	"""
 	删除时间
 	"""
-	delete_at
+	deleted_at
 	"""
 	删除人
 	"""
-	delete_by
+	deleted_by
 	"""
 	是否删除
 	"""
-	is_delete
+	is_deleted
 }
 extend type Query {
 	"""
@@ -7558,31 +7558,31 @@ type VehicleBlacklistHis {
 	"""
 	创建时间
 	"""
-	create_at: Timestamptz!
+	created_at: Timestamptz!
 	"""
 	创建人
 	"""
-	create_by: String
+	created_by: String
 	"""
 	修改时间
 	"""
-	update_at: Timestamptz
+	updated_at: Timestamptz
 	"""
 	修改人
 	"""
-	update_by: String
+	updated_by: String
 	"""
 	删除时间
 	"""
-	delete_at: Timestamptz
+	deleted_at: Timestamptz
 	"""
 	删除人
 	"""
-	delete_by: String
+	deleted_by: String
 	"""
 	是否删除
 	"""
-	is_delete: Boolean!
+	is_deleted: Boolean!
 }
 """
 aggregated selection of "vehicle_blacklist_his"
@@ -7624,13 +7624,13 @@ type VehicleBlacklistHisMaxFields {
 	blacklist_type: Int
 	operate: Int
 	remarks: String
-	create_at: Timestamptz
-	create_by: String
-	update_at: Timestamptz
-	update_by: String
-	delete_at: Timestamptz
-	delete_by: String
-	is_delete: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+	is_deleted: Boolean
 }
 """
 aggregate min on columns of table "vehicle_blacklist_his"
@@ -7642,13 +7642,13 @@ type VehicleBlacklistHisMinFields {
 	blacklist_type: Int
 	operate: Int
 	remarks: String
-	create_at: Timestamptz
-	create_by: String
-	update_at: Timestamptz
-	update_by: String
-	delete_at: Timestamptz
-	delete_by: String
-	is_delete: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+	is_deleted: Boolean
 }
 """
 aggregate stddev on columns of table "vehicle_blacklist_his"
@@ -7723,13 +7723,13 @@ input VehicleBlacklistHisOrderBy {
 	blacklist_type: OrderBy
 	operate: OrderBy
 	remarks: OrderBy
-	create_at: OrderBy
-	create_by: OrderBy
-	update_at: OrderBy
-	update_by: OrderBy
-	delete_at: OrderBy
-	delete_by: OrderBy
-	is_delete: OrderBy
+	created_at: OrderBy
+	created_by: OrderBy
+	updated_at: OrderBy
+	updated_by: OrderBy
+	deleted_at: OrderBy
+	deleted_by: OrderBy
+	is_deleted: OrderBy
 }
 """
 Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'vehicle_blacklist_his'.
@@ -7744,13 +7744,13 @@ input VehicleBlacklistHisBoolExp {
 	blacklist_type: IntComparisonExp
 	operate: IntComparisonExp
 	remarks: StringComparisonExp
-	create_at: TimestamptzComparisonExp
-	create_by: StringComparisonExp
-	update_at: TimestamptzComparisonExp
-	update_by: StringComparisonExp
-	delete_at: TimestamptzComparisonExp
-	delete_by: StringComparisonExp
-	is_delete: BooleanComparisonExp
+	created_at: TimestamptzComparisonExp
+	created_by: StringComparisonExp
+	updated_at: TimestamptzComparisonExp
+	updated_by: StringComparisonExp
+	deleted_at: TimestamptzComparisonExp
+	deleted_by: StringComparisonExp
+	is_deleted: BooleanComparisonExp
 }
 """
 input type for inserting data into table "vehicle_blacklist_his"
@@ -7761,13 +7761,13 @@ input VehicleBlacklistHisInsertInput {
 	blacklist_type: Int!
 	operate: Int!
 	remarks: String
-	create_at: Timestamptz!
-	create_by: String
-	update_at: Timestamptz
-	update_by: String
-	delete_at: Timestamptz
-	delete_by: String
-	is_delete: Boolean!
+	created_at: Timestamptz!
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+	is_deleted: Boolean!
 }
 """
 input type for incrementing integer column in table "vehicle_blacklist_his"
@@ -7787,13 +7787,13 @@ input VehicleBlacklistHisSetInput {
 	blacklist_type: Int
 	operate: Int
 	remarks: String
-	create_at: Timestamptz
-	create_by: String
-	update_at: Timestamptz
-	update_by: String
-	delete_at: Timestamptz
-	delete_by: String
-	is_delete: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+	is_deleted: Boolean
 }
 """
 可选select
@@ -7826,31 +7826,31 @@ enum VehicleBlacklistHisSelectColumn {
 	"""
 	创建时间
 	"""
-	create_at
+	created_at
 	"""
 	创建人
 	"""
-	create_by
+	created_by
 	"""
 	修改时间
 	"""
-	update_at
+	updated_at
 	"""
 	修改人
 	"""
-	update_by
+	updated_by
 	"""
 	删除时间
 	"""
-	delete_at
+	deleted_at
 	"""
 	删除人
 	"""
-	delete_by
+	deleted_by
 	"""
 	是否删除
 	"""
-	is_delete
+	is_deleted
 }
 extend type Query {
 	"""
@@ -10002,7 +10002,7 @@ func (ec *executionContext) _DriverBlacklistApply_state(ctx context.Context, fie
 	return ec.marshalOInt2ᚖint(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _DriverBlacklistApply_create_at(ctx context.Context, field graphql.CollectedField, obj *model1.DriverBlacklistApply) (ret graphql.Marshaler) {
+func (ec *executionContext) _DriverBlacklistApply_created_at(ctx context.Context, field graphql.CollectedField, obj *model1.DriverBlacklistApply) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -10020,7 +10020,7 @@ func (ec *executionContext) _DriverBlacklistApply_create_at(ctx context.Context,
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.CreateAt, nil
+		return obj.CreatedAt, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -10037,7 +10037,7 @@ func (ec *executionContext) _DriverBlacklistApply_create_at(ctx context.Context,
 	return ec.marshalNTimestamptz2timeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _DriverBlacklistApply_create_by(ctx context.Context, field graphql.CollectedField, obj *model1.DriverBlacklistApply) (ret graphql.Marshaler) {
+func (ec *executionContext) _DriverBlacklistApply_created_by(ctx context.Context, field graphql.CollectedField, obj *model1.DriverBlacklistApply) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -10055,7 +10055,7 @@ func (ec *executionContext) _DriverBlacklistApply_create_by(ctx context.Context,
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.CreateBy, nil
+		return obj.CreatedBy, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -10069,7 +10069,7 @@ func (ec *executionContext) _DriverBlacklistApply_create_by(ctx context.Context,
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _DriverBlacklistApply_update_at(ctx context.Context, field graphql.CollectedField, obj *model1.DriverBlacklistApply) (ret graphql.Marshaler) {
+func (ec *executionContext) _DriverBlacklistApply_updated_at(ctx context.Context, field graphql.CollectedField, obj *model1.DriverBlacklistApply) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -10087,7 +10087,7 @@ func (ec *executionContext) _DriverBlacklistApply_update_at(ctx context.Context,
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.UpdateAt, nil
+		return obj.UpdatedAt, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -10101,7 +10101,7 @@ func (ec *executionContext) _DriverBlacklistApply_update_at(ctx context.Context,
 	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _DriverBlacklistApply_update_by(ctx context.Context, field graphql.CollectedField, obj *model1.DriverBlacklistApply) (ret graphql.Marshaler) {
+func (ec *executionContext) _DriverBlacklistApply_updated_by(ctx context.Context, field graphql.CollectedField, obj *model1.DriverBlacklistApply) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -10119,7 +10119,7 @@ func (ec *executionContext) _DriverBlacklistApply_update_by(ctx context.Context,
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.UpdateBy, nil
+		return obj.UpdatedBy, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -10133,7 +10133,7 @@ func (ec *executionContext) _DriverBlacklistApply_update_by(ctx context.Context,
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _DriverBlacklistApply_delete_at(ctx context.Context, field graphql.CollectedField, obj *model1.DriverBlacklistApply) (ret graphql.Marshaler) {
+func (ec *executionContext) _DriverBlacklistApply_deleted_at(ctx context.Context, field graphql.CollectedField, obj *model1.DriverBlacklistApply) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -10151,7 +10151,7 @@ func (ec *executionContext) _DriverBlacklistApply_delete_at(ctx context.Context,
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.DeleteAt, nil
+		return obj.DeletedAt, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -10165,7 +10165,7 @@ func (ec *executionContext) _DriverBlacklistApply_delete_at(ctx context.Context,
 	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _DriverBlacklistApply_delete_by(ctx context.Context, field graphql.CollectedField, obj *model1.DriverBlacklistApply) (ret graphql.Marshaler) {
+func (ec *executionContext) _DriverBlacklistApply_deleted_by(ctx context.Context, field graphql.CollectedField, obj *model1.DriverBlacklistApply) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -10183,7 +10183,7 @@ func (ec *executionContext) _DriverBlacklistApply_delete_by(ctx context.Context,
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.DeleteBy, nil
+		return obj.DeletedBy, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -10197,7 +10197,7 @@ func (ec *executionContext) _DriverBlacklistApply_delete_by(ctx context.Context,
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _DriverBlacklistApply_is_delete(ctx context.Context, field graphql.CollectedField, obj *model1.DriverBlacklistApply) (ret graphql.Marshaler) {
+func (ec *executionContext) _DriverBlacklistApply_is_deleted(ctx context.Context, field graphql.CollectedField, obj *model1.DriverBlacklistApply) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -10215,7 +10215,7 @@ func (ec *executionContext) _DriverBlacklistApply_is_delete(ctx context.Context,
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.IsDelete, nil
+		return obj.IsDeleted, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -10904,7 +10904,7 @@ func (ec *executionContext) _DriverBlacklistApplyMaxFields_state(ctx context.Con
 	return ec.marshalOInt2ᚖint(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _DriverBlacklistApplyMaxFields_create_at(ctx context.Context, field graphql.CollectedField, obj *model.DriverBlacklistApplyMaxFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _DriverBlacklistApplyMaxFields_created_at(ctx context.Context, field graphql.CollectedField, obj *model.DriverBlacklistApplyMaxFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -10922,7 +10922,7 @@ func (ec *executionContext) _DriverBlacklistApplyMaxFields_create_at(ctx context
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.CreateAt, nil
+		return obj.CreatedAt, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -10936,7 +10936,7 @@ func (ec *executionContext) _DriverBlacklistApplyMaxFields_create_at(ctx context
 	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _DriverBlacklistApplyMaxFields_create_by(ctx context.Context, field graphql.CollectedField, obj *model.DriverBlacklistApplyMaxFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _DriverBlacklistApplyMaxFields_created_by(ctx context.Context, field graphql.CollectedField, obj *model.DriverBlacklistApplyMaxFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -10954,7 +10954,7 @@ func (ec *executionContext) _DriverBlacklistApplyMaxFields_create_by(ctx context
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.CreateBy, nil
+		return obj.CreatedBy, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -10968,7 +10968,7 @@ func (ec *executionContext) _DriverBlacklistApplyMaxFields_create_by(ctx context
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _DriverBlacklistApplyMaxFields_update_at(ctx context.Context, field graphql.CollectedField, obj *model.DriverBlacklistApplyMaxFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _DriverBlacklistApplyMaxFields_updated_at(ctx context.Context, field graphql.CollectedField, obj *model.DriverBlacklistApplyMaxFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -10986,7 +10986,7 @@ func (ec *executionContext) _DriverBlacklistApplyMaxFields_update_at(ctx context
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.UpdateAt, nil
+		return obj.UpdatedAt, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -11000,7 +11000,7 @@ func (ec *executionContext) _DriverBlacklistApplyMaxFields_update_at(ctx context
 	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _DriverBlacklistApplyMaxFields_update_by(ctx context.Context, field graphql.CollectedField, obj *model.DriverBlacklistApplyMaxFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _DriverBlacklistApplyMaxFields_updated_by(ctx context.Context, field graphql.CollectedField, obj *model.DriverBlacklistApplyMaxFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -11018,7 +11018,7 @@ func (ec *executionContext) _DriverBlacklistApplyMaxFields_update_by(ctx context
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.UpdateBy, nil
+		return obj.UpdatedBy, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -11032,7 +11032,7 @@ func (ec *executionContext) _DriverBlacklistApplyMaxFields_update_by(ctx context
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _DriverBlacklistApplyMaxFields_delete_at(ctx context.Context, field graphql.CollectedField, obj *model.DriverBlacklistApplyMaxFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _DriverBlacklistApplyMaxFields_deleted_at(ctx context.Context, field graphql.CollectedField, obj *model.DriverBlacklistApplyMaxFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -11050,7 +11050,7 @@ func (ec *executionContext) _DriverBlacklistApplyMaxFields_delete_at(ctx context
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.DeleteAt, nil
+		return obj.DeletedAt, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -11064,7 +11064,7 @@ func (ec *executionContext) _DriverBlacklistApplyMaxFields_delete_at(ctx context
 	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _DriverBlacklistApplyMaxFields_delete_by(ctx context.Context, field graphql.CollectedField, obj *model.DriverBlacklistApplyMaxFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _DriverBlacklistApplyMaxFields_deleted_by(ctx context.Context, field graphql.CollectedField, obj *model.DriverBlacklistApplyMaxFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -11082,7 +11082,7 @@ func (ec *executionContext) _DriverBlacklistApplyMaxFields_delete_by(ctx context
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.DeleteBy, nil
+		return obj.DeletedBy, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -11096,7 +11096,7 @@ func (ec *executionContext) _DriverBlacklistApplyMaxFields_delete_by(ctx context
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _DriverBlacklistApplyMaxFields_is_delete(ctx context.Context, field graphql.CollectedField, obj *model.DriverBlacklistApplyMaxFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _DriverBlacklistApplyMaxFields_is_deleted(ctx context.Context, field graphql.CollectedField, obj *model.DriverBlacklistApplyMaxFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -11114,7 +11114,7 @@ func (ec *executionContext) _DriverBlacklistApplyMaxFields_is_delete(ctx context
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.IsDelete, nil
+		return obj.IsDeleted, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -11320,7 +11320,7 @@ func (ec *executionContext) _DriverBlacklistApplyMinFields_state(ctx context.Con
 	return ec.marshalOInt2ᚖint(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _DriverBlacklistApplyMinFields_create_at(ctx context.Context, field graphql.CollectedField, obj *model.DriverBlacklistApplyMinFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _DriverBlacklistApplyMinFields_created_at(ctx context.Context, field graphql.CollectedField, obj *model.DriverBlacklistApplyMinFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -11338,7 +11338,7 @@ func (ec *executionContext) _DriverBlacklistApplyMinFields_create_at(ctx context
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.CreateAt, nil
+		return obj.CreatedAt, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -11352,7 +11352,7 @@ func (ec *executionContext) _DriverBlacklistApplyMinFields_create_at(ctx context
 	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _DriverBlacklistApplyMinFields_create_by(ctx context.Context, field graphql.CollectedField, obj *model.DriverBlacklistApplyMinFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _DriverBlacklistApplyMinFields_created_by(ctx context.Context, field graphql.CollectedField, obj *model.DriverBlacklistApplyMinFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -11370,7 +11370,7 @@ func (ec *executionContext) _DriverBlacklistApplyMinFields_create_by(ctx context
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.CreateBy, nil
+		return obj.CreatedBy, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -11384,7 +11384,7 @@ func (ec *executionContext) _DriverBlacklistApplyMinFields_create_by(ctx context
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _DriverBlacklistApplyMinFields_update_at(ctx context.Context, field graphql.CollectedField, obj *model.DriverBlacklistApplyMinFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _DriverBlacklistApplyMinFields_updated_at(ctx context.Context, field graphql.CollectedField, obj *model.DriverBlacklistApplyMinFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -11402,7 +11402,7 @@ func (ec *executionContext) _DriverBlacklistApplyMinFields_update_at(ctx context
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.UpdateAt, nil
+		return obj.UpdatedAt, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -11416,7 +11416,7 @@ func (ec *executionContext) _DriverBlacklistApplyMinFields_update_at(ctx context
 	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _DriverBlacklistApplyMinFields_update_by(ctx context.Context, field graphql.CollectedField, obj *model.DriverBlacklistApplyMinFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _DriverBlacklistApplyMinFields_updated_by(ctx context.Context, field graphql.CollectedField, obj *model.DriverBlacklistApplyMinFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -11434,7 +11434,7 @@ func (ec *executionContext) _DriverBlacklistApplyMinFields_update_by(ctx context
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.UpdateBy, nil
+		return obj.UpdatedBy, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -11448,7 +11448,7 @@ func (ec *executionContext) _DriverBlacklistApplyMinFields_update_by(ctx context
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _DriverBlacklistApplyMinFields_delete_at(ctx context.Context, field graphql.CollectedField, obj *model.DriverBlacklistApplyMinFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _DriverBlacklistApplyMinFields_deleted_at(ctx context.Context, field graphql.CollectedField, obj *model.DriverBlacklistApplyMinFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -11466,7 +11466,7 @@ func (ec *executionContext) _DriverBlacklistApplyMinFields_delete_at(ctx context
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.DeleteAt, nil
+		return obj.DeletedAt, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -11480,7 +11480,7 @@ func (ec *executionContext) _DriverBlacklistApplyMinFields_delete_at(ctx context
 	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _DriverBlacklistApplyMinFields_delete_by(ctx context.Context, field graphql.CollectedField, obj *model.DriverBlacklistApplyMinFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _DriverBlacklistApplyMinFields_deleted_by(ctx context.Context, field graphql.CollectedField, obj *model.DriverBlacklistApplyMinFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -11498,7 +11498,7 @@ func (ec *executionContext) _DriverBlacklistApplyMinFields_delete_by(ctx context
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.DeleteBy, nil
+		return obj.DeletedBy, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -11512,7 +11512,7 @@ func (ec *executionContext) _DriverBlacklistApplyMinFields_delete_by(ctx context
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _DriverBlacklistApplyMinFields_is_delete(ctx context.Context, field graphql.CollectedField, obj *model.DriverBlacklistApplyMinFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _DriverBlacklistApplyMinFields_is_deleted(ctx context.Context, field graphql.CollectedField, obj *model.DriverBlacklistApplyMinFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -11530,7 +11530,7 @@ func (ec *executionContext) _DriverBlacklistApplyMinFields_is_delete(ctx context
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.IsDelete, nil
+		return obj.IsDeleted, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -12493,7 +12493,7 @@ func (ec *executionContext) _DriverBlacklistHis_remarks(ctx context.Context, fie
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _DriverBlacklistHis_create_at(ctx context.Context, field graphql.CollectedField, obj *model1.DriverBlacklistHis) (ret graphql.Marshaler) {
+func (ec *executionContext) _DriverBlacklistHis_created_at(ctx context.Context, field graphql.CollectedField, obj *model1.DriverBlacklistHis) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -12511,7 +12511,7 @@ func (ec *executionContext) _DriverBlacklistHis_create_at(ctx context.Context, f
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.CreateAt, nil
+		return obj.CreatedAt, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -12528,7 +12528,7 @@ func (ec *executionContext) _DriverBlacklistHis_create_at(ctx context.Context, f
 	return ec.marshalNTimestamptz2timeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _DriverBlacklistHis_create_by(ctx context.Context, field graphql.CollectedField, obj *model1.DriverBlacklistHis) (ret graphql.Marshaler) {
+func (ec *executionContext) _DriverBlacklistHis_created_by(ctx context.Context, field graphql.CollectedField, obj *model1.DriverBlacklistHis) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -12546,7 +12546,7 @@ func (ec *executionContext) _DriverBlacklistHis_create_by(ctx context.Context, f
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.CreateBy, nil
+		return obj.CreatedBy, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -12560,7 +12560,7 @@ func (ec *executionContext) _DriverBlacklistHis_create_by(ctx context.Context, f
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _DriverBlacklistHis_update_at(ctx context.Context, field graphql.CollectedField, obj *model1.DriverBlacklistHis) (ret graphql.Marshaler) {
+func (ec *executionContext) _DriverBlacklistHis_updated_at(ctx context.Context, field graphql.CollectedField, obj *model1.DriverBlacklistHis) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -12578,7 +12578,7 @@ func (ec *executionContext) _DriverBlacklistHis_update_at(ctx context.Context, f
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.UpdateAt, nil
+		return obj.UpdatedAt, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -12592,7 +12592,7 @@ func (ec *executionContext) _DriverBlacklistHis_update_at(ctx context.Context, f
 	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _DriverBlacklistHis_update_by(ctx context.Context, field graphql.CollectedField, obj *model1.DriverBlacklistHis) (ret graphql.Marshaler) {
+func (ec *executionContext) _DriverBlacklistHis_updated_by(ctx context.Context, field graphql.CollectedField, obj *model1.DriverBlacklistHis) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -12610,7 +12610,7 @@ func (ec *executionContext) _DriverBlacklistHis_update_by(ctx context.Context, f
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.UpdateBy, nil
+		return obj.UpdatedBy, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -12624,7 +12624,7 @@ func (ec *executionContext) _DriverBlacklistHis_update_by(ctx context.Context, f
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _DriverBlacklistHis_delete_at(ctx context.Context, field graphql.CollectedField, obj *model1.DriverBlacklistHis) (ret graphql.Marshaler) {
+func (ec *executionContext) _DriverBlacklistHis_deleted_at(ctx context.Context, field graphql.CollectedField, obj *model1.DriverBlacklistHis) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -12642,7 +12642,7 @@ func (ec *executionContext) _DriverBlacklistHis_delete_at(ctx context.Context, f
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.DeleteAt, nil
+		return obj.DeletedAt, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -12656,7 +12656,7 @@ func (ec *executionContext) _DriverBlacklistHis_delete_at(ctx context.Context, f
 	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _DriverBlacklistHis_delete_by(ctx context.Context, field graphql.CollectedField, obj *model1.DriverBlacklistHis) (ret graphql.Marshaler) {
+func (ec *executionContext) _DriverBlacklistHis_deleted_by(ctx context.Context, field graphql.CollectedField, obj *model1.DriverBlacklistHis) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -12674,7 +12674,7 @@ func (ec *executionContext) _DriverBlacklistHis_delete_by(ctx context.Context, f
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.DeleteBy, nil
+		return obj.DeletedBy, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -12688,7 +12688,7 @@ func (ec *executionContext) _DriverBlacklistHis_delete_by(ctx context.Context, f
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _DriverBlacklistHis_is_delete(ctx context.Context, field graphql.CollectedField, obj *model1.DriverBlacklistHis) (ret graphql.Marshaler) {
+func (ec *executionContext) _DriverBlacklistHis_is_deleted(ctx context.Context, field graphql.CollectedField, obj *model1.DriverBlacklistHis) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -12706,7 +12706,7 @@ func (ec *executionContext) _DriverBlacklistHis_is_delete(ctx context.Context, f
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.IsDelete, nil
+		return obj.IsDeleted, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -13555,7 +13555,7 @@ func (ec *executionContext) _DriverBlacklistHisMaxFields_remarks(ctx context.Con
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _DriverBlacklistHisMaxFields_create_at(ctx context.Context, field graphql.CollectedField, obj *model.DriverBlacklistHisMaxFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _DriverBlacklistHisMaxFields_created_at(ctx context.Context, field graphql.CollectedField, obj *model.DriverBlacklistHisMaxFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -13573,7 +13573,7 @@ func (ec *executionContext) _DriverBlacklistHisMaxFields_create_at(ctx context.C
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.CreateAt, nil
+		return obj.CreatedAt, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -13587,7 +13587,7 @@ func (ec *executionContext) _DriverBlacklistHisMaxFields_create_at(ctx context.C
 	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _DriverBlacklistHisMaxFields_create_by(ctx context.Context, field graphql.CollectedField, obj *model.DriverBlacklistHisMaxFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _DriverBlacklistHisMaxFields_created_by(ctx context.Context, field graphql.CollectedField, obj *model.DriverBlacklistHisMaxFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -13605,7 +13605,7 @@ func (ec *executionContext) _DriverBlacklistHisMaxFields_create_by(ctx context.C
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.CreateBy, nil
+		return obj.CreatedBy, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -13619,7 +13619,7 @@ func (ec *executionContext) _DriverBlacklistHisMaxFields_create_by(ctx context.C
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _DriverBlacklistHisMaxFields_update_at(ctx context.Context, field graphql.CollectedField, obj *model.DriverBlacklistHisMaxFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _DriverBlacklistHisMaxFields_updated_at(ctx context.Context, field graphql.CollectedField, obj *model.DriverBlacklistHisMaxFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -13637,7 +13637,7 @@ func (ec *executionContext) _DriverBlacklistHisMaxFields_update_at(ctx context.C
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.UpdateAt, nil
+		return obj.UpdatedAt, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -13651,7 +13651,7 @@ func (ec *executionContext) _DriverBlacklistHisMaxFields_update_at(ctx context.C
 	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _DriverBlacklistHisMaxFields_update_by(ctx context.Context, field graphql.CollectedField, obj *model.DriverBlacklistHisMaxFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _DriverBlacklistHisMaxFields_updated_by(ctx context.Context, field graphql.CollectedField, obj *model.DriverBlacklistHisMaxFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -13669,7 +13669,7 @@ func (ec *executionContext) _DriverBlacklistHisMaxFields_update_by(ctx context.C
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.UpdateBy, nil
+		return obj.UpdatedBy, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -13683,7 +13683,7 @@ func (ec *executionContext) _DriverBlacklistHisMaxFields_update_by(ctx context.C
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _DriverBlacklistHisMaxFields_delete_at(ctx context.Context, field graphql.CollectedField, obj *model.DriverBlacklistHisMaxFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _DriverBlacklistHisMaxFields_deleted_at(ctx context.Context, field graphql.CollectedField, obj *model.DriverBlacklistHisMaxFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -13701,7 +13701,7 @@ func (ec *executionContext) _DriverBlacklistHisMaxFields_delete_at(ctx context.C
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.DeleteAt, nil
+		return obj.DeletedAt, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -13715,7 +13715,7 @@ func (ec *executionContext) _DriverBlacklistHisMaxFields_delete_at(ctx context.C
 	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _DriverBlacklistHisMaxFields_delete_by(ctx context.Context, field graphql.CollectedField, obj *model.DriverBlacklistHisMaxFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _DriverBlacklistHisMaxFields_deleted_by(ctx context.Context, field graphql.CollectedField, obj *model.DriverBlacklistHisMaxFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -13733,7 +13733,7 @@ func (ec *executionContext) _DriverBlacklistHisMaxFields_delete_by(ctx context.C
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.DeleteBy, nil
+		return obj.DeletedBy, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -13747,7 +13747,7 @@ func (ec *executionContext) _DriverBlacklistHisMaxFields_delete_by(ctx context.C
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _DriverBlacklistHisMaxFields_is_delete(ctx context.Context, field graphql.CollectedField, obj *model.DriverBlacklistHisMaxFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _DriverBlacklistHisMaxFields_is_deleted(ctx context.Context, field graphql.CollectedField, obj *model.DriverBlacklistHisMaxFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -13765,7 +13765,7 @@ func (ec *executionContext) _DriverBlacklistHisMaxFields_is_delete(ctx context.C
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.IsDelete, nil
+		return obj.IsDeleted, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -14099,7 +14099,7 @@ func (ec *executionContext) _DriverBlacklistHisMinFields_remarks(ctx context.Con
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _DriverBlacklistHisMinFields_create_at(ctx context.Context, field graphql.CollectedField, obj *model.DriverBlacklistHisMinFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _DriverBlacklistHisMinFields_created_at(ctx context.Context, field graphql.CollectedField, obj *model.DriverBlacklistHisMinFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -14117,7 +14117,7 @@ func (ec *executionContext) _DriverBlacklistHisMinFields_create_at(ctx context.C
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.CreateAt, nil
+		return obj.CreatedAt, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -14131,7 +14131,7 @@ func (ec *executionContext) _DriverBlacklistHisMinFields_create_at(ctx context.C
 	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _DriverBlacklistHisMinFields_create_by(ctx context.Context, field graphql.CollectedField, obj *model.DriverBlacklistHisMinFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _DriverBlacklistHisMinFields_created_by(ctx context.Context, field graphql.CollectedField, obj *model.DriverBlacklistHisMinFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -14149,7 +14149,7 @@ func (ec *executionContext) _DriverBlacklistHisMinFields_create_by(ctx context.C
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.CreateBy, nil
+		return obj.CreatedBy, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -14163,7 +14163,7 @@ func (ec *executionContext) _DriverBlacklistHisMinFields_create_by(ctx context.C
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _DriverBlacklistHisMinFields_update_at(ctx context.Context, field graphql.CollectedField, obj *model.DriverBlacklistHisMinFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _DriverBlacklistHisMinFields_updated_at(ctx context.Context, field graphql.CollectedField, obj *model.DriverBlacklistHisMinFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -14181,7 +14181,7 @@ func (ec *executionContext) _DriverBlacklistHisMinFields_update_at(ctx context.C
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.UpdateAt, nil
+		return obj.UpdatedAt, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -14195,7 +14195,7 @@ func (ec *executionContext) _DriverBlacklistHisMinFields_update_at(ctx context.C
 	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _DriverBlacklistHisMinFields_update_by(ctx context.Context, field graphql.CollectedField, obj *model.DriverBlacklistHisMinFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _DriverBlacklistHisMinFields_updated_by(ctx context.Context, field graphql.CollectedField, obj *model.DriverBlacklistHisMinFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -14213,7 +14213,7 @@ func (ec *executionContext) _DriverBlacklistHisMinFields_update_by(ctx context.C
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.UpdateBy, nil
+		return obj.UpdatedBy, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -14227,7 +14227,7 @@ func (ec *executionContext) _DriverBlacklistHisMinFields_update_by(ctx context.C
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _DriverBlacklistHisMinFields_delete_at(ctx context.Context, field graphql.CollectedField, obj *model.DriverBlacklistHisMinFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _DriverBlacklistHisMinFields_deleted_at(ctx context.Context, field graphql.CollectedField, obj *model.DriverBlacklistHisMinFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -14245,7 +14245,7 @@ func (ec *executionContext) _DriverBlacklistHisMinFields_delete_at(ctx context.C
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.DeleteAt, nil
+		return obj.DeletedAt, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -14259,7 +14259,7 @@ func (ec *executionContext) _DriverBlacklistHisMinFields_delete_at(ctx context.C
 	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _DriverBlacklistHisMinFields_delete_by(ctx context.Context, field graphql.CollectedField, obj *model.DriverBlacklistHisMinFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _DriverBlacklistHisMinFields_deleted_by(ctx context.Context, field graphql.CollectedField, obj *model.DriverBlacklistHisMinFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -14277,7 +14277,7 @@ func (ec *executionContext) _DriverBlacklistHisMinFields_delete_by(ctx context.C
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.DeleteBy, nil
+		return obj.DeletedBy, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -14291,7 +14291,7 @@ func (ec *executionContext) _DriverBlacklistHisMinFields_delete_by(ctx context.C
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _DriverBlacklistHisMinFields_is_delete(ctx context.Context, field graphql.CollectedField, obj *model.DriverBlacklistHisMinFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _DriverBlacklistHisMinFields_is_deleted(ctx context.Context, field graphql.CollectedField, obj *model.DriverBlacklistHisMinFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -14309,7 +14309,7 @@ func (ec *executionContext) _DriverBlacklistHisMinFields_is_delete(ctx context.C
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.IsDelete, nil
+		return obj.IsDeleted, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -15662,7 +15662,7 @@ func (ec *executionContext) _EnterpriseBlacklistAlarm_is_rank(ctx context.Contex
 	return ec.marshalNBoolean2bool(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _EnterpriseBlacklistAlarm_create_at(ctx context.Context, field graphql.CollectedField, obj *model1.EnterpriseBlacklistAlarm) (ret graphql.Marshaler) {
+func (ec *executionContext) _EnterpriseBlacklistAlarm_created_at(ctx context.Context, field graphql.CollectedField, obj *model1.EnterpriseBlacklistAlarm) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -15680,7 +15680,7 @@ func (ec *executionContext) _EnterpriseBlacklistAlarm_create_at(ctx context.Cont
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.CreateAt, nil
+		return obj.CreatedAt, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -15697,7 +15697,7 @@ func (ec *executionContext) _EnterpriseBlacklistAlarm_create_at(ctx context.Cont
 	return ec.marshalNTimestamptz2timeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _EnterpriseBlacklistAlarm_create_by(ctx context.Context, field graphql.CollectedField, obj *model1.EnterpriseBlacklistAlarm) (ret graphql.Marshaler) {
+func (ec *executionContext) _EnterpriseBlacklistAlarm_created_by(ctx context.Context, field graphql.CollectedField, obj *model1.EnterpriseBlacklistAlarm) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -15715,7 +15715,7 @@ func (ec *executionContext) _EnterpriseBlacklistAlarm_create_by(ctx context.Cont
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.CreateBy, nil
+		return obj.CreatedBy, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -15729,7 +15729,7 @@ func (ec *executionContext) _EnterpriseBlacklistAlarm_create_by(ctx context.Cont
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _EnterpriseBlacklistAlarm_update_at(ctx context.Context, field graphql.CollectedField, obj *model1.EnterpriseBlacklistAlarm) (ret graphql.Marshaler) {
+func (ec *executionContext) _EnterpriseBlacklistAlarm_updated_at(ctx context.Context, field graphql.CollectedField, obj *model1.EnterpriseBlacklistAlarm) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -15747,7 +15747,7 @@ func (ec *executionContext) _EnterpriseBlacklistAlarm_update_at(ctx context.Cont
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.UpdateAt, nil
+		return obj.UpdatedAt, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -15761,7 +15761,7 @@ func (ec *executionContext) _EnterpriseBlacklistAlarm_update_at(ctx context.Cont
 	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _EnterpriseBlacklistAlarm_update_by(ctx context.Context, field graphql.CollectedField, obj *model1.EnterpriseBlacklistAlarm) (ret graphql.Marshaler) {
+func (ec *executionContext) _EnterpriseBlacklistAlarm_updated_by(ctx context.Context, field graphql.CollectedField, obj *model1.EnterpriseBlacklistAlarm) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -15779,7 +15779,7 @@ func (ec *executionContext) _EnterpriseBlacklistAlarm_update_by(ctx context.Cont
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.UpdateBy, nil
+		return obj.UpdatedBy, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -15793,7 +15793,7 @@ func (ec *executionContext) _EnterpriseBlacklistAlarm_update_by(ctx context.Cont
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _EnterpriseBlacklistAlarm_delete_at(ctx context.Context, field graphql.CollectedField, obj *model1.EnterpriseBlacklistAlarm) (ret graphql.Marshaler) {
+func (ec *executionContext) _EnterpriseBlacklistAlarm_deleted_at(ctx context.Context, field graphql.CollectedField, obj *model1.EnterpriseBlacklistAlarm) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -15811,7 +15811,7 @@ func (ec *executionContext) _EnterpriseBlacklistAlarm_delete_at(ctx context.Cont
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.DeleteAt, nil
+		return obj.DeletedAt, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -15825,7 +15825,7 @@ func (ec *executionContext) _EnterpriseBlacklistAlarm_delete_at(ctx context.Cont
 	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _EnterpriseBlacklistAlarm_delete_by(ctx context.Context, field graphql.CollectedField, obj *model1.EnterpriseBlacklistAlarm) (ret graphql.Marshaler) {
+func (ec *executionContext) _EnterpriseBlacklistAlarm_deleted_by(ctx context.Context, field graphql.CollectedField, obj *model1.EnterpriseBlacklistAlarm) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -15843,7 +15843,7 @@ func (ec *executionContext) _EnterpriseBlacklistAlarm_delete_by(ctx context.Cont
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.DeleteBy, nil
+		return obj.DeletedBy, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -15857,7 +15857,7 @@ func (ec *executionContext) _EnterpriseBlacklistAlarm_delete_by(ctx context.Cont
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _EnterpriseBlacklistAlarm_is_delete(ctx context.Context, field graphql.CollectedField, obj *model1.EnterpriseBlacklistAlarm) (ret graphql.Marshaler) {
+func (ec *executionContext) _EnterpriseBlacklistAlarm_is_deleted(ctx context.Context, field graphql.CollectedField, obj *model1.EnterpriseBlacklistAlarm) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -15875,7 +15875,7 @@ func (ec *executionContext) _EnterpriseBlacklistAlarm_is_delete(ctx context.Cont
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.IsDelete, nil
+		return obj.IsDeleted, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -16593,7 +16593,7 @@ func (ec *executionContext) _EnterpriseBlacklistAlarmMaxFields_is_rank(ctx conte
 	return ec.marshalOBoolean2ᚖbool(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _EnterpriseBlacklistAlarmMaxFields_create_at(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseBlacklistAlarmMaxFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _EnterpriseBlacklistAlarmMaxFields_created_at(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseBlacklistAlarmMaxFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -16611,7 +16611,7 @@ func (ec *executionContext) _EnterpriseBlacklistAlarmMaxFields_create_at(ctx con
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.CreateAt, nil
+		return obj.CreatedAt, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -16625,7 +16625,7 @@ func (ec *executionContext) _EnterpriseBlacklistAlarmMaxFields_create_at(ctx con
 	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _EnterpriseBlacklistAlarmMaxFields_create_by(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseBlacklistAlarmMaxFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _EnterpriseBlacklistAlarmMaxFields_created_by(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseBlacklistAlarmMaxFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -16643,7 +16643,7 @@ func (ec *executionContext) _EnterpriseBlacklistAlarmMaxFields_create_by(ctx con
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.CreateBy, nil
+		return obj.CreatedBy, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -16657,7 +16657,7 @@ func (ec *executionContext) _EnterpriseBlacklistAlarmMaxFields_create_by(ctx con
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _EnterpriseBlacklistAlarmMaxFields_update_at(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseBlacklistAlarmMaxFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _EnterpriseBlacklistAlarmMaxFields_updated_at(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseBlacklistAlarmMaxFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -16675,7 +16675,7 @@ func (ec *executionContext) _EnterpriseBlacklistAlarmMaxFields_update_at(ctx con
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.UpdateAt, nil
+		return obj.UpdatedAt, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -16689,7 +16689,7 @@ func (ec *executionContext) _EnterpriseBlacklistAlarmMaxFields_update_at(ctx con
 	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _EnterpriseBlacklistAlarmMaxFields_update_by(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseBlacklistAlarmMaxFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _EnterpriseBlacklistAlarmMaxFields_updated_by(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseBlacklistAlarmMaxFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -16707,7 +16707,7 @@ func (ec *executionContext) _EnterpriseBlacklistAlarmMaxFields_update_by(ctx con
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.UpdateBy, nil
+		return obj.UpdatedBy, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -16721,7 +16721,7 @@ func (ec *executionContext) _EnterpriseBlacklistAlarmMaxFields_update_by(ctx con
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _EnterpriseBlacklistAlarmMaxFields_delete_at(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseBlacklistAlarmMaxFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _EnterpriseBlacklistAlarmMaxFields_deleted_at(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseBlacklistAlarmMaxFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -16739,7 +16739,7 @@ func (ec *executionContext) _EnterpriseBlacklistAlarmMaxFields_delete_at(ctx con
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.DeleteAt, nil
+		return obj.DeletedAt, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -16753,7 +16753,7 @@ func (ec *executionContext) _EnterpriseBlacklistAlarmMaxFields_delete_at(ctx con
 	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _EnterpriseBlacklistAlarmMaxFields_delete_by(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseBlacklistAlarmMaxFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _EnterpriseBlacklistAlarmMaxFields_deleted_by(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseBlacklistAlarmMaxFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -16771,7 +16771,7 @@ func (ec *executionContext) _EnterpriseBlacklistAlarmMaxFields_delete_by(ctx con
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.DeleteBy, nil
+		return obj.DeletedBy, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -16785,7 +16785,7 @@ func (ec *executionContext) _EnterpriseBlacklistAlarmMaxFields_delete_by(ctx con
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _EnterpriseBlacklistAlarmMaxFields_is_delete(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseBlacklistAlarmMaxFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _EnterpriseBlacklistAlarmMaxFields_is_deleted(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseBlacklistAlarmMaxFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -16803,7 +16803,7 @@ func (ec *executionContext) _EnterpriseBlacklistAlarmMaxFields_is_delete(ctx con
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.IsDelete, nil
+		return obj.IsDeleted, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -17041,7 +17041,7 @@ func (ec *executionContext) _EnterpriseBlacklistAlarmMinFields_is_rank(ctx conte
 	return ec.marshalOBoolean2ᚖbool(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _EnterpriseBlacklistAlarmMinFields_create_at(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseBlacklistAlarmMinFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _EnterpriseBlacklistAlarmMinFields_created_at(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseBlacklistAlarmMinFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -17059,7 +17059,7 @@ func (ec *executionContext) _EnterpriseBlacklistAlarmMinFields_create_at(ctx con
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.CreateAt, nil
+		return obj.CreatedAt, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -17073,7 +17073,7 @@ func (ec *executionContext) _EnterpriseBlacklistAlarmMinFields_create_at(ctx con
 	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _EnterpriseBlacklistAlarmMinFields_create_by(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseBlacklistAlarmMinFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _EnterpriseBlacklistAlarmMinFields_created_by(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseBlacklistAlarmMinFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -17091,7 +17091,7 @@ func (ec *executionContext) _EnterpriseBlacklistAlarmMinFields_create_by(ctx con
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.CreateBy, nil
+		return obj.CreatedBy, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -17105,7 +17105,7 @@ func (ec *executionContext) _EnterpriseBlacklistAlarmMinFields_create_by(ctx con
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _EnterpriseBlacklistAlarmMinFields_update_at(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseBlacklistAlarmMinFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _EnterpriseBlacklistAlarmMinFields_updated_at(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseBlacklistAlarmMinFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -17123,7 +17123,7 @@ func (ec *executionContext) _EnterpriseBlacklistAlarmMinFields_update_at(ctx con
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.UpdateAt, nil
+		return obj.UpdatedAt, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -17137,7 +17137,7 @@ func (ec *executionContext) _EnterpriseBlacklistAlarmMinFields_update_at(ctx con
 	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _EnterpriseBlacklistAlarmMinFields_update_by(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseBlacklistAlarmMinFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _EnterpriseBlacklistAlarmMinFields_updated_by(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseBlacklistAlarmMinFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -17155,7 +17155,7 @@ func (ec *executionContext) _EnterpriseBlacklistAlarmMinFields_update_by(ctx con
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.UpdateBy, nil
+		return obj.UpdatedBy, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -17169,7 +17169,7 @@ func (ec *executionContext) _EnterpriseBlacklistAlarmMinFields_update_by(ctx con
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _EnterpriseBlacklistAlarmMinFields_delete_at(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseBlacklistAlarmMinFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _EnterpriseBlacklistAlarmMinFields_deleted_at(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseBlacklistAlarmMinFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -17187,7 +17187,7 @@ func (ec *executionContext) _EnterpriseBlacklistAlarmMinFields_delete_at(ctx con
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.DeleteAt, nil
+		return obj.DeletedAt, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -17201,7 +17201,7 @@ func (ec *executionContext) _EnterpriseBlacklistAlarmMinFields_delete_at(ctx con
 	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _EnterpriseBlacklistAlarmMinFields_delete_by(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseBlacklistAlarmMinFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _EnterpriseBlacklistAlarmMinFields_deleted_by(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseBlacklistAlarmMinFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -17219,7 +17219,7 @@ func (ec *executionContext) _EnterpriseBlacklistAlarmMinFields_delete_by(ctx con
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.DeleteBy, nil
+		return obj.DeletedBy, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -17233,7 +17233,7 @@ func (ec *executionContext) _EnterpriseBlacklistAlarmMinFields_delete_by(ctx con
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _EnterpriseBlacklistAlarmMinFields_is_delete(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseBlacklistAlarmMinFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _EnterpriseBlacklistAlarmMinFields_is_deleted(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseBlacklistAlarmMinFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -17251,7 +17251,7 @@ func (ec *executionContext) _EnterpriseBlacklistAlarmMinFields_is_delete(ctx con
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.IsDelete, nil
+		return obj.IsDeleted, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -18214,7 +18214,7 @@ func (ec *executionContext) _EnterpriseBlacklistHis_remarks(ctx context.Context,
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _EnterpriseBlacklistHis_create_at(ctx context.Context, field graphql.CollectedField, obj *model1.EnterpriseBlacklistHis) (ret graphql.Marshaler) {
+func (ec *executionContext) _EnterpriseBlacklistHis_created_at(ctx context.Context, field graphql.CollectedField, obj *model1.EnterpriseBlacklistHis) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -18232,7 +18232,7 @@ func (ec *executionContext) _EnterpriseBlacklistHis_create_at(ctx context.Contex
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.CreateAt, nil
+		return obj.CreatedAt, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -18249,7 +18249,7 @@ func (ec *executionContext) _EnterpriseBlacklistHis_create_at(ctx context.Contex
 	return ec.marshalNTimestamptz2timeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _EnterpriseBlacklistHis_create_by(ctx context.Context, field graphql.CollectedField, obj *model1.EnterpriseBlacklistHis) (ret graphql.Marshaler) {
+func (ec *executionContext) _EnterpriseBlacklistHis_created_by(ctx context.Context, field graphql.CollectedField, obj *model1.EnterpriseBlacklistHis) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -18267,7 +18267,7 @@ func (ec *executionContext) _EnterpriseBlacklistHis_create_by(ctx context.Contex
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.CreateBy, nil
+		return obj.CreatedBy, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -18281,7 +18281,7 @@ func (ec *executionContext) _EnterpriseBlacklistHis_create_by(ctx context.Contex
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _EnterpriseBlacklistHis_update_at(ctx context.Context, field graphql.CollectedField, obj *model1.EnterpriseBlacklistHis) (ret graphql.Marshaler) {
+func (ec *executionContext) _EnterpriseBlacklistHis_updated_at(ctx context.Context, field graphql.CollectedField, obj *model1.EnterpriseBlacklistHis) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -18299,7 +18299,7 @@ func (ec *executionContext) _EnterpriseBlacklistHis_update_at(ctx context.Contex
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.UpdateAt, nil
+		return obj.UpdatedAt, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -18313,7 +18313,7 @@ func (ec *executionContext) _EnterpriseBlacklistHis_update_at(ctx context.Contex
 	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _EnterpriseBlacklistHis_update_by(ctx context.Context, field graphql.CollectedField, obj *model1.EnterpriseBlacklistHis) (ret graphql.Marshaler) {
+func (ec *executionContext) _EnterpriseBlacklistHis_updated_by(ctx context.Context, field graphql.CollectedField, obj *model1.EnterpriseBlacklistHis) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -18331,7 +18331,7 @@ func (ec *executionContext) _EnterpriseBlacklistHis_update_by(ctx context.Contex
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.UpdateBy, nil
+		return obj.UpdatedBy, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -18345,7 +18345,7 @@ func (ec *executionContext) _EnterpriseBlacklistHis_update_by(ctx context.Contex
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _EnterpriseBlacklistHis_delete_at(ctx context.Context, field graphql.CollectedField, obj *model1.EnterpriseBlacklistHis) (ret graphql.Marshaler) {
+func (ec *executionContext) _EnterpriseBlacklistHis_deleted_at(ctx context.Context, field graphql.CollectedField, obj *model1.EnterpriseBlacklistHis) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -18363,7 +18363,7 @@ func (ec *executionContext) _EnterpriseBlacklistHis_delete_at(ctx context.Contex
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.DeleteAt, nil
+		return obj.DeletedAt, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -18377,7 +18377,7 @@ func (ec *executionContext) _EnterpriseBlacklistHis_delete_at(ctx context.Contex
 	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _EnterpriseBlacklistHis_delete_by(ctx context.Context, field graphql.CollectedField, obj *model1.EnterpriseBlacklistHis) (ret graphql.Marshaler) {
+func (ec *executionContext) _EnterpriseBlacklistHis_deleted_by(ctx context.Context, field graphql.CollectedField, obj *model1.EnterpriseBlacklistHis) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -18395,7 +18395,7 @@ func (ec *executionContext) _EnterpriseBlacklistHis_delete_by(ctx context.Contex
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.DeleteBy, nil
+		return obj.DeletedBy, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -18409,7 +18409,7 @@ func (ec *executionContext) _EnterpriseBlacklistHis_delete_by(ctx context.Contex
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _EnterpriseBlacklistHis_is_delete(ctx context.Context, field graphql.CollectedField, obj *model1.EnterpriseBlacklistHis) (ret graphql.Marshaler) {
+func (ec *executionContext) _EnterpriseBlacklistHis_is_deleted(ctx context.Context, field graphql.CollectedField, obj *model1.EnterpriseBlacklistHis) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -18427,7 +18427,7 @@ func (ec *executionContext) _EnterpriseBlacklistHis_is_delete(ctx context.Contex
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.IsDelete, nil
+		return obj.IsDeleted, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -19116,7 +19116,7 @@ func (ec *executionContext) _EnterpriseBlacklistHisMaxFields_remarks(ctx context
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _EnterpriseBlacklistHisMaxFields_create_at(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseBlacklistHisMaxFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _EnterpriseBlacklistHisMaxFields_created_at(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseBlacklistHisMaxFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -19134,7 +19134,7 @@ func (ec *executionContext) _EnterpriseBlacklistHisMaxFields_create_at(ctx conte
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.CreateAt, nil
+		return obj.CreatedAt, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -19148,7 +19148,7 @@ func (ec *executionContext) _EnterpriseBlacklistHisMaxFields_create_at(ctx conte
 	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _EnterpriseBlacklistHisMaxFields_create_by(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseBlacklistHisMaxFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _EnterpriseBlacklistHisMaxFields_created_by(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseBlacklistHisMaxFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -19166,7 +19166,7 @@ func (ec *executionContext) _EnterpriseBlacklistHisMaxFields_create_by(ctx conte
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.CreateBy, nil
+		return obj.CreatedBy, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -19180,7 +19180,7 @@ func (ec *executionContext) _EnterpriseBlacklistHisMaxFields_create_by(ctx conte
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _EnterpriseBlacklistHisMaxFields_update_at(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseBlacklistHisMaxFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _EnterpriseBlacklistHisMaxFields_updated_at(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseBlacklistHisMaxFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -19198,7 +19198,7 @@ func (ec *executionContext) _EnterpriseBlacklistHisMaxFields_update_at(ctx conte
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.UpdateAt, nil
+		return obj.UpdatedAt, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -19212,7 +19212,7 @@ func (ec *executionContext) _EnterpriseBlacklistHisMaxFields_update_at(ctx conte
 	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _EnterpriseBlacklistHisMaxFields_update_by(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseBlacklistHisMaxFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _EnterpriseBlacklistHisMaxFields_updated_by(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseBlacklistHisMaxFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -19230,7 +19230,7 @@ func (ec *executionContext) _EnterpriseBlacklistHisMaxFields_update_by(ctx conte
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.UpdateBy, nil
+		return obj.UpdatedBy, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -19244,7 +19244,7 @@ func (ec *executionContext) _EnterpriseBlacklistHisMaxFields_update_by(ctx conte
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _EnterpriseBlacklistHisMaxFields_delete_at(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseBlacklistHisMaxFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _EnterpriseBlacklistHisMaxFields_deleted_at(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseBlacklistHisMaxFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -19262,7 +19262,7 @@ func (ec *executionContext) _EnterpriseBlacklistHisMaxFields_delete_at(ctx conte
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.DeleteAt, nil
+		return obj.DeletedAt, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -19276,7 +19276,7 @@ func (ec *executionContext) _EnterpriseBlacklistHisMaxFields_delete_at(ctx conte
 	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _EnterpriseBlacklistHisMaxFields_delete_by(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseBlacklistHisMaxFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _EnterpriseBlacklistHisMaxFields_deleted_by(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseBlacklistHisMaxFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -19294,7 +19294,7 @@ func (ec *executionContext) _EnterpriseBlacklistHisMaxFields_delete_by(ctx conte
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.DeleteBy, nil
+		return obj.DeletedBy, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -19308,7 +19308,7 @@ func (ec *executionContext) _EnterpriseBlacklistHisMaxFields_delete_by(ctx conte
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _EnterpriseBlacklistHisMaxFields_is_delete(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseBlacklistHisMaxFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _EnterpriseBlacklistHisMaxFields_is_deleted(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseBlacklistHisMaxFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -19326,7 +19326,7 @@ func (ec *executionContext) _EnterpriseBlacklistHisMaxFields_is_delete(ctx conte
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.IsDelete, nil
+		return obj.IsDeleted, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -19532,7 +19532,7 @@ func (ec *executionContext) _EnterpriseBlacklistHisMinFields_remarks(ctx context
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _EnterpriseBlacklistHisMinFields_create_at(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseBlacklistHisMinFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _EnterpriseBlacklistHisMinFields_created_at(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseBlacklistHisMinFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -19550,7 +19550,7 @@ func (ec *executionContext) _EnterpriseBlacklistHisMinFields_create_at(ctx conte
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.CreateAt, nil
+		return obj.CreatedAt, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -19564,7 +19564,7 @@ func (ec *executionContext) _EnterpriseBlacklistHisMinFields_create_at(ctx conte
 	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _EnterpriseBlacklistHisMinFields_create_by(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseBlacklistHisMinFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _EnterpriseBlacklistHisMinFields_created_by(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseBlacklistHisMinFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -19582,7 +19582,7 @@ func (ec *executionContext) _EnterpriseBlacklistHisMinFields_create_by(ctx conte
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.CreateBy, nil
+		return obj.CreatedBy, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -19596,7 +19596,7 @@ func (ec *executionContext) _EnterpriseBlacklistHisMinFields_create_by(ctx conte
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _EnterpriseBlacklistHisMinFields_update_at(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseBlacklistHisMinFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _EnterpriseBlacklistHisMinFields_updated_at(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseBlacklistHisMinFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -19614,7 +19614,7 @@ func (ec *executionContext) _EnterpriseBlacklistHisMinFields_update_at(ctx conte
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.UpdateAt, nil
+		return obj.UpdatedAt, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -19628,7 +19628,7 @@ func (ec *executionContext) _EnterpriseBlacklistHisMinFields_update_at(ctx conte
 	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _EnterpriseBlacklistHisMinFields_update_by(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseBlacklistHisMinFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _EnterpriseBlacklistHisMinFields_updated_by(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseBlacklistHisMinFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -19646,7 +19646,7 @@ func (ec *executionContext) _EnterpriseBlacklistHisMinFields_update_by(ctx conte
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.UpdateBy, nil
+		return obj.UpdatedBy, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -19660,7 +19660,7 @@ func (ec *executionContext) _EnterpriseBlacklistHisMinFields_update_by(ctx conte
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _EnterpriseBlacklistHisMinFields_delete_at(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseBlacklistHisMinFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _EnterpriseBlacklistHisMinFields_deleted_at(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseBlacklistHisMinFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -19678,7 +19678,7 @@ func (ec *executionContext) _EnterpriseBlacklistHisMinFields_delete_at(ctx conte
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.DeleteAt, nil
+		return obj.DeletedAt, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -19692,7 +19692,7 @@ func (ec *executionContext) _EnterpriseBlacklistHisMinFields_delete_at(ctx conte
 	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _EnterpriseBlacklistHisMinFields_delete_by(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseBlacklistHisMinFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _EnterpriseBlacklistHisMinFields_deleted_by(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseBlacklistHisMinFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -19710,7 +19710,7 @@ func (ec *executionContext) _EnterpriseBlacklistHisMinFields_delete_by(ctx conte
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.DeleteBy, nil
+		return obj.DeletedBy, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -19724,7 +19724,7 @@ func (ec *executionContext) _EnterpriseBlacklistHisMinFields_delete_by(ctx conte
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _EnterpriseBlacklistHisMinFields_is_delete(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseBlacklistHisMinFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _EnterpriseBlacklistHisMinFields_is_deleted(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseBlacklistHisMinFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -19742,7 +19742,7 @@ func (ec *executionContext) _EnterpriseBlacklistHisMinFields_is_delete(ctx conte
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.IsDelete, nil
+		return obj.IsDeleted, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -23682,7 +23682,7 @@ func (ec *executionContext) _VehicleBlacklistAlarm_score_count(ctx context.Conte
 	return ec.marshalOInt2ᚖint(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _VehicleBlacklistAlarm_create_at(ctx context.Context, field graphql.CollectedField, obj *model1.VehicleBlacklistAlarm) (ret graphql.Marshaler) {
+func (ec *executionContext) _VehicleBlacklistAlarm_created_at(ctx context.Context, field graphql.CollectedField, obj *model1.VehicleBlacklistAlarm) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -23700,7 +23700,7 @@ func (ec *executionContext) _VehicleBlacklistAlarm_create_at(ctx context.Context
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.CreateAt, nil
+		return obj.CreatedAt, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -23717,7 +23717,7 @@ func (ec *executionContext) _VehicleBlacklistAlarm_create_at(ctx context.Context
 	return ec.marshalNTimestamptz2timeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _VehicleBlacklistAlarm_create_by(ctx context.Context, field graphql.CollectedField, obj *model1.VehicleBlacklistAlarm) (ret graphql.Marshaler) {
+func (ec *executionContext) _VehicleBlacklistAlarm_created_by(ctx context.Context, field graphql.CollectedField, obj *model1.VehicleBlacklistAlarm) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -23735,7 +23735,7 @@ func (ec *executionContext) _VehicleBlacklistAlarm_create_by(ctx context.Context
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.CreateBy, nil
+		return obj.CreatedBy, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -23749,7 +23749,7 @@ func (ec *executionContext) _VehicleBlacklistAlarm_create_by(ctx context.Context
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _VehicleBlacklistAlarm_update_at(ctx context.Context, field graphql.CollectedField, obj *model1.VehicleBlacklistAlarm) (ret graphql.Marshaler) {
+func (ec *executionContext) _VehicleBlacklistAlarm_updated_at(ctx context.Context, field graphql.CollectedField, obj *model1.VehicleBlacklistAlarm) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -23767,7 +23767,7 @@ func (ec *executionContext) _VehicleBlacklistAlarm_update_at(ctx context.Context
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.UpdateAt, nil
+		return obj.UpdatedAt, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -23781,7 +23781,7 @@ func (ec *executionContext) _VehicleBlacklistAlarm_update_at(ctx context.Context
 	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _VehicleBlacklistAlarm_update_by(ctx context.Context, field graphql.CollectedField, obj *model1.VehicleBlacklistAlarm) (ret graphql.Marshaler) {
+func (ec *executionContext) _VehicleBlacklistAlarm_updated_by(ctx context.Context, field graphql.CollectedField, obj *model1.VehicleBlacklistAlarm) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -23799,7 +23799,7 @@ func (ec *executionContext) _VehicleBlacklistAlarm_update_by(ctx context.Context
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.UpdateBy, nil
+		return obj.UpdatedBy, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -23813,7 +23813,7 @@ func (ec *executionContext) _VehicleBlacklistAlarm_update_by(ctx context.Context
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _VehicleBlacklistAlarm_delete_at(ctx context.Context, field graphql.CollectedField, obj *model1.VehicleBlacklistAlarm) (ret graphql.Marshaler) {
+func (ec *executionContext) _VehicleBlacklistAlarm_deleted_at(ctx context.Context, field graphql.CollectedField, obj *model1.VehicleBlacklistAlarm) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -23831,7 +23831,7 @@ func (ec *executionContext) _VehicleBlacklistAlarm_delete_at(ctx context.Context
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.DeleteAt, nil
+		return obj.DeletedAt, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -23845,7 +23845,7 @@ func (ec *executionContext) _VehicleBlacklistAlarm_delete_at(ctx context.Context
 	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _VehicleBlacklistAlarm_delete_by(ctx context.Context, field graphql.CollectedField, obj *model1.VehicleBlacklistAlarm) (ret graphql.Marshaler) {
+func (ec *executionContext) _VehicleBlacklistAlarm_deleted_by(ctx context.Context, field graphql.CollectedField, obj *model1.VehicleBlacklistAlarm) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -23863,7 +23863,7 @@ func (ec *executionContext) _VehicleBlacklistAlarm_delete_by(ctx context.Context
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.DeleteBy, nil
+		return obj.DeletedBy, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -23877,7 +23877,7 @@ func (ec *executionContext) _VehicleBlacklistAlarm_delete_by(ctx context.Context
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _VehicleBlacklistAlarm_is_delete(ctx context.Context, field graphql.CollectedField, obj *model1.VehicleBlacklistAlarm) (ret graphql.Marshaler) {
+func (ec *executionContext) _VehicleBlacklistAlarm_is_deleted(ctx context.Context, field graphql.CollectedField, obj *model1.VehicleBlacklistAlarm) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -23895,7 +23895,7 @@ func (ec *executionContext) _VehicleBlacklistAlarm_is_delete(ctx context.Context
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.IsDelete, nil
+		return obj.IsDeleted, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -24648,7 +24648,7 @@ func (ec *executionContext) _VehicleBlacklistAlarmMaxFields_score_count(ctx cont
 	return ec.marshalOInt2ᚖint(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _VehicleBlacklistAlarmMaxFields_create_at(ctx context.Context, field graphql.CollectedField, obj *model.VehicleBlacklistAlarmMaxFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _VehicleBlacklistAlarmMaxFields_created_at(ctx context.Context, field graphql.CollectedField, obj *model.VehicleBlacklistAlarmMaxFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -24666,7 +24666,7 @@ func (ec *executionContext) _VehicleBlacklistAlarmMaxFields_create_at(ctx contex
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.CreateAt, nil
+		return obj.CreatedAt, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -24680,7 +24680,7 @@ func (ec *executionContext) _VehicleBlacklistAlarmMaxFields_create_at(ctx contex
 	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _VehicleBlacklistAlarmMaxFields_create_by(ctx context.Context, field graphql.CollectedField, obj *model.VehicleBlacklistAlarmMaxFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _VehicleBlacklistAlarmMaxFields_created_by(ctx context.Context, field graphql.CollectedField, obj *model.VehicleBlacklistAlarmMaxFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -24698,7 +24698,7 @@ func (ec *executionContext) _VehicleBlacklistAlarmMaxFields_create_by(ctx contex
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.CreateBy, nil
+		return obj.CreatedBy, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -24712,7 +24712,7 @@ func (ec *executionContext) _VehicleBlacklistAlarmMaxFields_create_by(ctx contex
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _VehicleBlacklistAlarmMaxFields_update_at(ctx context.Context, field graphql.CollectedField, obj *model.VehicleBlacklistAlarmMaxFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _VehicleBlacklistAlarmMaxFields_updated_at(ctx context.Context, field graphql.CollectedField, obj *model.VehicleBlacklistAlarmMaxFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -24730,7 +24730,7 @@ func (ec *executionContext) _VehicleBlacklistAlarmMaxFields_update_at(ctx contex
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.UpdateAt, nil
+		return obj.UpdatedAt, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -24744,7 +24744,7 @@ func (ec *executionContext) _VehicleBlacklistAlarmMaxFields_update_at(ctx contex
 	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _VehicleBlacklistAlarmMaxFields_update_by(ctx context.Context, field graphql.CollectedField, obj *model.VehicleBlacklistAlarmMaxFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _VehicleBlacklistAlarmMaxFields_updated_by(ctx context.Context, field graphql.CollectedField, obj *model.VehicleBlacklistAlarmMaxFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -24762,7 +24762,7 @@ func (ec *executionContext) _VehicleBlacklistAlarmMaxFields_update_by(ctx contex
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.UpdateBy, nil
+		return obj.UpdatedBy, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -24776,7 +24776,7 @@ func (ec *executionContext) _VehicleBlacklistAlarmMaxFields_update_by(ctx contex
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _VehicleBlacklistAlarmMaxFields_delete_at(ctx context.Context, field graphql.CollectedField, obj *model.VehicleBlacklistAlarmMaxFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _VehicleBlacklistAlarmMaxFields_deleted_at(ctx context.Context, field graphql.CollectedField, obj *model.VehicleBlacklistAlarmMaxFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -24794,7 +24794,7 @@ func (ec *executionContext) _VehicleBlacklistAlarmMaxFields_delete_at(ctx contex
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.DeleteAt, nil
+		return obj.DeletedAt, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -24808,7 +24808,7 @@ func (ec *executionContext) _VehicleBlacklistAlarmMaxFields_delete_at(ctx contex
 	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _VehicleBlacklistAlarmMaxFields_delete_by(ctx context.Context, field graphql.CollectedField, obj *model.VehicleBlacklistAlarmMaxFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _VehicleBlacklistAlarmMaxFields_deleted_by(ctx context.Context, field graphql.CollectedField, obj *model.VehicleBlacklistAlarmMaxFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -24826,7 +24826,7 @@ func (ec *executionContext) _VehicleBlacklistAlarmMaxFields_delete_by(ctx contex
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.DeleteBy, nil
+		return obj.DeletedBy, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -24840,7 +24840,7 @@ func (ec *executionContext) _VehicleBlacklistAlarmMaxFields_delete_by(ctx contex
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _VehicleBlacklistAlarmMaxFields_is_delete(ctx context.Context, field graphql.CollectedField, obj *model.VehicleBlacklistAlarmMaxFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _VehicleBlacklistAlarmMaxFields_is_deleted(ctx context.Context, field graphql.CollectedField, obj *model.VehicleBlacklistAlarmMaxFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -24858,7 +24858,7 @@ func (ec *executionContext) _VehicleBlacklistAlarmMaxFields_is_delete(ctx contex
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.IsDelete, nil
+		return obj.IsDeleted, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -25096,7 +25096,7 @@ func (ec *executionContext) _VehicleBlacklistAlarmMinFields_score_count(ctx cont
 	return ec.marshalOInt2ᚖint(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _VehicleBlacklistAlarmMinFields_create_at(ctx context.Context, field graphql.CollectedField, obj *model.VehicleBlacklistAlarmMinFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _VehicleBlacklistAlarmMinFields_created_at(ctx context.Context, field graphql.CollectedField, obj *model.VehicleBlacklistAlarmMinFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -25114,7 +25114,7 @@ func (ec *executionContext) _VehicleBlacklistAlarmMinFields_create_at(ctx contex
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.CreateAt, nil
+		return obj.CreatedAt, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -25128,7 +25128,7 @@ func (ec *executionContext) _VehicleBlacklistAlarmMinFields_create_at(ctx contex
 	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _VehicleBlacklistAlarmMinFields_create_by(ctx context.Context, field graphql.CollectedField, obj *model.VehicleBlacklistAlarmMinFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _VehicleBlacklistAlarmMinFields_created_by(ctx context.Context, field graphql.CollectedField, obj *model.VehicleBlacklistAlarmMinFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -25146,7 +25146,7 @@ func (ec *executionContext) _VehicleBlacklistAlarmMinFields_create_by(ctx contex
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.CreateBy, nil
+		return obj.CreatedBy, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -25160,7 +25160,7 @@ func (ec *executionContext) _VehicleBlacklistAlarmMinFields_create_by(ctx contex
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _VehicleBlacklistAlarmMinFields_update_at(ctx context.Context, field graphql.CollectedField, obj *model.VehicleBlacklistAlarmMinFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _VehicleBlacklistAlarmMinFields_updated_at(ctx context.Context, field graphql.CollectedField, obj *model.VehicleBlacklistAlarmMinFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -25178,7 +25178,7 @@ func (ec *executionContext) _VehicleBlacklistAlarmMinFields_update_at(ctx contex
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.UpdateAt, nil
+		return obj.UpdatedAt, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -25192,7 +25192,7 @@ func (ec *executionContext) _VehicleBlacklistAlarmMinFields_update_at(ctx contex
 	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _VehicleBlacklistAlarmMinFields_update_by(ctx context.Context, field graphql.CollectedField, obj *model.VehicleBlacklistAlarmMinFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _VehicleBlacklistAlarmMinFields_updated_by(ctx context.Context, field graphql.CollectedField, obj *model.VehicleBlacklistAlarmMinFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -25210,7 +25210,7 @@ func (ec *executionContext) _VehicleBlacklistAlarmMinFields_update_by(ctx contex
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.UpdateBy, nil
+		return obj.UpdatedBy, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -25224,7 +25224,7 @@ func (ec *executionContext) _VehicleBlacklistAlarmMinFields_update_by(ctx contex
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _VehicleBlacklistAlarmMinFields_delete_at(ctx context.Context, field graphql.CollectedField, obj *model.VehicleBlacklistAlarmMinFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _VehicleBlacklistAlarmMinFields_deleted_at(ctx context.Context, field graphql.CollectedField, obj *model.VehicleBlacklistAlarmMinFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -25242,7 +25242,7 @@ func (ec *executionContext) _VehicleBlacklistAlarmMinFields_delete_at(ctx contex
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.DeleteAt, nil
+		return obj.DeletedAt, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -25256,7 +25256,7 @@ func (ec *executionContext) _VehicleBlacklistAlarmMinFields_delete_at(ctx contex
 	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _VehicleBlacklistAlarmMinFields_delete_by(ctx context.Context, field graphql.CollectedField, obj *model.VehicleBlacklistAlarmMinFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _VehicleBlacklistAlarmMinFields_deleted_by(ctx context.Context, field graphql.CollectedField, obj *model.VehicleBlacklistAlarmMinFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -25274,7 +25274,7 @@ func (ec *executionContext) _VehicleBlacklistAlarmMinFields_delete_by(ctx contex
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.DeleteBy, nil
+		return obj.DeletedBy, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -25288,7 +25288,7 @@ func (ec *executionContext) _VehicleBlacklistAlarmMinFields_delete_by(ctx contex
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _VehicleBlacklistAlarmMinFields_is_delete(ctx context.Context, field graphql.CollectedField, obj *model.VehicleBlacklistAlarmMinFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _VehicleBlacklistAlarmMinFields_is_deleted(ctx context.Context, field graphql.CollectedField, obj *model.VehicleBlacklistAlarmMinFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -25306,7 +25306,7 @@ func (ec *executionContext) _VehicleBlacklistAlarmMinFields_is_delete(ctx contex
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.IsDelete, nil
+		return obj.IsDeleted, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -26493,7 +26493,7 @@ func (ec *executionContext) _VehicleBlacklistHis_remarks(ctx context.Context, fi
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _VehicleBlacklistHis_create_at(ctx context.Context, field graphql.CollectedField, obj *model1.VehicleBlacklistHis) (ret graphql.Marshaler) {
+func (ec *executionContext) _VehicleBlacklistHis_created_at(ctx context.Context, field graphql.CollectedField, obj *model1.VehicleBlacklistHis) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -26511,7 +26511,7 @@ func (ec *executionContext) _VehicleBlacklistHis_create_at(ctx context.Context, 
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.CreateAt, nil
+		return obj.CreatedAt, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -26528,7 +26528,7 @@ func (ec *executionContext) _VehicleBlacklistHis_create_at(ctx context.Context, 
 	return ec.marshalNTimestamptz2timeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _VehicleBlacklistHis_create_by(ctx context.Context, field graphql.CollectedField, obj *model1.VehicleBlacklistHis) (ret graphql.Marshaler) {
+func (ec *executionContext) _VehicleBlacklistHis_created_by(ctx context.Context, field graphql.CollectedField, obj *model1.VehicleBlacklistHis) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -26546,7 +26546,7 @@ func (ec *executionContext) _VehicleBlacklistHis_create_by(ctx context.Context, 
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.CreateBy, nil
+		return obj.CreatedBy, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -26560,7 +26560,7 @@ func (ec *executionContext) _VehicleBlacklistHis_create_by(ctx context.Context, 
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _VehicleBlacklistHis_update_at(ctx context.Context, field graphql.CollectedField, obj *model1.VehicleBlacklistHis) (ret graphql.Marshaler) {
+func (ec *executionContext) _VehicleBlacklistHis_updated_at(ctx context.Context, field graphql.CollectedField, obj *model1.VehicleBlacklistHis) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -26578,7 +26578,7 @@ func (ec *executionContext) _VehicleBlacklistHis_update_at(ctx context.Context, 
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.UpdateAt, nil
+		return obj.UpdatedAt, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -26592,7 +26592,7 @@ func (ec *executionContext) _VehicleBlacklistHis_update_at(ctx context.Context, 
 	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _VehicleBlacklistHis_update_by(ctx context.Context, field graphql.CollectedField, obj *model1.VehicleBlacklistHis) (ret graphql.Marshaler) {
+func (ec *executionContext) _VehicleBlacklistHis_updated_by(ctx context.Context, field graphql.CollectedField, obj *model1.VehicleBlacklistHis) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -26610,7 +26610,7 @@ func (ec *executionContext) _VehicleBlacklistHis_update_by(ctx context.Context, 
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.UpdateBy, nil
+		return obj.UpdatedBy, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -26624,7 +26624,7 @@ func (ec *executionContext) _VehicleBlacklistHis_update_by(ctx context.Context, 
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _VehicleBlacklistHis_delete_at(ctx context.Context, field graphql.CollectedField, obj *model1.VehicleBlacklistHis) (ret graphql.Marshaler) {
+func (ec *executionContext) _VehicleBlacklistHis_deleted_at(ctx context.Context, field graphql.CollectedField, obj *model1.VehicleBlacklistHis) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -26642,7 +26642,7 @@ func (ec *executionContext) _VehicleBlacklistHis_delete_at(ctx context.Context, 
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.DeleteAt, nil
+		return obj.DeletedAt, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -26656,7 +26656,7 @@ func (ec *executionContext) _VehicleBlacklistHis_delete_at(ctx context.Context, 
 	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _VehicleBlacklistHis_delete_by(ctx context.Context, field graphql.CollectedField, obj *model1.VehicleBlacklistHis) (ret graphql.Marshaler) {
+func (ec *executionContext) _VehicleBlacklistHis_deleted_by(ctx context.Context, field graphql.CollectedField, obj *model1.VehicleBlacklistHis) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -26674,7 +26674,7 @@ func (ec *executionContext) _VehicleBlacklistHis_delete_by(ctx context.Context, 
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.DeleteBy, nil
+		return obj.DeletedBy, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -26688,7 +26688,7 @@ func (ec *executionContext) _VehicleBlacklistHis_delete_by(ctx context.Context, 
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _VehicleBlacklistHis_is_delete(ctx context.Context, field graphql.CollectedField, obj *model1.VehicleBlacklistHis) (ret graphql.Marshaler) {
+func (ec *executionContext) _VehicleBlacklistHis_is_deleted(ctx context.Context, field graphql.CollectedField, obj *model1.VehicleBlacklistHis) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -26706,7 +26706,7 @@ func (ec *executionContext) _VehicleBlacklistHis_is_delete(ctx context.Context, 
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.IsDelete, nil
+		return obj.IsDeleted, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -27395,7 +27395,7 @@ func (ec *executionContext) _VehicleBlacklistHisMaxFields_remarks(ctx context.Co
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _VehicleBlacklistHisMaxFields_create_at(ctx context.Context, field graphql.CollectedField, obj *model.VehicleBlacklistHisMaxFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _VehicleBlacklistHisMaxFields_created_at(ctx context.Context, field graphql.CollectedField, obj *model.VehicleBlacklistHisMaxFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -27413,7 +27413,7 @@ func (ec *executionContext) _VehicleBlacklistHisMaxFields_create_at(ctx context.
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.CreateAt, nil
+		return obj.CreatedAt, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -27427,7 +27427,7 @@ func (ec *executionContext) _VehicleBlacklistHisMaxFields_create_at(ctx context.
 	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _VehicleBlacklistHisMaxFields_create_by(ctx context.Context, field graphql.CollectedField, obj *model.VehicleBlacklistHisMaxFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _VehicleBlacklistHisMaxFields_created_by(ctx context.Context, field graphql.CollectedField, obj *model.VehicleBlacklistHisMaxFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -27445,7 +27445,7 @@ func (ec *executionContext) _VehicleBlacklistHisMaxFields_create_by(ctx context.
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.CreateBy, nil
+		return obj.CreatedBy, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -27459,7 +27459,7 @@ func (ec *executionContext) _VehicleBlacklistHisMaxFields_create_by(ctx context.
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _VehicleBlacklistHisMaxFields_update_at(ctx context.Context, field graphql.CollectedField, obj *model.VehicleBlacklistHisMaxFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _VehicleBlacklistHisMaxFields_updated_at(ctx context.Context, field graphql.CollectedField, obj *model.VehicleBlacklistHisMaxFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -27477,7 +27477,7 @@ func (ec *executionContext) _VehicleBlacklistHisMaxFields_update_at(ctx context.
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.UpdateAt, nil
+		return obj.UpdatedAt, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -27491,7 +27491,7 @@ func (ec *executionContext) _VehicleBlacklistHisMaxFields_update_at(ctx context.
 	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _VehicleBlacklistHisMaxFields_update_by(ctx context.Context, field graphql.CollectedField, obj *model.VehicleBlacklistHisMaxFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _VehicleBlacklistHisMaxFields_updated_by(ctx context.Context, field graphql.CollectedField, obj *model.VehicleBlacklistHisMaxFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -27509,7 +27509,7 @@ func (ec *executionContext) _VehicleBlacklistHisMaxFields_update_by(ctx context.
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.UpdateBy, nil
+		return obj.UpdatedBy, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -27523,7 +27523,7 @@ func (ec *executionContext) _VehicleBlacklistHisMaxFields_update_by(ctx context.
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _VehicleBlacklistHisMaxFields_delete_at(ctx context.Context, field graphql.CollectedField, obj *model.VehicleBlacklistHisMaxFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _VehicleBlacklistHisMaxFields_deleted_at(ctx context.Context, field graphql.CollectedField, obj *model.VehicleBlacklistHisMaxFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -27541,7 +27541,7 @@ func (ec *executionContext) _VehicleBlacklistHisMaxFields_delete_at(ctx context.
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.DeleteAt, nil
+		return obj.DeletedAt, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -27555,7 +27555,7 @@ func (ec *executionContext) _VehicleBlacklistHisMaxFields_delete_at(ctx context.
 	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _VehicleBlacklistHisMaxFields_delete_by(ctx context.Context, field graphql.CollectedField, obj *model.VehicleBlacklistHisMaxFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _VehicleBlacklistHisMaxFields_deleted_by(ctx context.Context, field graphql.CollectedField, obj *model.VehicleBlacklistHisMaxFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -27573,7 +27573,7 @@ func (ec *executionContext) _VehicleBlacklistHisMaxFields_delete_by(ctx context.
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.DeleteBy, nil
+		return obj.DeletedBy, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -27587,7 +27587,7 @@ func (ec *executionContext) _VehicleBlacklistHisMaxFields_delete_by(ctx context.
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _VehicleBlacklistHisMaxFields_is_delete(ctx context.Context, field graphql.CollectedField, obj *model.VehicleBlacklistHisMaxFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _VehicleBlacklistHisMaxFields_is_deleted(ctx context.Context, field graphql.CollectedField, obj *model.VehicleBlacklistHisMaxFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -27605,7 +27605,7 @@ func (ec *executionContext) _VehicleBlacklistHisMaxFields_is_delete(ctx context.
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.IsDelete, nil
+		return obj.IsDeleted, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -27811,7 +27811,7 @@ func (ec *executionContext) _VehicleBlacklistHisMinFields_remarks(ctx context.Co
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _VehicleBlacklistHisMinFields_create_at(ctx context.Context, field graphql.CollectedField, obj *model.VehicleBlacklistHisMinFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _VehicleBlacklistHisMinFields_created_at(ctx context.Context, field graphql.CollectedField, obj *model.VehicleBlacklistHisMinFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -27829,7 +27829,7 @@ func (ec *executionContext) _VehicleBlacklistHisMinFields_create_at(ctx context.
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.CreateAt, nil
+		return obj.CreatedAt, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -27843,7 +27843,7 @@ func (ec *executionContext) _VehicleBlacklistHisMinFields_create_at(ctx context.
 	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _VehicleBlacklistHisMinFields_create_by(ctx context.Context, field graphql.CollectedField, obj *model.VehicleBlacklistHisMinFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _VehicleBlacklistHisMinFields_created_by(ctx context.Context, field graphql.CollectedField, obj *model.VehicleBlacklistHisMinFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -27861,7 +27861,7 @@ func (ec *executionContext) _VehicleBlacklistHisMinFields_create_by(ctx context.
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.CreateBy, nil
+		return obj.CreatedBy, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -27875,7 +27875,7 @@ func (ec *executionContext) _VehicleBlacklistHisMinFields_create_by(ctx context.
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _VehicleBlacklistHisMinFields_update_at(ctx context.Context, field graphql.CollectedField, obj *model.VehicleBlacklistHisMinFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _VehicleBlacklistHisMinFields_updated_at(ctx context.Context, field graphql.CollectedField, obj *model.VehicleBlacklistHisMinFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -27893,7 +27893,7 @@ func (ec *executionContext) _VehicleBlacklistHisMinFields_update_at(ctx context.
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.UpdateAt, nil
+		return obj.UpdatedAt, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -27907,7 +27907,7 @@ func (ec *executionContext) _VehicleBlacklistHisMinFields_update_at(ctx context.
 	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _VehicleBlacklistHisMinFields_update_by(ctx context.Context, field graphql.CollectedField, obj *model.VehicleBlacklistHisMinFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _VehicleBlacklistHisMinFields_updated_by(ctx context.Context, field graphql.CollectedField, obj *model.VehicleBlacklistHisMinFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -27925,7 +27925,7 @@ func (ec *executionContext) _VehicleBlacklistHisMinFields_update_by(ctx context.
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.UpdateBy, nil
+		return obj.UpdatedBy, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -27939,7 +27939,7 @@ func (ec *executionContext) _VehicleBlacklistHisMinFields_update_by(ctx context.
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _VehicleBlacklistHisMinFields_delete_at(ctx context.Context, field graphql.CollectedField, obj *model.VehicleBlacklistHisMinFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _VehicleBlacklistHisMinFields_deleted_at(ctx context.Context, field graphql.CollectedField, obj *model.VehicleBlacklistHisMinFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -27957,7 +27957,7 @@ func (ec *executionContext) _VehicleBlacklistHisMinFields_delete_at(ctx context.
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.DeleteAt, nil
+		return obj.DeletedAt, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -27971,7 +27971,7 @@ func (ec *executionContext) _VehicleBlacklistHisMinFields_delete_at(ctx context.
 	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _VehicleBlacklistHisMinFields_delete_by(ctx context.Context, field graphql.CollectedField, obj *model.VehicleBlacklistHisMinFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _VehicleBlacklistHisMinFields_deleted_by(ctx context.Context, field graphql.CollectedField, obj *model.VehicleBlacklistHisMinFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -27989,7 +27989,7 @@ func (ec *executionContext) _VehicleBlacklistHisMinFields_delete_by(ctx context.
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.DeleteBy, nil
+		return obj.DeletedBy, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -28003,7 +28003,7 @@ func (ec *executionContext) _VehicleBlacklistHisMinFields_delete_by(ctx context.
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _VehicleBlacklistHisMinFields_is_delete(ctx context.Context, field graphql.CollectedField, obj *model.VehicleBlacklistHisMinFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _VehicleBlacklistHisMinFields_is_deleted(ctx context.Context, field graphql.CollectedField, obj *model.VehicleBlacklistHisMinFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -28021,7 +28021,7 @@ func (ec *executionContext) _VehicleBlacklistHisMinFields_is_delete(ctx context.
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.IsDelete, nil
+		return obj.IsDeleted, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -30110,59 +30110,59 @@ func (ec *executionContext) unmarshalInputDriverBlacklistApplyBoolExp(ctx contex
 			if err != nil {
 				return it, err
 			}
-		case "create_at":
+		case "created_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_at"))
-			it.CreateAt, err = ec.unmarshalOTimestamptzComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
+			it.CreatedAt, err = ec.unmarshalOTimestamptzComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "create_by":
+		case "created_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_by"))
-			it.CreateBy, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
+			it.CreatedBy, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "update_at":
+		case "updated_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_at"))
-			it.UpdateAt, err = ec.unmarshalOTimestamptzComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("updated_at"))
+			it.UpdatedAt, err = ec.unmarshalOTimestamptzComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "update_by":
+		case "updated_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_by"))
-			it.UpdateBy, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("updated_by"))
+			it.UpdatedBy, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "delete_at":
+		case "deleted_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_at"))
-			it.DeleteAt, err = ec.unmarshalOTimestamptzComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_at"))
+			it.DeletedAt, err = ec.unmarshalOTimestamptzComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "delete_by":
+		case "deleted_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_by"))
-			it.DeleteBy, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_by"))
+			it.DeletedBy, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "is_delete":
+		case "is_deleted":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_delete"))
-			it.IsDelete, err = ec.unmarshalOBooleanComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐBooleanComparisonExp(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_deleted"))
+			it.IsDeleted, err = ec.unmarshalOBooleanComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐBooleanComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -30254,59 +30254,59 @@ func (ec *executionContext) unmarshalInputDriverBlacklistApplyInsertInput(ctx co
 			if err != nil {
 				return it, err
 			}
-		case "create_at":
+		case "created_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_at"))
-			it.CreateAt, err = ec.unmarshalNTimestamptz2timeᚐTime(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
+			it.CreatedAt, err = ec.unmarshalNTimestamptz2timeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "create_by":
+		case "created_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_by"))
-			it.CreateBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
+			it.CreatedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "update_at":
+		case "updated_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_at"))
-			it.UpdateAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("updated_at"))
+			it.UpdatedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "update_by":
+		case "updated_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_by"))
-			it.UpdateBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("updated_by"))
+			it.UpdatedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "delete_at":
+		case "deleted_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_at"))
-			it.DeleteAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_at"))
+			it.DeletedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "delete_by":
+		case "deleted_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_by"))
-			it.DeleteBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_by"))
+			it.DeletedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "is_delete":
+		case "is_deleted":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_delete"))
-			it.IsDelete, err = ec.unmarshalNBoolean2bool(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_deleted"))
+			it.IsDeleted, err = ec.unmarshalNBoolean2bool(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -30370,59 +30370,59 @@ func (ec *executionContext) unmarshalInputDriverBlacklistApplyOrderBy(ctx contex
 			if err != nil {
 				return it, err
 			}
-		case "create_at":
+		case "created_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_at"))
-			it.CreateAt, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
+			it.CreatedAt, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "create_by":
+		case "created_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_by"))
-			it.CreateBy, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
+			it.CreatedBy, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "update_at":
+		case "updated_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_at"))
-			it.UpdateAt, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("updated_at"))
+			it.UpdatedAt, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "update_by":
+		case "updated_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_by"))
-			it.UpdateBy, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("updated_by"))
+			it.UpdatedBy, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "delete_at":
+		case "deleted_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_at"))
-			it.DeleteAt, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_at"))
+			it.DeletedAt, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "delete_by":
+		case "deleted_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_by"))
-			it.DeleteBy, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_by"))
+			it.DeletedBy, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "is_delete":
+		case "is_deleted":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_delete"))
-			it.IsDelete, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_deleted"))
+			it.IsDeleted, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -30486,59 +30486,59 @@ func (ec *executionContext) unmarshalInputDriverBlacklistApplySetInput(ctx conte
 			if err != nil {
 				return it, err
 			}
-		case "create_at":
+		case "created_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_at"))
-			it.CreateAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
+			it.CreatedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "create_by":
+		case "created_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_by"))
-			it.CreateBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
+			it.CreatedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "update_at":
+		case "updated_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_at"))
-			it.UpdateAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("updated_at"))
+			it.UpdatedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "update_by":
+		case "updated_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_by"))
-			it.UpdateBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("updated_by"))
+			it.UpdatedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "delete_at":
+		case "deleted_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_at"))
-			it.DeleteAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_at"))
+			it.DeletedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "delete_by":
+		case "deleted_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_by"))
-			it.DeleteBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_by"))
+			it.DeletedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "is_delete":
+		case "is_deleted":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_delete"))
-			it.IsDelete, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_deleted"))
+			it.IsDeleted, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -30626,59 +30626,59 @@ func (ec *executionContext) unmarshalInputDriverBlacklistHisBoolExp(ctx context.
 			if err != nil {
 				return it, err
 			}
-		case "create_at":
+		case "created_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_at"))
-			it.CreateAt, err = ec.unmarshalOTimestamptzComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
+			it.CreatedAt, err = ec.unmarshalOTimestamptzComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "create_by":
+		case "created_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_by"))
-			it.CreateBy, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
+			it.CreatedBy, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "update_at":
+		case "updated_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_at"))
-			it.UpdateAt, err = ec.unmarshalOTimestamptzComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("updated_at"))
+			it.UpdatedAt, err = ec.unmarshalOTimestamptzComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "update_by":
+		case "updated_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_by"))
-			it.UpdateBy, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("updated_by"))
+			it.UpdatedBy, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "delete_at":
+		case "deleted_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_at"))
-			it.DeleteAt, err = ec.unmarshalOTimestamptzComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_at"))
+			it.DeletedAt, err = ec.unmarshalOTimestamptzComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "delete_by":
+		case "deleted_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_by"))
-			it.DeleteBy, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_by"))
+			it.DeletedBy, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "is_delete":
+		case "is_deleted":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_delete"))
-			it.IsDelete, err = ec.unmarshalOBooleanComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐBooleanComparisonExp(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_deleted"))
+			it.IsDeleted, err = ec.unmarshalOBooleanComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐBooleanComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -30810,59 +30810,59 @@ func (ec *executionContext) unmarshalInputDriverBlacklistHisInsertInput(ctx cont
 			if err != nil {
 				return it, err
 			}
-		case "create_at":
+		case "created_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_at"))
-			it.CreateAt, err = ec.unmarshalNTimestamptz2timeᚐTime(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
+			it.CreatedAt, err = ec.unmarshalNTimestamptz2timeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "create_by":
+		case "created_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_by"))
-			it.CreateBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
+			it.CreatedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "update_at":
+		case "updated_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_at"))
-			it.UpdateAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("updated_at"))
+			it.UpdatedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "update_by":
+		case "updated_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_by"))
-			it.UpdateBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("updated_by"))
+			it.UpdatedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "delete_at":
+		case "deleted_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_at"))
-			it.DeleteAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_at"))
+			it.DeletedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "delete_by":
+		case "deleted_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_by"))
-			it.DeleteBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_by"))
+			it.DeletedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "is_delete":
+		case "is_deleted":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_delete"))
-			it.IsDelete, err = ec.unmarshalNBoolean2bool(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_deleted"))
+			it.IsDeleted, err = ec.unmarshalNBoolean2bool(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -30958,59 +30958,59 @@ func (ec *executionContext) unmarshalInputDriverBlacklistHisOrderBy(ctx context.
 			if err != nil {
 				return it, err
 			}
-		case "create_at":
+		case "created_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_at"))
-			it.CreateAt, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
+			it.CreatedAt, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "create_by":
+		case "created_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_by"))
-			it.CreateBy, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
+			it.CreatedBy, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "update_at":
+		case "updated_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_at"))
-			it.UpdateAt, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("updated_at"))
+			it.UpdatedAt, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "update_by":
+		case "updated_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_by"))
-			it.UpdateBy, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("updated_by"))
+			it.UpdatedBy, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "delete_at":
+		case "deleted_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_at"))
-			it.DeleteAt, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_at"))
+			it.DeletedAt, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "delete_by":
+		case "deleted_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_by"))
-			it.DeleteBy, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_by"))
+			it.DeletedBy, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "is_delete":
+		case "is_deleted":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_delete"))
-			it.IsDelete, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_deleted"))
+			it.IsDeleted, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -31106,59 +31106,59 @@ func (ec *executionContext) unmarshalInputDriverBlacklistHisSetInput(ctx context
 			if err != nil {
 				return it, err
 			}
-		case "create_at":
+		case "created_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_at"))
-			it.CreateAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
+			it.CreatedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "create_by":
+		case "created_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_by"))
-			it.CreateBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
+			it.CreatedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "update_at":
+		case "updated_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_at"))
-			it.UpdateAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("updated_at"))
+			it.UpdatedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "update_by":
+		case "updated_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_by"))
-			it.UpdateBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("updated_by"))
+			it.UpdatedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "delete_at":
+		case "deleted_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_at"))
-			it.DeleteAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_at"))
+			it.DeletedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "delete_by":
+		case "deleted_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_by"))
-			it.DeleteBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_by"))
+			it.DeletedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "is_delete":
+		case "is_deleted":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_delete"))
-			it.IsDelete, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_deleted"))
+			it.IsDeleted, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -31286,59 +31286,59 @@ func (ec *executionContext) unmarshalInputEnterpriseBlacklistAlarmBoolExp(ctx co
 			if err != nil {
 				return it, err
 			}
-		case "create_at":
+		case "created_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_at"))
-			it.CreateAt, err = ec.unmarshalOTimestamptzComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
+			it.CreatedAt, err = ec.unmarshalOTimestamptzComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "create_by":
+		case "created_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_by"))
-			it.CreateBy, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
+			it.CreatedBy, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "update_at":
+		case "updated_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_at"))
-			it.UpdateAt, err = ec.unmarshalOTimestamptzComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("updated_at"))
+			it.UpdatedAt, err = ec.unmarshalOTimestamptzComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "update_by":
+		case "updated_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_by"))
-			it.UpdateBy, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("updated_by"))
+			it.UpdatedBy, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "delete_at":
+		case "deleted_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_at"))
-			it.DeleteAt, err = ec.unmarshalOTimestamptzComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_at"))
+			it.DeletedAt, err = ec.unmarshalOTimestamptzComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "delete_by":
+		case "deleted_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_by"))
-			it.DeleteBy, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_by"))
+			it.DeletedBy, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "is_delete":
+		case "is_deleted":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_delete"))
-			it.IsDelete, err = ec.unmarshalOBooleanComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐBooleanComparisonExp(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_deleted"))
+			it.IsDeleted, err = ec.unmarshalOBooleanComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐBooleanComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -31438,59 +31438,59 @@ func (ec *executionContext) unmarshalInputEnterpriseBlacklistAlarmInsertInput(ct
 			if err != nil {
 				return it, err
 			}
-		case "create_at":
+		case "created_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_at"))
-			it.CreateAt, err = ec.unmarshalNTimestamptz2timeᚐTime(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
+			it.CreatedAt, err = ec.unmarshalNTimestamptz2timeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "create_by":
+		case "created_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_by"))
-			it.CreateBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
+			it.CreatedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "update_at":
+		case "updated_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_at"))
-			it.UpdateAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("updated_at"))
+			it.UpdatedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "update_by":
+		case "updated_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_by"))
-			it.UpdateBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("updated_by"))
+			it.UpdatedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "delete_at":
+		case "deleted_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_at"))
-			it.DeleteAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_at"))
+			it.DeletedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "delete_by":
+		case "deleted_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_by"))
-			it.DeleteBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_by"))
+			it.DeletedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "is_delete":
+		case "is_deleted":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_delete"))
-			it.IsDelete, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_deleted"))
+			it.IsDeleted, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -31562,59 +31562,59 @@ func (ec *executionContext) unmarshalInputEnterpriseBlacklistAlarmOrderBy(ctx co
 			if err != nil {
 				return it, err
 			}
-		case "create_at":
+		case "created_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_at"))
-			it.CreateAt, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
+			it.CreatedAt, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "create_by":
+		case "created_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_by"))
-			it.CreateBy, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
+			it.CreatedBy, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "update_at":
+		case "updated_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_at"))
-			it.UpdateAt, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("updated_at"))
+			it.UpdatedAt, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "update_by":
+		case "updated_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_by"))
-			it.UpdateBy, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("updated_by"))
+			it.UpdatedBy, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "delete_at":
+		case "deleted_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_at"))
-			it.DeleteAt, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_at"))
+			it.DeletedAt, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "delete_by":
+		case "deleted_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_by"))
-			it.DeleteBy, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_by"))
+			it.DeletedBy, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "is_delete":
+		case "is_deleted":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_delete"))
-			it.IsDelete, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_deleted"))
+			it.IsDeleted, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -31686,59 +31686,59 @@ func (ec *executionContext) unmarshalInputEnterpriseBlacklistAlarmSetInput(ctx c
 			if err != nil {
 				return it, err
 			}
-		case "create_at":
+		case "created_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_at"))
-			it.CreateAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
+			it.CreatedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "create_by":
+		case "created_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_by"))
-			it.CreateBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
+			it.CreatedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "update_at":
+		case "updated_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_at"))
-			it.UpdateAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("updated_at"))
+			it.UpdatedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "update_by":
+		case "updated_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_by"))
-			it.UpdateBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("updated_by"))
+			it.UpdatedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "delete_at":
+		case "deleted_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_at"))
-			it.DeleteAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_at"))
+			it.DeletedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "delete_by":
+		case "deleted_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_by"))
-			it.DeleteBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_by"))
+			it.DeletedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "is_delete":
+		case "is_deleted":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_delete"))
-			it.IsDelete, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_deleted"))
+			it.IsDeleted, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -31826,59 +31826,59 @@ func (ec *executionContext) unmarshalInputEnterpriseBlacklistHisBoolExp(ctx cont
 			if err != nil {
 				return it, err
 			}
-		case "create_at":
+		case "created_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_at"))
-			it.CreateAt, err = ec.unmarshalOTimestamptzComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
+			it.CreatedAt, err = ec.unmarshalOTimestamptzComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "create_by":
+		case "created_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_by"))
-			it.CreateBy, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
+			it.CreatedBy, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "update_at":
+		case "updated_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_at"))
-			it.UpdateAt, err = ec.unmarshalOTimestamptzComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("updated_at"))
+			it.UpdatedAt, err = ec.unmarshalOTimestamptzComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "update_by":
+		case "updated_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_by"))
-			it.UpdateBy, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("updated_by"))
+			it.UpdatedBy, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "delete_at":
+		case "deleted_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_at"))
-			it.DeleteAt, err = ec.unmarshalOTimestamptzComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_at"))
+			it.DeletedAt, err = ec.unmarshalOTimestamptzComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "delete_by":
+		case "deleted_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_by"))
-			it.DeleteBy, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_by"))
+			it.DeletedBy, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "is_delete":
+		case "is_deleted":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_delete"))
-			it.IsDelete, err = ec.unmarshalOBooleanComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐBooleanComparisonExp(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_deleted"))
+			it.IsDeleted, err = ec.unmarshalOBooleanComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐBooleanComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -31970,59 +31970,59 @@ func (ec *executionContext) unmarshalInputEnterpriseBlacklistHisInsertInput(ctx 
 			if err != nil {
 				return it, err
 			}
-		case "create_at":
+		case "created_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_at"))
-			it.CreateAt, err = ec.unmarshalNTimestamptz2timeᚐTime(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
+			it.CreatedAt, err = ec.unmarshalNTimestamptz2timeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "create_by":
+		case "created_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_by"))
-			it.CreateBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
+			it.CreatedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "update_at":
+		case "updated_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_at"))
-			it.UpdateAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("updated_at"))
+			it.UpdatedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "update_by":
+		case "updated_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_by"))
-			it.UpdateBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("updated_by"))
+			it.UpdatedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "delete_at":
+		case "deleted_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_at"))
-			it.DeleteAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_at"))
+			it.DeletedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "delete_by":
+		case "deleted_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_by"))
-			it.DeleteBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_by"))
+			it.DeletedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "is_delete":
+		case "is_deleted":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_delete"))
-			it.IsDelete, err = ec.unmarshalNBoolean2bool(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_deleted"))
+			it.IsDeleted, err = ec.unmarshalNBoolean2bool(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -32086,59 +32086,59 @@ func (ec *executionContext) unmarshalInputEnterpriseBlacklistHisOrderBy(ctx cont
 			if err != nil {
 				return it, err
 			}
-		case "create_at":
+		case "created_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_at"))
-			it.CreateAt, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
+			it.CreatedAt, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "create_by":
+		case "created_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_by"))
-			it.CreateBy, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
+			it.CreatedBy, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "update_at":
+		case "updated_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_at"))
-			it.UpdateAt, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("updated_at"))
+			it.UpdatedAt, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "update_by":
+		case "updated_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_by"))
-			it.UpdateBy, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("updated_by"))
+			it.UpdatedBy, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "delete_at":
+		case "deleted_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_at"))
-			it.DeleteAt, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_at"))
+			it.DeletedAt, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "delete_by":
+		case "deleted_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_by"))
-			it.DeleteBy, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_by"))
+			it.DeletedBy, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "is_delete":
+		case "is_deleted":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_delete"))
-			it.IsDelete, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_deleted"))
+			it.IsDeleted, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -32202,59 +32202,59 @@ func (ec *executionContext) unmarshalInputEnterpriseBlacklistHisSetInput(ctx con
 			if err != nil {
 				return it, err
 			}
-		case "create_at":
+		case "created_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_at"))
-			it.CreateAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
+			it.CreatedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "create_by":
+		case "created_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_by"))
-			it.CreateBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
+			it.CreatedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "update_at":
+		case "updated_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_at"))
-			it.UpdateAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("updated_at"))
+			it.UpdatedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "update_by":
+		case "updated_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_by"))
-			it.UpdateBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("updated_by"))
+			it.UpdatedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "delete_at":
+		case "deleted_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_at"))
-			it.DeleteAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_at"))
+			it.DeletedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "delete_by":
+		case "deleted_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_by"))
-			it.DeleteBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_by"))
+			it.DeletedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "is_delete":
+		case "is_deleted":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_delete"))
-			it.IsDelete, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_deleted"))
+			it.IsDeleted, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -32986,59 +32986,59 @@ func (ec *executionContext) unmarshalInputVehicleBlacklistAlarmBoolExp(ctx conte
 			if err != nil {
 				return it, err
 			}
-		case "create_at":
+		case "created_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_at"))
-			it.CreateAt, err = ec.unmarshalOTimestamptzComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
+			it.CreatedAt, err = ec.unmarshalOTimestamptzComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "create_by":
+		case "created_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_by"))
-			it.CreateBy, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
+			it.CreatedBy, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "update_at":
+		case "updated_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_at"))
-			it.UpdateAt, err = ec.unmarshalOTimestamptzComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("updated_at"))
+			it.UpdatedAt, err = ec.unmarshalOTimestamptzComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "update_by":
+		case "updated_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_by"))
-			it.UpdateBy, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("updated_by"))
+			it.UpdatedBy, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "delete_at":
+		case "deleted_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_at"))
-			it.DeleteAt, err = ec.unmarshalOTimestamptzComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_at"))
+			it.DeletedAt, err = ec.unmarshalOTimestamptzComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "delete_by":
+		case "deleted_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_by"))
-			it.DeleteBy, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_by"))
+			it.DeletedBy, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "is_delete":
+		case "is_deleted":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_delete"))
-			it.IsDelete, err = ec.unmarshalOBooleanComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐBooleanComparisonExp(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_deleted"))
+			it.IsDeleted, err = ec.unmarshalOBooleanComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐBooleanComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -33146,59 +33146,59 @@ func (ec *executionContext) unmarshalInputVehicleBlacklistAlarmInsertInput(ctx c
 			if err != nil {
 				return it, err
 			}
-		case "create_at":
+		case "created_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_at"))
-			it.CreateAt, err = ec.unmarshalNTimestamptz2timeᚐTime(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
+			it.CreatedAt, err = ec.unmarshalNTimestamptz2timeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "create_by":
+		case "created_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_by"))
-			it.CreateBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
+			it.CreatedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "update_at":
+		case "updated_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_at"))
-			it.UpdateAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("updated_at"))
+			it.UpdatedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "update_by":
+		case "updated_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_by"))
-			it.UpdateBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("updated_by"))
+			it.UpdatedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "delete_at":
+		case "deleted_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_at"))
-			it.DeleteAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_at"))
+			it.DeletedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "delete_by":
+		case "deleted_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_by"))
-			it.DeleteBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_by"))
+			it.DeletedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "is_delete":
+		case "is_deleted":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_delete"))
-			it.IsDelete, err = ec.unmarshalNBoolean2bool(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_deleted"))
+			it.IsDeleted, err = ec.unmarshalNBoolean2bool(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -33270,59 +33270,59 @@ func (ec *executionContext) unmarshalInputVehicleBlacklistAlarmOrderBy(ctx conte
 			if err != nil {
 				return it, err
 			}
-		case "create_at":
+		case "created_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_at"))
-			it.CreateAt, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
+			it.CreatedAt, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "create_by":
+		case "created_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_by"))
-			it.CreateBy, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
+			it.CreatedBy, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "update_at":
+		case "updated_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_at"))
-			it.UpdateAt, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("updated_at"))
+			it.UpdatedAt, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "update_by":
+		case "updated_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_by"))
-			it.UpdateBy, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("updated_by"))
+			it.UpdatedBy, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "delete_at":
+		case "deleted_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_at"))
-			it.DeleteAt, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_at"))
+			it.DeletedAt, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "delete_by":
+		case "deleted_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_by"))
-			it.DeleteBy, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_by"))
+			it.DeletedBy, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "is_delete":
+		case "is_deleted":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_delete"))
-			it.IsDelete, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_deleted"))
+			it.IsDeleted, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -33394,59 +33394,59 @@ func (ec *executionContext) unmarshalInputVehicleBlacklistAlarmSetInput(ctx cont
 			if err != nil {
 				return it, err
 			}
-		case "create_at":
+		case "created_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_at"))
-			it.CreateAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
+			it.CreatedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "create_by":
+		case "created_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_by"))
-			it.CreateBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
+			it.CreatedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "update_at":
+		case "updated_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_at"))
-			it.UpdateAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("updated_at"))
+			it.UpdatedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "update_by":
+		case "updated_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_by"))
-			it.UpdateBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("updated_by"))
+			it.UpdatedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "delete_at":
+		case "deleted_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_at"))
-			it.DeleteAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_at"))
+			it.DeletedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "delete_by":
+		case "deleted_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_by"))
-			it.DeleteBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_by"))
+			it.DeletedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "is_delete":
+		case "is_deleted":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_delete"))
-			it.IsDelete, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_deleted"))
+			it.IsDeleted, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -33534,59 +33534,59 @@ func (ec *executionContext) unmarshalInputVehicleBlacklistHisBoolExp(ctx context
 			if err != nil {
 				return it, err
 			}
-		case "create_at":
+		case "created_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_at"))
-			it.CreateAt, err = ec.unmarshalOTimestamptzComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
+			it.CreatedAt, err = ec.unmarshalOTimestamptzComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "create_by":
+		case "created_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_by"))
-			it.CreateBy, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
+			it.CreatedBy, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "update_at":
+		case "updated_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_at"))
-			it.UpdateAt, err = ec.unmarshalOTimestamptzComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("updated_at"))
+			it.UpdatedAt, err = ec.unmarshalOTimestamptzComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "update_by":
+		case "updated_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_by"))
-			it.UpdateBy, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("updated_by"))
+			it.UpdatedBy, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "delete_at":
+		case "deleted_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_at"))
-			it.DeleteAt, err = ec.unmarshalOTimestamptzComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_at"))
+			it.DeletedAt, err = ec.unmarshalOTimestamptzComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "delete_by":
+		case "deleted_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_by"))
-			it.DeleteBy, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_by"))
+			it.DeletedBy, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "is_delete":
+		case "is_deleted":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_delete"))
-			it.IsDelete, err = ec.unmarshalOBooleanComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐBooleanComparisonExp(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_deleted"))
+			it.IsDeleted, err = ec.unmarshalOBooleanComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐBooleanComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -33678,59 +33678,59 @@ func (ec *executionContext) unmarshalInputVehicleBlacklistHisInsertInput(ctx con
 			if err != nil {
 				return it, err
 			}
-		case "create_at":
+		case "created_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_at"))
-			it.CreateAt, err = ec.unmarshalNTimestamptz2timeᚐTime(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
+			it.CreatedAt, err = ec.unmarshalNTimestamptz2timeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "create_by":
+		case "created_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_by"))
-			it.CreateBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
+			it.CreatedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "update_at":
+		case "updated_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_at"))
-			it.UpdateAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("updated_at"))
+			it.UpdatedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "update_by":
+		case "updated_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_by"))
-			it.UpdateBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("updated_by"))
+			it.UpdatedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "delete_at":
+		case "deleted_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_at"))
-			it.DeleteAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_at"))
+			it.DeletedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "delete_by":
+		case "deleted_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_by"))
-			it.DeleteBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_by"))
+			it.DeletedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "is_delete":
+		case "is_deleted":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_delete"))
-			it.IsDelete, err = ec.unmarshalNBoolean2bool(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_deleted"))
+			it.IsDeleted, err = ec.unmarshalNBoolean2bool(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -33794,59 +33794,59 @@ func (ec *executionContext) unmarshalInputVehicleBlacklistHisOrderBy(ctx context
 			if err != nil {
 				return it, err
 			}
-		case "create_at":
+		case "created_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_at"))
-			it.CreateAt, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
+			it.CreatedAt, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "create_by":
+		case "created_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_by"))
-			it.CreateBy, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
+			it.CreatedBy, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "update_at":
+		case "updated_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_at"))
-			it.UpdateAt, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("updated_at"))
+			it.UpdatedAt, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "update_by":
+		case "updated_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_by"))
-			it.UpdateBy, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("updated_by"))
+			it.UpdatedBy, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "delete_at":
+		case "deleted_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_at"))
-			it.DeleteAt, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_at"))
+			it.DeletedAt, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "delete_by":
+		case "deleted_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_by"))
-			it.DeleteBy, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_by"))
+			it.DeletedBy, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "is_delete":
+		case "is_deleted":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_delete"))
-			it.IsDelete, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_deleted"))
+			it.IsDeleted, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -33910,59 +33910,59 @@ func (ec *executionContext) unmarshalInputVehicleBlacklistHisSetInput(ctx contex
 			if err != nil {
 				return it, err
 			}
-		case "create_at":
+		case "created_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_at"))
-			it.CreateAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
+			it.CreatedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "create_by":
+		case "created_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_by"))
-			it.CreateBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
+			it.CreatedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "update_at":
+		case "updated_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_at"))
-			it.UpdateAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("updated_at"))
+			it.UpdatedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "update_by":
+		case "updated_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_by"))
-			it.UpdateBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("updated_by"))
+			it.UpdatedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "delete_at":
+		case "deleted_at":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_at"))
-			it.DeleteAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_at"))
+			it.DeletedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "delete_by":
+		case "deleted_by":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_by"))
-			it.DeleteBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_by"))
+			it.DeletedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "is_delete":
+		case "is_deleted":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_delete"))
-			it.IsDelete, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_deleted"))
+			it.IsDeleted, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -34012,23 +34012,23 @@ func (ec *executionContext) _DriverBlacklistApply(ctx context.Context, sel ast.S
 			out.Values[i] = ec._DriverBlacklistApply_blacklist_type(ctx, field, obj)
 		case "state":
 			out.Values[i] = ec._DriverBlacklistApply_state(ctx, field, obj)
-		case "create_at":
-			out.Values[i] = ec._DriverBlacklistApply_create_at(ctx, field, obj)
+		case "created_at":
+			out.Values[i] = ec._DriverBlacklistApply_created_at(ctx, field, obj)
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "create_by":
-			out.Values[i] = ec._DriverBlacklistApply_create_by(ctx, field, obj)
-		case "update_at":
-			out.Values[i] = ec._DriverBlacklistApply_update_at(ctx, field, obj)
-		case "update_by":
-			out.Values[i] = ec._DriverBlacklistApply_update_by(ctx, field, obj)
-		case "delete_at":
-			out.Values[i] = ec._DriverBlacklistApply_delete_at(ctx, field, obj)
-		case "delete_by":
-			out.Values[i] = ec._DriverBlacklistApply_delete_by(ctx, field, obj)
-		case "is_delete":
-			out.Values[i] = ec._DriverBlacklistApply_is_delete(ctx, field, obj)
+		case "created_by":
+			out.Values[i] = ec._DriverBlacklistApply_created_by(ctx, field, obj)
+		case "updated_at":
+			out.Values[i] = ec._DriverBlacklistApply_updated_at(ctx, field, obj)
+		case "updated_by":
+			out.Values[i] = ec._DriverBlacklistApply_updated_by(ctx, field, obj)
+		case "deleted_at":
+			out.Values[i] = ec._DriverBlacklistApply_deleted_at(ctx, field, obj)
+		case "deleted_by":
+			out.Values[i] = ec._DriverBlacklistApply_deleted_by(ctx, field, obj)
+		case "is_deleted":
+			out.Values[i] = ec._DriverBlacklistApply_is_deleted(ctx, field, obj)
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
@@ -34162,20 +34162,20 @@ func (ec *executionContext) _DriverBlacklistApplyMaxFields(ctx context.Context, 
 			out.Values[i] = ec._DriverBlacklistApplyMaxFields_blacklist_type(ctx, field, obj)
 		case "state":
 			out.Values[i] = ec._DriverBlacklistApplyMaxFields_state(ctx, field, obj)
-		case "create_at":
-			out.Values[i] = ec._DriverBlacklistApplyMaxFields_create_at(ctx, field, obj)
-		case "create_by":
-			out.Values[i] = ec._DriverBlacklistApplyMaxFields_create_by(ctx, field, obj)
-		case "update_at":
-			out.Values[i] = ec._DriverBlacklistApplyMaxFields_update_at(ctx, field, obj)
-		case "update_by":
-			out.Values[i] = ec._DriverBlacklistApplyMaxFields_update_by(ctx, field, obj)
-		case "delete_at":
-			out.Values[i] = ec._DriverBlacklistApplyMaxFields_delete_at(ctx, field, obj)
-		case "delete_by":
-			out.Values[i] = ec._DriverBlacklistApplyMaxFields_delete_by(ctx, field, obj)
-		case "is_delete":
-			out.Values[i] = ec._DriverBlacklistApplyMaxFields_is_delete(ctx, field, obj)
+		case "created_at":
+			out.Values[i] = ec._DriverBlacklistApplyMaxFields_created_at(ctx, field, obj)
+		case "created_by":
+			out.Values[i] = ec._DriverBlacklistApplyMaxFields_created_by(ctx, field, obj)
+		case "updated_at":
+			out.Values[i] = ec._DriverBlacklistApplyMaxFields_updated_at(ctx, field, obj)
+		case "updated_by":
+			out.Values[i] = ec._DriverBlacklistApplyMaxFields_updated_by(ctx, field, obj)
+		case "deleted_at":
+			out.Values[i] = ec._DriverBlacklistApplyMaxFields_deleted_at(ctx, field, obj)
+		case "deleted_by":
+			out.Values[i] = ec._DriverBlacklistApplyMaxFields_deleted_by(ctx, field, obj)
+		case "is_deleted":
+			out.Values[i] = ec._DriverBlacklistApplyMaxFields_is_deleted(ctx, field, obj)
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}
@@ -34210,20 +34210,20 @@ func (ec *executionContext) _DriverBlacklistApplyMinFields(ctx context.Context, 
 			out.Values[i] = ec._DriverBlacklistApplyMinFields_blacklist_type(ctx, field, obj)
 		case "state":
 			out.Values[i] = ec._DriverBlacklistApplyMinFields_state(ctx, field, obj)
-		case "create_at":
-			out.Values[i] = ec._DriverBlacklistApplyMinFields_create_at(ctx, field, obj)
-		case "create_by":
-			out.Values[i] = ec._DriverBlacklistApplyMinFields_create_by(ctx, field, obj)
-		case "update_at":
-			out.Values[i] = ec._DriverBlacklistApplyMinFields_update_at(ctx, field, obj)
-		case "update_by":
-			out.Values[i] = ec._DriverBlacklistApplyMinFields_update_by(ctx, field, obj)
-		case "delete_at":
-			out.Values[i] = ec._DriverBlacklistApplyMinFields_delete_at(ctx, field, obj)
-		case "delete_by":
-			out.Values[i] = ec._DriverBlacklistApplyMinFields_delete_by(ctx, field, obj)
-		case "is_delete":
-			out.Values[i] = ec._DriverBlacklistApplyMinFields_is_delete(ctx, field, obj)
+		case "created_at":
+			out.Values[i] = ec._DriverBlacklistApplyMinFields_created_at(ctx, field, obj)
+		case "created_by":
+			out.Values[i] = ec._DriverBlacklistApplyMinFields_created_by(ctx, field, obj)
+		case "updated_at":
+			out.Values[i] = ec._DriverBlacklistApplyMinFields_updated_at(ctx, field, obj)
+		case "updated_by":
+			out.Values[i] = ec._DriverBlacklistApplyMinFields_updated_by(ctx, field, obj)
+		case "deleted_at":
+			out.Values[i] = ec._DriverBlacklistApplyMinFields_deleted_at(ctx, field, obj)
+		case "deleted_by":
+			out.Values[i] = ec._DriverBlacklistApplyMinFields_deleted_by(ctx, field, obj)
+		case "is_deleted":
+			out.Values[i] = ec._DriverBlacklistApplyMinFields_is_deleted(ctx, field, obj)
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}
@@ -34501,23 +34501,23 @@ func (ec *executionContext) _DriverBlacklistHis(ctx context.Context, sel ast.Sel
 			}
 		case "remarks":
 			out.Values[i] = ec._DriverBlacklistHis_remarks(ctx, field, obj)
-		case "create_at":
-			out.Values[i] = ec._DriverBlacklistHis_create_at(ctx, field, obj)
+		case "created_at":
+			out.Values[i] = ec._DriverBlacklistHis_created_at(ctx, field, obj)
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "create_by":
-			out.Values[i] = ec._DriverBlacklistHis_create_by(ctx, field, obj)
-		case "update_at":
-			out.Values[i] = ec._DriverBlacklistHis_update_at(ctx, field, obj)
-		case "update_by":
-			out.Values[i] = ec._DriverBlacklistHis_update_by(ctx, field, obj)
-		case "delete_at":
-			out.Values[i] = ec._DriverBlacklistHis_delete_at(ctx, field, obj)
-		case "delete_by":
-			out.Values[i] = ec._DriverBlacklistHis_delete_by(ctx, field, obj)
-		case "is_delete":
-			out.Values[i] = ec._DriverBlacklistHis_is_delete(ctx, field, obj)
+		case "created_by":
+			out.Values[i] = ec._DriverBlacklistHis_created_by(ctx, field, obj)
+		case "updated_at":
+			out.Values[i] = ec._DriverBlacklistHis_updated_at(ctx, field, obj)
+		case "updated_by":
+			out.Values[i] = ec._DriverBlacklistHis_updated_by(ctx, field, obj)
+		case "deleted_at":
+			out.Values[i] = ec._DriverBlacklistHis_deleted_at(ctx, field, obj)
+		case "deleted_by":
+			out.Values[i] = ec._DriverBlacklistHis_deleted_by(ctx, field, obj)
+		case "is_deleted":
+			out.Values[i] = ec._DriverBlacklistHis_is_deleted(ctx, field, obj)
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
@@ -34661,20 +34661,20 @@ func (ec *executionContext) _DriverBlacklistHisMaxFields(ctx context.Context, se
 			out.Values[i] = ec._DriverBlacklistHisMaxFields_operate(ctx, field, obj)
 		case "remarks":
 			out.Values[i] = ec._DriverBlacklistHisMaxFields_remarks(ctx, field, obj)
-		case "create_at":
-			out.Values[i] = ec._DriverBlacklistHisMaxFields_create_at(ctx, field, obj)
-		case "create_by":
-			out.Values[i] = ec._DriverBlacklistHisMaxFields_create_by(ctx, field, obj)
-		case "update_at":
-			out.Values[i] = ec._DriverBlacklistHisMaxFields_update_at(ctx, field, obj)
-		case "update_by":
-			out.Values[i] = ec._DriverBlacklistHisMaxFields_update_by(ctx, field, obj)
-		case "delete_at":
-			out.Values[i] = ec._DriverBlacklistHisMaxFields_delete_at(ctx, field, obj)
-		case "delete_by":
-			out.Values[i] = ec._DriverBlacklistHisMaxFields_delete_by(ctx, field, obj)
-		case "is_delete":
-			out.Values[i] = ec._DriverBlacklistHisMaxFields_is_delete(ctx, field, obj)
+		case "created_at":
+			out.Values[i] = ec._DriverBlacklistHisMaxFields_created_at(ctx, field, obj)
+		case "created_by":
+			out.Values[i] = ec._DriverBlacklistHisMaxFields_created_by(ctx, field, obj)
+		case "updated_at":
+			out.Values[i] = ec._DriverBlacklistHisMaxFields_updated_at(ctx, field, obj)
+		case "updated_by":
+			out.Values[i] = ec._DriverBlacklistHisMaxFields_updated_by(ctx, field, obj)
+		case "deleted_at":
+			out.Values[i] = ec._DriverBlacklistHisMaxFields_deleted_at(ctx, field, obj)
+		case "deleted_by":
+			out.Values[i] = ec._DriverBlacklistHisMaxFields_deleted_by(ctx, field, obj)
+		case "is_deleted":
+			out.Values[i] = ec._DriverBlacklistHisMaxFields_is_deleted(ctx, field, obj)
 		case "attach_file":
 			out.Values[i] = ec._DriverBlacklistHisMaxFields_attach_file(ctx, field, obj)
 		case "step":
@@ -34717,20 +34717,20 @@ func (ec *executionContext) _DriverBlacklistHisMinFields(ctx context.Context, se
 			out.Values[i] = ec._DriverBlacklistHisMinFields_operate(ctx, field, obj)
 		case "remarks":
 			out.Values[i] = ec._DriverBlacklistHisMinFields_remarks(ctx, field, obj)
-		case "create_at":
-			out.Values[i] = ec._DriverBlacklistHisMinFields_create_at(ctx, field, obj)
-		case "create_by":
-			out.Values[i] = ec._DriverBlacklistHisMinFields_create_by(ctx, field, obj)
-		case "update_at":
-			out.Values[i] = ec._DriverBlacklistHisMinFields_update_at(ctx, field, obj)
-		case "update_by":
-			out.Values[i] = ec._DriverBlacklistHisMinFields_update_by(ctx, field, obj)
-		case "delete_at":
-			out.Values[i] = ec._DriverBlacklistHisMinFields_delete_at(ctx, field, obj)
-		case "delete_by":
-			out.Values[i] = ec._DriverBlacklistHisMinFields_delete_by(ctx, field, obj)
-		case "is_delete":
-			out.Values[i] = ec._DriverBlacklistHisMinFields_is_delete(ctx, field, obj)
+		case "created_at":
+			out.Values[i] = ec._DriverBlacklistHisMinFields_created_at(ctx, field, obj)
+		case "created_by":
+			out.Values[i] = ec._DriverBlacklistHisMinFields_created_by(ctx, field, obj)
+		case "updated_at":
+			out.Values[i] = ec._DriverBlacklistHisMinFields_updated_at(ctx, field, obj)
+		case "updated_by":
+			out.Values[i] = ec._DriverBlacklistHisMinFields_updated_by(ctx, field, obj)
+		case "deleted_at":
+			out.Values[i] = ec._DriverBlacklistHisMinFields_deleted_at(ctx, field, obj)
+		case "deleted_by":
+			out.Values[i] = ec._DriverBlacklistHisMinFields_deleted_by(ctx, field, obj)
+		case "is_deleted":
+			out.Values[i] = ec._DriverBlacklistHisMinFields_is_deleted(ctx, field, obj)
 		case "attach_file":
 			out.Values[i] = ec._DriverBlacklistHisMinFields_attach_file(ctx, field, obj)
 		case "step":
@@ -35038,23 +35038,23 @@ func (ec *executionContext) _EnterpriseBlacklistAlarm(ctx context.Context, sel a
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "create_at":
-			out.Values[i] = ec._EnterpriseBlacklistAlarm_create_at(ctx, field, obj)
+		case "created_at":
+			out.Values[i] = ec._EnterpriseBlacklistAlarm_created_at(ctx, field, obj)
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "create_by":
-			out.Values[i] = ec._EnterpriseBlacklistAlarm_create_by(ctx, field, obj)
-		case "update_at":
-			out.Values[i] = ec._EnterpriseBlacklistAlarm_update_at(ctx, field, obj)
-		case "update_by":
-			out.Values[i] = ec._EnterpriseBlacklistAlarm_update_by(ctx, field, obj)
-		case "delete_at":
-			out.Values[i] = ec._EnterpriseBlacklistAlarm_delete_at(ctx, field, obj)
-		case "delete_by":
-			out.Values[i] = ec._EnterpriseBlacklistAlarm_delete_by(ctx, field, obj)
-		case "is_delete":
-			out.Values[i] = ec._EnterpriseBlacklistAlarm_is_delete(ctx, field, obj)
+		case "created_by":
+			out.Values[i] = ec._EnterpriseBlacklistAlarm_created_by(ctx, field, obj)
+		case "updated_at":
+			out.Values[i] = ec._EnterpriseBlacklistAlarm_updated_at(ctx, field, obj)
+		case "updated_by":
+			out.Values[i] = ec._EnterpriseBlacklistAlarm_updated_by(ctx, field, obj)
+		case "deleted_at":
+			out.Values[i] = ec._EnterpriseBlacklistAlarm_deleted_at(ctx, field, obj)
+		case "deleted_by":
+			out.Values[i] = ec._EnterpriseBlacklistAlarm_deleted_by(ctx, field, obj)
+		case "is_deleted":
+			out.Values[i] = ec._EnterpriseBlacklistAlarm_is_deleted(ctx, field, obj)
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}
@@ -35187,20 +35187,20 @@ func (ec *executionContext) _EnterpriseBlacklistAlarmMaxFields(ctx context.Conte
 			out.Values[i] = ec._EnterpriseBlacklistAlarmMaxFields_is_black(ctx, field, obj)
 		case "is_rank":
 			out.Values[i] = ec._EnterpriseBlacklistAlarmMaxFields_is_rank(ctx, field, obj)
-		case "create_at":
-			out.Values[i] = ec._EnterpriseBlacklistAlarmMaxFields_create_at(ctx, field, obj)
-		case "create_by":
-			out.Values[i] = ec._EnterpriseBlacklistAlarmMaxFields_create_by(ctx, field, obj)
-		case "update_at":
-			out.Values[i] = ec._EnterpriseBlacklistAlarmMaxFields_update_at(ctx, field, obj)
-		case "update_by":
-			out.Values[i] = ec._EnterpriseBlacklistAlarmMaxFields_update_by(ctx, field, obj)
-		case "delete_at":
-			out.Values[i] = ec._EnterpriseBlacklistAlarmMaxFields_delete_at(ctx, field, obj)
-		case "delete_by":
-			out.Values[i] = ec._EnterpriseBlacklistAlarmMaxFields_delete_by(ctx, field, obj)
-		case "is_delete":
-			out.Values[i] = ec._EnterpriseBlacklistAlarmMaxFields_is_delete(ctx, field, obj)
+		case "created_at":
+			out.Values[i] = ec._EnterpriseBlacklistAlarmMaxFields_created_at(ctx, field, obj)
+		case "created_by":
+			out.Values[i] = ec._EnterpriseBlacklistAlarmMaxFields_created_by(ctx, field, obj)
+		case "updated_at":
+			out.Values[i] = ec._EnterpriseBlacklistAlarmMaxFields_updated_at(ctx, field, obj)
+		case "updated_by":
+			out.Values[i] = ec._EnterpriseBlacklistAlarmMaxFields_updated_by(ctx, field, obj)
+		case "deleted_at":
+			out.Values[i] = ec._EnterpriseBlacklistAlarmMaxFields_deleted_at(ctx, field, obj)
+		case "deleted_by":
+			out.Values[i] = ec._EnterpriseBlacklistAlarmMaxFields_deleted_by(ctx, field, obj)
+		case "is_deleted":
+			out.Values[i] = ec._EnterpriseBlacklistAlarmMaxFields_is_deleted(ctx, field, obj)
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}
@@ -35237,20 +35237,20 @@ func (ec *executionContext) _EnterpriseBlacklistAlarmMinFields(ctx context.Conte
 			out.Values[i] = ec._EnterpriseBlacklistAlarmMinFields_is_black(ctx, field, obj)
 		case "is_rank":
 			out.Values[i] = ec._EnterpriseBlacklistAlarmMinFields_is_rank(ctx, field, obj)
-		case "create_at":
-			out.Values[i] = ec._EnterpriseBlacklistAlarmMinFields_create_at(ctx, field, obj)
-		case "create_by":
-			out.Values[i] = ec._EnterpriseBlacklistAlarmMinFields_create_by(ctx, field, obj)
-		case "update_at":
-			out.Values[i] = ec._EnterpriseBlacklistAlarmMinFields_update_at(ctx, field, obj)
-		case "update_by":
-			out.Values[i] = ec._EnterpriseBlacklistAlarmMinFields_update_by(ctx, field, obj)
-		case "delete_at":
-			out.Values[i] = ec._EnterpriseBlacklistAlarmMinFields_delete_at(ctx, field, obj)
-		case "delete_by":
-			out.Values[i] = ec._EnterpriseBlacklistAlarmMinFields_delete_by(ctx, field, obj)
-		case "is_delete":
-			out.Values[i] = ec._EnterpriseBlacklistAlarmMinFields_is_delete(ctx, field, obj)
+		case "created_at":
+			out.Values[i] = ec._EnterpriseBlacklistAlarmMinFields_created_at(ctx, field, obj)
+		case "created_by":
+			out.Values[i] = ec._EnterpriseBlacklistAlarmMinFields_created_by(ctx, field, obj)
+		case "updated_at":
+			out.Values[i] = ec._EnterpriseBlacklistAlarmMinFields_updated_at(ctx, field, obj)
+		case "updated_by":
+			out.Values[i] = ec._EnterpriseBlacklistAlarmMinFields_updated_by(ctx, field, obj)
+		case "deleted_at":
+			out.Values[i] = ec._EnterpriseBlacklistAlarmMinFields_deleted_at(ctx, field, obj)
+		case "deleted_by":
+			out.Values[i] = ec._EnterpriseBlacklistAlarmMinFields_deleted_by(ctx, field, obj)
+		case "is_deleted":
+			out.Values[i] = ec._EnterpriseBlacklistAlarmMinFields_is_deleted(ctx, field, obj)
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}
@@ -35528,23 +35528,23 @@ func (ec *executionContext) _EnterpriseBlacklistHis(ctx context.Context, sel ast
 			}
 		case "remarks":
 			out.Values[i] = ec._EnterpriseBlacklistHis_remarks(ctx, field, obj)
-		case "create_at":
-			out.Values[i] = ec._EnterpriseBlacklistHis_create_at(ctx, field, obj)
+		case "created_at":
+			out.Values[i] = ec._EnterpriseBlacklistHis_created_at(ctx, field, obj)
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "create_by":
-			out.Values[i] = ec._EnterpriseBlacklistHis_create_by(ctx, field, obj)
-		case "update_at":
-			out.Values[i] = ec._EnterpriseBlacklistHis_update_at(ctx, field, obj)
-		case "update_by":
-			out.Values[i] = ec._EnterpriseBlacklistHis_update_by(ctx, field, obj)
-		case "delete_at":
-			out.Values[i] = ec._EnterpriseBlacklistHis_delete_at(ctx, field, obj)
-		case "delete_by":
-			out.Values[i] = ec._EnterpriseBlacklistHis_delete_by(ctx, field, obj)
-		case "is_delete":
-			out.Values[i] = ec._EnterpriseBlacklistHis_is_delete(ctx, field, obj)
+		case "created_by":
+			out.Values[i] = ec._EnterpriseBlacklistHis_created_by(ctx, field, obj)
+		case "updated_at":
+			out.Values[i] = ec._EnterpriseBlacklistHis_updated_at(ctx, field, obj)
+		case "updated_by":
+			out.Values[i] = ec._EnterpriseBlacklistHis_updated_by(ctx, field, obj)
+		case "deleted_at":
+			out.Values[i] = ec._EnterpriseBlacklistHis_deleted_at(ctx, field, obj)
+		case "deleted_by":
+			out.Values[i] = ec._EnterpriseBlacklistHis_deleted_by(ctx, field, obj)
+		case "is_deleted":
+			out.Values[i] = ec._EnterpriseBlacklistHis_is_deleted(ctx, field, obj)
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
@@ -35678,20 +35678,20 @@ func (ec *executionContext) _EnterpriseBlacklistHisMaxFields(ctx context.Context
 			out.Values[i] = ec._EnterpriseBlacklistHisMaxFields_operate(ctx, field, obj)
 		case "remarks":
 			out.Values[i] = ec._EnterpriseBlacklistHisMaxFields_remarks(ctx, field, obj)
-		case "create_at":
-			out.Values[i] = ec._EnterpriseBlacklistHisMaxFields_create_at(ctx, field, obj)
-		case "create_by":
-			out.Values[i] = ec._EnterpriseBlacklistHisMaxFields_create_by(ctx, field, obj)
-		case "update_at":
-			out.Values[i] = ec._EnterpriseBlacklistHisMaxFields_update_at(ctx, field, obj)
-		case "update_by":
-			out.Values[i] = ec._EnterpriseBlacklistHisMaxFields_update_by(ctx, field, obj)
-		case "delete_at":
-			out.Values[i] = ec._EnterpriseBlacklistHisMaxFields_delete_at(ctx, field, obj)
-		case "delete_by":
-			out.Values[i] = ec._EnterpriseBlacklistHisMaxFields_delete_by(ctx, field, obj)
-		case "is_delete":
-			out.Values[i] = ec._EnterpriseBlacklistHisMaxFields_is_delete(ctx, field, obj)
+		case "created_at":
+			out.Values[i] = ec._EnterpriseBlacklistHisMaxFields_created_at(ctx, field, obj)
+		case "created_by":
+			out.Values[i] = ec._EnterpriseBlacklistHisMaxFields_created_by(ctx, field, obj)
+		case "updated_at":
+			out.Values[i] = ec._EnterpriseBlacklistHisMaxFields_updated_at(ctx, field, obj)
+		case "updated_by":
+			out.Values[i] = ec._EnterpriseBlacklistHisMaxFields_updated_by(ctx, field, obj)
+		case "deleted_at":
+			out.Values[i] = ec._EnterpriseBlacklistHisMaxFields_deleted_at(ctx, field, obj)
+		case "deleted_by":
+			out.Values[i] = ec._EnterpriseBlacklistHisMaxFields_deleted_by(ctx, field, obj)
+		case "is_deleted":
+			out.Values[i] = ec._EnterpriseBlacklistHisMaxFields_is_deleted(ctx, field, obj)
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}
@@ -35726,20 +35726,20 @@ func (ec *executionContext) _EnterpriseBlacklistHisMinFields(ctx context.Context
 			out.Values[i] = ec._EnterpriseBlacklistHisMinFields_operate(ctx, field, obj)
 		case "remarks":
 			out.Values[i] = ec._EnterpriseBlacklistHisMinFields_remarks(ctx, field, obj)
-		case "create_at":
-			out.Values[i] = ec._EnterpriseBlacklistHisMinFields_create_at(ctx, field, obj)
-		case "create_by":
-			out.Values[i] = ec._EnterpriseBlacklistHisMinFields_create_by(ctx, field, obj)
-		case "update_at":
-			out.Values[i] = ec._EnterpriseBlacklistHisMinFields_update_at(ctx, field, obj)
-		case "update_by":
-			out.Values[i] = ec._EnterpriseBlacklistHisMinFields_update_by(ctx, field, obj)
-		case "delete_at":
-			out.Values[i] = ec._EnterpriseBlacklistHisMinFields_delete_at(ctx, field, obj)
-		case "delete_by":
-			out.Values[i] = ec._EnterpriseBlacklistHisMinFields_delete_by(ctx, field, obj)
-		case "is_delete":
-			out.Values[i] = ec._EnterpriseBlacklistHisMinFields_is_delete(ctx, field, obj)
+		case "created_at":
+			out.Values[i] = ec._EnterpriseBlacklistHisMinFields_created_at(ctx, field, obj)
+		case "created_by":
+			out.Values[i] = ec._EnterpriseBlacklistHisMinFields_created_by(ctx, field, obj)
+		case "updated_at":
+			out.Values[i] = ec._EnterpriseBlacklistHisMinFields_updated_at(ctx, field, obj)
+		case "updated_by":
+			out.Values[i] = ec._EnterpriseBlacklistHisMinFields_updated_by(ctx, field, obj)
+		case "deleted_at":
+			out.Values[i] = ec._EnterpriseBlacklistHisMinFields_deleted_at(ctx, field, obj)
+		case "deleted_by":
+			out.Values[i] = ec._EnterpriseBlacklistHisMinFields_deleted_by(ctx, field, obj)
+		case "is_deleted":
+			out.Values[i] = ec._EnterpriseBlacklistHisMinFields_is_deleted(ctx, field, obj)
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}
@@ -36501,23 +36501,23 @@ func (ec *executionContext) _VehicleBlacklistAlarm(ctx context.Context, sel ast.
 			out.Values[i] = ec._VehicleBlacklistAlarm_score_num(ctx, field, obj)
 		case "score_count":
 			out.Values[i] = ec._VehicleBlacklistAlarm_score_count(ctx, field, obj)
-		case "create_at":
-			out.Values[i] = ec._VehicleBlacklistAlarm_create_at(ctx, field, obj)
+		case "created_at":
+			out.Values[i] = ec._VehicleBlacklistAlarm_created_at(ctx, field, obj)
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "create_by":
-			out.Values[i] = ec._VehicleBlacklistAlarm_create_by(ctx, field, obj)
-		case "update_at":
-			out.Values[i] = ec._VehicleBlacklistAlarm_update_at(ctx, field, obj)
-		case "update_by":
-			out.Values[i] = ec._VehicleBlacklistAlarm_update_by(ctx, field, obj)
-		case "delete_at":
-			out.Values[i] = ec._VehicleBlacklistAlarm_delete_at(ctx, field, obj)
-		case "delete_by":
-			out.Values[i] = ec._VehicleBlacklistAlarm_delete_by(ctx, field, obj)
-		case "is_delete":
-			out.Values[i] = ec._VehicleBlacklistAlarm_is_delete(ctx, field, obj)
+		case "created_by":
+			out.Values[i] = ec._VehicleBlacklistAlarm_created_by(ctx, field, obj)
+		case "updated_at":
+			out.Values[i] = ec._VehicleBlacklistAlarm_updated_at(ctx, field, obj)
+		case "updated_by":
+			out.Values[i] = ec._VehicleBlacklistAlarm_updated_by(ctx, field, obj)
+		case "deleted_at":
+			out.Values[i] = ec._VehicleBlacklistAlarm_deleted_at(ctx, field, obj)
+		case "deleted_by":
+			out.Values[i] = ec._VehicleBlacklistAlarm_deleted_by(ctx, field, obj)
+		case "is_deleted":
+			out.Values[i] = ec._VehicleBlacklistAlarm_is_deleted(ctx, field, obj)
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
@@ -36655,20 +36655,20 @@ func (ec *executionContext) _VehicleBlacklistAlarmMaxFields(ctx context.Context,
 			out.Values[i] = ec._VehicleBlacklistAlarmMaxFields_score_num(ctx, field, obj)
 		case "score_count":
 			out.Values[i] = ec._VehicleBlacklistAlarmMaxFields_score_count(ctx, field, obj)
-		case "create_at":
-			out.Values[i] = ec._VehicleBlacklistAlarmMaxFields_create_at(ctx, field, obj)
-		case "create_by":
-			out.Values[i] = ec._VehicleBlacklistAlarmMaxFields_create_by(ctx, field, obj)
-		case "update_at":
-			out.Values[i] = ec._VehicleBlacklistAlarmMaxFields_update_at(ctx, field, obj)
-		case "update_by":
-			out.Values[i] = ec._VehicleBlacklistAlarmMaxFields_update_by(ctx, field, obj)
-		case "delete_at":
-			out.Values[i] = ec._VehicleBlacklistAlarmMaxFields_delete_at(ctx, field, obj)
-		case "delete_by":
-			out.Values[i] = ec._VehicleBlacklistAlarmMaxFields_delete_by(ctx, field, obj)
-		case "is_delete":
-			out.Values[i] = ec._VehicleBlacklistAlarmMaxFields_is_delete(ctx, field, obj)
+		case "created_at":
+			out.Values[i] = ec._VehicleBlacklistAlarmMaxFields_created_at(ctx, field, obj)
+		case "created_by":
+			out.Values[i] = ec._VehicleBlacklistAlarmMaxFields_created_by(ctx, field, obj)
+		case "updated_at":
+			out.Values[i] = ec._VehicleBlacklistAlarmMaxFields_updated_at(ctx, field, obj)
+		case "updated_by":
+			out.Values[i] = ec._VehicleBlacklistAlarmMaxFields_updated_by(ctx, field, obj)
+		case "deleted_at":
+			out.Values[i] = ec._VehicleBlacklistAlarmMaxFields_deleted_at(ctx, field, obj)
+		case "deleted_by":
+			out.Values[i] = ec._VehicleBlacklistAlarmMaxFields_deleted_by(ctx, field, obj)
+		case "is_deleted":
+			out.Values[i] = ec._VehicleBlacklistAlarmMaxFields_is_deleted(ctx, field, obj)
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}
@@ -36705,20 +36705,20 @@ func (ec *executionContext) _VehicleBlacklistAlarmMinFields(ctx context.Context,
 			out.Values[i] = ec._VehicleBlacklistAlarmMinFields_score_num(ctx, field, obj)
 		case "score_count":
 			out.Values[i] = ec._VehicleBlacklistAlarmMinFields_score_count(ctx, field, obj)
-		case "create_at":
-			out.Values[i] = ec._VehicleBlacklistAlarmMinFields_create_at(ctx, field, obj)
-		case "create_by":
-			out.Values[i] = ec._VehicleBlacklistAlarmMinFields_create_by(ctx, field, obj)
-		case "update_at":
-			out.Values[i] = ec._VehicleBlacklistAlarmMinFields_update_at(ctx, field, obj)
-		case "update_by":
-			out.Values[i] = ec._VehicleBlacklistAlarmMinFields_update_by(ctx, field, obj)
-		case "delete_at":
-			out.Values[i] = ec._VehicleBlacklistAlarmMinFields_delete_at(ctx, field, obj)
-		case "delete_by":
-			out.Values[i] = ec._VehicleBlacklistAlarmMinFields_delete_by(ctx, field, obj)
-		case "is_delete":
-			out.Values[i] = ec._VehicleBlacklistAlarmMinFields_is_delete(ctx, field, obj)
+		case "created_at":
+			out.Values[i] = ec._VehicleBlacklistAlarmMinFields_created_at(ctx, field, obj)
+		case "created_by":
+			out.Values[i] = ec._VehicleBlacklistAlarmMinFields_created_by(ctx, field, obj)
+		case "updated_at":
+			out.Values[i] = ec._VehicleBlacklistAlarmMinFields_updated_at(ctx, field, obj)
+		case "updated_by":
+			out.Values[i] = ec._VehicleBlacklistAlarmMinFields_updated_by(ctx, field, obj)
+		case "deleted_at":
+			out.Values[i] = ec._VehicleBlacklistAlarmMinFields_deleted_at(ctx, field, obj)
+		case "deleted_by":
+			out.Values[i] = ec._VehicleBlacklistAlarmMinFields_deleted_by(ctx, field, obj)
+		case "is_deleted":
+			out.Values[i] = ec._VehicleBlacklistAlarmMinFields_is_deleted(ctx, field, obj)
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}
@@ -37010,23 +37010,23 @@ func (ec *executionContext) _VehicleBlacklistHis(ctx context.Context, sel ast.Se
 			}
 		case "remarks":
 			out.Values[i] = ec._VehicleBlacklistHis_remarks(ctx, field, obj)
-		case "create_at":
-			out.Values[i] = ec._VehicleBlacklistHis_create_at(ctx, field, obj)
+		case "created_at":
+			out.Values[i] = ec._VehicleBlacklistHis_created_at(ctx, field, obj)
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "create_by":
-			out.Values[i] = ec._VehicleBlacklistHis_create_by(ctx, field, obj)
-		case "update_at":
-			out.Values[i] = ec._VehicleBlacklistHis_update_at(ctx, field, obj)
-		case "update_by":
-			out.Values[i] = ec._VehicleBlacklistHis_update_by(ctx, field, obj)
-		case "delete_at":
-			out.Values[i] = ec._VehicleBlacklistHis_delete_at(ctx, field, obj)
-		case "delete_by":
-			out.Values[i] = ec._VehicleBlacklistHis_delete_by(ctx, field, obj)
-		case "is_delete":
-			out.Values[i] = ec._VehicleBlacklistHis_is_delete(ctx, field, obj)
+		case "created_by":
+			out.Values[i] = ec._VehicleBlacklistHis_created_by(ctx, field, obj)
+		case "updated_at":
+			out.Values[i] = ec._VehicleBlacklistHis_updated_at(ctx, field, obj)
+		case "updated_by":
+			out.Values[i] = ec._VehicleBlacklistHis_updated_by(ctx, field, obj)
+		case "deleted_at":
+			out.Values[i] = ec._VehicleBlacklistHis_deleted_at(ctx, field, obj)
+		case "deleted_by":
+			out.Values[i] = ec._VehicleBlacklistHis_deleted_by(ctx, field, obj)
+		case "is_deleted":
+			out.Values[i] = ec._VehicleBlacklistHis_is_deleted(ctx, field, obj)
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
@@ -37160,20 +37160,20 @@ func (ec *executionContext) _VehicleBlacklistHisMaxFields(ctx context.Context, s
 			out.Values[i] = ec._VehicleBlacklistHisMaxFields_operate(ctx, field, obj)
 		case "remarks":
 			out.Values[i] = ec._VehicleBlacklistHisMaxFields_remarks(ctx, field, obj)
-		case "create_at":
-			out.Values[i] = ec._VehicleBlacklistHisMaxFields_create_at(ctx, field, obj)
-		case "create_by":
-			out.Values[i] = ec._VehicleBlacklistHisMaxFields_create_by(ctx, field, obj)
-		case "update_at":
-			out.Values[i] = ec._VehicleBlacklistHisMaxFields_update_at(ctx, field, obj)
-		case "update_by":
-			out.Values[i] = ec._VehicleBlacklistHisMaxFields_update_by(ctx, field, obj)
-		case "delete_at":
-			out.Values[i] = ec._VehicleBlacklistHisMaxFields_delete_at(ctx, field, obj)
-		case "delete_by":
-			out.Values[i] = ec._VehicleBlacklistHisMaxFields_delete_by(ctx, field, obj)
-		case "is_delete":
-			out.Values[i] = ec._VehicleBlacklistHisMaxFields_is_delete(ctx, field, obj)
+		case "created_at":
+			out.Values[i] = ec._VehicleBlacklistHisMaxFields_created_at(ctx, field, obj)
+		case "created_by":
+			out.Values[i] = ec._VehicleBlacklistHisMaxFields_created_by(ctx, field, obj)
+		case "updated_at":
+			out.Values[i] = ec._VehicleBlacklistHisMaxFields_updated_at(ctx, field, obj)
+		case "updated_by":
+			out.Values[i] = ec._VehicleBlacklistHisMaxFields_updated_by(ctx, field, obj)
+		case "deleted_at":
+			out.Values[i] = ec._VehicleBlacklistHisMaxFields_deleted_at(ctx, field, obj)
+		case "deleted_by":
+			out.Values[i] = ec._VehicleBlacklistHisMaxFields_deleted_by(ctx, field, obj)
+		case "is_deleted":
+			out.Values[i] = ec._VehicleBlacklistHisMaxFields_is_deleted(ctx, field, obj)
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}
@@ -37208,20 +37208,20 @@ func (ec *executionContext) _VehicleBlacklistHisMinFields(ctx context.Context, s
 			out.Values[i] = ec._VehicleBlacklistHisMinFields_operate(ctx, field, obj)
 		case "remarks":
 			out.Values[i] = ec._VehicleBlacklistHisMinFields_remarks(ctx, field, obj)
-		case "create_at":
-			out.Values[i] = ec._VehicleBlacklistHisMinFields_create_at(ctx, field, obj)
-		case "create_by":
-			out.Values[i] = ec._VehicleBlacklistHisMinFields_create_by(ctx, field, obj)
-		case "update_at":
-			out.Values[i] = ec._VehicleBlacklistHisMinFields_update_at(ctx, field, obj)
-		case "update_by":
-			out.Values[i] = ec._VehicleBlacklistHisMinFields_update_by(ctx, field, obj)
-		case "delete_at":
-			out.Values[i] = ec._VehicleBlacklistHisMinFields_delete_at(ctx, field, obj)
-		case "delete_by":
-			out.Values[i] = ec._VehicleBlacklistHisMinFields_delete_by(ctx, field, obj)
-		case "is_delete":
-			out.Values[i] = ec._VehicleBlacklistHisMinFields_is_delete(ctx, field, obj)
+		case "created_at":
+			out.Values[i] = ec._VehicleBlacklistHisMinFields_created_at(ctx, field, obj)
+		case "created_by":
+			out.Values[i] = ec._VehicleBlacklistHisMinFields_created_by(ctx, field, obj)
+		case "updated_at":
+			out.Values[i] = ec._VehicleBlacklistHisMinFields_updated_at(ctx, field, obj)
+		case "updated_by":
+			out.Values[i] = ec._VehicleBlacklistHisMinFields_updated_by(ctx, field, obj)
+		case "deleted_at":
+			out.Values[i] = ec._VehicleBlacklistHisMinFields_deleted_at(ctx, field, obj)
+		case "deleted_by":
+			out.Values[i] = ec._VehicleBlacklistHisMinFields_deleted_by(ctx, field, obj)
+		case "is_deleted":
+			out.Values[i] = ec._VehicleBlacklistHisMinFields_is_deleted(ctx, field, obj)
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}

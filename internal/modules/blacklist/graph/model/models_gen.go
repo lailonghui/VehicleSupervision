@@ -49,13 +49,13 @@ type DriverBlacklistApplyBoolExp struct {
 	ApplyReason   *model.StringComparisonExp      `json:"apply_reason"`
 	BlacklistType *model.IntComparisonExp         `json:"blacklist_type"`
 	State         *model.IntComparisonExp         `json:"state"`
-	CreateAt      *model.TimestamptzComparisonExp `json:"create_at"`
-	CreateBy      *model.StringComparisonExp      `json:"create_by"`
-	UpdateAt      *model.TimestamptzComparisonExp `json:"update_at"`
-	UpdateBy      *model.StringComparisonExp      `json:"update_by"`
-	DeleteAt      *model.TimestamptzComparisonExp `json:"delete_at"`
-	DeleteBy      *model.StringComparisonExp      `json:"delete_by"`
-	IsDelete      *model.BooleanComparisonExp     `json:"is_delete"`
+	CreatedAt     *model.TimestamptzComparisonExp `json:"created_at"`
+	CreatedBy     *model.StringComparisonExp      `json:"created_by"`
+	UpdatedAt     *model.TimestamptzComparisonExp `json:"updated_at"`
+	UpdatedBy     *model.StringComparisonExp      `json:"updated_by"`
+	DeletedAt     *model.TimestamptzComparisonExp `json:"deleted_at"`
+	DeletedBy     *model.StringComparisonExp      `json:"deleted_by"`
+	IsDeleted     *model.BooleanComparisonExp     `json:"is_deleted"`
 }
 
 // input type for incrementing integer column in table "driver_blacklist_apply"
@@ -72,13 +72,13 @@ type DriverBlacklistApplyInsertInput struct {
 	ApplyReason   *string    `json:"apply_reason"`
 	BlacklistType *int       `json:"blacklist_type"`
 	State         *int       `json:"state"`
-	CreateAt      time.Time  `json:"create_at"`
-	CreateBy      *string    `json:"create_by"`
-	UpdateAt      *time.Time `json:"update_at"`
-	UpdateBy      *string    `json:"update_by"`
-	DeleteAt      *time.Time `json:"delete_at"`
-	DeleteBy      *string    `json:"delete_by"`
-	IsDelete      bool       `json:"is_delete"`
+	CreatedAt     time.Time  `json:"created_at"`
+	CreatedBy     *string    `json:"created_by"`
+	UpdatedAt     *time.Time `json:"updated_at"`
+	UpdatedBy     *string    `json:"updated_by"`
+	DeletedAt     *time.Time `json:"deleted_at"`
+	DeletedBy     *string    `json:"deleted_by"`
+	IsDeleted     bool       `json:"is_deleted"`
 }
 
 // aggregate max on columns of table "driver_blacklist_apply"
@@ -89,13 +89,13 @@ type DriverBlacklistApplyMaxFields struct {
 	ApplyReason   *string    `json:"apply_reason"`
 	BlacklistType *int       `json:"blacklist_type"`
 	State         *int       `json:"state"`
-	CreateAt      *time.Time `json:"create_at"`
-	CreateBy      *string    `json:"create_by"`
-	UpdateAt      *time.Time `json:"update_at"`
-	UpdateBy      *string    `json:"update_by"`
-	DeleteAt      *time.Time `json:"delete_at"`
-	DeleteBy      *string    `json:"delete_by"`
-	IsDelete      *bool      `json:"is_delete"`
+	CreatedAt     *time.Time `json:"created_at"`
+	CreatedBy     *string    `json:"created_by"`
+	UpdatedAt     *time.Time `json:"updated_at"`
+	UpdatedBy     *string    `json:"updated_by"`
+	DeletedAt     *time.Time `json:"deleted_at"`
+	DeletedBy     *string    `json:"deleted_by"`
+	IsDeleted     *bool      `json:"is_deleted"`
 }
 
 // aggregate min on columns of table "driver_blacklist_apply"
@@ -106,13 +106,13 @@ type DriverBlacklistApplyMinFields struct {
 	ApplyReason   *string    `json:"apply_reason"`
 	BlacklistType *int       `json:"blacklist_type"`
 	State         *int       `json:"state"`
-	CreateAt      *time.Time `json:"create_at"`
-	CreateBy      *string    `json:"create_by"`
-	UpdateAt      *time.Time `json:"update_at"`
-	UpdateBy      *string    `json:"update_by"`
-	DeleteAt      *time.Time `json:"delete_at"`
-	DeleteBy      *string    `json:"delete_by"`
-	IsDelete      *bool      `json:"is_delete"`
+	CreatedAt     *time.Time `json:"created_at"`
+	CreatedBy     *string    `json:"created_by"`
+	UpdatedAt     *time.Time `json:"updated_at"`
+	UpdatedBy     *string    `json:"updated_by"`
+	DeletedAt     *time.Time `json:"deleted_at"`
+	DeletedBy     *string    `json:"deleted_by"`
+	IsDeleted     *bool      `json:"is_deleted"`
 }
 
 // response of any mutation on the table "driver_blacklist_apply"
@@ -129,13 +129,13 @@ type DriverBlacklistApplyOrderBy struct {
 	ApplyReason   *model.OrderBy `json:"apply_reason"`
 	BlacklistType *model.OrderBy `json:"blacklist_type"`
 	State         *model.OrderBy `json:"state"`
-	CreateAt      *model.OrderBy `json:"create_at"`
-	CreateBy      *model.OrderBy `json:"create_by"`
-	UpdateAt      *model.OrderBy `json:"update_at"`
-	UpdateBy      *model.OrderBy `json:"update_by"`
-	DeleteAt      *model.OrderBy `json:"delete_at"`
-	DeleteBy      *model.OrderBy `json:"delete_by"`
-	IsDelete      *model.OrderBy `json:"is_delete"`
+	CreatedAt     *model.OrderBy `json:"created_at"`
+	CreatedBy     *model.OrderBy `json:"created_by"`
+	UpdatedAt     *model.OrderBy `json:"updated_at"`
+	UpdatedBy     *model.OrderBy `json:"updated_by"`
+	DeletedAt     *model.OrderBy `json:"deleted_at"`
+	DeletedBy     *model.OrderBy `json:"deleted_by"`
+	IsDeleted     *model.OrderBy `json:"is_deleted"`
 }
 
 // input type for updating data in table "driver_blacklist_apply"
@@ -146,13 +146,13 @@ type DriverBlacklistApplySetInput struct {
 	ApplyReason   *string    `json:"apply_reason"`
 	BlacklistType *int       `json:"blacklist_type"`
 	State         *int       `json:"state"`
-	CreateAt      *time.Time `json:"create_at"`
-	CreateBy      *string    `json:"create_by"`
-	UpdateAt      *time.Time `json:"update_at"`
-	UpdateBy      *string    `json:"update_by"`
-	DeleteAt      *time.Time `json:"delete_at"`
-	DeleteBy      *string    `json:"delete_by"`
-	IsDelete      *bool      `json:"is_delete"`
+	CreatedAt     *time.Time `json:"created_at"`
+	CreatedBy     *string    `json:"created_by"`
+	UpdatedAt     *time.Time `json:"updated_at"`
+	UpdatedBy     *string    `json:"updated_by"`
+	DeletedAt     *time.Time `json:"deleted_at"`
+	DeletedBy     *string    `json:"deleted_by"`
+	IsDeleted     *bool      `json:"is_deleted"`
 }
 
 // aggregate stddev on columns of table "driver_blacklist_apply"
@@ -243,13 +243,13 @@ type DriverBlacklistHisBoolExp struct {
 	BlacklistType *model.IntComparisonExp         `json:"blacklist_type"`
 	Operate       *model.IntComparisonExp         `json:"operate"`
 	Remarks       *model.StringComparisonExp      `json:"remarks"`
-	CreateAt      *model.TimestamptzComparisonExp `json:"create_at"`
-	CreateBy      *model.StringComparisonExp      `json:"create_by"`
-	UpdateAt      *model.TimestamptzComparisonExp `json:"update_at"`
-	UpdateBy      *model.StringComparisonExp      `json:"update_by"`
-	DeleteAt      *model.TimestamptzComparisonExp `json:"delete_at"`
-	DeleteBy      *model.StringComparisonExp      `json:"delete_by"`
-	IsDelete      *model.BooleanComparisonExp     `json:"is_delete"`
+	CreatedAt     *model.TimestamptzComparisonExp `json:"created_at"`
+	CreatedBy     *model.StringComparisonExp      `json:"created_by"`
+	UpdatedAt     *model.TimestamptzComparisonExp `json:"updated_at"`
+	UpdatedBy     *model.StringComparisonExp      `json:"updated_by"`
+	DeletedAt     *model.TimestamptzComparisonExp `json:"deleted_at"`
+	DeletedBy     *model.StringComparisonExp      `json:"deleted_by"`
+	IsDeleted     *model.BooleanComparisonExp     `json:"is_deleted"`
 	AttachFile    *model.StringComparisonExp      `json:"attach_file"`
 	Step          *model.IntComparisonExp         `json:"step"`
 	ApplyID       *model.StringComparisonExp      `json:"apply_id"`
@@ -271,13 +271,13 @@ type DriverBlacklistHisInsertInput struct {
 	BlacklistType int        `json:"blacklist_type"`
 	Operate       int        `json:"operate"`
 	Remarks       *string    `json:"remarks"`
-	CreateAt      time.Time  `json:"create_at"`
-	CreateBy      *string    `json:"create_by"`
-	UpdateAt      *time.Time `json:"update_at"`
-	UpdateBy      *string    `json:"update_by"`
-	DeleteAt      *time.Time `json:"delete_at"`
-	DeleteBy      *string    `json:"delete_by"`
-	IsDelete      bool       `json:"is_delete"`
+	CreatedAt     time.Time  `json:"created_at"`
+	CreatedBy     *string    `json:"created_by"`
+	UpdatedAt     *time.Time `json:"updated_at"`
+	UpdatedBy     *string    `json:"updated_by"`
+	DeletedAt     *time.Time `json:"deleted_at"`
+	DeletedBy     *string    `json:"deleted_by"`
+	IsDeleted     bool       `json:"is_deleted"`
 	AttachFile    *string    `json:"attach_file"`
 	Step          *int       `json:"step"`
 	ApplyID       *string    `json:"apply_id"`
@@ -292,13 +292,13 @@ type DriverBlacklistHisMaxFields struct {
 	BlacklistType *int       `json:"blacklist_type"`
 	Operate       *int       `json:"operate"`
 	Remarks       *string    `json:"remarks"`
-	CreateAt      *time.Time `json:"create_at"`
-	CreateBy      *string    `json:"create_by"`
-	UpdateAt      *time.Time `json:"update_at"`
-	UpdateBy      *string    `json:"update_by"`
-	DeleteAt      *time.Time `json:"delete_at"`
-	DeleteBy      *string    `json:"delete_by"`
-	IsDelete      *bool      `json:"is_delete"`
+	CreatedAt     *time.Time `json:"created_at"`
+	CreatedBy     *string    `json:"created_by"`
+	UpdatedAt     *time.Time `json:"updated_at"`
+	UpdatedBy     *string    `json:"updated_by"`
+	DeletedAt     *time.Time `json:"deleted_at"`
+	DeletedBy     *string    `json:"deleted_by"`
+	IsDeleted     *bool      `json:"is_deleted"`
 	AttachFile    *string    `json:"attach_file"`
 	Step          *int       `json:"step"`
 	ApplyID       *string    `json:"apply_id"`
@@ -313,13 +313,13 @@ type DriverBlacklistHisMinFields struct {
 	BlacklistType *int       `json:"blacklist_type"`
 	Operate       *int       `json:"operate"`
 	Remarks       *string    `json:"remarks"`
-	CreateAt      *time.Time `json:"create_at"`
-	CreateBy      *string    `json:"create_by"`
-	UpdateAt      *time.Time `json:"update_at"`
-	UpdateBy      *string    `json:"update_by"`
-	DeleteAt      *time.Time `json:"delete_at"`
-	DeleteBy      *string    `json:"delete_by"`
-	IsDelete      *bool      `json:"is_delete"`
+	CreatedAt     *time.Time `json:"created_at"`
+	CreatedBy     *string    `json:"created_by"`
+	UpdatedAt     *time.Time `json:"updated_at"`
+	UpdatedBy     *string    `json:"updated_by"`
+	DeletedAt     *time.Time `json:"deleted_at"`
+	DeletedBy     *string    `json:"deleted_by"`
+	IsDeleted     *bool      `json:"is_deleted"`
 	AttachFile    *string    `json:"attach_file"`
 	Step          *int       `json:"step"`
 	ApplyID       *string    `json:"apply_id"`
@@ -340,13 +340,13 @@ type DriverBlacklistHisOrderBy struct {
 	BlacklistType *model.OrderBy `json:"blacklist_type"`
 	Operate       *model.OrderBy `json:"operate"`
 	Remarks       *model.OrderBy `json:"remarks"`
-	CreateAt      *model.OrderBy `json:"create_at"`
-	CreateBy      *model.OrderBy `json:"create_by"`
-	UpdateAt      *model.OrderBy `json:"update_at"`
-	UpdateBy      *model.OrderBy `json:"update_by"`
-	DeleteAt      *model.OrderBy `json:"delete_at"`
-	DeleteBy      *model.OrderBy `json:"delete_by"`
-	IsDelete      *model.OrderBy `json:"is_delete"`
+	CreatedAt     *model.OrderBy `json:"created_at"`
+	CreatedBy     *model.OrderBy `json:"created_by"`
+	UpdatedAt     *model.OrderBy `json:"updated_at"`
+	UpdatedBy     *model.OrderBy `json:"updated_by"`
+	DeletedAt     *model.OrderBy `json:"deleted_at"`
+	DeletedBy     *model.OrderBy `json:"deleted_by"`
+	IsDeleted     *model.OrderBy `json:"is_deleted"`
 	AttachFile    *model.OrderBy `json:"attach_file"`
 	Step          *model.OrderBy `json:"step"`
 	ApplyID       *model.OrderBy `json:"apply_id"`
@@ -361,13 +361,13 @@ type DriverBlacklistHisSetInput struct {
 	BlacklistType *int       `json:"blacklist_type"`
 	Operate       *int       `json:"operate"`
 	Remarks       *string    `json:"remarks"`
-	CreateAt      *time.Time `json:"create_at"`
-	CreateBy      *string    `json:"create_by"`
-	UpdateAt      *time.Time `json:"update_at"`
-	UpdateBy      *string    `json:"update_by"`
-	DeleteAt      *time.Time `json:"delete_at"`
-	DeleteBy      *string    `json:"delete_by"`
-	IsDelete      *bool      `json:"is_delete"`
+	CreatedAt     *time.Time `json:"created_at"`
+	CreatedBy     *string    `json:"created_by"`
+	UpdatedAt     *time.Time `json:"updated_at"`
+	UpdatedBy     *string    `json:"updated_by"`
+	DeletedAt     *time.Time `json:"deleted_at"`
+	DeletedBy     *string    `json:"deleted_by"`
+	IsDeleted     *bool      `json:"is_deleted"`
 	AttachFile    *string    `json:"attach_file"`
 	Step          *int       `json:"step"`
 	ApplyID       *string    `json:"apply_id"`
@@ -469,13 +469,13 @@ type EnterpriseBlacklistAlarmBoolExp struct {
 	Year         *model.IntComparisonExp            `json:"year"`
 	IsBlack      *model.BooleanComparisonExp        `json:"is_black"`
 	IsRank       *model.BooleanComparisonExp        `json:"is_rank"`
-	CreateAt     *model.TimestamptzComparisonExp    `json:"create_at"`
-	CreateBy     *model.StringComparisonExp         `json:"create_by"`
-	UpdateAt     *model.TimestamptzComparisonExp    `json:"update_at"`
-	UpdateBy     *model.StringComparisonExp         `json:"update_by"`
-	DeleteAt     *model.TimestamptzComparisonExp    `json:"delete_at"`
-	DeleteBy     *model.StringComparisonExp         `json:"delete_by"`
-	IsDelete     *model.BooleanComparisonExp        `json:"is_delete"`
+	CreatedAt    *model.TimestamptzComparisonExp    `json:"created_at"`
+	CreatedBy    *model.StringComparisonExp         `json:"created_by"`
+	UpdatedAt    *model.TimestamptzComparisonExp    `json:"updated_at"`
+	UpdatedBy    *model.StringComparisonExp         `json:"updated_by"`
+	DeletedAt    *model.TimestamptzComparisonExp    `json:"deleted_at"`
+	DeletedBy    *model.StringComparisonExp         `json:"deleted_by"`
+	IsDeleted    *model.BooleanComparisonExp        `json:"is_deleted"`
 }
 
 // input type for incrementing integer column in table "enterprise_blacklist_alarm"
@@ -493,13 +493,13 @@ type EnterpriseBlacklistAlarmInsertInput struct {
 	Year         int        `json:"year"`
 	IsBlack      bool       `json:"is_black"`
 	IsRank       bool       `json:"is_rank"`
-	CreateAt     time.Time  `json:"create_at"`
-	CreateBy     *string    `json:"create_by"`
-	UpdateAt     *time.Time `json:"update_at"`
-	UpdateBy     *string    `json:"update_by"`
-	DeleteAt     *time.Time `json:"delete_at"`
-	DeleteBy     *string    `json:"delete_by"`
-	IsDelete     *bool      `json:"is_delete"`
+	CreatedAt    time.Time  `json:"created_at"`
+	CreatedBy    *string    `json:"created_by"`
+	UpdatedAt    *time.Time `json:"updated_at"`
+	UpdatedBy    *string    `json:"updated_by"`
+	DeletedAt    *time.Time `json:"deleted_at"`
+	DeletedBy    *string    `json:"deleted_by"`
+	IsDeleted    *bool      `json:"is_deleted"`
 }
 
 // aggregate max on columns of table "enterprise_blacklist_alarm"
@@ -511,13 +511,13 @@ type EnterpriseBlacklistAlarmMaxFields struct {
 	Year         *int       `json:"year"`
 	IsBlack      *bool      `json:"is_black"`
 	IsRank       *bool      `json:"is_rank"`
-	CreateAt     *time.Time `json:"create_at"`
-	CreateBy     *string    `json:"create_by"`
-	UpdateAt     *time.Time `json:"update_at"`
-	UpdateBy     *string    `json:"update_by"`
-	DeleteAt     *time.Time `json:"delete_at"`
-	DeleteBy     *string    `json:"delete_by"`
-	IsDelete     *bool      `json:"is_delete"`
+	CreatedAt    *time.Time `json:"created_at"`
+	CreatedBy    *string    `json:"created_by"`
+	UpdatedAt    *time.Time `json:"updated_at"`
+	UpdatedBy    *string    `json:"updated_by"`
+	DeletedAt    *time.Time `json:"deleted_at"`
+	DeletedBy    *string    `json:"deleted_by"`
+	IsDeleted    *bool      `json:"is_deleted"`
 }
 
 // aggregate min on columns of table "enterprise_blacklist_alarm"
@@ -529,13 +529,13 @@ type EnterpriseBlacklistAlarmMinFields struct {
 	Year         *int       `json:"year"`
 	IsBlack      *bool      `json:"is_black"`
 	IsRank       *bool      `json:"is_rank"`
-	CreateAt     *time.Time `json:"create_at"`
-	CreateBy     *string    `json:"create_by"`
-	UpdateAt     *time.Time `json:"update_at"`
-	UpdateBy     *string    `json:"update_by"`
-	DeleteAt     *time.Time `json:"delete_at"`
-	DeleteBy     *string    `json:"delete_by"`
-	IsDelete     *bool      `json:"is_delete"`
+	CreatedAt    *time.Time `json:"created_at"`
+	CreatedBy    *string    `json:"created_by"`
+	UpdatedAt    *time.Time `json:"updated_at"`
+	UpdatedBy    *string    `json:"updated_by"`
+	DeletedAt    *time.Time `json:"deleted_at"`
+	DeletedBy    *string    `json:"deleted_by"`
+	IsDeleted    *bool      `json:"is_deleted"`
 }
 
 // response of any mutation on the table "enterprise_blacklist_alarm"
@@ -553,13 +553,13 @@ type EnterpriseBlacklistAlarmOrderBy struct {
 	Year         *model.OrderBy `json:"year"`
 	IsBlack      *model.OrderBy `json:"is_black"`
 	IsRank       *model.OrderBy `json:"is_rank"`
-	CreateAt     *model.OrderBy `json:"create_at"`
-	CreateBy     *model.OrderBy `json:"create_by"`
-	UpdateAt     *model.OrderBy `json:"update_at"`
-	UpdateBy     *model.OrderBy `json:"update_by"`
-	DeleteAt     *model.OrderBy `json:"delete_at"`
-	DeleteBy     *model.OrderBy `json:"delete_by"`
-	IsDelete     *model.OrderBy `json:"is_delete"`
+	CreatedAt    *model.OrderBy `json:"created_at"`
+	CreatedBy    *model.OrderBy `json:"created_by"`
+	UpdatedAt    *model.OrderBy `json:"updated_at"`
+	UpdatedBy    *model.OrderBy `json:"updated_by"`
+	DeletedAt    *model.OrderBy `json:"deleted_at"`
+	DeletedBy    *model.OrderBy `json:"deleted_by"`
+	IsDeleted    *model.OrderBy `json:"is_deleted"`
 }
 
 // input type for updating data in table "enterprise_blacklist_alarm"
@@ -571,13 +571,13 @@ type EnterpriseBlacklistAlarmSetInput struct {
 	Year         *int       `json:"year"`
 	IsBlack      *bool      `json:"is_black"`
 	IsRank       *bool      `json:"is_rank"`
-	CreateAt     *time.Time `json:"create_at"`
-	CreateBy     *string    `json:"create_by"`
-	UpdateAt     *time.Time `json:"update_at"`
-	UpdateBy     *string    `json:"update_by"`
-	DeleteAt     *time.Time `json:"delete_at"`
-	DeleteBy     *string    `json:"delete_by"`
-	IsDelete     *bool      `json:"is_delete"`
+	CreatedAt    *time.Time `json:"created_at"`
+	CreatedBy    *string    `json:"created_by"`
+	UpdatedAt    *time.Time `json:"updated_at"`
+	UpdatedBy    *string    `json:"updated_by"`
+	DeletedAt    *time.Time `json:"deleted_at"`
+	DeletedBy    *string    `json:"deleted_by"`
+	IsDeleted    *bool      `json:"is_deleted"`
 }
 
 // aggregate stddev on columns of table "enterprise_blacklist_alarm"
@@ -667,13 +667,13 @@ type EnterpriseBlacklistHisBoolExp struct {
 	BlacklistType *model.IntComparisonExp          `json:"blacklist_type"`
 	Operate       *model.IntComparisonExp          `json:"operate"`
 	Remarks       *model.StringComparisonExp       `json:"remarks"`
-	CreateAt      *model.TimestamptzComparisonExp  `json:"create_at"`
-	CreateBy      *model.StringComparisonExp       `json:"create_by"`
-	UpdateAt      *model.TimestamptzComparisonExp  `json:"update_at"`
-	UpdateBy      *model.StringComparisonExp       `json:"update_by"`
-	DeleteAt      *model.TimestamptzComparisonExp  `json:"delete_at"`
-	DeleteBy      *model.StringComparisonExp       `json:"delete_by"`
-	IsDelete      *model.BooleanComparisonExp      `json:"is_delete"`
+	CreatedAt     *model.TimestamptzComparisonExp  `json:"created_at"`
+	CreatedBy     *model.StringComparisonExp       `json:"created_by"`
+	UpdatedAt     *model.TimestamptzComparisonExp  `json:"updated_at"`
+	UpdatedBy     *model.StringComparisonExp       `json:"updated_by"`
+	DeletedAt     *model.TimestamptzComparisonExp  `json:"deleted_at"`
+	DeletedBy     *model.StringComparisonExp       `json:"deleted_by"`
+	IsDeleted     *model.BooleanComparisonExp      `json:"is_deleted"`
 }
 
 // input type for incrementing integer column in table "enterprise_blacklist_his"
@@ -690,13 +690,13 @@ type EnterpriseBlacklistHisInsertInput struct {
 	BlacklistType int        `json:"blacklist_type"`
 	Operate       int        `json:"operate"`
 	Remarks       *string    `json:"remarks"`
-	CreateAt      time.Time  `json:"create_at"`
-	CreateBy      *string    `json:"create_by"`
-	UpdateAt      *time.Time `json:"update_at"`
-	UpdateBy      *string    `json:"update_by"`
-	DeleteAt      *time.Time `json:"delete_at"`
-	DeleteBy      *string    `json:"delete_by"`
-	IsDelete      bool       `json:"is_delete"`
+	CreatedAt     time.Time  `json:"created_at"`
+	CreatedBy     *string    `json:"created_by"`
+	UpdatedAt     *time.Time `json:"updated_at"`
+	UpdatedBy     *string    `json:"updated_by"`
+	DeletedAt     *time.Time `json:"deleted_at"`
+	DeletedBy     *string    `json:"deleted_by"`
+	IsDeleted     bool       `json:"is_deleted"`
 }
 
 // aggregate max on columns of table "enterprise_blacklist_his"
@@ -707,13 +707,13 @@ type EnterpriseBlacklistHisMaxFields struct {
 	BlacklistType *int       `json:"blacklist_type"`
 	Operate       *int       `json:"operate"`
 	Remarks       *string    `json:"remarks"`
-	CreateAt      *time.Time `json:"create_at"`
-	CreateBy      *string    `json:"create_by"`
-	UpdateAt      *time.Time `json:"update_at"`
-	UpdateBy      *string    `json:"update_by"`
-	DeleteAt      *time.Time `json:"delete_at"`
-	DeleteBy      *string    `json:"delete_by"`
-	IsDelete      *bool      `json:"is_delete"`
+	CreatedAt     *time.Time `json:"created_at"`
+	CreatedBy     *string    `json:"created_by"`
+	UpdatedAt     *time.Time `json:"updated_at"`
+	UpdatedBy     *string    `json:"updated_by"`
+	DeletedAt     *time.Time `json:"deleted_at"`
+	DeletedBy     *string    `json:"deleted_by"`
+	IsDeleted     *bool      `json:"is_deleted"`
 }
 
 // aggregate min on columns of table "enterprise_blacklist_his"
@@ -724,13 +724,13 @@ type EnterpriseBlacklistHisMinFields struct {
 	BlacklistType *int       `json:"blacklist_type"`
 	Operate       *int       `json:"operate"`
 	Remarks       *string    `json:"remarks"`
-	CreateAt      *time.Time `json:"create_at"`
-	CreateBy      *string    `json:"create_by"`
-	UpdateAt      *time.Time `json:"update_at"`
-	UpdateBy      *string    `json:"update_by"`
-	DeleteAt      *time.Time `json:"delete_at"`
-	DeleteBy      *string    `json:"delete_by"`
-	IsDelete      *bool      `json:"is_delete"`
+	CreatedAt     *time.Time `json:"created_at"`
+	CreatedBy     *string    `json:"created_by"`
+	UpdatedAt     *time.Time `json:"updated_at"`
+	UpdatedBy     *string    `json:"updated_by"`
+	DeletedAt     *time.Time `json:"deleted_at"`
+	DeletedBy     *string    `json:"deleted_by"`
+	IsDeleted     *bool      `json:"is_deleted"`
 }
 
 // response of any mutation on the table "enterprise_blacklist_his"
@@ -747,13 +747,13 @@ type EnterpriseBlacklistHisOrderBy struct {
 	BlacklistType *model.OrderBy `json:"blacklist_type"`
 	Operate       *model.OrderBy `json:"operate"`
 	Remarks       *model.OrderBy `json:"remarks"`
-	CreateAt      *model.OrderBy `json:"create_at"`
-	CreateBy      *model.OrderBy `json:"create_by"`
-	UpdateAt      *model.OrderBy `json:"update_at"`
-	UpdateBy      *model.OrderBy `json:"update_by"`
-	DeleteAt      *model.OrderBy `json:"delete_at"`
-	DeleteBy      *model.OrderBy `json:"delete_by"`
-	IsDelete      *model.OrderBy `json:"is_delete"`
+	CreatedAt     *model.OrderBy `json:"created_at"`
+	CreatedBy     *model.OrderBy `json:"created_by"`
+	UpdatedAt     *model.OrderBy `json:"updated_at"`
+	UpdatedBy     *model.OrderBy `json:"updated_by"`
+	DeletedAt     *model.OrderBy `json:"deleted_at"`
+	DeletedBy     *model.OrderBy `json:"deleted_by"`
+	IsDeleted     *model.OrderBy `json:"is_deleted"`
 }
 
 // input type for updating data in table "enterprise_blacklist_his"
@@ -764,13 +764,13 @@ type EnterpriseBlacklistHisSetInput struct {
 	BlacklistType *int       `json:"blacklist_type"`
 	Operate       *int       `json:"operate"`
 	Remarks       *string    `json:"remarks"`
-	CreateAt      *time.Time `json:"create_at"`
-	CreateBy      *string    `json:"create_by"`
-	UpdateAt      *time.Time `json:"update_at"`
-	UpdateBy      *string    `json:"update_by"`
-	DeleteAt      *time.Time `json:"delete_at"`
-	DeleteBy      *string    `json:"delete_by"`
-	IsDelete      *bool      `json:"is_delete"`
+	CreatedAt     *time.Time `json:"created_at"`
+	CreatedBy     *string    `json:"created_by"`
+	UpdatedAt     *time.Time `json:"updated_at"`
+	UpdatedBy     *string    `json:"updated_by"`
+	DeletedAt     *time.Time `json:"deleted_at"`
+	DeletedBy     *string    `json:"deleted_by"`
+	IsDeleted     *bool      `json:"is_deleted"`
 }
 
 // aggregate stddev on columns of table "enterprise_blacklist_his"
@@ -862,13 +862,13 @@ type VehicleBlacklistAlarmBoolExp struct {
 	Year               *model.IntComparisonExp         `json:"year"`
 	ScoreNum           *model.IntComparisonExp         `json:"score_num"`
 	ScoreCount         *model.IntComparisonExp         `json:"score_count"`
-	CreateAt           *model.TimestamptzComparisonExp `json:"create_at"`
-	CreateBy           *model.StringComparisonExp      `json:"create_by"`
-	UpdateAt           *model.TimestamptzComparisonExp `json:"update_at"`
-	UpdateBy           *model.StringComparisonExp      `json:"update_by"`
-	DeleteAt           *model.TimestamptzComparisonExp `json:"delete_at"`
-	DeleteBy           *model.StringComparisonExp      `json:"delete_by"`
-	IsDelete           *model.BooleanComparisonExp     `json:"is_delete"`
+	CreatedAt          *model.TimestamptzComparisonExp `json:"created_at"`
+	CreatedBy          *model.StringComparisonExp      `json:"created_by"`
+	UpdatedAt          *model.TimestamptzComparisonExp `json:"updated_at"`
+	UpdatedBy          *model.StringComparisonExp      `json:"updated_by"`
+	DeletedAt          *model.TimestamptzComparisonExp `json:"deleted_at"`
+	DeletedBy          *model.StringComparisonExp      `json:"deleted_by"`
+	IsDeleted          *model.BooleanComparisonExp     `json:"is_deleted"`
 }
 
 // input type for incrementing integer column in table "vehicle_blacklist_alarm"
@@ -887,13 +887,13 @@ type VehicleBlacklistAlarmInsertInput struct {
 	Year               *int       `json:"year"`
 	ScoreNum           *int       `json:"score_num"`
 	ScoreCount         *int       `json:"score_count"`
-	CreateAt           time.Time  `json:"create_at"`
-	CreateBy           *string    `json:"create_by"`
-	UpdateAt           *time.Time `json:"update_at"`
-	UpdateBy           *string    `json:"update_by"`
-	DeleteAt           *time.Time `json:"delete_at"`
-	DeleteBy           *string    `json:"delete_by"`
-	IsDelete           bool       `json:"is_delete"`
+	CreatedAt          time.Time  `json:"created_at"`
+	CreatedBy          *string    `json:"created_by"`
+	UpdatedAt          *time.Time `json:"updated_at"`
+	UpdatedBy          *string    `json:"updated_by"`
+	DeletedAt          *time.Time `json:"deleted_at"`
+	DeletedBy          *string    `json:"deleted_by"`
+	IsDeleted          bool       `json:"is_deleted"`
 }
 
 // aggregate max on columns of table "vehicle_blacklist_alarm"
@@ -905,13 +905,13 @@ type VehicleBlacklistAlarmMaxFields struct {
 	Year               *int       `json:"year"`
 	ScoreNum           *int       `json:"score_num"`
 	ScoreCount         *int       `json:"score_count"`
-	CreateAt           *time.Time `json:"create_at"`
-	CreateBy           *string    `json:"create_by"`
-	UpdateAt           *time.Time `json:"update_at"`
-	UpdateBy           *string    `json:"update_by"`
-	DeleteAt           *time.Time `json:"delete_at"`
-	DeleteBy           *string    `json:"delete_by"`
-	IsDelete           *bool      `json:"is_delete"`
+	CreatedAt          *time.Time `json:"created_at"`
+	CreatedBy          *string    `json:"created_by"`
+	UpdatedAt          *time.Time `json:"updated_at"`
+	UpdatedBy          *string    `json:"updated_by"`
+	DeletedAt          *time.Time `json:"deleted_at"`
+	DeletedBy          *string    `json:"deleted_by"`
+	IsDeleted          *bool      `json:"is_deleted"`
 }
 
 // aggregate min on columns of table "vehicle_blacklist_alarm"
@@ -923,13 +923,13 @@ type VehicleBlacklistAlarmMinFields struct {
 	Year               *int       `json:"year"`
 	ScoreNum           *int       `json:"score_num"`
 	ScoreCount         *int       `json:"score_count"`
-	CreateAt           *time.Time `json:"create_at"`
-	CreateBy           *string    `json:"create_by"`
-	UpdateAt           *time.Time `json:"update_at"`
-	UpdateBy           *string    `json:"update_by"`
-	DeleteAt           *time.Time `json:"delete_at"`
-	DeleteBy           *string    `json:"delete_by"`
-	IsDelete           *bool      `json:"is_delete"`
+	CreatedAt          *time.Time `json:"created_at"`
+	CreatedBy          *string    `json:"created_by"`
+	UpdatedAt          *time.Time `json:"updated_at"`
+	UpdatedBy          *string    `json:"updated_by"`
+	DeletedAt          *time.Time `json:"deleted_at"`
+	DeletedBy          *string    `json:"deleted_by"`
+	IsDeleted          *bool      `json:"is_deleted"`
 }
 
 // response of any mutation on the table "vehicle_blacklist_alarm"
@@ -947,13 +947,13 @@ type VehicleBlacklistAlarmOrderBy struct {
 	Year               *model.OrderBy `json:"year"`
 	ScoreNum           *model.OrderBy `json:"score_num"`
 	ScoreCount         *model.OrderBy `json:"score_count"`
-	CreateAt           *model.OrderBy `json:"create_at"`
-	CreateBy           *model.OrderBy `json:"create_by"`
-	UpdateAt           *model.OrderBy `json:"update_at"`
-	UpdateBy           *model.OrderBy `json:"update_by"`
-	DeleteAt           *model.OrderBy `json:"delete_at"`
-	DeleteBy           *model.OrderBy `json:"delete_by"`
-	IsDelete           *model.OrderBy `json:"is_delete"`
+	CreatedAt          *model.OrderBy `json:"created_at"`
+	CreatedBy          *model.OrderBy `json:"created_by"`
+	UpdatedAt          *model.OrderBy `json:"updated_at"`
+	UpdatedBy          *model.OrderBy `json:"updated_by"`
+	DeletedAt          *model.OrderBy `json:"deleted_at"`
+	DeletedBy          *model.OrderBy `json:"deleted_by"`
+	IsDeleted          *model.OrderBy `json:"is_deleted"`
 }
 
 // input type for updating data in table "vehicle_blacklist_alarm"
@@ -965,13 +965,13 @@ type VehicleBlacklistAlarmSetInput struct {
 	Year               *int       `json:"year"`
 	ScoreNum           *int       `json:"score_num"`
 	ScoreCount         *int       `json:"score_count"`
-	CreateAt           *time.Time `json:"create_at"`
-	CreateBy           *string    `json:"create_by"`
-	UpdateAt           *time.Time `json:"update_at"`
-	UpdateBy           *string    `json:"update_by"`
-	DeleteAt           *time.Time `json:"delete_at"`
-	DeleteBy           *string    `json:"delete_by"`
-	IsDelete           *bool      `json:"is_delete"`
+	CreatedAt          *time.Time `json:"created_at"`
+	CreatedBy          *string    `json:"created_by"`
+	UpdatedAt          *time.Time `json:"updated_at"`
+	UpdatedBy          *string    `json:"updated_by"`
+	DeletedAt          *time.Time `json:"deleted_at"`
+	DeletedBy          *string    `json:"deleted_by"`
+	IsDeleted          *bool      `json:"is_deleted"`
 }
 
 // aggregate stddev on columns of table "vehicle_blacklist_alarm"
@@ -1068,13 +1068,13 @@ type VehicleBlacklistHisBoolExp struct {
 	BlacklistType *model.IntComparisonExp         `json:"blacklist_type"`
 	Operate       *model.IntComparisonExp         `json:"operate"`
 	Remarks       *model.StringComparisonExp      `json:"remarks"`
-	CreateAt      *model.TimestamptzComparisonExp `json:"create_at"`
-	CreateBy      *model.StringComparisonExp      `json:"create_by"`
-	UpdateAt      *model.TimestamptzComparisonExp `json:"update_at"`
-	UpdateBy      *model.StringComparisonExp      `json:"update_by"`
-	DeleteAt      *model.TimestamptzComparisonExp `json:"delete_at"`
-	DeleteBy      *model.StringComparisonExp      `json:"delete_by"`
-	IsDelete      *model.BooleanComparisonExp     `json:"is_delete"`
+	CreatedAt     *model.TimestamptzComparisonExp `json:"created_at"`
+	CreatedBy     *model.StringComparisonExp      `json:"created_by"`
+	UpdatedAt     *model.TimestamptzComparisonExp `json:"updated_at"`
+	UpdatedBy     *model.StringComparisonExp      `json:"updated_by"`
+	DeletedAt     *model.TimestamptzComparisonExp `json:"deleted_at"`
+	DeletedBy     *model.StringComparisonExp      `json:"deleted_by"`
+	IsDeleted     *model.BooleanComparisonExp     `json:"is_deleted"`
 }
 
 // input type for incrementing integer column in table "vehicle_blacklist_his"
@@ -1091,13 +1091,13 @@ type VehicleBlacklistHisInsertInput struct {
 	BlacklistType int        `json:"blacklist_type"`
 	Operate       int        `json:"operate"`
 	Remarks       *string    `json:"remarks"`
-	CreateAt      time.Time  `json:"create_at"`
-	CreateBy      *string    `json:"create_by"`
-	UpdateAt      *time.Time `json:"update_at"`
-	UpdateBy      *string    `json:"update_by"`
-	DeleteAt      *time.Time `json:"delete_at"`
-	DeleteBy      *string    `json:"delete_by"`
-	IsDelete      bool       `json:"is_delete"`
+	CreatedAt     time.Time  `json:"created_at"`
+	CreatedBy     *string    `json:"created_by"`
+	UpdatedAt     *time.Time `json:"updated_at"`
+	UpdatedBy     *string    `json:"updated_by"`
+	DeletedAt     *time.Time `json:"deleted_at"`
+	DeletedBy     *string    `json:"deleted_by"`
+	IsDeleted     bool       `json:"is_deleted"`
 }
 
 // aggregate max on columns of table "vehicle_blacklist_his"
@@ -1108,13 +1108,13 @@ type VehicleBlacklistHisMaxFields struct {
 	BlacklistType *int       `json:"blacklist_type"`
 	Operate       *int       `json:"operate"`
 	Remarks       *string    `json:"remarks"`
-	CreateAt      *time.Time `json:"create_at"`
-	CreateBy      *string    `json:"create_by"`
-	UpdateAt      *time.Time `json:"update_at"`
-	UpdateBy      *string    `json:"update_by"`
-	DeleteAt      *time.Time `json:"delete_at"`
-	DeleteBy      *string    `json:"delete_by"`
-	IsDelete      *bool      `json:"is_delete"`
+	CreatedAt     *time.Time `json:"created_at"`
+	CreatedBy     *string    `json:"created_by"`
+	UpdatedAt     *time.Time `json:"updated_at"`
+	UpdatedBy     *string    `json:"updated_by"`
+	DeletedAt     *time.Time `json:"deleted_at"`
+	DeletedBy     *string    `json:"deleted_by"`
+	IsDeleted     *bool      `json:"is_deleted"`
 }
 
 // aggregate min on columns of table "vehicle_blacklist_his"
@@ -1125,13 +1125,13 @@ type VehicleBlacklistHisMinFields struct {
 	BlacklistType *int       `json:"blacklist_type"`
 	Operate       *int       `json:"operate"`
 	Remarks       *string    `json:"remarks"`
-	CreateAt      *time.Time `json:"create_at"`
-	CreateBy      *string    `json:"create_by"`
-	UpdateAt      *time.Time `json:"update_at"`
-	UpdateBy      *string    `json:"update_by"`
-	DeleteAt      *time.Time `json:"delete_at"`
-	DeleteBy      *string    `json:"delete_by"`
-	IsDelete      *bool      `json:"is_delete"`
+	CreatedAt     *time.Time `json:"created_at"`
+	CreatedBy     *string    `json:"created_by"`
+	UpdatedAt     *time.Time `json:"updated_at"`
+	UpdatedBy     *string    `json:"updated_by"`
+	DeletedAt     *time.Time `json:"deleted_at"`
+	DeletedBy     *string    `json:"deleted_by"`
+	IsDeleted     *bool      `json:"is_deleted"`
 }
 
 // response of any mutation on the table "vehicle_blacklist_his"
@@ -1148,13 +1148,13 @@ type VehicleBlacklistHisOrderBy struct {
 	BlacklistType *model.OrderBy `json:"blacklist_type"`
 	Operate       *model.OrderBy `json:"operate"`
 	Remarks       *model.OrderBy `json:"remarks"`
-	CreateAt      *model.OrderBy `json:"create_at"`
-	CreateBy      *model.OrderBy `json:"create_by"`
-	UpdateAt      *model.OrderBy `json:"update_at"`
-	UpdateBy      *model.OrderBy `json:"update_by"`
-	DeleteAt      *model.OrderBy `json:"delete_at"`
-	DeleteBy      *model.OrderBy `json:"delete_by"`
-	IsDelete      *model.OrderBy `json:"is_delete"`
+	CreatedAt     *model.OrderBy `json:"created_at"`
+	CreatedBy     *model.OrderBy `json:"created_by"`
+	UpdatedAt     *model.OrderBy `json:"updated_at"`
+	UpdatedBy     *model.OrderBy `json:"updated_by"`
+	DeletedAt     *model.OrderBy `json:"deleted_at"`
+	DeletedBy     *model.OrderBy `json:"deleted_by"`
+	IsDeleted     *model.OrderBy `json:"is_deleted"`
 }
 
 // input type for updating data in table "vehicle_blacklist_his"
@@ -1165,13 +1165,13 @@ type VehicleBlacklistHisSetInput struct {
 	BlacklistType *int       `json:"blacklist_type"`
 	Operate       *int       `json:"operate"`
 	Remarks       *string    `json:"remarks"`
-	CreateAt      *time.Time `json:"create_at"`
-	CreateBy      *string    `json:"create_by"`
-	UpdateAt      *time.Time `json:"update_at"`
-	UpdateBy      *string    `json:"update_by"`
-	DeleteAt      *time.Time `json:"delete_at"`
-	DeleteBy      *string    `json:"delete_by"`
-	IsDelete      *bool      `json:"is_delete"`
+	CreatedAt     *time.Time `json:"created_at"`
+	CreatedBy     *string    `json:"created_by"`
+	UpdatedAt     *time.Time `json:"updated_at"`
+	UpdatedBy     *string    `json:"updated_by"`
+	DeletedAt     *time.Time `json:"deleted_at"`
+	DeletedBy     *string    `json:"deleted_by"`
+	IsDeleted     *bool      `json:"is_deleted"`
 }
 
 // aggregate stddev on columns of table "vehicle_blacklist_his"
@@ -1240,19 +1240,19 @@ const (
 	// 状态（1：待交警大队审批2：待交警支队审批，3：退回，4：完成
 	DriverBlacklistApplySelectColumnState DriverBlacklistApplySelectColumn = "state"
 	// 创建时间
-	DriverBlacklistApplySelectColumnCreateAt DriverBlacklistApplySelectColumn = "create_at"
+	DriverBlacklistApplySelectColumnCreatedAt DriverBlacklistApplySelectColumn = "created_at"
 	// 创建人
-	DriverBlacklistApplySelectColumnCreateBy DriverBlacklistApplySelectColumn = "create_by"
+	DriverBlacklistApplySelectColumnCreatedBy DriverBlacklistApplySelectColumn = "created_by"
 	// 更新时间
-	DriverBlacklistApplySelectColumnUpdateAt DriverBlacklistApplySelectColumn = "update_at"
+	DriverBlacklistApplySelectColumnUpdatedAt DriverBlacklistApplySelectColumn = "updated_at"
 	// 更新人
-	DriverBlacklistApplySelectColumnUpdateBy DriverBlacklistApplySelectColumn = "update_by"
+	DriverBlacklistApplySelectColumnUpdatedBy DriverBlacklistApplySelectColumn = "updated_by"
 	// 删除时间
-	DriverBlacklistApplySelectColumnDeleteAt DriverBlacklistApplySelectColumn = "delete_at"
+	DriverBlacklistApplySelectColumnDeletedAt DriverBlacklistApplySelectColumn = "deleted_at"
 	// 删除人
-	DriverBlacklistApplySelectColumnDeleteBy DriverBlacklistApplySelectColumn = "delete_by"
+	DriverBlacklistApplySelectColumnDeletedBy DriverBlacklistApplySelectColumn = "deleted_by"
 	// 是否删除
-	DriverBlacklistApplySelectColumnIsDelete DriverBlacklistApplySelectColumn = "is_delete"
+	DriverBlacklistApplySelectColumnIsDeleted DriverBlacklistApplySelectColumn = "is_deleted"
 )
 
 var AllDriverBlacklistApplySelectColumn = []DriverBlacklistApplySelectColumn{
@@ -1262,18 +1262,18 @@ var AllDriverBlacklistApplySelectColumn = []DriverBlacklistApplySelectColumn{
 	DriverBlacklistApplySelectColumnApplyReason,
 	DriverBlacklistApplySelectColumnBlacklistType,
 	DriverBlacklistApplySelectColumnState,
-	DriverBlacklistApplySelectColumnCreateAt,
-	DriverBlacklistApplySelectColumnCreateBy,
-	DriverBlacklistApplySelectColumnUpdateAt,
-	DriverBlacklistApplySelectColumnUpdateBy,
-	DriverBlacklistApplySelectColumnDeleteAt,
-	DriverBlacklistApplySelectColumnDeleteBy,
-	DriverBlacklistApplySelectColumnIsDelete,
+	DriverBlacklistApplySelectColumnCreatedAt,
+	DriverBlacklistApplySelectColumnCreatedBy,
+	DriverBlacklistApplySelectColumnUpdatedAt,
+	DriverBlacklistApplySelectColumnUpdatedBy,
+	DriverBlacklistApplySelectColumnDeletedAt,
+	DriverBlacklistApplySelectColumnDeletedBy,
+	DriverBlacklistApplySelectColumnIsDeleted,
 }
 
 func (e DriverBlacklistApplySelectColumn) IsValid() bool {
 	switch e {
-	case DriverBlacklistApplySelectColumnID, DriverBlacklistApplySelectColumnApplyID, DriverBlacklistApplySelectColumnDriverID, DriverBlacklistApplySelectColumnApplyReason, DriverBlacklistApplySelectColumnBlacklistType, DriverBlacklistApplySelectColumnState, DriverBlacklistApplySelectColumnCreateAt, DriverBlacklistApplySelectColumnCreateBy, DriverBlacklistApplySelectColumnUpdateAt, DriverBlacklistApplySelectColumnUpdateBy, DriverBlacklistApplySelectColumnDeleteAt, DriverBlacklistApplySelectColumnDeleteBy, DriverBlacklistApplySelectColumnIsDelete:
+	case DriverBlacklistApplySelectColumnID, DriverBlacklistApplySelectColumnApplyID, DriverBlacklistApplySelectColumnDriverID, DriverBlacklistApplySelectColumnApplyReason, DriverBlacklistApplySelectColumnBlacklistType, DriverBlacklistApplySelectColumnState, DriverBlacklistApplySelectColumnCreatedAt, DriverBlacklistApplySelectColumnCreatedBy, DriverBlacklistApplySelectColumnUpdatedAt, DriverBlacklistApplySelectColumnUpdatedBy, DriverBlacklistApplySelectColumnDeletedAt, DriverBlacklistApplySelectColumnDeletedBy, DriverBlacklistApplySelectColumnIsDeleted:
 		return true
 	}
 	return false
@@ -1317,19 +1317,19 @@ const (
 	// 备注
 	DriverBlacklistHisSelectColumnRemarks DriverBlacklistHisSelectColumn = "remarks"
 	// 创建时间
-	DriverBlacklistHisSelectColumnCreateAt DriverBlacklistHisSelectColumn = "create_at"
+	DriverBlacklistHisSelectColumnCreatedAt DriverBlacklistHisSelectColumn = "created_at"
 	// 创建人
-	DriverBlacklistHisSelectColumnCreateBy DriverBlacklistHisSelectColumn = "create_by"
+	DriverBlacklistHisSelectColumnCreatedBy DriverBlacklistHisSelectColumn = "created_by"
 	// 修改时间
-	DriverBlacklistHisSelectColumnUpdateAt DriverBlacklistHisSelectColumn = "update_at"
+	DriverBlacklistHisSelectColumnUpdatedAt DriverBlacklistHisSelectColumn = "updated_at"
 	// 修改人
-	DriverBlacklistHisSelectColumnUpdateBy DriverBlacklistHisSelectColumn = "update_by"
+	DriverBlacklistHisSelectColumnUpdatedBy DriverBlacklistHisSelectColumn = "updated_by"
 	// 删除时间
-	DriverBlacklistHisSelectColumnDeleteAt DriverBlacklistHisSelectColumn = "delete_at"
+	DriverBlacklistHisSelectColumnDeletedAt DriverBlacklistHisSelectColumn = "deleted_at"
 	// 删除人
-	DriverBlacklistHisSelectColumnDeleteBy DriverBlacklistHisSelectColumn = "delete_by"
+	DriverBlacklistHisSelectColumnDeletedBy DriverBlacklistHisSelectColumn = "deleted_by"
 	// 是否删除
-	DriverBlacklistHisSelectColumnIsDelete DriverBlacklistHisSelectColumn = "is_delete"
+	DriverBlacklistHisSelectColumnIsDeleted DriverBlacklistHisSelectColumn = "is_deleted"
 	// 附件链接
 	DriverBlacklistHisSelectColumnAttachFile DriverBlacklistHisSelectColumn = "attach_file"
 	// 进度，执行到哪一步流程
@@ -1347,13 +1347,13 @@ var AllDriverBlacklistHisSelectColumn = []DriverBlacklistHisSelectColumn{
 	DriverBlacklistHisSelectColumnBlacklistType,
 	DriverBlacklistHisSelectColumnOperate,
 	DriverBlacklistHisSelectColumnRemarks,
-	DriverBlacklistHisSelectColumnCreateAt,
-	DriverBlacklistHisSelectColumnCreateBy,
-	DriverBlacklistHisSelectColumnUpdateAt,
-	DriverBlacklistHisSelectColumnUpdateBy,
-	DriverBlacklistHisSelectColumnDeleteAt,
-	DriverBlacklistHisSelectColumnDeleteBy,
-	DriverBlacklistHisSelectColumnIsDelete,
+	DriverBlacklistHisSelectColumnCreatedAt,
+	DriverBlacklistHisSelectColumnCreatedBy,
+	DriverBlacklistHisSelectColumnUpdatedAt,
+	DriverBlacklistHisSelectColumnUpdatedBy,
+	DriverBlacklistHisSelectColumnDeletedAt,
+	DriverBlacklistHisSelectColumnDeletedBy,
+	DriverBlacklistHisSelectColumnIsDeleted,
 	DriverBlacklistHisSelectColumnAttachFile,
 	DriverBlacklistHisSelectColumnStep,
 	DriverBlacklistHisSelectColumnApplyID,
@@ -1362,7 +1362,7 @@ var AllDriverBlacklistHisSelectColumn = []DriverBlacklistHisSelectColumn{
 
 func (e DriverBlacklistHisSelectColumn) IsValid() bool {
 	switch e {
-	case DriverBlacklistHisSelectColumnID, DriverBlacklistHisSelectColumnHisID, DriverBlacklistHisSelectColumnDriverID, DriverBlacklistHisSelectColumnBlacklistType, DriverBlacklistHisSelectColumnOperate, DriverBlacklistHisSelectColumnRemarks, DriverBlacklistHisSelectColumnCreateAt, DriverBlacklistHisSelectColumnCreateBy, DriverBlacklistHisSelectColumnUpdateAt, DriverBlacklistHisSelectColumnUpdateBy, DriverBlacklistHisSelectColumnDeleteAt, DriverBlacklistHisSelectColumnDeleteBy, DriverBlacklistHisSelectColumnIsDelete, DriverBlacklistHisSelectColumnAttachFile, DriverBlacklistHisSelectColumnStep, DriverBlacklistHisSelectColumnApplyID, DriverBlacklistHisSelectColumnDriverCardNum:
+	case DriverBlacklistHisSelectColumnID, DriverBlacklistHisSelectColumnHisID, DriverBlacklistHisSelectColumnDriverID, DriverBlacklistHisSelectColumnBlacklistType, DriverBlacklistHisSelectColumnOperate, DriverBlacklistHisSelectColumnRemarks, DriverBlacklistHisSelectColumnCreatedAt, DriverBlacklistHisSelectColumnCreatedBy, DriverBlacklistHisSelectColumnUpdatedAt, DriverBlacklistHisSelectColumnUpdatedBy, DriverBlacklistHisSelectColumnDeletedAt, DriverBlacklistHisSelectColumnDeletedBy, DriverBlacklistHisSelectColumnIsDeleted, DriverBlacklistHisSelectColumnAttachFile, DriverBlacklistHisSelectColumnStep, DriverBlacklistHisSelectColumnApplyID, DriverBlacklistHisSelectColumnDriverCardNum:
 		return true
 	}
 	return false
@@ -1408,19 +1408,19 @@ const (
 	// 企业是否连续两个季度违规记分排名前十
 	EnterpriseBlacklistAlarmSelectColumnIsRank EnterpriseBlacklistAlarmSelectColumn = "is_rank"
 	// 创建时间
-	EnterpriseBlacklistAlarmSelectColumnCreateAt EnterpriseBlacklistAlarmSelectColumn = "create_at"
+	EnterpriseBlacklistAlarmSelectColumnCreatedAt EnterpriseBlacklistAlarmSelectColumn = "created_at"
 	// 创建人
-	EnterpriseBlacklistAlarmSelectColumnCreateBy EnterpriseBlacklistAlarmSelectColumn = "create_by"
+	EnterpriseBlacklistAlarmSelectColumnCreatedBy EnterpriseBlacklistAlarmSelectColumn = "created_by"
 	// 更新时间
-	EnterpriseBlacklistAlarmSelectColumnUpdateAt EnterpriseBlacklistAlarmSelectColumn = "update_at"
+	EnterpriseBlacklistAlarmSelectColumnUpdatedAt EnterpriseBlacklistAlarmSelectColumn = "updated_at"
 	// 更新人
-	EnterpriseBlacklistAlarmSelectColumnUpdateBy EnterpriseBlacklistAlarmSelectColumn = "update_by"
+	EnterpriseBlacklistAlarmSelectColumnUpdatedBy EnterpriseBlacklistAlarmSelectColumn = "updated_by"
 	// 删除时间
-	EnterpriseBlacklistAlarmSelectColumnDeleteAt EnterpriseBlacklistAlarmSelectColumn = "delete_at"
+	EnterpriseBlacklistAlarmSelectColumnDeletedAt EnterpriseBlacklistAlarmSelectColumn = "deleted_at"
 	// 删除人
-	EnterpriseBlacklistAlarmSelectColumnDeleteBy EnterpriseBlacklistAlarmSelectColumn = "delete_by"
+	EnterpriseBlacklistAlarmSelectColumnDeletedBy EnterpriseBlacklistAlarmSelectColumn = "deleted_by"
 	// 是否删除
-	EnterpriseBlacklistAlarmSelectColumnIsDelete EnterpriseBlacklistAlarmSelectColumn = "is_delete"
+	EnterpriseBlacklistAlarmSelectColumnIsDeleted EnterpriseBlacklistAlarmSelectColumn = "is_deleted"
 )
 
 var AllEnterpriseBlacklistAlarmSelectColumn = []EnterpriseBlacklistAlarmSelectColumn{
@@ -1431,18 +1431,18 @@ var AllEnterpriseBlacklistAlarmSelectColumn = []EnterpriseBlacklistAlarmSelectCo
 	EnterpriseBlacklistAlarmSelectColumnYear,
 	EnterpriseBlacklistAlarmSelectColumnIsBlack,
 	EnterpriseBlacklistAlarmSelectColumnIsRank,
-	EnterpriseBlacklistAlarmSelectColumnCreateAt,
-	EnterpriseBlacklistAlarmSelectColumnCreateBy,
-	EnterpriseBlacklistAlarmSelectColumnUpdateAt,
-	EnterpriseBlacklistAlarmSelectColumnUpdateBy,
-	EnterpriseBlacklistAlarmSelectColumnDeleteAt,
-	EnterpriseBlacklistAlarmSelectColumnDeleteBy,
-	EnterpriseBlacklistAlarmSelectColumnIsDelete,
+	EnterpriseBlacklistAlarmSelectColumnCreatedAt,
+	EnterpriseBlacklistAlarmSelectColumnCreatedBy,
+	EnterpriseBlacklistAlarmSelectColumnUpdatedAt,
+	EnterpriseBlacklistAlarmSelectColumnUpdatedBy,
+	EnterpriseBlacklistAlarmSelectColumnDeletedAt,
+	EnterpriseBlacklistAlarmSelectColumnDeletedBy,
+	EnterpriseBlacklistAlarmSelectColumnIsDeleted,
 }
 
 func (e EnterpriseBlacklistAlarmSelectColumn) IsValid() bool {
 	switch e {
-	case EnterpriseBlacklistAlarmSelectColumnID, EnterpriseBlacklistAlarmSelectColumnAlarmID, EnterpriseBlacklistAlarmSelectColumnEnterpriseID, EnterpriseBlacklistAlarmSelectColumnType, EnterpriseBlacklistAlarmSelectColumnYear, EnterpriseBlacklistAlarmSelectColumnIsBlack, EnterpriseBlacklistAlarmSelectColumnIsRank, EnterpriseBlacklistAlarmSelectColumnCreateAt, EnterpriseBlacklistAlarmSelectColumnCreateBy, EnterpriseBlacklistAlarmSelectColumnUpdateAt, EnterpriseBlacklistAlarmSelectColumnUpdateBy, EnterpriseBlacklistAlarmSelectColumnDeleteAt, EnterpriseBlacklistAlarmSelectColumnDeleteBy, EnterpriseBlacklistAlarmSelectColumnIsDelete:
+	case EnterpriseBlacklistAlarmSelectColumnID, EnterpriseBlacklistAlarmSelectColumnAlarmID, EnterpriseBlacklistAlarmSelectColumnEnterpriseID, EnterpriseBlacklistAlarmSelectColumnType, EnterpriseBlacklistAlarmSelectColumnYear, EnterpriseBlacklistAlarmSelectColumnIsBlack, EnterpriseBlacklistAlarmSelectColumnIsRank, EnterpriseBlacklistAlarmSelectColumnCreatedAt, EnterpriseBlacklistAlarmSelectColumnCreatedBy, EnterpriseBlacklistAlarmSelectColumnUpdatedAt, EnterpriseBlacklistAlarmSelectColumnUpdatedBy, EnterpriseBlacklistAlarmSelectColumnDeletedAt, EnterpriseBlacklistAlarmSelectColumnDeletedBy, EnterpriseBlacklistAlarmSelectColumnIsDeleted:
 		return true
 	}
 	return false
@@ -1486,19 +1486,19 @@ const (
 	// 备注
 	EnterpriseBlacklistHisSelectColumnRemarks EnterpriseBlacklistHisSelectColumn = "remarks"
 	// 创建时间
-	EnterpriseBlacklistHisSelectColumnCreateAt EnterpriseBlacklistHisSelectColumn = "create_at"
+	EnterpriseBlacklistHisSelectColumnCreatedAt EnterpriseBlacklistHisSelectColumn = "created_at"
 	// 创建人
-	EnterpriseBlacklistHisSelectColumnCreateBy EnterpriseBlacklistHisSelectColumn = "create_by"
+	EnterpriseBlacklistHisSelectColumnCreatedBy EnterpriseBlacklistHisSelectColumn = "created_by"
 	// 修改时间
-	EnterpriseBlacklistHisSelectColumnUpdateAt EnterpriseBlacklistHisSelectColumn = "update_at"
+	EnterpriseBlacklistHisSelectColumnUpdatedAt EnterpriseBlacklistHisSelectColumn = "updated_at"
 	// 修改人
-	EnterpriseBlacklistHisSelectColumnUpdateBy EnterpriseBlacklistHisSelectColumn = "update_by"
+	EnterpriseBlacklistHisSelectColumnUpdatedBy EnterpriseBlacklistHisSelectColumn = "updated_by"
 	// 删除时间
-	EnterpriseBlacklistHisSelectColumnDeleteAt EnterpriseBlacklistHisSelectColumn = "delete_at"
+	EnterpriseBlacklistHisSelectColumnDeletedAt EnterpriseBlacklistHisSelectColumn = "deleted_at"
 	// 删除人
-	EnterpriseBlacklistHisSelectColumnDeleteBy EnterpriseBlacklistHisSelectColumn = "delete_by"
+	EnterpriseBlacklistHisSelectColumnDeletedBy EnterpriseBlacklistHisSelectColumn = "deleted_by"
 	// 是否删除
-	EnterpriseBlacklistHisSelectColumnIsDelete EnterpriseBlacklistHisSelectColumn = "is_delete"
+	EnterpriseBlacklistHisSelectColumnIsDeleted EnterpriseBlacklistHisSelectColumn = "is_deleted"
 )
 
 var AllEnterpriseBlacklistHisSelectColumn = []EnterpriseBlacklistHisSelectColumn{
@@ -1508,18 +1508,18 @@ var AllEnterpriseBlacklistHisSelectColumn = []EnterpriseBlacklistHisSelectColumn
 	EnterpriseBlacklistHisSelectColumnBlacklistType,
 	EnterpriseBlacklistHisSelectColumnOperate,
 	EnterpriseBlacklistHisSelectColumnRemarks,
-	EnterpriseBlacklistHisSelectColumnCreateAt,
-	EnterpriseBlacklistHisSelectColumnCreateBy,
-	EnterpriseBlacklistHisSelectColumnUpdateAt,
-	EnterpriseBlacklistHisSelectColumnUpdateBy,
-	EnterpriseBlacklistHisSelectColumnDeleteAt,
-	EnterpriseBlacklistHisSelectColumnDeleteBy,
-	EnterpriseBlacklistHisSelectColumnIsDelete,
+	EnterpriseBlacklistHisSelectColumnCreatedAt,
+	EnterpriseBlacklistHisSelectColumnCreatedBy,
+	EnterpriseBlacklistHisSelectColumnUpdatedAt,
+	EnterpriseBlacklistHisSelectColumnUpdatedBy,
+	EnterpriseBlacklistHisSelectColumnDeletedAt,
+	EnterpriseBlacklistHisSelectColumnDeletedBy,
+	EnterpriseBlacklistHisSelectColumnIsDeleted,
 }
 
 func (e EnterpriseBlacklistHisSelectColumn) IsValid() bool {
 	switch e {
-	case EnterpriseBlacklistHisSelectColumnID, EnterpriseBlacklistHisSelectColumnHisID, EnterpriseBlacklistHisSelectColumnEnterpriseID, EnterpriseBlacklistHisSelectColumnBlacklistType, EnterpriseBlacklistHisSelectColumnOperate, EnterpriseBlacklistHisSelectColumnRemarks, EnterpriseBlacklistHisSelectColumnCreateAt, EnterpriseBlacklistHisSelectColumnCreateBy, EnterpriseBlacklistHisSelectColumnUpdateAt, EnterpriseBlacklistHisSelectColumnUpdateBy, EnterpriseBlacklistHisSelectColumnDeleteAt, EnterpriseBlacklistHisSelectColumnDeleteBy, EnterpriseBlacklistHisSelectColumnIsDelete:
+	case EnterpriseBlacklistHisSelectColumnID, EnterpriseBlacklistHisSelectColumnHisID, EnterpriseBlacklistHisSelectColumnEnterpriseID, EnterpriseBlacklistHisSelectColumnBlacklistType, EnterpriseBlacklistHisSelectColumnOperate, EnterpriseBlacklistHisSelectColumnRemarks, EnterpriseBlacklistHisSelectColumnCreatedAt, EnterpriseBlacklistHisSelectColumnCreatedBy, EnterpriseBlacklistHisSelectColumnUpdatedAt, EnterpriseBlacklistHisSelectColumnUpdatedBy, EnterpriseBlacklistHisSelectColumnDeletedAt, EnterpriseBlacklistHisSelectColumnDeletedBy, EnterpriseBlacklistHisSelectColumnIsDeleted:
 		return true
 	}
 	return false
@@ -1565,19 +1565,19 @@ const (
 	// 扣分次数
 	VehicleBlacklistAlarmSelectColumnScoreCount VehicleBlacklistAlarmSelectColumn = "score_count"
 	// 创建时间
-	VehicleBlacklistAlarmSelectColumnCreateAt VehicleBlacklistAlarmSelectColumn = "create_at"
+	VehicleBlacklistAlarmSelectColumnCreatedAt VehicleBlacklistAlarmSelectColumn = "created_at"
 	// 创建人
-	VehicleBlacklistAlarmSelectColumnCreateBy VehicleBlacklistAlarmSelectColumn = "create_by"
+	VehicleBlacklistAlarmSelectColumnCreatedBy VehicleBlacklistAlarmSelectColumn = "created_by"
 	// 更新时间
-	VehicleBlacklistAlarmSelectColumnUpdateAt VehicleBlacklistAlarmSelectColumn = "update_at"
+	VehicleBlacklistAlarmSelectColumnUpdatedAt VehicleBlacklistAlarmSelectColumn = "updated_at"
 	// 更新人
-	VehicleBlacklistAlarmSelectColumnUpdateBy VehicleBlacklistAlarmSelectColumn = "update_by"
+	VehicleBlacklistAlarmSelectColumnUpdatedBy VehicleBlacklistAlarmSelectColumn = "updated_by"
 	// 删除时间
-	VehicleBlacklistAlarmSelectColumnDeleteAt VehicleBlacklistAlarmSelectColumn = "delete_at"
+	VehicleBlacklistAlarmSelectColumnDeletedAt VehicleBlacklistAlarmSelectColumn = "deleted_at"
 	// 删除人
-	VehicleBlacklistAlarmSelectColumnDeleteBy VehicleBlacklistAlarmSelectColumn = "delete_by"
+	VehicleBlacklistAlarmSelectColumnDeletedBy VehicleBlacklistAlarmSelectColumn = "deleted_by"
 	// 是否删除
-	VehicleBlacklistAlarmSelectColumnIsDelete VehicleBlacklistAlarmSelectColumn = "is_delete"
+	VehicleBlacklistAlarmSelectColumnIsDeleted VehicleBlacklistAlarmSelectColumn = "is_deleted"
 )
 
 var AllVehicleBlacklistAlarmSelectColumn = []VehicleBlacklistAlarmSelectColumn{
@@ -1588,18 +1588,18 @@ var AllVehicleBlacklistAlarmSelectColumn = []VehicleBlacklistAlarmSelectColumn{
 	VehicleBlacklistAlarmSelectColumnYear,
 	VehicleBlacklistAlarmSelectColumnScoreNum,
 	VehicleBlacklistAlarmSelectColumnScoreCount,
-	VehicleBlacklistAlarmSelectColumnCreateAt,
-	VehicleBlacklistAlarmSelectColumnCreateBy,
-	VehicleBlacklistAlarmSelectColumnUpdateAt,
-	VehicleBlacklistAlarmSelectColumnUpdateBy,
-	VehicleBlacklistAlarmSelectColumnDeleteAt,
-	VehicleBlacklistAlarmSelectColumnDeleteBy,
-	VehicleBlacklistAlarmSelectColumnIsDelete,
+	VehicleBlacklistAlarmSelectColumnCreatedAt,
+	VehicleBlacklistAlarmSelectColumnCreatedBy,
+	VehicleBlacklistAlarmSelectColumnUpdatedAt,
+	VehicleBlacklistAlarmSelectColumnUpdatedBy,
+	VehicleBlacklistAlarmSelectColumnDeletedAt,
+	VehicleBlacklistAlarmSelectColumnDeletedBy,
+	VehicleBlacklistAlarmSelectColumnIsDeleted,
 }
 
 func (e VehicleBlacklistAlarmSelectColumn) IsValid() bool {
 	switch e {
-	case VehicleBlacklistAlarmSelectColumnID, VehicleBlacklistAlarmSelectColumnAlarmID, VehicleBlacklistAlarmSelectColumnVehicleID, VehicleBlacklistAlarmSelectColumnLicensePlateNumber, VehicleBlacklistAlarmSelectColumnYear, VehicleBlacklistAlarmSelectColumnScoreNum, VehicleBlacklistAlarmSelectColumnScoreCount, VehicleBlacklistAlarmSelectColumnCreateAt, VehicleBlacklistAlarmSelectColumnCreateBy, VehicleBlacklistAlarmSelectColumnUpdateAt, VehicleBlacklistAlarmSelectColumnUpdateBy, VehicleBlacklistAlarmSelectColumnDeleteAt, VehicleBlacklistAlarmSelectColumnDeleteBy, VehicleBlacklistAlarmSelectColumnIsDelete:
+	case VehicleBlacklistAlarmSelectColumnID, VehicleBlacklistAlarmSelectColumnAlarmID, VehicleBlacklistAlarmSelectColumnVehicleID, VehicleBlacklistAlarmSelectColumnLicensePlateNumber, VehicleBlacklistAlarmSelectColumnYear, VehicleBlacklistAlarmSelectColumnScoreNum, VehicleBlacklistAlarmSelectColumnScoreCount, VehicleBlacklistAlarmSelectColumnCreatedAt, VehicleBlacklistAlarmSelectColumnCreatedBy, VehicleBlacklistAlarmSelectColumnUpdatedAt, VehicleBlacklistAlarmSelectColumnUpdatedBy, VehicleBlacklistAlarmSelectColumnDeletedAt, VehicleBlacklistAlarmSelectColumnDeletedBy, VehicleBlacklistAlarmSelectColumnIsDeleted:
 		return true
 	}
 	return false
@@ -1643,19 +1643,19 @@ const (
 	// 备注
 	VehicleBlacklistHisSelectColumnRemarks VehicleBlacklistHisSelectColumn = "remarks"
 	// 创建时间
-	VehicleBlacklistHisSelectColumnCreateAt VehicleBlacklistHisSelectColumn = "create_at"
+	VehicleBlacklistHisSelectColumnCreatedAt VehicleBlacklistHisSelectColumn = "created_at"
 	// 创建人
-	VehicleBlacklistHisSelectColumnCreateBy VehicleBlacklistHisSelectColumn = "create_by"
+	VehicleBlacklistHisSelectColumnCreatedBy VehicleBlacklistHisSelectColumn = "created_by"
 	// 修改时间
-	VehicleBlacklistHisSelectColumnUpdateAt VehicleBlacklistHisSelectColumn = "update_at"
+	VehicleBlacklistHisSelectColumnUpdatedAt VehicleBlacklistHisSelectColumn = "updated_at"
 	// 修改人
-	VehicleBlacklistHisSelectColumnUpdateBy VehicleBlacklistHisSelectColumn = "update_by"
+	VehicleBlacklistHisSelectColumnUpdatedBy VehicleBlacklistHisSelectColumn = "updated_by"
 	// 删除时间
-	VehicleBlacklistHisSelectColumnDeleteAt VehicleBlacklistHisSelectColumn = "delete_at"
+	VehicleBlacklistHisSelectColumnDeletedAt VehicleBlacklistHisSelectColumn = "deleted_at"
 	// 删除人
-	VehicleBlacklistHisSelectColumnDeleteBy VehicleBlacklistHisSelectColumn = "delete_by"
+	VehicleBlacklistHisSelectColumnDeletedBy VehicleBlacklistHisSelectColumn = "deleted_by"
 	// 是否删除
-	VehicleBlacklistHisSelectColumnIsDelete VehicleBlacklistHisSelectColumn = "is_delete"
+	VehicleBlacklistHisSelectColumnIsDeleted VehicleBlacklistHisSelectColumn = "is_deleted"
 )
 
 var AllVehicleBlacklistHisSelectColumn = []VehicleBlacklistHisSelectColumn{
@@ -1665,18 +1665,18 @@ var AllVehicleBlacklistHisSelectColumn = []VehicleBlacklistHisSelectColumn{
 	VehicleBlacklistHisSelectColumnBlacklistType,
 	VehicleBlacklistHisSelectColumnOperate,
 	VehicleBlacklistHisSelectColumnRemarks,
-	VehicleBlacklistHisSelectColumnCreateAt,
-	VehicleBlacklistHisSelectColumnCreateBy,
-	VehicleBlacklistHisSelectColumnUpdateAt,
-	VehicleBlacklistHisSelectColumnUpdateBy,
-	VehicleBlacklistHisSelectColumnDeleteAt,
-	VehicleBlacklistHisSelectColumnDeleteBy,
-	VehicleBlacklistHisSelectColumnIsDelete,
+	VehicleBlacklistHisSelectColumnCreatedAt,
+	VehicleBlacklistHisSelectColumnCreatedBy,
+	VehicleBlacklistHisSelectColumnUpdatedAt,
+	VehicleBlacklistHisSelectColumnUpdatedBy,
+	VehicleBlacklistHisSelectColumnDeletedAt,
+	VehicleBlacklistHisSelectColumnDeletedBy,
+	VehicleBlacklistHisSelectColumnIsDeleted,
 }
 
 func (e VehicleBlacklistHisSelectColumn) IsValid() bool {
 	switch e {
-	case VehicleBlacklistHisSelectColumnID, VehicleBlacklistHisSelectColumnHisID, VehicleBlacklistHisSelectColumnVehicleID, VehicleBlacklistHisSelectColumnBlacklistType, VehicleBlacklistHisSelectColumnOperate, VehicleBlacklistHisSelectColumnRemarks, VehicleBlacklistHisSelectColumnCreateAt, VehicleBlacklistHisSelectColumnCreateBy, VehicleBlacklistHisSelectColumnUpdateAt, VehicleBlacklistHisSelectColumnUpdateBy, VehicleBlacklistHisSelectColumnDeleteAt, VehicleBlacklistHisSelectColumnDeleteBy, VehicleBlacklistHisSelectColumnIsDelete:
+	case VehicleBlacklistHisSelectColumnID, VehicleBlacklistHisSelectColumnHisID, VehicleBlacklistHisSelectColumnVehicleID, VehicleBlacklistHisSelectColumnBlacklistType, VehicleBlacklistHisSelectColumnOperate, VehicleBlacklistHisSelectColumnRemarks, VehicleBlacklistHisSelectColumnCreatedAt, VehicleBlacklistHisSelectColumnCreatedBy, VehicleBlacklistHisSelectColumnUpdatedAt, VehicleBlacklistHisSelectColumnUpdatedBy, VehicleBlacklistHisSelectColumnDeletedAt, VehicleBlacklistHisSelectColumnDeletedBy, VehicleBlacklistHisSelectColumnIsDeleted:
 		return true
 	}
 	return false

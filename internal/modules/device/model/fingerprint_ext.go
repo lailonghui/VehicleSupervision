@@ -5,7 +5,7 @@ import (
 	"time"
 )
 
-//go:generate go run github.com/vektah/dataloaden FingerprintPkLoader string *VehicleSupervision/internal/modules/device/model.Fingerprint
+//go:generate go run github.com/vektah/dataloaden FingerprintUnionPkLoader string *VehicleSupervision/internal/modules/device/model.Fingerprint
 
 // 数据库表名
 func (t *Fingerprint) TableName() string {
@@ -31,6 +31,30 @@ func (t *FingerprintPkLoader) NewLoader() *FingerprintPkLoader {
 			var rs []*Fingerprint
 			var m Fingerprint
 			db.DB.Model(&m).Where(m.PrimaryColumnName()+" in ?", keys).Find(&rs)
+			return rs, nil
+		},
+	}
+}
+
+// 联合主键列名
+func (t *Fingerprint) UnionPrimaryColumnName() string {
+	return "fingerprint_id"
+}
+
+// 获取联合主键
+func (t *Fingerprint) GetUnionPrimary() string {
+	return t.FingerprintID
+}
+
+// 新建联合主键dataloader
+func (t *FingerprintUnionPkLoader) NewLoader() *FingerprintUnionPkLoader {
+	return &FingerprintUnionPkLoader{
+		wait:     2 * time.Millisecond,
+		maxBatch: 100,
+		fetch: func(keys []string) ([]*Fingerprint, []error) {
+			var rs []*Fingerprint
+			var m Fingerprint
+			db.DB.Model(&m).Where(m.UnionPrimaryColumnName()+" in ?", keys).Find(&rs)
 			return rs, nil
 		},
 	}

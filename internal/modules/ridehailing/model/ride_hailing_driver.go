@@ -56,17 +56,21 @@ type RideHailingDriver struct {
 	// 内网更新时间
 	UpdateTimeIn *time.Time `json:"update_time_in"`
 	// 记录时间
-	CreateAt *time.Time `json:"create_at"`
+	CreatedAt *time.Time `json:"created_at"`
 	// 记录人员ID
-	CreateBy *string `json:"create_by"`
+	CreatedBy *string `json:"created_by"`
 	// 更新时间
-	UpdateAt *time.Time `json:"update_at"`
+	UpdatedAt *time.Time `json:"updated_at"`
 	// 更新人员id
-	UpdateBy *string `json:"update_by"`
+	UpdatedBy *string `json:"updated_by"`
 	// 操作员id
 	OperatorID *string `json:"operator_id"`
 	// 备注
 	Remarks *string `json:"remarks"`
 	// 是否删除
-	IsDelete bool `json:"is_delete"`
+	IsDeleted bool `json:"is_deleted"`
+	// 删除时间
+	DeletedAt *time.Time `json:"deleted_at"`
+	// 删除人ID
+	DeletedBy *string `json:"deleted_by"`
 }

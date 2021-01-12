@@ -21,7 +21,7 @@ type EnterpriseStateHis struct {
 	// 相关文件链接
 	FileURL *string `json:"file_url"`
 	// 创建时间
-	CreateAt time.Time `json:"create_at"`
+	CreatedAt time.Time `json:"created_at"`
 	// 创建人
-	CreateBy *string `json:"create_by"`
+	CreatedBy *string `json:"created_by"`
 }

@@ -25,17 +25,17 @@ type EcdFileLinePoint struct {
 	// 信息点类型 0停车点 1起点 2终点 3修车点
 	PointType *int `json:"point_type"`
 	// 创建时间
-	CreateAt time.Time `json:"create_at"`
+	CreatedAt time.Time `json:"created_at"`
 	// 创建人
-	CreateBy *string `json:"create_by"`
+	CreatedBy *string `json:"created_by"`
 	// 更新时间
-	UpdateAt *time.Time `json:"update_at"`
+	UpdatedAt *time.Time `json:"updated_at"`
 	// 更新人
-	UpdateBy *string `json:"update_by"`
+	UpdatedBy *string `json:"updated_by"`
 	// 删除时间
-	DeleteAt *time.Time `json:"delete_at"`
+	DeletedAt *time.Time `json:"deleted_at"`
 	// 删除人
-	DeleteBy *string `json:"delete_by"`
+	DeletedBy *string `json:"deleted_by"`
 	// 是否删除
-	IsDelete bool `json:"is_delete"`
+	IsDeleted bool `json:"is_deleted"`
 }

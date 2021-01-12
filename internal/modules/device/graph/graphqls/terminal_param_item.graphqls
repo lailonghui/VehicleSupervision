@@ -33,31 +33,31 @@ type TerminalParamItem {
 	"""
 	创建时间
 	"""
-	create_at: Timestamptz!
+	created_at: Timestamptz!
 	"""
 	创建人
 	"""
-	create_by: String
+	created_by: String
 	"""
 	更新时间
 	"""
-	update_at: Timestamptz
+	updated_at: Timestamptz
 	"""
 	更新人
 	"""
-	update_by: String
+	updated_by: String
 	"""
 	删除时间
 	"""
-	delete_at: Timestamptz
+	deleted_at: Timestamptz
 	"""
 	删除人
 	"""
-	delete_by: String
+	deleted_by: String
 	"""
 	是否删除
 	"""
-	is_delete: Boolean!
+	is_deleted: Boolean!
 	"""
 	备注
 	"""
@@ -107,13 +107,13 @@ type TerminalParamItemMaxFields {
 	data_type: Int
 	is_enum: Boolean
 	has_subparam: Boolean
-	create_at: Timestamptz
-	create_by: String
-	update_at: Timestamptz
-	update_by: String
-	delete_at: Timestamptz
-	delete_by: String
-	is_delete: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+	is_deleted: Boolean
 	remark: String
 	dict_id: String
 }
@@ -128,13 +128,13 @@ type TerminalParamItemMinFields {
 	data_type: Int
 	is_enum: Boolean
 	has_subparam: Boolean
-	create_at: Timestamptz
-	create_by: String
-	update_at: Timestamptz
-	update_by: String
-	delete_at: Timestamptz
-	delete_by: String
-	is_delete: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+	is_deleted: Boolean
 	remark: String
 	dict_id: String
 }
@@ -205,13 +205,13 @@ input TerminalParamItemOrderBy {
 	data_type: OrderBy
 	is_enum: OrderBy
 	has_subparam: OrderBy
-	create_at: OrderBy
-	create_by: OrderBy
-	update_at: OrderBy
-	update_by: OrderBy
-	delete_at: OrderBy
-	delete_by: OrderBy
-	is_delete: OrderBy
+	created_at: OrderBy
+	created_by: OrderBy
+	updated_at: OrderBy
+	updated_by: OrderBy
+	deleted_at: OrderBy
+	deleted_by: OrderBy
+	is_deleted: OrderBy
 	remark: OrderBy
 	dict_id: OrderBy
 }
@@ -229,13 +229,13 @@ input TerminalParamItemBoolExp {
 	data_type: IntComparisonExp
 	is_enum: BooleanComparisonExp
 	has_subparam: BooleanComparisonExp
-	create_at: TimestamptzComparisonExp
-	create_by: StringComparisonExp
-	update_at: TimestamptzComparisonExp
-	update_by: StringComparisonExp
-	delete_at: TimestamptzComparisonExp
-	delete_by: StringComparisonExp
-	is_delete: BooleanComparisonExp
+	created_at: TimestamptzComparisonExp
+	created_by: StringComparisonExp
+	updated_at: TimestamptzComparisonExp
+	updated_by: StringComparisonExp
+	deleted_at: TimestamptzComparisonExp
+	deleted_by: StringComparisonExp
+	is_deleted: BooleanComparisonExp
 	remark: StringComparisonExp
 	dict_id: StringComparisonExp
 }
@@ -249,13 +249,13 @@ input TerminalParamItemInsertInput {
 	data_type: Int!
 	is_enum: Boolean!
 	has_subparam: Boolean!
-	create_at: Timestamptz!
-	create_by: String
-	update_at: Timestamptz
-	update_by: String
-	delete_at: Timestamptz
-	delete_by: String
-	is_delete: Boolean!
+	created_at: Timestamptz!
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+	is_deleted: Boolean!
 	remark: String
 	dict_id: String
 }
@@ -277,13 +277,13 @@ input TerminalParamItemSetInput {
 	data_type: Int
 	is_enum: Boolean
 	has_subparam: Boolean
-	create_at: Timestamptz
-	create_by: String
-	update_at: Timestamptz
-	update_by: String
-	delete_at: Timestamptz
-	delete_by: String
-	is_delete: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+	is_deleted: Boolean
 	remark: String
 	dict_id: String
 }
@@ -322,31 +322,31 @@ enum TerminalParamItemSelectColumn {
 	"""
 	创建时间
 	"""
-	create_at
+	created_at
 	"""
 	创建人
 	"""
-	create_by
+	created_by
 	"""
 	更新时间
 	"""
-	update_at
+	updated_at
 	"""
 	更新人
 	"""
-	update_by
+	updated_by
 	"""
 	删除时间
 	"""
-	delete_at
+	deleted_at
 	"""
 	删除人
 	"""
-	delete_by
+	deleted_by
 	"""
 	是否删除
 	"""
-	is_delete
+	is_deleted
 	"""
 	备注
 	"""

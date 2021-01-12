@@ -59,7 +59,7 @@ type SystemUser struct {
 	// 删除人
 	DeleteBy *string `json:"delete_by"`
 	// 是否删除
-	IsDelete bool `json:"is_delete"`
+	IsDeleted bool `json:"is_deleted"`
 	// 备注
 	Remarks *string `json:"remarks"`
 }

@@ -48,13 +48,13 @@ type DataDictionaryBoolExp struct {
 	Name                 *model.StringComparisonExp      `json:"name"`
 	Value                *model.IntComparisonExp         `json:"value"`
 	Remarks              *model.StringComparisonExp      `json:"remarks"`
-	CreateAt             *model.TimestamptzComparisonExp `json:"create_at"`
-	CreateBy             *model.StringComparisonExp      `json:"create_by"`
-	UpdateAt             *model.TimestamptzComparisonExp `json:"update_at"`
-	UpdateBy             *model.StringComparisonExp      `json:"update_by"`
-	DeleteAt             *model.TimestamptzComparisonExp `json:"delete_at"`
-	DeleteBy             *model.StringComparisonExp      `json:"delete_by"`
-	IsDelete             *model.BooleanComparisonExp     `json:"is_delete"`
+	CreatedAt            *model.TimestamptzComparisonExp `json:"created_at"`
+	CreatedBy            *model.StringComparisonExp      `json:"created_by"`
+	UpdatedAt            *model.TimestamptzComparisonExp `json:"updated_at"`
+	UpdatedBy            *model.StringComparisonExp      `json:"updated_by"`
+	DeletedAt            *model.TimestamptzComparisonExp `json:"deleted_at"`
+	DeletedBy            *model.StringComparisonExp      `json:"deleted_by"`
+	IsDeleted            *model.BooleanComparisonExp     `json:"is_deleted"`
 }
 
 // aggregated selection of "data_dictionary_category"
@@ -92,13 +92,13 @@ type DataDictionaryCategoryBoolExp struct {
 	CategoryName         *model.StringComparisonExp       `json:"category_name"`
 	CategoryCode         *model.StringComparisonExp       `json:"category_code"`
 	Remarks              *model.StringComparisonExp       `json:"remarks"`
-	CreateAt             *model.TimestamptzComparisonExp  `json:"create_at"`
-	CreateBy             *model.StringComparisonExp       `json:"create_by"`
-	UpdateAt             *model.TimestamptzComparisonExp  `json:"update_at"`
-	UpdateBy             *model.StringComparisonExp       `json:"update_by"`
-	DeleteAt             *model.TimestamptzComparisonExp  `json:"delete_at"`
-	DeleteBy             *model.StringComparisonExp       `json:"delete_by"`
-	IsDelete             *model.BooleanComparisonExp      `json:"is_delete"`
+	CreatedAt            *model.TimestamptzComparisonExp  `json:"created_at"`
+	CreatedBy            *model.StringComparisonExp       `json:"created_by"`
+	UpdatedAt            *model.TimestamptzComparisonExp  `json:"updated_at"`
+	UpdatedBy            *model.StringComparisonExp       `json:"updated_by"`
+	DeletedAt            *model.TimestamptzComparisonExp  `json:"deleted_at"`
+	DeletedBy            *model.StringComparisonExp       `json:"deleted_by"`
+	IsDeleted            *model.BooleanComparisonExp      `json:"is_deleted"`
 }
 
 // input type for incrementing integer column in table "data_dictionary_category"
@@ -112,13 +112,13 @@ type DataDictionaryCategoryInsertInput struct {
 	CategoryName         string     `json:"category_name"`
 	CategoryCode         string     `json:"category_code"`
 	Remarks              *string    `json:"remarks"`
-	CreateAt             time.Time  `json:"create_at"`
-	CreateBy             *string    `json:"create_by"`
-	UpdateAt             *time.Time `json:"update_at"`
-	UpdateBy             *string    `json:"update_by"`
-	DeleteAt             *time.Time `json:"delete_at"`
-	DeleteBy             *string    `json:"delete_by"`
-	IsDelete             bool       `json:"is_delete"`
+	CreatedAt            time.Time  `json:"created_at"`
+	CreatedBy            *string    `json:"created_by"`
+	UpdatedAt            *time.Time `json:"updated_at"`
+	UpdatedBy            *string    `json:"updated_by"`
+	DeletedAt            *time.Time `json:"deleted_at"`
+	DeletedBy            *string    `json:"deleted_by"`
+	IsDeleted            bool       `json:"is_deleted"`
 }
 
 // aggregate max on columns of table "data_dictionary_category"
@@ -128,13 +128,13 @@ type DataDictionaryCategoryMaxFields struct {
 	CategoryName         *string    `json:"category_name"`
 	CategoryCode         *string    `json:"category_code"`
 	Remarks              *string    `json:"remarks"`
-	CreateAt             *time.Time `json:"create_at"`
-	CreateBy             *string    `json:"create_by"`
-	UpdateAt             *time.Time `json:"update_at"`
-	UpdateBy             *string    `json:"update_by"`
-	DeleteAt             *time.Time `json:"delete_at"`
-	DeleteBy             *string    `json:"delete_by"`
-	IsDelete             *bool      `json:"is_delete"`
+	CreatedAt            *time.Time `json:"created_at"`
+	CreatedBy            *string    `json:"created_by"`
+	UpdatedAt            *time.Time `json:"updated_at"`
+	UpdatedBy            *string    `json:"updated_by"`
+	DeletedAt            *time.Time `json:"deleted_at"`
+	DeletedBy            *string    `json:"deleted_by"`
+	IsDeleted            *bool      `json:"is_deleted"`
 }
 
 // aggregate min on columns of table "data_dictionary_category"
@@ -144,13 +144,13 @@ type DataDictionaryCategoryMinFields struct {
 	CategoryName         *string    `json:"category_name"`
 	CategoryCode         *string    `json:"category_code"`
 	Remarks              *string    `json:"remarks"`
-	CreateAt             *time.Time `json:"create_at"`
-	CreateBy             *string    `json:"create_by"`
-	UpdateAt             *time.Time `json:"update_at"`
-	UpdateBy             *string    `json:"update_by"`
-	DeleteAt             *time.Time `json:"delete_at"`
-	DeleteBy             *string    `json:"delete_by"`
-	IsDelete             *bool      `json:"is_delete"`
+	CreatedAt            *time.Time `json:"created_at"`
+	CreatedBy            *string    `json:"created_by"`
+	UpdatedAt            *time.Time `json:"updated_at"`
+	UpdatedBy            *string    `json:"updated_by"`
+	DeletedAt            *time.Time `json:"deleted_at"`
+	DeletedBy            *string    `json:"deleted_by"`
+	IsDeleted            *bool      `json:"is_deleted"`
 }
 
 // response of any mutation on the table "data_dictionary_category"
@@ -166,13 +166,13 @@ type DataDictionaryCategoryOrderBy struct {
 	CategoryName         *model.OrderBy `json:"category_name"`
 	CategoryCode         *model.OrderBy `json:"category_code"`
 	Remarks              *model.OrderBy `json:"remarks"`
-	CreateAt             *model.OrderBy `json:"create_at"`
-	CreateBy             *model.OrderBy `json:"create_by"`
-	UpdateAt             *model.OrderBy `json:"update_at"`
-	UpdateBy             *model.OrderBy `json:"update_by"`
-	DeleteAt             *model.OrderBy `json:"delete_at"`
-	DeleteBy             *model.OrderBy `json:"delete_by"`
-	IsDelete             *model.OrderBy `json:"is_delete"`
+	CreatedAt            *model.OrderBy `json:"created_at"`
+	CreatedBy            *model.OrderBy `json:"created_by"`
+	UpdatedAt            *model.OrderBy `json:"updated_at"`
+	UpdatedBy            *model.OrderBy `json:"updated_by"`
+	DeletedAt            *model.OrderBy `json:"deleted_at"`
+	DeletedBy            *model.OrderBy `json:"deleted_by"`
+	IsDeleted            *model.OrderBy `json:"is_deleted"`
 }
 
 // input type for updating data in table "data_dictionary_category"
@@ -182,13 +182,13 @@ type DataDictionaryCategorySetInput struct {
 	CategoryName         *string    `json:"category_name"`
 	CategoryCode         *string    `json:"category_code"`
 	Remarks              *string    `json:"remarks"`
-	CreateAt             *time.Time `json:"create_at"`
-	CreateBy             *string    `json:"create_by"`
-	UpdateAt             *time.Time `json:"update_at"`
-	UpdateBy             *string    `json:"update_by"`
-	DeleteAt             *time.Time `json:"delete_at"`
-	DeleteBy             *string    `json:"delete_by"`
-	IsDelete             *bool      `json:"is_delete"`
+	CreatedAt            *time.Time `json:"created_at"`
+	CreatedBy            *string    `json:"created_by"`
+	UpdatedAt            *time.Time `json:"updated_at"`
+	UpdatedBy            *string    `json:"updated_by"`
+	DeletedAt            *time.Time `json:"deleted_at"`
+	DeletedBy            *string    `json:"deleted_by"`
+	IsDeleted            *bool      `json:"is_deleted"`
 }
 
 // aggregate stddev on columns of table "data_dictionary_category"
@@ -239,13 +239,13 @@ type DataDictionaryInsertInput struct {
 	Name                 string     `json:"name"`
 	Value                int        `json:"value"`
 	Remarks              *string    `json:"remarks"`
-	CreateAt             time.Time  `json:"create_at"`
-	CreateBy             *string    `json:"create_by"`
-	UpdateAt             *time.Time `json:"update_at"`
-	UpdateBy             *string    `json:"update_by"`
-	DeleteAt             *time.Time `json:"delete_at"`
-	DeleteBy             *string    `json:"delete_by"`
-	IsDelete             bool       `json:"is_delete"`
+	CreatedAt            time.Time  `json:"created_at"`
+	CreatedBy            *string    `json:"created_by"`
+	UpdatedAt            *time.Time `json:"updated_at"`
+	UpdatedBy            *string    `json:"updated_by"`
+	DeletedAt            *time.Time `json:"deleted_at"`
+	DeletedBy            *string    `json:"deleted_by"`
+	IsDeleted            bool       `json:"is_deleted"`
 }
 
 // aggregate max on columns of table "data_dictionary"
@@ -256,13 +256,13 @@ type DataDictionaryMaxFields struct {
 	Name                 *string    `json:"name"`
 	Value                *int       `json:"value"`
 	Remarks              *string    `json:"remarks"`
-	CreateAt             *time.Time `json:"create_at"`
-	CreateBy             *string    `json:"create_by"`
-	UpdateAt             *time.Time `json:"update_at"`
-	UpdateBy             *string    `json:"update_by"`
-	DeleteAt             *time.Time `json:"delete_at"`
-	DeleteBy             *string    `json:"delete_by"`
-	IsDelete             *bool      `json:"is_delete"`
+	CreatedAt            *time.Time `json:"created_at"`
+	CreatedBy            *string    `json:"created_by"`
+	UpdatedAt            *time.Time `json:"updated_at"`
+	UpdatedBy            *string    `json:"updated_by"`
+	DeletedAt            *time.Time `json:"deleted_at"`
+	DeletedBy            *string    `json:"deleted_by"`
+	IsDeleted            *bool      `json:"is_deleted"`
 }
 
 // aggregate min on columns of table "data_dictionary"
@@ -273,13 +273,13 @@ type DataDictionaryMinFields struct {
 	Name                 *string    `json:"name"`
 	Value                *int       `json:"value"`
 	Remarks              *string    `json:"remarks"`
-	CreateAt             *time.Time `json:"create_at"`
-	CreateBy             *string    `json:"create_by"`
-	UpdateAt             *time.Time `json:"update_at"`
-	UpdateBy             *string    `json:"update_by"`
-	DeleteAt             *time.Time `json:"delete_at"`
-	DeleteBy             *string    `json:"delete_by"`
-	IsDelete             *bool      `json:"is_delete"`
+	CreatedAt            *time.Time `json:"created_at"`
+	CreatedBy            *string    `json:"created_by"`
+	UpdatedAt            *time.Time `json:"updated_at"`
+	UpdatedBy            *string    `json:"updated_by"`
+	DeletedAt            *time.Time `json:"deleted_at"`
+	DeletedBy            *string    `json:"deleted_by"`
+	IsDeleted            *bool      `json:"is_deleted"`
 }
 
 // response of any mutation on the table "data_dictionary"
@@ -296,13 +296,13 @@ type DataDictionaryOrderBy struct {
 	Name                 *model.OrderBy `json:"name"`
 	Value                *model.OrderBy `json:"value"`
 	Remarks              *model.OrderBy `json:"remarks"`
-	CreateAt             *model.OrderBy `json:"create_at"`
-	CreateBy             *model.OrderBy `json:"create_by"`
-	UpdateAt             *model.OrderBy `json:"update_at"`
-	UpdateBy             *model.OrderBy `json:"update_by"`
-	DeleteAt             *model.OrderBy `json:"delete_at"`
-	DeleteBy             *model.OrderBy `json:"delete_by"`
-	IsDelete             *model.OrderBy `json:"is_delete"`
+	CreatedAt            *model.OrderBy `json:"created_at"`
+	CreatedBy            *model.OrderBy `json:"created_by"`
+	UpdatedAt            *model.OrderBy `json:"updated_at"`
+	UpdatedBy            *model.OrderBy `json:"updated_by"`
+	DeletedAt            *model.OrderBy `json:"deleted_at"`
+	DeletedBy            *model.OrderBy `json:"deleted_by"`
+	IsDeleted            *model.OrderBy `json:"is_deleted"`
 }
 
 // input type for updating data in table "data_dictionary"
@@ -313,13 +313,13 @@ type DataDictionarySetInput struct {
 	Name                 *string    `json:"name"`
 	Value                *int       `json:"value"`
 	Remarks              *string    `json:"remarks"`
-	CreateAt             *time.Time `json:"create_at"`
-	CreateBy             *string    `json:"create_by"`
-	UpdateAt             *time.Time `json:"update_at"`
-	UpdateBy             *string    `json:"update_by"`
-	DeleteAt             *time.Time `json:"delete_at"`
-	DeleteBy             *string    `json:"delete_by"`
-	IsDelete             *bool      `json:"is_delete"`
+	CreatedAt            *time.Time `json:"created_at"`
+	CreatedBy            *string    `json:"created_by"`
+	UpdatedAt            *time.Time `json:"updated_at"`
+	UpdatedBy            *string    `json:"updated_by"`
+	DeletedAt            *time.Time `json:"deleted_at"`
+	DeletedBy            *string    `json:"deleted_by"`
+	IsDeleted            *bool      `json:"is_deleted"`
 }
 
 // aggregate stddev on columns of table "data_dictionary"
@@ -379,19 +379,19 @@ const (
 	// 备注
 	DataDictionaryCategorySelectColumnRemarks DataDictionaryCategorySelectColumn = "remarks"
 	// 创建时间
-	DataDictionaryCategorySelectColumnCreateAt DataDictionaryCategorySelectColumn = "create_at"
+	DataDictionaryCategorySelectColumnCreatedAt DataDictionaryCategorySelectColumn = "created_at"
 	// 创建人
-	DataDictionaryCategorySelectColumnCreateBy DataDictionaryCategorySelectColumn = "create_by"
+	DataDictionaryCategorySelectColumnCreatedBy DataDictionaryCategorySelectColumn = "created_by"
 	// 修改时间
-	DataDictionaryCategorySelectColumnUpdateAt DataDictionaryCategorySelectColumn = "update_at"
+	DataDictionaryCategorySelectColumnUpdatedAt DataDictionaryCategorySelectColumn = "updated_at"
 	// 修改人
-	DataDictionaryCategorySelectColumnUpdateBy DataDictionaryCategorySelectColumn = "update_by"
+	DataDictionaryCategorySelectColumnUpdatedBy DataDictionaryCategorySelectColumn = "updated_by"
 	// 删除时间
-	DataDictionaryCategorySelectColumnDeleteAt DataDictionaryCategorySelectColumn = "delete_at"
+	DataDictionaryCategorySelectColumnDeletedAt DataDictionaryCategorySelectColumn = "deleted_at"
 	// 删除人
-	DataDictionaryCategorySelectColumnDeleteBy DataDictionaryCategorySelectColumn = "delete_by"
+	DataDictionaryCategorySelectColumnDeletedBy DataDictionaryCategorySelectColumn = "deleted_by"
 	// 是否删除
-	DataDictionaryCategorySelectColumnIsDelete DataDictionaryCategorySelectColumn = "is_delete"
+	DataDictionaryCategorySelectColumnIsDeleted DataDictionaryCategorySelectColumn = "is_deleted"
 )
 
 var AllDataDictionaryCategorySelectColumn = []DataDictionaryCategorySelectColumn{
@@ -400,18 +400,18 @@ var AllDataDictionaryCategorySelectColumn = []DataDictionaryCategorySelectColumn
 	DataDictionaryCategorySelectColumnCategoryName,
 	DataDictionaryCategorySelectColumnCategoryCode,
 	DataDictionaryCategorySelectColumnRemarks,
-	DataDictionaryCategorySelectColumnCreateAt,
-	DataDictionaryCategorySelectColumnCreateBy,
-	DataDictionaryCategorySelectColumnUpdateAt,
-	DataDictionaryCategorySelectColumnUpdateBy,
-	DataDictionaryCategorySelectColumnDeleteAt,
-	DataDictionaryCategorySelectColumnDeleteBy,
-	DataDictionaryCategorySelectColumnIsDelete,
+	DataDictionaryCategorySelectColumnCreatedAt,
+	DataDictionaryCategorySelectColumnCreatedBy,
+	DataDictionaryCategorySelectColumnUpdatedAt,
+	DataDictionaryCategorySelectColumnUpdatedBy,
+	DataDictionaryCategorySelectColumnDeletedAt,
+	DataDictionaryCategorySelectColumnDeletedBy,
+	DataDictionaryCategorySelectColumnIsDeleted,
 }
 
 func (e DataDictionaryCategorySelectColumn) IsValid() bool {
 	switch e {
-	case DataDictionaryCategorySelectColumnID, DataDictionaryCategorySelectColumnDictionaryCategoryID, DataDictionaryCategorySelectColumnCategoryName, DataDictionaryCategorySelectColumnCategoryCode, DataDictionaryCategorySelectColumnRemarks, DataDictionaryCategorySelectColumnCreateAt, DataDictionaryCategorySelectColumnCreateBy, DataDictionaryCategorySelectColumnUpdateAt, DataDictionaryCategorySelectColumnUpdateBy, DataDictionaryCategorySelectColumnDeleteAt, DataDictionaryCategorySelectColumnDeleteBy, DataDictionaryCategorySelectColumnIsDelete:
+	case DataDictionaryCategorySelectColumnID, DataDictionaryCategorySelectColumnDictionaryCategoryID, DataDictionaryCategorySelectColumnCategoryName, DataDictionaryCategorySelectColumnCategoryCode, DataDictionaryCategorySelectColumnRemarks, DataDictionaryCategorySelectColumnCreatedAt, DataDictionaryCategorySelectColumnCreatedBy, DataDictionaryCategorySelectColumnUpdatedAt, DataDictionaryCategorySelectColumnUpdatedBy, DataDictionaryCategorySelectColumnDeletedAt, DataDictionaryCategorySelectColumnDeletedBy, DataDictionaryCategorySelectColumnIsDeleted:
 		return true
 	}
 	return false
@@ -455,19 +455,19 @@ const (
 	// 备注
 	DataDictionarySelectColumnRemarks DataDictionarySelectColumn = "remarks"
 	// 创建时间
-	DataDictionarySelectColumnCreateAt DataDictionarySelectColumn = "create_at"
+	DataDictionarySelectColumnCreatedAt DataDictionarySelectColumn = "created_at"
 	// 创建人
-	DataDictionarySelectColumnCreateBy DataDictionarySelectColumn = "create_by"
+	DataDictionarySelectColumnCreatedBy DataDictionarySelectColumn = "created_by"
 	// 修改时间
-	DataDictionarySelectColumnUpdateAt DataDictionarySelectColumn = "update_at"
+	DataDictionarySelectColumnUpdatedAt DataDictionarySelectColumn = "updated_at"
 	// 修改人
-	DataDictionarySelectColumnUpdateBy DataDictionarySelectColumn = "update_by"
+	DataDictionarySelectColumnUpdatedBy DataDictionarySelectColumn = "updated_by"
 	// 删除时间
-	DataDictionarySelectColumnDeleteAt DataDictionarySelectColumn = "delete_at"
+	DataDictionarySelectColumnDeletedAt DataDictionarySelectColumn = "deleted_at"
 	// 删除人
-	DataDictionarySelectColumnDeleteBy DataDictionarySelectColumn = "delete_by"
+	DataDictionarySelectColumnDeletedBy DataDictionarySelectColumn = "deleted_by"
 	// 是否删除
-	DataDictionarySelectColumnIsDelete DataDictionarySelectColumn = "is_delete"
+	DataDictionarySelectColumnIsDeleted DataDictionarySelectColumn = "is_deleted"
 )
 
 var AllDataDictionarySelectColumn = []DataDictionarySelectColumn{
@@ -477,18 +477,18 @@ var AllDataDictionarySelectColumn = []DataDictionarySelectColumn{
 	DataDictionarySelectColumnName,
 	DataDictionarySelectColumnValue,
 	DataDictionarySelectColumnRemarks,
-	DataDictionarySelectColumnCreateAt,
-	DataDictionarySelectColumnCreateBy,
-	DataDictionarySelectColumnUpdateAt,
-	DataDictionarySelectColumnUpdateBy,
-	DataDictionarySelectColumnDeleteAt,
-	DataDictionarySelectColumnDeleteBy,
-	DataDictionarySelectColumnIsDelete,
+	DataDictionarySelectColumnCreatedAt,
+	DataDictionarySelectColumnCreatedBy,
+	DataDictionarySelectColumnUpdatedAt,
+	DataDictionarySelectColumnUpdatedBy,
+	DataDictionarySelectColumnDeletedAt,
+	DataDictionarySelectColumnDeletedBy,
+	DataDictionarySelectColumnIsDeleted,
 }
 
 func (e DataDictionarySelectColumn) IsValid() bool {
 	switch e {
-	case DataDictionarySelectColumnID, DataDictionarySelectColumnDictionaryID, DataDictionarySelectColumnDictionaryCategoryID, DataDictionarySelectColumnName, DataDictionarySelectColumnValue, DataDictionarySelectColumnRemarks, DataDictionarySelectColumnCreateAt, DataDictionarySelectColumnCreateBy, DataDictionarySelectColumnUpdateAt, DataDictionarySelectColumnUpdateBy, DataDictionarySelectColumnDeleteAt, DataDictionarySelectColumnDeleteBy, DataDictionarySelectColumnIsDelete:
+	case DataDictionarySelectColumnID, DataDictionarySelectColumnDictionaryID, DataDictionarySelectColumnDictionaryCategoryID, DataDictionarySelectColumnName, DataDictionarySelectColumnValue, DataDictionarySelectColumnRemarks, DataDictionarySelectColumnCreatedAt, DataDictionarySelectColumnCreatedBy, DataDictionarySelectColumnUpdatedAt, DataDictionarySelectColumnUpdatedBy, DataDictionarySelectColumnDeletedAt, DataDictionarySelectColumnDeletedBy, DataDictionarySelectColumnIsDeleted:
 		return true
 	}
 	return false
