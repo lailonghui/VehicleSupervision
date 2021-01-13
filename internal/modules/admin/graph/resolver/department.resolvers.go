@@ -397,7 +397,10 @@ func (r *queryResolver) DepartmentByPk(ctx context.Context, id int64) (*model1.D
 				return nil, err
 			}
 			if exist {
-				return &rs, err
+				if rs.GetPrimary() != 0 {
+					return nil, nil
+				}
+				return &rs, nil
 			}
 		}
 		// 缓存中找不到数据的话，查询数据库获取数据
@@ -406,7 +409,7 @@ func (r *queryResolver) DepartmentByPk(ctx context.Context, id int64) (*model1.D
 		if err != nil {
 			if err == gorm.ErrRecordNotFound {
 				if cacheErr == nil {
-					_ = cacheAspect.SetNotExistPkQueryCache(ctx, cacheKey, nil)
+					_ = cacheAspect.SetNotExistPkQueryCache(ctx, cacheKey, "")
 				}
 				return &rs, nil
 			}
@@ -440,7 +443,10 @@ func (r *queryResolver) DepartmentByUnionPk(ctx context.Context, departmentID st
 				return nil, err
 			}
 			if exist {
-				return &rs, err
+				if rs.GetPrimary() != 0 {
+					return nil, nil
+				}
+				return &rs, nil
 			}
 		}
 		// 缓存中找不到数据的话，查询数据库获取数据
@@ -449,7 +455,7 @@ func (r *queryResolver) DepartmentByUnionPk(ctx context.Context, departmentID st
 		if err != nil {
 			if err == gorm.ErrRecordNotFound {
 				if cacheErr == nil {
-					_ = cacheAspect.SetNotExistUnionPkQueryCache(ctx, cacheKey, model1.Department{})
+					_ = cacheAspect.SetNotExistUnionPkQueryCache(ctx, cacheKey, "")
 				}
 				return &rs, nil
 			}
@@ -476,7 +482,7 @@ func (r *queryResolver) DepartmentByUnionPk(ctx context.Context, departmentID st
 func (r *departmentResolver) Enterprise(ctx context.Context, obj *model1.Department) (*model1.Enterprise, error) {
 
 	var loader model1.EnterpriseUnionPkLoader
-	i := dataloader.GetLoaders(ctx).GetLoader(&loader)
+	i := dataloader.GetLoaders(ctx).GetLoader(&loader, ctx)
 	switch t := i.(type) {
 	case *model1.EnterpriseUnionPkLoader:
 
@@ -494,7 +500,7 @@ func (r *departmentResolver) SuperiorDepartment(ctx context.Context, obj *model1
 	}
 
 	var loader model1.DepartmentUnionPkLoader
-	i := dataloader.GetLoaders(ctx).GetLoader(&loader)
+	i := dataloader.GetLoaders(ctx).GetLoader(&loader, ctx)
 	switch t := i.(type) {
 	case *model1.DepartmentUnionPkLoader:
 

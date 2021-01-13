@@ -395,7 +395,10 @@ func (r *queryResolver) EcdLineByPk(ctx context.Context, id int64) (*model1.EcdL
 				return nil, err
 			}
 			if exist {
-				return &rs, err
+				if rs.GetPrimary() != 0 {
+					return nil, nil
+				}
+				return &rs, nil
 			}
 		}
 		// 缓存中找不到数据的话，查询数据库获取数据
@@ -404,7 +407,7 @@ func (r *queryResolver) EcdLineByPk(ctx context.Context, id int64) (*model1.EcdL
 		if err != nil {
 			if err == gorm.ErrRecordNotFound {
 				if cacheErr == nil {
-					_ = cacheAspect.SetNotExistPkQueryCache(ctx, cacheKey, nil)
+					_ = cacheAspect.SetNotExistPkQueryCache(ctx, cacheKey, "")
 				}
 				return &rs, nil
 			}
@@ -438,7 +441,10 @@ func (r *queryResolver) EcdLineByUnionPk(ctx context.Context, lineID string) (*m
 				return nil, err
 			}
 			if exist {
-				return &rs, err
+				if rs.GetPrimary() != 0 {
+					return nil, nil
+				}
+				return &rs, nil
 			}
 		}
 		// 缓存中找不到数据的话，查询数据库获取数据
@@ -447,7 +453,7 @@ func (r *queryResolver) EcdLineByUnionPk(ctx context.Context, lineID string) (*m
 		if err != nil {
 			if err == gorm.ErrRecordNotFound {
 				if cacheErr == nil {
-					_ = cacheAspect.SetNotExistUnionPkQueryCache(ctx, cacheKey, model1.EcdLine{})
+					_ = cacheAspect.SetNotExistUnionPkQueryCache(ctx, cacheKey, "")
 				}
 				return &rs, nil
 			}

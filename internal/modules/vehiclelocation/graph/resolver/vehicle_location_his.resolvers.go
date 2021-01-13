@@ -334,7 +334,10 @@ func (r *queryResolver) VehicleLocationHisByPk(ctx context.Context, id int64) (*
 				return nil, err
 			}
 			if exist {
-				return &rs, err
+				if rs.GetPrimary() != 0 {
+					return nil, nil
+				}
+				return &rs, nil
 			}
 		}
 		// 缓存中找不到数据的话，查询数据库获取数据
@@ -343,7 +346,7 @@ func (r *queryResolver) VehicleLocationHisByPk(ctx context.Context, id int64) (*
 		if err != nil {
 			if err == gorm.ErrRecordNotFound {
 				if cacheErr == nil {
-					_ = cacheAspect.SetNotExistPkQueryCache(ctx, cacheKey, nil)
+					_ = cacheAspect.SetNotExistPkQueryCache(ctx, cacheKey, "")
 				}
 				return &rs, nil
 			}

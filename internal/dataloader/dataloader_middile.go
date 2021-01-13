@@ -15,7 +15,7 @@ type Loaders struct {
 	loaderMap map[string]interface{}
 }
 
-func NewLoaders() *Loaders {
+func NewLoaders(ctx context.Context) *Loaders {
 	return &Loaders{
 		Mutex:     sync.Mutex{},
 		loaderMap: make(map[string]interface{}, 0),
@@ -23,7 +23,7 @@ func NewLoaders() *Loaders {
 }
 
 //GetLoader 获取dataloader
-func (t *Loaders) GetLoader(dest interface{}) interface{} {
+func (t *Loaders) GetLoader(dest interface{}, ctx context.Context) interface{} {
 	iType := reflect.TypeOf(dest).Elem()
 	typeStr := iType.String()
 	i, ok := t.loaderMap[typeStr]
@@ -32,7 +32,7 @@ func (t *Loaders) GetLoader(dest interface{}) interface{} {
 		i, ok = t.loaderMap[typeStr]
 		if !ok {
 			v := reflect.New(iType)
-			d := v.MethodByName("NewLoader").Call([]reflect.Value{})[0].Interface()
+			d := v.MethodByName("NewLoader").Call([]reflect.Value{reflect.ValueOf(ctx)})[0].Interface()
 			t.loaderMap[typeStr] = d
 			i = d
 		}
@@ -44,7 +44,7 @@ func (t *Loaders) GetLoader(dest interface{}) interface{} {
 // dataloader 中间件
 func DataloaderMiddle(contextKey string) gin.HandlerFunc {
 	return func(c *gin.Context) {
-		ctx := context.WithValue(c.Request.Context(), contextKey, NewLoaders())
+		ctx := context.WithValue(c.Request.Context(), contextKey, NewLoaders(c.Request.Context()))
 		c.Request = c.Request.WithContext(ctx)
 		c.Next()
 	}

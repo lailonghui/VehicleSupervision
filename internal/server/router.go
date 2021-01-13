@@ -10,6 +10,7 @@ import (
 	"VehicleSupervision/internal/modules/vehicle_driver_separation"
 	"VehicleSupervision/internal/modules/vehicle_snapshot_system"
 	"VehicleSupervision/internal/modules/vehicle_violation"
+	"VehicleSupervision/internal/redis"
 	"VehicleSupervision/internal/server/middle"
 
 	admin "VehicleSupervision/internal/modules/admin"
@@ -51,11 +52,16 @@ func Setup(host string, port int) {
 	// gin中间件配置
 	router.Use(ginzap.Ginzap(logger.GinLogger, time.RFC3339, true))
 	router.Use(ginzap.RecoveryWithZap(logger.GinLogger, true))
-	router.Use(dataloader.DataloaderMiddle(dataloader.DATA_LOADER_CONTEXT_KEY))
 	router.Use(middle.GqlCacheSwitchMiddle())
 	router.Use(middle.DBSwitchMiddle())
+	router.Use(dataloader.DataloaderMiddle(dataloader.DATA_LOADER_CONTEXT_KEY))
+
 	// 路由配置
 	router.GET("/", playgroundHandler())
+
+	router.Any("/flush", func(ctx *gin.Context) {
+		redis.REDIS_CLIENT.FlushAll(ctx)
+	})
 
 	//车辆模块端点
 	router.Any("/vehicle", vehicle.GinEndpoint())
