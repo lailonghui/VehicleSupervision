@@ -5,14 +5,22 @@ import (
 	rc "VehicleSupervision/internal/redis"
 	"context"
 	"fmt"
+	goRedis "github.com/go-redis/redis/v8"
 	"github.com/stretchr/testify/assert"
 	"testing"
 )
 
 func init() {
-	config.Setup("../../config/setting.yaml")
+	cf := config.Setup("../../config/setting.yaml")
 	//rc.Setup()
-
+	// 启动redis
+	redisConfig := &goRedis.UniversalOptions{
+		Addrs:        cf.RedisConf.Addresses,
+		IdleTimeout:  cf.RedisConf.Pool.IdleTimeout,
+		MinIdleConns: cf.RedisConf.Pool.MinIdle,
+		PoolSize:     cf.RedisConf.Pool.MaxActive,
+	}
+	 rc.Setup(redisConfig)
 }
 
 func TestNewCacher(t *testing.T) {
@@ -50,7 +58,7 @@ func TestCacher_Set(t *testing.T) {
 func TestCacher_Clear(t *testing.T) {
 	var ctx context.Context = context.Background()
 
-	c := NewCacher("test005", rc.REDIS_CLIENT)
+	c := NewCacher("enterprise:upk", rc.REDIS_CLIENT)
 	assert.NotNil(t, c)
 	err := c.Clear(ctx)
 	assert.Nil(t, err)

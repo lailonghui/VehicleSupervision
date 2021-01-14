@@ -44,7 +44,10 @@ func (r *Cacher) getKeySetKey(ctx context.Context) string {
 //getKey 获取缓存的key
 func (r *Cacher) getKey(ctx context.Context, cacheKey string) string {
 	key := r.KeyPrefix + ":" + cacheKey
-	r.RedisClient.SAdd(ctx, r.getKeySetKey(ctx), key)
+	r.RedisClient.ZAdd(ctx, r.getKeySetKey(ctx), &redis.Z{
+		Score:  float64(time.Now().UnixNano()),
+		Member: key,
+	})
 	return key
 }
 
@@ -89,7 +92,7 @@ func (r *Cacher) BatchDel(ctx context.Context, cacheKeys []string) error {
 		pipe.Del(ctx, cacheKeys[i])
 		setKeys = append(setKeys, cacheKeys[i])
 	}
-	pipe.SRem(ctx, r.getKeySetKey(ctx), setKeys...)
+	pipe.ZRem(ctx, r.getKeySetKey(ctx), setKeys...)
 	_, err := pipe.Exec(ctx)
 	if err != nil {
 		return err
@@ -103,7 +106,7 @@ func (r *Cacher) Clear(ctx context.Context) error {
 	defer r.mutex.Unlock()
 	var cursor uint64
 	for true {
-		v, c, err := r.RedisClient.SScan(ctx, r.getKeySetKey(ctx), cursor, "", 1000).Result()
+		v, c, err := r.RedisClient.ZScan(ctx, r.getKeySetKey(ctx), cursor, "", 1000).Result()
 		cursor = c
 		if err != nil {
 			if err == redis.Nil {
@@ -122,10 +125,13 @@ func (r *Cacher) Clear(ctx context.Context) error {
 		// 使用管道发送删除命令
 		pipe := r.RedisClient.Pipeline()
 		for j := range v {
+			if j%2 == 1 {
+				continue
+			}
 			pipe.Del(ctx, v[j])
 			vvi = append(vvi, v[j])
 		}
-		pipe.SRem(ctx, r.getKeySetKey(ctx), vvi...)
+		pipe.ZRem(ctx, r.getKeySetKey(ctx), vvi...)
 		_, err = pipe.Exec(ctx)
 		if err != nil {
 			return err

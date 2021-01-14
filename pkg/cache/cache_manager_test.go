@@ -10,7 +10,7 @@ import (
 
 func init() {
 	config.Setup("../../config/setting.yaml")
-	redisConfig := &goRedis.ClusterOptions{
+	redisConfig := &goRedis.UniversalOptions{
 		Addrs:        config.CONF_INSTANCE.RedisConf.Addresses,
 		IdleTimeout:  config.CONF_INSTANCE.RedisConf.Pool.IdleTimeout,
 		MinIdleConns: config.CONF_INSTANCE.RedisConf.Pool.MinIdle,
