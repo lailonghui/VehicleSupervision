@@ -195,9 +195,12 @@ input SeriousTrafficViolationBoolExp {
 input type for inserting data into table "serious_traffic_violation"
 """
 input SeriousTrafficViolationInsertInput {
+	serious_traffic_violation_id: String!
 	vehicle_id: String
 	illegal_code: String
 	illegal_time: Timestamptz
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -287,6 +290,10 @@ extend type Query {
 	主键查询
 	"""
 	serious_traffic_violation_by_pk(id: Bigint!): SeriousTrafficViolation!
+	"""
+	联合主键查询
+	"""
+	serious_traffic_violation_by_union_pk(serious_traffic_violation_id: String!): SeriousTrafficViolation!
 }
 extend type Mutation {
 	"""
@@ -310,7 +317,15 @@ extend type Mutation {
 	"""
 	update_serious_traffic_violation(_inc: SeriousTrafficViolationIncInput, _set: SeriousTrafficViolationSetInput, where: SeriousTrafficViolationBoolExp!): SeriousTrafficViolationMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_serious_traffic_violation_by_pk(_inc: SeriousTrafficViolationIncInput, _set: SeriousTrafficViolationSetInput, id: Bigint!): SeriousTrafficViolation
+	"""
+	根据联合主键更新
+	"""
+	update_serious_traffic_violation_by_union_pk(_inc: SeriousTrafficViolationIncInput, _set: SeriousTrafficViolationSetInput, serious_traffic_violation_id: String!): SeriousTrafficViolation
+	"""
+	根据联合主键删除记录
+	"""
+	delete_serious_traffic_violation_by_union_pk(serious_traffic_violation_id: String!): SeriousTrafficViolation
 }

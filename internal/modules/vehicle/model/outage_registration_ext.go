@@ -1,24 +1,162 @@
 package model
 
 import (
+	"VehicleSupervision/internal/cache"
 	"VehicleSupervision/internal/db"
+	"VehicleSupervision/internal/server/middle"
+	"VehicleSupervision/pkg/logger"
+	"context"
+	"sync"
 	"time"
+
+	"go.uber.org/zap"
+	"gorm.io/gorm"
 )
 
-// go:generate go run github.com/vektah/dataloaden OutageRegistrationLoader string *VehicleSupervision/internal/modules/vehicle/model.OutageRegistration
+//go:generate go run github.com/vektah/dataloaden OutageRegistrationUnionPkLoader string *VehicleSupervision/internal/modules/vehicle/model.OutageRegistration
 
-func (t OutageRegistration) TableName() string {
+// 数据库表名
+func (t *OutageRegistration) TableName() string {
 	return "outage_registration"
 }
 
-func (t *OutageRegistration) NewLoader() *OutageRegistrationLoader {
-	return &OutageRegistrationLoader{
+// 主键列名
+func (t *OutageRegistration) PrimaryColumnName() string {
+	return "id"
+}
+
+// 获取主键
+func (t *OutageRegistration) GetPrimary() int64 {
+	return t.ID
+}
+
+// 新建主键dataloader
+func (t *OutageRegistrationPkLoader) NewLoader(ctx context.Context) *OutageRegistrationPkLoader {
+	return &OutageRegistrationPkLoader{
 		wait:     2 * time.Millisecond,
 		maxBatch: 100,
 		fetch: func(keys []string) ([]*OutageRegistration, []error) {
-			var rs []*OutageRegistration
-			// TODO 按实际需要实现
-			db.DB.Model(&OutageRegistration{}).Where("id in ?", keys).Find(&rs)
+			var rs []*OutageRegistration = make([]*OutageRegistration, len(keys))
+			var m OutageRegistration
+			wg := sync.WaitGroup{}
+			if middle.IsEnableGqlCache(ctx) {
+				// 如果启用缓存，则从缓存中查询数据
+				cacheAspect, cacheErr := cache.GetGqlCacheAspect(m.TableName())
+				for i := range keys {
+					wg.Add(1)
+					go func(i int) {
+
+						defer wg.Done()
+						logger.Info("dataloader获取值", zap.Int("i", i))
+						// 如果启用缓存，则从缓存中查询数据
+						var entity OutageRegistration
+						cacheKey := keys[i]
+						if cacheErr == nil {
+							exist, err := cacheAspect.OnPkQuery(ctx, cacheKey, &entity)
+							logger.Info("dataloader获取缓存值", zap.Error(err), zap.Bool("exist", exist), zap.Any("entity", entity))
+							if err != nil {
+								return
+							}
+							if exist {
+								if entity.GetPrimary() != 0 {
+									rs[i] = &entity
+								}
+								return
+							}
+						}
+						// 缓存中找不到数据的话，查询数据库获取数据
+						tx := db.DB.Model(m).Where(m.PrimaryColumnName()+" = ?", keys[i]).First(&entity)
+						err := tx.Error
+						if err != nil {
+							if err == gorm.ErrRecordNotFound {
+								if cacheErr == nil {
+									_ = cacheAspect.SetNotExistPkQueryCache(ctx, cacheKey, "")
+								}
+								return
+							}
+							return
+						}
+						// 设置数据到缓存
+						if cacheErr == nil {
+							_ = cacheAspect.SetPkQueryCache(ctx, cacheKey, entity)
+						}
+						rs[i] = &entity
+					}(i)
+				}
+
+			}
+			wg.Wait()
+			return rs, nil
+		},
+	}
+}
+
+// 联合主键列名
+func (t *OutageRegistration) UnionPrimaryColumnName() string {
+	return "outage_registration_id"
+}
+
+// 获取联合主键
+func (t *OutageRegistration) GetUnionPrimary() string {
+	return t.OutageRegistrationID
+}
+
+// 新建联合主键dataloader
+func (t *OutageRegistrationUnionPkLoader) NewLoader(ctx context.Context) *OutageRegistrationUnionPkLoader {
+	return &OutageRegistrationUnionPkLoader{
+		wait:     2 * time.Millisecond,
+		maxBatch: 100,
+		fetch: func(keys []string) ([]*OutageRegistration, []error) {
+			var rs []*OutageRegistration = make([]*OutageRegistration, len(keys))
+			var m OutageRegistration
+			wg := sync.WaitGroup{}
+			if middle.IsEnableGqlCache(ctx) {
+				// 如果启用缓存，则从缓存中查询数据
+				cacheAspect, cacheErr := cache.GetGqlCacheAspect(m.TableName())
+				for i := range keys {
+					wg.Add(1)
+					go func(i int) {
+
+						defer wg.Done()
+						logger.Info("dataloader获取值", zap.Int("i", i))
+						// 如果启用缓存，则从缓存中查询数据
+						var entity OutageRegistration
+						cacheKey := keys[i]
+						if cacheErr == nil {
+							exist, err := cacheAspect.OnUnionPkQuery(ctx, cacheKey, &entity)
+							logger.Info("dataloader获取缓存值", zap.Error(err), zap.Bool("exist", exist), zap.Any("entity", entity))
+							if err != nil {
+								return
+							}
+							if exist {
+								if entity.GetPrimary() != 0 {
+									rs[i] = &entity
+								}
+								return
+							}
+						}
+						// 缓存中找不到数据的话，查询数据库获取数据
+						tx := db.DB.Model(m).Where(m.UnionPrimaryColumnName()+" = ?", keys[i]).First(&entity)
+						err := tx.Error
+						if err != nil {
+							if err == gorm.ErrRecordNotFound {
+								if cacheErr == nil {
+									_ = cacheAspect.SetNotExistUnionPkQueryCache(ctx, cacheKey, "")
+								}
+								return
+							}
+							return
+						}
+						// 设置数据到缓存
+						if cacheErr == nil {
+							_ = cacheAspect.SetUnionPkQueryCache(ctx, cacheKey, entity)
+						}
+						rs[i] = &entity
+					}(i)
+				}
+
+			}
+			wg.Wait()
 			return rs, nil
 		},
 	}

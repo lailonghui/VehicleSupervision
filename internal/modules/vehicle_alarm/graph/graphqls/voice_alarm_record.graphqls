@@ -235,6 +235,8 @@ input VoiceAlarmRecordBoolExp {
 input type for inserting data into table "voice_alarm_record"
 """
 input VoiceAlarmRecordInsertInput {
+	vioce_alarm_record_id: String!
+	vehicle_id: String!
 	alarm_time: Timestamptz
 	alarm_type: String
 	remind_time: Timestamptz
@@ -242,6 +244,8 @@ input VoiceAlarmRecordInsertInput {
 	input_person: String
 	input_time: Timestamptz
 	is_success: Boolean
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -379,7 +383,7 @@ extend type Mutation {
 	"""
 	update_voice_alarm_record(_inc: VoiceAlarmRecordIncInput, _set: VoiceAlarmRecordSetInput, where: VoiceAlarmRecordBoolExp!): VoiceAlarmRecordMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_voice_alarm_record_by_pk(_inc: VoiceAlarmRecordIncInput, _set: VoiceAlarmRecordSetInput, id: Bigint!): VoiceAlarmRecord
 }

@@ -219,11 +219,15 @@ input VehicleStateLatestBoolExp {
 input type for inserting data into table "vehicle_state_latest"
 """
 input VehicleStateLatestInsertInput {
+	vehicle_state_latest_id: String!
+	vehicle_id: String!
 	operation_type: String
 	operator: String
 	operator_institution: String
 	status: String
 	speed_limit: String
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -328,6 +332,10 @@ extend type Query {
 	主键查询
 	"""
 	vehicle_state_latest_by_pk(id: Bigint!): VehicleStateLatest!
+	"""
+	联合主键查询
+	"""
+	vehicle_state_latest_by_union_pk(vehicle_state_latest_id: String!): VehicleStateLatest!
 }
 extend type Mutation {
 	"""
@@ -351,7 +359,15 @@ extend type Mutation {
 	"""
 	update_vehicle_state_latest(_inc: VehicleStateLatestIncInput, _set: VehicleStateLatestSetInput, where: VehicleStateLatestBoolExp!): VehicleStateLatestMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_vehicle_state_latest_by_pk(_inc: VehicleStateLatestIncInput, _set: VehicleStateLatestSetInput, id: Bigint!): VehicleStateLatest
+	"""
+	根据联合主键更新
+	"""
+	update_vehicle_state_latest_by_union_pk(_inc: VehicleStateLatestIncInput, _set: VehicleStateLatestSetInput, vehicle_state_latest_id: String!): VehicleStateLatest
+	"""
+	根据联合主键删除记录
+	"""
+	delete_vehicle_state_latest_by_union_pk(vehicle_state_latest_id: String!): VehicleStateLatest
 }

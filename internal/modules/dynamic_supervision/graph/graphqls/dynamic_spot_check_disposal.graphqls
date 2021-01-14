@@ -331,6 +331,7 @@ input DynamicSpotCheckDisposalBoolExp {
 input type for inserting data into table "dynamic_spot_check_disposal"
 """
 input DynamicSpotCheckDisposalInsertInput {
+	vehicle_id: String!
 	enterprise_id: String
 	telephone: String
 	send_time: Timestamptz
@@ -350,6 +351,8 @@ input DynamicSpotCheckDisposalInsertInput {
 	disposal_method: Int
 	disposal_result: String
 	is_deleted: Boolean
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -543,7 +546,7 @@ extend type Mutation {
 	"""
 	update_dynamic_spot_check_disposal(_inc: DynamicSpotCheckDisposalIncInput, _set: DynamicSpotCheckDisposalSetInput, where: DynamicSpotCheckDisposalBoolExp!): DynamicSpotCheckDisposalMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_dynamic_spot_check_disposal_by_pk(_inc: DynamicSpotCheckDisposalIncInput, _set: DynamicSpotCheckDisposalSetInput, id: Bigint!): DynamicSpotCheckDisposal
 }

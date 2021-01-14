@@ -800,60 +800,76 @@ type ComplexityRoot struct {
 	}
 
 	Mutation struct {
-		DeleteDynamicSpotCheckDisposal     func(childComplexity int, where model.DynamicSpotCheckDisposalBoolExp) int
-		DeleteDynamicSpotCheckDisposalByPk func(childComplexity int, id int64) int
-		DeleteDynamicSupervision           func(childComplexity int, where model.DynamicSupervisionBoolExp) int
-		DeleteDynamicSupervisionByPk       func(childComplexity int, id int64) int
-		DeleteDynamicSupervisionDetail     func(childComplexity int, where model.DynamicSupervisionDetailBoolExp) int
-		DeleteDynamicSupervisionDetailByPk func(childComplexity int, id int64) int
-		DeleteMuckTruckOnline              func(childComplexity int, where model.MuckTruckOnlineBoolExp) int
-		DeleteMuckTruckOnlineByPk          func(childComplexity int, id int64) int
-		DeleteRegionIssued                 func(childComplexity int, where model.RegionIssuedBoolExp) int
-		DeleteRegionIssuedByPk             func(childComplexity int, id int64) int
-		DeleteRegionManagement             func(childComplexity int, where model.RegionManagementBoolExp) int
-		DeleteRegionManagementByPk         func(childComplexity int, id int64) int
-		DeleteVehicleAlarmSupervision      func(childComplexity int, where model.VehicleAlarmSupervisionBoolExp) int
-		DeleteVehicleAlarmSupervisionByPk  func(childComplexity int, id int64) int
-		DeleteVehicleAlarmTimesRecord      func(childComplexity int, where model.VehicleAlarmTimesRecordBoolExp) int
-		DeleteVehicleAlarmTimesRecordByPk  func(childComplexity int, id int64) int
-		DeleteVehicleOfflineDisposal       func(childComplexity int, where model.VehicleOfflineDisposalBoolExp) int
-		DeleteVehicleOfflineDisposalByPk   func(childComplexity int, id int64) int
-		InsertDynamicSpotCheckDisposal     func(childComplexity int, objects []*model.DynamicSpotCheckDisposalInsertInput) int
-		InsertDynamicSpotCheckDisposalOne  func(childComplexity int, objects model.DynamicSpotCheckDisposalInsertInput) int
-		InsertDynamicSupervision           func(childComplexity int, objects []*model.DynamicSupervisionInsertInput) int
-		InsertDynamicSupervisionDetail     func(childComplexity int, objects []*model.DynamicSupervisionDetailInsertInput) int
-		InsertDynamicSupervisionDetailOne  func(childComplexity int, objects model.DynamicSupervisionDetailInsertInput) int
-		InsertDynamicSupervisionOne        func(childComplexity int, objects model.DynamicSupervisionInsertInput) int
-		InsertMuckTruckOnline              func(childComplexity int, objects []*model.MuckTruckOnlineInsertInput) int
-		InsertMuckTruckOnlineOne           func(childComplexity int, objects model.MuckTruckOnlineInsertInput) int
-		InsertRegionIssued                 func(childComplexity int, objects []*model.RegionIssuedInsertInput) int
-		InsertRegionIssuedOne              func(childComplexity int, objects model.RegionIssuedInsertInput) int
-		InsertRegionManagement             func(childComplexity int, objects []*model.RegionManagementInsertInput) int
-		InsertRegionManagementOne          func(childComplexity int, objects model.RegionManagementInsertInput) int
-		InsertVehicleAlarmSupervision      func(childComplexity int, objects []*model.VehicleAlarmSupervisionInsertInput) int
-		InsertVehicleAlarmSupervisionOne   func(childComplexity int, objects model.VehicleAlarmSupervisionInsertInput) int
-		InsertVehicleAlarmTimesRecord      func(childComplexity int, objects []*model.VehicleAlarmTimesRecordInsertInput) int
-		InsertVehicleAlarmTimesRecordOne   func(childComplexity int, objects model.VehicleAlarmTimesRecordInsertInput) int
-		InsertVehicleOfflineDisposal       func(childComplexity int, objects []*model.VehicleOfflineDisposalInsertInput) int
-		InsertVehicleOfflineDisposalOne    func(childComplexity int, objects model.VehicleOfflineDisposalInsertInput) int
-		UpdateDynamicSpotCheckDisposal     func(childComplexity int, inc *model.DynamicSpotCheckDisposalIncInput, set *model.DynamicSpotCheckDisposalSetInput, where model.DynamicSpotCheckDisposalBoolExp) int
-		UpdateDynamicSpotCheckDisposalByPk func(childComplexity int, inc *model.DynamicSpotCheckDisposalIncInput, set *model.DynamicSpotCheckDisposalSetInput, id int64) int
-		UpdateDynamicSupervision           func(childComplexity int, inc *model.DynamicSupervisionIncInput, set *model.DynamicSupervisionSetInput, where model.DynamicSupervisionBoolExp) int
-		UpdateDynamicSupervisionByPk       func(childComplexity int, inc *model.DynamicSupervisionIncInput, set *model.DynamicSupervisionSetInput, id int64) int
-		UpdateDynamicSupervisionDetail     func(childComplexity int, inc *model.DynamicSupervisionDetailIncInput, set *model.DynamicSupervisionDetailSetInput, where model.DynamicSupervisionDetailBoolExp) int
-		UpdateDynamicSupervisionDetailByPk func(childComplexity int, inc *model.DynamicSupervisionDetailIncInput, set *model.DynamicSupervisionDetailSetInput, id int64) int
-		UpdateMuckTruckOnline              func(childComplexity int, inc *model.MuckTruckOnlineIncInput, set *model.MuckTruckOnlineSetInput, where model.MuckTruckOnlineBoolExp) int
-		UpdateMuckTruckOnlineByPk          func(childComplexity int, inc *model.MuckTruckOnlineIncInput, set *model.MuckTruckOnlineSetInput, id int64) int
-		UpdateRegionIssued                 func(childComplexity int, inc *model.RegionIssuedIncInput, set *model.RegionIssuedSetInput, where model.RegionIssuedBoolExp) int
-		UpdateRegionIssuedByPk             func(childComplexity int, inc *model.RegionIssuedIncInput, set *model.RegionIssuedSetInput, id int64) int
-		UpdateRegionManagement             func(childComplexity int, inc *model.RegionManagementIncInput, set *model.RegionManagementSetInput, where model.RegionManagementBoolExp) int
-		UpdateRegionManagementByPk         func(childComplexity int, inc *model.RegionManagementIncInput, set *model.RegionManagementSetInput, id int64) int
-		UpdateVehicleAlarmSupervision      func(childComplexity int, inc *model.VehicleAlarmSupervisionIncInput, set *model.VehicleAlarmSupervisionSetInput, where model.VehicleAlarmSupervisionBoolExp) int
-		UpdateVehicleAlarmSupervisionByPk  func(childComplexity int, inc *model.VehicleAlarmSupervisionIncInput, set *model.VehicleAlarmSupervisionSetInput, id int64) int
-		UpdateVehicleAlarmTimesRecord      func(childComplexity int, inc *model.VehicleAlarmTimesRecordIncInput, set *model.VehicleAlarmTimesRecordSetInput, where model.VehicleAlarmTimesRecordBoolExp) int
-		UpdateVehicleAlarmTimesRecordByPk  func(childComplexity int, inc *model.VehicleAlarmTimesRecordIncInput, set *model.VehicleAlarmTimesRecordSetInput, id int64) int
-		UpdateVehicleOfflineDisposal       func(childComplexity int, inc *model.VehicleOfflineDisposalIncInput, set *model.VehicleOfflineDisposalSetInput, where model.VehicleOfflineDisposalBoolExp) int
-		UpdateVehicleOfflineDisposalByPk   func(childComplexity int, inc *model.VehicleOfflineDisposalIncInput, set *model.VehicleOfflineDisposalSetInput, id int64) int
+		DeleteDynamicSpotCheckDisposal          func(childComplexity int, where model.DynamicSpotCheckDisposalBoolExp) int
+		DeleteDynamicSpotCheckDisposalByPk      func(childComplexity int, id int64) int
+		DeleteDynamicSupervision                func(childComplexity int, where model.DynamicSupervisionBoolExp) int
+		DeleteDynamicSupervisionByPk            func(childComplexity int, id int64) int
+		DeleteDynamicSupervisionByUnionPk       func(childComplexity int, supervisionID string) int
+		DeleteDynamicSupervisionDetail          func(childComplexity int, where model.DynamicSupervisionDetailBoolExp) int
+		DeleteDynamicSupervisionDetailByPk      func(childComplexity int, id int64) int
+		DeleteDynamicSupervisionDetailByUnionPk func(childComplexity int, supervisionDetailID string) int
+		DeleteMuckTruckOnline                   func(childComplexity int, where model.MuckTruckOnlineBoolExp) int
+		DeleteMuckTruckOnlineByPk               func(childComplexity int, id int64) int
+		DeleteMuckTruckOnlineByUnionPk          func(childComplexity int, muckTruckOnlineID string) int
+		DeleteRegionIssued                      func(childComplexity int, where model.RegionIssuedBoolExp) int
+		DeleteRegionIssuedByPk                  func(childComplexity int, id int64) int
+		DeleteRegionIssuedByUnionPk             func(childComplexity int, regionIssuedID string) int
+		DeleteRegionManagement                  func(childComplexity int, where model.RegionManagementBoolExp) int
+		DeleteRegionManagementByPk              func(childComplexity int, id int64) int
+		DeleteRegionManagementByUnionPk         func(childComplexity int, regionManagementID string) int
+		DeleteVehicleAlarmSupervision           func(childComplexity int, where model.VehicleAlarmSupervisionBoolExp) int
+		DeleteVehicleAlarmSupervisionByPk       func(childComplexity int, id int64) int
+		DeleteVehicleAlarmSupervisionByUnionPk  func(childComplexity int, vehicleAlarmSupervisionID string) int
+		DeleteVehicleAlarmTimesRecord           func(childComplexity int, where model.VehicleAlarmTimesRecordBoolExp) int
+		DeleteVehicleAlarmTimesRecordByPk       func(childComplexity int, id int64) int
+		DeleteVehicleAlarmTimesRecordByUnionPk  func(childComplexity int, vehicleAlarmTimesRecordID string) int
+		DeleteVehicleOfflineDisposal            func(childComplexity int, where model.VehicleOfflineDisposalBoolExp) int
+		DeleteVehicleOfflineDisposalByPk        func(childComplexity int, id int64) int
+		DeleteVehicleOfflineDisposalByUnionPk   func(childComplexity int, vehicleOfflineDisposalID string) int
+		InsertDynamicSpotCheckDisposal          func(childComplexity int, objects []*model.DynamicSpotCheckDisposalInsertInput) int
+		InsertDynamicSpotCheckDisposalOne       func(childComplexity int, objects model.DynamicSpotCheckDisposalInsertInput) int
+		InsertDynamicSupervision                func(childComplexity int, objects []*model.DynamicSupervisionInsertInput) int
+		InsertDynamicSupervisionDetail          func(childComplexity int, objects []*model.DynamicSupervisionDetailInsertInput) int
+		InsertDynamicSupervisionDetailOne       func(childComplexity int, objects model.DynamicSupervisionDetailInsertInput) int
+		InsertDynamicSupervisionOne             func(childComplexity int, objects model.DynamicSupervisionInsertInput) int
+		InsertMuckTruckOnline                   func(childComplexity int, objects []*model.MuckTruckOnlineInsertInput) int
+		InsertMuckTruckOnlineOne                func(childComplexity int, objects model.MuckTruckOnlineInsertInput) int
+		InsertRegionIssued                      func(childComplexity int, objects []*model.RegionIssuedInsertInput) int
+		InsertRegionIssuedOne                   func(childComplexity int, objects model.RegionIssuedInsertInput) int
+		InsertRegionManagement                  func(childComplexity int, objects []*model.RegionManagementInsertInput) int
+		InsertRegionManagementOne               func(childComplexity int, objects model.RegionManagementInsertInput) int
+		InsertVehicleAlarmSupervision           func(childComplexity int, objects []*model.VehicleAlarmSupervisionInsertInput) int
+		InsertVehicleAlarmSupervisionOne        func(childComplexity int, objects model.VehicleAlarmSupervisionInsertInput) int
+		InsertVehicleAlarmTimesRecord           func(childComplexity int, objects []*model.VehicleAlarmTimesRecordInsertInput) int
+		InsertVehicleAlarmTimesRecordOne        func(childComplexity int, objects model.VehicleAlarmTimesRecordInsertInput) int
+		InsertVehicleOfflineDisposal            func(childComplexity int, objects []*model.VehicleOfflineDisposalInsertInput) int
+		InsertVehicleOfflineDisposalOne         func(childComplexity int, objects model.VehicleOfflineDisposalInsertInput) int
+		UpdateDynamicSpotCheckDisposal          func(childComplexity int, inc *model.DynamicSpotCheckDisposalIncInput, set *model.DynamicSpotCheckDisposalSetInput, where model.DynamicSpotCheckDisposalBoolExp) int
+		UpdateDynamicSpotCheckDisposalByPk      func(childComplexity int, inc *model.DynamicSpotCheckDisposalIncInput, set *model.DynamicSpotCheckDisposalSetInput, id int64) int
+		UpdateDynamicSupervision                func(childComplexity int, inc *model.DynamicSupervisionIncInput, set *model.DynamicSupervisionSetInput, where model.DynamicSupervisionBoolExp) int
+		UpdateDynamicSupervisionByPk            func(childComplexity int, inc *model.DynamicSupervisionIncInput, set *model.DynamicSupervisionSetInput, id int64) int
+		UpdateDynamicSupervisionByUnionPk       func(childComplexity int, inc *model.DynamicSupervisionIncInput, set *model.DynamicSupervisionSetInput, supervisionID string) int
+		UpdateDynamicSupervisionDetail          func(childComplexity int, inc *model.DynamicSupervisionDetailIncInput, set *model.DynamicSupervisionDetailSetInput, where model.DynamicSupervisionDetailBoolExp) int
+		UpdateDynamicSupervisionDetailByPk      func(childComplexity int, inc *model.DynamicSupervisionDetailIncInput, set *model.DynamicSupervisionDetailSetInput, id int64) int
+		UpdateDynamicSupervisionDetailByUnionPk func(childComplexity int, inc *model.DynamicSupervisionDetailIncInput, set *model.DynamicSupervisionDetailSetInput, supervisionDetailID string) int
+		UpdateMuckTruckOnline                   func(childComplexity int, inc *model.MuckTruckOnlineIncInput, set *model.MuckTruckOnlineSetInput, where model.MuckTruckOnlineBoolExp) int
+		UpdateMuckTruckOnlineByPk               func(childComplexity int, inc *model.MuckTruckOnlineIncInput, set *model.MuckTruckOnlineSetInput, id int64) int
+		UpdateMuckTruckOnlineByUnionPk          func(childComplexity int, inc *model.MuckTruckOnlineIncInput, set *model.MuckTruckOnlineSetInput, muckTruckOnlineID string) int
+		UpdateRegionIssued                      func(childComplexity int, inc *model.RegionIssuedIncInput, set *model.RegionIssuedSetInput, where model.RegionIssuedBoolExp) int
+		UpdateRegionIssuedByPk                  func(childComplexity int, inc *model.RegionIssuedIncInput, set *model.RegionIssuedSetInput, id int64) int
+		UpdateRegionIssuedByUnionPk             func(childComplexity int, inc *model.RegionIssuedIncInput, set *model.RegionIssuedSetInput, regionIssuedID string) int
+		UpdateRegionManagement                  func(childComplexity int, inc *model.RegionManagementIncInput, set *model.RegionManagementSetInput, where model.RegionManagementBoolExp) int
+		UpdateRegionManagementByPk              func(childComplexity int, inc *model.RegionManagementIncInput, set *model.RegionManagementSetInput, id int64) int
+		UpdateRegionManagementByUnionPk         func(childComplexity int, inc *model.RegionManagementIncInput, set *model.RegionManagementSetInput, regionManagementID string) int
+		UpdateVehicleAlarmSupervision           func(childComplexity int, inc *model.VehicleAlarmSupervisionIncInput, set *model.VehicleAlarmSupervisionSetInput, where model.VehicleAlarmSupervisionBoolExp) int
+		UpdateVehicleAlarmSupervisionByPk       func(childComplexity int, inc *model.VehicleAlarmSupervisionIncInput, set *model.VehicleAlarmSupervisionSetInput, id int64) int
+		UpdateVehicleAlarmSupervisionByUnionPk  func(childComplexity int, inc *model.VehicleAlarmSupervisionIncInput, set *model.VehicleAlarmSupervisionSetInput, vehicleAlarmSupervisionID string) int
+		UpdateVehicleAlarmTimesRecord           func(childComplexity int, inc *model.VehicleAlarmTimesRecordIncInput, set *model.VehicleAlarmTimesRecordSetInput, where model.VehicleAlarmTimesRecordBoolExp) int
+		UpdateVehicleAlarmTimesRecordByPk       func(childComplexity int, inc *model.VehicleAlarmTimesRecordIncInput, set *model.VehicleAlarmTimesRecordSetInput, id int64) int
+		UpdateVehicleAlarmTimesRecordByUnionPk  func(childComplexity int, inc *model.VehicleAlarmTimesRecordIncInput, set *model.VehicleAlarmTimesRecordSetInput, vehicleAlarmTimesRecordID string) int
+		UpdateVehicleOfflineDisposal            func(childComplexity int, inc *model.VehicleOfflineDisposalIncInput, set *model.VehicleOfflineDisposalSetInput, where model.VehicleOfflineDisposalBoolExp) int
+		UpdateVehicleOfflineDisposalByPk        func(childComplexity int, inc *model.VehicleOfflineDisposalIncInput, set *model.VehicleOfflineDisposalSetInput, id int64) int
+		UpdateVehicleOfflineDisposalByUnionPk   func(childComplexity int, inc *model.VehicleOfflineDisposalIncInput, set *model.VehicleOfflineDisposalSetInput, vehicleOfflineDisposalID string) int
 	}
 
 	Query struct {
@@ -863,27 +879,35 @@ type ComplexityRoot struct {
 		DynamicSupervision                func(childComplexity int, distinctOn []model.DynamicSupervisionSelectColumn, limit *int, offset *int, orderBy []*model.DynamicSupervisionOrderBy, where *model.DynamicSupervisionBoolExp) int
 		DynamicSupervisionAggregate       func(childComplexity int, distinctOn []model.DynamicSupervisionSelectColumn, limit *int, offset *int, orderBy []*model.DynamicSupervisionOrderBy, where *model.DynamicSupervisionBoolExp) int
 		DynamicSupervisionByPk            func(childComplexity int, id int64) int
+		DynamicSupervisionByUnionPk       func(childComplexity int, supervisionID string) int
 		DynamicSupervisionDetail          func(childComplexity int, distinctOn []model.DynamicSupervisionDetailSelectColumn, limit *int, offset *int, orderBy []*model.DynamicSupervisionDetailOrderBy, where *model.DynamicSupervisionDetailBoolExp) int
 		DynamicSupervisionDetailAggregate func(childComplexity int, distinctOn []model.DynamicSupervisionDetailSelectColumn, limit *int, offset *int, orderBy []*model.DynamicSupervisionDetailOrderBy, where *model.DynamicSupervisionDetailBoolExp) int
 		DynamicSupervisionDetailByPk      func(childComplexity int, id int64) int
+		DynamicSupervisionDetailByUnionPk func(childComplexity int, supervisionDetailID string) int
 		MuckTruckOnline                   func(childComplexity int, distinctOn []model.MuckTruckOnlineSelectColumn, limit *int, offset *int, orderBy []*model.MuckTruckOnlineOrderBy, where *model.MuckTruckOnlineBoolExp) int
 		MuckTruckOnlineAggregate          func(childComplexity int, distinctOn []model.MuckTruckOnlineSelectColumn, limit *int, offset *int, orderBy []*model.MuckTruckOnlineOrderBy, where *model.MuckTruckOnlineBoolExp) int
 		MuckTruckOnlineByPk               func(childComplexity int, id int64) int
+		MuckTruckOnlineByUnionPk          func(childComplexity int, muckTruckOnlineID string) int
 		RegionIssued                      func(childComplexity int, distinctOn []model.RegionIssuedSelectColumn, limit *int, offset *int, orderBy []*model.RegionIssuedOrderBy, where *model.RegionIssuedBoolExp) int
 		RegionIssuedAggregate             func(childComplexity int, distinctOn []model.RegionIssuedSelectColumn, limit *int, offset *int, orderBy []*model.RegionIssuedOrderBy, where *model.RegionIssuedBoolExp) int
 		RegionIssuedByPk                  func(childComplexity int, id int64) int
+		RegionIssuedByUnionPk             func(childComplexity int, regionIssuedID string) int
 		RegionManagement                  func(childComplexity int, distinctOn []model.RegionManagementSelectColumn, limit *int, offset *int, orderBy []*model.RegionManagementOrderBy, where *model.RegionManagementBoolExp) int
 		RegionManagementAggregate         func(childComplexity int, distinctOn []model.RegionManagementSelectColumn, limit *int, offset *int, orderBy []*model.RegionManagementOrderBy, where *model.RegionManagementBoolExp) int
 		RegionManagementByPk              func(childComplexity int, id int64) int
+		RegionManagementByUnionPk         func(childComplexity int, regionManagementID string) int
 		VehicleAlarmSupervision           func(childComplexity int, distinctOn []model.VehicleAlarmSupervisionSelectColumn, limit *int, offset *int, orderBy []*model.VehicleAlarmSupervisionOrderBy, where *model.VehicleAlarmSupervisionBoolExp) int
 		VehicleAlarmSupervisionAggregate  func(childComplexity int, distinctOn []model.VehicleAlarmSupervisionSelectColumn, limit *int, offset *int, orderBy []*model.VehicleAlarmSupervisionOrderBy, where *model.VehicleAlarmSupervisionBoolExp) int
 		VehicleAlarmSupervisionByPk       func(childComplexity int, id int64) int
+		VehicleAlarmSupervisionByUnionPk  func(childComplexity int, vehicleAlarmSupervisionID string) int
 		VehicleAlarmTimesRecord           func(childComplexity int, distinctOn []model.VehicleAlarmTimesRecordSelectColumn, limit *int, offset *int, orderBy []*model.VehicleAlarmTimesRecordOrderBy, where *model.VehicleAlarmTimesRecordBoolExp) int
 		VehicleAlarmTimesRecordAggregate  func(childComplexity int, distinctOn []model.VehicleAlarmTimesRecordSelectColumn, limit *int, offset *int, orderBy []*model.VehicleAlarmTimesRecordOrderBy, where *model.VehicleAlarmTimesRecordBoolExp) int
 		VehicleAlarmTimesRecordByPk       func(childComplexity int, id int64) int
+		VehicleAlarmTimesRecordByUnionPk  func(childComplexity int, vehicleAlarmTimesRecordID string) int
 		VehicleOfflineDisposal            func(childComplexity int, distinctOn []model.VehicleOfflineDisposalSelectColumn, limit *int, offset *int, orderBy []*model.VehicleOfflineDisposalOrderBy, where *model.VehicleOfflineDisposalBoolExp) int
 		VehicleOfflineDisposalAggregate   func(childComplexity int, distinctOn []model.VehicleOfflineDisposalSelectColumn, limit *int, offset *int, orderBy []*model.VehicleOfflineDisposalOrderBy, where *model.VehicleOfflineDisposalBoolExp) int
 		VehicleOfflineDisposalByPk        func(childComplexity int, id int64) int
+		VehicleOfflineDisposalByUnionPk   func(childComplexity int, vehicleOfflineDisposalID string) int
 	}
 
 	RegionIssued struct {
@@ -1668,48 +1692,64 @@ type MutationResolver interface {
 	InsertDynamicSupervisionOne(ctx context.Context, objects model.DynamicSupervisionInsertInput) (*model1.DynamicSupervision, error)
 	UpdateDynamicSupervision(ctx context.Context, inc *model.DynamicSupervisionIncInput, set *model.DynamicSupervisionSetInput, where model.DynamicSupervisionBoolExp) (*model.DynamicSupervisionMutationResponse, error)
 	UpdateDynamicSupervisionByPk(ctx context.Context, inc *model.DynamicSupervisionIncInput, set *model.DynamicSupervisionSetInput, id int64) (*model1.DynamicSupervision, error)
+	UpdateDynamicSupervisionByUnionPk(ctx context.Context, inc *model.DynamicSupervisionIncInput, set *model.DynamicSupervisionSetInput, supervisionID string) (*model1.DynamicSupervision, error)
+	DeleteDynamicSupervisionByUnionPk(ctx context.Context, supervisionID string) (*model1.DynamicSupervision, error)
 	DeleteDynamicSupervisionDetail(ctx context.Context, where model.DynamicSupervisionDetailBoolExp) (*model.DynamicSupervisionDetailMutationResponse, error)
 	DeleteDynamicSupervisionDetailByPk(ctx context.Context, id int64) (*model1.DynamicSupervisionDetail, error)
 	InsertDynamicSupervisionDetail(ctx context.Context, objects []*model.DynamicSupervisionDetailInsertInput) (*model.DynamicSupervisionDetailMutationResponse, error)
 	InsertDynamicSupervisionDetailOne(ctx context.Context, objects model.DynamicSupervisionDetailInsertInput) (*model1.DynamicSupervisionDetail, error)
 	UpdateDynamicSupervisionDetail(ctx context.Context, inc *model.DynamicSupervisionDetailIncInput, set *model.DynamicSupervisionDetailSetInput, where model.DynamicSupervisionDetailBoolExp) (*model.DynamicSupervisionDetailMutationResponse, error)
 	UpdateDynamicSupervisionDetailByPk(ctx context.Context, inc *model.DynamicSupervisionDetailIncInput, set *model.DynamicSupervisionDetailSetInput, id int64) (*model1.DynamicSupervisionDetail, error)
+	UpdateDynamicSupervisionDetailByUnionPk(ctx context.Context, inc *model.DynamicSupervisionDetailIncInput, set *model.DynamicSupervisionDetailSetInput, supervisionDetailID string) (*model1.DynamicSupervisionDetail, error)
+	DeleteDynamicSupervisionDetailByUnionPk(ctx context.Context, supervisionDetailID string) (*model1.DynamicSupervisionDetail, error)
 	DeleteMuckTruckOnline(ctx context.Context, where model.MuckTruckOnlineBoolExp) (*model.MuckTruckOnlineMutationResponse, error)
 	DeleteMuckTruckOnlineByPk(ctx context.Context, id int64) (*model1.MuckTruckOnline, error)
 	InsertMuckTruckOnline(ctx context.Context, objects []*model.MuckTruckOnlineInsertInput) (*model.MuckTruckOnlineMutationResponse, error)
 	InsertMuckTruckOnlineOne(ctx context.Context, objects model.MuckTruckOnlineInsertInput) (*model1.MuckTruckOnline, error)
 	UpdateMuckTruckOnline(ctx context.Context, inc *model.MuckTruckOnlineIncInput, set *model.MuckTruckOnlineSetInput, where model.MuckTruckOnlineBoolExp) (*model.MuckTruckOnlineMutationResponse, error)
 	UpdateMuckTruckOnlineByPk(ctx context.Context, inc *model.MuckTruckOnlineIncInput, set *model.MuckTruckOnlineSetInput, id int64) (*model1.MuckTruckOnline, error)
+	UpdateMuckTruckOnlineByUnionPk(ctx context.Context, inc *model.MuckTruckOnlineIncInput, set *model.MuckTruckOnlineSetInput, muckTruckOnlineID string) (*model1.MuckTruckOnline, error)
+	DeleteMuckTruckOnlineByUnionPk(ctx context.Context, muckTruckOnlineID string) (*model1.MuckTruckOnline, error)
 	DeleteRegionIssued(ctx context.Context, where model.RegionIssuedBoolExp) (*model.RegionIssuedMutationResponse, error)
 	DeleteRegionIssuedByPk(ctx context.Context, id int64) (*model1.RegionIssued, error)
 	InsertRegionIssued(ctx context.Context, objects []*model.RegionIssuedInsertInput) (*model.RegionIssuedMutationResponse, error)
 	InsertRegionIssuedOne(ctx context.Context, objects model.RegionIssuedInsertInput) (*model1.RegionIssued, error)
 	UpdateRegionIssued(ctx context.Context, inc *model.RegionIssuedIncInput, set *model.RegionIssuedSetInput, where model.RegionIssuedBoolExp) (*model.RegionIssuedMutationResponse, error)
 	UpdateRegionIssuedByPk(ctx context.Context, inc *model.RegionIssuedIncInput, set *model.RegionIssuedSetInput, id int64) (*model1.RegionIssued, error)
+	UpdateRegionIssuedByUnionPk(ctx context.Context, inc *model.RegionIssuedIncInput, set *model.RegionIssuedSetInput, regionIssuedID string) (*model1.RegionIssued, error)
+	DeleteRegionIssuedByUnionPk(ctx context.Context, regionIssuedID string) (*model1.RegionIssued, error)
 	DeleteRegionManagement(ctx context.Context, where model.RegionManagementBoolExp) (*model.RegionManagementMutationResponse, error)
 	DeleteRegionManagementByPk(ctx context.Context, id int64) (*model1.RegionManagement, error)
 	InsertRegionManagement(ctx context.Context, objects []*model.RegionManagementInsertInput) (*model.RegionManagementMutationResponse, error)
 	InsertRegionManagementOne(ctx context.Context, objects model.RegionManagementInsertInput) (*model1.RegionManagement, error)
 	UpdateRegionManagement(ctx context.Context, inc *model.RegionManagementIncInput, set *model.RegionManagementSetInput, where model.RegionManagementBoolExp) (*model.RegionManagementMutationResponse, error)
 	UpdateRegionManagementByPk(ctx context.Context, inc *model.RegionManagementIncInput, set *model.RegionManagementSetInput, id int64) (*model1.RegionManagement, error)
+	UpdateRegionManagementByUnionPk(ctx context.Context, inc *model.RegionManagementIncInput, set *model.RegionManagementSetInput, regionManagementID string) (*model1.RegionManagement, error)
+	DeleteRegionManagementByUnionPk(ctx context.Context, regionManagementID string) (*model1.RegionManagement, error)
 	DeleteVehicleAlarmSupervision(ctx context.Context, where model.VehicleAlarmSupervisionBoolExp) (*model.VehicleAlarmSupervisionMutationResponse, error)
 	DeleteVehicleAlarmSupervisionByPk(ctx context.Context, id int64) (*model1.VehicleAlarmSupervision, error)
 	InsertVehicleAlarmSupervision(ctx context.Context, objects []*model.VehicleAlarmSupervisionInsertInput) (*model.VehicleAlarmSupervisionMutationResponse, error)
 	InsertVehicleAlarmSupervisionOne(ctx context.Context, objects model.VehicleAlarmSupervisionInsertInput) (*model1.VehicleAlarmSupervision, error)
 	UpdateVehicleAlarmSupervision(ctx context.Context, inc *model.VehicleAlarmSupervisionIncInput, set *model.VehicleAlarmSupervisionSetInput, where model.VehicleAlarmSupervisionBoolExp) (*model.VehicleAlarmSupervisionMutationResponse, error)
 	UpdateVehicleAlarmSupervisionByPk(ctx context.Context, inc *model.VehicleAlarmSupervisionIncInput, set *model.VehicleAlarmSupervisionSetInput, id int64) (*model1.VehicleAlarmSupervision, error)
+	UpdateVehicleAlarmSupervisionByUnionPk(ctx context.Context, inc *model.VehicleAlarmSupervisionIncInput, set *model.VehicleAlarmSupervisionSetInput, vehicleAlarmSupervisionID string) (*model1.VehicleAlarmSupervision, error)
+	DeleteVehicleAlarmSupervisionByUnionPk(ctx context.Context, vehicleAlarmSupervisionID string) (*model1.VehicleAlarmSupervision, error)
 	DeleteVehicleAlarmTimesRecord(ctx context.Context, where model.VehicleAlarmTimesRecordBoolExp) (*model.VehicleAlarmTimesRecordMutationResponse, error)
 	DeleteVehicleAlarmTimesRecordByPk(ctx context.Context, id int64) (*model1.VehicleAlarmTimesRecord, error)
 	InsertVehicleAlarmTimesRecord(ctx context.Context, objects []*model.VehicleAlarmTimesRecordInsertInput) (*model.VehicleAlarmTimesRecordMutationResponse, error)
 	InsertVehicleAlarmTimesRecordOne(ctx context.Context, objects model.VehicleAlarmTimesRecordInsertInput) (*model1.VehicleAlarmTimesRecord, error)
 	UpdateVehicleAlarmTimesRecord(ctx context.Context, inc *model.VehicleAlarmTimesRecordIncInput, set *model.VehicleAlarmTimesRecordSetInput, where model.VehicleAlarmTimesRecordBoolExp) (*model.VehicleAlarmTimesRecordMutationResponse, error)
 	UpdateVehicleAlarmTimesRecordByPk(ctx context.Context, inc *model.VehicleAlarmTimesRecordIncInput, set *model.VehicleAlarmTimesRecordSetInput, id int64) (*model1.VehicleAlarmTimesRecord, error)
+	UpdateVehicleAlarmTimesRecordByUnionPk(ctx context.Context, inc *model.VehicleAlarmTimesRecordIncInput, set *model.VehicleAlarmTimesRecordSetInput, vehicleAlarmTimesRecordID string) (*model1.VehicleAlarmTimesRecord, error)
+	DeleteVehicleAlarmTimesRecordByUnionPk(ctx context.Context, vehicleAlarmTimesRecordID string) (*model1.VehicleAlarmTimesRecord, error)
 	DeleteVehicleOfflineDisposal(ctx context.Context, where model.VehicleOfflineDisposalBoolExp) (*model.VehicleOfflineDisposalMutationResponse, error)
 	DeleteVehicleOfflineDisposalByPk(ctx context.Context, id int64) (*model1.VehicleOfflineDisposal, error)
 	InsertVehicleOfflineDisposal(ctx context.Context, objects []*model.VehicleOfflineDisposalInsertInput) (*model.VehicleOfflineDisposalMutationResponse, error)
 	InsertVehicleOfflineDisposalOne(ctx context.Context, objects model.VehicleOfflineDisposalInsertInput) (*model1.VehicleOfflineDisposal, error)
 	UpdateVehicleOfflineDisposal(ctx context.Context, inc *model.VehicleOfflineDisposalIncInput, set *model.VehicleOfflineDisposalSetInput, where model.VehicleOfflineDisposalBoolExp) (*model.VehicleOfflineDisposalMutationResponse, error)
 	UpdateVehicleOfflineDisposalByPk(ctx context.Context, inc *model.VehicleOfflineDisposalIncInput, set *model.VehicleOfflineDisposalSetInput, id int64) (*model1.VehicleOfflineDisposal, error)
+	UpdateVehicleOfflineDisposalByUnionPk(ctx context.Context, inc *model.VehicleOfflineDisposalIncInput, set *model.VehicleOfflineDisposalSetInput, vehicleOfflineDisposalID string) (*model1.VehicleOfflineDisposal, error)
+	DeleteVehicleOfflineDisposalByUnionPk(ctx context.Context, vehicleOfflineDisposalID string) (*model1.VehicleOfflineDisposal, error)
 }
 type QueryResolver interface {
 	DynamicSpotCheckDisposal(ctx context.Context, distinctOn []model.DynamicSpotCheckDisposalSelectColumn, limit *int, offset *int, orderBy []*model.DynamicSpotCheckDisposalOrderBy, where *model.DynamicSpotCheckDisposalBoolExp) ([]*model1.DynamicSpotCheckDisposal, error)
@@ -1718,27 +1758,35 @@ type QueryResolver interface {
 	DynamicSupervision(ctx context.Context, distinctOn []model.DynamicSupervisionSelectColumn, limit *int, offset *int, orderBy []*model.DynamicSupervisionOrderBy, where *model.DynamicSupervisionBoolExp) ([]*model1.DynamicSupervision, error)
 	DynamicSupervisionAggregate(ctx context.Context, distinctOn []model.DynamicSupervisionSelectColumn, limit *int, offset *int, orderBy []*model.DynamicSupervisionOrderBy, where *model.DynamicSupervisionBoolExp) (*model.DynamicSupervisionAggregate, error)
 	DynamicSupervisionByPk(ctx context.Context, id int64) (*model1.DynamicSupervision, error)
+	DynamicSupervisionByUnionPk(ctx context.Context, supervisionID string) (*model1.DynamicSupervision, error)
 	DynamicSupervisionDetail(ctx context.Context, distinctOn []model.DynamicSupervisionDetailSelectColumn, limit *int, offset *int, orderBy []*model.DynamicSupervisionDetailOrderBy, where *model.DynamicSupervisionDetailBoolExp) ([]*model1.DynamicSupervisionDetail, error)
 	DynamicSupervisionDetailAggregate(ctx context.Context, distinctOn []model.DynamicSupervisionDetailSelectColumn, limit *int, offset *int, orderBy []*model.DynamicSupervisionDetailOrderBy, where *model.DynamicSupervisionDetailBoolExp) (*model.DynamicSupervisionDetailAggregate, error)
 	DynamicSupervisionDetailByPk(ctx context.Context, id int64) (*model1.DynamicSupervisionDetail, error)
+	DynamicSupervisionDetailByUnionPk(ctx context.Context, supervisionDetailID string) (*model1.DynamicSupervisionDetail, error)
 	MuckTruckOnline(ctx context.Context, distinctOn []model.MuckTruckOnlineSelectColumn, limit *int, offset *int, orderBy []*model.MuckTruckOnlineOrderBy, where *model.MuckTruckOnlineBoolExp) ([]*model1.MuckTruckOnline, error)
 	MuckTruckOnlineAggregate(ctx context.Context, distinctOn []model.MuckTruckOnlineSelectColumn, limit *int, offset *int, orderBy []*model.MuckTruckOnlineOrderBy, where *model.MuckTruckOnlineBoolExp) (*model.MuckTruckOnlineAggregate, error)
 	MuckTruckOnlineByPk(ctx context.Context, id int64) (*model1.MuckTruckOnline, error)
+	MuckTruckOnlineByUnionPk(ctx context.Context, muckTruckOnlineID string) (*model1.MuckTruckOnline, error)
 	RegionIssued(ctx context.Context, distinctOn []model.RegionIssuedSelectColumn, limit *int, offset *int, orderBy []*model.RegionIssuedOrderBy, where *model.RegionIssuedBoolExp) ([]*model1.RegionIssued, error)
 	RegionIssuedAggregate(ctx context.Context, distinctOn []model.RegionIssuedSelectColumn, limit *int, offset *int, orderBy []*model.RegionIssuedOrderBy, where *model.RegionIssuedBoolExp) (*model.RegionIssuedAggregate, error)
 	RegionIssuedByPk(ctx context.Context, id int64) (*model1.RegionIssued, error)
+	RegionIssuedByUnionPk(ctx context.Context, regionIssuedID string) (*model1.RegionIssued, error)
 	RegionManagement(ctx context.Context, distinctOn []model.RegionManagementSelectColumn, limit *int, offset *int, orderBy []*model.RegionManagementOrderBy, where *model.RegionManagementBoolExp) ([]*model1.RegionManagement, error)
 	RegionManagementAggregate(ctx context.Context, distinctOn []model.RegionManagementSelectColumn, limit *int, offset *int, orderBy []*model.RegionManagementOrderBy, where *model.RegionManagementBoolExp) (*model.RegionManagementAggregate, error)
 	RegionManagementByPk(ctx context.Context, id int64) (*model1.RegionManagement, error)
+	RegionManagementByUnionPk(ctx context.Context, regionManagementID string) (*model1.RegionManagement, error)
 	VehicleAlarmSupervision(ctx context.Context, distinctOn []model.VehicleAlarmSupervisionSelectColumn, limit *int, offset *int, orderBy []*model.VehicleAlarmSupervisionOrderBy, where *model.VehicleAlarmSupervisionBoolExp) ([]*model1.VehicleAlarmSupervision, error)
 	VehicleAlarmSupervisionAggregate(ctx context.Context, distinctOn []model.VehicleAlarmSupervisionSelectColumn, limit *int, offset *int, orderBy []*model.VehicleAlarmSupervisionOrderBy, where *model.VehicleAlarmSupervisionBoolExp) (*model.VehicleAlarmSupervisionAggregate, error)
 	VehicleAlarmSupervisionByPk(ctx context.Context, id int64) (*model1.VehicleAlarmSupervision, error)
+	VehicleAlarmSupervisionByUnionPk(ctx context.Context, vehicleAlarmSupervisionID string) (*model1.VehicleAlarmSupervision, error)
 	VehicleAlarmTimesRecord(ctx context.Context, distinctOn []model.VehicleAlarmTimesRecordSelectColumn, limit *int, offset *int, orderBy []*model.VehicleAlarmTimesRecordOrderBy, where *model.VehicleAlarmTimesRecordBoolExp) ([]*model1.VehicleAlarmTimesRecord, error)
 	VehicleAlarmTimesRecordAggregate(ctx context.Context, distinctOn []model.VehicleAlarmTimesRecordSelectColumn, limit *int, offset *int, orderBy []*model.VehicleAlarmTimesRecordOrderBy, where *model.VehicleAlarmTimesRecordBoolExp) (*model.VehicleAlarmTimesRecordAggregate, error)
 	VehicleAlarmTimesRecordByPk(ctx context.Context, id int64) (*model1.VehicleAlarmTimesRecord, error)
+	VehicleAlarmTimesRecordByUnionPk(ctx context.Context, vehicleAlarmTimesRecordID string) (*model1.VehicleAlarmTimesRecord, error)
 	VehicleOfflineDisposal(ctx context.Context, distinctOn []model.VehicleOfflineDisposalSelectColumn, limit *int, offset *int, orderBy []*model.VehicleOfflineDisposalOrderBy, where *model.VehicleOfflineDisposalBoolExp) ([]*model1.VehicleOfflineDisposal, error)
 	VehicleOfflineDisposalAggregate(ctx context.Context, distinctOn []model.VehicleOfflineDisposalSelectColumn, limit *int, offset *int, orderBy []*model.VehicleOfflineDisposalOrderBy, where *model.VehicleOfflineDisposalBoolExp) (*model.VehicleOfflineDisposalAggregate, error)
 	VehicleOfflineDisposalByPk(ctx context.Context, id int64) (*model1.VehicleOfflineDisposal, error)
+	VehicleOfflineDisposalByUnionPk(ctx context.Context, vehicleOfflineDisposalID string) (*model1.VehicleOfflineDisposal, error)
 }
 
 type executableSchema struct {
@@ -5892,6 +5940,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.DeleteDynamicSupervisionByPk(childComplexity, args["id"].(int64)), true
 
+	case "Mutation.delete_dynamic_supervision_by_union_pk":
+		if e.complexity.Mutation.DeleteDynamicSupervisionByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_delete_dynamic_supervision_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.DeleteDynamicSupervisionByUnionPk(childComplexity, args["supervision_id"].(string)), true
+
 	case "Mutation.delete_dynamic_supervision_detail":
 		if e.complexity.Mutation.DeleteDynamicSupervisionDetail == nil {
 			break
@@ -5915,6 +5975,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Mutation.DeleteDynamicSupervisionDetailByPk(childComplexity, args["id"].(int64)), true
+
+	case "Mutation.delete_dynamic_supervision_detail_by_union_pk":
+		if e.complexity.Mutation.DeleteDynamicSupervisionDetailByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_delete_dynamic_supervision_detail_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.DeleteDynamicSupervisionDetailByUnionPk(childComplexity, args["supervision_detail_id"].(string)), true
 
 	case "Mutation.delete_muck_truck_online":
 		if e.complexity.Mutation.DeleteMuckTruckOnline == nil {
@@ -5940,6 +6012,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.DeleteMuckTruckOnlineByPk(childComplexity, args["id"].(int64)), true
 
+	case "Mutation.delete_muck_truck_online_by_union_pk":
+		if e.complexity.Mutation.DeleteMuckTruckOnlineByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_delete_muck_truck_online_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.DeleteMuckTruckOnlineByUnionPk(childComplexity, args["muck_truck_online_id"].(string)), true
+
 	case "Mutation.delete_region_issued":
 		if e.complexity.Mutation.DeleteRegionIssued == nil {
 			break
@@ -5963,6 +6047,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Mutation.DeleteRegionIssuedByPk(childComplexity, args["id"].(int64)), true
+
+	case "Mutation.delete_region_issued_by_union_pk":
+		if e.complexity.Mutation.DeleteRegionIssuedByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_delete_region_issued_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.DeleteRegionIssuedByUnionPk(childComplexity, args["region_issued_id"].(string)), true
 
 	case "Mutation.delete_region_management":
 		if e.complexity.Mutation.DeleteRegionManagement == nil {
@@ -5988,6 +6084,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.DeleteRegionManagementByPk(childComplexity, args["id"].(int64)), true
 
+	case "Mutation.delete_region_management_by_union_pk":
+		if e.complexity.Mutation.DeleteRegionManagementByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_delete_region_management_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.DeleteRegionManagementByUnionPk(childComplexity, args["region_management_id"].(string)), true
+
 	case "Mutation.delete_vehicle_alarm_supervision":
 		if e.complexity.Mutation.DeleteVehicleAlarmSupervision == nil {
 			break
@@ -6011,6 +6119,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Mutation.DeleteVehicleAlarmSupervisionByPk(childComplexity, args["id"].(int64)), true
+
+	case "Mutation.delete_vehicle_alarm_supervision_by_union_pk":
+		if e.complexity.Mutation.DeleteVehicleAlarmSupervisionByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_delete_vehicle_alarm_supervision_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.DeleteVehicleAlarmSupervisionByUnionPk(childComplexity, args["vehicle_alarm_supervision_id"].(string)), true
 
 	case "Mutation.delete_vehicle_alarm_times_record":
 		if e.complexity.Mutation.DeleteVehicleAlarmTimesRecord == nil {
@@ -6036,6 +6156,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.DeleteVehicleAlarmTimesRecordByPk(childComplexity, args["id"].(int64)), true
 
+	case "Mutation.delete_vehicle_alarm_times_record_by_union_pk":
+		if e.complexity.Mutation.DeleteVehicleAlarmTimesRecordByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_delete_vehicle_alarm_times_record_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.DeleteVehicleAlarmTimesRecordByUnionPk(childComplexity, args["vehicle_alarm_times_record_id"].(string)), true
+
 	case "Mutation.delete_vehicle_offline_disposal":
 		if e.complexity.Mutation.DeleteVehicleOfflineDisposal == nil {
 			break
@@ -6059,6 +6191,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Mutation.DeleteVehicleOfflineDisposalByPk(childComplexity, args["id"].(int64)), true
+
+	case "Mutation.delete_vehicle_offline_disposal_by_union_pk":
+		if e.complexity.Mutation.DeleteVehicleOfflineDisposalByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_delete_vehicle_offline_disposal_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.DeleteVehicleOfflineDisposalByUnionPk(childComplexity, args["vehicle_offline_disposal_id"].(string)), true
 
 	case "Mutation.insert_dynamic_spot_check_disposal":
 		if e.complexity.Mutation.InsertDynamicSpotCheckDisposal == nil {
@@ -6324,6 +6468,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.UpdateDynamicSupervisionByPk(childComplexity, args["_inc"].(*model.DynamicSupervisionIncInput), args["_set"].(*model.DynamicSupervisionSetInput), args["id"].(int64)), true
 
+	case "Mutation.update_dynamic_supervision_by_union_pk":
+		if e.complexity.Mutation.UpdateDynamicSupervisionByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_update_dynamic_supervision_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.UpdateDynamicSupervisionByUnionPk(childComplexity, args["_inc"].(*model.DynamicSupervisionIncInput), args["_set"].(*model.DynamicSupervisionSetInput), args["supervision_id"].(string)), true
+
 	case "Mutation.update_dynamic_supervision_detail":
 		if e.complexity.Mutation.UpdateDynamicSupervisionDetail == nil {
 			break
@@ -6347,6 +6503,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Mutation.UpdateDynamicSupervisionDetailByPk(childComplexity, args["_inc"].(*model.DynamicSupervisionDetailIncInput), args["_set"].(*model.DynamicSupervisionDetailSetInput), args["id"].(int64)), true
+
+	case "Mutation.update_dynamic_supervision_detail_by_union_pk":
+		if e.complexity.Mutation.UpdateDynamicSupervisionDetailByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_update_dynamic_supervision_detail_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.UpdateDynamicSupervisionDetailByUnionPk(childComplexity, args["_inc"].(*model.DynamicSupervisionDetailIncInput), args["_set"].(*model.DynamicSupervisionDetailSetInput), args["supervision_detail_id"].(string)), true
 
 	case "Mutation.update_muck_truck_online":
 		if e.complexity.Mutation.UpdateMuckTruckOnline == nil {
@@ -6372,6 +6540,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.UpdateMuckTruckOnlineByPk(childComplexity, args["_inc"].(*model.MuckTruckOnlineIncInput), args["_set"].(*model.MuckTruckOnlineSetInput), args["id"].(int64)), true
 
+	case "Mutation.update_muck_truck_online_by_union_pk":
+		if e.complexity.Mutation.UpdateMuckTruckOnlineByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_update_muck_truck_online_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.UpdateMuckTruckOnlineByUnionPk(childComplexity, args["_inc"].(*model.MuckTruckOnlineIncInput), args["_set"].(*model.MuckTruckOnlineSetInput), args["muck_truck_online_id"].(string)), true
+
 	case "Mutation.update_region_issued":
 		if e.complexity.Mutation.UpdateRegionIssued == nil {
 			break
@@ -6395,6 +6575,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Mutation.UpdateRegionIssuedByPk(childComplexity, args["_inc"].(*model.RegionIssuedIncInput), args["_set"].(*model.RegionIssuedSetInput), args["id"].(int64)), true
+
+	case "Mutation.update_region_issued_by_union_pk":
+		if e.complexity.Mutation.UpdateRegionIssuedByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_update_region_issued_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.UpdateRegionIssuedByUnionPk(childComplexity, args["_inc"].(*model.RegionIssuedIncInput), args["_set"].(*model.RegionIssuedSetInput), args["region_issued_id"].(string)), true
 
 	case "Mutation.update_region_management":
 		if e.complexity.Mutation.UpdateRegionManagement == nil {
@@ -6420,6 +6612,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.UpdateRegionManagementByPk(childComplexity, args["_inc"].(*model.RegionManagementIncInput), args["_set"].(*model.RegionManagementSetInput), args["id"].(int64)), true
 
+	case "Mutation.update_region_management_by_union_pk":
+		if e.complexity.Mutation.UpdateRegionManagementByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_update_region_management_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.UpdateRegionManagementByUnionPk(childComplexity, args["_inc"].(*model.RegionManagementIncInput), args["_set"].(*model.RegionManagementSetInput), args["region_management_id"].(string)), true
+
 	case "Mutation.update_vehicle_alarm_supervision":
 		if e.complexity.Mutation.UpdateVehicleAlarmSupervision == nil {
 			break
@@ -6443,6 +6647,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Mutation.UpdateVehicleAlarmSupervisionByPk(childComplexity, args["_inc"].(*model.VehicleAlarmSupervisionIncInput), args["_set"].(*model.VehicleAlarmSupervisionSetInput), args["id"].(int64)), true
+
+	case "Mutation.update_vehicle_alarm_supervision_by_union_pk":
+		if e.complexity.Mutation.UpdateVehicleAlarmSupervisionByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_update_vehicle_alarm_supervision_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.UpdateVehicleAlarmSupervisionByUnionPk(childComplexity, args["_inc"].(*model.VehicleAlarmSupervisionIncInput), args["_set"].(*model.VehicleAlarmSupervisionSetInput), args["vehicle_alarm_supervision_id"].(string)), true
 
 	case "Mutation.update_vehicle_alarm_times_record":
 		if e.complexity.Mutation.UpdateVehicleAlarmTimesRecord == nil {
@@ -6468,6 +6684,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.UpdateVehicleAlarmTimesRecordByPk(childComplexity, args["_inc"].(*model.VehicleAlarmTimesRecordIncInput), args["_set"].(*model.VehicleAlarmTimesRecordSetInput), args["id"].(int64)), true
 
+	case "Mutation.update_vehicle_alarm_times_record_by_union_pk":
+		if e.complexity.Mutation.UpdateVehicleAlarmTimesRecordByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_update_vehicle_alarm_times_record_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.UpdateVehicleAlarmTimesRecordByUnionPk(childComplexity, args["_inc"].(*model.VehicleAlarmTimesRecordIncInput), args["_set"].(*model.VehicleAlarmTimesRecordSetInput), args["vehicle_alarm_times_record_id"].(string)), true
+
 	case "Mutation.update_vehicle_offline_disposal":
 		if e.complexity.Mutation.UpdateVehicleOfflineDisposal == nil {
 			break
@@ -6491,6 +6719,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Mutation.UpdateVehicleOfflineDisposalByPk(childComplexity, args["_inc"].(*model.VehicleOfflineDisposalIncInput), args["_set"].(*model.VehicleOfflineDisposalSetInput), args["id"].(int64)), true
+
+	case "Mutation.update_vehicle_offline_disposal_by_union_pk":
+		if e.complexity.Mutation.UpdateVehicleOfflineDisposalByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_update_vehicle_offline_disposal_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.UpdateVehicleOfflineDisposalByUnionPk(childComplexity, args["_inc"].(*model.VehicleOfflineDisposalIncInput), args["_set"].(*model.VehicleOfflineDisposalSetInput), args["vehicle_offline_disposal_id"].(string)), true
 
 	case "Query.dynamic_spot_check_disposal":
 		if e.complexity.Query.DynamicSpotCheckDisposal == nil {
@@ -6564,6 +6804,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Query.DynamicSupervisionByPk(childComplexity, args["id"].(int64)), true
 
+	case "Query.dynamic_supervision_by_union_pk":
+		if e.complexity.Query.DynamicSupervisionByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Query_dynamic_supervision_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.DynamicSupervisionByUnionPk(childComplexity, args["supervision_id"].(string)), true
+
 	case "Query.dynamic_supervision_detail":
 		if e.complexity.Query.DynamicSupervisionDetail == nil {
 			break
@@ -6599,6 +6851,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Query.DynamicSupervisionDetailByPk(childComplexity, args["id"].(int64)), true
+
+	case "Query.dynamic_supervision_detail_by_union_pk":
+		if e.complexity.Query.DynamicSupervisionDetailByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Query_dynamic_supervision_detail_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.DynamicSupervisionDetailByUnionPk(childComplexity, args["supervision_detail_id"].(string)), true
 
 	case "Query.muck_truck_online":
 		if e.complexity.Query.MuckTruckOnline == nil {
@@ -6636,6 +6900,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Query.MuckTruckOnlineByPk(childComplexity, args["id"].(int64)), true
 
+	case "Query.muck_truck_online_by_union_pk":
+		if e.complexity.Query.MuckTruckOnlineByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Query_muck_truck_online_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.MuckTruckOnlineByUnionPk(childComplexity, args["muck_truck_online_id"].(string)), true
+
 	case "Query.region_issued":
 		if e.complexity.Query.RegionIssued == nil {
 			break
@@ -6671,6 +6947,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Query.RegionIssuedByPk(childComplexity, args["id"].(int64)), true
+
+	case "Query.region_issued_by_union_pk":
+		if e.complexity.Query.RegionIssuedByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Query_region_issued_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.RegionIssuedByUnionPk(childComplexity, args["region_issued_id"].(string)), true
 
 	case "Query.region_management":
 		if e.complexity.Query.RegionManagement == nil {
@@ -6708,6 +6996,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Query.RegionManagementByPk(childComplexity, args["id"].(int64)), true
 
+	case "Query.region_management_by_union_pk":
+		if e.complexity.Query.RegionManagementByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Query_region_management_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.RegionManagementByUnionPk(childComplexity, args["region_management_id"].(string)), true
+
 	case "Query.vehicle_alarm_supervision":
 		if e.complexity.Query.VehicleAlarmSupervision == nil {
 			break
@@ -6743,6 +7043,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Query.VehicleAlarmSupervisionByPk(childComplexity, args["id"].(int64)), true
+
+	case "Query.vehicle_alarm_supervision_by_union_pk":
+		if e.complexity.Query.VehicleAlarmSupervisionByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Query_vehicle_alarm_supervision_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.VehicleAlarmSupervisionByUnionPk(childComplexity, args["vehicle_alarm_supervision_id"].(string)), true
 
 	case "Query.vehicle_alarm_times_record":
 		if e.complexity.Query.VehicleAlarmTimesRecord == nil {
@@ -6780,6 +7092,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Query.VehicleAlarmTimesRecordByPk(childComplexity, args["id"].(int64)), true
 
+	case "Query.vehicle_alarm_times_record_by_union_pk":
+		if e.complexity.Query.VehicleAlarmTimesRecordByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Query_vehicle_alarm_times_record_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.VehicleAlarmTimesRecordByUnionPk(childComplexity, args["vehicle_alarm_times_record_id"].(string)), true
+
 	case "Query.vehicle_offline_disposal":
 		if e.complexity.Query.VehicleOfflineDisposal == nil {
 			break
@@ -6815,6 +7139,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Query.VehicleOfflineDisposalByPk(childComplexity, args["id"].(int64)), true
+
+	case "Query.vehicle_offline_disposal_by_union_pk":
+		if e.complexity.Query.VehicleOfflineDisposalByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Query_vehicle_offline_disposal_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.VehicleOfflineDisposalByUnionPk(childComplexity, args["vehicle_offline_disposal_id"].(string)), true
 
 	case "RegionIssued.created_at":
 		if e.complexity.RegionIssued.CreatedAt == nil {
@@ -11288,6 +11624,7 @@ input DynamicSpotCheckDisposalBoolExp {
 input type for inserting data into table "dynamic_spot_check_disposal"
 """
 input DynamicSpotCheckDisposalInsertInput {
+	vehicle_id: String!
 	enterprise_id: String
 	telephone: String
 	send_time: Timestamptz
@@ -11307,6 +11644,8 @@ input DynamicSpotCheckDisposalInsertInput {
 	disposal_method: Int
 	disposal_result: String
 	is_deleted: Boolean
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -11500,7 +11839,7 @@ extend type Mutation {
 	"""
 	update_dynamic_spot_check_disposal(_inc: DynamicSpotCheckDisposalIncInput, _set: DynamicSpotCheckDisposalSetInput, where: DynamicSpotCheckDisposalBoolExp!): DynamicSpotCheckDisposalMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_dynamic_spot_check_disposal_by_pk(_inc: DynamicSpotCheckDisposalIncInput, _set: DynamicSpotCheckDisposalSetInput, id: Bigint!): DynamicSpotCheckDisposal
 }
@@ -11838,6 +12177,7 @@ input DynamicSupervisionBoolExp {
 input type for inserting data into table "dynamic_supervision"
 """
 input DynamicSupervisionInsertInput {
+	supervision_id: String!
 	spot_check_date: Timestamptz
 	spot_check_total_number: Int
 	spot_check_number: Int
@@ -11850,6 +12190,8 @@ input DynamicSupervisionInsertInput {
 	year: Int
 	month: Int
 	day: Int
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -11997,6 +12339,10 @@ extend type Query {
 	主键查询
 	"""
 	dynamic_supervision_by_pk(id: Bigint!): DynamicSupervision!
+	"""
+	联合主键查询
+	"""
+	dynamic_supervision_by_union_pk(supervision_id: String!): DynamicSupervision!
 }
 extend type Mutation {
 	"""
@@ -12020,9 +12366,17 @@ extend type Mutation {
 	"""
 	update_dynamic_supervision(_inc: DynamicSupervisionIncInput, _set: DynamicSupervisionSetInput, where: DynamicSupervisionBoolExp!): DynamicSupervisionMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_dynamic_supervision_by_pk(_inc: DynamicSupervisionIncInput, _set: DynamicSupervisionSetInput, id: Bigint!): DynamicSupervision
+	"""
+	根据联合主键更新
+	"""
+	update_dynamic_supervision_by_union_pk(_inc: DynamicSupervisionIncInput, _set: DynamicSupervisionSetInput, supervision_id: String!): DynamicSupervision
+	"""
+	根据联合主键删除记录
+	"""
+	delete_dynamic_supervision_by_union_pk(supervision_id: String!): DynamicSupervision
 }
 `, BuiltIn: false},
 	{Name: "graph/graphqls/dynamic_supervision_detail.graphqls", Input: `"""
@@ -12670,6 +13024,7 @@ input DynamicSupervisionDetailBoolExp {
 input type for inserting data into table "dynamic_supervision_detail"
 """
 input DynamicSupervisionDetailInsertInput {
+	supervision_detail_id: String!
 	supervision_id: String
 	driver_id: String
 	enterprise_id: String
@@ -12723,6 +13078,8 @@ input DynamicSupervisionDetailInsertInput {
 	disposal_results6: String
 	disposal_results7: String
 	is_deleted: Boolean
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -13068,6 +13425,10 @@ extend type Query {
 	主键查询
 	"""
 	dynamic_supervision_detail_by_pk(id: Bigint!): DynamicSupervisionDetail!
+	"""
+	联合主键查询
+	"""
+	dynamic_supervision_detail_by_union_pk(supervision_detail_id: String!): DynamicSupervisionDetail!
 }
 extend type Mutation {
 	"""
@@ -13091,9 +13452,17 @@ extend type Mutation {
 	"""
 	update_dynamic_supervision_detail(_inc: DynamicSupervisionDetailIncInput, _set: DynamicSupervisionDetailSetInput, where: DynamicSupervisionDetailBoolExp!): DynamicSupervisionDetailMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_dynamic_supervision_detail_by_pk(_inc: DynamicSupervisionDetailIncInput, _set: DynamicSupervisionDetailSetInput, id: Bigint!): DynamicSupervisionDetail
+	"""
+	根据联合主键更新
+	"""
+	update_dynamic_supervision_detail_by_union_pk(_inc: DynamicSupervisionDetailIncInput, _set: DynamicSupervisionDetailSetInput, supervision_detail_id: String!): DynamicSupervisionDetail
+	"""
+	根据联合主键删除记录
+	"""
+	delete_dynamic_supervision_detail_by_union_pk(supervision_detail_id: String!): DynamicSupervisionDetail
 }
 `, BuiltIn: false},
 	{Name: "graph/graphqls/muck_truck_online.graphqls", Input: `"""
@@ -13357,6 +13726,8 @@ input MuckTruckOnlineBoolExp {
 input type for inserting data into table "muck_truck_online"
 """
 input MuckTruckOnlineInsertInput {
+	muck_truck_online_id: String!
+	vehicle_id: String!
 	is_online: Boolean
 	is_pay: Boolean
 	is_gps_online: Boolean
@@ -13367,6 +13738,8 @@ input MuckTruckOnlineInsertInput {
 	location_time: Timestamptz
 	self_number: String
 	area: String
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -13496,6 +13869,10 @@ extend type Query {
 	主键查询
 	"""
 	muck_truck_online_by_pk(id: Bigint!): MuckTruckOnline!
+	"""
+	联合主键查询
+	"""
+	muck_truck_online_by_union_pk(muck_truck_online_id: String!): MuckTruckOnline!
 }
 extend type Mutation {
 	"""
@@ -13519,9 +13896,17 @@ extend type Mutation {
 	"""
 	update_muck_truck_online(_inc: MuckTruckOnlineIncInput, _set: MuckTruckOnlineSetInput, where: MuckTruckOnlineBoolExp!): MuckTruckOnlineMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_muck_truck_online_by_pk(_inc: MuckTruckOnlineIncInput, _set: MuckTruckOnlineSetInput, id: Bigint!): MuckTruckOnline
+	"""
+	根据联合主键更新
+	"""
+	update_muck_truck_online_by_union_pk(_inc: MuckTruckOnlineIncInput, _set: MuckTruckOnlineSetInput, muck_truck_online_id: String!): MuckTruckOnline
+	"""
+	根据联合主键删除记录
+	"""
+	delete_muck_truck_online_by_union_pk(muck_truck_online_id: String!): MuckTruckOnline
 }
 `, BuiltIn: false},
 	{Name: "graph/graphqls/region_issued.graphqls", Input: `"""
@@ -13713,8 +14098,11 @@ input RegionIssuedBoolExp {
 input type for inserting data into table "region_issued"
 """
 input RegionIssuedInsertInput {
+	region_issued_id: String!
 	region_name: String
 	imel: String
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -13799,6 +14187,10 @@ extend type Query {
 	主键查询
 	"""
 	region_issued_by_pk(id: Bigint!): RegionIssued!
+	"""
+	联合主键查询
+	"""
+	region_issued_by_union_pk(region_issued_id: String!): RegionIssued!
 }
 extend type Mutation {
 	"""
@@ -13822,9 +14214,17 @@ extend type Mutation {
 	"""
 	update_region_issued(_inc: RegionIssuedIncInput, _set: RegionIssuedSetInput, where: RegionIssuedBoolExp!): RegionIssuedMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_region_issued_by_pk(_inc: RegionIssuedIncInput, _set: RegionIssuedSetInput, id: Bigint!): RegionIssued
+	"""
+	根据联合主键更新
+	"""
+	update_region_issued_by_union_pk(_inc: RegionIssuedIncInput, _set: RegionIssuedSetInput, region_issued_id: String!): RegionIssued
+	"""
+	根据联合主键删除记录
+	"""
+	delete_region_issued_by_union_pk(region_issued_id: String!): RegionIssued
 }
 `, BuiltIn: false},
 	{Name: "graph/graphqls/region_management.graphqls", Input: `"""
@@ -14128,6 +14528,7 @@ input RegionManagementBoolExp {
 input type for inserting data into table "region_management"
 """
 input RegionManagementInsertInput {
+	region_management_id: String!
 	region_id: String
 	region_name: String
 	region_type: String
@@ -14141,6 +14542,8 @@ input RegionManagementInsertInput {
 	region_coordinate: Point
 	is_super_region: Boolean
 	is_deleted: Boolean
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -14283,6 +14686,10 @@ extend type Query {
 	主键查询
 	"""
 	region_management_by_pk(id: Bigint!): RegionManagement!
+	"""
+	联合主键查询
+	"""
+	region_management_by_union_pk(region_management_id: String!): RegionManagement!
 }
 extend type Mutation {
 	"""
@@ -14306,9 +14713,17 @@ extend type Mutation {
 	"""
 	update_region_management(_inc: RegionManagementIncInput, _set: RegionManagementSetInput, where: RegionManagementBoolExp!): RegionManagementMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_region_management_by_pk(_inc: RegionManagementIncInput, _set: RegionManagementSetInput, id: Bigint!): RegionManagement
+	"""
+	根据联合主键更新
+	"""
+	update_region_management_by_union_pk(_inc: RegionManagementIncInput, _set: RegionManagementSetInput, region_management_id: String!): RegionManagement
+	"""
+	根据联合主键删除记录
+	"""
+	delete_region_management_by_union_pk(region_management_id: String!): RegionManagement
 }
 `, BuiltIn: false},
 	{Name: "graph/graphqls/vehicle_alarm_supervision.graphqls", Input: `"""
@@ -14772,6 +15187,7 @@ input VehicleAlarmSupervisionBoolExp {
 input type for inserting data into table "vehicle_alarm_supervision"
 """
 input VehicleAlarmSupervisionInsertInput {
+	vehicle_alarm_supervision_id: String!
 	superivision_authority_id: String
 	superivision_type: String
 	area_id: String
@@ -14795,6 +15211,8 @@ input VehicleAlarmSupervisionInsertInput {
 	check_abnormal_vehicle_number: Int
 	abnormal_disposal_number: Int
 	abnormal_disposal_rate: Numeric
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -14997,6 +15415,10 @@ extend type Query {
 	主键查询
 	"""
 	vehicle_alarm_supervision_by_pk(id: Bigint!): VehicleAlarmSupervision!
+	"""
+	联合主键查询
+	"""
+	vehicle_alarm_supervision_by_union_pk(vehicle_alarm_supervision_id: String!): VehicleAlarmSupervision!
 }
 extend type Mutation {
 	"""
@@ -15020,9 +15442,17 @@ extend type Mutation {
 	"""
 	update_vehicle_alarm_supervision(_inc: VehicleAlarmSupervisionIncInput, _set: VehicleAlarmSupervisionSetInput, where: VehicleAlarmSupervisionBoolExp!): VehicleAlarmSupervisionMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_vehicle_alarm_supervision_by_pk(_inc: VehicleAlarmSupervisionIncInput, _set: VehicleAlarmSupervisionSetInput, id: Bigint!): VehicleAlarmSupervision
+	"""
+	根据联合主键更新
+	"""
+	update_vehicle_alarm_supervision_by_union_pk(_inc: VehicleAlarmSupervisionIncInput, _set: VehicleAlarmSupervisionSetInput, vehicle_alarm_supervision_id: String!): VehicleAlarmSupervision
+	"""
+	根据联合主键删除记录
+	"""
+	delete_vehicle_alarm_supervision_by_union_pk(vehicle_alarm_supervision_id: String!): VehicleAlarmSupervision
 }
 `, BuiltIn: false},
 	{Name: "graph/graphqls/vehicle_alarm_times_record.graphqls", Input: `"""
@@ -15294,6 +15724,8 @@ input VehicleAlarmTimesRecordBoolExp {
 input type for inserting data into table "vehicle_alarm_times_record"
 """
 input VehicleAlarmTimesRecordInsertInput {
+	vehicle_alarm_times_record_id: String!
+	vehicle_id: String!
 	alarm_type: String
 	disposal_measure: String
 	disposal_time: Timestamptz
@@ -15304,6 +15736,8 @@ input VehicleAlarmTimesRecordInsertInput {
 	alarm_times: String
 	remarks: String
 	record_time: Timestamptz
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -15434,6 +15868,10 @@ extend type Query {
 	主键查询
 	"""
 	vehicle_alarm_times_record_by_pk(id: Bigint!): VehicleAlarmTimesRecord!
+	"""
+	联合主键查询
+	"""
+	vehicle_alarm_times_record_by_union_pk(vehicle_alarm_times_record_id: String!): VehicleAlarmTimesRecord!
 }
 extend type Mutation {
 	"""
@@ -15457,9 +15895,17 @@ extend type Mutation {
 	"""
 	update_vehicle_alarm_times_record(_inc: VehicleAlarmTimesRecordIncInput, _set: VehicleAlarmTimesRecordSetInput, where: VehicleAlarmTimesRecordBoolExp!): VehicleAlarmTimesRecordMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_vehicle_alarm_times_record_by_pk(_inc: VehicleAlarmTimesRecordIncInput, _set: VehicleAlarmTimesRecordSetInput, id: Bigint!): VehicleAlarmTimesRecord
+	"""
+	根据联合主键更新
+	"""
+	update_vehicle_alarm_times_record_by_union_pk(_inc: VehicleAlarmTimesRecordIncInput, _set: VehicleAlarmTimesRecordSetInput, vehicle_alarm_times_record_id: String!): VehicleAlarmTimesRecord
+	"""
+	根据联合主键删除记录
+	"""
+	delete_vehicle_alarm_times_record_by_union_pk(vehicle_alarm_times_record_id: String!): VehicleAlarmTimesRecord
 }
 `, BuiltIn: false},
 	{Name: "graph/graphqls/vehicle_offline_disposal.graphqls", Input: `"""
@@ -15755,6 +16201,7 @@ input VehicleOfflineDisposalBoolExp {
 input type for inserting data into table "vehicle_offline_disposal"
 """
 input VehicleOfflineDisposalInsertInput {
+	vehicle_offline_disposal_id: String!
 	enterprise_id: String
 	telephone: String
 	content: String
@@ -15770,6 +16217,8 @@ input VehicleOfflineDisposalInsertInput {
 	supervision_detail_id: String
 	disposal_method: String
 	is_deleted: Boolean
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -15919,6 +16368,10 @@ extend type Query {
 	主键查询
 	"""
 	vehicle_offline_disposal_by_pk(id: Bigint!): VehicleOfflineDisposal!
+	"""
+	联合主键查询
+	"""
+	vehicle_offline_disposal_by_union_pk(vehicle_offline_disposal_id: String!): VehicleOfflineDisposal!
 }
 extend type Mutation {
 	"""
@@ -15942,9 +16395,17 @@ extend type Mutation {
 	"""
 	update_vehicle_offline_disposal(_inc: VehicleOfflineDisposalIncInput, _set: VehicleOfflineDisposalSetInput, where: VehicleOfflineDisposalBoolExp!): VehicleOfflineDisposalMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_vehicle_offline_disposal_by_pk(_inc: VehicleOfflineDisposalIncInput, _set: VehicleOfflineDisposalSetInput, id: Bigint!): VehicleOfflineDisposal
+	"""
+	根据联合主键更新
+	"""
+	update_vehicle_offline_disposal_by_union_pk(_inc: VehicleOfflineDisposalIncInput, _set: VehicleOfflineDisposalSetInput, vehicle_offline_disposal_id: String!): VehicleOfflineDisposal
+	"""
+	根据联合主键删除记录
+	"""
+	delete_vehicle_offline_disposal_by_union_pk(vehicle_offline_disposal_id: String!): VehicleOfflineDisposal
 }
 `, BuiltIn: false},
 }
@@ -16014,6 +16475,21 @@ func (ec *executionContext) field_Mutation_delete_dynamic_supervision_by_pk_args
 	return args, nil
 }
 
+func (ec *executionContext) field_Mutation_delete_dynamic_supervision_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["supervision_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("supervision_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["supervision_id"] = arg0
+	return args, nil
+}
+
 func (ec *executionContext) field_Mutation_delete_dynamic_supervision_detail_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -16041,6 +16517,21 @@ func (ec *executionContext) field_Mutation_delete_dynamic_supervision_detail_by_
 		}
 	}
 	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_delete_dynamic_supervision_detail_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["supervision_detail_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("supervision_detail_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["supervision_detail_id"] = arg0
 	return args, nil
 }
 
@@ -16074,6 +16565,21 @@ func (ec *executionContext) field_Mutation_delete_muck_truck_online_by_pk_args(c
 	return args, nil
 }
 
+func (ec *executionContext) field_Mutation_delete_muck_truck_online_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["muck_truck_online_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("muck_truck_online_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["muck_truck_online_id"] = arg0
+	return args, nil
+}
+
 func (ec *executionContext) field_Mutation_delete_region_issued_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -16101,6 +16607,21 @@ func (ec *executionContext) field_Mutation_delete_region_issued_by_pk_args(ctx c
 		}
 	}
 	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_delete_region_issued_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["region_issued_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("region_issued_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["region_issued_id"] = arg0
 	return args, nil
 }
 
@@ -16134,6 +16655,21 @@ func (ec *executionContext) field_Mutation_delete_region_management_by_pk_args(c
 	return args, nil
 }
 
+func (ec *executionContext) field_Mutation_delete_region_management_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["region_management_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("region_management_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["region_management_id"] = arg0
+	return args, nil
+}
+
 func (ec *executionContext) field_Mutation_delete_vehicle_alarm_supervision_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -16161,6 +16697,21 @@ func (ec *executionContext) field_Mutation_delete_vehicle_alarm_supervision_by_p
 		}
 	}
 	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_delete_vehicle_alarm_supervision_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["vehicle_alarm_supervision_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("vehicle_alarm_supervision_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["vehicle_alarm_supervision_id"] = arg0
 	return args, nil
 }
 
@@ -16194,6 +16745,21 @@ func (ec *executionContext) field_Mutation_delete_vehicle_alarm_times_record_by_
 	return args, nil
 }
 
+func (ec *executionContext) field_Mutation_delete_vehicle_alarm_times_record_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["vehicle_alarm_times_record_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("vehicle_alarm_times_record_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["vehicle_alarm_times_record_id"] = arg0
+	return args, nil
+}
+
 func (ec *executionContext) field_Mutation_delete_vehicle_offline_disposal_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -16221,6 +16787,21 @@ func (ec *executionContext) field_Mutation_delete_vehicle_offline_disposal_by_pk
 		}
 	}
 	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_delete_vehicle_offline_disposal_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["vehicle_offline_disposal_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("vehicle_offline_disposal_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["vehicle_offline_disposal_id"] = arg0
 	return args, nil
 }
 
@@ -16626,6 +17207,39 @@ func (ec *executionContext) field_Mutation_update_dynamic_supervision_by_pk_args
 	return args, nil
 }
 
+func (ec *executionContext) field_Mutation_update_dynamic_supervision_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *model.DynamicSupervisionIncInput
+	if tmp, ok := rawArgs["_inc"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
+		arg0, err = ec.unmarshalODynamicSupervisionIncInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋgraphᚋmodelᚐDynamicSupervisionIncInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_inc"] = arg0
+	var arg1 *model.DynamicSupervisionSetInput
+	if tmp, ok := rawArgs["_set"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
+		arg1, err = ec.unmarshalODynamicSupervisionSetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋgraphᚋmodelᚐDynamicSupervisionSetInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_set"] = arg1
+	var arg2 string
+	if tmp, ok := rawArgs["supervision_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("supervision_id"))
+		arg2, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["supervision_id"] = arg2
+	return args, nil
+}
+
 func (ec *executionContext) field_Mutation_update_dynamic_supervision_detail_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -16689,6 +17303,39 @@ func (ec *executionContext) field_Mutation_update_dynamic_supervision_detail_by_
 		}
 	}
 	args["id"] = arg2
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_update_dynamic_supervision_detail_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *model.DynamicSupervisionDetailIncInput
+	if tmp, ok := rawArgs["_inc"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
+		arg0, err = ec.unmarshalODynamicSupervisionDetailIncInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋgraphᚋmodelᚐDynamicSupervisionDetailIncInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_inc"] = arg0
+	var arg1 *model.DynamicSupervisionDetailSetInput
+	if tmp, ok := rawArgs["_set"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
+		arg1, err = ec.unmarshalODynamicSupervisionDetailSetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋgraphᚋmodelᚐDynamicSupervisionDetailSetInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_set"] = arg1
+	var arg2 string
+	if tmp, ok := rawArgs["supervision_detail_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("supervision_detail_id"))
+		arg2, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["supervision_detail_id"] = arg2
 	return args, nil
 }
 
@@ -16758,6 +17405,39 @@ func (ec *executionContext) field_Mutation_update_muck_truck_online_by_pk_args(c
 	return args, nil
 }
 
+func (ec *executionContext) field_Mutation_update_muck_truck_online_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *model.MuckTruckOnlineIncInput
+	if tmp, ok := rawArgs["_inc"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
+		arg0, err = ec.unmarshalOMuckTruckOnlineIncInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋgraphᚋmodelᚐMuckTruckOnlineIncInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_inc"] = arg0
+	var arg1 *model.MuckTruckOnlineSetInput
+	if tmp, ok := rawArgs["_set"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
+		arg1, err = ec.unmarshalOMuckTruckOnlineSetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋgraphᚋmodelᚐMuckTruckOnlineSetInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_set"] = arg1
+	var arg2 string
+	if tmp, ok := rawArgs["muck_truck_online_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("muck_truck_online_id"))
+		arg2, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["muck_truck_online_id"] = arg2
+	return args, nil
+}
+
 func (ec *executionContext) field_Mutation_update_region_issued_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -16821,6 +17501,39 @@ func (ec *executionContext) field_Mutation_update_region_issued_by_pk_args(ctx c
 		}
 	}
 	args["id"] = arg2
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_update_region_issued_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *model.RegionIssuedIncInput
+	if tmp, ok := rawArgs["_inc"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
+		arg0, err = ec.unmarshalORegionIssuedIncInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋgraphᚋmodelᚐRegionIssuedIncInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_inc"] = arg0
+	var arg1 *model.RegionIssuedSetInput
+	if tmp, ok := rawArgs["_set"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
+		arg1, err = ec.unmarshalORegionIssuedSetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋgraphᚋmodelᚐRegionIssuedSetInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_set"] = arg1
+	var arg2 string
+	if tmp, ok := rawArgs["region_issued_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("region_issued_id"))
+		arg2, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["region_issued_id"] = arg2
 	return args, nil
 }
 
@@ -16890,6 +17603,39 @@ func (ec *executionContext) field_Mutation_update_region_management_by_pk_args(c
 	return args, nil
 }
 
+func (ec *executionContext) field_Mutation_update_region_management_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *model.RegionManagementIncInput
+	if tmp, ok := rawArgs["_inc"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
+		arg0, err = ec.unmarshalORegionManagementIncInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋgraphᚋmodelᚐRegionManagementIncInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_inc"] = arg0
+	var arg1 *model.RegionManagementSetInput
+	if tmp, ok := rawArgs["_set"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
+		arg1, err = ec.unmarshalORegionManagementSetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋgraphᚋmodelᚐRegionManagementSetInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_set"] = arg1
+	var arg2 string
+	if tmp, ok := rawArgs["region_management_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("region_management_id"))
+		arg2, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["region_management_id"] = arg2
+	return args, nil
+}
+
 func (ec *executionContext) field_Mutation_update_vehicle_alarm_supervision_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -16953,6 +17699,39 @@ func (ec *executionContext) field_Mutation_update_vehicle_alarm_supervision_by_p
 		}
 	}
 	args["id"] = arg2
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_update_vehicle_alarm_supervision_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *model.VehicleAlarmSupervisionIncInput
+	if tmp, ok := rawArgs["_inc"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
+		arg0, err = ec.unmarshalOVehicleAlarmSupervisionIncInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋgraphᚋmodelᚐVehicleAlarmSupervisionIncInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_inc"] = arg0
+	var arg1 *model.VehicleAlarmSupervisionSetInput
+	if tmp, ok := rawArgs["_set"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
+		arg1, err = ec.unmarshalOVehicleAlarmSupervisionSetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋgraphᚋmodelᚐVehicleAlarmSupervisionSetInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_set"] = arg1
+	var arg2 string
+	if tmp, ok := rawArgs["vehicle_alarm_supervision_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("vehicle_alarm_supervision_id"))
+		arg2, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["vehicle_alarm_supervision_id"] = arg2
 	return args, nil
 }
 
@@ -17022,6 +17801,39 @@ func (ec *executionContext) field_Mutation_update_vehicle_alarm_times_record_by_
 	return args, nil
 }
 
+func (ec *executionContext) field_Mutation_update_vehicle_alarm_times_record_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *model.VehicleAlarmTimesRecordIncInput
+	if tmp, ok := rawArgs["_inc"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
+		arg0, err = ec.unmarshalOVehicleAlarmTimesRecordIncInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋgraphᚋmodelᚐVehicleAlarmTimesRecordIncInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_inc"] = arg0
+	var arg1 *model.VehicleAlarmTimesRecordSetInput
+	if tmp, ok := rawArgs["_set"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
+		arg1, err = ec.unmarshalOVehicleAlarmTimesRecordSetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋgraphᚋmodelᚐVehicleAlarmTimesRecordSetInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_set"] = arg1
+	var arg2 string
+	if tmp, ok := rawArgs["vehicle_alarm_times_record_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("vehicle_alarm_times_record_id"))
+		arg2, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["vehicle_alarm_times_record_id"] = arg2
+	return args, nil
+}
+
 func (ec *executionContext) field_Mutation_update_vehicle_offline_disposal_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -17085,6 +17897,39 @@ func (ec *executionContext) field_Mutation_update_vehicle_offline_disposal_by_pk
 		}
 	}
 	args["id"] = arg2
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_update_vehicle_offline_disposal_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *model.VehicleOfflineDisposalIncInput
+	if tmp, ok := rawArgs["_inc"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
+		arg0, err = ec.unmarshalOVehicleOfflineDisposalIncInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋgraphᚋmodelᚐVehicleOfflineDisposalIncInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_inc"] = arg0
+	var arg1 *model.VehicleOfflineDisposalSetInput
+	if tmp, ok := rawArgs["_set"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
+		arg1, err = ec.unmarshalOVehicleOfflineDisposalSetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋgraphᚋmodelᚐVehicleOfflineDisposalSetInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_set"] = arg1
+	var arg2 string
+	if tmp, ok := rawArgs["vehicle_offline_disposal_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("vehicle_offline_disposal_id"))
+		arg2, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["vehicle_offline_disposal_id"] = arg2
 	return args, nil
 }
 
@@ -17337,6 +18182,21 @@ func (ec *executionContext) field_Query_dynamic_supervision_by_pk_args(ctx conte
 	return args, nil
 }
 
+func (ec *executionContext) field_Query_dynamic_supervision_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["supervision_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("supervision_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["supervision_id"] = arg0
+	return args, nil
+}
+
 func (ec *executionContext) field_Query_dynamic_supervision_detail_aggregate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -17451,6 +18311,21 @@ func (ec *executionContext) field_Query_dynamic_supervision_detail_by_pk_args(ct
 		}
 	}
 	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Query_dynamic_supervision_detail_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["supervision_detail_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("supervision_detail_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["supervision_detail_id"] = arg0
 	return args, nil
 }
 
@@ -17571,6 +18446,21 @@ func (ec *executionContext) field_Query_muck_truck_online_by_pk_args(ctx context
 	return args, nil
 }
 
+func (ec *executionContext) field_Query_muck_truck_online_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["muck_truck_online_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("muck_truck_online_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["muck_truck_online_id"] = arg0
+	return args, nil
+}
+
 func (ec *executionContext) field_Query_region_issued_aggregate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -17685,6 +18575,21 @@ func (ec *executionContext) field_Query_region_issued_by_pk_args(ctx context.Con
 		}
 	}
 	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Query_region_issued_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["region_issued_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("region_issued_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["region_issued_id"] = arg0
 	return args, nil
 }
 
@@ -17805,6 +18710,21 @@ func (ec *executionContext) field_Query_region_management_by_pk_args(ctx context
 	return args, nil
 }
 
+func (ec *executionContext) field_Query_region_management_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["region_management_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("region_management_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["region_management_id"] = arg0
+	return args, nil
+}
+
 func (ec *executionContext) field_Query_vehicle_alarm_supervision_aggregate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -17919,6 +18839,21 @@ func (ec *executionContext) field_Query_vehicle_alarm_supervision_by_pk_args(ctx
 		}
 	}
 	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Query_vehicle_alarm_supervision_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["vehicle_alarm_supervision_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("vehicle_alarm_supervision_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["vehicle_alarm_supervision_id"] = arg0
 	return args, nil
 }
 
@@ -18039,6 +18974,21 @@ func (ec *executionContext) field_Query_vehicle_alarm_times_record_by_pk_args(ct
 	return args, nil
 }
 
+func (ec *executionContext) field_Query_vehicle_alarm_times_record_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["vehicle_alarm_times_record_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("vehicle_alarm_times_record_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["vehicle_alarm_times_record_id"] = arg0
+	return args, nil
+}
+
 func (ec *executionContext) field_Query_vehicle_offline_disposal_aggregate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -18153,6 +19103,21 @@ func (ec *executionContext) field_Query_vehicle_offline_disposal_by_pk_args(ctx 
 		}
 	}
 	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Query_vehicle_offline_disposal_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["vehicle_offline_disposal_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("vehicle_offline_disposal_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["vehicle_offline_disposal_id"] = arg0
 	return args, nil
 }
 
@@ -37425,6 +38390,84 @@ func (ec *executionContext) _Mutation_update_dynamic_supervision_by_pk(ctx conte
 	return ec.marshalODynamicSupervision2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋmodelᚐDynamicSupervision(ctx, field.Selections, res)
 }
 
+func (ec *executionContext) _Mutation_update_dynamic_supervision_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_dynamic_supervision_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateDynamicSupervisionByUnionPk(rctx, args["_inc"].(*model.DynamicSupervisionIncInput), args["_set"].(*model.DynamicSupervisionSetInput), args["supervision_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.DynamicSupervision)
+	fc.Result = res
+	return ec.marshalODynamicSupervision2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋmodelᚐDynamicSupervision(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_delete_dynamic_supervision_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_delete_dynamic_supervision_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().DeleteDynamicSupervisionByUnionPk(rctx, args["supervision_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.DynamicSupervision)
+	fc.Result = res
+	return ec.marshalODynamicSupervision2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋmodelᚐDynamicSupervision(ctx, field.Selections, res)
+}
+
 func (ec *executionContext) _Mutation_delete_dynamic_supervision_detail(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -37646,6 +38689,84 @@ func (ec *executionContext) _Mutation_update_dynamic_supervision_detail_by_pk(ct
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
 		return ec.resolvers.Mutation().UpdateDynamicSupervisionDetailByPk(rctx, args["_inc"].(*model.DynamicSupervisionDetailIncInput), args["_set"].(*model.DynamicSupervisionDetailSetInput), args["id"].(int64))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.DynamicSupervisionDetail)
+	fc.Result = res
+	return ec.marshalODynamicSupervisionDetail2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋmodelᚐDynamicSupervisionDetail(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_update_dynamic_supervision_detail_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_dynamic_supervision_detail_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateDynamicSupervisionDetailByUnionPk(rctx, args["_inc"].(*model.DynamicSupervisionDetailIncInput), args["_set"].(*model.DynamicSupervisionDetailSetInput), args["supervision_detail_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.DynamicSupervisionDetail)
+	fc.Result = res
+	return ec.marshalODynamicSupervisionDetail2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋmodelᚐDynamicSupervisionDetail(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_delete_dynamic_supervision_detail_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_delete_dynamic_supervision_detail_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().DeleteDynamicSupervisionDetailByUnionPk(rctx, args["supervision_detail_id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -37893,6 +39014,84 @@ func (ec *executionContext) _Mutation_update_muck_truck_online_by_pk(ctx context
 	return ec.marshalOMuckTruckOnline2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋmodelᚐMuckTruckOnline(ctx, field.Selections, res)
 }
 
+func (ec *executionContext) _Mutation_update_muck_truck_online_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_muck_truck_online_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateMuckTruckOnlineByUnionPk(rctx, args["_inc"].(*model.MuckTruckOnlineIncInput), args["_set"].(*model.MuckTruckOnlineSetInput), args["muck_truck_online_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.MuckTruckOnline)
+	fc.Result = res
+	return ec.marshalOMuckTruckOnline2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋmodelᚐMuckTruckOnline(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_delete_muck_truck_online_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_delete_muck_truck_online_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().DeleteMuckTruckOnlineByUnionPk(rctx, args["muck_truck_online_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.MuckTruckOnline)
+	fc.Result = res
+	return ec.marshalOMuckTruckOnline2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋmodelᚐMuckTruckOnline(ctx, field.Selections, res)
+}
+
 func (ec *executionContext) _Mutation_delete_region_issued(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -38114,6 +39313,84 @@ func (ec *executionContext) _Mutation_update_region_issued_by_pk(ctx context.Con
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
 		return ec.resolvers.Mutation().UpdateRegionIssuedByPk(rctx, args["_inc"].(*model.RegionIssuedIncInput), args["_set"].(*model.RegionIssuedSetInput), args["id"].(int64))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.RegionIssued)
+	fc.Result = res
+	return ec.marshalORegionIssued2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋmodelᚐRegionIssued(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_update_region_issued_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_region_issued_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateRegionIssuedByUnionPk(rctx, args["_inc"].(*model.RegionIssuedIncInput), args["_set"].(*model.RegionIssuedSetInput), args["region_issued_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.RegionIssued)
+	fc.Result = res
+	return ec.marshalORegionIssued2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋmodelᚐRegionIssued(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_delete_region_issued_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_delete_region_issued_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().DeleteRegionIssuedByUnionPk(rctx, args["region_issued_id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -38361,6 +39638,84 @@ func (ec *executionContext) _Mutation_update_region_management_by_pk(ctx context
 	return ec.marshalORegionManagement2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋmodelᚐRegionManagement(ctx, field.Selections, res)
 }
 
+func (ec *executionContext) _Mutation_update_region_management_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_region_management_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateRegionManagementByUnionPk(rctx, args["_inc"].(*model.RegionManagementIncInput), args["_set"].(*model.RegionManagementSetInput), args["region_management_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.RegionManagement)
+	fc.Result = res
+	return ec.marshalORegionManagement2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋmodelᚐRegionManagement(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_delete_region_management_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_delete_region_management_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().DeleteRegionManagementByUnionPk(rctx, args["region_management_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.RegionManagement)
+	fc.Result = res
+	return ec.marshalORegionManagement2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋmodelᚐRegionManagement(ctx, field.Selections, res)
+}
+
 func (ec *executionContext) _Mutation_delete_vehicle_alarm_supervision(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -38582,6 +39937,84 @@ func (ec *executionContext) _Mutation_update_vehicle_alarm_supervision_by_pk(ctx
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
 		return ec.resolvers.Mutation().UpdateVehicleAlarmSupervisionByPk(rctx, args["_inc"].(*model.VehicleAlarmSupervisionIncInput), args["_set"].(*model.VehicleAlarmSupervisionSetInput), args["id"].(int64))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.VehicleAlarmSupervision)
+	fc.Result = res
+	return ec.marshalOVehicleAlarmSupervision2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋmodelᚐVehicleAlarmSupervision(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_update_vehicle_alarm_supervision_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_vehicle_alarm_supervision_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateVehicleAlarmSupervisionByUnionPk(rctx, args["_inc"].(*model.VehicleAlarmSupervisionIncInput), args["_set"].(*model.VehicleAlarmSupervisionSetInput), args["vehicle_alarm_supervision_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.VehicleAlarmSupervision)
+	fc.Result = res
+	return ec.marshalOVehicleAlarmSupervision2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋmodelᚐVehicleAlarmSupervision(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_delete_vehicle_alarm_supervision_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_delete_vehicle_alarm_supervision_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().DeleteVehicleAlarmSupervisionByUnionPk(rctx, args["vehicle_alarm_supervision_id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -38829,6 +40262,84 @@ func (ec *executionContext) _Mutation_update_vehicle_alarm_times_record_by_pk(ct
 	return ec.marshalOVehicleAlarmTimesRecord2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋmodelᚐVehicleAlarmTimesRecord(ctx, field.Selections, res)
 }
 
+func (ec *executionContext) _Mutation_update_vehicle_alarm_times_record_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_vehicle_alarm_times_record_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateVehicleAlarmTimesRecordByUnionPk(rctx, args["_inc"].(*model.VehicleAlarmTimesRecordIncInput), args["_set"].(*model.VehicleAlarmTimesRecordSetInput), args["vehicle_alarm_times_record_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.VehicleAlarmTimesRecord)
+	fc.Result = res
+	return ec.marshalOVehicleAlarmTimesRecord2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋmodelᚐVehicleAlarmTimesRecord(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_delete_vehicle_alarm_times_record_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_delete_vehicle_alarm_times_record_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().DeleteVehicleAlarmTimesRecordByUnionPk(rctx, args["vehicle_alarm_times_record_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.VehicleAlarmTimesRecord)
+	fc.Result = res
+	return ec.marshalOVehicleAlarmTimesRecord2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋmodelᚐVehicleAlarmTimesRecord(ctx, field.Selections, res)
+}
+
 func (ec *executionContext) _Mutation_delete_vehicle_offline_disposal(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -39050,6 +40561,84 @@ func (ec *executionContext) _Mutation_update_vehicle_offline_disposal_by_pk(ctx 
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
 		return ec.resolvers.Mutation().UpdateVehicleOfflineDisposalByPk(rctx, args["_inc"].(*model.VehicleOfflineDisposalIncInput), args["_set"].(*model.VehicleOfflineDisposalSetInput), args["id"].(int64))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.VehicleOfflineDisposal)
+	fc.Result = res
+	return ec.marshalOVehicleOfflineDisposal2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋmodelᚐVehicleOfflineDisposal(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_update_vehicle_offline_disposal_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_vehicle_offline_disposal_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateVehicleOfflineDisposalByUnionPk(rctx, args["_inc"].(*model.VehicleOfflineDisposalIncInput), args["_set"].(*model.VehicleOfflineDisposalSetInput), args["vehicle_offline_disposal_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.VehicleOfflineDisposal)
+	fc.Result = res
+	return ec.marshalOVehicleOfflineDisposal2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋmodelᚐVehicleOfflineDisposal(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_delete_vehicle_offline_disposal_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_delete_vehicle_offline_disposal_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().DeleteVehicleOfflineDisposalByUnionPk(rctx, args["vehicle_offline_disposal_id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -39315,6 +40904,48 @@ func (ec *executionContext) _Query_dynamic_supervision_by_pk(ctx context.Context
 	return ec.marshalNDynamicSupervision2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋmodelᚐDynamicSupervision(ctx, field.Selections, res)
 }
 
+func (ec *executionContext) _Query_dynamic_supervision_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_dynamic_supervision_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().DynamicSupervisionByUnionPk(rctx, args["supervision_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*model1.DynamicSupervision)
+	fc.Result = res
+	return ec.marshalNDynamicSupervision2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋmodelᚐDynamicSupervision(ctx, field.Selections, res)
+}
+
 func (ec *executionContext) _Query_dynamic_supervision_detail(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -39425,6 +41056,48 @@ func (ec *executionContext) _Query_dynamic_supervision_detail_by_pk(ctx context.
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
 		return ec.resolvers.Query().DynamicSupervisionDetailByPk(rctx, args["id"].(int64))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*model1.DynamicSupervisionDetail)
+	fc.Result = res
+	return ec.marshalNDynamicSupervisionDetail2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋmodelᚐDynamicSupervisionDetail(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Query_dynamic_supervision_detail_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_dynamic_supervision_detail_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().DynamicSupervisionDetailByUnionPk(rctx, args["supervision_detail_id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -39567,6 +41240,48 @@ func (ec *executionContext) _Query_muck_truck_online_by_pk(ctx context.Context, 
 	return ec.marshalNMuckTruckOnline2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋmodelᚐMuckTruckOnline(ctx, field.Selections, res)
 }
 
+func (ec *executionContext) _Query_muck_truck_online_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_muck_truck_online_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().MuckTruckOnlineByUnionPk(rctx, args["muck_truck_online_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*model1.MuckTruckOnline)
+	fc.Result = res
+	return ec.marshalNMuckTruckOnline2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋmodelᚐMuckTruckOnline(ctx, field.Selections, res)
+}
+
 func (ec *executionContext) _Query_region_issued(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -39677,6 +41392,48 @@ func (ec *executionContext) _Query_region_issued_by_pk(ctx context.Context, fiel
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
 		return ec.resolvers.Query().RegionIssuedByPk(rctx, args["id"].(int64))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*model1.RegionIssued)
+	fc.Result = res
+	return ec.marshalNRegionIssued2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋmodelᚐRegionIssued(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Query_region_issued_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_region_issued_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().RegionIssuedByUnionPk(rctx, args["region_issued_id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -39819,6 +41576,48 @@ func (ec *executionContext) _Query_region_management_by_pk(ctx context.Context, 
 	return ec.marshalNRegionManagement2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋmodelᚐRegionManagement(ctx, field.Selections, res)
 }
 
+func (ec *executionContext) _Query_region_management_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_region_management_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().RegionManagementByUnionPk(rctx, args["region_management_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*model1.RegionManagement)
+	fc.Result = res
+	return ec.marshalNRegionManagement2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋmodelᚐRegionManagement(ctx, field.Selections, res)
+}
+
 func (ec *executionContext) _Query_vehicle_alarm_supervision(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -39929,6 +41728,48 @@ func (ec *executionContext) _Query_vehicle_alarm_supervision_by_pk(ctx context.C
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
 		return ec.resolvers.Query().VehicleAlarmSupervisionByPk(rctx, args["id"].(int64))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*model1.VehicleAlarmSupervision)
+	fc.Result = res
+	return ec.marshalNVehicleAlarmSupervision2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋmodelᚐVehicleAlarmSupervision(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Query_vehicle_alarm_supervision_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_vehicle_alarm_supervision_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().VehicleAlarmSupervisionByUnionPk(rctx, args["vehicle_alarm_supervision_id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -40071,6 +41912,48 @@ func (ec *executionContext) _Query_vehicle_alarm_times_record_by_pk(ctx context.
 	return ec.marshalNVehicleAlarmTimesRecord2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋmodelᚐVehicleAlarmTimesRecord(ctx, field.Selections, res)
 }
 
+func (ec *executionContext) _Query_vehicle_alarm_times_record_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_vehicle_alarm_times_record_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().VehicleAlarmTimesRecordByUnionPk(rctx, args["vehicle_alarm_times_record_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*model1.VehicleAlarmTimesRecord)
+	fc.Result = res
+	return ec.marshalNVehicleAlarmTimesRecord2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋmodelᚐVehicleAlarmTimesRecord(ctx, field.Selections, res)
+}
+
 func (ec *executionContext) _Query_vehicle_offline_disposal(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -40181,6 +42064,48 @@ func (ec *executionContext) _Query_vehicle_offline_disposal_by_pk(ctx context.Co
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
 		return ec.resolvers.Query().VehicleOfflineDisposalByPk(rctx, args["id"].(int64))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*model1.VehicleOfflineDisposal)
+	fc.Result = res
+	return ec.marshalNVehicleOfflineDisposal2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋmodelᚐVehicleOfflineDisposal(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Query_vehicle_offline_disposal_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_vehicle_offline_disposal_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().VehicleOfflineDisposalByUnionPk(rctx, args["vehicle_offline_disposal_id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -59758,6 +61683,14 @@ func (ec *executionContext) unmarshalInputDynamicSpotCheckDisposalInsertInput(ct
 
 	for k, v := range asMap {
 		switch k {
+		case "vehicle_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("vehicle_id"))
+			it.VehicleID, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "enterprise_id":
 			var err error
 
@@ -59907,6 +61840,22 @@ func (ec *executionContext) unmarshalInputDynamicSpotCheckDisposalInsertInput(ct
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_deleted"))
 			it.IsDeleted, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
+			it.CreatedAt, err = ec.unmarshalNTimestamptz2timeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
+			it.CreatedBy, err = ec.unmarshalNString2string(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -61206,6 +63155,14 @@ func (ec *executionContext) unmarshalInputDynamicSupervisionDetailInsertInput(ct
 
 	for k, v := range asMap {
 		switch k {
+		case "supervision_detail_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("supervision_detail_id"))
+			it.SupervisionDetailID, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "supervision_id":
 			var err error
 
@@ -61627,6 +63584,22 @@ func (ec *executionContext) unmarshalInputDynamicSupervisionDetailInsertInput(ct
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_deleted"))
 			it.IsDeleted, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
+			it.CreatedAt, err = ec.unmarshalNTimestamptz2timeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
+			it.CreatedBy, err = ec.unmarshalNString2string(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -62750,6 +64723,14 @@ func (ec *executionContext) unmarshalInputDynamicSupervisionInsertInput(ctx cont
 
 	for k, v := range asMap {
 		switch k {
+		case "supervision_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("supervision_id"))
+			it.SupervisionID, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "spot_check_date":
 			var err error
 
@@ -62843,6 +64824,22 @@ func (ec *executionContext) unmarshalInputDynamicSupervisionInsertInput(ctx cont
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("day"))
 			it.Day, err = ec.unmarshalOInt2ᚖint(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
+			it.CreatedAt, err = ec.unmarshalNTimestamptz2timeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
+			it.CreatedBy, err = ec.unmarshalNString2string(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -63252,8 +65249,8 @@ func (ec *executionContext) unmarshalInputDynamicSupervisionSetInput(ctx context
 	return it, nil
 }
 
-func (ec *executionContext) unmarshalInputFloatComparisonExp(ctx context.Context, obj interface{}) (model1.FloatComparisonExp, error) {
-	var it model1.FloatComparisonExp
+func (ec *executionContext) unmarshalInputFloatComparisonExp(ctx context.Context, obj interface{}) (model2.FloatComparisonExp, error) {
+	var it model2.FloatComparisonExp
 	var asMap = obj.(map[string]interface{})
 
 	for k, v := range asMap {
@@ -63718,6 +65715,22 @@ func (ec *executionContext) unmarshalInputMuckTruckOnlineInsertInput(ctx context
 
 	for k, v := range asMap {
 		switch k {
+		case "muck_truck_online_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("muck_truck_online_id"))
+			it.MuckTruckOnlineID, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "vehicle_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("vehicle_id"))
+			it.VehicleID, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "is_online":
 			var err error
 
@@ -63795,6 +65808,22 @@ func (ec *executionContext) unmarshalInputMuckTruckOnlineInsertInput(ctx context
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("area"))
 			it.Area, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
+			it.CreatedAt, err = ec.unmarshalNTimestamptz2timeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
+			it.CreatedBy, err = ec.unmarshalNString2string(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -64474,6 +66503,14 @@ func (ec *executionContext) unmarshalInputRegionIssuedInsertInput(ctx context.Co
 
 	for k, v := range asMap {
 		switch k {
+		case "region_issued_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("region_issued_id"))
+			it.RegionIssuedID, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "region_name":
 			var err error
 
@@ -64487,6 +66524,22 @@ func (ec *executionContext) unmarshalInputRegionIssuedInsertInput(ctx context.Co
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("imel"))
 			it.Imel, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
+			it.CreatedAt, err = ec.unmarshalNTimestamptz2timeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
+			it.CreatedBy, err = ec.unmarshalNString2string(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -64966,6 +67019,14 @@ func (ec *executionContext) unmarshalInputRegionManagementInsertInput(ctx contex
 
 	for k, v := range asMap {
 		switch k {
+		case "region_management_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("region_management_id"))
+			it.RegionManagementID, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "region_id":
 			var err error
 
@@ -65067,6 +67128,22 @@ func (ec *executionContext) unmarshalInputRegionManagementInsertInput(ctx contex
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_deleted"))
 			it.IsDeleted, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
+			it.CreatedAt, err = ec.unmarshalNTimestamptz2timeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
+			it.CreatedBy, err = ec.unmarshalNString2string(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -66098,6 +68175,14 @@ func (ec *executionContext) unmarshalInputVehicleAlarmSupervisionInsertInput(ctx
 
 	for k, v := range asMap {
 		switch k {
+		case "vehicle_alarm_supervision_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("vehicle_alarm_supervision_id"))
+			it.VehicleAlarmSupervisionID, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "superivision_authority_id":
 			var err error
 
@@ -66279,6 +68364,22 @@ func (ec *executionContext) unmarshalInputVehicleAlarmSupervisionInsertInput(ctx
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("abnormal_disposal_rate"))
 			it.AbnormalDisposalRate, err = ec.unmarshalONumeric2ᚖfloat64(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
+			it.CreatedAt, err = ec.unmarshalNTimestamptz2timeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
+			it.CreatedBy, err = ec.unmarshalNString2string(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -67062,6 +69163,22 @@ func (ec *executionContext) unmarshalInputVehicleAlarmTimesRecordInsertInput(ctx
 
 	for k, v := range asMap {
 		switch k {
+		case "vehicle_alarm_times_record_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("vehicle_alarm_times_record_id"))
+			it.VehicleAlarmTimesRecordID, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "vehicle_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("vehicle_id"))
+			it.VehicleID, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "alarm_type":
 			var err error
 
@@ -67139,6 +69256,22 @@ func (ec *executionContext) unmarshalInputVehicleAlarmTimesRecordInsertInput(ctx
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("record_time"))
 			it.RecordTime, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
+			it.CreatedAt, err = ec.unmarshalNTimestamptz2timeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
+			it.CreatedBy, err = ec.unmarshalNString2string(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -67754,6 +69887,14 @@ func (ec *executionContext) unmarshalInputVehicleOfflineDisposalInsertInput(ctx 
 
 	for k, v := range asMap {
 		switch k {
+		case "vehicle_offline_disposal_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("vehicle_offline_disposal_id"))
+			it.VehicleOfflineDisposalID, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "enterprise_id":
 			var err error
 
@@ -67871,6 +70012,22 @@ func (ec *executionContext) unmarshalInputVehicleOfflineDisposalInsertInput(ctx 
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_deleted"))
 			it.IsDeleted, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
+			it.CreatedAt, err = ec.unmarshalNTimestamptz2timeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
+			it.CreatedBy, err = ec.unmarshalNString2string(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -70826,6 +72983,10 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			out.Values[i] = ec._Mutation_update_dynamic_supervision(ctx, field)
 		case "update_dynamic_supervision_by_pk":
 			out.Values[i] = ec._Mutation_update_dynamic_supervision_by_pk(ctx, field)
+		case "update_dynamic_supervision_by_union_pk":
+			out.Values[i] = ec._Mutation_update_dynamic_supervision_by_union_pk(ctx, field)
+		case "delete_dynamic_supervision_by_union_pk":
+			out.Values[i] = ec._Mutation_delete_dynamic_supervision_by_union_pk(ctx, field)
 		case "delete_dynamic_supervision_detail":
 			out.Values[i] = ec._Mutation_delete_dynamic_supervision_detail(ctx, field)
 		case "delete_dynamic_supervision_detail_by_pk":
@@ -70838,6 +72999,10 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			out.Values[i] = ec._Mutation_update_dynamic_supervision_detail(ctx, field)
 		case "update_dynamic_supervision_detail_by_pk":
 			out.Values[i] = ec._Mutation_update_dynamic_supervision_detail_by_pk(ctx, field)
+		case "update_dynamic_supervision_detail_by_union_pk":
+			out.Values[i] = ec._Mutation_update_dynamic_supervision_detail_by_union_pk(ctx, field)
+		case "delete_dynamic_supervision_detail_by_union_pk":
+			out.Values[i] = ec._Mutation_delete_dynamic_supervision_detail_by_union_pk(ctx, field)
 		case "delete_muck_truck_online":
 			out.Values[i] = ec._Mutation_delete_muck_truck_online(ctx, field)
 		case "delete_muck_truck_online_by_pk":
@@ -70850,6 +73015,10 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			out.Values[i] = ec._Mutation_update_muck_truck_online(ctx, field)
 		case "update_muck_truck_online_by_pk":
 			out.Values[i] = ec._Mutation_update_muck_truck_online_by_pk(ctx, field)
+		case "update_muck_truck_online_by_union_pk":
+			out.Values[i] = ec._Mutation_update_muck_truck_online_by_union_pk(ctx, field)
+		case "delete_muck_truck_online_by_union_pk":
+			out.Values[i] = ec._Mutation_delete_muck_truck_online_by_union_pk(ctx, field)
 		case "delete_region_issued":
 			out.Values[i] = ec._Mutation_delete_region_issued(ctx, field)
 		case "delete_region_issued_by_pk":
@@ -70862,6 +73031,10 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			out.Values[i] = ec._Mutation_update_region_issued(ctx, field)
 		case "update_region_issued_by_pk":
 			out.Values[i] = ec._Mutation_update_region_issued_by_pk(ctx, field)
+		case "update_region_issued_by_union_pk":
+			out.Values[i] = ec._Mutation_update_region_issued_by_union_pk(ctx, field)
+		case "delete_region_issued_by_union_pk":
+			out.Values[i] = ec._Mutation_delete_region_issued_by_union_pk(ctx, field)
 		case "delete_region_management":
 			out.Values[i] = ec._Mutation_delete_region_management(ctx, field)
 		case "delete_region_management_by_pk":
@@ -70874,6 +73047,10 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			out.Values[i] = ec._Mutation_update_region_management(ctx, field)
 		case "update_region_management_by_pk":
 			out.Values[i] = ec._Mutation_update_region_management_by_pk(ctx, field)
+		case "update_region_management_by_union_pk":
+			out.Values[i] = ec._Mutation_update_region_management_by_union_pk(ctx, field)
+		case "delete_region_management_by_union_pk":
+			out.Values[i] = ec._Mutation_delete_region_management_by_union_pk(ctx, field)
 		case "delete_vehicle_alarm_supervision":
 			out.Values[i] = ec._Mutation_delete_vehicle_alarm_supervision(ctx, field)
 		case "delete_vehicle_alarm_supervision_by_pk":
@@ -70886,6 +73063,10 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			out.Values[i] = ec._Mutation_update_vehicle_alarm_supervision(ctx, field)
 		case "update_vehicle_alarm_supervision_by_pk":
 			out.Values[i] = ec._Mutation_update_vehicle_alarm_supervision_by_pk(ctx, field)
+		case "update_vehicle_alarm_supervision_by_union_pk":
+			out.Values[i] = ec._Mutation_update_vehicle_alarm_supervision_by_union_pk(ctx, field)
+		case "delete_vehicle_alarm_supervision_by_union_pk":
+			out.Values[i] = ec._Mutation_delete_vehicle_alarm_supervision_by_union_pk(ctx, field)
 		case "delete_vehicle_alarm_times_record":
 			out.Values[i] = ec._Mutation_delete_vehicle_alarm_times_record(ctx, field)
 		case "delete_vehicle_alarm_times_record_by_pk":
@@ -70898,6 +73079,10 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			out.Values[i] = ec._Mutation_update_vehicle_alarm_times_record(ctx, field)
 		case "update_vehicle_alarm_times_record_by_pk":
 			out.Values[i] = ec._Mutation_update_vehicle_alarm_times_record_by_pk(ctx, field)
+		case "update_vehicle_alarm_times_record_by_union_pk":
+			out.Values[i] = ec._Mutation_update_vehicle_alarm_times_record_by_union_pk(ctx, field)
+		case "delete_vehicle_alarm_times_record_by_union_pk":
+			out.Values[i] = ec._Mutation_delete_vehicle_alarm_times_record_by_union_pk(ctx, field)
 		case "delete_vehicle_offline_disposal":
 			out.Values[i] = ec._Mutation_delete_vehicle_offline_disposal(ctx, field)
 		case "delete_vehicle_offline_disposal_by_pk":
@@ -70910,6 +73095,10 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			out.Values[i] = ec._Mutation_update_vehicle_offline_disposal(ctx, field)
 		case "update_vehicle_offline_disposal_by_pk":
 			out.Values[i] = ec._Mutation_update_vehicle_offline_disposal_by_pk(ctx, field)
+		case "update_vehicle_offline_disposal_by_union_pk":
+			out.Values[i] = ec._Mutation_update_vehicle_offline_disposal_by_union_pk(ctx, field)
+		case "delete_vehicle_offline_disposal_by_union_pk":
+			out.Values[i] = ec._Mutation_delete_vehicle_offline_disposal_by_union_pk(ctx, field)
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}
@@ -71020,6 +73209,20 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 				}
 				return res
 			})
+		case "dynamic_supervision_by_union_pk":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_dynamic_supervision_by_union_pk(ctx, field)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			})
 		case "dynamic_supervision_detail":
 			field := field
 			out.Concurrently(i, func() (res graphql.Marshaler) {
@@ -71057,6 +73260,20 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_dynamic_supervision_detail_by_pk(ctx, field)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			})
+		case "dynamic_supervision_detail_by_union_pk":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_dynamic_supervision_detail_by_union_pk(ctx, field)
 				if res == graphql.Null {
 					atomic.AddUint32(&invalids, 1)
 				}
@@ -71104,6 +73321,20 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 				}
 				return res
 			})
+		case "muck_truck_online_by_union_pk":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_muck_truck_online_by_union_pk(ctx, field)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			})
 		case "region_issued":
 			field := field
 			out.Concurrently(i, func() (res graphql.Marshaler) {
@@ -71141,6 +73372,20 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_region_issued_by_pk(ctx, field)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			})
+		case "region_issued_by_union_pk":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_region_issued_by_union_pk(ctx, field)
 				if res == graphql.Null {
 					atomic.AddUint32(&invalids, 1)
 				}
@@ -71188,6 +73433,20 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 				}
 				return res
 			})
+		case "region_management_by_union_pk":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_region_management_by_union_pk(ctx, field)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			})
 		case "vehicle_alarm_supervision":
 			field := field
 			out.Concurrently(i, func() (res graphql.Marshaler) {
@@ -71225,6 +73484,20 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_vehicle_alarm_supervision_by_pk(ctx, field)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			})
+		case "vehicle_alarm_supervision_by_union_pk":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_vehicle_alarm_supervision_by_union_pk(ctx, field)
 				if res == graphql.Null {
 					atomic.AddUint32(&invalids, 1)
 				}
@@ -71272,6 +73545,20 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 				}
 				return res
 			})
+		case "vehicle_alarm_times_record_by_union_pk":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_vehicle_alarm_times_record_by_union_pk(ctx, field)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			})
 		case "vehicle_offline_disposal":
 			field := field
 			out.Concurrently(i, func() (res graphql.Marshaler) {
@@ -71309,6 +73596,20 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_vehicle_offline_disposal_by_pk(ctx, field)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			})
+		case "vehicle_offline_disposal_by_union_pk":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_vehicle_offline_disposal_by_union_pk(ctx, field)
 				if res == graphql.Null {
 					atomic.AddUint32(&invalids, 1)
 				}

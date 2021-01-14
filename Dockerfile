@@ -9,9 +9,9 @@ RUN npm run build
 
 # 构建golang
 FROM golang:alpine AS go-build
-WORKDIR /app
 ENV GO111MODULE on
 ENV GOPROXY https://goproxy.cn
+WORKDIR /app
 COPY go.mod .
 RUN go mod download
 COPY . .

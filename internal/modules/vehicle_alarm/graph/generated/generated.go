@@ -549,54 +549,62 @@ type ComplexityRoot struct {
 	}
 
 	Mutation struct {
-		DeleteAlarmProcessingRecord             func(childComplexity int, where model.AlarmProcessingRecordBoolExp) int
-		DeleteAlarmProcessingRecordByPk         func(childComplexity int, id int64) int
-		DeleteAlarmSupervisionPictureUpload     func(childComplexity int, where model.AlarmSupervisionPictureUploadBoolExp) int
-		DeleteAlarmSupervisionPictureUploadByPk func(childComplexity int, id int64) int
-		DeleteDistrictAlarmContentPush          func(childComplexity int, where model.DistrictAlarmContentPushBoolExp) int
-		DeleteDistrictAlarmContentPushByPk      func(childComplexity int, id int64) int
-		DeleteEnterpriseAlarmSendPolice         func(childComplexity int, where model.EnterpriseAlarmSendPoliceBoolExp) int
-		DeleteEnterpriseAlarmSendPoliceByPk     func(childComplexity int, id int64) int
-		DeleteOfflineAlarmRegistration          func(childComplexity int, where model.OfflineAlarmRegistrationBoolExp) int
-		DeleteOfflineAlarmRegistrationByPk      func(childComplexity int, id int64) int
-		DeleteVehicleAlarmData                  func(childComplexity int, where model.VehicleAlarmDataBoolExp) int
-		DeleteVehicleAlarmDataByPk              func(childComplexity int, id int64) int
-		DeleteVideoPlatformAlarmType            func(childComplexity int, where model.VideoPlatformAlarmTypeBoolExp) int
-		DeleteVideoPlatformAlarmTypeByPk        func(childComplexity int, id int64) int
-		DeleteVoiceAlarmRecord                  func(childComplexity int, where model.VoiceAlarmRecordBoolExp) int
-		DeleteVoiceAlarmRecordByPk              func(childComplexity int, id int64) int
-		InsertAlarmProcessingRecord             func(childComplexity int, objects []*model.AlarmProcessingRecordInsertInput) int
-		InsertAlarmProcessingRecordOne          func(childComplexity int, objects model.AlarmProcessingRecordInsertInput) int
-		InsertAlarmSupervisionPictureUpload     func(childComplexity int, objects []*model.AlarmSupervisionPictureUploadInsertInput) int
-		InsertAlarmSupervisionPictureUploadOne  func(childComplexity int, objects model.AlarmSupervisionPictureUploadInsertInput) int
-		InsertDistrictAlarmContentPush          func(childComplexity int, objects []*model.DistrictAlarmContentPushInsertInput) int
-		InsertDistrictAlarmContentPushOne       func(childComplexity int, objects model.DistrictAlarmContentPushInsertInput) int
-		InsertEnterpriseAlarmSendPolice         func(childComplexity int, objects []*model.EnterpriseAlarmSendPoliceInsertInput) int
-		InsertEnterpriseAlarmSendPoliceOne      func(childComplexity int, objects model.EnterpriseAlarmSendPoliceInsertInput) int
-		InsertOfflineAlarmRegistration          func(childComplexity int, objects []*model.OfflineAlarmRegistrationInsertInput) int
-		InsertOfflineAlarmRegistrationOne       func(childComplexity int, objects model.OfflineAlarmRegistrationInsertInput) int
-		InsertVehicleAlarmData                  func(childComplexity int, objects []*model.VehicleAlarmDataInsertInput) int
-		InsertVehicleAlarmDataOne               func(childComplexity int, objects model.VehicleAlarmDataInsertInput) int
-		InsertVideoPlatformAlarmType            func(childComplexity int, objects []*model.VideoPlatformAlarmTypeInsertInput) int
-		InsertVideoPlatformAlarmTypeOne         func(childComplexity int, objects model.VideoPlatformAlarmTypeInsertInput) int
-		InsertVoiceAlarmRecord                  func(childComplexity int, objects []*model.VoiceAlarmRecordInsertInput) int
-		InsertVoiceAlarmRecordOne               func(childComplexity int, objects model.VoiceAlarmRecordInsertInput) int
-		UpdateAlarmProcessingRecord             func(childComplexity int, inc *model.AlarmProcessingRecordIncInput, set *model.AlarmProcessingRecordSetInput, where model.AlarmProcessingRecordBoolExp) int
-		UpdateAlarmProcessingRecordByPk         func(childComplexity int, inc *model.AlarmProcessingRecordIncInput, set *model.AlarmProcessingRecordSetInput, id int64) int
-		UpdateAlarmSupervisionPictureUpload     func(childComplexity int, inc *model.AlarmSupervisionPictureUploadIncInput, set *model.AlarmSupervisionPictureUploadSetInput, where model.AlarmSupervisionPictureUploadBoolExp) int
-		UpdateAlarmSupervisionPictureUploadByPk func(childComplexity int, inc *model.AlarmSupervisionPictureUploadIncInput, set *model.AlarmSupervisionPictureUploadSetInput, id int64) int
-		UpdateDistrictAlarmContentPush          func(childComplexity int, inc *model.DistrictAlarmContentPushIncInput, set *model.DistrictAlarmContentPushSetInput, where model.DistrictAlarmContentPushBoolExp) int
-		UpdateDistrictAlarmContentPushByPk      func(childComplexity int, inc *model.DistrictAlarmContentPushIncInput, set *model.DistrictAlarmContentPushSetInput, id int64) int
-		UpdateEnterpriseAlarmSendPolice         func(childComplexity int, inc *model.EnterpriseAlarmSendPoliceIncInput, set *model.EnterpriseAlarmSendPoliceSetInput, where model.EnterpriseAlarmSendPoliceBoolExp) int
-		UpdateEnterpriseAlarmSendPoliceByPk     func(childComplexity int, inc *model.EnterpriseAlarmSendPoliceIncInput, set *model.EnterpriseAlarmSendPoliceSetInput, id int64) int
-		UpdateOfflineAlarmRegistration          func(childComplexity int, inc *model.OfflineAlarmRegistrationIncInput, set *model.OfflineAlarmRegistrationSetInput, where model.OfflineAlarmRegistrationBoolExp) int
-		UpdateOfflineAlarmRegistrationByPk      func(childComplexity int, inc *model.OfflineAlarmRegistrationIncInput, set *model.OfflineAlarmRegistrationSetInput, id int64) int
-		UpdateVehicleAlarmData                  func(childComplexity int, inc *model.VehicleAlarmDataIncInput, set *model.VehicleAlarmDataSetInput, where model.VehicleAlarmDataBoolExp) int
-		UpdateVehicleAlarmDataByPk              func(childComplexity int, inc *model.VehicleAlarmDataIncInput, set *model.VehicleAlarmDataSetInput, id int64) int
-		UpdateVideoPlatformAlarmType            func(childComplexity int, inc *model.VideoPlatformAlarmTypeIncInput, set *model.VideoPlatformAlarmTypeSetInput, where model.VideoPlatformAlarmTypeBoolExp) int
-		UpdateVideoPlatformAlarmTypeByPk        func(childComplexity int, inc *model.VideoPlatformAlarmTypeIncInput, set *model.VideoPlatformAlarmTypeSetInput, id int64) int
-		UpdateVoiceAlarmRecord                  func(childComplexity int, inc *model.VoiceAlarmRecordIncInput, set *model.VoiceAlarmRecordSetInput, where model.VoiceAlarmRecordBoolExp) int
-		UpdateVoiceAlarmRecordByPk              func(childComplexity int, inc *model.VoiceAlarmRecordIncInput, set *model.VoiceAlarmRecordSetInput, id int64) int
+		DeleteAlarmProcessingRecord              func(childComplexity int, where model.AlarmProcessingRecordBoolExp) int
+		DeleteAlarmProcessingRecordByPk          func(childComplexity int, id int64) int
+		DeleteAlarmSupervisionPictureUpload      func(childComplexity int, where model.AlarmSupervisionPictureUploadBoolExp) int
+		DeleteAlarmSupervisionPictureUploadByPk  func(childComplexity int, id int64) int
+		DeleteDistrictAlarmContentPush           func(childComplexity int, where model.DistrictAlarmContentPushBoolExp) int
+		DeleteDistrictAlarmContentPushByPk       func(childComplexity int, id int64) int
+		DeleteEnterpriseAlarmSendPolice          func(childComplexity int, where model.EnterpriseAlarmSendPoliceBoolExp) int
+		DeleteEnterpriseAlarmSendPoliceByPk      func(childComplexity int, id int64) int
+		DeleteEnterpriseAlarmSendPoliceByUnionPk func(childComplexity int, enterpriseAlarmSendPoliceID string) int
+		DeleteOfflineAlarmRegistration           func(childComplexity int, where model.OfflineAlarmRegistrationBoolExp) int
+		DeleteOfflineAlarmRegistrationByPk       func(childComplexity int, id int64) int
+		DeleteOfflineAlarmRegistrationByUnionPk  func(childComplexity int, offlineAlarmRegistrationID string) int
+		DeleteVehicleAlarmData                   func(childComplexity int, where model.VehicleAlarmDataBoolExp) int
+		DeleteVehicleAlarmDataByPk               func(childComplexity int, id int64) int
+		DeleteVehicleAlarmDataByUnionPk          func(childComplexity int, vehicleAlarmDataID string) int
+		DeleteVideoPlatformAlarmType             func(childComplexity int, where model.VideoPlatformAlarmTypeBoolExp) int
+		DeleteVideoPlatformAlarmTypeByPk         func(childComplexity int, id int64) int
+		DeleteVideoPlatformAlarmTypeByUnionPk    func(childComplexity int, videoPlatformAlarmTypeID string) int
+		DeleteVoiceAlarmRecord                   func(childComplexity int, where model.VoiceAlarmRecordBoolExp) int
+		DeleteVoiceAlarmRecordByPk               func(childComplexity int, id int64) int
+		InsertAlarmProcessingRecord              func(childComplexity int, objects []*model.AlarmProcessingRecordInsertInput) int
+		InsertAlarmProcessingRecordOne           func(childComplexity int, objects model.AlarmProcessingRecordInsertInput) int
+		InsertAlarmSupervisionPictureUpload      func(childComplexity int, objects []*model.AlarmSupervisionPictureUploadInsertInput) int
+		InsertAlarmSupervisionPictureUploadOne   func(childComplexity int, objects model.AlarmSupervisionPictureUploadInsertInput) int
+		InsertDistrictAlarmContentPush           func(childComplexity int, objects []*model.DistrictAlarmContentPushInsertInput) int
+		InsertDistrictAlarmContentPushOne        func(childComplexity int, objects model.DistrictAlarmContentPushInsertInput) int
+		InsertEnterpriseAlarmSendPolice          func(childComplexity int, objects []*model.EnterpriseAlarmSendPoliceInsertInput) int
+		InsertEnterpriseAlarmSendPoliceOne       func(childComplexity int, objects model.EnterpriseAlarmSendPoliceInsertInput) int
+		InsertOfflineAlarmRegistration           func(childComplexity int, objects []*model.OfflineAlarmRegistrationInsertInput) int
+		InsertOfflineAlarmRegistrationOne        func(childComplexity int, objects model.OfflineAlarmRegistrationInsertInput) int
+		InsertVehicleAlarmData                   func(childComplexity int, objects []*model.VehicleAlarmDataInsertInput) int
+		InsertVehicleAlarmDataOne                func(childComplexity int, objects model.VehicleAlarmDataInsertInput) int
+		InsertVideoPlatformAlarmType             func(childComplexity int, objects []*model.VideoPlatformAlarmTypeInsertInput) int
+		InsertVideoPlatformAlarmTypeOne          func(childComplexity int, objects model.VideoPlatformAlarmTypeInsertInput) int
+		InsertVoiceAlarmRecord                   func(childComplexity int, objects []*model.VoiceAlarmRecordInsertInput) int
+		InsertVoiceAlarmRecordOne                func(childComplexity int, objects model.VoiceAlarmRecordInsertInput) int
+		UpdateAlarmProcessingRecord              func(childComplexity int, inc *model.AlarmProcessingRecordIncInput, set *model.AlarmProcessingRecordSetInput, where model.AlarmProcessingRecordBoolExp) int
+		UpdateAlarmProcessingRecordByPk          func(childComplexity int, inc *model.AlarmProcessingRecordIncInput, set *model.AlarmProcessingRecordSetInput, id int64) int
+		UpdateAlarmSupervisionPictureUpload      func(childComplexity int, inc *model.AlarmSupervisionPictureUploadIncInput, set *model.AlarmSupervisionPictureUploadSetInput, where model.AlarmSupervisionPictureUploadBoolExp) int
+		UpdateAlarmSupervisionPictureUploadByPk  func(childComplexity int, inc *model.AlarmSupervisionPictureUploadIncInput, set *model.AlarmSupervisionPictureUploadSetInput, id int64) int
+		UpdateDistrictAlarmContentPush           func(childComplexity int, inc *model.DistrictAlarmContentPushIncInput, set *model.DistrictAlarmContentPushSetInput, where model.DistrictAlarmContentPushBoolExp) int
+		UpdateDistrictAlarmContentPushByPk       func(childComplexity int, inc *model.DistrictAlarmContentPushIncInput, set *model.DistrictAlarmContentPushSetInput, id int64) int
+		UpdateEnterpriseAlarmSendPolice          func(childComplexity int, inc *model.EnterpriseAlarmSendPoliceIncInput, set *model.EnterpriseAlarmSendPoliceSetInput, where model.EnterpriseAlarmSendPoliceBoolExp) int
+		UpdateEnterpriseAlarmSendPoliceByPk      func(childComplexity int, inc *model.EnterpriseAlarmSendPoliceIncInput, set *model.EnterpriseAlarmSendPoliceSetInput, id int64) int
+		UpdateEnterpriseAlarmSendPoliceByUnionPk func(childComplexity int, inc *model.EnterpriseAlarmSendPoliceIncInput, set *model.EnterpriseAlarmSendPoliceSetInput, enterpriseAlarmSendPoliceID string) int
+		UpdateOfflineAlarmRegistration           func(childComplexity int, inc *model.OfflineAlarmRegistrationIncInput, set *model.OfflineAlarmRegistrationSetInput, where model.OfflineAlarmRegistrationBoolExp) int
+		UpdateOfflineAlarmRegistrationByPk       func(childComplexity int, inc *model.OfflineAlarmRegistrationIncInput, set *model.OfflineAlarmRegistrationSetInput, id int64) int
+		UpdateOfflineAlarmRegistrationByUnionPk  func(childComplexity int, inc *model.OfflineAlarmRegistrationIncInput, set *model.OfflineAlarmRegistrationSetInput, offlineAlarmRegistrationID string) int
+		UpdateVehicleAlarmData                   func(childComplexity int, inc *model.VehicleAlarmDataIncInput, set *model.VehicleAlarmDataSetInput, where model.VehicleAlarmDataBoolExp) int
+		UpdateVehicleAlarmDataByPk               func(childComplexity int, inc *model.VehicleAlarmDataIncInput, set *model.VehicleAlarmDataSetInput, id int64) int
+		UpdateVehicleAlarmDataByUnionPk          func(childComplexity int, inc *model.VehicleAlarmDataIncInput, set *model.VehicleAlarmDataSetInput, vehicleAlarmDataID string) int
+		UpdateVideoPlatformAlarmType             func(childComplexity int, inc *model.VideoPlatformAlarmTypeIncInput, set *model.VideoPlatformAlarmTypeSetInput, where model.VideoPlatformAlarmTypeBoolExp) int
+		UpdateVideoPlatformAlarmTypeByPk         func(childComplexity int, inc *model.VideoPlatformAlarmTypeIncInput, set *model.VideoPlatformAlarmTypeSetInput, id int64) int
+		UpdateVideoPlatformAlarmTypeByUnionPk    func(childComplexity int, inc *model.VideoPlatformAlarmTypeIncInput, set *model.VideoPlatformAlarmTypeSetInput, videoPlatformAlarmTypeID string) int
+		UpdateVoiceAlarmRecord                   func(childComplexity int, inc *model.VoiceAlarmRecordIncInput, set *model.VoiceAlarmRecordSetInput, where model.VoiceAlarmRecordBoolExp) int
+		UpdateVoiceAlarmRecordByPk               func(childComplexity int, inc *model.VoiceAlarmRecordIncInput, set *model.VoiceAlarmRecordSetInput, id int64) int
 	}
 
 	OfflineAlarmRegistration struct {
@@ -753,15 +761,19 @@ type ComplexityRoot struct {
 		EnterpriseAlarmSendPolice              func(childComplexity int, distinctOn []model.EnterpriseAlarmSendPoliceSelectColumn, limit *int, offset *int, orderBy []*model.EnterpriseAlarmSendPoliceOrderBy, where *model.EnterpriseAlarmSendPoliceBoolExp) int
 		EnterpriseAlarmSendPoliceAggregate     func(childComplexity int, distinctOn []model.EnterpriseAlarmSendPoliceSelectColumn, limit *int, offset *int, orderBy []*model.EnterpriseAlarmSendPoliceOrderBy, where *model.EnterpriseAlarmSendPoliceBoolExp) int
 		EnterpriseAlarmSendPoliceByPk          func(childComplexity int, id int64) int
+		EnterpriseAlarmSendPoliceByUnionPk     func(childComplexity int, enterpriseAlarmSendPoliceID string) int
 		OfflineAlarmRegistration               func(childComplexity int, distinctOn []model.OfflineAlarmRegistrationSelectColumn, limit *int, offset *int, orderBy []*model.OfflineAlarmRegistrationOrderBy, where *model.OfflineAlarmRegistrationBoolExp) int
 		OfflineAlarmRegistrationAggregate      func(childComplexity int, distinctOn []model.OfflineAlarmRegistrationSelectColumn, limit *int, offset *int, orderBy []*model.OfflineAlarmRegistrationOrderBy, where *model.OfflineAlarmRegistrationBoolExp) int
 		OfflineAlarmRegistrationByPk           func(childComplexity int, id int64) int
+		OfflineAlarmRegistrationByUnionPk      func(childComplexity int, offlineAlarmRegistrationID string) int
 		VehicleAlarmData                       func(childComplexity int, distinctOn []model.VehicleAlarmDataSelectColumn, limit *int, offset *int, orderBy []*model.VehicleAlarmDataOrderBy, where *model.VehicleAlarmDataBoolExp) int
 		VehicleAlarmDataAggregate              func(childComplexity int, distinctOn []model.VehicleAlarmDataSelectColumn, limit *int, offset *int, orderBy []*model.VehicleAlarmDataOrderBy, where *model.VehicleAlarmDataBoolExp) int
 		VehicleAlarmDataByPk                   func(childComplexity int, id int64) int
+		VehicleAlarmDataByUnionPk              func(childComplexity int, vehicleAlarmDataID string) int
 		VideoPlatformAlarmType                 func(childComplexity int, distinctOn []model.VideoPlatformAlarmTypeSelectColumn, limit *int, offset *int, orderBy []*model.VideoPlatformAlarmTypeOrderBy, where *model.VideoPlatformAlarmTypeBoolExp) int
 		VideoPlatformAlarmTypeAggregate        func(childComplexity int, distinctOn []model.VideoPlatformAlarmTypeSelectColumn, limit *int, offset *int, orderBy []*model.VideoPlatformAlarmTypeOrderBy, where *model.VideoPlatformAlarmTypeBoolExp) int
 		VideoPlatformAlarmTypeByPk             func(childComplexity int, id int64) int
+		VideoPlatformAlarmTypeByUnionPk        func(childComplexity int, videoPlatformAlarmTypeID string) int
 		VoiceAlarmRecord                       func(childComplexity int, distinctOn []model.VoiceAlarmRecordSelectColumn, limit *int, offset *int, orderBy []*model.VoiceAlarmRecordOrderBy, where *model.VoiceAlarmRecordBoolExp) int
 		VoiceAlarmRecordAggregate              func(childComplexity int, distinctOn []model.VoiceAlarmRecordSelectColumn, limit *int, offset *int, orderBy []*model.VoiceAlarmRecordOrderBy, where *model.VoiceAlarmRecordBoolExp) int
 		VoiceAlarmRecordByPk                   func(childComplexity int, id int64) int
@@ -1255,24 +1267,32 @@ type MutationResolver interface {
 	InsertEnterpriseAlarmSendPoliceOne(ctx context.Context, objects model.EnterpriseAlarmSendPoliceInsertInput) (*model1.EnterpriseAlarmSendPolice, error)
 	UpdateEnterpriseAlarmSendPolice(ctx context.Context, inc *model.EnterpriseAlarmSendPoliceIncInput, set *model.EnterpriseAlarmSendPoliceSetInput, where model.EnterpriseAlarmSendPoliceBoolExp) (*model.EnterpriseAlarmSendPoliceMutationResponse, error)
 	UpdateEnterpriseAlarmSendPoliceByPk(ctx context.Context, inc *model.EnterpriseAlarmSendPoliceIncInput, set *model.EnterpriseAlarmSendPoliceSetInput, id int64) (*model1.EnterpriseAlarmSendPolice, error)
+	UpdateEnterpriseAlarmSendPoliceByUnionPk(ctx context.Context, inc *model.EnterpriseAlarmSendPoliceIncInput, set *model.EnterpriseAlarmSendPoliceSetInput, enterpriseAlarmSendPoliceID string) (*model1.EnterpriseAlarmSendPolice, error)
+	DeleteEnterpriseAlarmSendPoliceByUnionPk(ctx context.Context, enterpriseAlarmSendPoliceID string) (*model1.EnterpriseAlarmSendPolice, error)
 	DeleteOfflineAlarmRegistration(ctx context.Context, where model.OfflineAlarmRegistrationBoolExp) (*model.OfflineAlarmRegistrationMutationResponse, error)
 	DeleteOfflineAlarmRegistrationByPk(ctx context.Context, id int64) (*model1.OfflineAlarmRegistration, error)
 	InsertOfflineAlarmRegistration(ctx context.Context, objects []*model.OfflineAlarmRegistrationInsertInput) (*model.OfflineAlarmRegistrationMutationResponse, error)
 	InsertOfflineAlarmRegistrationOne(ctx context.Context, objects model.OfflineAlarmRegistrationInsertInput) (*model1.OfflineAlarmRegistration, error)
 	UpdateOfflineAlarmRegistration(ctx context.Context, inc *model.OfflineAlarmRegistrationIncInput, set *model.OfflineAlarmRegistrationSetInput, where model.OfflineAlarmRegistrationBoolExp) (*model.OfflineAlarmRegistrationMutationResponse, error)
 	UpdateOfflineAlarmRegistrationByPk(ctx context.Context, inc *model.OfflineAlarmRegistrationIncInput, set *model.OfflineAlarmRegistrationSetInput, id int64) (*model1.OfflineAlarmRegistration, error)
+	UpdateOfflineAlarmRegistrationByUnionPk(ctx context.Context, inc *model.OfflineAlarmRegistrationIncInput, set *model.OfflineAlarmRegistrationSetInput, offlineAlarmRegistrationID string) (*model1.OfflineAlarmRegistration, error)
+	DeleteOfflineAlarmRegistrationByUnionPk(ctx context.Context, offlineAlarmRegistrationID string) (*model1.OfflineAlarmRegistration, error)
 	DeleteVehicleAlarmData(ctx context.Context, where model.VehicleAlarmDataBoolExp) (*model.VehicleAlarmDataMutationResponse, error)
 	DeleteVehicleAlarmDataByPk(ctx context.Context, id int64) (*model1.VehicleAlarmData, error)
 	InsertVehicleAlarmData(ctx context.Context, objects []*model.VehicleAlarmDataInsertInput) (*model.VehicleAlarmDataMutationResponse, error)
 	InsertVehicleAlarmDataOne(ctx context.Context, objects model.VehicleAlarmDataInsertInput) (*model1.VehicleAlarmData, error)
 	UpdateVehicleAlarmData(ctx context.Context, inc *model.VehicleAlarmDataIncInput, set *model.VehicleAlarmDataSetInput, where model.VehicleAlarmDataBoolExp) (*model.VehicleAlarmDataMutationResponse, error)
 	UpdateVehicleAlarmDataByPk(ctx context.Context, inc *model.VehicleAlarmDataIncInput, set *model.VehicleAlarmDataSetInput, id int64) (*model1.VehicleAlarmData, error)
+	UpdateVehicleAlarmDataByUnionPk(ctx context.Context, inc *model.VehicleAlarmDataIncInput, set *model.VehicleAlarmDataSetInput, vehicleAlarmDataID string) (*model1.VehicleAlarmData, error)
+	DeleteVehicleAlarmDataByUnionPk(ctx context.Context, vehicleAlarmDataID string) (*model1.VehicleAlarmData, error)
 	DeleteVideoPlatformAlarmType(ctx context.Context, where model.VideoPlatformAlarmTypeBoolExp) (*model.VideoPlatformAlarmTypeMutationResponse, error)
 	DeleteVideoPlatformAlarmTypeByPk(ctx context.Context, id int64) (*model1.VideoPlatformAlarmType, error)
 	InsertVideoPlatformAlarmType(ctx context.Context, objects []*model.VideoPlatformAlarmTypeInsertInput) (*model.VideoPlatformAlarmTypeMutationResponse, error)
 	InsertVideoPlatformAlarmTypeOne(ctx context.Context, objects model.VideoPlatformAlarmTypeInsertInput) (*model1.VideoPlatformAlarmType, error)
 	UpdateVideoPlatformAlarmType(ctx context.Context, inc *model.VideoPlatformAlarmTypeIncInput, set *model.VideoPlatformAlarmTypeSetInput, where model.VideoPlatformAlarmTypeBoolExp) (*model.VideoPlatformAlarmTypeMutationResponse, error)
 	UpdateVideoPlatformAlarmTypeByPk(ctx context.Context, inc *model.VideoPlatformAlarmTypeIncInput, set *model.VideoPlatformAlarmTypeSetInput, id int64) (*model1.VideoPlatformAlarmType, error)
+	UpdateVideoPlatformAlarmTypeByUnionPk(ctx context.Context, inc *model.VideoPlatformAlarmTypeIncInput, set *model.VideoPlatformAlarmTypeSetInput, videoPlatformAlarmTypeID string) (*model1.VideoPlatformAlarmType, error)
+	DeleteVideoPlatformAlarmTypeByUnionPk(ctx context.Context, videoPlatformAlarmTypeID string) (*model1.VideoPlatformAlarmType, error)
 	DeleteVoiceAlarmRecord(ctx context.Context, where model.VoiceAlarmRecordBoolExp) (*model.VoiceAlarmRecordMutationResponse, error)
 	DeleteVoiceAlarmRecordByPk(ctx context.Context, id int64) (*model1.VoiceAlarmRecord, error)
 	InsertVoiceAlarmRecord(ctx context.Context, objects []*model.VoiceAlarmRecordInsertInput) (*model.VoiceAlarmRecordMutationResponse, error)
@@ -1293,15 +1313,19 @@ type QueryResolver interface {
 	EnterpriseAlarmSendPolice(ctx context.Context, distinctOn []model.EnterpriseAlarmSendPoliceSelectColumn, limit *int, offset *int, orderBy []*model.EnterpriseAlarmSendPoliceOrderBy, where *model.EnterpriseAlarmSendPoliceBoolExp) ([]*model1.EnterpriseAlarmSendPolice, error)
 	EnterpriseAlarmSendPoliceAggregate(ctx context.Context, distinctOn []model.EnterpriseAlarmSendPoliceSelectColumn, limit *int, offset *int, orderBy []*model.EnterpriseAlarmSendPoliceOrderBy, where *model.EnterpriseAlarmSendPoliceBoolExp) (*model.EnterpriseAlarmSendPoliceAggregate, error)
 	EnterpriseAlarmSendPoliceByPk(ctx context.Context, id int64) (*model1.EnterpriseAlarmSendPolice, error)
+	EnterpriseAlarmSendPoliceByUnionPk(ctx context.Context, enterpriseAlarmSendPoliceID string) (*model1.EnterpriseAlarmSendPolice, error)
 	OfflineAlarmRegistration(ctx context.Context, distinctOn []model.OfflineAlarmRegistrationSelectColumn, limit *int, offset *int, orderBy []*model.OfflineAlarmRegistrationOrderBy, where *model.OfflineAlarmRegistrationBoolExp) ([]*model1.OfflineAlarmRegistration, error)
 	OfflineAlarmRegistrationAggregate(ctx context.Context, distinctOn []model.OfflineAlarmRegistrationSelectColumn, limit *int, offset *int, orderBy []*model.OfflineAlarmRegistrationOrderBy, where *model.OfflineAlarmRegistrationBoolExp) (*model.OfflineAlarmRegistrationAggregate, error)
 	OfflineAlarmRegistrationByPk(ctx context.Context, id int64) (*model1.OfflineAlarmRegistration, error)
+	OfflineAlarmRegistrationByUnionPk(ctx context.Context, offlineAlarmRegistrationID string) (*model1.OfflineAlarmRegistration, error)
 	VehicleAlarmData(ctx context.Context, distinctOn []model.VehicleAlarmDataSelectColumn, limit *int, offset *int, orderBy []*model.VehicleAlarmDataOrderBy, where *model.VehicleAlarmDataBoolExp) ([]*model1.VehicleAlarmData, error)
 	VehicleAlarmDataAggregate(ctx context.Context, distinctOn []model.VehicleAlarmDataSelectColumn, limit *int, offset *int, orderBy []*model.VehicleAlarmDataOrderBy, where *model.VehicleAlarmDataBoolExp) (*model.VehicleAlarmDataAggregate, error)
 	VehicleAlarmDataByPk(ctx context.Context, id int64) (*model1.VehicleAlarmData, error)
+	VehicleAlarmDataByUnionPk(ctx context.Context, vehicleAlarmDataID string) (*model1.VehicleAlarmData, error)
 	VideoPlatformAlarmType(ctx context.Context, distinctOn []model.VideoPlatformAlarmTypeSelectColumn, limit *int, offset *int, orderBy []*model.VideoPlatformAlarmTypeOrderBy, where *model.VideoPlatformAlarmTypeBoolExp) ([]*model1.VideoPlatformAlarmType, error)
 	VideoPlatformAlarmTypeAggregate(ctx context.Context, distinctOn []model.VideoPlatformAlarmTypeSelectColumn, limit *int, offset *int, orderBy []*model.VideoPlatformAlarmTypeOrderBy, where *model.VideoPlatformAlarmTypeBoolExp) (*model.VideoPlatformAlarmTypeAggregate, error)
 	VideoPlatformAlarmTypeByPk(ctx context.Context, id int64) (*model1.VideoPlatformAlarmType, error)
+	VideoPlatformAlarmTypeByUnionPk(ctx context.Context, videoPlatformAlarmTypeID string) (*model1.VideoPlatformAlarmType, error)
 	VoiceAlarmRecord(ctx context.Context, distinctOn []model.VoiceAlarmRecordSelectColumn, limit *int, offset *int, orderBy []*model.VoiceAlarmRecordOrderBy, where *model.VoiceAlarmRecordBoolExp) ([]*model1.VoiceAlarmRecord, error)
 	VoiceAlarmRecordAggregate(ctx context.Context, distinctOn []model.VoiceAlarmRecordSelectColumn, limit *int, offset *int, orderBy []*model.VoiceAlarmRecordOrderBy, where *model.VoiceAlarmRecordBoolExp) (*model.VoiceAlarmRecordAggregate, error)
 	VoiceAlarmRecordByPk(ctx context.Context, id int64) (*model1.VoiceAlarmRecord, error)
@@ -3749,6 +3773,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.DeleteEnterpriseAlarmSendPoliceByPk(childComplexity, args["id"].(int64)), true
 
+	case "Mutation.delete_enterprise_alarm_send_police_by_union_pk":
+		if e.complexity.Mutation.DeleteEnterpriseAlarmSendPoliceByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_delete_enterprise_alarm_send_police_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.DeleteEnterpriseAlarmSendPoliceByUnionPk(childComplexity, args["enterprise_alarm_send_police_id"].(string)), true
+
 	case "Mutation.delete_offline_alarm_registration":
 		if e.complexity.Mutation.DeleteOfflineAlarmRegistration == nil {
 			break
@@ -3772,6 +3808,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Mutation.DeleteOfflineAlarmRegistrationByPk(childComplexity, args["id"].(int64)), true
+
+	case "Mutation.delete_offline_alarm_registration_by_union_pk":
+		if e.complexity.Mutation.DeleteOfflineAlarmRegistrationByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_delete_offline_alarm_registration_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.DeleteOfflineAlarmRegistrationByUnionPk(childComplexity, args["offline_alarm_registration_id"].(string)), true
 
 	case "Mutation.delete_vehicle_alarm_data":
 		if e.complexity.Mutation.DeleteVehicleAlarmData == nil {
@@ -3797,6 +3845,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.DeleteVehicleAlarmDataByPk(childComplexity, args["id"].(int64)), true
 
+	case "Mutation.delete_vehicle_alarm_data_by_union_pk":
+		if e.complexity.Mutation.DeleteVehicleAlarmDataByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_delete_vehicle_alarm_data_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.DeleteVehicleAlarmDataByUnionPk(childComplexity, args["vehicle_alarm_data_id"].(string)), true
+
 	case "Mutation.delete_video_platform_alarm_type":
 		if e.complexity.Mutation.DeleteVideoPlatformAlarmType == nil {
 			break
@@ -3820,6 +3880,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Mutation.DeleteVideoPlatformAlarmTypeByPk(childComplexity, args["id"].(int64)), true
+
+	case "Mutation.delete_video_platform_alarm_type_by_union_pk":
+		if e.complexity.Mutation.DeleteVideoPlatformAlarmTypeByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_delete_video_platform_alarm_type_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.DeleteVideoPlatformAlarmTypeByUnionPk(childComplexity, args["video_platform_alarm_type_id"].(string)), true
 
 	case "Mutation.delete_voice_alarm_record":
 		if e.complexity.Mutation.DeleteVoiceAlarmRecord == nil {
@@ -4133,6 +4205,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.UpdateEnterpriseAlarmSendPoliceByPk(childComplexity, args["_inc"].(*model.EnterpriseAlarmSendPoliceIncInput), args["_set"].(*model.EnterpriseAlarmSendPoliceSetInput), args["id"].(int64)), true
 
+	case "Mutation.update_enterprise_alarm_send_police_by_union_pk":
+		if e.complexity.Mutation.UpdateEnterpriseAlarmSendPoliceByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_update_enterprise_alarm_send_police_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.UpdateEnterpriseAlarmSendPoliceByUnionPk(childComplexity, args["_inc"].(*model.EnterpriseAlarmSendPoliceIncInput), args["_set"].(*model.EnterpriseAlarmSendPoliceSetInput), args["enterprise_alarm_send_police_id"].(string)), true
+
 	case "Mutation.update_offline_alarm_registration":
 		if e.complexity.Mutation.UpdateOfflineAlarmRegistration == nil {
 			break
@@ -4156,6 +4240,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Mutation.UpdateOfflineAlarmRegistrationByPk(childComplexity, args["_inc"].(*model.OfflineAlarmRegistrationIncInput), args["_set"].(*model.OfflineAlarmRegistrationSetInput), args["id"].(int64)), true
+
+	case "Mutation.update_offline_alarm_registration_by_union_pk":
+		if e.complexity.Mutation.UpdateOfflineAlarmRegistrationByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_update_offline_alarm_registration_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.UpdateOfflineAlarmRegistrationByUnionPk(childComplexity, args["_inc"].(*model.OfflineAlarmRegistrationIncInput), args["_set"].(*model.OfflineAlarmRegistrationSetInput), args["offline_alarm_registration_id"].(string)), true
 
 	case "Mutation.update_vehicle_alarm_data":
 		if e.complexity.Mutation.UpdateVehicleAlarmData == nil {
@@ -4181,6 +4277,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.UpdateVehicleAlarmDataByPk(childComplexity, args["_inc"].(*model.VehicleAlarmDataIncInput), args["_set"].(*model.VehicleAlarmDataSetInput), args["id"].(int64)), true
 
+	case "Mutation.update_vehicle_alarm_data_by_union_pk":
+		if e.complexity.Mutation.UpdateVehicleAlarmDataByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_update_vehicle_alarm_data_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.UpdateVehicleAlarmDataByUnionPk(childComplexity, args["_inc"].(*model.VehicleAlarmDataIncInput), args["_set"].(*model.VehicleAlarmDataSetInput), args["vehicle_alarm_data_id"].(string)), true
+
 	case "Mutation.update_video_platform_alarm_type":
 		if e.complexity.Mutation.UpdateVideoPlatformAlarmType == nil {
 			break
@@ -4204,6 +4312,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Mutation.UpdateVideoPlatformAlarmTypeByPk(childComplexity, args["_inc"].(*model.VideoPlatformAlarmTypeIncInput), args["_set"].(*model.VideoPlatformAlarmTypeSetInput), args["id"].(int64)), true
+
+	case "Mutation.update_video_platform_alarm_type_by_union_pk":
+		if e.complexity.Mutation.UpdateVideoPlatformAlarmTypeByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_update_video_platform_alarm_type_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.UpdateVideoPlatformAlarmTypeByUnionPk(childComplexity, args["_inc"].(*model.VideoPlatformAlarmTypeIncInput), args["_set"].(*model.VideoPlatformAlarmTypeSetInput), args["video_platform_alarm_type_id"].(string)), true
 
 	case "Mutation.update_voice_alarm_record":
 		if e.complexity.Mutation.UpdateVoiceAlarmRecord == nil {
@@ -5066,6 +5186,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Query.EnterpriseAlarmSendPoliceByPk(childComplexity, args["id"].(int64)), true
 
+	case "Query.enterprise_alarm_send_police_by_union_pk":
+		if e.complexity.Query.EnterpriseAlarmSendPoliceByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Query_enterprise_alarm_send_police_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.EnterpriseAlarmSendPoliceByUnionPk(childComplexity, args["enterprise_alarm_send_police_id"].(string)), true
+
 	case "Query.offline_alarm_registration":
 		if e.complexity.Query.OfflineAlarmRegistration == nil {
 			break
@@ -5101,6 +5233,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Query.OfflineAlarmRegistrationByPk(childComplexity, args["id"].(int64)), true
+
+	case "Query.offline_alarm_registration_by_union_pk":
+		if e.complexity.Query.OfflineAlarmRegistrationByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Query_offline_alarm_registration_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.OfflineAlarmRegistrationByUnionPk(childComplexity, args["offline_alarm_registration_id"].(string)), true
 
 	case "Query.vehicle_alarm_data":
 		if e.complexity.Query.VehicleAlarmData == nil {
@@ -5138,6 +5282,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Query.VehicleAlarmDataByPk(childComplexity, args["id"].(int64)), true
 
+	case "Query.vehicle_alarm_data_by_union_pk":
+		if e.complexity.Query.VehicleAlarmDataByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Query_vehicle_alarm_data_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.VehicleAlarmDataByUnionPk(childComplexity, args["vehicle_alarm_data_id"].(string)), true
+
 	case "Query.video_platform_alarm_type":
 		if e.complexity.Query.VideoPlatformAlarmType == nil {
 			break
@@ -5173,6 +5329,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Query.VideoPlatformAlarmTypeByPk(childComplexity, args["id"].(int64)), true
+
+	case "Query.video_platform_alarm_type_by_union_pk":
+		if e.complexity.Query.VideoPlatformAlarmTypeByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Query_video_platform_alarm_type_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.VideoPlatformAlarmTypeByUnionPk(childComplexity, args["video_platform_alarm_type_id"].(string)), true
 
 	case "Query.voice_alarm_record":
 		if e.complexity.Query.VoiceAlarmRecord == nil {
@@ -7943,6 +8111,8 @@ input AlarmProcessingRecordBoolExp {
 input type for inserting data into table "alarm_processing_record"
 """
 input AlarmProcessingRecordInsertInput {
+	alarm_data_id: String!
+	alarm_supervision_picture_id: Bigint!
 	processing_content: String
 	processing_time: Timestamptz
 	processing_type: Int
@@ -7957,6 +8127,8 @@ input AlarmProcessingRecordInsertInput {
 	disposal_method: Int
 	disposal_result: String
 	is_deleted: Boolean
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -8132,7 +8304,7 @@ extend type Mutation {
 	"""
 	update_alarm_processing_record(_inc: AlarmProcessingRecordIncInput, _set: AlarmProcessingRecordSetInput, where: AlarmProcessingRecordBoolExp!): AlarmProcessingRecordMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_alarm_processing_record_by_pk(_inc: AlarmProcessingRecordIncInput, _set: AlarmProcessingRecordSetInput, id: Bigint!): AlarmProcessingRecord
 }
@@ -8406,6 +8578,8 @@ input AlarmSupervisionPictureUploadBoolExp {
 input type for inserting data into table "alarm_supervision_picture_upload"
 """
 input AlarmSupervisionPictureUploadInsertInput {
+	alarm_supervision_picture_id: String!
+	vehicle_id: String!
 	driver_id: String
 	enterprise_id: String
 	camera_id: Int
@@ -8416,6 +8590,8 @@ input AlarmSupervisionPictureUploadInsertInput {
 	monitoring_pic_upload_time: Timestamptz
 	imel: String
 	sim_number: String
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -8569,7 +8745,7 @@ extend type Mutation {
 	"""
 	update_alarm_supervision_picture_upload(_inc: AlarmSupervisionPictureUploadIncInput, _set: AlarmSupervisionPictureUploadSetInput, where: AlarmSupervisionPictureUploadBoolExp!): AlarmSupervisionPictureUploadMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_alarm_supervision_picture_upload_by_pk(_inc: AlarmSupervisionPictureUploadIncInput, _set: AlarmSupervisionPictureUploadSetInput, id: Bigint!): AlarmSupervisionPictureUpload
 }
@@ -8964,12 +9140,15 @@ input DistrictAlarmContentPushBoolExp {
 input type for inserting data into table "district_alarm_content_push"
 """
 input DistrictAlarmContentPushInsertInput {
+	alarm_data_id: String!
 	alarm_type: String
 	alarm_content: String
 	province_id: String
 	city_id: String
 	district_id: String
 	is_deleted: Boolean
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -9097,7 +9276,7 @@ extend type Mutation {
 	"""
 	update_district_alarm_content_push(_inc: DistrictAlarmContentPushIncInput, _set: DistrictAlarmContentPushSetInput, where: DistrictAlarmContentPushBoolExp!): DistrictAlarmContentPushMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_district_alarm_content_push_by_pk(_inc: DistrictAlarmContentPushIncInput, _set: DistrictAlarmContentPushSetInput, id: Bigint!): DistrictAlarmContentPush
 }
@@ -9331,6 +9510,7 @@ input EnterpriseAlarmSendPoliceBoolExp {
 input type for inserting data into table "enterprise_alarm_send_police"
 """
 input EnterpriseAlarmSendPoliceInsertInput {
+	enterprise_alarm_send_police_id: String!
 	enterprise_id: String
 	enterprise_name: String
 	enterprise_contact: String
@@ -9338,6 +9518,8 @@ input EnterpriseAlarmSendPoliceInsertInput {
 	police: String
 	police_phone: String
 	phlice_department: String
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -9447,6 +9629,10 @@ extend type Query {
 	主键查询
 	"""
 	enterprise_alarm_send_police_by_pk(id: Bigint!): EnterpriseAlarmSendPolice!
+	"""
+	联合主键查询
+	"""
+	enterprise_alarm_send_police_by_union_pk(enterprise_alarm_send_police_id: String!): EnterpriseAlarmSendPolice!
 }
 extend type Mutation {
 	"""
@@ -9470,9 +9656,17 @@ extend type Mutation {
 	"""
 	update_enterprise_alarm_send_police(_inc: EnterpriseAlarmSendPoliceIncInput, _set: EnterpriseAlarmSendPoliceSetInput, where: EnterpriseAlarmSendPoliceBoolExp!): EnterpriseAlarmSendPoliceMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_enterprise_alarm_send_police_by_pk(_inc: EnterpriseAlarmSendPoliceIncInput, _set: EnterpriseAlarmSendPoliceSetInput, id: Bigint!): EnterpriseAlarmSendPolice
+	"""
+	根据联合主键更新
+	"""
+	update_enterprise_alarm_send_police_by_union_pk(_inc: EnterpriseAlarmSendPoliceIncInput, _set: EnterpriseAlarmSendPoliceSetInput, enterprise_alarm_send_police_id: String!): EnterpriseAlarmSendPolice
+	"""
+	根据联合主键删除记录
+	"""
+	delete_enterprise_alarm_send_police_by_union_pk(enterprise_alarm_send_police_id: String!): EnterpriseAlarmSendPolice
 }
 `, BuiltIn: false},
 	{Name: "graph/graphqls/offline_alarm_registration.graphqls", Input: `"""
@@ -9776,6 +9970,8 @@ input OfflineAlarmRegistrationBoolExp {
 input type for inserting data into table "offline_alarm_registration"
 """
 input OfflineAlarmRegistrationInsertInput {
+	offline_alarm_registration_id: String!
+	vehicle_id: String!
 	offline_start_time: Timestamptz
 	offline_end_time: Timestamptz
 	registration_user: String
@@ -9790,6 +9986,8 @@ input OfflineAlarmRegistrationInsertInput {
 	is_end_alarm: Boolean
 	is_send_sms: Boolean
 	is_need_maintain: Boolean
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -9940,6 +10138,10 @@ extend type Query {
 	主键查询
 	"""
 	offline_alarm_registration_by_pk(id: Bigint!): OfflineAlarmRegistration!
+	"""
+	联合主键查询
+	"""
+	offline_alarm_registration_by_union_pk(offline_alarm_registration_id: String!): OfflineAlarmRegistration!
 }
 extend type Mutation {
 	"""
@@ -9963,9 +10165,17 @@ extend type Mutation {
 	"""
 	update_offline_alarm_registration(_inc: OfflineAlarmRegistrationIncInput, _set: OfflineAlarmRegistrationSetInput, where: OfflineAlarmRegistrationBoolExp!): OfflineAlarmRegistrationMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_offline_alarm_registration_by_pk(_inc: OfflineAlarmRegistrationIncInput, _set: OfflineAlarmRegistrationSetInput, id: Bigint!): OfflineAlarmRegistration
+	"""
+	根据联合主键更新
+	"""
+	update_offline_alarm_registration_by_union_pk(_inc: OfflineAlarmRegistrationIncInput, _set: OfflineAlarmRegistrationSetInput, offline_alarm_registration_id: String!): OfflineAlarmRegistration
+	"""
+	根据联合主键删除记录
+	"""
+	delete_offline_alarm_registration_by_union_pk(offline_alarm_registration_id: String!): OfflineAlarmRegistration
 }
 `, BuiltIn: false},
 	{Name: "graph/graphqls/vehicle_alarm_data.graphqls", Input: `"""
@@ -10469,6 +10679,7 @@ input VehicleAlarmDataBoolExp {
 input type for inserting data into table "vehicle_alarm_data"
 """
 input VehicleAlarmDataInsertInput {
+	vehicle_alarm_data_id: String!
 	vehicle_id: String
 	alarm_type: String
 	alarm_start_time: Timestamptz
@@ -10505,6 +10716,8 @@ input VehicleAlarmDataInsertInput {
 	is_resolve: Boolean
 	is_construction_site_handle: Boolean
 	construction_site_handle_time: Timestamptz
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -10764,6 +10977,10 @@ extend type Query {
 	主键查询
 	"""
 	vehicle_alarm_data_by_pk(id: Bigint!): VehicleAlarmData!
+	"""
+	联合主键查询
+	"""
+	vehicle_alarm_data_by_union_pk(vehicle_alarm_data_id: String!): VehicleAlarmData!
 }
 extend type Mutation {
 	"""
@@ -10787,9 +11004,17 @@ extend type Mutation {
 	"""
 	update_vehicle_alarm_data(_inc: VehicleAlarmDataIncInput, _set: VehicleAlarmDataSetInput, where: VehicleAlarmDataBoolExp!): VehicleAlarmDataMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_vehicle_alarm_data_by_pk(_inc: VehicleAlarmDataIncInput, _set: VehicleAlarmDataSetInput, id: Bigint!): VehicleAlarmData
+	"""
+	根据联合主键更新
+	"""
+	update_vehicle_alarm_data_by_union_pk(_inc: VehicleAlarmDataIncInput, _set: VehicleAlarmDataSetInput, vehicle_alarm_data_id: String!): VehicleAlarmData
+	"""
+	根据联合主键删除记录
+	"""
+	delete_vehicle_alarm_data_by_union_pk(vehicle_alarm_data_id: String!): VehicleAlarmData
 }
 `, BuiltIn: false},
 	{Name: "graph/graphqls/video_platform_alarm_type.graphqls", Input: `"""
@@ -11021,12 +11246,15 @@ input VideoPlatformAlarmTypeBoolExp {
 input type for inserting data into table "video_platform_alarm_type"
 """
 input VideoPlatformAlarmTypeInsertInput {
+	video_platform_alarm_type_id: String!
 	vehicle_alarm_data_id: Int
 	alarm_type: String
 	alarm_source: String
 	alarm_classify: String
 	alarm_code: String
 	is_deleted: Boolean
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -11132,6 +11360,10 @@ extend type Query {
 	主键查询
 	"""
 	video_platform_alarm_type_by_pk(id: Bigint!): VideoPlatformAlarmType!
+	"""
+	联合主键查询
+	"""
+	video_platform_alarm_type_by_union_pk(video_platform_alarm_type_id: String!): VideoPlatformAlarmType!
 }
 extend type Mutation {
 	"""
@@ -11155,9 +11387,17 @@ extend type Mutation {
 	"""
 	update_video_platform_alarm_type(_inc: VideoPlatformAlarmTypeIncInput, _set: VideoPlatformAlarmTypeSetInput, where: VideoPlatformAlarmTypeBoolExp!): VideoPlatformAlarmTypeMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_video_platform_alarm_type_by_pk(_inc: VideoPlatformAlarmTypeIncInput, _set: VideoPlatformAlarmTypeSetInput, id: Bigint!): VideoPlatformAlarmType
+	"""
+	根据联合主键更新
+	"""
+	update_video_platform_alarm_type_by_union_pk(_inc: VideoPlatformAlarmTypeIncInput, _set: VideoPlatformAlarmTypeSetInput, video_platform_alarm_type_id: String!): VideoPlatformAlarmType
+	"""
+	根据联合主键删除记录
+	"""
+	delete_video_platform_alarm_type_by_union_pk(video_platform_alarm_type_id: String!): VideoPlatformAlarmType
 }
 `, BuiltIn: false},
 	{Name: "graph/graphqls/voice_alarm_record.graphqls", Input: `"""
@@ -11397,6 +11637,8 @@ input VoiceAlarmRecordBoolExp {
 input type for inserting data into table "voice_alarm_record"
 """
 input VoiceAlarmRecordInsertInput {
+	vioce_alarm_record_id: String!
+	vehicle_id: String!
 	alarm_time: Timestamptz
 	alarm_type: String
 	remind_time: Timestamptz
@@ -11404,6 +11646,8 @@ input VoiceAlarmRecordInsertInput {
 	input_person: String
 	input_time: Timestamptz
 	is_success: Boolean
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -11541,7 +11785,7 @@ extend type Mutation {
 	"""
 	update_voice_alarm_record(_inc: VoiceAlarmRecordIncInput, _set: VoiceAlarmRecordSetInput, where: VoiceAlarmRecordBoolExp!): VoiceAlarmRecordMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_voice_alarm_record_by_pk(_inc: VoiceAlarmRecordIncInput, _set: VoiceAlarmRecordSetInput, id: Bigint!): VoiceAlarmRecord
 }
@@ -11673,6 +11917,21 @@ func (ec *executionContext) field_Mutation_delete_enterprise_alarm_send_police_b
 	return args, nil
 }
 
+func (ec *executionContext) field_Mutation_delete_enterprise_alarm_send_police_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["enterprise_alarm_send_police_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_alarm_send_police_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["enterprise_alarm_send_police_id"] = arg0
+	return args, nil
+}
+
 func (ec *executionContext) field_Mutation_delete_offline_alarm_registration_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -11700,6 +11959,21 @@ func (ec *executionContext) field_Mutation_delete_offline_alarm_registration_by_
 		}
 	}
 	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_delete_offline_alarm_registration_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["offline_alarm_registration_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("offline_alarm_registration_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["offline_alarm_registration_id"] = arg0
 	return args, nil
 }
 
@@ -11733,6 +12007,21 @@ func (ec *executionContext) field_Mutation_delete_vehicle_alarm_data_by_pk_args(
 	return args, nil
 }
 
+func (ec *executionContext) field_Mutation_delete_vehicle_alarm_data_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["vehicle_alarm_data_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("vehicle_alarm_data_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["vehicle_alarm_data_id"] = arg0
+	return args, nil
+}
+
 func (ec *executionContext) field_Mutation_delete_video_platform_alarm_type_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -11760,6 +12049,21 @@ func (ec *executionContext) field_Mutation_delete_video_platform_alarm_type_by_p
 		}
 	}
 	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_delete_video_platform_alarm_type_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["video_platform_alarm_type_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("video_platform_alarm_type_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["video_platform_alarm_type_id"] = arg0
 	return args, nil
 }
 
@@ -12297,6 +12601,39 @@ func (ec *executionContext) field_Mutation_update_enterprise_alarm_send_police_b
 	return args, nil
 }
 
+func (ec *executionContext) field_Mutation_update_enterprise_alarm_send_police_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *model.EnterpriseAlarmSendPoliceIncInput
+	if tmp, ok := rawArgs["_inc"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
+		arg0, err = ec.unmarshalOEnterpriseAlarmSendPoliceIncInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_alarmᚋgraphᚋmodelᚐEnterpriseAlarmSendPoliceIncInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_inc"] = arg0
+	var arg1 *model.EnterpriseAlarmSendPoliceSetInput
+	if tmp, ok := rawArgs["_set"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
+		arg1, err = ec.unmarshalOEnterpriseAlarmSendPoliceSetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_alarmᚋgraphᚋmodelᚐEnterpriseAlarmSendPoliceSetInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_set"] = arg1
+	var arg2 string
+	if tmp, ok := rawArgs["enterprise_alarm_send_police_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_alarm_send_police_id"))
+		arg2, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["enterprise_alarm_send_police_id"] = arg2
+	return args, nil
+}
+
 func (ec *executionContext) field_Mutation_update_offline_alarm_registration_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -12360,6 +12697,39 @@ func (ec *executionContext) field_Mutation_update_offline_alarm_registration_by_
 		}
 	}
 	args["id"] = arg2
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_update_offline_alarm_registration_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *model.OfflineAlarmRegistrationIncInput
+	if tmp, ok := rawArgs["_inc"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
+		arg0, err = ec.unmarshalOOfflineAlarmRegistrationIncInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_alarmᚋgraphᚋmodelᚐOfflineAlarmRegistrationIncInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_inc"] = arg0
+	var arg1 *model.OfflineAlarmRegistrationSetInput
+	if tmp, ok := rawArgs["_set"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
+		arg1, err = ec.unmarshalOOfflineAlarmRegistrationSetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_alarmᚋgraphᚋmodelᚐOfflineAlarmRegistrationSetInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_set"] = arg1
+	var arg2 string
+	if tmp, ok := rawArgs["offline_alarm_registration_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("offline_alarm_registration_id"))
+		arg2, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["offline_alarm_registration_id"] = arg2
 	return args, nil
 }
 
@@ -12429,6 +12799,39 @@ func (ec *executionContext) field_Mutation_update_vehicle_alarm_data_by_pk_args(
 	return args, nil
 }
 
+func (ec *executionContext) field_Mutation_update_vehicle_alarm_data_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *model.VehicleAlarmDataIncInput
+	if tmp, ok := rawArgs["_inc"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
+		arg0, err = ec.unmarshalOVehicleAlarmDataIncInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_alarmᚋgraphᚋmodelᚐVehicleAlarmDataIncInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_inc"] = arg0
+	var arg1 *model.VehicleAlarmDataSetInput
+	if tmp, ok := rawArgs["_set"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
+		arg1, err = ec.unmarshalOVehicleAlarmDataSetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_alarmᚋgraphᚋmodelᚐVehicleAlarmDataSetInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_set"] = arg1
+	var arg2 string
+	if tmp, ok := rawArgs["vehicle_alarm_data_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("vehicle_alarm_data_id"))
+		arg2, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["vehicle_alarm_data_id"] = arg2
+	return args, nil
+}
+
 func (ec *executionContext) field_Mutation_update_video_platform_alarm_type_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -12492,6 +12895,39 @@ func (ec *executionContext) field_Mutation_update_video_platform_alarm_type_by_p
 		}
 	}
 	args["id"] = arg2
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_update_video_platform_alarm_type_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *model.VideoPlatformAlarmTypeIncInput
+	if tmp, ok := rawArgs["_inc"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
+		arg0, err = ec.unmarshalOVideoPlatformAlarmTypeIncInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_alarmᚋgraphᚋmodelᚐVideoPlatformAlarmTypeIncInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_inc"] = arg0
+	var arg1 *model.VideoPlatformAlarmTypeSetInput
+	if tmp, ok := rawArgs["_set"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
+		arg1, err = ec.unmarshalOVideoPlatformAlarmTypeSetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_alarmᚋgraphᚋmodelᚐVideoPlatformAlarmTypeSetInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_set"] = arg1
+	var arg2 string
+	if tmp, ok := rawArgs["video_platform_alarm_type_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("video_platform_alarm_type_id"))
+		arg2, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["video_platform_alarm_type_id"] = arg2
 	return args, nil
 }
 
@@ -13044,6 +13480,21 @@ func (ec *executionContext) field_Query_enterprise_alarm_send_police_by_pk_args(
 	return args, nil
 }
 
+func (ec *executionContext) field_Query_enterprise_alarm_send_police_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["enterprise_alarm_send_police_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_alarm_send_police_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["enterprise_alarm_send_police_id"] = arg0
+	return args, nil
+}
+
 func (ec *executionContext) field_Query_offline_alarm_registration_aggregate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -13158,6 +13609,21 @@ func (ec *executionContext) field_Query_offline_alarm_registration_by_pk_args(ct
 		}
 	}
 	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Query_offline_alarm_registration_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["offline_alarm_registration_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("offline_alarm_registration_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["offline_alarm_registration_id"] = arg0
 	return args, nil
 }
 
@@ -13278,6 +13744,21 @@ func (ec *executionContext) field_Query_vehicle_alarm_data_by_pk_args(ctx contex
 	return args, nil
 }
 
+func (ec *executionContext) field_Query_vehicle_alarm_data_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["vehicle_alarm_data_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("vehicle_alarm_data_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["vehicle_alarm_data_id"] = arg0
+	return args, nil
+}
+
 func (ec *executionContext) field_Query_video_platform_alarm_type_aggregate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -13392,6 +13873,21 @@ func (ec *executionContext) field_Query_video_platform_alarm_type_by_pk_args(ctx
 		}
 	}
 	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Query_video_platform_alarm_type_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["video_platform_alarm_type_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("video_platform_alarm_type_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["video_platform_alarm_type_id"] = arg0
 	return args, nil
 }
 
@@ -25220,6 +25716,84 @@ func (ec *executionContext) _Mutation_update_enterprise_alarm_send_police_by_pk(
 	return ec.marshalOEnterpriseAlarmSendPolice2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_alarmᚋmodelᚐEnterpriseAlarmSendPolice(ctx, field.Selections, res)
 }
 
+func (ec *executionContext) _Mutation_update_enterprise_alarm_send_police_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_enterprise_alarm_send_police_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateEnterpriseAlarmSendPoliceByUnionPk(rctx, args["_inc"].(*model.EnterpriseAlarmSendPoliceIncInput), args["_set"].(*model.EnterpriseAlarmSendPoliceSetInput), args["enterprise_alarm_send_police_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.EnterpriseAlarmSendPolice)
+	fc.Result = res
+	return ec.marshalOEnterpriseAlarmSendPolice2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_alarmᚋmodelᚐEnterpriseAlarmSendPolice(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_delete_enterprise_alarm_send_police_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_delete_enterprise_alarm_send_police_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().DeleteEnterpriseAlarmSendPoliceByUnionPk(rctx, args["enterprise_alarm_send_police_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.EnterpriseAlarmSendPolice)
+	fc.Result = res
+	return ec.marshalOEnterpriseAlarmSendPolice2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_alarmᚋmodelᚐEnterpriseAlarmSendPolice(ctx, field.Selections, res)
+}
+
 func (ec *executionContext) _Mutation_delete_offline_alarm_registration(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -25441,6 +26015,84 @@ func (ec *executionContext) _Mutation_update_offline_alarm_registration_by_pk(ct
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
 		return ec.resolvers.Mutation().UpdateOfflineAlarmRegistrationByPk(rctx, args["_inc"].(*model.OfflineAlarmRegistrationIncInput), args["_set"].(*model.OfflineAlarmRegistrationSetInput), args["id"].(int64))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.OfflineAlarmRegistration)
+	fc.Result = res
+	return ec.marshalOOfflineAlarmRegistration2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_alarmᚋmodelᚐOfflineAlarmRegistration(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_update_offline_alarm_registration_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_offline_alarm_registration_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateOfflineAlarmRegistrationByUnionPk(rctx, args["_inc"].(*model.OfflineAlarmRegistrationIncInput), args["_set"].(*model.OfflineAlarmRegistrationSetInput), args["offline_alarm_registration_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.OfflineAlarmRegistration)
+	fc.Result = res
+	return ec.marshalOOfflineAlarmRegistration2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_alarmᚋmodelᚐOfflineAlarmRegistration(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_delete_offline_alarm_registration_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_delete_offline_alarm_registration_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().DeleteOfflineAlarmRegistrationByUnionPk(rctx, args["offline_alarm_registration_id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -25688,6 +26340,84 @@ func (ec *executionContext) _Mutation_update_vehicle_alarm_data_by_pk(ctx contex
 	return ec.marshalOVehicleAlarmData2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_alarmᚋmodelᚐVehicleAlarmData(ctx, field.Selections, res)
 }
 
+func (ec *executionContext) _Mutation_update_vehicle_alarm_data_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_vehicle_alarm_data_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateVehicleAlarmDataByUnionPk(rctx, args["_inc"].(*model.VehicleAlarmDataIncInput), args["_set"].(*model.VehicleAlarmDataSetInput), args["vehicle_alarm_data_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.VehicleAlarmData)
+	fc.Result = res
+	return ec.marshalOVehicleAlarmData2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_alarmᚋmodelᚐVehicleAlarmData(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_delete_vehicle_alarm_data_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_delete_vehicle_alarm_data_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().DeleteVehicleAlarmDataByUnionPk(rctx, args["vehicle_alarm_data_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.VehicleAlarmData)
+	fc.Result = res
+	return ec.marshalOVehicleAlarmData2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_alarmᚋmodelᚐVehicleAlarmData(ctx, field.Selections, res)
+}
+
 func (ec *executionContext) _Mutation_delete_video_platform_alarm_type(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -25909,6 +26639,84 @@ func (ec *executionContext) _Mutation_update_video_platform_alarm_type_by_pk(ctx
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
 		return ec.resolvers.Mutation().UpdateVideoPlatformAlarmTypeByPk(rctx, args["_inc"].(*model.VideoPlatformAlarmTypeIncInput), args["_set"].(*model.VideoPlatformAlarmTypeSetInput), args["id"].(int64))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.VideoPlatformAlarmType)
+	fc.Result = res
+	return ec.marshalOVideoPlatformAlarmType2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_alarmᚋmodelᚐVideoPlatformAlarmType(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_update_video_platform_alarm_type_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_video_platform_alarm_type_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateVideoPlatformAlarmTypeByUnionPk(rctx, args["_inc"].(*model.VideoPlatformAlarmTypeIncInput), args["_set"].(*model.VideoPlatformAlarmTypeSetInput), args["video_platform_alarm_type_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.VideoPlatformAlarmType)
+	fc.Result = res
+	return ec.marshalOVideoPlatformAlarmType2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_alarmᚋmodelᚐVideoPlatformAlarmType(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_delete_video_platform_alarm_type_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_delete_video_platform_alarm_type_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().DeleteVideoPlatformAlarmTypeByUnionPk(rctx, args["video_platform_alarm_type_id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -29849,6 +30657,48 @@ func (ec *executionContext) _Query_enterprise_alarm_send_police_by_pk(ctx contex
 	return ec.marshalNEnterpriseAlarmSendPolice2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_alarmᚋmodelᚐEnterpriseAlarmSendPolice(ctx, field.Selections, res)
 }
 
+func (ec *executionContext) _Query_enterprise_alarm_send_police_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_enterprise_alarm_send_police_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().EnterpriseAlarmSendPoliceByUnionPk(rctx, args["enterprise_alarm_send_police_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*model1.EnterpriseAlarmSendPolice)
+	fc.Result = res
+	return ec.marshalNEnterpriseAlarmSendPolice2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_alarmᚋmodelᚐEnterpriseAlarmSendPolice(ctx, field.Selections, res)
+}
+
 func (ec *executionContext) _Query_offline_alarm_registration(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -29959,6 +30809,48 @@ func (ec *executionContext) _Query_offline_alarm_registration_by_pk(ctx context.
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
 		return ec.resolvers.Query().OfflineAlarmRegistrationByPk(rctx, args["id"].(int64))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*model1.OfflineAlarmRegistration)
+	fc.Result = res
+	return ec.marshalNOfflineAlarmRegistration2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_alarmᚋmodelᚐOfflineAlarmRegistration(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Query_offline_alarm_registration_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_offline_alarm_registration_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().OfflineAlarmRegistrationByUnionPk(rctx, args["offline_alarm_registration_id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -30101,6 +30993,48 @@ func (ec *executionContext) _Query_vehicle_alarm_data_by_pk(ctx context.Context,
 	return ec.marshalNVehicleAlarmData2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_alarmᚋmodelᚐVehicleAlarmData(ctx, field.Selections, res)
 }
 
+func (ec *executionContext) _Query_vehicle_alarm_data_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_vehicle_alarm_data_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().VehicleAlarmDataByUnionPk(rctx, args["vehicle_alarm_data_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*model1.VehicleAlarmData)
+	fc.Result = res
+	return ec.marshalNVehicleAlarmData2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_alarmᚋmodelᚐVehicleAlarmData(ctx, field.Selections, res)
+}
+
 func (ec *executionContext) _Query_video_platform_alarm_type(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -30211,6 +31145,48 @@ func (ec *executionContext) _Query_video_platform_alarm_type_by_pk(ctx context.C
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
 		return ec.resolvers.Query().VideoPlatformAlarmTypeByPk(rctx, args["id"].(int64))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*model1.VideoPlatformAlarmType)
+	fc.Result = res
+	return ec.marshalNVideoPlatformAlarmType2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_alarmᚋmodelᚐVideoPlatformAlarmType(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Query_video_platform_alarm_type_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_video_platform_alarm_type_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().VideoPlatformAlarmTypeByUnionPk(rctx, args["video_platform_alarm_type_id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -42590,6 +43566,22 @@ func (ec *executionContext) unmarshalInputAlarmProcessingRecordInsertInput(ctx c
 
 	for k, v := range asMap {
 		switch k {
+		case "alarm_data_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("alarm_data_id"))
+			it.AlarmDataID, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "alarm_supervision_picture_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("alarm_supervision_picture_id"))
+			it.AlarmSupervisionPictureID, err = ec.unmarshalNBigint2int64(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "processing_content":
 			var err error
 
@@ -42699,6 +43691,22 @@ func (ec *executionContext) unmarshalInputAlarmProcessingRecordInsertInput(ctx c
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_deleted"))
 			it.IsDeleted, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
+			it.CreatedAt, err = ec.unmarshalNTimestamptz2timeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
+			it.CreatedBy, err = ec.unmarshalNString2string(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -43354,6 +44362,22 @@ func (ec *executionContext) unmarshalInputAlarmSupervisionPictureUploadInsertInp
 
 	for k, v := range asMap {
 		switch k {
+		case "alarm_supervision_picture_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("alarm_supervision_picture_id"))
+			it.AlarmSupervisionPictureID, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "vehicle_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("vehicle_id"))
+			it.VehicleID, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "driver_id":
 			var err error
 
@@ -43431,6 +44455,22 @@ func (ec *executionContext) unmarshalInputAlarmSupervisionPictureUploadInsertInp
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("sim_number"))
 			it.SimNumber, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
+			it.CreatedAt, err = ec.unmarshalNTimestamptz2timeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
+			it.CreatedBy, err = ec.unmarshalNString2string(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -44142,6 +45182,14 @@ func (ec *executionContext) unmarshalInputDistrictAlarmContentPushInsertInput(ct
 
 	for k, v := range asMap {
 		switch k {
+		case "alarm_data_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("alarm_data_id"))
+			it.AlarmDataID, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "alarm_type":
 			var err error
 
@@ -44187,6 +45235,22 @@ func (ec *executionContext) unmarshalInputDistrictAlarmContentPushInsertInput(ct
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_deleted"))
 			it.IsDeleted, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
+			it.CreatedAt, err = ec.unmarshalNTimestamptz2timeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
+			it.CreatedBy, err = ec.unmarshalNString2string(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -44658,6 +45722,14 @@ func (ec *executionContext) unmarshalInputEnterpriseAlarmSendPoliceInsertInput(c
 
 	for k, v := range asMap {
 		switch k {
+		case "enterprise_alarm_send_police_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_alarm_send_police_id"))
+			it.EnterpriseAlarmSendPoliceID, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "enterprise_id":
 			var err error
 
@@ -44711,6 +45783,22 @@ func (ec *executionContext) unmarshalInputEnterpriseAlarmSendPoliceInsertInput(c
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("phlice_department"))
 			it.PhliceDepartment, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
+			it.CreatedAt, err = ec.unmarshalNTimestamptz2timeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
+			it.CreatedBy, err = ec.unmarshalNString2string(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -45016,8 +46104,8 @@ func (ec *executionContext) unmarshalInputEnterpriseAlarmSendPoliceSetInput(ctx 
 	return it, nil
 }
 
-func (ec *executionContext) unmarshalInputFloatComparisonExp(ctx context.Context, obj interface{}) (model1.FloatComparisonExp, error) {
-	var it model1.FloatComparisonExp
+func (ec *executionContext) unmarshalInputFloatComparisonExp(ctx context.Context, obj interface{}) (model2.FloatComparisonExp, error) {
+	var it model2.FloatComparisonExp
 	var asMap = obj.(map[string]interface{})
 
 	for k, v := range asMap {
@@ -45606,6 +46694,22 @@ func (ec *executionContext) unmarshalInputOfflineAlarmRegistrationInsertInput(ct
 
 	for k, v := range asMap {
 		switch k {
+		case "offline_alarm_registration_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("offline_alarm_registration_id"))
+			it.OfflineAlarmRegistrationID, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "vehicle_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("vehicle_id"))
+			it.VehicleID, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "offline_start_time":
 			var err error
 
@@ -45715,6 +46819,22 @@ func (ec *executionContext) unmarshalInputOfflineAlarmRegistrationInsertInput(ct
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_need_maintain"))
 			it.IsNeedMaintain, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
+			it.CreatedAt, err = ec.unmarshalNTimestamptz2timeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
+			it.CreatedBy, err = ec.unmarshalNString2string(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -46902,6 +48022,14 @@ func (ec *executionContext) unmarshalInputVehicleAlarmDataInsertInput(ctx contex
 
 	for k, v := range asMap {
 		switch k {
+		case "vehicle_alarm_data_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("vehicle_alarm_data_id"))
+			it.VehicleAlarmDataID, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "vehicle_id":
 			var err error
 
@@ -47187,6 +48315,22 @@ func (ec *executionContext) unmarshalInputVehicleAlarmDataInsertInput(ctx contex
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("construction_site_handle_time"))
 			it.ConstructionSiteHandleTime, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
+			it.CreatedAt, err = ec.unmarshalNTimestamptz2timeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
+			it.CreatedBy, err = ec.unmarshalNString2string(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -48138,6 +49282,14 @@ func (ec *executionContext) unmarshalInputVideoPlatformAlarmTypeInsertInput(ctx 
 
 	for k, v := range asMap {
 		switch k {
+		case "video_platform_alarm_type_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("video_platform_alarm_type_id"))
+			it.VideoPlatformAlarmTypeID, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "vehicle_alarm_data_id":
 			var err error
 
@@ -48183,6 +49335,22 @@ func (ec *executionContext) unmarshalInputVideoPlatformAlarmTypeInsertInput(ctx 
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_deleted"))
 			it.IsDeleted, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
+			it.CreatedAt, err = ec.unmarshalNTimestamptz2timeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
+			it.CreatedBy, err = ec.unmarshalNString2string(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -48662,6 +49830,22 @@ func (ec *executionContext) unmarshalInputVoiceAlarmRecordInsertInput(ctx contex
 
 	for k, v := range asMap {
 		switch k {
+		case "vioce_alarm_record_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("vioce_alarm_record_id"))
+			it.VioceAlarmRecordID, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "vehicle_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("vehicle_id"))
+			it.VehicleID, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "alarm_time":
 			var err error
 
@@ -48715,6 +49899,22 @@ func (ec *executionContext) unmarshalInputVoiceAlarmRecordInsertInput(ctx contex
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_success"))
 			it.IsSuccess, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
+			it.CreatedAt, err = ec.unmarshalNTimestamptz2timeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
+			it.CreatedBy, err = ec.unmarshalNString2string(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -51083,6 +52283,10 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			out.Values[i] = ec._Mutation_update_enterprise_alarm_send_police(ctx, field)
 		case "update_enterprise_alarm_send_police_by_pk":
 			out.Values[i] = ec._Mutation_update_enterprise_alarm_send_police_by_pk(ctx, field)
+		case "update_enterprise_alarm_send_police_by_union_pk":
+			out.Values[i] = ec._Mutation_update_enterprise_alarm_send_police_by_union_pk(ctx, field)
+		case "delete_enterprise_alarm_send_police_by_union_pk":
+			out.Values[i] = ec._Mutation_delete_enterprise_alarm_send_police_by_union_pk(ctx, field)
 		case "delete_offline_alarm_registration":
 			out.Values[i] = ec._Mutation_delete_offline_alarm_registration(ctx, field)
 		case "delete_offline_alarm_registration_by_pk":
@@ -51095,6 +52299,10 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			out.Values[i] = ec._Mutation_update_offline_alarm_registration(ctx, field)
 		case "update_offline_alarm_registration_by_pk":
 			out.Values[i] = ec._Mutation_update_offline_alarm_registration_by_pk(ctx, field)
+		case "update_offline_alarm_registration_by_union_pk":
+			out.Values[i] = ec._Mutation_update_offline_alarm_registration_by_union_pk(ctx, field)
+		case "delete_offline_alarm_registration_by_union_pk":
+			out.Values[i] = ec._Mutation_delete_offline_alarm_registration_by_union_pk(ctx, field)
 		case "delete_vehicle_alarm_data":
 			out.Values[i] = ec._Mutation_delete_vehicle_alarm_data(ctx, field)
 		case "delete_vehicle_alarm_data_by_pk":
@@ -51107,6 +52315,10 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			out.Values[i] = ec._Mutation_update_vehicle_alarm_data(ctx, field)
 		case "update_vehicle_alarm_data_by_pk":
 			out.Values[i] = ec._Mutation_update_vehicle_alarm_data_by_pk(ctx, field)
+		case "update_vehicle_alarm_data_by_union_pk":
+			out.Values[i] = ec._Mutation_update_vehicle_alarm_data_by_union_pk(ctx, field)
+		case "delete_vehicle_alarm_data_by_union_pk":
+			out.Values[i] = ec._Mutation_delete_vehicle_alarm_data_by_union_pk(ctx, field)
 		case "delete_video_platform_alarm_type":
 			out.Values[i] = ec._Mutation_delete_video_platform_alarm_type(ctx, field)
 		case "delete_video_platform_alarm_type_by_pk":
@@ -51119,6 +52331,10 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			out.Values[i] = ec._Mutation_update_video_platform_alarm_type(ctx, field)
 		case "update_video_platform_alarm_type_by_pk":
 			out.Values[i] = ec._Mutation_update_video_platform_alarm_type_by_pk(ctx, field)
+		case "update_video_platform_alarm_type_by_union_pk":
+			out.Values[i] = ec._Mutation_update_video_platform_alarm_type_by_union_pk(ctx, field)
+		case "delete_video_platform_alarm_type_by_union_pk":
+			out.Values[i] = ec._Mutation_delete_video_platform_alarm_type_by_union_pk(ctx, field)
 		case "delete_voice_alarm_record":
 			out.Values[i] = ec._Mutation_delete_voice_alarm_record(ctx, field)
 		case "delete_voice_alarm_record_by_pk":
@@ -51852,6 +53068,20 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 				}
 				return res
 			})
+		case "enterprise_alarm_send_police_by_union_pk":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_enterprise_alarm_send_police_by_union_pk(ctx, field)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			})
 		case "offline_alarm_registration":
 			field := field
 			out.Concurrently(i, func() (res graphql.Marshaler) {
@@ -51889,6 +53119,20 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_offline_alarm_registration_by_pk(ctx, field)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			})
+		case "offline_alarm_registration_by_union_pk":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_offline_alarm_registration_by_union_pk(ctx, field)
 				if res == graphql.Null {
 					atomic.AddUint32(&invalids, 1)
 				}
@@ -51936,6 +53180,20 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 				}
 				return res
 			})
+		case "vehicle_alarm_data_by_union_pk":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_vehicle_alarm_data_by_union_pk(ctx, field)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			})
 		case "video_platform_alarm_type":
 			field := field
 			out.Concurrently(i, func() (res graphql.Marshaler) {
@@ -51973,6 +53231,20 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_video_platform_alarm_type_by_pk(ctx, field)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			})
+		case "video_platform_alarm_type_by_union_pk":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_video_platform_alarm_type_by_union_pk(ctx, field)
 				if res == graphql.Null {
 					atomic.AddUint32(&invalids, 1)
 				}

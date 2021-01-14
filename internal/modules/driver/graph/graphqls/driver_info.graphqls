@@ -411,6 +411,7 @@ input DriverInfoBoolExp {
 input type for inserting data into table "driver_info"
 """
 input DriverInfoInsertInput {
+	driver_id: String!
 	enterprise_id: String
 	department_id: String
 	driver_identity_id: String
@@ -440,6 +441,8 @@ input DriverInfoInsertInput {
 	operator: String
 	is_blacklist: Boolean
 	blacklist_deadline: Timestamptz
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -683,7 +686,7 @@ extend type Mutation {
 	"""
 	update_driver_info(_inc: DriverInfoIncInput, _set: DriverInfoSetInput, where: DriverInfoBoolExp!): DriverInfoMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_driver_info_by_pk(_inc: DriverInfoIncInput, _set: DriverInfoSetInput, id: Bigint!): DriverInfo
 }

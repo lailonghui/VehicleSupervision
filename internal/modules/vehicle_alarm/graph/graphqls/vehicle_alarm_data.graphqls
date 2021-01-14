@@ -499,6 +499,7 @@ input VehicleAlarmDataBoolExp {
 input type for inserting data into table "vehicle_alarm_data"
 """
 input VehicleAlarmDataInsertInput {
+	vehicle_alarm_data_id: String!
 	vehicle_id: String
 	alarm_type: String
 	alarm_start_time: Timestamptz
@@ -535,6 +536,8 @@ input VehicleAlarmDataInsertInput {
 	is_resolve: Boolean
 	is_construction_site_handle: Boolean
 	construction_site_handle_time: Timestamptz
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -794,6 +797,10 @@ extend type Query {
 	主键查询
 	"""
 	vehicle_alarm_data_by_pk(id: Bigint!): VehicleAlarmData!
+	"""
+	联合主键查询
+	"""
+	vehicle_alarm_data_by_union_pk(vehicle_alarm_data_id: String!): VehicleAlarmData!
 }
 extend type Mutation {
 	"""
@@ -817,7 +824,15 @@ extend type Mutation {
 	"""
 	update_vehicle_alarm_data(_inc: VehicleAlarmDataIncInput, _set: VehicleAlarmDataSetInput, where: VehicleAlarmDataBoolExp!): VehicleAlarmDataMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_vehicle_alarm_data_by_pk(_inc: VehicleAlarmDataIncInput, _set: VehicleAlarmDataSetInput, id: Bigint!): VehicleAlarmData
+	"""
+	根据联合主键更新
+	"""
+	update_vehicle_alarm_data_by_union_pk(_inc: VehicleAlarmDataIncInput, _set: VehicleAlarmDataSetInput, vehicle_alarm_data_id: String!): VehicleAlarmData
+	"""
+	根据联合主键删除记录
+	"""
+	delete_vehicle_alarm_data_by_union_pk(vehicle_alarm_data_id: String!): VehicleAlarmData
 }

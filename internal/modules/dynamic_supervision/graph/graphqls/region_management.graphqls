@@ -299,6 +299,7 @@ input RegionManagementBoolExp {
 input type for inserting data into table "region_management"
 """
 input RegionManagementInsertInput {
+	region_management_id: String!
 	region_id: String
 	region_name: String
 	region_type: String
@@ -312,6 +313,8 @@ input RegionManagementInsertInput {
 	region_coordinate: Point
 	is_super_region: Boolean
 	is_deleted: Boolean
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -454,6 +457,10 @@ extend type Query {
 	主键查询
 	"""
 	region_management_by_pk(id: Bigint!): RegionManagement!
+	"""
+	联合主键查询
+	"""
+	region_management_by_union_pk(region_management_id: String!): RegionManagement!
 }
 extend type Mutation {
 	"""
@@ -477,7 +484,15 @@ extend type Mutation {
 	"""
 	update_region_management(_inc: RegionManagementIncInput, _set: RegionManagementSetInput, where: RegionManagementBoolExp!): RegionManagementMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_region_management_by_pk(_inc: RegionManagementIncInput, _set: RegionManagementSetInput, id: Bigint!): RegionManagement
+	"""
+	根据联合主键更新
+	"""
+	update_region_management_by_union_pk(_inc: RegionManagementIncInput, _set: RegionManagementSetInput, region_management_id: String!): RegionManagement
+	"""
+	根据联合主键删除记录
+	"""
+	delete_region_management_by_union_pk(region_management_id: String!): RegionManagement
 }

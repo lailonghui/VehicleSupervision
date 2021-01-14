@@ -395,6 +395,7 @@ input OperatingVehicleExtBoolExp {
 input type for inserting data into table "operating_vehicle_ext"
 """
 input OperatingVehicleExtInsertInput {
+	vehicle_id: String!
 	agent: String
 	contact_number: String
 	platform: Int
@@ -421,6 +422,8 @@ input OperatingVehicleExtInsertInput {
 	service_expiration_time: Timestamptz
 	contract_time: Timestamptz
 	installation_time: Timestamptz
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -650,7 +653,7 @@ extend type Mutation {
 	"""
 	update_operating_vehicle_ext(_inc: OperatingVehicleExtIncInput, _set: OperatingVehicleExtSetInput, where: OperatingVehicleExtBoolExp!): OperatingVehicleExtMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_operating_vehicle_ext_by_pk(_inc: OperatingVehicleExtIncInput, _set: OperatingVehicleExtSetInput, id: Bigint!): OperatingVehicleExt
 }

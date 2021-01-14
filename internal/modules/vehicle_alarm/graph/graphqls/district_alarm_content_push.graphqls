@@ -219,12 +219,15 @@ input DistrictAlarmContentPushBoolExp {
 input type for inserting data into table "district_alarm_content_push"
 """
 input DistrictAlarmContentPushInsertInput {
+	alarm_data_id: String!
 	alarm_type: String
 	alarm_content: String
 	province_id: String
 	city_id: String
 	district_id: String
 	is_deleted: Boolean
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -352,7 +355,7 @@ extend type Mutation {
 	"""
 	update_district_alarm_content_push(_inc: DistrictAlarmContentPushIncInput, _set: DistrictAlarmContentPushSetInput, where: DistrictAlarmContentPushBoolExp!): DistrictAlarmContentPushMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_district_alarm_content_push_by_pk(_inc: DistrictAlarmContentPushIncInput, _set: DistrictAlarmContentPushSetInput, id: Bigint!): DistrictAlarmContentPush
 }

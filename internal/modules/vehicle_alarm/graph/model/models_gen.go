@@ -79,24 +79,28 @@ type AlarmProcessingRecordIncInput struct {
 
 // input type for inserting data into table "alarm_processing_record"
 type AlarmProcessingRecordInsertInput struct {
-	ProcessingContent *string    `json:"processing_content"`
-	ProcessingTime    *time.Time `json:"processing_time"`
-	ProcessingType    *int       `json:"processing_type"`
-	OperationUser     *string    `json:"operation_user"`
-	IsSmsPush         *bool      `json:"is_sms_push"`
-	IsNotify          *bool      `json:"is_notify"`
-	IsAnnounce        *bool      `json:"is_announce"`
-	IsAppPush         *bool      `json:"is_app_push"`
-	NotifyContent     *string    `json:"notify_content"`
-	AnnounceContent   *string    `json:"announce_content"`
-	AppPushContent    *string    `json:"app_push_content"`
-	DisposalMethod    *int       `json:"disposal_method"`
-	DisposalResult    *string    `json:"disposal_result"`
-	IsDeleted         *bool      `json:"is_deleted"`
-	UpdatedAt         *time.Time `json:"updated_at"`
-	UpdatedBy         *string    `json:"updated_by"`
-	DeletedAt         *time.Time `json:"deleted_at"`
-	DeletedBy         *string    `json:"deleted_by"`
+	AlarmDataID               string     `json:"alarm_data_id"`
+	AlarmSupervisionPictureID int64      `json:"alarm_supervision_picture_id"`
+	ProcessingContent         *string    `json:"processing_content"`
+	ProcessingTime            *time.Time `json:"processing_time"`
+	ProcessingType            *int       `json:"processing_type"`
+	OperationUser             *string    `json:"operation_user"`
+	IsSmsPush                 *bool      `json:"is_sms_push"`
+	IsNotify                  *bool      `json:"is_notify"`
+	IsAnnounce                *bool      `json:"is_announce"`
+	IsAppPush                 *bool      `json:"is_app_push"`
+	NotifyContent             *string    `json:"notify_content"`
+	AnnounceContent           *string    `json:"announce_content"`
+	AppPushContent            *string    `json:"app_push_content"`
+	DisposalMethod            *int       `json:"disposal_method"`
+	DisposalResult            *string    `json:"disposal_result"`
+	IsDeleted                 *bool      `json:"is_deleted"`
+	CreatedAt                 time.Time  `json:"created_at"`
+	CreatedBy                 string     `json:"created_by"`
+	UpdatedAt                 *time.Time `json:"updated_at"`
+	UpdatedBy                 *string    `json:"updated_by"`
+	DeletedAt                 *time.Time `json:"deleted_at"`
+	DeletedBy                 *string    `json:"deleted_by"`
 }
 
 // aggregate max on columns of table "alarm_processing_record"
@@ -329,20 +333,24 @@ type AlarmSupervisionPictureUploadIncInput struct {
 
 // input type for inserting data into table "alarm_supervision_picture_upload"
 type AlarmSupervisionPictureUploadInsertInput struct {
-	DriverID                *string    `json:"driver_id"`
-	EnterpriseID            *string    `json:"enterprise_id"`
-	CameraID                *int       `json:"camera_id"`
-	PhotoCondition          *string    `json:"photo_condition"`
-	UpdateTime              *time.Time `json:"update_time"`
-	MonitoringPicName       *string    `json:"monitoring_pic_name"`
-	MonitoringPicAddress    *string    `json:"monitoring_pic_address"`
-	MonitoringPicUploadTime *time.Time `json:"monitoring_pic_upload_time"`
-	Imel                    *string    `json:"imel"`
-	SimNumber               *string    `json:"sim_number"`
-	UpdatedAt               *time.Time `json:"updated_at"`
-	UpdatedBy               *string    `json:"updated_by"`
-	DeletedAt               *time.Time `json:"deleted_at"`
-	DeletedBy               *string    `json:"deleted_by"`
+	AlarmSupervisionPictureID string     `json:"alarm_supervision_picture_id"`
+	VehicleID                 string     `json:"vehicle_id"`
+	DriverID                  *string    `json:"driver_id"`
+	EnterpriseID              *string    `json:"enterprise_id"`
+	CameraID                  *int       `json:"camera_id"`
+	PhotoCondition            *string    `json:"photo_condition"`
+	UpdateTime                *time.Time `json:"update_time"`
+	MonitoringPicName         *string    `json:"monitoring_pic_name"`
+	MonitoringPicAddress      *string    `json:"monitoring_pic_address"`
+	MonitoringPicUploadTime   *time.Time `json:"monitoring_pic_upload_time"`
+	Imel                      *string    `json:"imel"`
+	SimNumber                 *string    `json:"sim_number"`
+	CreatedAt                 time.Time  `json:"created_at"`
+	CreatedBy                 string     `json:"created_by"`
+	UpdatedAt                 *time.Time `json:"updated_at"`
+	UpdatedBy                 *string    `json:"updated_by"`
+	DeletedAt                 *time.Time `json:"deleted_at"`
+	DeletedBy                 *string    `json:"deleted_by"`
 }
 
 // aggregate max on columns of table "alarm_supervision_picture_upload"
@@ -538,12 +546,15 @@ type DistrictAlarmContentPushIncInput struct {
 
 // input type for inserting data into table "district_alarm_content_push"
 type DistrictAlarmContentPushInsertInput struct {
+	AlarmDataID  string     `json:"alarm_data_id"`
 	AlarmType    *string    `json:"alarm_type"`
 	AlarmContent *string    `json:"alarm_content"`
 	ProvinceID   *string    `json:"province_id"`
 	CityID       *string    `json:"city_id"`
 	DistrictID   *string    `json:"district_id"`
 	IsDeleted    *bool      `json:"is_deleted"`
+	CreatedAt    time.Time  `json:"created_at"`
+	CreatedBy    string     `json:"created_by"`
 	UpdatedAt    *time.Time `json:"updated_at"`
 	UpdatedBy    *string    `json:"updated_by"`
 	DeletedAt    *time.Time `json:"deleted_at"`
@@ -717,17 +728,20 @@ type EnterpriseAlarmSendPoliceIncInput struct {
 
 // input type for inserting data into table "enterprise_alarm_send_police"
 type EnterpriseAlarmSendPoliceInsertInput struct {
-	EnterpriseID      *string    `json:"enterprise_id"`
-	EnterpriseName    *string    `json:"enterprise_name"`
-	EnterpriseContact *string    `json:"enterprise_contact"`
-	EnterprisePhone   *string    `json:"enterprise_phone"`
-	Police            *string    `json:"police"`
-	PolicePhone       *string    `json:"police_phone"`
-	PhliceDepartment  *string    `json:"phlice_department"`
-	UpdatedAt         *time.Time `json:"updated_at"`
-	UpdatedBy         *string    `json:"updated_by"`
-	DeletedAt         *time.Time `json:"deleted_at"`
-	DeletedBy         *string    `json:"deleted_by"`
+	EnterpriseAlarmSendPoliceID string     `json:"enterprise_alarm_send_police_id"`
+	EnterpriseID                *string    `json:"enterprise_id"`
+	EnterpriseName              *string    `json:"enterprise_name"`
+	EnterpriseContact           *string    `json:"enterprise_contact"`
+	EnterprisePhone             *string    `json:"enterprise_phone"`
+	Police                      *string    `json:"police"`
+	PolicePhone                 *string    `json:"police_phone"`
+	PhliceDepartment            *string    `json:"phlice_department"`
+	CreatedAt                   time.Time  `json:"created_at"`
+	CreatedBy                   string     `json:"created_by"`
+	UpdatedAt                   *time.Time `json:"updated_at"`
+	UpdatedBy                   *string    `json:"updated_by"`
+	DeletedAt                   *time.Time `json:"deleted_at"`
+	DeletedBy                   *string    `json:"deleted_by"`
 }
 
 // aggregate max on columns of table "enterprise_alarm_send_police"
@@ -911,24 +925,28 @@ type OfflineAlarmRegistrationIncInput struct {
 
 // input type for inserting data into table "offline_alarm_registration"
 type OfflineAlarmRegistrationInsertInput struct {
-	OfflineStartTime     *time.Time `json:"offline_start_time"`
-	OfflineEndTime       *time.Time `json:"offline_end_time"`
-	RegistrationUser     *string    `json:"registration_user"`
-	RegistrationTime     *time.Time `json:"registration_time"`
-	SmsContent           *string    `json:"sms_content"`
-	PhoneReminderContent *string    `json:"phone_reminder_content"`
-	SmsSendTime          *time.Time `json:"sms_send_time"`
-	PhoneReminderTime    *time.Time `json:"phone_reminder_time"`
-	OfflineReason        *string    `json:"offline_reason"`
-	AlarmType            *int       `json:"alarm_type"`
-	IsRegistration       *bool      `json:"is_registration"`
-	IsEndAlarm           *bool      `json:"is_end_alarm"`
-	IsSendSms            *bool      `json:"is_send_sms"`
-	IsNeedMaintain       *bool      `json:"is_need_maintain"`
-	UpdatedAt            *time.Time `json:"updated_at"`
-	UpdatedBy            *string    `json:"updated_by"`
-	DeletedAt            *time.Time `json:"deleted_at"`
-	DeletedBy            *string    `json:"deleted_by"`
+	OfflineAlarmRegistrationID string     `json:"offline_alarm_registration_id"`
+	VehicleID                  string     `json:"vehicle_id"`
+	OfflineStartTime           *time.Time `json:"offline_start_time"`
+	OfflineEndTime             *time.Time `json:"offline_end_time"`
+	RegistrationUser           *string    `json:"registration_user"`
+	RegistrationTime           *time.Time `json:"registration_time"`
+	SmsContent                 *string    `json:"sms_content"`
+	PhoneReminderContent       *string    `json:"phone_reminder_content"`
+	SmsSendTime                *time.Time `json:"sms_send_time"`
+	PhoneReminderTime          *time.Time `json:"phone_reminder_time"`
+	OfflineReason              *string    `json:"offline_reason"`
+	AlarmType                  *int       `json:"alarm_type"`
+	IsRegistration             *bool      `json:"is_registration"`
+	IsEndAlarm                 *bool      `json:"is_end_alarm"`
+	IsSendSms                  *bool      `json:"is_send_sms"`
+	IsNeedMaintain             *bool      `json:"is_need_maintain"`
+	CreatedAt                  time.Time  `json:"created_at"`
+	CreatedBy                  string     `json:"created_by"`
+	UpdatedAt                  *time.Time `json:"updated_at"`
+	UpdatedBy                  *string    `json:"updated_by"`
+	DeletedAt                  *time.Time `json:"deleted_at"`
+	DeletedBy                  *string    `json:"deleted_by"`
 }
 
 // aggregate max on columns of table "offline_alarm_registration"
@@ -1180,6 +1198,7 @@ type VehicleAlarmDataIncInput struct {
 
 // input type for inserting data into table "vehicle_alarm_data"
 type VehicleAlarmDataInsertInput struct {
+	VehicleAlarmDataID         string     `json:"vehicle_alarm_data_id"`
 	VehicleID                  *string    `json:"vehicle_id"`
 	AlarmType                  *string    `json:"alarm_type"`
 	AlarmStartTime             *time.Time `json:"alarm_start_time"`
@@ -1216,6 +1235,8 @@ type VehicleAlarmDataInsertInput struct {
 	IsResolve                  *bool      `json:"is_resolve"`
 	IsConstructionSiteHandle   *bool      `json:"is_construction_site_handle"`
 	ConstructionSiteHandleTime *time.Time `json:"construction_site_handle_time"`
+	CreatedAt                  time.Time  `json:"created_at"`
+	CreatedBy                  string     `json:"created_by"`
 	UpdatedAt                  *time.Time `json:"updated_at"`
 	UpdatedBy                  *string    `json:"updated_by"`
 	DeletedAt                  *time.Time `json:"deleted_at"`
@@ -1545,16 +1566,19 @@ type VideoPlatformAlarmTypeIncInput struct {
 
 // input type for inserting data into table "video_platform_alarm_type"
 type VideoPlatformAlarmTypeInsertInput struct {
-	VehicleAlarmDataID *int       `json:"vehicle_alarm_data_id"`
-	AlarmType          *string    `json:"alarm_type"`
-	AlarmSource        *string    `json:"alarm_source"`
-	AlarmClassify      *string    `json:"alarm_classify"`
-	AlarmCode          *string    `json:"alarm_code"`
-	IsDeleted          *bool      `json:"is_deleted"`
-	UpdatedAt          *time.Time `json:"updated_at"`
-	UpdatedBy          *string    `json:"updated_by"`
-	DeletedAt          *time.Time `json:"deleted_at"`
-	DeletedBy          *string    `json:"deleted_by"`
+	VideoPlatformAlarmTypeID string     `json:"video_platform_alarm_type_id"`
+	VehicleAlarmDataID       *int       `json:"vehicle_alarm_data_id"`
+	AlarmType                *string    `json:"alarm_type"`
+	AlarmSource              *string    `json:"alarm_source"`
+	AlarmClassify            *string    `json:"alarm_classify"`
+	AlarmCode                *string    `json:"alarm_code"`
+	IsDeleted                *bool      `json:"is_deleted"`
+	CreatedAt                time.Time  `json:"created_at"`
+	CreatedBy                string     `json:"created_by"`
+	UpdatedAt                *time.Time `json:"updated_at"`
+	UpdatedBy                *string    `json:"updated_by"`
+	DeletedAt                *time.Time `json:"deleted_at"`
+	DeletedBy                *string    `json:"deleted_by"`
 }
 
 // aggregate max on columns of table "video_platform_alarm_type"
@@ -1732,17 +1756,21 @@ type VoiceAlarmRecordIncInput struct {
 
 // input type for inserting data into table "voice_alarm_record"
 type VoiceAlarmRecordInsertInput struct {
-	AlarmTime     *time.Time `json:"alarm_time"`
-	AlarmType     *string    `json:"alarm_type"`
-	RemindTime    *time.Time `json:"remind_time"`
-	RemindContent *string    `json:"remind_content"`
-	InputPerson   *string    `json:"input_person"`
-	InputTime     *time.Time `json:"input_time"`
-	IsSuccess     *bool      `json:"is_success"`
-	UpdatedAt     *time.Time `json:"updated_at"`
-	UpdatedBy     *string    `json:"updated_by"`
-	DeletedAt     *time.Time `json:"deleted_at"`
-	DeletedBy     *string    `json:"deleted_by"`
+	VioceAlarmRecordID string     `json:"vioce_alarm_record_id"`
+	VehicleID          string     `json:"vehicle_id"`
+	AlarmTime          *time.Time `json:"alarm_time"`
+	AlarmType          *string    `json:"alarm_type"`
+	RemindTime         *time.Time `json:"remind_time"`
+	RemindContent      *string    `json:"remind_content"`
+	InputPerson        *string    `json:"input_person"`
+	InputTime          *time.Time `json:"input_time"`
+	IsSuccess          *bool      `json:"is_success"`
+	CreatedAt          time.Time  `json:"created_at"`
+	CreatedBy          string     `json:"created_by"`
+	UpdatedAt          *time.Time `json:"updated_at"`
+	UpdatedBy          *string    `json:"updated_by"`
+	DeletedAt          *time.Time `json:"deleted_at"`
+	DeletedBy          *string    `json:"deleted_by"`
 }
 
 // aggregate max on columns of table "voice_alarm_record"

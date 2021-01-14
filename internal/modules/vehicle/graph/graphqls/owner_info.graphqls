@@ -283,6 +283,7 @@ input OwnerInfoBoolExp {
 input type for inserting data into table "owner_info"
 """
 input OwnerInfoInsertInput {
+	owner_id: String!
 	department_id: String
 	name: String
 	address: String
@@ -296,6 +297,8 @@ input OwnerInfoInsertInput {
 	agent: String
 	operator: String
 	is_deleted: Boolean
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -459,7 +462,7 @@ extend type Mutation {
 	"""
 	update_owner_info(_inc: OwnerInfoIncInput, _set: OwnerInfoSetInput, where: OwnerInfoBoolExp!): OwnerInfoMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_owner_info_by_pk(_inc: OwnerInfoIncInput, _set: OwnerInfoSetInput, id: Bigint!): OwnerInfo
 }

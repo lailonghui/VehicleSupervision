@@ -267,6 +267,8 @@ input AlarmSupervisionPictureUploadBoolExp {
 input type for inserting data into table "alarm_supervision_picture_upload"
 """
 input AlarmSupervisionPictureUploadInsertInput {
+	alarm_supervision_picture_id: String!
+	vehicle_id: String!
 	driver_id: String
 	enterprise_id: String
 	camera_id: Int
@@ -277,6 +279,8 @@ input AlarmSupervisionPictureUploadInsertInput {
 	monitoring_pic_upload_time: Timestamptz
 	imel: String
 	sim_number: String
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -430,7 +434,7 @@ extend type Mutation {
 	"""
 	update_alarm_supervision_picture_upload(_inc: AlarmSupervisionPictureUploadIncInput, _set: AlarmSupervisionPictureUploadSetInput, where: AlarmSupervisionPictureUploadBoolExp!): AlarmSupervisionPictureUploadMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_alarm_supervision_picture_upload_by_pk(_inc: AlarmSupervisionPictureUploadIncInput, _set: AlarmSupervisionPictureUploadSetInput, id: Bigint!): AlarmSupervisionPictureUpload
 }

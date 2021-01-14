@@ -315,6 +315,8 @@ input AlarmProcessingRecordBoolExp {
 input type for inserting data into table "alarm_processing_record"
 """
 input AlarmProcessingRecordInsertInput {
+	alarm_data_id: String!
+	alarm_supervision_picture_id: Bigint!
 	processing_content: String
 	processing_time: Timestamptz
 	processing_type: Int
@@ -329,6 +331,8 @@ input AlarmProcessingRecordInsertInput {
 	disposal_method: Int
 	disposal_result: String
 	is_deleted: Boolean
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -504,7 +508,7 @@ extend type Mutation {
 	"""
 	update_alarm_processing_record(_inc: AlarmProcessingRecordIncInput, _set: AlarmProcessingRecordSetInput, where: AlarmProcessingRecordBoolExp!): AlarmProcessingRecordMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_alarm_processing_record_by_pk(_inc: AlarmProcessingRecordIncInput, _set: AlarmProcessingRecordSetInput, id: Bigint!): AlarmProcessingRecord
 }

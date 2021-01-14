@@ -339,6 +339,7 @@ input DisputeViolationRecordBoolExp {
 input type for inserting data into table "dispute_violation_record"
 """
 input DisputeViolationRecordInsertInput {
+	dispute_violation_id: String!
 	violation_detail_id: String
 	written_application_materials: String
 	labor_contract: String
@@ -358,6 +359,8 @@ input DisputeViolationRecordInsertInput {
 	approve_state: Int
 	update_time_in: Timestamptz
 	contact_address: String
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -557,7 +560,7 @@ extend type Mutation {
 	"""
 	update_dispute_violation_record(_inc: DisputeViolationRecordIncInput, _set: DisputeViolationRecordSetInput, where: DisputeViolationRecordBoolExp!): DisputeViolationRecordMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_dispute_violation_record_by_pk(_inc: DisputeViolationRecordIncInput, _set: DisputeViolationRecordSetInput, id: Bigint!): DisputeViolationRecord
 }

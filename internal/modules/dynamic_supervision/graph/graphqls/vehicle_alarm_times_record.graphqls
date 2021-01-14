@@ -267,6 +267,8 @@ input VehicleAlarmTimesRecordBoolExp {
 input type for inserting data into table "vehicle_alarm_times_record"
 """
 input VehicleAlarmTimesRecordInsertInput {
+	vehicle_alarm_times_record_id: String!
+	vehicle_id: String!
 	alarm_type: String
 	disposal_measure: String
 	disposal_time: Timestamptz
@@ -277,6 +279,8 @@ input VehicleAlarmTimesRecordInsertInput {
 	alarm_times: String
 	remarks: String
 	record_time: Timestamptz
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -407,6 +411,10 @@ extend type Query {
 	主键查询
 	"""
 	vehicle_alarm_times_record_by_pk(id: Bigint!): VehicleAlarmTimesRecord!
+	"""
+	联合主键查询
+	"""
+	vehicle_alarm_times_record_by_union_pk(vehicle_alarm_times_record_id: String!): VehicleAlarmTimesRecord!
 }
 extend type Mutation {
 	"""
@@ -430,7 +438,15 @@ extend type Mutation {
 	"""
 	update_vehicle_alarm_times_record(_inc: VehicleAlarmTimesRecordIncInput, _set: VehicleAlarmTimesRecordSetInput, where: VehicleAlarmTimesRecordBoolExp!): VehicleAlarmTimesRecordMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_vehicle_alarm_times_record_by_pk(_inc: VehicleAlarmTimesRecordIncInput, _set: VehicleAlarmTimesRecordSetInput, id: Bigint!): VehicleAlarmTimesRecord
+	"""
+	根据联合主键更新
+	"""
+	update_vehicle_alarm_times_record_by_union_pk(_inc: VehicleAlarmTimesRecordIncInput, _set: VehicleAlarmTimesRecordSetInput, vehicle_alarm_times_record_id: String!): VehicleAlarmTimesRecord
+	"""
+	根据联合主键删除记录
+	"""
+	delete_vehicle_alarm_times_record_by_union_pk(vehicle_alarm_times_record_id: String!): VehicleAlarmTimesRecord
 }

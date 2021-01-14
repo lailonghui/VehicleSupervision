@@ -299,6 +299,7 @@ input VehicleSaleRecordBoolExp {
 input type for inserting data into table "vehicle_sale_record"
 """
 input VehicleSaleRecordInsertInput {
+	vehicle_sale_record_id: String!
 	seller: String
 	vehicle_model: String
 	vehicle_picture: String
@@ -314,6 +315,8 @@ input VehicleSaleRecordInsertInput {
 	transport_volume: String
 	is_review: Boolean
 	is_deleted: Boolean
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -464,6 +467,10 @@ extend type Query {
 	主键查询
 	"""
 	vehicle_sale_record_by_pk(id: Bigint!): VehicleSaleRecord!
+	"""
+	联合主键查询
+	"""
+	vehicle_sale_record_by_union_pk(vehicle_sale_record_id: String!): VehicleSaleRecord!
 }
 extend type Mutation {
 	"""
@@ -487,7 +494,15 @@ extend type Mutation {
 	"""
 	update_vehicle_sale_record(_inc: VehicleSaleRecordIncInput, _set: VehicleSaleRecordSetInput, where: VehicleSaleRecordBoolExp!): VehicleSaleRecordMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_vehicle_sale_record_by_pk(_inc: VehicleSaleRecordIncInput, _set: VehicleSaleRecordSetInput, id: Bigint!): VehicleSaleRecord
+	"""
+	根据联合主键更新
+	"""
+	update_vehicle_sale_record_by_union_pk(_inc: VehicleSaleRecordIncInput, _set: VehicleSaleRecordSetInput, vehicle_sale_record_id: String!): VehicleSaleRecord
+	"""
+	根据联合主键删除记录
+	"""
+	delete_vehicle_sale_record_by_union_pk(vehicle_sale_record_id: String!): VehicleSaleRecord
 }

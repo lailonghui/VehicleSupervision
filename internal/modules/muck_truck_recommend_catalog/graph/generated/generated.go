@@ -601,60 +601,78 @@ type ComplexityRoot struct {
 	}
 
 	Mutation struct {
-		DeleteMuckTruckPurchaseIntention       func(childComplexity int, where model.MuckTruckPurchaseIntentionBoolExp) int
-		DeleteMuckTruckPurchaseIntentionByPk   func(childComplexity int, id int64) int
-		DeleteMuckTruckSaleOrder               func(childComplexity int, where model.MuckTruckSaleOrderBoolExp) int
-		DeleteMuckTruckSaleOrderByPk           func(childComplexity int, id int64) int
-		DeleteMuckTruckSaleOrderDetail         func(childComplexity int, where model.MuckTruckSaleOrderDetailBoolExp) int
-		DeleteMuckTruckSaleOrderDetailByPk     func(childComplexity int, id int64) int
-		DeleteNewMuckTruckInfo                 func(childComplexity int, where model.NewMuckTruckInfoBoolExp) int
-		DeleteNewMuckTruckInfoByPk             func(childComplexity int, id int64) int
-		DeleteNewMuckTruckPhoto                func(childComplexity int, where model.NewMuckTruckPhotoBoolExp) int
-		DeleteNewMuckTruckPhotoByPk            func(childComplexity int, id int64) int
-		DeleteNewMuckTruckRecommendCatalog     func(childComplexity int, where model.NewMuckTruckRecommendCatalogBoolExp) int
-		DeleteNewMuckTruckRecommendCatalogByPk func(childComplexity int, id int64) int
-		DeleteSellerFiling                     func(childComplexity int, where model.SellerFilingBoolExp) int
-		DeleteSellerFilingByPk                 func(childComplexity int, id int64) int
-		DeleteSellerRatingRecord               func(childComplexity int, where model.SellerRatingRecordBoolExp) int
-		DeleteSellerRatingRecordByPk           func(childComplexity int, id int64) int
-		DeleteVehicleSaleRecord                func(childComplexity int, where model.VehicleSaleRecordBoolExp) int
-		DeleteVehicleSaleRecordByPk            func(childComplexity int, id int64) int
-		InsertMuckTruckPurchaseIntention       func(childComplexity int, objects []*model.MuckTruckPurchaseIntentionInsertInput) int
-		InsertMuckTruckPurchaseIntentionOne    func(childComplexity int, objects model.MuckTruckPurchaseIntentionInsertInput) int
-		InsertMuckTruckSaleOrder               func(childComplexity int, objects []*model.MuckTruckSaleOrderInsertInput) int
-		InsertMuckTruckSaleOrderDetail         func(childComplexity int, objects []*model.MuckTruckSaleOrderDetailInsertInput) int
-		InsertMuckTruckSaleOrderDetailOne      func(childComplexity int, objects model.MuckTruckSaleOrderDetailInsertInput) int
-		InsertMuckTruckSaleOrderOne            func(childComplexity int, objects model.MuckTruckSaleOrderInsertInput) int
-		InsertNewMuckTruckInfo                 func(childComplexity int, objects []*model.NewMuckTruckInfoInsertInput) int
-		InsertNewMuckTruckInfoOne              func(childComplexity int, objects model.NewMuckTruckInfoInsertInput) int
-		InsertNewMuckTruckPhoto                func(childComplexity int, objects []*model.NewMuckTruckPhotoInsertInput) int
-		InsertNewMuckTruckPhotoOne             func(childComplexity int, objects model.NewMuckTruckPhotoInsertInput) int
-		InsertNewMuckTruckRecommendCatalog     func(childComplexity int, objects []*model.NewMuckTruckRecommendCatalogInsertInput) int
-		InsertNewMuckTruckRecommendCatalogOne  func(childComplexity int, objects model.NewMuckTruckRecommendCatalogInsertInput) int
-		InsertSellerFiling                     func(childComplexity int, objects []*model.SellerFilingInsertInput) int
-		InsertSellerFilingOne                  func(childComplexity int, objects model.SellerFilingInsertInput) int
-		InsertSellerRatingRecord               func(childComplexity int, objects []*model.SellerRatingRecordInsertInput) int
-		InsertSellerRatingRecordOne            func(childComplexity int, objects model.SellerRatingRecordInsertInput) int
-		InsertVehicleSaleRecord                func(childComplexity int, objects []*model.VehicleSaleRecordInsertInput) int
-		InsertVehicleSaleRecordOne             func(childComplexity int, objects model.VehicleSaleRecordInsertInput) int
-		UpdateMuckTruckPurchaseIntention       func(childComplexity int, inc *model.MuckTruckPurchaseIntentionIncInput, set *model.MuckTruckPurchaseIntentionSetInput, where model.MuckTruckPurchaseIntentionBoolExp) int
-		UpdateMuckTruckPurchaseIntentionByPk   func(childComplexity int, inc *model.MuckTruckPurchaseIntentionIncInput, set *model.MuckTruckPurchaseIntentionSetInput, id int64) int
-		UpdateMuckTruckSaleOrder               func(childComplexity int, inc *model.MuckTruckSaleOrderIncInput, set *model.MuckTruckSaleOrderSetInput, where model.MuckTruckSaleOrderBoolExp) int
-		UpdateMuckTruckSaleOrderByPk           func(childComplexity int, inc *model.MuckTruckSaleOrderIncInput, set *model.MuckTruckSaleOrderSetInput, id int64) int
-		UpdateMuckTruckSaleOrderDetail         func(childComplexity int, inc *model.MuckTruckSaleOrderDetailIncInput, set *model.MuckTruckSaleOrderDetailSetInput, where model.MuckTruckSaleOrderDetailBoolExp) int
-		UpdateMuckTruckSaleOrderDetailByPk     func(childComplexity int, inc *model.MuckTruckSaleOrderDetailIncInput, set *model.MuckTruckSaleOrderDetailSetInput, id int64) int
-		UpdateNewMuckTruckInfo                 func(childComplexity int, inc *model.NewMuckTruckInfoIncInput, set *model.NewMuckTruckInfoSetInput, where model.NewMuckTruckInfoBoolExp) int
-		UpdateNewMuckTruckInfoByPk             func(childComplexity int, inc *model.NewMuckTruckInfoIncInput, set *model.NewMuckTruckInfoSetInput, id int64) int
-		UpdateNewMuckTruckPhoto                func(childComplexity int, inc *model.NewMuckTruckPhotoIncInput, set *model.NewMuckTruckPhotoSetInput, where model.NewMuckTruckPhotoBoolExp) int
-		UpdateNewMuckTruckPhotoByPk            func(childComplexity int, inc *model.NewMuckTruckPhotoIncInput, set *model.NewMuckTruckPhotoSetInput, id int64) int
-		UpdateNewMuckTruckRecommendCatalog     func(childComplexity int, inc *model.NewMuckTruckRecommendCatalogIncInput, set *model.NewMuckTruckRecommendCatalogSetInput, where model.NewMuckTruckRecommendCatalogBoolExp) int
-		UpdateNewMuckTruckRecommendCatalogByPk func(childComplexity int, inc *model.NewMuckTruckRecommendCatalogIncInput, set *model.NewMuckTruckRecommendCatalogSetInput, id int64) int
-		UpdateSellerFiling                     func(childComplexity int, inc *model.SellerFilingIncInput, set *model.SellerFilingSetInput, where model.SellerFilingBoolExp) int
-		UpdateSellerFilingByPk                 func(childComplexity int, inc *model.SellerFilingIncInput, set *model.SellerFilingSetInput, id int64) int
-		UpdateSellerRatingRecord               func(childComplexity int, inc *model.SellerRatingRecordIncInput, set *model.SellerRatingRecordSetInput, where model.SellerRatingRecordBoolExp) int
-		UpdateSellerRatingRecordByPk           func(childComplexity int, inc *model.SellerRatingRecordIncInput, set *model.SellerRatingRecordSetInput, id int64) int
-		UpdateVehicleSaleRecord                func(childComplexity int, inc *model.VehicleSaleRecordIncInput, set *model.VehicleSaleRecordSetInput, where model.VehicleSaleRecordBoolExp) int
-		UpdateVehicleSaleRecordByPk            func(childComplexity int, inc *model.VehicleSaleRecordIncInput, set *model.VehicleSaleRecordSetInput, id int64) int
+		DeleteMuckTruckPurchaseIntention            func(childComplexity int, where model.MuckTruckPurchaseIntentionBoolExp) int
+		DeleteMuckTruckPurchaseIntentionByPk        func(childComplexity int, id int64) int
+		DeleteMuckTruckPurchaseIntentionByUnionPk   func(childComplexity int, muckTruckPurchaseIntentionID string) int
+		DeleteMuckTruckSaleOrder                    func(childComplexity int, where model.MuckTruckSaleOrderBoolExp) int
+		DeleteMuckTruckSaleOrderByPk                func(childComplexity int, id int64) int
+		DeleteMuckTruckSaleOrderByUnionPk           func(childComplexity int, muckTruckSaleOrderID string) int
+		DeleteMuckTruckSaleOrderDetail              func(childComplexity int, where model.MuckTruckSaleOrderDetailBoolExp) int
+		DeleteMuckTruckSaleOrderDetailByPk          func(childComplexity int, id int64) int
+		DeleteMuckTruckSaleOrderDetailByUnionPk     func(childComplexity int, muckTruckSaleOrderDetailID string) int
+		DeleteNewMuckTruckInfo                      func(childComplexity int, where model.NewMuckTruckInfoBoolExp) int
+		DeleteNewMuckTruckInfoByPk                  func(childComplexity int, id int64) int
+		DeleteNewMuckTruckInfoByUnionPk             func(childComplexity int, newMuckTruckInfoID string) int
+		DeleteNewMuckTruckPhoto                     func(childComplexity int, where model.NewMuckTruckPhotoBoolExp) int
+		DeleteNewMuckTruckPhotoByPk                 func(childComplexity int, id int64) int
+		DeleteNewMuckTruckPhotoByUnionPk            func(childComplexity int, newMuckTruckPhotoID string) int
+		DeleteNewMuckTruckRecommendCatalog          func(childComplexity int, where model.NewMuckTruckRecommendCatalogBoolExp) int
+		DeleteNewMuckTruckRecommendCatalogByPk      func(childComplexity int, id int64) int
+		DeleteNewMuckTruckRecommendCatalogByUnionPk func(childComplexity int, newMuckTruckRecommendCatalogID string) int
+		DeleteSellerFiling                          func(childComplexity int, where model.SellerFilingBoolExp) int
+		DeleteSellerFilingByPk                      func(childComplexity int, id int64) int
+		DeleteSellerFilingByUnionPk                 func(childComplexity int, sellerFilingID string) int
+		DeleteSellerRatingRecord                    func(childComplexity int, where model.SellerRatingRecordBoolExp) int
+		DeleteSellerRatingRecordByPk                func(childComplexity int, id int64) int
+		DeleteSellerRatingRecordByUnionPk           func(childComplexity int, sellerRatingRecordID string) int
+		DeleteVehicleSaleRecord                     func(childComplexity int, where model.VehicleSaleRecordBoolExp) int
+		DeleteVehicleSaleRecordByPk                 func(childComplexity int, id int64) int
+		DeleteVehicleSaleRecordByUnionPk            func(childComplexity int, vehicleSaleRecordID string) int
+		InsertMuckTruckPurchaseIntention            func(childComplexity int, objects []*model.MuckTruckPurchaseIntentionInsertInput) int
+		InsertMuckTruckPurchaseIntentionOne         func(childComplexity int, objects model.MuckTruckPurchaseIntentionInsertInput) int
+		InsertMuckTruckSaleOrder                    func(childComplexity int, objects []*model.MuckTruckSaleOrderInsertInput) int
+		InsertMuckTruckSaleOrderDetail              func(childComplexity int, objects []*model.MuckTruckSaleOrderDetailInsertInput) int
+		InsertMuckTruckSaleOrderDetailOne           func(childComplexity int, objects model.MuckTruckSaleOrderDetailInsertInput) int
+		InsertMuckTruckSaleOrderOne                 func(childComplexity int, objects model.MuckTruckSaleOrderInsertInput) int
+		InsertNewMuckTruckInfo                      func(childComplexity int, objects []*model.NewMuckTruckInfoInsertInput) int
+		InsertNewMuckTruckInfoOne                   func(childComplexity int, objects model.NewMuckTruckInfoInsertInput) int
+		InsertNewMuckTruckPhoto                     func(childComplexity int, objects []*model.NewMuckTruckPhotoInsertInput) int
+		InsertNewMuckTruckPhotoOne                  func(childComplexity int, objects model.NewMuckTruckPhotoInsertInput) int
+		InsertNewMuckTruckRecommendCatalog          func(childComplexity int, objects []*model.NewMuckTruckRecommendCatalogInsertInput) int
+		InsertNewMuckTruckRecommendCatalogOne       func(childComplexity int, objects model.NewMuckTruckRecommendCatalogInsertInput) int
+		InsertSellerFiling                          func(childComplexity int, objects []*model.SellerFilingInsertInput) int
+		InsertSellerFilingOne                       func(childComplexity int, objects model.SellerFilingInsertInput) int
+		InsertSellerRatingRecord                    func(childComplexity int, objects []*model.SellerRatingRecordInsertInput) int
+		InsertSellerRatingRecordOne                 func(childComplexity int, objects model.SellerRatingRecordInsertInput) int
+		InsertVehicleSaleRecord                     func(childComplexity int, objects []*model.VehicleSaleRecordInsertInput) int
+		InsertVehicleSaleRecordOne                  func(childComplexity int, objects model.VehicleSaleRecordInsertInput) int
+		UpdateMuckTruckPurchaseIntention            func(childComplexity int, inc *model.MuckTruckPurchaseIntentionIncInput, set *model.MuckTruckPurchaseIntentionSetInput, where model.MuckTruckPurchaseIntentionBoolExp) int
+		UpdateMuckTruckPurchaseIntentionByPk        func(childComplexity int, inc *model.MuckTruckPurchaseIntentionIncInput, set *model.MuckTruckPurchaseIntentionSetInput, id int64) int
+		UpdateMuckTruckPurchaseIntentionByUnionPk   func(childComplexity int, inc *model.MuckTruckPurchaseIntentionIncInput, set *model.MuckTruckPurchaseIntentionSetInput, muckTruckPurchaseIntentionID string) int
+		UpdateMuckTruckSaleOrder                    func(childComplexity int, inc *model.MuckTruckSaleOrderIncInput, set *model.MuckTruckSaleOrderSetInput, where model.MuckTruckSaleOrderBoolExp) int
+		UpdateMuckTruckSaleOrderByPk                func(childComplexity int, inc *model.MuckTruckSaleOrderIncInput, set *model.MuckTruckSaleOrderSetInput, id int64) int
+		UpdateMuckTruckSaleOrderByUnionPk           func(childComplexity int, inc *model.MuckTruckSaleOrderIncInput, set *model.MuckTruckSaleOrderSetInput, muckTruckSaleOrderID string) int
+		UpdateMuckTruckSaleOrderDetail              func(childComplexity int, inc *model.MuckTruckSaleOrderDetailIncInput, set *model.MuckTruckSaleOrderDetailSetInput, where model.MuckTruckSaleOrderDetailBoolExp) int
+		UpdateMuckTruckSaleOrderDetailByPk          func(childComplexity int, inc *model.MuckTruckSaleOrderDetailIncInput, set *model.MuckTruckSaleOrderDetailSetInput, id int64) int
+		UpdateMuckTruckSaleOrderDetailByUnionPk     func(childComplexity int, inc *model.MuckTruckSaleOrderDetailIncInput, set *model.MuckTruckSaleOrderDetailSetInput, muckTruckSaleOrderDetailID string) int
+		UpdateNewMuckTruckInfo                      func(childComplexity int, inc *model.NewMuckTruckInfoIncInput, set *model.NewMuckTruckInfoSetInput, where model.NewMuckTruckInfoBoolExp) int
+		UpdateNewMuckTruckInfoByPk                  func(childComplexity int, inc *model.NewMuckTruckInfoIncInput, set *model.NewMuckTruckInfoSetInput, id int64) int
+		UpdateNewMuckTruckInfoByUnionPk             func(childComplexity int, inc *model.NewMuckTruckInfoIncInput, set *model.NewMuckTruckInfoSetInput, newMuckTruckInfoID string) int
+		UpdateNewMuckTruckPhoto                     func(childComplexity int, inc *model.NewMuckTruckPhotoIncInput, set *model.NewMuckTruckPhotoSetInput, where model.NewMuckTruckPhotoBoolExp) int
+		UpdateNewMuckTruckPhotoByPk                 func(childComplexity int, inc *model.NewMuckTruckPhotoIncInput, set *model.NewMuckTruckPhotoSetInput, id int64) int
+		UpdateNewMuckTruckPhotoByUnionPk            func(childComplexity int, inc *model.NewMuckTruckPhotoIncInput, set *model.NewMuckTruckPhotoSetInput, newMuckTruckPhotoID string) int
+		UpdateNewMuckTruckRecommendCatalog          func(childComplexity int, inc *model.NewMuckTruckRecommendCatalogIncInput, set *model.NewMuckTruckRecommendCatalogSetInput, where model.NewMuckTruckRecommendCatalogBoolExp) int
+		UpdateNewMuckTruckRecommendCatalogByPk      func(childComplexity int, inc *model.NewMuckTruckRecommendCatalogIncInput, set *model.NewMuckTruckRecommendCatalogSetInput, id int64) int
+		UpdateNewMuckTruckRecommendCatalogByUnionPk func(childComplexity int, inc *model.NewMuckTruckRecommendCatalogIncInput, set *model.NewMuckTruckRecommendCatalogSetInput, newMuckTruckRecommendCatalogID string) int
+		UpdateSellerFiling                          func(childComplexity int, inc *model.SellerFilingIncInput, set *model.SellerFilingSetInput, where model.SellerFilingBoolExp) int
+		UpdateSellerFilingByPk                      func(childComplexity int, inc *model.SellerFilingIncInput, set *model.SellerFilingSetInput, id int64) int
+		UpdateSellerFilingByUnionPk                 func(childComplexity int, inc *model.SellerFilingIncInput, set *model.SellerFilingSetInput, sellerFilingID string) int
+		UpdateSellerRatingRecord                    func(childComplexity int, inc *model.SellerRatingRecordIncInput, set *model.SellerRatingRecordSetInput, where model.SellerRatingRecordBoolExp) int
+		UpdateSellerRatingRecordByPk                func(childComplexity int, inc *model.SellerRatingRecordIncInput, set *model.SellerRatingRecordSetInput, id int64) int
+		UpdateSellerRatingRecordByUnionPk           func(childComplexity int, inc *model.SellerRatingRecordIncInput, set *model.SellerRatingRecordSetInput, sellerRatingRecordID string) int
+		UpdateVehicleSaleRecord                     func(childComplexity int, inc *model.VehicleSaleRecordIncInput, set *model.VehicleSaleRecordSetInput, where model.VehicleSaleRecordBoolExp) int
+		UpdateVehicleSaleRecordByPk                 func(childComplexity int, inc *model.VehicleSaleRecordIncInput, set *model.VehicleSaleRecordSetInput, id int64) int
+		UpdateVehicleSaleRecordByUnionPk            func(childComplexity int, inc *model.VehicleSaleRecordIncInput, set *model.VehicleSaleRecordSetInput, vehicleSaleRecordID string) int
 	}
 
 	NewMuckTruckInfo struct {
@@ -967,30 +985,39 @@ type ComplexityRoot struct {
 		MuckTruckPurchaseIntention            func(childComplexity int, distinctOn []model.MuckTruckPurchaseIntentionSelectColumn, limit *int, offset *int, orderBy []*model.MuckTruckPurchaseIntentionOrderBy, where *model.MuckTruckPurchaseIntentionBoolExp) int
 		MuckTruckPurchaseIntentionAggregate   func(childComplexity int, distinctOn []model.MuckTruckPurchaseIntentionSelectColumn, limit *int, offset *int, orderBy []*model.MuckTruckPurchaseIntentionOrderBy, where *model.MuckTruckPurchaseIntentionBoolExp) int
 		MuckTruckPurchaseIntentionByPk        func(childComplexity int, id int64) int
+		MuckTruckPurchaseIntentionByUnionPk   func(childComplexity int, muckTruckPurchaseIntentionID string) int
 		MuckTruckSaleOrder                    func(childComplexity int, distinctOn []model.MuckTruckSaleOrderSelectColumn, limit *int, offset *int, orderBy []*model.MuckTruckSaleOrderOrderBy, where *model.MuckTruckSaleOrderBoolExp) int
 		MuckTruckSaleOrderAggregate           func(childComplexity int, distinctOn []model.MuckTruckSaleOrderSelectColumn, limit *int, offset *int, orderBy []*model.MuckTruckSaleOrderOrderBy, where *model.MuckTruckSaleOrderBoolExp) int
 		MuckTruckSaleOrderByPk                func(childComplexity int, id int64) int
+		MuckTruckSaleOrderByUnionPk           func(childComplexity int, muckTruckSaleOrderID string) int
 		MuckTruckSaleOrderDetail              func(childComplexity int, distinctOn []model.MuckTruckSaleOrderDetailSelectColumn, limit *int, offset *int, orderBy []*model.MuckTruckSaleOrderDetailOrderBy, where *model.MuckTruckSaleOrderDetailBoolExp) int
 		MuckTruckSaleOrderDetailAggregate     func(childComplexity int, distinctOn []model.MuckTruckSaleOrderDetailSelectColumn, limit *int, offset *int, orderBy []*model.MuckTruckSaleOrderDetailOrderBy, where *model.MuckTruckSaleOrderDetailBoolExp) int
 		MuckTruckSaleOrderDetailByPk          func(childComplexity int, id int64) int
+		MuckTruckSaleOrderDetailByUnionPk     func(childComplexity int, muckTruckSaleOrderDetailID string) int
 		NewMuckTruckInfo                      func(childComplexity int, distinctOn []model.NewMuckTruckInfoSelectColumn, limit *int, offset *int, orderBy []*model.NewMuckTruckInfoOrderBy, where *model.NewMuckTruckInfoBoolExp) int
 		NewMuckTruckInfoAggregate             func(childComplexity int, distinctOn []model.NewMuckTruckInfoSelectColumn, limit *int, offset *int, orderBy []*model.NewMuckTruckInfoOrderBy, where *model.NewMuckTruckInfoBoolExp) int
 		NewMuckTruckInfoByPk                  func(childComplexity int, id int64) int
+		NewMuckTruckInfoByUnionPk             func(childComplexity int, newMuckTruckInfoID string) int
 		NewMuckTruckPhoto                     func(childComplexity int, distinctOn []model.NewMuckTruckPhotoSelectColumn, limit *int, offset *int, orderBy []*model.NewMuckTruckPhotoOrderBy, where *model.NewMuckTruckPhotoBoolExp) int
 		NewMuckTruckPhotoAggregate            func(childComplexity int, distinctOn []model.NewMuckTruckPhotoSelectColumn, limit *int, offset *int, orderBy []*model.NewMuckTruckPhotoOrderBy, where *model.NewMuckTruckPhotoBoolExp) int
 		NewMuckTruckPhotoByPk                 func(childComplexity int, id int64) int
+		NewMuckTruckPhotoByUnionPk            func(childComplexity int, newMuckTruckPhotoID string) int
 		NewMuckTruckRecommendCatalog          func(childComplexity int, distinctOn []model.NewMuckTruckRecommendCatalogSelectColumn, limit *int, offset *int, orderBy []*model.NewMuckTruckRecommendCatalogOrderBy, where *model.NewMuckTruckRecommendCatalogBoolExp) int
 		NewMuckTruckRecommendCatalogAggregate func(childComplexity int, distinctOn []model.NewMuckTruckRecommendCatalogSelectColumn, limit *int, offset *int, orderBy []*model.NewMuckTruckRecommendCatalogOrderBy, where *model.NewMuckTruckRecommendCatalogBoolExp) int
 		NewMuckTruckRecommendCatalogByPk      func(childComplexity int, id int64) int
+		NewMuckTruckRecommendCatalogByUnionPk func(childComplexity int, newMuckTruckRecommendCatalogID string) int
 		SellerFiling                          func(childComplexity int, distinctOn []model.SellerFilingSelectColumn, limit *int, offset *int, orderBy []*model.SellerFilingOrderBy, where *model.SellerFilingBoolExp) int
 		SellerFilingAggregate                 func(childComplexity int, distinctOn []model.SellerFilingSelectColumn, limit *int, offset *int, orderBy []*model.SellerFilingOrderBy, where *model.SellerFilingBoolExp) int
 		SellerFilingByPk                      func(childComplexity int, id int64) int
+		SellerFilingByUnionPk                 func(childComplexity int, sellerFilingID string) int
 		SellerRatingRecord                    func(childComplexity int, distinctOn []model.SellerRatingRecordSelectColumn, limit *int, offset *int, orderBy []*model.SellerRatingRecordOrderBy, where *model.SellerRatingRecordBoolExp) int
 		SellerRatingRecordAggregate           func(childComplexity int, distinctOn []model.SellerRatingRecordSelectColumn, limit *int, offset *int, orderBy []*model.SellerRatingRecordOrderBy, where *model.SellerRatingRecordBoolExp) int
 		SellerRatingRecordByPk                func(childComplexity int, id int64) int
+		SellerRatingRecordByUnionPk           func(childComplexity int, sellerRatingRecordID string) int
 		VehicleSaleRecord                     func(childComplexity int, distinctOn []model.VehicleSaleRecordSelectColumn, limit *int, offset *int, orderBy []*model.VehicleSaleRecordOrderBy, where *model.VehicleSaleRecordBoolExp) int
 		VehicleSaleRecordAggregate            func(childComplexity int, distinctOn []model.VehicleSaleRecordSelectColumn, limit *int, offset *int, orderBy []*model.VehicleSaleRecordOrderBy, where *model.VehicleSaleRecordBoolExp) int
 		VehicleSaleRecordByPk                 func(childComplexity int, id int64) int
+		VehicleSaleRecordByUnionPk            func(childComplexity int, vehicleSaleRecordID string) int
 	}
 
 	SellerFiling struct {
@@ -1416,83 +1443,110 @@ type MutationResolver interface {
 	InsertMuckTruckPurchaseIntentionOne(ctx context.Context, objects model.MuckTruckPurchaseIntentionInsertInput) (*model1.MuckTruckPurchaseIntention, error)
 	UpdateMuckTruckPurchaseIntention(ctx context.Context, inc *model.MuckTruckPurchaseIntentionIncInput, set *model.MuckTruckPurchaseIntentionSetInput, where model.MuckTruckPurchaseIntentionBoolExp) (*model.MuckTruckPurchaseIntentionMutationResponse, error)
 	UpdateMuckTruckPurchaseIntentionByPk(ctx context.Context, inc *model.MuckTruckPurchaseIntentionIncInput, set *model.MuckTruckPurchaseIntentionSetInput, id int64) (*model1.MuckTruckPurchaseIntention, error)
+	UpdateMuckTruckPurchaseIntentionByUnionPk(ctx context.Context, inc *model.MuckTruckPurchaseIntentionIncInput, set *model.MuckTruckPurchaseIntentionSetInput, muckTruckPurchaseIntentionID string) (*model1.MuckTruckPurchaseIntention, error)
+	DeleteMuckTruckPurchaseIntentionByUnionPk(ctx context.Context, muckTruckPurchaseIntentionID string) (*model1.MuckTruckPurchaseIntention, error)
 	DeleteMuckTruckSaleOrder(ctx context.Context, where model.MuckTruckSaleOrderBoolExp) (*model.MuckTruckSaleOrderMutationResponse, error)
 	DeleteMuckTruckSaleOrderByPk(ctx context.Context, id int64) (*model1.MuckTruckSaleOrder, error)
 	InsertMuckTruckSaleOrder(ctx context.Context, objects []*model.MuckTruckSaleOrderInsertInput) (*model.MuckTruckSaleOrderMutationResponse, error)
 	InsertMuckTruckSaleOrderOne(ctx context.Context, objects model.MuckTruckSaleOrderInsertInput) (*model1.MuckTruckSaleOrder, error)
 	UpdateMuckTruckSaleOrder(ctx context.Context, inc *model.MuckTruckSaleOrderIncInput, set *model.MuckTruckSaleOrderSetInput, where model.MuckTruckSaleOrderBoolExp) (*model.MuckTruckSaleOrderMutationResponse, error)
 	UpdateMuckTruckSaleOrderByPk(ctx context.Context, inc *model.MuckTruckSaleOrderIncInput, set *model.MuckTruckSaleOrderSetInput, id int64) (*model1.MuckTruckSaleOrder, error)
+	UpdateMuckTruckSaleOrderByUnionPk(ctx context.Context, inc *model.MuckTruckSaleOrderIncInput, set *model.MuckTruckSaleOrderSetInput, muckTruckSaleOrderID string) (*model1.MuckTruckSaleOrder, error)
+	DeleteMuckTruckSaleOrderByUnionPk(ctx context.Context, muckTruckSaleOrderID string) (*model1.MuckTruckSaleOrder, error)
 	DeleteMuckTruckSaleOrderDetail(ctx context.Context, where model.MuckTruckSaleOrderDetailBoolExp) (*model.MuckTruckSaleOrderDetailMutationResponse, error)
 	DeleteMuckTruckSaleOrderDetailByPk(ctx context.Context, id int64) (*model1.MuckTruckSaleOrderDetail, error)
 	InsertMuckTruckSaleOrderDetail(ctx context.Context, objects []*model.MuckTruckSaleOrderDetailInsertInput) (*model.MuckTruckSaleOrderDetailMutationResponse, error)
 	InsertMuckTruckSaleOrderDetailOne(ctx context.Context, objects model.MuckTruckSaleOrderDetailInsertInput) (*model1.MuckTruckSaleOrderDetail, error)
 	UpdateMuckTruckSaleOrderDetail(ctx context.Context, inc *model.MuckTruckSaleOrderDetailIncInput, set *model.MuckTruckSaleOrderDetailSetInput, where model.MuckTruckSaleOrderDetailBoolExp) (*model.MuckTruckSaleOrderDetailMutationResponse, error)
 	UpdateMuckTruckSaleOrderDetailByPk(ctx context.Context, inc *model.MuckTruckSaleOrderDetailIncInput, set *model.MuckTruckSaleOrderDetailSetInput, id int64) (*model1.MuckTruckSaleOrderDetail, error)
+	UpdateMuckTruckSaleOrderDetailByUnionPk(ctx context.Context, inc *model.MuckTruckSaleOrderDetailIncInput, set *model.MuckTruckSaleOrderDetailSetInput, muckTruckSaleOrderDetailID string) (*model1.MuckTruckSaleOrderDetail, error)
+	DeleteMuckTruckSaleOrderDetailByUnionPk(ctx context.Context, muckTruckSaleOrderDetailID string) (*model1.MuckTruckSaleOrderDetail, error)
 	DeleteNewMuckTruckInfo(ctx context.Context, where model.NewMuckTruckInfoBoolExp) (*model.NewMuckTruckInfoMutationResponse, error)
 	DeleteNewMuckTruckInfoByPk(ctx context.Context, id int64) (*model1.NewMuckTruckInfo, error)
 	InsertNewMuckTruckInfo(ctx context.Context, objects []*model.NewMuckTruckInfoInsertInput) (*model.NewMuckTruckInfoMutationResponse, error)
 	InsertNewMuckTruckInfoOne(ctx context.Context, objects model.NewMuckTruckInfoInsertInput) (*model1.NewMuckTruckInfo, error)
 	UpdateNewMuckTruckInfo(ctx context.Context, inc *model.NewMuckTruckInfoIncInput, set *model.NewMuckTruckInfoSetInput, where model.NewMuckTruckInfoBoolExp) (*model.NewMuckTruckInfoMutationResponse, error)
 	UpdateNewMuckTruckInfoByPk(ctx context.Context, inc *model.NewMuckTruckInfoIncInput, set *model.NewMuckTruckInfoSetInput, id int64) (*model1.NewMuckTruckInfo, error)
+	UpdateNewMuckTruckInfoByUnionPk(ctx context.Context, inc *model.NewMuckTruckInfoIncInput, set *model.NewMuckTruckInfoSetInput, newMuckTruckInfoID string) (*model1.NewMuckTruckInfo, error)
+	DeleteNewMuckTruckInfoByUnionPk(ctx context.Context, newMuckTruckInfoID string) (*model1.NewMuckTruckInfo, error)
 	DeleteNewMuckTruckPhoto(ctx context.Context, where model.NewMuckTruckPhotoBoolExp) (*model.NewMuckTruckPhotoMutationResponse, error)
 	DeleteNewMuckTruckPhotoByPk(ctx context.Context, id int64) (*model1.NewMuckTruckPhoto, error)
 	InsertNewMuckTruckPhoto(ctx context.Context, objects []*model.NewMuckTruckPhotoInsertInput) (*model.NewMuckTruckPhotoMutationResponse, error)
 	InsertNewMuckTruckPhotoOne(ctx context.Context, objects model.NewMuckTruckPhotoInsertInput) (*model1.NewMuckTruckPhoto, error)
 	UpdateNewMuckTruckPhoto(ctx context.Context, inc *model.NewMuckTruckPhotoIncInput, set *model.NewMuckTruckPhotoSetInput, where model.NewMuckTruckPhotoBoolExp) (*model.NewMuckTruckPhotoMutationResponse, error)
 	UpdateNewMuckTruckPhotoByPk(ctx context.Context, inc *model.NewMuckTruckPhotoIncInput, set *model.NewMuckTruckPhotoSetInput, id int64) (*model1.NewMuckTruckPhoto, error)
+	UpdateNewMuckTruckPhotoByUnionPk(ctx context.Context, inc *model.NewMuckTruckPhotoIncInput, set *model.NewMuckTruckPhotoSetInput, newMuckTruckPhotoID string) (*model1.NewMuckTruckPhoto, error)
+	DeleteNewMuckTruckPhotoByUnionPk(ctx context.Context, newMuckTruckPhotoID string) (*model1.NewMuckTruckPhoto, error)
 	DeleteNewMuckTruckRecommendCatalog(ctx context.Context, where model.NewMuckTruckRecommendCatalogBoolExp) (*model.NewMuckTruckRecommendCatalogMutationResponse, error)
 	DeleteNewMuckTruckRecommendCatalogByPk(ctx context.Context, id int64) (*model1.NewMuckTruckRecommendCatalog, error)
 	InsertNewMuckTruckRecommendCatalog(ctx context.Context, objects []*model.NewMuckTruckRecommendCatalogInsertInput) (*model.NewMuckTruckRecommendCatalogMutationResponse, error)
 	InsertNewMuckTruckRecommendCatalogOne(ctx context.Context, objects model.NewMuckTruckRecommendCatalogInsertInput) (*model1.NewMuckTruckRecommendCatalog, error)
 	UpdateNewMuckTruckRecommendCatalog(ctx context.Context, inc *model.NewMuckTruckRecommendCatalogIncInput, set *model.NewMuckTruckRecommendCatalogSetInput, where model.NewMuckTruckRecommendCatalogBoolExp) (*model.NewMuckTruckRecommendCatalogMutationResponse, error)
 	UpdateNewMuckTruckRecommendCatalogByPk(ctx context.Context, inc *model.NewMuckTruckRecommendCatalogIncInput, set *model.NewMuckTruckRecommendCatalogSetInput, id int64) (*model1.NewMuckTruckRecommendCatalog, error)
+	UpdateNewMuckTruckRecommendCatalogByUnionPk(ctx context.Context, inc *model.NewMuckTruckRecommendCatalogIncInput, set *model.NewMuckTruckRecommendCatalogSetInput, newMuckTruckRecommendCatalogID string) (*model1.NewMuckTruckRecommendCatalog, error)
+	DeleteNewMuckTruckRecommendCatalogByUnionPk(ctx context.Context, newMuckTruckRecommendCatalogID string) (*model1.NewMuckTruckRecommendCatalog, error)
 	DeleteSellerFiling(ctx context.Context, where model.SellerFilingBoolExp) (*model.SellerFilingMutationResponse, error)
 	DeleteSellerFilingByPk(ctx context.Context, id int64) (*model1.SellerFiling, error)
 	InsertSellerFiling(ctx context.Context, objects []*model.SellerFilingInsertInput) (*model.SellerFilingMutationResponse, error)
 	InsertSellerFilingOne(ctx context.Context, objects model.SellerFilingInsertInput) (*model1.SellerFiling, error)
 	UpdateSellerFiling(ctx context.Context, inc *model.SellerFilingIncInput, set *model.SellerFilingSetInput, where model.SellerFilingBoolExp) (*model.SellerFilingMutationResponse, error)
 	UpdateSellerFilingByPk(ctx context.Context, inc *model.SellerFilingIncInput, set *model.SellerFilingSetInput, id int64) (*model1.SellerFiling, error)
+	UpdateSellerFilingByUnionPk(ctx context.Context, inc *model.SellerFilingIncInput, set *model.SellerFilingSetInput, sellerFilingID string) (*model1.SellerFiling, error)
+	DeleteSellerFilingByUnionPk(ctx context.Context, sellerFilingID string) (*model1.SellerFiling, error)
 	DeleteSellerRatingRecord(ctx context.Context, where model.SellerRatingRecordBoolExp) (*model.SellerRatingRecordMutationResponse, error)
 	DeleteSellerRatingRecordByPk(ctx context.Context, id int64) (*model1.SellerRatingRecord, error)
 	InsertSellerRatingRecord(ctx context.Context, objects []*model.SellerRatingRecordInsertInput) (*model.SellerRatingRecordMutationResponse, error)
 	InsertSellerRatingRecordOne(ctx context.Context, objects model.SellerRatingRecordInsertInput) (*model1.SellerRatingRecord, error)
 	UpdateSellerRatingRecord(ctx context.Context, inc *model.SellerRatingRecordIncInput, set *model.SellerRatingRecordSetInput, where model.SellerRatingRecordBoolExp) (*model.SellerRatingRecordMutationResponse, error)
 	UpdateSellerRatingRecordByPk(ctx context.Context, inc *model.SellerRatingRecordIncInput, set *model.SellerRatingRecordSetInput, id int64) (*model1.SellerRatingRecord, error)
+	UpdateSellerRatingRecordByUnionPk(ctx context.Context, inc *model.SellerRatingRecordIncInput, set *model.SellerRatingRecordSetInput, sellerRatingRecordID string) (*model1.SellerRatingRecord, error)
+	DeleteSellerRatingRecordByUnionPk(ctx context.Context, sellerRatingRecordID string) (*model1.SellerRatingRecord, error)
 	DeleteVehicleSaleRecord(ctx context.Context, where model.VehicleSaleRecordBoolExp) (*model.VehicleSaleRecordMutationResponse, error)
 	DeleteVehicleSaleRecordByPk(ctx context.Context, id int64) (*model1.VehicleSaleRecord, error)
 	InsertVehicleSaleRecord(ctx context.Context, objects []*model.VehicleSaleRecordInsertInput) (*model.VehicleSaleRecordMutationResponse, error)
 	InsertVehicleSaleRecordOne(ctx context.Context, objects model.VehicleSaleRecordInsertInput) (*model1.VehicleSaleRecord, error)
 	UpdateVehicleSaleRecord(ctx context.Context, inc *model.VehicleSaleRecordIncInput, set *model.VehicleSaleRecordSetInput, where model.VehicleSaleRecordBoolExp) (*model.VehicleSaleRecordMutationResponse, error)
 	UpdateVehicleSaleRecordByPk(ctx context.Context, inc *model.VehicleSaleRecordIncInput, set *model.VehicleSaleRecordSetInput, id int64) (*model1.VehicleSaleRecord, error)
+	UpdateVehicleSaleRecordByUnionPk(ctx context.Context, inc *model.VehicleSaleRecordIncInput, set *model.VehicleSaleRecordSetInput, vehicleSaleRecordID string) (*model1.VehicleSaleRecord, error)
+	DeleteVehicleSaleRecordByUnionPk(ctx context.Context, vehicleSaleRecordID string) (*model1.VehicleSaleRecord, error)
 }
 type QueryResolver interface {
 	MuckTruckPurchaseIntention(ctx context.Context, distinctOn []model.MuckTruckPurchaseIntentionSelectColumn, limit *int, offset *int, orderBy []*model.MuckTruckPurchaseIntentionOrderBy, where *model.MuckTruckPurchaseIntentionBoolExp) ([]*model1.MuckTruckPurchaseIntention, error)
 	MuckTruckPurchaseIntentionAggregate(ctx context.Context, distinctOn []model.MuckTruckPurchaseIntentionSelectColumn, limit *int, offset *int, orderBy []*model.MuckTruckPurchaseIntentionOrderBy, where *model.MuckTruckPurchaseIntentionBoolExp) (*model.MuckTruckPurchaseIntentionAggregate, error)
 	MuckTruckPurchaseIntentionByPk(ctx context.Context, id int64) (*model1.MuckTruckPurchaseIntention, error)
+	MuckTruckPurchaseIntentionByUnionPk(ctx context.Context, muckTruckPurchaseIntentionID string) (*model1.MuckTruckPurchaseIntention, error)
 	MuckTruckSaleOrder(ctx context.Context, distinctOn []model.MuckTruckSaleOrderSelectColumn, limit *int, offset *int, orderBy []*model.MuckTruckSaleOrderOrderBy, where *model.MuckTruckSaleOrderBoolExp) ([]*model1.MuckTruckSaleOrder, error)
 	MuckTruckSaleOrderAggregate(ctx context.Context, distinctOn []model.MuckTruckSaleOrderSelectColumn, limit *int, offset *int, orderBy []*model.MuckTruckSaleOrderOrderBy, where *model.MuckTruckSaleOrderBoolExp) (*model.MuckTruckSaleOrderAggregate, error)
 	MuckTruckSaleOrderByPk(ctx context.Context, id int64) (*model1.MuckTruckSaleOrder, error)
+	MuckTruckSaleOrderByUnionPk(ctx context.Context, muckTruckSaleOrderID string) (*model1.MuckTruckSaleOrder, error)
 	MuckTruckSaleOrderDetail(ctx context.Context, distinctOn []model.MuckTruckSaleOrderDetailSelectColumn, limit *int, offset *int, orderBy []*model.MuckTruckSaleOrderDetailOrderBy, where *model.MuckTruckSaleOrderDetailBoolExp) ([]*model1.MuckTruckSaleOrderDetail, error)
 	MuckTruckSaleOrderDetailAggregate(ctx context.Context, distinctOn []model.MuckTruckSaleOrderDetailSelectColumn, limit *int, offset *int, orderBy []*model.MuckTruckSaleOrderDetailOrderBy, where *model.MuckTruckSaleOrderDetailBoolExp) (*model.MuckTruckSaleOrderDetailAggregate, error)
 	MuckTruckSaleOrderDetailByPk(ctx context.Context, id int64) (*model1.MuckTruckSaleOrderDetail, error)
+	MuckTruckSaleOrderDetailByUnionPk(ctx context.Context, muckTruckSaleOrderDetailID string) (*model1.MuckTruckSaleOrderDetail, error)
 	NewMuckTruckInfo(ctx context.Context, distinctOn []model.NewMuckTruckInfoSelectColumn, limit *int, offset *int, orderBy []*model.NewMuckTruckInfoOrderBy, where *model.NewMuckTruckInfoBoolExp) ([]*model1.NewMuckTruckInfo, error)
 	NewMuckTruckInfoAggregate(ctx context.Context, distinctOn []model.NewMuckTruckInfoSelectColumn, limit *int, offset *int, orderBy []*model.NewMuckTruckInfoOrderBy, where *model.NewMuckTruckInfoBoolExp) (*model.NewMuckTruckInfoAggregate, error)
 	NewMuckTruckInfoByPk(ctx context.Context, id int64) (*model1.NewMuckTruckInfo, error)
+	NewMuckTruckInfoByUnionPk(ctx context.Context, newMuckTruckInfoID string) (*model1.NewMuckTruckInfo, error)
 	NewMuckTruckPhoto(ctx context.Context, distinctOn []model.NewMuckTruckPhotoSelectColumn, limit *int, offset *int, orderBy []*model.NewMuckTruckPhotoOrderBy, where *model.NewMuckTruckPhotoBoolExp) ([]*model1.NewMuckTruckPhoto, error)
 	NewMuckTruckPhotoAggregate(ctx context.Context, distinctOn []model.NewMuckTruckPhotoSelectColumn, limit *int, offset *int, orderBy []*model.NewMuckTruckPhotoOrderBy, where *model.NewMuckTruckPhotoBoolExp) (*model.NewMuckTruckPhotoAggregate, error)
 	NewMuckTruckPhotoByPk(ctx context.Context, id int64) (*model1.NewMuckTruckPhoto, error)
+	NewMuckTruckPhotoByUnionPk(ctx context.Context, newMuckTruckPhotoID string) (*model1.NewMuckTruckPhoto, error)
 	NewMuckTruckRecommendCatalog(ctx context.Context, distinctOn []model.NewMuckTruckRecommendCatalogSelectColumn, limit *int, offset *int, orderBy []*model.NewMuckTruckRecommendCatalogOrderBy, where *model.NewMuckTruckRecommendCatalogBoolExp) ([]*model1.NewMuckTruckRecommendCatalog, error)
 	NewMuckTruckRecommendCatalogAggregate(ctx context.Context, distinctOn []model.NewMuckTruckRecommendCatalogSelectColumn, limit *int, offset *int, orderBy []*model.NewMuckTruckRecommendCatalogOrderBy, where *model.NewMuckTruckRecommendCatalogBoolExp) (*model.NewMuckTruckRecommendCatalogAggregate, error)
 	NewMuckTruckRecommendCatalogByPk(ctx context.Context, id int64) (*model1.NewMuckTruckRecommendCatalog, error)
+	NewMuckTruckRecommendCatalogByUnionPk(ctx context.Context, newMuckTruckRecommendCatalogID string) (*model1.NewMuckTruckRecommendCatalog, error)
 	SellerFiling(ctx context.Context, distinctOn []model.SellerFilingSelectColumn, limit *int, offset *int, orderBy []*model.SellerFilingOrderBy, where *model.SellerFilingBoolExp) ([]*model1.SellerFiling, error)
 	SellerFilingAggregate(ctx context.Context, distinctOn []model.SellerFilingSelectColumn, limit *int, offset *int, orderBy []*model.SellerFilingOrderBy, where *model.SellerFilingBoolExp) (*model.SellerFilingAggregate, error)
 	SellerFilingByPk(ctx context.Context, id int64) (*model1.SellerFiling, error)
+	SellerFilingByUnionPk(ctx context.Context, sellerFilingID string) (*model1.SellerFiling, error)
 	SellerRatingRecord(ctx context.Context, distinctOn []model.SellerRatingRecordSelectColumn, limit *int, offset *int, orderBy []*model.SellerRatingRecordOrderBy, where *model.SellerRatingRecordBoolExp) ([]*model1.SellerRatingRecord, error)
 	SellerRatingRecordAggregate(ctx context.Context, distinctOn []model.SellerRatingRecordSelectColumn, limit *int, offset *int, orderBy []*model.SellerRatingRecordOrderBy, where *model.SellerRatingRecordBoolExp) (*model.SellerRatingRecordAggregate, error)
 	SellerRatingRecordByPk(ctx context.Context, id int64) (*model1.SellerRatingRecord, error)
+	SellerRatingRecordByUnionPk(ctx context.Context, sellerRatingRecordID string) (*model1.SellerRatingRecord, error)
 	VehicleSaleRecord(ctx context.Context, distinctOn []model.VehicleSaleRecordSelectColumn, limit *int, offset *int, orderBy []*model.VehicleSaleRecordOrderBy, where *model.VehicleSaleRecordBoolExp) ([]*model1.VehicleSaleRecord, error)
 	VehicleSaleRecordAggregate(ctx context.Context, distinctOn []model.VehicleSaleRecordSelectColumn, limit *int, offset *int, orderBy []*model.VehicleSaleRecordOrderBy, where *model.VehicleSaleRecordBoolExp) (*model.VehicleSaleRecordAggregate, error)
 	VehicleSaleRecordByPk(ctx context.Context, id int64) (*model1.VehicleSaleRecord, error)
+	VehicleSaleRecordByUnionPk(ctx context.Context, vehicleSaleRecordID string) (*model1.VehicleSaleRecord, error)
 }
 
 type executableSchema struct {
@@ -4523,6 +4577,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.DeleteMuckTruckPurchaseIntentionByPk(childComplexity, args["id"].(int64)), true
 
+	case "Mutation.delete_muck_truck_purchase_intention_by_union_pk":
+		if e.complexity.Mutation.DeleteMuckTruckPurchaseIntentionByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_delete_muck_truck_purchase_intention_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.DeleteMuckTruckPurchaseIntentionByUnionPk(childComplexity, args["muck_truck_purchase_intention_id"].(string)), true
+
 	case "Mutation.delete_muck_truck_sale_order":
 		if e.complexity.Mutation.DeleteMuckTruckSaleOrder == nil {
 			break
@@ -4546,6 +4612,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Mutation.DeleteMuckTruckSaleOrderByPk(childComplexity, args["id"].(int64)), true
+
+	case "Mutation.delete_muck_truck_sale_order_by_union_pk":
+		if e.complexity.Mutation.DeleteMuckTruckSaleOrderByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_delete_muck_truck_sale_order_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.DeleteMuckTruckSaleOrderByUnionPk(childComplexity, args["muck_truck_sale_order_id"].(string)), true
 
 	case "Mutation.delete_muck_truck_sale_order_detail":
 		if e.complexity.Mutation.DeleteMuckTruckSaleOrderDetail == nil {
@@ -4571,6 +4649,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.DeleteMuckTruckSaleOrderDetailByPk(childComplexity, args["id"].(int64)), true
 
+	case "Mutation.delete_muck_truck_sale_order_detail_by_union_pk":
+		if e.complexity.Mutation.DeleteMuckTruckSaleOrderDetailByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_delete_muck_truck_sale_order_detail_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.DeleteMuckTruckSaleOrderDetailByUnionPk(childComplexity, args["muck_truck_sale_order_detail_id"].(string)), true
+
 	case "Mutation.delete_new_muck_truck_info":
 		if e.complexity.Mutation.DeleteNewMuckTruckInfo == nil {
 			break
@@ -4594,6 +4684,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Mutation.DeleteNewMuckTruckInfoByPk(childComplexity, args["id"].(int64)), true
+
+	case "Mutation.delete_new_muck_truck_info_by_union_pk":
+		if e.complexity.Mutation.DeleteNewMuckTruckInfoByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_delete_new_muck_truck_info_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.DeleteNewMuckTruckInfoByUnionPk(childComplexity, args["new_muck_truck_info_id"].(string)), true
 
 	case "Mutation.delete_new_muck_truck_photo":
 		if e.complexity.Mutation.DeleteNewMuckTruckPhoto == nil {
@@ -4619,6 +4721,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.DeleteNewMuckTruckPhotoByPk(childComplexity, args["id"].(int64)), true
 
+	case "Mutation.delete_new_muck_truck_photo_by_union_pk":
+		if e.complexity.Mutation.DeleteNewMuckTruckPhotoByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_delete_new_muck_truck_photo_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.DeleteNewMuckTruckPhotoByUnionPk(childComplexity, args["new_muck_truck_photo_id"].(string)), true
+
 	case "Mutation.delete_new_muck_truck_recommend_catalog":
 		if e.complexity.Mutation.DeleteNewMuckTruckRecommendCatalog == nil {
 			break
@@ -4642,6 +4756,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Mutation.DeleteNewMuckTruckRecommendCatalogByPk(childComplexity, args["id"].(int64)), true
+
+	case "Mutation.delete_new_muck_truck_recommend_catalog_by_union_pk":
+		if e.complexity.Mutation.DeleteNewMuckTruckRecommendCatalogByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_delete_new_muck_truck_recommend_catalog_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.DeleteNewMuckTruckRecommendCatalogByUnionPk(childComplexity, args["new_muck_truck_recommend_catalog_id"].(string)), true
 
 	case "Mutation.delete_seller_filing":
 		if e.complexity.Mutation.DeleteSellerFiling == nil {
@@ -4667,6 +4793,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.DeleteSellerFilingByPk(childComplexity, args["id"].(int64)), true
 
+	case "Mutation.delete_seller_filing_by_union_pk":
+		if e.complexity.Mutation.DeleteSellerFilingByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_delete_seller_filing_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.DeleteSellerFilingByUnionPk(childComplexity, args["seller_filing_id"].(string)), true
+
 	case "Mutation.delete_seller_rating_record":
 		if e.complexity.Mutation.DeleteSellerRatingRecord == nil {
 			break
@@ -4691,6 +4829,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.DeleteSellerRatingRecordByPk(childComplexity, args["id"].(int64)), true
 
+	case "Mutation.delete_seller_rating_record_by_union_pk":
+		if e.complexity.Mutation.DeleteSellerRatingRecordByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_delete_seller_rating_record_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.DeleteSellerRatingRecordByUnionPk(childComplexity, args["seller_rating_record_id"].(string)), true
+
 	case "Mutation.delete_vehicle_sale_record":
 		if e.complexity.Mutation.DeleteVehicleSaleRecord == nil {
 			break
@@ -4714,6 +4864,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Mutation.DeleteVehicleSaleRecordByPk(childComplexity, args["id"].(int64)), true
+
+	case "Mutation.delete_vehicle_sale_record_by_union_pk":
+		if e.complexity.Mutation.DeleteVehicleSaleRecordByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_delete_vehicle_sale_record_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.DeleteVehicleSaleRecordByUnionPk(childComplexity, args["vehicle_sale_record_id"].(string)), true
 
 	case "Mutation.insert_muck_truck_purchase_intention":
 		if e.complexity.Mutation.InsertMuckTruckPurchaseIntention == nil {
@@ -4955,6 +5117,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.UpdateMuckTruckPurchaseIntentionByPk(childComplexity, args["_inc"].(*model.MuckTruckPurchaseIntentionIncInput), args["_set"].(*model.MuckTruckPurchaseIntentionSetInput), args["id"].(int64)), true
 
+	case "Mutation.update_muck_truck_purchase_intention_by_union_pk":
+		if e.complexity.Mutation.UpdateMuckTruckPurchaseIntentionByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_update_muck_truck_purchase_intention_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.UpdateMuckTruckPurchaseIntentionByUnionPk(childComplexity, args["_inc"].(*model.MuckTruckPurchaseIntentionIncInput), args["_set"].(*model.MuckTruckPurchaseIntentionSetInput), args["muck_truck_purchase_intention_id"].(string)), true
+
 	case "Mutation.update_muck_truck_sale_order":
 		if e.complexity.Mutation.UpdateMuckTruckSaleOrder == nil {
 			break
@@ -4978,6 +5152,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Mutation.UpdateMuckTruckSaleOrderByPk(childComplexity, args["_inc"].(*model.MuckTruckSaleOrderIncInput), args["_set"].(*model.MuckTruckSaleOrderSetInput), args["id"].(int64)), true
+
+	case "Mutation.update_muck_truck_sale_order_by_union_pk":
+		if e.complexity.Mutation.UpdateMuckTruckSaleOrderByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_update_muck_truck_sale_order_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.UpdateMuckTruckSaleOrderByUnionPk(childComplexity, args["_inc"].(*model.MuckTruckSaleOrderIncInput), args["_set"].(*model.MuckTruckSaleOrderSetInput), args["muck_truck_sale_order_id"].(string)), true
 
 	case "Mutation.update_muck_truck_sale_order_detail":
 		if e.complexity.Mutation.UpdateMuckTruckSaleOrderDetail == nil {
@@ -5003,6 +5189,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.UpdateMuckTruckSaleOrderDetailByPk(childComplexity, args["_inc"].(*model.MuckTruckSaleOrderDetailIncInput), args["_set"].(*model.MuckTruckSaleOrderDetailSetInput), args["id"].(int64)), true
 
+	case "Mutation.update_muck_truck_sale_order_detail_by_union_pk":
+		if e.complexity.Mutation.UpdateMuckTruckSaleOrderDetailByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_update_muck_truck_sale_order_detail_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.UpdateMuckTruckSaleOrderDetailByUnionPk(childComplexity, args["_inc"].(*model.MuckTruckSaleOrderDetailIncInput), args["_set"].(*model.MuckTruckSaleOrderDetailSetInput), args["muck_truck_sale_order_detail_id"].(string)), true
+
 	case "Mutation.update_new_muck_truck_info":
 		if e.complexity.Mutation.UpdateNewMuckTruckInfo == nil {
 			break
@@ -5026,6 +5224,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Mutation.UpdateNewMuckTruckInfoByPk(childComplexity, args["_inc"].(*model.NewMuckTruckInfoIncInput), args["_set"].(*model.NewMuckTruckInfoSetInput), args["id"].(int64)), true
+
+	case "Mutation.update_new_muck_truck_info_by_union_pk":
+		if e.complexity.Mutation.UpdateNewMuckTruckInfoByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_update_new_muck_truck_info_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.UpdateNewMuckTruckInfoByUnionPk(childComplexity, args["_inc"].(*model.NewMuckTruckInfoIncInput), args["_set"].(*model.NewMuckTruckInfoSetInput), args["new_muck_truck_info_id"].(string)), true
 
 	case "Mutation.update_new_muck_truck_photo":
 		if e.complexity.Mutation.UpdateNewMuckTruckPhoto == nil {
@@ -5051,6 +5261,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.UpdateNewMuckTruckPhotoByPk(childComplexity, args["_inc"].(*model.NewMuckTruckPhotoIncInput), args["_set"].(*model.NewMuckTruckPhotoSetInput), args["id"].(int64)), true
 
+	case "Mutation.update_new_muck_truck_photo_by_union_pk":
+		if e.complexity.Mutation.UpdateNewMuckTruckPhotoByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_update_new_muck_truck_photo_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.UpdateNewMuckTruckPhotoByUnionPk(childComplexity, args["_inc"].(*model.NewMuckTruckPhotoIncInput), args["_set"].(*model.NewMuckTruckPhotoSetInput), args["new_muck_truck_photo_id"].(string)), true
+
 	case "Mutation.update_new_muck_truck_recommend_catalog":
 		if e.complexity.Mutation.UpdateNewMuckTruckRecommendCatalog == nil {
 			break
@@ -5074,6 +5296,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Mutation.UpdateNewMuckTruckRecommendCatalogByPk(childComplexity, args["_inc"].(*model.NewMuckTruckRecommendCatalogIncInput), args["_set"].(*model.NewMuckTruckRecommendCatalogSetInput), args["id"].(int64)), true
+
+	case "Mutation.update_new_muck_truck_recommend_catalog_by_union_pk":
+		if e.complexity.Mutation.UpdateNewMuckTruckRecommendCatalogByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_update_new_muck_truck_recommend_catalog_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.UpdateNewMuckTruckRecommendCatalogByUnionPk(childComplexity, args["_inc"].(*model.NewMuckTruckRecommendCatalogIncInput), args["_set"].(*model.NewMuckTruckRecommendCatalogSetInput), args["new_muck_truck_recommend_catalog_id"].(string)), true
 
 	case "Mutation.update_seller_filing":
 		if e.complexity.Mutation.UpdateSellerFiling == nil {
@@ -5099,6 +5333,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.UpdateSellerFilingByPk(childComplexity, args["_inc"].(*model.SellerFilingIncInput), args["_set"].(*model.SellerFilingSetInput), args["id"].(int64)), true
 
+	case "Mutation.update_seller_filing_by_union_pk":
+		if e.complexity.Mutation.UpdateSellerFilingByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_update_seller_filing_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.UpdateSellerFilingByUnionPk(childComplexity, args["_inc"].(*model.SellerFilingIncInput), args["_set"].(*model.SellerFilingSetInput), args["seller_filing_id"].(string)), true
+
 	case "Mutation.update_seller_rating_record":
 		if e.complexity.Mutation.UpdateSellerRatingRecord == nil {
 			break
@@ -5123,6 +5369,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.UpdateSellerRatingRecordByPk(childComplexity, args["_inc"].(*model.SellerRatingRecordIncInput), args["_set"].(*model.SellerRatingRecordSetInput), args["id"].(int64)), true
 
+	case "Mutation.update_seller_rating_record_by_union_pk":
+		if e.complexity.Mutation.UpdateSellerRatingRecordByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_update_seller_rating_record_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.UpdateSellerRatingRecordByUnionPk(childComplexity, args["_inc"].(*model.SellerRatingRecordIncInput), args["_set"].(*model.SellerRatingRecordSetInput), args["seller_rating_record_id"].(string)), true
+
 	case "Mutation.update_vehicle_sale_record":
 		if e.complexity.Mutation.UpdateVehicleSaleRecord == nil {
 			break
@@ -5146,6 +5404,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Mutation.UpdateVehicleSaleRecordByPk(childComplexity, args["_inc"].(*model.VehicleSaleRecordIncInput), args["_set"].(*model.VehicleSaleRecordSetInput), args["id"].(int64)), true
+
+	case "Mutation.update_vehicle_sale_record_by_union_pk":
+		if e.complexity.Mutation.UpdateVehicleSaleRecordByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_update_vehicle_sale_record_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.UpdateVehicleSaleRecordByUnionPk(childComplexity, args["_inc"].(*model.VehicleSaleRecordIncInput), args["_set"].(*model.VehicleSaleRecordSetInput), args["vehicle_sale_record_id"].(string)), true
 
 	case "NewMuckTruckInfo.created_at":
 		if e.complexity.NewMuckTruckInfo.CreatedAt == nil {
@@ -6443,6 +6713,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Query.MuckTruckPurchaseIntentionByPk(childComplexity, args["id"].(int64)), true
 
+	case "Query.muck_truck_purchase_intention_by_union_pk":
+		if e.complexity.Query.MuckTruckPurchaseIntentionByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Query_muck_truck_purchase_intention_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.MuckTruckPurchaseIntentionByUnionPk(childComplexity, args["muck_truck_purchase_intention_id"].(string)), true
+
 	case "Query.muck_truck_sale_order":
 		if e.complexity.Query.MuckTruckSaleOrder == nil {
 			break
@@ -6478,6 +6760,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Query.MuckTruckSaleOrderByPk(childComplexity, args["id"].(int64)), true
+
+	case "Query.muck_truck_sale_order_by_union_pk":
+		if e.complexity.Query.MuckTruckSaleOrderByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Query_muck_truck_sale_order_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.MuckTruckSaleOrderByUnionPk(childComplexity, args["muck_truck_sale_order_id"].(string)), true
 
 	case "Query.muck_truck_sale_order_detail":
 		if e.complexity.Query.MuckTruckSaleOrderDetail == nil {
@@ -6515,6 +6809,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Query.MuckTruckSaleOrderDetailByPk(childComplexity, args["id"].(int64)), true
 
+	case "Query.muck_truck_sale_order_detail_by_union_pk":
+		if e.complexity.Query.MuckTruckSaleOrderDetailByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Query_muck_truck_sale_order_detail_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.MuckTruckSaleOrderDetailByUnionPk(childComplexity, args["muck_truck_sale_order_detail_id"].(string)), true
+
 	case "Query.new_muck_truck_info":
 		if e.complexity.Query.NewMuckTruckInfo == nil {
 			break
@@ -6550,6 +6856,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Query.NewMuckTruckInfoByPk(childComplexity, args["id"].(int64)), true
+
+	case "Query.new_muck_truck_info_by_union_pk":
+		if e.complexity.Query.NewMuckTruckInfoByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Query_new_muck_truck_info_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.NewMuckTruckInfoByUnionPk(childComplexity, args["new_muck_truck_info_id"].(string)), true
 
 	case "Query.new_muck_truck_photo":
 		if e.complexity.Query.NewMuckTruckPhoto == nil {
@@ -6587,6 +6905,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Query.NewMuckTruckPhotoByPk(childComplexity, args["id"].(int64)), true
 
+	case "Query.new_muck_truck_photo_by_union_pk":
+		if e.complexity.Query.NewMuckTruckPhotoByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Query_new_muck_truck_photo_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.NewMuckTruckPhotoByUnionPk(childComplexity, args["new_muck_truck_photo_id"].(string)), true
+
 	case "Query.new_muck_truck_recommend_catalog":
 		if e.complexity.Query.NewMuckTruckRecommendCatalog == nil {
 			break
@@ -6622,6 +6952,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Query.NewMuckTruckRecommendCatalogByPk(childComplexity, args["id"].(int64)), true
+
+	case "Query.new_muck_truck_recommend_catalog_by_union_pk":
+		if e.complexity.Query.NewMuckTruckRecommendCatalogByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Query_new_muck_truck_recommend_catalog_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.NewMuckTruckRecommendCatalogByUnionPk(childComplexity, args["new_muck_truck_recommend_catalog_id"].(string)), true
 
 	case "Query.seller_filing":
 		if e.complexity.Query.SellerFiling == nil {
@@ -6659,6 +7001,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Query.SellerFilingByPk(childComplexity, args["id"].(int64)), true
 
+	case "Query.seller_filing_by_union_pk":
+		if e.complexity.Query.SellerFilingByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Query_seller_filing_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.SellerFilingByUnionPk(childComplexity, args["seller_filing_id"].(string)), true
+
 	case "Query.seller_rating_record":
 		if e.complexity.Query.SellerRatingRecord == nil {
 			break
@@ -6695,6 +7049,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Query.SellerRatingRecordByPk(childComplexity, args["id"].(int64)), true
 
+	case "Query.seller_rating_record_by_union_pk":
+		if e.complexity.Query.SellerRatingRecordByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Query_seller_rating_record_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.SellerRatingRecordByUnionPk(childComplexity, args["seller_rating_record_id"].(string)), true
+
 	case "Query.vehicle_sale_record":
 		if e.complexity.Query.VehicleSaleRecord == nil {
 			break
@@ -6730,6 +7096,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Query.VehicleSaleRecordByPk(childComplexity, args["id"].(int64)), true
+
+	case "Query.vehicle_sale_record_by_union_pk":
+		if e.complexity.Query.VehicleSaleRecordByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Query_vehicle_sale_record_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.VehicleSaleRecordByUnionPk(childComplexity, args["vehicle_sale_record_id"].(string)), true
 
 	case "SellerFiling.business_license":
 		if e.complexity.SellerFiling.BusinessLicense == nil {
@@ -9296,6 +9674,7 @@ input MuckTruckPurchaseIntentionBoolExp {
 input type for inserting data into table "muck_truck_purchase_intention"
 """
 input MuckTruckPurchaseIntentionInsertInput {
+	muck_truck_purchase_intention_id: String!
 	supplier: String
 	customer_name: String
 	customer_phone: String
@@ -9312,6 +9691,8 @@ input MuckTruckPurchaseIntentionInsertInput {
 	review: String
 	remarks: String
 	is_deleted: Boolean
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -9467,6 +9848,10 @@ extend type Query {
 	主键查询
 	"""
 	muck_truck_purchase_intention_by_pk(id: Bigint!): MuckTruckPurchaseIntention!
+	"""
+	联合主键查询
+	"""
+	muck_truck_purchase_intention_by_union_pk(muck_truck_purchase_intention_id: String!): MuckTruckPurchaseIntention!
 }
 extend type Mutation {
 	"""
@@ -9490,9 +9875,17 @@ extend type Mutation {
 	"""
 	update_muck_truck_purchase_intention(_inc: MuckTruckPurchaseIntentionIncInput, _set: MuckTruckPurchaseIntentionSetInput, where: MuckTruckPurchaseIntentionBoolExp!): MuckTruckPurchaseIntentionMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_muck_truck_purchase_intention_by_pk(_inc: MuckTruckPurchaseIntentionIncInput, _set: MuckTruckPurchaseIntentionSetInput, id: Bigint!): MuckTruckPurchaseIntention
+	"""
+	根据联合主键更新
+	"""
+	update_muck_truck_purchase_intention_by_union_pk(_inc: MuckTruckPurchaseIntentionIncInput, _set: MuckTruckPurchaseIntentionSetInput, muck_truck_purchase_intention_id: String!): MuckTruckPurchaseIntention
+	"""
+	根据联合主键删除记录
+	"""
+	delete_muck_truck_purchase_intention_by_union_pk(muck_truck_purchase_intention_id: String!): MuckTruckPurchaseIntention
 }
 `, BuiltIn: false},
 	{Name: "graph/graphqls/muck_truck_sale_order.graphqls", Input: `"""
@@ -9972,6 +10365,7 @@ input MuckTruckSaleOrderBoolExp {
 input type for inserting data into table "muck_truck_sale_order"
 """
 input MuckTruckSaleOrderInsertInput {
+	muck_truck_sale_order_id: String!
 	customer_name: String
 	customer_id: String
 	id_card_num: String
@@ -10000,6 +10394,8 @@ input MuckTruckSaleOrderInsertInput {
 	is_other_vehicle_model: Boolean
 	is_completed: Boolean
 	is_deleted: Boolean
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -10224,6 +10620,10 @@ extend type Query {
 	主键查询
 	"""
 	muck_truck_sale_order_by_pk(id: Bigint!): MuckTruckSaleOrder!
+	"""
+	联合主键查询
+	"""
+	muck_truck_sale_order_by_union_pk(muck_truck_sale_order_id: String!): MuckTruckSaleOrder!
 }
 extend type Mutation {
 	"""
@@ -10247,9 +10647,17 @@ extend type Mutation {
 	"""
 	update_muck_truck_sale_order(_inc: MuckTruckSaleOrderIncInput, _set: MuckTruckSaleOrderSetInput, where: MuckTruckSaleOrderBoolExp!): MuckTruckSaleOrderMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_muck_truck_sale_order_by_pk(_inc: MuckTruckSaleOrderIncInput, _set: MuckTruckSaleOrderSetInput, id: Bigint!): MuckTruckSaleOrder
+	"""
+	根据联合主键更新
+	"""
+	update_muck_truck_sale_order_by_union_pk(_inc: MuckTruckSaleOrderIncInput, _set: MuckTruckSaleOrderSetInput, muck_truck_sale_order_id: String!): MuckTruckSaleOrder
+	"""
+	根据联合主键删除记录
+	"""
+	delete_muck_truck_sale_order_by_union_pk(muck_truck_sale_order_id: String!): MuckTruckSaleOrder
 }
 `, BuiltIn: false},
 	{Name: "graph/graphqls/muck_truck_sale_order_detail.graphqls", Input: `"""
@@ -10569,6 +10977,7 @@ input MuckTruckSaleOrderDetailBoolExp {
 input type for inserting data into table "muck_truck_sale_order_detail"
 """
 input MuckTruckSaleOrderDetailInsertInput {
+	muck_truck_sale_order_detail_id: String!
 	order_id: String
 	vehicle_identification_number: String
 	certificate: String
@@ -10584,6 +10993,8 @@ input MuckTruckSaleOrderDetailInsertInput {
 	vehicle_photo: String
 	seller_preview_number: String
 	is_deleted: Boolean
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -10736,6 +11147,10 @@ extend type Query {
 	主键查询
 	"""
 	muck_truck_sale_order_detail_by_pk(id: Bigint!): MuckTruckSaleOrderDetail!
+	"""
+	联合主键查询
+	"""
+	muck_truck_sale_order_detail_by_union_pk(muck_truck_sale_order_detail_id: String!): MuckTruckSaleOrderDetail!
 }
 extend type Mutation {
 	"""
@@ -10759,9 +11174,17 @@ extend type Mutation {
 	"""
 	update_muck_truck_sale_order_detail(_inc: MuckTruckSaleOrderDetailIncInput, _set: MuckTruckSaleOrderDetailSetInput, where: MuckTruckSaleOrderDetailBoolExp!): MuckTruckSaleOrderDetailMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_muck_truck_sale_order_detail_by_pk(_inc: MuckTruckSaleOrderDetailIncInput, _set: MuckTruckSaleOrderDetailSetInput, id: Bigint!): MuckTruckSaleOrderDetail
+	"""
+	根据联合主键更新
+	"""
+	update_muck_truck_sale_order_detail_by_union_pk(_inc: MuckTruckSaleOrderDetailIncInput, _set: MuckTruckSaleOrderDetailSetInput, muck_truck_sale_order_detail_id: String!): MuckTruckSaleOrderDetail
+	"""
+	根据联合主键删除记录
+	"""
+	delete_muck_truck_sale_order_detail_by_union_pk(muck_truck_sale_order_detail_id: String!): MuckTruckSaleOrderDetail
 }
 `, BuiltIn: false},
 	{Name: "graph/graphqls/new_muck_truck_info.graphqls", Input: `"""
@@ -11017,6 +11440,7 @@ input NewMuckTruckInfoBoolExp {
 input type for inserting data into table "new_muck_truck_info"
 """
 input NewMuckTruckInfoInsertInput {
+	new_muck_truck_info_id: String!
 	vehicle_id: String
 	license_plate_number: String
 	registration_time: Timestamptz
@@ -11027,6 +11451,8 @@ input NewMuckTruckInfoInsertInput {
 	height: String
 	sealing_device: String
 	top_cover_height: String
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -11151,6 +11577,10 @@ extend type Query {
 	主键查询
 	"""
 	new_muck_truck_info_by_pk(id: Bigint!): NewMuckTruckInfo!
+	"""
+	联合主键查询
+	"""
+	new_muck_truck_info_by_union_pk(new_muck_truck_info_id: String!): NewMuckTruckInfo!
 }
 extend type Mutation {
 	"""
@@ -11174,9 +11604,17 @@ extend type Mutation {
 	"""
 	update_new_muck_truck_info(_inc: NewMuckTruckInfoIncInput, _set: NewMuckTruckInfoSetInput, where: NewMuckTruckInfoBoolExp!): NewMuckTruckInfoMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_new_muck_truck_info_by_pk(_inc: NewMuckTruckInfoIncInput, _set: NewMuckTruckInfoSetInput, id: Bigint!): NewMuckTruckInfo
+	"""
+	根据联合主键更新
+	"""
+	update_new_muck_truck_info_by_union_pk(_inc: NewMuckTruckInfoIncInput, _set: NewMuckTruckInfoSetInput, new_muck_truck_info_id: String!): NewMuckTruckInfo
+	"""
+	根据联合主键删除记录
+	"""
+	delete_new_muck_truck_info_by_union_pk(new_muck_truck_info_id: String!): NewMuckTruckInfo
 }
 `, BuiltIn: false},
 	{Name: "graph/graphqls/new_muck_truck_photo.graphqls", Input: `"""
@@ -11376,9 +11814,12 @@ input NewMuckTruckPhotoBoolExp {
 input type for inserting data into table "new_muck_truck_photo"
 """
 input NewMuckTruckPhotoInsertInput {
+	new_muck_truck_photo_id: String!
 	vehicle_id: String
 	file_path: String
 	upload_user: String
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -11468,6 +11909,10 @@ extend type Query {
 	主键查询
 	"""
 	new_muck_truck_photo_by_pk(id: Bigint!): NewMuckTruckPhoto!
+	"""
+	联合主键查询
+	"""
+	new_muck_truck_photo_by_union_pk(new_muck_truck_photo_id: String!): NewMuckTruckPhoto!
 }
 extend type Mutation {
 	"""
@@ -11491,9 +11936,17 @@ extend type Mutation {
 	"""
 	update_new_muck_truck_photo(_inc: NewMuckTruckPhotoIncInput, _set: NewMuckTruckPhotoSetInput, where: NewMuckTruckPhotoBoolExp!): NewMuckTruckPhotoMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_new_muck_truck_photo_by_pk(_inc: NewMuckTruckPhotoIncInput, _set: NewMuckTruckPhotoSetInput, id: Bigint!): NewMuckTruckPhoto
+	"""
+	根据联合主键更新
+	"""
+	update_new_muck_truck_photo_by_union_pk(_inc: NewMuckTruckPhotoIncInput, _set: NewMuckTruckPhotoSetInput, new_muck_truck_photo_id: String!): NewMuckTruckPhoto
+	"""
+	根据联合主键删除记录
+	"""
+	delete_new_muck_truck_photo_by_union_pk(new_muck_truck_photo_id: String!): NewMuckTruckPhoto
 }
 `, BuiltIn: false},
 	{Name: "graph/graphqls/new_muck_truck_recommend_catalog.graphqls", Input: `"""
@@ -11677,7 +12130,10 @@ input NewMuckTruckRecommendCatalogBoolExp {
 input type for inserting data into table "new_muck_truck_recommend_catalog"
 """
 input NewMuckTruckRecommendCatalogInsertInput {
+	new_muck_truck_recommend_catalog_id: String!
 	brand_name: String
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -11757,6 +12213,10 @@ extend type Query {
 	主键查询
 	"""
 	new_muck_truck_recommend_catalog_by_pk(id: Bigint!): NewMuckTruckRecommendCatalog!
+	"""
+	联合主键查询
+	"""
+	new_muck_truck_recommend_catalog_by_union_pk(new_muck_truck_recommend_catalog_id: String!): NewMuckTruckRecommendCatalog!
 }
 extend type Mutation {
 	"""
@@ -11780,9 +12240,17 @@ extend type Mutation {
 	"""
 	update_new_muck_truck_recommend_catalog(_inc: NewMuckTruckRecommendCatalogIncInput, _set: NewMuckTruckRecommendCatalogSetInput, where: NewMuckTruckRecommendCatalogBoolExp!): NewMuckTruckRecommendCatalogMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_new_muck_truck_recommend_catalog_by_pk(_inc: NewMuckTruckRecommendCatalogIncInput, _set: NewMuckTruckRecommendCatalogSetInput, id: Bigint!): NewMuckTruckRecommendCatalog
+	"""
+	根据联合主键更新
+	"""
+	update_new_muck_truck_recommend_catalog_by_union_pk(_inc: NewMuckTruckRecommendCatalogIncInput, _set: NewMuckTruckRecommendCatalogSetInput, new_muck_truck_recommend_catalog_id: String!): NewMuckTruckRecommendCatalog
+	"""
+	根据联合主键删除记录
+	"""
+	delete_new_muck_truck_recommend_catalog_by_union_pk(new_muck_truck_recommend_catalog_id: String!): NewMuckTruckRecommendCatalog
 }
 `, BuiltIn: false},
 	{Name: "graph/graphqls/seller_filing.graphqls", Input: `"""
@@ -12150,6 +12618,7 @@ input SellerFilingBoolExp {
 input type for inserting data into table "seller_filing"
 """
 input SellerFilingInsertInput {
+	seller_filing_id: String!
 	seller: String
 	business_license: String
 	organization_code: String
@@ -12174,6 +12643,8 @@ input SellerFilingInsertInput {
 	catalog_id: String
 	platform_docking_technology_agreement: String
 	is_deleted: Boolean
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -12368,6 +12839,10 @@ extend type Query {
 	主键查询
 	"""
 	seller_filing_by_pk(id: Bigint!): SellerFiling!
+	"""
+	联合主键查询
+	"""
+	seller_filing_by_union_pk(seller_filing_id: String!): SellerFiling!
 }
 extend type Mutation {
 	"""
@@ -12391,9 +12866,17 @@ extend type Mutation {
 	"""
 	update_seller_filing(_inc: SellerFilingIncInput, _set: SellerFilingSetInput, where: SellerFilingBoolExp!): SellerFilingMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_seller_filing_by_pk(_inc: SellerFilingIncInput, _set: SellerFilingSetInput, id: Bigint!): SellerFiling
+	"""
+	根据联合主键更新
+	"""
+	update_seller_filing_by_union_pk(_inc: SellerFilingIncInput, _set: SellerFilingSetInput, seller_filing_id: String!): SellerFiling
+	"""
+	根据联合主键删除记录
+	"""
+	delete_seller_filing_by_union_pk(seller_filing_id: String!): SellerFiling
 }
 `, BuiltIn: false},
 	{Name: "graph/graphqls/seller_rating_record.graphqls", Input: `"""
@@ -12625,12 +13108,15 @@ input SellerRatingRecordBoolExp {
 input type for inserting data into table "seller_rating_record"
 """
 input SellerRatingRecordInsertInput {
+	seller_rating_record_id: String!
 	demerit_obj: String
 	demerit_points: Numeric
 	demerit_reason: String
 	operator: String
 	operation_time: Timestamptz
 	is_deleted: Boolean
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -12736,6 +13222,10 @@ extend type Query {
 	主键查询
 	"""
 	seller_rating_record_by_pk(id: Bigint!): SellerRatingRecord!
+	"""
+	联合主键查询
+	"""
+	seller_rating_record_by_union_pk(seller_rating_record_id: String!): SellerRatingRecord!
 }
 extend type Mutation {
 	"""
@@ -12759,9 +13249,17 @@ extend type Mutation {
 	"""
 	update_seller_rating_record(_inc: SellerRatingRecordIncInput, _set: SellerRatingRecordSetInput, where: SellerRatingRecordBoolExp!): SellerRatingRecordMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_seller_rating_record_by_pk(_inc: SellerRatingRecordIncInput, _set: SellerRatingRecordSetInput, id: Bigint!): SellerRatingRecord
+	"""
+	根据联合主键更新
+	"""
+	update_seller_rating_record_by_union_pk(_inc: SellerRatingRecordIncInput, _set: SellerRatingRecordSetInput, seller_rating_record_id: String!): SellerRatingRecord
+	"""
+	根据联合主键删除记录
+	"""
+	delete_seller_rating_record_by_union_pk(seller_rating_record_id: String!): SellerRatingRecord
 }
 `, BuiltIn: false},
 	{Name: "graph/graphqls/vehicle_sale_record.graphqls", Input: `"""
@@ -13065,6 +13563,7 @@ input VehicleSaleRecordBoolExp {
 input type for inserting data into table "vehicle_sale_record"
 """
 input VehicleSaleRecordInsertInput {
+	vehicle_sale_record_id: String!
 	seller: String
 	vehicle_model: String
 	vehicle_picture: String
@@ -13080,6 +13579,8 @@ input VehicleSaleRecordInsertInput {
 	transport_volume: String
 	is_review: Boolean
 	is_deleted: Boolean
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -13230,6 +13731,10 @@ extend type Query {
 	主键查询
 	"""
 	vehicle_sale_record_by_pk(id: Bigint!): VehicleSaleRecord!
+	"""
+	联合主键查询
+	"""
+	vehicle_sale_record_by_union_pk(vehicle_sale_record_id: String!): VehicleSaleRecord!
 }
 extend type Mutation {
 	"""
@@ -13253,9 +13758,17 @@ extend type Mutation {
 	"""
 	update_vehicle_sale_record(_inc: VehicleSaleRecordIncInput, _set: VehicleSaleRecordSetInput, where: VehicleSaleRecordBoolExp!): VehicleSaleRecordMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_vehicle_sale_record_by_pk(_inc: VehicleSaleRecordIncInput, _set: VehicleSaleRecordSetInput, id: Bigint!): VehicleSaleRecord
+	"""
+	根据联合主键更新
+	"""
+	update_vehicle_sale_record_by_union_pk(_inc: VehicleSaleRecordIncInput, _set: VehicleSaleRecordSetInput, vehicle_sale_record_id: String!): VehicleSaleRecord
+	"""
+	根据联合主键删除记录
+	"""
+	delete_vehicle_sale_record_by_union_pk(vehicle_sale_record_id: String!): VehicleSaleRecord
 }
 `, BuiltIn: false},
 }
@@ -13295,6 +13808,21 @@ func (ec *executionContext) field_Mutation_delete_muck_truck_purchase_intention_
 	return args, nil
 }
 
+func (ec *executionContext) field_Mutation_delete_muck_truck_purchase_intention_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["muck_truck_purchase_intention_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("muck_truck_purchase_intention_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["muck_truck_purchase_intention_id"] = arg0
+	return args, nil
+}
+
 func (ec *executionContext) field_Mutation_delete_muck_truck_sale_order_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -13322,6 +13850,21 @@ func (ec *executionContext) field_Mutation_delete_muck_truck_sale_order_by_pk_ar
 		}
 	}
 	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_delete_muck_truck_sale_order_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["muck_truck_sale_order_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("muck_truck_sale_order_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["muck_truck_sale_order_id"] = arg0
 	return args, nil
 }
 
@@ -13355,6 +13898,21 @@ func (ec *executionContext) field_Mutation_delete_muck_truck_sale_order_detail_b
 	return args, nil
 }
 
+func (ec *executionContext) field_Mutation_delete_muck_truck_sale_order_detail_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["muck_truck_sale_order_detail_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("muck_truck_sale_order_detail_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["muck_truck_sale_order_detail_id"] = arg0
+	return args, nil
+}
+
 func (ec *executionContext) field_Mutation_delete_new_muck_truck_info_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -13382,6 +13940,21 @@ func (ec *executionContext) field_Mutation_delete_new_muck_truck_info_by_pk_args
 		}
 	}
 	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_delete_new_muck_truck_info_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["new_muck_truck_info_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("new_muck_truck_info_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["new_muck_truck_info_id"] = arg0
 	return args, nil
 }
 
@@ -13415,6 +13988,21 @@ func (ec *executionContext) field_Mutation_delete_new_muck_truck_photo_by_pk_arg
 	return args, nil
 }
 
+func (ec *executionContext) field_Mutation_delete_new_muck_truck_photo_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["new_muck_truck_photo_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("new_muck_truck_photo_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["new_muck_truck_photo_id"] = arg0
+	return args, nil
+}
+
 func (ec *executionContext) field_Mutation_delete_new_muck_truck_recommend_catalog_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -13442,6 +14030,21 @@ func (ec *executionContext) field_Mutation_delete_new_muck_truck_recommend_catal
 		}
 	}
 	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_delete_new_muck_truck_recommend_catalog_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["new_muck_truck_recommend_catalog_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("new_muck_truck_recommend_catalog_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["new_muck_truck_recommend_catalog_id"] = arg0
 	return args, nil
 }
 
@@ -13475,6 +14078,21 @@ func (ec *executionContext) field_Mutation_delete_seller_filing_by_pk_args(ctx c
 	return args, nil
 }
 
+func (ec *executionContext) field_Mutation_delete_seller_filing_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["seller_filing_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("seller_filing_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["seller_filing_id"] = arg0
+	return args, nil
+}
+
 func (ec *executionContext) field_Mutation_delete_seller_rating_record_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -13505,6 +14123,21 @@ func (ec *executionContext) field_Mutation_delete_seller_rating_record_by_pk_arg
 	return args, nil
 }
 
+func (ec *executionContext) field_Mutation_delete_seller_rating_record_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["seller_rating_record_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("seller_rating_record_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["seller_rating_record_id"] = arg0
+	return args, nil
+}
+
 func (ec *executionContext) field_Mutation_delete_vehicle_sale_record_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -13532,6 +14165,21 @@ func (ec *executionContext) field_Mutation_delete_vehicle_sale_record_by_pk_args
 		}
 	}
 	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_delete_vehicle_sale_record_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["vehicle_sale_record_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("vehicle_sale_record_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["vehicle_sale_record_id"] = arg0
 	return args, nil
 }
 
@@ -13871,6 +14519,39 @@ func (ec *executionContext) field_Mutation_update_muck_truck_purchase_intention_
 	return args, nil
 }
 
+func (ec *executionContext) field_Mutation_update_muck_truck_purchase_intention_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *model.MuckTruckPurchaseIntentionIncInput
+	if tmp, ok := rawArgs["_inc"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
+		arg0, err = ec.unmarshalOMuckTruckPurchaseIntentionIncInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋgraphᚋmodelᚐMuckTruckPurchaseIntentionIncInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_inc"] = arg0
+	var arg1 *model.MuckTruckPurchaseIntentionSetInput
+	if tmp, ok := rawArgs["_set"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
+		arg1, err = ec.unmarshalOMuckTruckPurchaseIntentionSetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋgraphᚋmodelᚐMuckTruckPurchaseIntentionSetInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_set"] = arg1
+	var arg2 string
+	if tmp, ok := rawArgs["muck_truck_purchase_intention_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("muck_truck_purchase_intention_id"))
+		arg2, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["muck_truck_purchase_intention_id"] = arg2
+	return args, nil
+}
+
 func (ec *executionContext) field_Mutation_update_muck_truck_sale_order_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -13934,6 +14615,39 @@ func (ec *executionContext) field_Mutation_update_muck_truck_sale_order_by_pk_ar
 		}
 	}
 	args["id"] = arg2
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_update_muck_truck_sale_order_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *model.MuckTruckSaleOrderIncInput
+	if tmp, ok := rawArgs["_inc"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
+		arg0, err = ec.unmarshalOMuckTruckSaleOrderIncInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋgraphᚋmodelᚐMuckTruckSaleOrderIncInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_inc"] = arg0
+	var arg1 *model.MuckTruckSaleOrderSetInput
+	if tmp, ok := rawArgs["_set"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
+		arg1, err = ec.unmarshalOMuckTruckSaleOrderSetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋgraphᚋmodelᚐMuckTruckSaleOrderSetInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_set"] = arg1
+	var arg2 string
+	if tmp, ok := rawArgs["muck_truck_sale_order_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("muck_truck_sale_order_id"))
+		arg2, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["muck_truck_sale_order_id"] = arg2
 	return args, nil
 }
 
@@ -14003,6 +14717,39 @@ func (ec *executionContext) field_Mutation_update_muck_truck_sale_order_detail_b
 	return args, nil
 }
 
+func (ec *executionContext) field_Mutation_update_muck_truck_sale_order_detail_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *model.MuckTruckSaleOrderDetailIncInput
+	if tmp, ok := rawArgs["_inc"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
+		arg0, err = ec.unmarshalOMuckTruckSaleOrderDetailIncInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋgraphᚋmodelᚐMuckTruckSaleOrderDetailIncInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_inc"] = arg0
+	var arg1 *model.MuckTruckSaleOrderDetailSetInput
+	if tmp, ok := rawArgs["_set"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
+		arg1, err = ec.unmarshalOMuckTruckSaleOrderDetailSetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋgraphᚋmodelᚐMuckTruckSaleOrderDetailSetInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_set"] = arg1
+	var arg2 string
+	if tmp, ok := rawArgs["muck_truck_sale_order_detail_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("muck_truck_sale_order_detail_id"))
+		arg2, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["muck_truck_sale_order_detail_id"] = arg2
+	return args, nil
+}
+
 func (ec *executionContext) field_Mutation_update_new_muck_truck_info_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -14066,6 +14813,39 @@ func (ec *executionContext) field_Mutation_update_new_muck_truck_info_by_pk_args
 		}
 	}
 	args["id"] = arg2
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_update_new_muck_truck_info_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *model.NewMuckTruckInfoIncInput
+	if tmp, ok := rawArgs["_inc"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
+		arg0, err = ec.unmarshalONewMuckTruckInfoIncInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋgraphᚋmodelᚐNewMuckTruckInfoIncInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_inc"] = arg0
+	var arg1 *model.NewMuckTruckInfoSetInput
+	if tmp, ok := rawArgs["_set"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
+		arg1, err = ec.unmarshalONewMuckTruckInfoSetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋgraphᚋmodelᚐNewMuckTruckInfoSetInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_set"] = arg1
+	var arg2 string
+	if tmp, ok := rawArgs["new_muck_truck_info_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("new_muck_truck_info_id"))
+		arg2, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["new_muck_truck_info_id"] = arg2
 	return args, nil
 }
 
@@ -14135,6 +14915,39 @@ func (ec *executionContext) field_Mutation_update_new_muck_truck_photo_by_pk_arg
 	return args, nil
 }
 
+func (ec *executionContext) field_Mutation_update_new_muck_truck_photo_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *model.NewMuckTruckPhotoIncInput
+	if tmp, ok := rawArgs["_inc"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
+		arg0, err = ec.unmarshalONewMuckTruckPhotoIncInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋgraphᚋmodelᚐNewMuckTruckPhotoIncInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_inc"] = arg0
+	var arg1 *model.NewMuckTruckPhotoSetInput
+	if tmp, ok := rawArgs["_set"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
+		arg1, err = ec.unmarshalONewMuckTruckPhotoSetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋgraphᚋmodelᚐNewMuckTruckPhotoSetInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_set"] = arg1
+	var arg2 string
+	if tmp, ok := rawArgs["new_muck_truck_photo_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("new_muck_truck_photo_id"))
+		arg2, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["new_muck_truck_photo_id"] = arg2
+	return args, nil
+}
+
 func (ec *executionContext) field_Mutation_update_new_muck_truck_recommend_catalog_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -14198,6 +15011,39 @@ func (ec *executionContext) field_Mutation_update_new_muck_truck_recommend_catal
 		}
 	}
 	args["id"] = arg2
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_update_new_muck_truck_recommend_catalog_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *model.NewMuckTruckRecommendCatalogIncInput
+	if tmp, ok := rawArgs["_inc"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
+		arg0, err = ec.unmarshalONewMuckTruckRecommendCatalogIncInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋgraphᚋmodelᚐNewMuckTruckRecommendCatalogIncInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_inc"] = arg0
+	var arg1 *model.NewMuckTruckRecommendCatalogSetInput
+	if tmp, ok := rawArgs["_set"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
+		arg1, err = ec.unmarshalONewMuckTruckRecommendCatalogSetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋgraphᚋmodelᚐNewMuckTruckRecommendCatalogSetInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_set"] = arg1
+	var arg2 string
+	if tmp, ok := rawArgs["new_muck_truck_recommend_catalog_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("new_muck_truck_recommend_catalog_id"))
+		arg2, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["new_muck_truck_recommend_catalog_id"] = arg2
 	return args, nil
 }
 
@@ -14267,6 +15113,39 @@ func (ec *executionContext) field_Mutation_update_seller_filing_by_pk_args(ctx c
 	return args, nil
 }
 
+func (ec *executionContext) field_Mutation_update_seller_filing_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *model.SellerFilingIncInput
+	if tmp, ok := rawArgs["_inc"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
+		arg0, err = ec.unmarshalOSellerFilingIncInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋgraphᚋmodelᚐSellerFilingIncInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_inc"] = arg0
+	var arg1 *model.SellerFilingSetInput
+	if tmp, ok := rawArgs["_set"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
+		arg1, err = ec.unmarshalOSellerFilingSetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋgraphᚋmodelᚐSellerFilingSetInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_set"] = arg1
+	var arg2 string
+	if tmp, ok := rawArgs["seller_filing_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("seller_filing_id"))
+		arg2, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["seller_filing_id"] = arg2
+	return args, nil
+}
+
 func (ec *executionContext) field_Mutation_update_seller_rating_record_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -14333,6 +15212,39 @@ func (ec *executionContext) field_Mutation_update_seller_rating_record_by_pk_arg
 	return args, nil
 }
 
+func (ec *executionContext) field_Mutation_update_seller_rating_record_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *model.SellerRatingRecordIncInput
+	if tmp, ok := rawArgs["_inc"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
+		arg0, err = ec.unmarshalOSellerRatingRecordIncInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋgraphᚋmodelᚐSellerRatingRecordIncInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_inc"] = arg0
+	var arg1 *model.SellerRatingRecordSetInput
+	if tmp, ok := rawArgs["_set"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
+		arg1, err = ec.unmarshalOSellerRatingRecordSetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋgraphᚋmodelᚐSellerRatingRecordSetInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_set"] = arg1
+	var arg2 string
+	if tmp, ok := rawArgs["seller_rating_record_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("seller_rating_record_id"))
+		arg2, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["seller_rating_record_id"] = arg2
+	return args, nil
+}
+
 func (ec *executionContext) field_Mutation_update_vehicle_sale_record_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -14396,6 +15308,39 @@ func (ec *executionContext) field_Mutation_update_vehicle_sale_record_by_pk_args
 		}
 	}
 	args["id"] = arg2
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_update_vehicle_sale_record_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *model.VehicleSaleRecordIncInput
+	if tmp, ok := rawArgs["_inc"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
+		arg0, err = ec.unmarshalOVehicleSaleRecordIncInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋgraphᚋmodelᚐVehicleSaleRecordIncInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_inc"] = arg0
+	var arg1 *model.VehicleSaleRecordSetInput
+	if tmp, ok := rawArgs["_set"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
+		arg1, err = ec.unmarshalOVehicleSaleRecordSetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋgraphᚋmodelᚐVehicleSaleRecordSetInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_set"] = arg1
+	var arg2 string
+	if tmp, ok := rawArgs["vehicle_sale_record_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("vehicle_sale_record_id"))
+		arg2, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["vehicle_sale_record_id"] = arg2
 	return args, nil
 }
 
@@ -14531,6 +15476,21 @@ func (ec *executionContext) field_Query_muck_truck_purchase_intention_by_pk_args
 	return args, nil
 }
 
+func (ec *executionContext) field_Query_muck_truck_purchase_intention_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["muck_truck_purchase_intention_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("muck_truck_purchase_intention_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["muck_truck_purchase_intention_id"] = arg0
+	return args, nil
+}
+
 func (ec *executionContext) field_Query_muck_truck_sale_order_aggregate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -14645,6 +15605,21 @@ func (ec *executionContext) field_Query_muck_truck_sale_order_by_pk_args(ctx con
 		}
 	}
 	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Query_muck_truck_sale_order_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["muck_truck_sale_order_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("muck_truck_sale_order_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["muck_truck_sale_order_id"] = arg0
 	return args, nil
 }
 
@@ -14765,6 +15740,21 @@ func (ec *executionContext) field_Query_muck_truck_sale_order_detail_by_pk_args(
 	return args, nil
 }
 
+func (ec *executionContext) field_Query_muck_truck_sale_order_detail_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["muck_truck_sale_order_detail_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("muck_truck_sale_order_detail_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["muck_truck_sale_order_detail_id"] = arg0
+	return args, nil
+}
+
 func (ec *executionContext) field_Query_new_muck_truck_info_aggregate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -14879,6 +15869,21 @@ func (ec *executionContext) field_Query_new_muck_truck_info_by_pk_args(ctx conte
 		}
 	}
 	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Query_new_muck_truck_info_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["new_muck_truck_info_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("new_muck_truck_info_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["new_muck_truck_info_id"] = arg0
 	return args, nil
 }
 
@@ -14999,6 +16004,21 @@ func (ec *executionContext) field_Query_new_muck_truck_photo_by_pk_args(ctx cont
 	return args, nil
 }
 
+func (ec *executionContext) field_Query_new_muck_truck_photo_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["new_muck_truck_photo_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("new_muck_truck_photo_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["new_muck_truck_photo_id"] = arg0
+	return args, nil
+}
+
 func (ec *executionContext) field_Query_new_muck_truck_recommend_catalog_aggregate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -15113,6 +16133,21 @@ func (ec *executionContext) field_Query_new_muck_truck_recommend_catalog_by_pk_a
 		}
 	}
 	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Query_new_muck_truck_recommend_catalog_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["new_muck_truck_recommend_catalog_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("new_muck_truck_recommend_catalog_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["new_muck_truck_recommend_catalog_id"] = arg0
 	return args, nil
 }
 
@@ -15233,6 +16268,21 @@ func (ec *executionContext) field_Query_seller_filing_by_pk_args(ctx context.Con
 	return args, nil
 }
 
+func (ec *executionContext) field_Query_seller_filing_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["seller_filing_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("seller_filing_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["seller_filing_id"] = arg0
+	return args, nil
+}
+
 func (ec *executionContext) field_Query_seller_rating_record_aggregate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -15350,6 +16400,21 @@ func (ec *executionContext) field_Query_seller_rating_record_by_pk_args(ctx cont
 	return args, nil
 }
 
+func (ec *executionContext) field_Query_seller_rating_record_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["seller_rating_record_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("seller_rating_record_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["seller_rating_record_id"] = arg0
+	return args, nil
+}
+
 func (ec *executionContext) field_Query_vehicle_sale_record_aggregate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -15464,6 +16529,21 @@ func (ec *executionContext) field_Query_vehicle_sale_record_by_pk_args(ctx conte
 		}
 	}
 	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Query_vehicle_sale_record_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["vehicle_sale_record_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("vehicle_sale_record_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["vehicle_sale_record_id"] = arg0
 	return args, nil
 }
 
@@ -29457,6 +30537,84 @@ func (ec *executionContext) _Mutation_update_muck_truck_purchase_intention_by_pk
 	return ec.marshalOMuckTruckPurchaseIntention2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋmodelᚐMuckTruckPurchaseIntention(ctx, field.Selections, res)
 }
 
+func (ec *executionContext) _Mutation_update_muck_truck_purchase_intention_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_muck_truck_purchase_intention_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateMuckTruckPurchaseIntentionByUnionPk(rctx, args["_inc"].(*model.MuckTruckPurchaseIntentionIncInput), args["_set"].(*model.MuckTruckPurchaseIntentionSetInput), args["muck_truck_purchase_intention_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.MuckTruckPurchaseIntention)
+	fc.Result = res
+	return ec.marshalOMuckTruckPurchaseIntention2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋmodelᚐMuckTruckPurchaseIntention(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_delete_muck_truck_purchase_intention_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_delete_muck_truck_purchase_intention_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().DeleteMuckTruckPurchaseIntentionByUnionPk(rctx, args["muck_truck_purchase_intention_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.MuckTruckPurchaseIntention)
+	fc.Result = res
+	return ec.marshalOMuckTruckPurchaseIntention2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋmodelᚐMuckTruckPurchaseIntention(ctx, field.Selections, res)
+}
+
 func (ec *executionContext) _Mutation_delete_muck_truck_sale_order(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -29678,6 +30836,84 @@ func (ec *executionContext) _Mutation_update_muck_truck_sale_order_by_pk(ctx con
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
 		return ec.resolvers.Mutation().UpdateMuckTruckSaleOrderByPk(rctx, args["_inc"].(*model.MuckTruckSaleOrderIncInput), args["_set"].(*model.MuckTruckSaleOrderSetInput), args["id"].(int64))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.MuckTruckSaleOrder)
+	fc.Result = res
+	return ec.marshalOMuckTruckSaleOrder2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋmodelᚐMuckTruckSaleOrder(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_update_muck_truck_sale_order_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_muck_truck_sale_order_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateMuckTruckSaleOrderByUnionPk(rctx, args["_inc"].(*model.MuckTruckSaleOrderIncInput), args["_set"].(*model.MuckTruckSaleOrderSetInput), args["muck_truck_sale_order_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.MuckTruckSaleOrder)
+	fc.Result = res
+	return ec.marshalOMuckTruckSaleOrder2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋmodelᚐMuckTruckSaleOrder(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_delete_muck_truck_sale_order_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_delete_muck_truck_sale_order_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().DeleteMuckTruckSaleOrderByUnionPk(rctx, args["muck_truck_sale_order_id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -29925,6 +31161,84 @@ func (ec *executionContext) _Mutation_update_muck_truck_sale_order_detail_by_pk(
 	return ec.marshalOMuckTruckSaleOrderDetail2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋmodelᚐMuckTruckSaleOrderDetail(ctx, field.Selections, res)
 }
 
+func (ec *executionContext) _Mutation_update_muck_truck_sale_order_detail_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_muck_truck_sale_order_detail_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateMuckTruckSaleOrderDetailByUnionPk(rctx, args["_inc"].(*model.MuckTruckSaleOrderDetailIncInput), args["_set"].(*model.MuckTruckSaleOrderDetailSetInput), args["muck_truck_sale_order_detail_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.MuckTruckSaleOrderDetail)
+	fc.Result = res
+	return ec.marshalOMuckTruckSaleOrderDetail2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋmodelᚐMuckTruckSaleOrderDetail(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_delete_muck_truck_sale_order_detail_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_delete_muck_truck_sale_order_detail_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().DeleteMuckTruckSaleOrderDetailByUnionPk(rctx, args["muck_truck_sale_order_detail_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.MuckTruckSaleOrderDetail)
+	fc.Result = res
+	return ec.marshalOMuckTruckSaleOrderDetail2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋmodelᚐMuckTruckSaleOrderDetail(ctx, field.Selections, res)
+}
+
 func (ec *executionContext) _Mutation_delete_new_muck_truck_info(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -30146,6 +31460,84 @@ func (ec *executionContext) _Mutation_update_new_muck_truck_info_by_pk(ctx conte
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
 		return ec.resolvers.Mutation().UpdateNewMuckTruckInfoByPk(rctx, args["_inc"].(*model.NewMuckTruckInfoIncInput), args["_set"].(*model.NewMuckTruckInfoSetInput), args["id"].(int64))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.NewMuckTruckInfo)
+	fc.Result = res
+	return ec.marshalONewMuckTruckInfo2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋmodelᚐNewMuckTruckInfo(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_update_new_muck_truck_info_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_new_muck_truck_info_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateNewMuckTruckInfoByUnionPk(rctx, args["_inc"].(*model.NewMuckTruckInfoIncInput), args["_set"].(*model.NewMuckTruckInfoSetInput), args["new_muck_truck_info_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.NewMuckTruckInfo)
+	fc.Result = res
+	return ec.marshalONewMuckTruckInfo2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋmodelᚐNewMuckTruckInfo(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_delete_new_muck_truck_info_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_delete_new_muck_truck_info_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().DeleteNewMuckTruckInfoByUnionPk(rctx, args["new_muck_truck_info_id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -30393,6 +31785,84 @@ func (ec *executionContext) _Mutation_update_new_muck_truck_photo_by_pk(ctx cont
 	return ec.marshalONewMuckTruckPhoto2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋmodelᚐNewMuckTruckPhoto(ctx, field.Selections, res)
 }
 
+func (ec *executionContext) _Mutation_update_new_muck_truck_photo_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_new_muck_truck_photo_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateNewMuckTruckPhotoByUnionPk(rctx, args["_inc"].(*model.NewMuckTruckPhotoIncInput), args["_set"].(*model.NewMuckTruckPhotoSetInput), args["new_muck_truck_photo_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.NewMuckTruckPhoto)
+	fc.Result = res
+	return ec.marshalONewMuckTruckPhoto2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋmodelᚐNewMuckTruckPhoto(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_delete_new_muck_truck_photo_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_delete_new_muck_truck_photo_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().DeleteNewMuckTruckPhotoByUnionPk(rctx, args["new_muck_truck_photo_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.NewMuckTruckPhoto)
+	fc.Result = res
+	return ec.marshalONewMuckTruckPhoto2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋmodelᚐNewMuckTruckPhoto(ctx, field.Selections, res)
+}
+
 func (ec *executionContext) _Mutation_delete_new_muck_truck_recommend_catalog(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -30614,6 +32084,84 @@ func (ec *executionContext) _Mutation_update_new_muck_truck_recommend_catalog_by
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
 		return ec.resolvers.Mutation().UpdateNewMuckTruckRecommendCatalogByPk(rctx, args["_inc"].(*model.NewMuckTruckRecommendCatalogIncInput), args["_set"].(*model.NewMuckTruckRecommendCatalogSetInput), args["id"].(int64))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.NewMuckTruckRecommendCatalog)
+	fc.Result = res
+	return ec.marshalONewMuckTruckRecommendCatalog2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋmodelᚐNewMuckTruckRecommendCatalog(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_update_new_muck_truck_recommend_catalog_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_new_muck_truck_recommend_catalog_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateNewMuckTruckRecommendCatalogByUnionPk(rctx, args["_inc"].(*model.NewMuckTruckRecommendCatalogIncInput), args["_set"].(*model.NewMuckTruckRecommendCatalogSetInput), args["new_muck_truck_recommend_catalog_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.NewMuckTruckRecommendCatalog)
+	fc.Result = res
+	return ec.marshalONewMuckTruckRecommendCatalog2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋmodelᚐNewMuckTruckRecommendCatalog(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_delete_new_muck_truck_recommend_catalog_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_delete_new_muck_truck_recommend_catalog_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().DeleteNewMuckTruckRecommendCatalogByUnionPk(rctx, args["new_muck_truck_recommend_catalog_id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -30861,6 +32409,84 @@ func (ec *executionContext) _Mutation_update_seller_filing_by_pk(ctx context.Con
 	return ec.marshalOSellerFiling2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋmodelᚐSellerFiling(ctx, field.Selections, res)
 }
 
+func (ec *executionContext) _Mutation_update_seller_filing_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_seller_filing_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateSellerFilingByUnionPk(rctx, args["_inc"].(*model.SellerFilingIncInput), args["_set"].(*model.SellerFilingSetInput), args["seller_filing_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.SellerFiling)
+	fc.Result = res
+	return ec.marshalOSellerFiling2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋmodelᚐSellerFiling(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_delete_seller_filing_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_delete_seller_filing_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().DeleteSellerFilingByUnionPk(rctx, args["seller_filing_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.SellerFiling)
+	fc.Result = res
+	return ec.marshalOSellerFiling2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋmodelᚐSellerFiling(ctx, field.Selections, res)
+}
+
 func (ec *executionContext) _Mutation_delete_seller_rating_record(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -31095,6 +32721,84 @@ func (ec *executionContext) _Mutation_update_seller_rating_record_by_pk(ctx cont
 	return ec.marshalOSellerRatingRecord2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋmodelᚐSellerRatingRecord(ctx, field.Selections, res)
 }
 
+func (ec *executionContext) _Mutation_update_seller_rating_record_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_seller_rating_record_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateSellerRatingRecordByUnionPk(rctx, args["_inc"].(*model.SellerRatingRecordIncInput), args["_set"].(*model.SellerRatingRecordSetInput), args["seller_rating_record_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.SellerRatingRecord)
+	fc.Result = res
+	return ec.marshalOSellerRatingRecord2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋmodelᚐSellerRatingRecord(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_delete_seller_rating_record_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_delete_seller_rating_record_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().DeleteSellerRatingRecordByUnionPk(rctx, args["seller_rating_record_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.SellerRatingRecord)
+	fc.Result = res
+	return ec.marshalOSellerRatingRecord2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋmodelᚐSellerRatingRecord(ctx, field.Selections, res)
+}
+
 func (ec *executionContext) _Mutation_delete_vehicle_sale_record(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -31316,6 +33020,84 @@ func (ec *executionContext) _Mutation_update_vehicle_sale_record_by_pk(ctx conte
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
 		return ec.resolvers.Mutation().UpdateVehicleSaleRecordByPk(rctx, args["_inc"].(*model.VehicleSaleRecordIncInput), args["_set"].(*model.VehicleSaleRecordSetInput), args["id"].(int64))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.VehicleSaleRecord)
+	fc.Result = res
+	return ec.marshalOVehicleSaleRecord2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋmodelᚐVehicleSaleRecord(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_update_vehicle_sale_record_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_vehicle_sale_record_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateVehicleSaleRecordByUnionPk(rctx, args["_inc"].(*model.VehicleSaleRecordIncInput), args["_set"].(*model.VehicleSaleRecordSetInput), args["vehicle_sale_record_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.VehicleSaleRecord)
+	fc.Result = res
+	return ec.marshalOVehicleSaleRecord2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋmodelᚐVehicleSaleRecord(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_delete_vehicle_sale_record_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_delete_vehicle_sale_record_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().DeleteVehicleSaleRecordByUnionPk(rctx, args["vehicle_sale_record_id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -37269,6 +39051,48 @@ func (ec *executionContext) _Query_muck_truck_purchase_intention_by_pk(ctx conte
 	return ec.marshalNMuckTruckPurchaseIntention2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋmodelᚐMuckTruckPurchaseIntention(ctx, field.Selections, res)
 }
 
+func (ec *executionContext) _Query_muck_truck_purchase_intention_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_muck_truck_purchase_intention_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().MuckTruckPurchaseIntentionByUnionPk(rctx, args["muck_truck_purchase_intention_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*model1.MuckTruckPurchaseIntention)
+	fc.Result = res
+	return ec.marshalNMuckTruckPurchaseIntention2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋmodelᚐMuckTruckPurchaseIntention(ctx, field.Selections, res)
+}
+
 func (ec *executionContext) _Query_muck_truck_sale_order(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -37379,6 +39203,48 @@ func (ec *executionContext) _Query_muck_truck_sale_order_by_pk(ctx context.Conte
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
 		return ec.resolvers.Query().MuckTruckSaleOrderByPk(rctx, args["id"].(int64))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*model1.MuckTruckSaleOrder)
+	fc.Result = res
+	return ec.marshalNMuckTruckSaleOrder2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋmodelᚐMuckTruckSaleOrder(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Query_muck_truck_sale_order_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_muck_truck_sale_order_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().MuckTruckSaleOrderByUnionPk(rctx, args["muck_truck_sale_order_id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -37521,6 +39387,48 @@ func (ec *executionContext) _Query_muck_truck_sale_order_detail_by_pk(ctx contex
 	return ec.marshalNMuckTruckSaleOrderDetail2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋmodelᚐMuckTruckSaleOrderDetail(ctx, field.Selections, res)
 }
 
+func (ec *executionContext) _Query_muck_truck_sale_order_detail_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_muck_truck_sale_order_detail_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().MuckTruckSaleOrderDetailByUnionPk(rctx, args["muck_truck_sale_order_detail_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*model1.MuckTruckSaleOrderDetail)
+	fc.Result = res
+	return ec.marshalNMuckTruckSaleOrderDetail2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋmodelᚐMuckTruckSaleOrderDetail(ctx, field.Selections, res)
+}
+
 func (ec *executionContext) _Query_new_muck_truck_info(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -37631,6 +39539,48 @@ func (ec *executionContext) _Query_new_muck_truck_info_by_pk(ctx context.Context
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
 		return ec.resolvers.Query().NewMuckTruckInfoByPk(rctx, args["id"].(int64))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*model1.NewMuckTruckInfo)
+	fc.Result = res
+	return ec.marshalNNewMuckTruckInfo2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋmodelᚐNewMuckTruckInfo(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Query_new_muck_truck_info_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_new_muck_truck_info_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().NewMuckTruckInfoByUnionPk(rctx, args["new_muck_truck_info_id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -37773,6 +39723,48 @@ func (ec *executionContext) _Query_new_muck_truck_photo_by_pk(ctx context.Contex
 	return ec.marshalNNewMuckTruckPhoto2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋmodelᚐNewMuckTruckPhoto(ctx, field.Selections, res)
 }
 
+func (ec *executionContext) _Query_new_muck_truck_photo_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_new_muck_truck_photo_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().NewMuckTruckPhotoByUnionPk(rctx, args["new_muck_truck_photo_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*model1.NewMuckTruckPhoto)
+	fc.Result = res
+	return ec.marshalNNewMuckTruckPhoto2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋmodelᚐNewMuckTruckPhoto(ctx, field.Selections, res)
+}
+
 func (ec *executionContext) _Query_new_muck_truck_recommend_catalog(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -37883,6 +39875,48 @@ func (ec *executionContext) _Query_new_muck_truck_recommend_catalog_by_pk(ctx co
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
 		return ec.resolvers.Query().NewMuckTruckRecommendCatalogByPk(rctx, args["id"].(int64))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*model1.NewMuckTruckRecommendCatalog)
+	fc.Result = res
+	return ec.marshalNNewMuckTruckRecommendCatalog2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋmodelᚐNewMuckTruckRecommendCatalog(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Query_new_muck_truck_recommend_catalog_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_new_muck_truck_recommend_catalog_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().NewMuckTruckRecommendCatalogByUnionPk(rctx, args["new_muck_truck_recommend_catalog_id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -38025,6 +40059,48 @@ func (ec *executionContext) _Query_seller_filing_by_pk(ctx context.Context, fiel
 	return ec.marshalNSellerFiling2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋmodelᚐSellerFiling(ctx, field.Selections, res)
 }
 
+func (ec *executionContext) _Query_seller_filing_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_seller_filing_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().SellerFilingByUnionPk(rctx, args["seller_filing_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*model1.SellerFiling)
+	fc.Result = res
+	return ec.marshalNSellerFiling2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋmodelᚐSellerFiling(ctx, field.Selections, res)
+}
+
 func (ec *executionContext) _Query_seller_rating_record(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -38151,6 +40227,48 @@ func (ec *executionContext) _Query_seller_rating_record_by_pk(ctx context.Contex
 	return ec.marshalNSellerRatingRecord2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋmodelᚐSellerRatingRecord(ctx, field.Selections, res)
 }
 
+func (ec *executionContext) _Query_seller_rating_record_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_seller_rating_record_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().SellerRatingRecordByUnionPk(rctx, args["seller_rating_record_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*model1.SellerRatingRecord)
+	fc.Result = res
+	return ec.marshalNSellerRatingRecord2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋmodelᚐSellerRatingRecord(ctx, field.Selections, res)
+}
+
 func (ec *executionContext) _Query_vehicle_sale_record(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -38261,6 +40379,48 @@ func (ec *executionContext) _Query_vehicle_sale_record_by_pk(ctx context.Context
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
 		return ec.resolvers.Query().VehicleSaleRecordByPk(rctx, args["id"].(int64))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*model1.VehicleSaleRecord)
+	fc.Result = res
+	return ec.marshalNVehicleSaleRecord2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋmodelᚐVehicleSaleRecord(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Query_vehicle_sale_record_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_vehicle_sale_record_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().VehicleSaleRecordByUnionPk(rctx, args["vehicle_sale_record_id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -48905,8 +51065,8 @@ func (ec *executionContext) unmarshalInputBooleanComparisonExp(ctx context.Conte
 	return it, nil
 }
 
-func (ec *executionContext) unmarshalInputFloatComparisonExp(ctx context.Context, obj interface{}) (model1.FloatComparisonExp, error) {
-	var it model1.FloatComparisonExp
+func (ec *executionContext) unmarshalInputFloatComparisonExp(ctx context.Context, obj interface{}) (model2.FloatComparisonExp, error) {
+	var it model2.FloatComparisonExp
 	var asMap = obj.(map[string]interface{})
 
 	for k, v := range asMap {
@@ -49419,6 +51579,14 @@ func (ec *executionContext) unmarshalInputMuckTruckPurchaseIntentionInsertInput(
 
 	for k, v := range asMap {
 		switch k {
+		case "muck_truck_purchase_intention_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("muck_truck_purchase_intention_id"))
+			it.MuckTruckPurchaseIntentionID, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "supplier":
 			var err error
 
@@ -49544,6 +51712,22 @@ func (ec *executionContext) unmarshalInputMuckTruckPurchaseIntentionInsertInput(
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_deleted"))
 			it.IsDeleted, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
+			it.CreatedAt, err = ec.unmarshalNTimestamptz2timeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
+			it.CreatedBy, err = ec.unmarshalNString2string(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -50587,6 +52771,14 @@ func (ec *executionContext) unmarshalInputMuckTruckSaleOrderDetailInsertInput(ct
 
 	for k, v := range asMap {
 		switch k {
+		case "muck_truck_sale_order_detail_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("muck_truck_sale_order_detail_id"))
+			it.MuckTruckSaleOrderDetailID, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "order_id":
 			var err error
 
@@ -50704,6 +52896,22 @@ func (ec *executionContext) unmarshalInputMuckTruckSaleOrderDetailInsertInput(ct
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_deleted"))
 			it.IsDeleted, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
+			it.CreatedAt, err = ec.unmarshalNTimestamptz2timeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
+			it.CreatedBy, err = ec.unmarshalNString2string(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -51243,6 +53451,14 @@ func (ec *executionContext) unmarshalInputMuckTruckSaleOrderInsertInput(ctx cont
 
 	for k, v := range asMap {
 		switch k {
+		case "muck_truck_sale_order_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("muck_truck_sale_order_id"))
+			it.MuckTruckSaleOrderID, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "customer_name":
 			var err error
 
@@ -51464,6 +53680,22 @@ func (ec *executionContext) unmarshalInputMuckTruckSaleOrderInsertInput(ctx cont
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_deleted"))
 			it.IsDeleted, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
+			it.CreatedAt, err = ec.unmarshalNTimestamptz2timeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
+			it.CreatedBy, err = ec.unmarshalNString2string(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -52311,6 +54543,14 @@ func (ec *executionContext) unmarshalInputNewMuckTruckInfoInsertInput(ctx contex
 
 	for k, v := range asMap {
 		switch k {
+		case "new_muck_truck_info_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("new_muck_truck_info_id"))
+			it.NewMuckTruckInfoID, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "vehicle_id":
 			var err error
 
@@ -52388,6 +54628,22 @@ func (ec *executionContext) unmarshalInputNewMuckTruckInfoInsertInput(ctx contex
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("top_cover_height"))
 			it.TopCoverHeight, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
+			it.CreatedAt, err = ec.unmarshalNTimestamptz2timeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
+			it.CreatedBy, err = ec.unmarshalNString2string(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -52891,6 +55147,14 @@ func (ec *executionContext) unmarshalInputNewMuckTruckPhotoInsertInput(ctx conte
 
 	for k, v := range asMap {
 		switch k {
+		case "new_muck_truck_photo_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("new_muck_truck_photo_id"))
+			it.NewMuckTruckPhotoID, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "vehicle_id":
 			var err error
 
@@ -52912,6 +55176,22 @@ func (ec *executionContext) unmarshalInputNewMuckTruckPhotoInsertInput(ctx conte
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("upload_user"))
 			it.UploadUser, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
+			it.CreatedAt, err = ec.unmarshalNTimestamptz2timeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
+			it.CreatedBy, err = ec.unmarshalNString2string(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -53287,11 +55567,35 @@ func (ec *executionContext) unmarshalInputNewMuckTruckRecommendCatalogInsertInpu
 
 	for k, v := range asMap {
 		switch k {
+		case "new_muck_truck_recommend_catalog_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("new_muck_truck_recommend_catalog_id"))
+			it.NewMuckTruckRecommendCatalogID, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "brand_name":
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("brand_name"))
 			it.BrandName, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
+			it.CreatedAt, err = ec.unmarshalNTimestamptz2timeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
+			it.CreatedBy, err = ec.unmarshalNString2string(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -53987,6 +56291,14 @@ func (ec *executionContext) unmarshalInputSellerFilingInsertInput(ctx context.Co
 
 	for k, v := range asMap {
 		switch k {
+		case "seller_filing_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("seller_filing_id"))
+			it.SellerFilingID, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "seller":
 			var err error
 
@@ -54176,6 +56488,22 @@ func (ec *executionContext) unmarshalInputSellerFilingInsertInput(ctx context.Co
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_deleted"))
 			it.IsDeleted, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
+			it.CreatedAt, err = ec.unmarshalNTimestamptz2timeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
+			it.CreatedBy, err = ec.unmarshalNString2string(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -54935,6 +57263,14 @@ func (ec *executionContext) unmarshalInputSellerRatingRecordInsertInput(ctx cont
 
 	for k, v := range asMap {
 		switch k {
+		case "seller_rating_record_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("seller_rating_record_id"))
+			it.SellerRatingRecordID, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "demerit_obj":
 			var err error
 
@@ -54980,6 +57316,22 @@ func (ec *executionContext) unmarshalInputSellerRatingRecordInsertInput(ctx cont
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_deleted"))
 			it.IsDeleted, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
+			it.CreatedAt, err = ec.unmarshalNTimestamptz2timeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
+			it.CreatedBy, err = ec.unmarshalNString2string(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -55739,6 +58091,14 @@ func (ec *executionContext) unmarshalInputVehicleSaleRecordInsertInput(ctx conte
 
 	for k, v := range asMap {
 		switch k {
+		case "vehicle_sale_record_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("vehicle_sale_record_id"))
+			it.VehicleSaleRecordID, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "seller":
 			var err error
 
@@ -55856,6 +58216,22 @@ func (ec *executionContext) unmarshalInputVehicleSaleRecordInsertInput(ctx conte
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_deleted"))
 			it.IsDeleted, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
+			it.CreatedAt, err = ec.unmarshalNTimestamptz2timeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
+			it.CreatedBy, err = ec.unmarshalNString2string(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -58156,6 +60532,10 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			out.Values[i] = ec._Mutation_update_muck_truck_purchase_intention(ctx, field)
 		case "update_muck_truck_purchase_intention_by_pk":
 			out.Values[i] = ec._Mutation_update_muck_truck_purchase_intention_by_pk(ctx, field)
+		case "update_muck_truck_purchase_intention_by_union_pk":
+			out.Values[i] = ec._Mutation_update_muck_truck_purchase_intention_by_union_pk(ctx, field)
+		case "delete_muck_truck_purchase_intention_by_union_pk":
+			out.Values[i] = ec._Mutation_delete_muck_truck_purchase_intention_by_union_pk(ctx, field)
 		case "delete_muck_truck_sale_order":
 			out.Values[i] = ec._Mutation_delete_muck_truck_sale_order(ctx, field)
 		case "delete_muck_truck_sale_order_by_pk":
@@ -58168,6 +60548,10 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			out.Values[i] = ec._Mutation_update_muck_truck_sale_order(ctx, field)
 		case "update_muck_truck_sale_order_by_pk":
 			out.Values[i] = ec._Mutation_update_muck_truck_sale_order_by_pk(ctx, field)
+		case "update_muck_truck_sale_order_by_union_pk":
+			out.Values[i] = ec._Mutation_update_muck_truck_sale_order_by_union_pk(ctx, field)
+		case "delete_muck_truck_sale_order_by_union_pk":
+			out.Values[i] = ec._Mutation_delete_muck_truck_sale_order_by_union_pk(ctx, field)
 		case "delete_muck_truck_sale_order_detail":
 			out.Values[i] = ec._Mutation_delete_muck_truck_sale_order_detail(ctx, field)
 		case "delete_muck_truck_sale_order_detail_by_pk":
@@ -58180,6 +60564,10 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			out.Values[i] = ec._Mutation_update_muck_truck_sale_order_detail(ctx, field)
 		case "update_muck_truck_sale_order_detail_by_pk":
 			out.Values[i] = ec._Mutation_update_muck_truck_sale_order_detail_by_pk(ctx, field)
+		case "update_muck_truck_sale_order_detail_by_union_pk":
+			out.Values[i] = ec._Mutation_update_muck_truck_sale_order_detail_by_union_pk(ctx, field)
+		case "delete_muck_truck_sale_order_detail_by_union_pk":
+			out.Values[i] = ec._Mutation_delete_muck_truck_sale_order_detail_by_union_pk(ctx, field)
 		case "delete_new_muck_truck_info":
 			out.Values[i] = ec._Mutation_delete_new_muck_truck_info(ctx, field)
 		case "delete_new_muck_truck_info_by_pk":
@@ -58192,6 +60580,10 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			out.Values[i] = ec._Mutation_update_new_muck_truck_info(ctx, field)
 		case "update_new_muck_truck_info_by_pk":
 			out.Values[i] = ec._Mutation_update_new_muck_truck_info_by_pk(ctx, field)
+		case "update_new_muck_truck_info_by_union_pk":
+			out.Values[i] = ec._Mutation_update_new_muck_truck_info_by_union_pk(ctx, field)
+		case "delete_new_muck_truck_info_by_union_pk":
+			out.Values[i] = ec._Mutation_delete_new_muck_truck_info_by_union_pk(ctx, field)
 		case "delete_new_muck_truck_photo":
 			out.Values[i] = ec._Mutation_delete_new_muck_truck_photo(ctx, field)
 		case "delete_new_muck_truck_photo_by_pk":
@@ -58204,6 +60596,10 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			out.Values[i] = ec._Mutation_update_new_muck_truck_photo(ctx, field)
 		case "update_new_muck_truck_photo_by_pk":
 			out.Values[i] = ec._Mutation_update_new_muck_truck_photo_by_pk(ctx, field)
+		case "update_new_muck_truck_photo_by_union_pk":
+			out.Values[i] = ec._Mutation_update_new_muck_truck_photo_by_union_pk(ctx, field)
+		case "delete_new_muck_truck_photo_by_union_pk":
+			out.Values[i] = ec._Mutation_delete_new_muck_truck_photo_by_union_pk(ctx, field)
 		case "delete_new_muck_truck_recommend_catalog":
 			out.Values[i] = ec._Mutation_delete_new_muck_truck_recommend_catalog(ctx, field)
 		case "delete_new_muck_truck_recommend_catalog_by_pk":
@@ -58216,6 +60612,10 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			out.Values[i] = ec._Mutation_update_new_muck_truck_recommend_catalog(ctx, field)
 		case "update_new_muck_truck_recommend_catalog_by_pk":
 			out.Values[i] = ec._Mutation_update_new_muck_truck_recommend_catalog_by_pk(ctx, field)
+		case "update_new_muck_truck_recommend_catalog_by_union_pk":
+			out.Values[i] = ec._Mutation_update_new_muck_truck_recommend_catalog_by_union_pk(ctx, field)
+		case "delete_new_muck_truck_recommend_catalog_by_union_pk":
+			out.Values[i] = ec._Mutation_delete_new_muck_truck_recommend_catalog_by_union_pk(ctx, field)
 		case "delete_seller_filing":
 			out.Values[i] = ec._Mutation_delete_seller_filing(ctx, field)
 		case "delete_seller_filing_by_pk":
@@ -58228,6 +60628,10 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			out.Values[i] = ec._Mutation_update_seller_filing(ctx, field)
 		case "update_seller_filing_by_pk":
 			out.Values[i] = ec._Mutation_update_seller_filing_by_pk(ctx, field)
+		case "update_seller_filing_by_union_pk":
+			out.Values[i] = ec._Mutation_update_seller_filing_by_union_pk(ctx, field)
+		case "delete_seller_filing_by_union_pk":
+			out.Values[i] = ec._Mutation_delete_seller_filing_by_union_pk(ctx, field)
 		case "delete_seller_rating_record":
 			out.Values[i] = ec._Mutation_delete_seller_rating_record(ctx, field)
 		case "delete_seller_rating_record_by_pk":
@@ -58240,6 +60644,10 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			out.Values[i] = ec._Mutation_update_seller_rating_record(ctx, field)
 		case "update_seller_rating_record_by_pk":
 			out.Values[i] = ec._Mutation_update_seller_rating_record_by_pk(ctx, field)
+		case "update_seller_rating_record_by_union_pk":
+			out.Values[i] = ec._Mutation_update_seller_rating_record_by_union_pk(ctx, field)
+		case "delete_seller_rating_record_by_union_pk":
+			out.Values[i] = ec._Mutation_delete_seller_rating_record_by_union_pk(ctx, field)
 		case "delete_vehicle_sale_record":
 			out.Values[i] = ec._Mutation_delete_vehicle_sale_record(ctx, field)
 		case "delete_vehicle_sale_record_by_pk":
@@ -58252,6 +60660,10 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			out.Values[i] = ec._Mutation_update_vehicle_sale_record(ctx, field)
 		case "update_vehicle_sale_record_by_pk":
 			out.Values[i] = ec._Mutation_update_vehicle_sale_record_by_pk(ctx, field)
+		case "update_vehicle_sale_record_by_union_pk":
+			out.Values[i] = ec._Mutation_update_vehicle_sale_record_by_union_pk(ctx, field)
+		case "delete_vehicle_sale_record_by_union_pk":
+			out.Values[i] = ec._Mutation_delete_vehicle_sale_record_by_union_pk(ctx, field)
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}
@@ -59658,6 +62070,20 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 				}
 				return res
 			})
+		case "muck_truck_purchase_intention_by_union_pk":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_muck_truck_purchase_intention_by_union_pk(ctx, field)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			})
 		case "muck_truck_sale_order":
 			field := field
 			out.Concurrently(i, func() (res graphql.Marshaler) {
@@ -59695,6 +62121,20 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_muck_truck_sale_order_by_pk(ctx, field)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			})
+		case "muck_truck_sale_order_by_union_pk":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_muck_truck_sale_order_by_union_pk(ctx, field)
 				if res == graphql.Null {
 					atomic.AddUint32(&invalids, 1)
 				}
@@ -59742,6 +62182,20 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 				}
 				return res
 			})
+		case "muck_truck_sale_order_detail_by_union_pk":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_muck_truck_sale_order_detail_by_union_pk(ctx, field)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			})
 		case "new_muck_truck_info":
 			field := field
 			out.Concurrently(i, func() (res graphql.Marshaler) {
@@ -59779,6 +62233,20 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_new_muck_truck_info_by_pk(ctx, field)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			})
+		case "new_muck_truck_info_by_union_pk":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_new_muck_truck_info_by_union_pk(ctx, field)
 				if res == graphql.Null {
 					atomic.AddUint32(&invalids, 1)
 				}
@@ -59826,6 +62294,20 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 				}
 				return res
 			})
+		case "new_muck_truck_photo_by_union_pk":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_new_muck_truck_photo_by_union_pk(ctx, field)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			})
 		case "new_muck_truck_recommend_catalog":
 			field := field
 			out.Concurrently(i, func() (res graphql.Marshaler) {
@@ -59863,6 +62345,20 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_new_muck_truck_recommend_catalog_by_pk(ctx, field)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			})
+		case "new_muck_truck_recommend_catalog_by_union_pk":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_new_muck_truck_recommend_catalog_by_union_pk(ctx, field)
 				if res == graphql.Null {
 					atomic.AddUint32(&invalids, 1)
 				}
@@ -59910,6 +62406,20 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 				}
 				return res
 			})
+		case "seller_filing_by_union_pk":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_seller_filing_by_union_pk(ctx, field)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			})
 		case "seller_rating_record":
 			field := field
 			out.Concurrently(i, func() (res graphql.Marshaler) {
@@ -59952,6 +62462,20 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 				}
 				return res
 			})
+		case "seller_rating_record_by_union_pk":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_seller_rating_record_by_union_pk(ctx, field)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			})
 		case "vehicle_sale_record":
 			field := field
 			out.Concurrently(i, func() (res graphql.Marshaler) {
@@ -59989,6 +62513,20 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_vehicle_sale_record_by_pk(ctx, field)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			})
+		case "vehicle_sale_record_by_union_pk":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_vehicle_sale_record_by_union_pk(ctx, field)
 				if res == graphql.Null {
 					atomic.AddUint32(&invalids, 1)
 				}

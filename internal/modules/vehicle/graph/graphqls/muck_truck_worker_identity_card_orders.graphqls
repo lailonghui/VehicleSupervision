@@ -187,6 +187,11 @@ input MuckTruckWorkerIdentityCardOrdersBoolExp {
 input type for inserting data into table "muck_truck_worker_identity_card_orders"
 """
 input MuckTruckWorkerIdentityCardOrdersInsertInput {
+	muck_truck_worker_orders_id: String!
+	vehicle_id: String!
+	preview_number_id: String!
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -294,7 +299,7 @@ extend type Mutation {
 	"""
 	update_muck_truck_worker_identity_card_orders(_inc: MuckTruckWorkerIdentityCardOrdersIncInput, _set: MuckTruckWorkerIdentityCardOrdersSetInput, where: MuckTruckWorkerIdentityCardOrdersBoolExp!): MuckTruckWorkerIdentityCardOrdersMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_muck_truck_worker_identity_card_orders_by_pk(_inc: MuckTruckWorkerIdentityCardOrdersIncInput, _set: MuckTruckWorkerIdentityCardOrdersSetInput, id: Bigint!): MuckTruckWorkerIdentityCardOrders
 }

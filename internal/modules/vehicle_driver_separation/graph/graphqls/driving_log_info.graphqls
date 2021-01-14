@@ -283,6 +283,7 @@ input DrivingLogInfoBoolExp {
 input type for inserting data into table "driving_log_info"
 """
 input DrivingLogInfoInsertInput {
+	driving_log_info_id: String!
 	vehicle_id: String
 	driver_id: String
 	driving_start_time: Timestamptz
@@ -295,6 +296,8 @@ input DrivingLogInfoInsertInput {
 	review_status: Int
 	review_agecy_level: Int
 	is_markup: Boolean
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -431,6 +434,10 @@ extend type Query {
 	主键查询
 	"""
 	driving_log_info_by_pk(id: Bigint!): DrivingLogInfo!
+	"""
+	联合主键查询
+	"""
+	driving_log_info_by_union_pk(driving_log_info_id: String!): DrivingLogInfo!
 }
 extend type Mutation {
 	"""
@@ -454,7 +461,15 @@ extend type Mutation {
 	"""
 	update_driving_log_info(_inc: DrivingLogInfoIncInput, _set: DrivingLogInfoSetInput, where: DrivingLogInfoBoolExp!): DrivingLogInfoMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_driving_log_info_by_pk(_inc: DrivingLogInfoIncInput, _set: DrivingLogInfoSetInput, id: Bigint!): DrivingLogInfo
+	"""
+	根据联合主键更新
+	"""
+	update_driving_log_info_by_union_pk(_inc: DrivingLogInfoIncInput, _set: DrivingLogInfoSetInput, driving_log_info_id: String!): DrivingLogInfo
+	"""
+	根据联合主键删除记录
+	"""
+	delete_driving_log_info_by_union_pk(driving_log_info_id: String!): DrivingLogInfo
 }

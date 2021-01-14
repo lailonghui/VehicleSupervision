@@ -457,58 +457,70 @@ type ComplexityRoot struct {
 	}
 
 	Mutation struct {
-		DeleteConstructionCamera             func(childComplexity int, where model.ConstructionCameraBoolExp) int
-		DeleteConstructionCameraByPk         func(childComplexity int, id int64) int
-		DeleteConstructionInfo               func(childComplexity int, where model.ConstructionInfoBoolExp) int
-		DeleteConstructionInfoByPk           func(childComplexity int, id int64) int
-		DeleteConstructionUploadPic          func(childComplexity int, where model.ConstructionUploadPicBoolExp) int
-		DeleteConstructionUploadPicByPk      func(childComplexity int, id int64) int
-		DeleteOfflineRegistrationRecord      func(childComplexity int, where model.OfflineRegistrationRecordBoolExp) int
-		DeleteOfflineRegistrationRecordByPk  func(childComplexity int, id int64) int
-		DeleteSnapshotSystemPassingAlarm     func(childComplexity int, where model.SnapshotSystemPassingAlarmBoolExp) int
-		DeleteSnapshotSystemPassingAlarmByPk func(childComplexity int, id int64) int
-		DeleteVehiclePassingRecord           func(childComplexity int, where model.VehiclePassingRecordBoolExp) int
-		DeleteVehiclePassingRecordByPk       func(childComplexity int, id int64) int
-		InsertConstructionCamera             func(childComplexity int, objects []*model.ConstructionCameraInsertInput) int
-		InsertConstructionCameraOne          func(childComplexity int, objects model.ConstructionCameraInsertInput) int
-		InsertConstructionInfo               func(childComplexity int, objects []*model.ConstructionInfoInsertInput) int
-		InsertConstructionInfoOne            func(childComplexity int, objects model.ConstructionInfoInsertInput) int
-		InsertConstructionUploadPic          func(childComplexity int, objects []*model.ConstructionUploadPicInsertInput) int
-		InsertConstructionUploadPicOne       func(childComplexity int, objects model.ConstructionUploadPicInsertInput) int
-		InsertOfflineRegistrationRecord      func(childComplexity int, objects []*model.OfflineRegistrationRecordInsertInput) int
-		InsertOfflineRegistrationRecordOne   func(childComplexity int, objects model.OfflineRegistrationRecordInsertInput) int
-		InsertSnapshotSystemPassingAlarm     func(childComplexity int, objects []*model.SnapshotSystemPassingAlarmInsertInput) int
-		InsertSnapshotSystemPassingAlarmOne  func(childComplexity int, objects model.SnapshotSystemPassingAlarmInsertInput) int
-		InsertVehiclePassingRecord           func(childComplexity int, objects []*model.VehiclePassingRecordInsertInput) int
-		InsertVehiclePassingRecordOne        func(childComplexity int, objects model.VehiclePassingRecordInsertInput) int
-		UpdateConstructionCamera             func(childComplexity int, inc *model.ConstructionCameraIncInput, set *model.ConstructionCameraSetInput, where model.ConstructionCameraBoolExp) int
-		UpdateConstructionCameraByPk         func(childComplexity int, inc *model.ConstructionCameraIncInput, set *model.ConstructionCameraSetInput, id int64) int
-		UpdateConstructionInfo               func(childComplexity int, inc *model.ConstructionInfoIncInput, set *model.ConstructionInfoSetInput, where model.ConstructionInfoBoolExp) int
-		UpdateConstructionInfoByPk           func(childComplexity int, inc *model.ConstructionInfoIncInput, set *model.ConstructionInfoSetInput, id int64) int
-		UpdateConstructionUploadPic          func(childComplexity int, inc *model.ConstructionUploadPicIncInput, set *model.ConstructionUploadPicSetInput, where model.ConstructionUploadPicBoolExp) int
-		UpdateConstructionUploadPicByPk      func(childComplexity int, inc *model.ConstructionUploadPicIncInput, set *model.ConstructionUploadPicSetInput, id int64) int
-		UpdateOfflineRegistrationRecord      func(childComplexity int, inc *model.OfflineRegistrationRecordIncInput, set *model.OfflineRegistrationRecordSetInput, where model.OfflineRegistrationRecordBoolExp) int
-		UpdateOfflineRegistrationRecordByPk  func(childComplexity int, inc *model.OfflineRegistrationRecordIncInput, set *model.OfflineRegistrationRecordSetInput, id int64) int
-		UpdateSnapshotSystemPassingAlarm     func(childComplexity int, inc *model.SnapshotSystemPassingAlarmIncInput, set *model.SnapshotSystemPassingAlarmSetInput, where model.SnapshotSystemPassingAlarmBoolExp) int
-		UpdateSnapshotSystemPassingAlarmByPk func(childComplexity int, inc *model.SnapshotSystemPassingAlarmIncInput, set *model.SnapshotSystemPassingAlarmSetInput, id int64) int
-		UpdateVehiclePassingRecord           func(childComplexity int, inc *model.VehiclePassingRecordIncInput, set *model.VehiclePassingRecordSetInput, where model.VehiclePassingRecordBoolExp) int
-		UpdateVehiclePassingRecordByPk       func(childComplexity int, inc *model.VehiclePassingRecordIncInput, set *model.VehiclePassingRecordSetInput, id int64) int
+		DeleteConstructionCamera                  func(childComplexity int, where model.ConstructionCameraBoolExp) int
+		DeleteConstructionCameraByPk              func(childComplexity int, id int64) int
+		DeleteConstructionCameraByUnionPk         func(childComplexity int, constructionCameraID string) int
+		DeleteConstructionInfo                    func(childComplexity int, where model.ConstructionInfoBoolExp) int
+		DeleteConstructionInfoByPk                func(childComplexity int, id int64) int
+		DeleteConstructionInfoByUnionPk           func(childComplexity int, constructionInfoID string) int
+		DeleteConstructionUploadPic               func(childComplexity int, where model.ConstructionUploadPicBoolExp) int
+		DeleteConstructionUploadPicByPk           func(childComplexity int, id int64) int
+		DeleteConstructionUploadPicByUnionPk      func(childComplexity int, constructionUploadPicID string) int
+		DeleteOfflineRegistrationRecord           func(childComplexity int, where model.OfflineRegistrationRecordBoolExp) int
+		DeleteOfflineRegistrationRecordByPk       func(childComplexity int, id int64) int
+		DeleteOfflineRegistrationRecordByUnionPk  func(childComplexity int, offlineRegistrationRecordID string) int
+		DeleteSnapshotSystemPassingAlarm          func(childComplexity int, where model.SnapshotSystemPassingAlarmBoolExp) int
+		DeleteSnapshotSystemPassingAlarmByPk      func(childComplexity int, id int64) int
+		DeleteSnapshotSystemPassingAlarmByUnionPk func(childComplexity int, snapshotSystemPassingAlarmID string) int
+		DeleteVehiclePassingRecord                func(childComplexity int, where model.VehiclePassingRecordBoolExp) int
+		DeleteVehiclePassingRecordByPk            func(childComplexity int, id int64) int
+		DeleteVehiclePassingRecordByUnionPk       func(childComplexity int, vehiclePassingRecordID string) int
+		InsertConstructionCamera                  func(childComplexity int, objects []*model.ConstructionCameraInsertInput) int
+		InsertConstructionCameraOne               func(childComplexity int, objects model.ConstructionCameraInsertInput) int
+		InsertConstructionInfo                    func(childComplexity int, objects []*model.ConstructionInfoInsertInput) int
+		InsertConstructionInfoOne                 func(childComplexity int, objects model.ConstructionInfoInsertInput) int
+		InsertConstructionUploadPic               func(childComplexity int, objects []*model.ConstructionUploadPicInsertInput) int
+		InsertConstructionUploadPicOne            func(childComplexity int, objects model.ConstructionUploadPicInsertInput) int
+		InsertOfflineRegistrationRecord           func(childComplexity int, objects []*model.OfflineRegistrationRecordInsertInput) int
+		InsertOfflineRegistrationRecordOne        func(childComplexity int, objects model.OfflineRegistrationRecordInsertInput) int
+		InsertSnapshotSystemPassingAlarm          func(childComplexity int, objects []*model.SnapshotSystemPassingAlarmInsertInput) int
+		InsertSnapshotSystemPassingAlarmOne       func(childComplexity int, objects model.SnapshotSystemPassingAlarmInsertInput) int
+		InsertVehiclePassingRecord                func(childComplexity int, objects []*model.VehiclePassingRecordInsertInput) int
+		InsertVehiclePassingRecordOne             func(childComplexity int, objects model.VehiclePassingRecordInsertInput) int
+		UpdateConstructionCamera                  func(childComplexity int, inc *model.ConstructionCameraIncInput, set *model.ConstructionCameraSetInput, where model.ConstructionCameraBoolExp) int
+		UpdateConstructionCameraByPk              func(childComplexity int, inc *model.ConstructionCameraIncInput, set *model.ConstructionCameraSetInput, id int64) int
+		UpdateConstructionCameraByUnionPk         func(childComplexity int, inc *model.ConstructionCameraIncInput, set *model.ConstructionCameraSetInput, constructionCameraID string) int
+		UpdateConstructionInfo                    func(childComplexity int, inc *model.ConstructionInfoIncInput, set *model.ConstructionInfoSetInput, where model.ConstructionInfoBoolExp) int
+		UpdateConstructionInfoByPk                func(childComplexity int, inc *model.ConstructionInfoIncInput, set *model.ConstructionInfoSetInput, id int64) int
+		UpdateConstructionInfoByUnionPk           func(childComplexity int, inc *model.ConstructionInfoIncInput, set *model.ConstructionInfoSetInput, constructionInfoID string) int
+		UpdateConstructionUploadPic               func(childComplexity int, inc *model.ConstructionUploadPicIncInput, set *model.ConstructionUploadPicSetInput, where model.ConstructionUploadPicBoolExp) int
+		UpdateConstructionUploadPicByPk           func(childComplexity int, inc *model.ConstructionUploadPicIncInput, set *model.ConstructionUploadPicSetInput, id int64) int
+		UpdateConstructionUploadPicByUnionPk      func(childComplexity int, inc *model.ConstructionUploadPicIncInput, set *model.ConstructionUploadPicSetInput, constructionUploadPicID string) int
+		UpdateOfflineRegistrationRecord           func(childComplexity int, inc *model.OfflineRegistrationRecordIncInput, set *model.OfflineRegistrationRecordSetInput, where model.OfflineRegistrationRecordBoolExp) int
+		UpdateOfflineRegistrationRecordByPk       func(childComplexity int, inc *model.OfflineRegistrationRecordIncInput, set *model.OfflineRegistrationRecordSetInput, id int64) int
+		UpdateOfflineRegistrationRecordByUnionPk  func(childComplexity int, inc *model.OfflineRegistrationRecordIncInput, set *model.OfflineRegistrationRecordSetInput, offlineRegistrationRecordID string) int
+		UpdateSnapshotSystemPassingAlarm          func(childComplexity int, inc *model.SnapshotSystemPassingAlarmIncInput, set *model.SnapshotSystemPassingAlarmSetInput, where model.SnapshotSystemPassingAlarmBoolExp) int
+		UpdateSnapshotSystemPassingAlarmByPk      func(childComplexity int, inc *model.SnapshotSystemPassingAlarmIncInput, set *model.SnapshotSystemPassingAlarmSetInput, id int64) int
+		UpdateSnapshotSystemPassingAlarmByUnionPk func(childComplexity int, inc *model.SnapshotSystemPassingAlarmIncInput, set *model.SnapshotSystemPassingAlarmSetInput, snapshotSystemPassingAlarmID string) int
+		UpdateVehiclePassingRecord                func(childComplexity int, inc *model.VehiclePassingRecordIncInput, set *model.VehiclePassingRecordSetInput, where model.VehiclePassingRecordBoolExp) int
+		UpdateVehiclePassingRecordByPk            func(childComplexity int, inc *model.VehiclePassingRecordIncInput, set *model.VehiclePassingRecordSetInput, id int64) int
+		UpdateVehiclePassingRecordByUnionPk       func(childComplexity int, inc *model.VehiclePassingRecordIncInput, set *model.VehiclePassingRecordSetInput, vehiclePassingRecordID string) int
 	}
 
 	OfflineRegistrationRecord struct {
-		CreatedAt                 func(childComplexity int) int
-		CreatedBy                 func(childComplexity int) int
-		DeletedAt                 func(childComplexity int) int
-		DeletedBy                 func(childComplexity int) int
-		ID                        func(childComplexity int) int
-		IsDeleted                 func(childComplexity int) int
-		OfflineRegistrationRecord func(childComplexity int) int
-		OutageRegistrationID      func(childComplexity int) int
-		Registrant                func(childComplexity int) int
-		RegistrationContent       func(childComplexity int) int
-		RegistrationTime          func(childComplexity int) int
-		UpdatedAt                 func(childComplexity int) int
-		UpdatedBy                 func(childComplexity int) int
+		CreatedAt                   func(childComplexity int) int
+		CreatedBy                   func(childComplexity int) int
+		DeletedAt                   func(childComplexity int) int
+		DeletedBy                   func(childComplexity int) int
+		ID                          func(childComplexity int) int
+		IsDeleted                   func(childComplexity int) int
+		OfflineRegistrationRecordID func(childComplexity int) int
+		OutageRegistrationID        func(childComplexity int) int
+		Registrant                  func(childComplexity int) int
+		RegistrationContent         func(childComplexity int) int
+		RegistrationTime            func(childComplexity int) int
+		UpdatedAt                   func(childComplexity int) int
+		UpdatedBy                   func(childComplexity int) int
 	}
 
 	OfflineRegistrationRecordAggregate struct {
@@ -534,35 +546,35 @@ type ComplexityRoot struct {
 	}
 
 	OfflineRegistrationRecordMaxFields struct {
-		CreatedAt                 func(childComplexity int) int
-		CreatedBy                 func(childComplexity int) int
-		DeletedAt                 func(childComplexity int) int
-		DeletedBy                 func(childComplexity int) int
-		ID                        func(childComplexity int) int
-		IsDeleted                 func(childComplexity int) int
-		OfflineRegistrationRecord func(childComplexity int) int
-		OutageRegistrationID      func(childComplexity int) int
-		Registrant                func(childComplexity int) int
-		RegistrationContent       func(childComplexity int) int
-		RegistrationTime          func(childComplexity int) int
-		UpdatedAt                 func(childComplexity int) int
-		UpdatedBy                 func(childComplexity int) int
+		CreatedAt                   func(childComplexity int) int
+		CreatedBy                   func(childComplexity int) int
+		DeletedAt                   func(childComplexity int) int
+		DeletedBy                   func(childComplexity int) int
+		ID                          func(childComplexity int) int
+		IsDeleted                   func(childComplexity int) int
+		OfflineRegistrationRecordID func(childComplexity int) int
+		OutageRegistrationID        func(childComplexity int) int
+		Registrant                  func(childComplexity int) int
+		RegistrationContent         func(childComplexity int) int
+		RegistrationTime            func(childComplexity int) int
+		UpdatedAt                   func(childComplexity int) int
+		UpdatedBy                   func(childComplexity int) int
 	}
 
 	OfflineRegistrationRecordMinFields struct {
-		CreatedAt                 func(childComplexity int) int
-		CreatedBy                 func(childComplexity int) int
-		DeletedAt                 func(childComplexity int) int
-		DeletedBy                 func(childComplexity int) int
-		ID                        func(childComplexity int) int
-		IsDeleted                 func(childComplexity int) int
-		OfflineRegistrationRecord func(childComplexity int) int
-		OutageRegistrationID      func(childComplexity int) int
-		Registrant                func(childComplexity int) int
-		RegistrationContent       func(childComplexity int) int
-		RegistrationTime          func(childComplexity int) int
-		UpdatedAt                 func(childComplexity int) int
-		UpdatedBy                 func(childComplexity int) int
+		CreatedAt                   func(childComplexity int) int
+		CreatedBy                   func(childComplexity int) int
+		DeletedAt                   func(childComplexity int) int
+		DeletedBy                   func(childComplexity int) int
+		ID                          func(childComplexity int) int
+		IsDeleted                   func(childComplexity int) int
+		OfflineRegistrationRecordID func(childComplexity int) int
+		OutageRegistrationID        func(childComplexity int) int
+		Registrant                  func(childComplexity int) int
+		RegistrationContent         func(childComplexity int) int
+		RegistrationTime            func(childComplexity int) int
+		UpdatedAt                   func(childComplexity int) int
+		UpdatedBy                   func(childComplexity int) int
 	}
 
 	OfflineRegistrationRecordMutationResponse struct {
@@ -602,21 +614,27 @@ type ComplexityRoot struct {
 		ConstructionCamera                  func(childComplexity int, distinctOn []model.ConstructionCameraSelectColumn, limit *int, offset *int, orderBy []*model.ConstructionCameraOrderBy, where *model.ConstructionCameraBoolExp) int
 		ConstructionCameraAggregate         func(childComplexity int, distinctOn []model.ConstructionCameraSelectColumn, limit *int, offset *int, orderBy []*model.ConstructionCameraOrderBy, where *model.ConstructionCameraBoolExp) int
 		ConstructionCameraByPk              func(childComplexity int, id int64) int
+		ConstructionCameraByUnionPk         func(childComplexity int, constructionCameraID string) int
 		ConstructionInfo                    func(childComplexity int, distinctOn []model.ConstructionInfoSelectColumn, limit *int, offset *int, orderBy []*model.ConstructionInfoOrderBy, where *model.ConstructionInfoBoolExp) int
 		ConstructionInfoAggregate           func(childComplexity int, distinctOn []model.ConstructionInfoSelectColumn, limit *int, offset *int, orderBy []*model.ConstructionInfoOrderBy, where *model.ConstructionInfoBoolExp) int
 		ConstructionInfoByPk                func(childComplexity int, id int64) int
+		ConstructionInfoByUnionPk           func(childComplexity int, constructionInfoID string) int
 		ConstructionUploadPic               func(childComplexity int, distinctOn []model.ConstructionUploadPicSelectColumn, limit *int, offset *int, orderBy []*model.ConstructionUploadPicOrderBy, where *model.ConstructionUploadPicBoolExp) int
 		ConstructionUploadPicAggregate      func(childComplexity int, distinctOn []model.ConstructionUploadPicSelectColumn, limit *int, offset *int, orderBy []*model.ConstructionUploadPicOrderBy, where *model.ConstructionUploadPicBoolExp) int
 		ConstructionUploadPicByPk           func(childComplexity int, id int64) int
+		ConstructionUploadPicByUnionPk      func(childComplexity int, constructionUploadPicID string) int
 		OfflineRegistrationRecord           func(childComplexity int, distinctOn []model.OfflineRegistrationRecordSelectColumn, limit *int, offset *int, orderBy []*model.OfflineRegistrationRecordOrderBy, where *model.OfflineRegistrationRecordBoolExp) int
 		OfflineRegistrationRecordAggregate  func(childComplexity int, distinctOn []model.OfflineRegistrationRecordSelectColumn, limit *int, offset *int, orderBy []*model.OfflineRegistrationRecordOrderBy, where *model.OfflineRegistrationRecordBoolExp) int
 		OfflineRegistrationRecordByPk       func(childComplexity int, id int64) int
+		OfflineRegistrationRecordByUnionPk  func(childComplexity int, offlineRegistrationRecordID string) int
 		SnapshotSystemPassingAlarm          func(childComplexity int, distinctOn []model.SnapshotSystemPassingAlarmSelectColumn, limit *int, offset *int, orderBy []*model.SnapshotSystemPassingAlarmOrderBy, where *model.SnapshotSystemPassingAlarmBoolExp) int
 		SnapshotSystemPassingAlarmAggregate func(childComplexity int, distinctOn []model.SnapshotSystemPassingAlarmSelectColumn, limit *int, offset *int, orderBy []*model.SnapshotSystemPassingAlarmOrderBy, where *model.SnapshotSystemPassingAlarmBoolExp) int
 		SnapshotSystemPassingAlarmByPk      func(childComplexity int, id int64) int
+		SnapshotSystemPassingAlarmByUnionPk func(childComplexity int, snapshotSystemPassingAlarmID string) int
 		VehiclePassingRecord                func(childComplexity int, distinctOn []model.VehiclePassingRecordSelectColumn, limit *int, offset *int, orderBy []*model.VehiclePassingRecordOrderBy, where *model.VehiclePassingRecordBoolExp) int
 		VehiclePassingRecordAggregate       func(childComplexity int, distinctOn []model.VehiclePassingRecordSelectColumn, limit *int, offset *int, orderBy []*model.VehiclePassingRecordOrderBy, where *model.VehiclePassingRecordBoolExp) int
 		VehiclePassingRecordByPk            func(childComplexity int, id int64) int
+		VehiclePassingRecordByUnionPk       func(childComplexity int, vehiclePassingRecordID string) int
 	}
 
 	SnapshotSystemPassingAlarm struct {
@@ -885,56 +903,74 @@ type MutationResolver interface {
 	InsertConstructionCameraOne(ctx context.Context, objects model.ConstructionCameraInsertInput) (*model1.ConstructionCamera, error)
 	UpdateConstructionCamera(ctx context.Context, inc *model.ConstructionCameraIncInput, set *model.ConstructionCameraSetInput, where model.ConstructionCameraBoolExp) (*model.ConstructionCameraMutationResponse, error)
 	UpdateConstructionCameraByPk(ctx context.Context, inc *model.ConstructionCameraIncInput, set *model.ConstructionCameraSetInput, id int64) (*model1.ConstructionCamera, error)
+	UpdateConstructionCameraByUnionPk(ctx context.Context, inc *model.ConstructionCameraIncInput, set *model.ConstructionCameraSetInput, constructionCameraID string) (*model1.ConstructionCamera, error)
+	DeleteConstructionCameraByUnionPk(ctx context.Context, constructionCameraID string) (*model1.ConstructionCamera, error)
 	DeleteConstructionInfo(ctx context.Context, where model.ConstructionInfoBoolExp) (*model.ConstructionInfoMutationResponse, error)
 	DeleteConstructionInfoByPk(ctx context.Context, id int64) (*model1.ConstructionInfo, error)
 	InsertConstructionInfo(ctx context.Context, objects []*model.ConstructionInfoInsertInput) (*model.ConstructionInfoMutationResponse, error)
 	InsertConstructionInfoOne(ctx context.Context, objects model.ConstructionInfoInsertInput) (*model1.ConstructionInfo, error)
 	UpdateConstructionInfo(ctx context.Context, inc *model.ConstructionInfoIncInput, set *model.ConstructionInfoSetInput, where model.ConstructionInfoBoolExp) (*model.ConstructionInfoMutationResponse, error)
 	UpdateConstructionInfoByPk(ctx context.Context, inc *model.ConstructionInfoIncInput, set *model.ConstructionInfoSetInput, id int64) (*model1.ConstructionInfo, error)
+	UpdateConstructionInfoByUnionPk(ctx context.Context, inc *model.ConstructionInfoIncInput, set *model.ConstructionInfoSetInput, constructionInfoID string) (*model1.ConstructionInfo, error)
+	DeleteConstructionInfoByUnionPk(ctx context.Context, constructionInfoID string) (*model1.ConstructionInfo, error)
 	DeleteConstructionUploadPic(ctx context.Context, where model.ConstructionUploadPicBoolExp) (*model.ConstructionUploadPicMutationResponse, error)
 	DeleteConstructionUploadPicByPk(ctx context.Context, id int64) (*model1.ConstructionUploadPic, error)
 	InsertConstructionUploadPic(ctx context.Context, objects []*model.ConstructionUploadPicInsertInput) (*model.ConstructionUploadPicMutationResponse, error)
 	InsertConstructionUploadPicOne(ctx context.Context, objects model.ConstructionUploadPicInsertInput) (*model1.ConstructionUploadPic, error)
 	UpdateConstructionUploadPic(ctx context.Context, inc *model.ConstructionUploadPicIncInput, set *model.ConstructionUploadPicSetInput, where model.ConstructionUploadPicBoolExp) (*model.ConstructionUploadPicMutationResponse, error)
 	UpdateConstructionUploadPicByPk(ctx context.Context, inc *model.ConstructionUploadPicIncInput, set *model.ConstructionUploadPicSetInput, id int64) (*model1.ConstructionUploadPic, error)
+	UpdateConstructionUploadPicByUnionPk(ctx context.Context, inc *model.ConstructionUploadPicIncInput, set *model.ConstructionUploadPicSetInput, constructionUploadPicID string) (*model1.ConstructionUploadPic, error)
+	DeleteConstructionUploadPicByUnionPk(ctx context.Context, constructionUploadPicID string) (*model1.ConstructionUploadPic, error)
 	DeleteOfflineRegistrationRecord(ctx context.Context, where model.OfflineRegistrationRecordBoolExp) (*model.OfflineRegistrationRecordMutationResponse, error)
 	DeleteOfflineRegistrationRecordByPk(ctx context.Context, id int64) (*model1.OfflineRegistrationRecord, error)
 	InsertOfflineRegistrationRecord(ctx context.Context, objects []*model.OfflineRegistrationRecordInsertInput) (*model.OfflineRegistrationRecordMutationResponse, error)
 	InsertOfflineRegistrationRecordOne(ctx context.Context, objects model.OfflineRegistrationRecordInsertInput) (*model1.OfflineRegistrationRecord, error)
 	UpdateOfflineRegistrationRecord(ctx context.Context, inc *model.OfflineRegistrationRecordIncInput, set *model.OfflineRegistrationRecordSetInput, where model.OfflineRegistrationRecordBoolExp) (*model.OfflineRegistrationRecordMutationResponse, error)
 	UpdateOfflineRegistrationRecordByPk(ctx context.Context, inc *model.OfflineRegistrationRecordIncInput, set *model.OfflineRegistrationRecordSetInput, id int64) (*model1.OfflineRegistrationRecord, error)
+	UpdateOfflineRegistrationRecordByUnionPk(ctx context.Context, inc *model.OfflineRegistrationRecordIncInput, set *model.OfflineRegistrationRecordSetInput, offlineRegistrationRecordID string) (*model1.OfflineRegistrationRecord, error)
+	DeleteOfflineRegistrationRecordByUnionPk(ctx context.Context, offlineRegistrationRecordID string) (*model1.OfflineRegistrationRecord, error)
 	DeleteSnapshotSystemPassingAlarm(ctx context.Context, where model.SnapshotSystemPassingAlarmBoolExp) (*model.SnapshotSystemPassingAlarmMutationResponse, error)
 	DeleteSnapshotSystemPassingAlarmByPk(ctx context.Context, id int64) (*model1.SnapshotSystemPassingAlarm, error)
 	InsertSnapshotSystemPassingAlarm(ctx context.Context, objects []*model.SnapshotSystemPassingAlarmInsertInput) (*model.SnapshotSystemPassingAlarmMutationResponse, error)
 	InsertSnapshotSystemPassingAlarmOne(ctx context.Context, objects model.SnapshotSystemPassingAlarmInsertInput) (*model1.SnapshotSystemPassingAlarm, error)
 	UpdateSnapshotSystemPassingAlarm(ctx context.Context, inc *model.SnapshotSystemPassingAlarmIncInput, set *model.SnapshotSystemPassingAlarmSetInput, where model.SnapshotSystemPassingAlarmBoolExp) (*model.SnapshotSystemPassingAlarmMutationResponse, error)
 	UpdateSnapshotSystemPassingAlarmByPk(ctx context.Context, inc *model.SnapshotSystemPassingAlarmIncInput, set *model.SnapshotSystemPassingAlarmSetInput, id int64) (*model1.SnapshotSystemPassingAlarm, error)
+	UpdateSnapshotSystemPassingAlarmByUnionPk(ctx context.Context, inc *model.SnapshotSystemPassingAlarmIncInput, set *model.SnapshotSystemPassingAlarmSetInput, snapshotSystemPassingAlarmID string) (*model1.SnapshotSystemPassingAlarm, error)
+	DeleteSnapshotSystemPassingAlarmByUnionPk(ctx context.Context, snapshotSystemPassingAlarmID string) (*model1.SnapshotSystemPassingAlarm, error)
 	DeleteVehiclePassingRecord(ctx context.Context, where model.VehiclePassingRecordBoolExp) (*model.VehiclePassingRecordMutationResponse, error)
 	DeleteVehiclePassingRecordByPk(ctx context.Context, id int64) (*model1.VehiclePassingRecord, error)
 	InsertVehiclePassingRecord(ctx context.Context, objects []*model.VehiclePassingRecordInsertInput) (*model.VehiclePassingRecordMutationResponse, error)
 	InsertVehiclePassingRecordOne(ctx context.Context, objects model.VehiclePassingRecordInsertInput) (*model1.VehiclePassingRecord, error)
 	UpdateVehiclePassingRecord(ctx context.Context, inc *model.VehiclePassingRecordIncInput, set *model.VehiclePassingRecordSetInput, where model.VehiclePassingRecordBoolExp) (*model.VehiclePassingRecordMutationResponse, error)
 	UpdateVehiclePassingRecordByPk(ctx context.Context, inc *model.VehiclePassingRecordIncInput, set *model.VehiclePassingRecordSetInput, id int64) (*model1.VehiclePassingRecord, error)
+	UpdateVehiclePassingRecordByUnionPk(ctx context.Context, inc *model.VehiclePassingRecordIncInput, set *model.VehiclePassingRecordSetInput, vehiclePassingRecordID string) (*model1.VehiclePassingRecord, error)
+	DeleteVehiclePassingRecordByUnionPk(ctx context.Context, vehiclePassingRecordID string) (*model1.VehiclePassingRecord, error)
 }
 type QueryResolver interface {
 	ConstructionCamera(ctx context.Context, distinctOn []model.ConstructionCameraSelectColumn, limit *int, offset *int, orderBy []*model.ConstructionCameraOrderBy, where *model.ConstructionCameraBoolExp) ([]*model1.ConstructionCamera, error)
 	ConstructionCameraAggregate(ctx context.Context, distinctOn []model.ConstructionCameraSelectColumn, limit *int, offset *int, orderBy []*model.ConstructionCameraOrderBy, where *model.ConstructionCameraBoolExp) (*model.ConstructionCameraAggregate, error)
 	ConstructionCameraByPk(ctx context.Context, id int64) (*model1.ConstructionCamera, error)
+	ConstructionCameraByUnionPk(ctx context.Context, constructionCameraID string) (*model1.ConstructionCamera, error)
 	ConstructionInfo(ctx context.Context, distinctOn []model.ConstructionInfoSelectColumn, limit *int, offset *int, orderBy []*model.ConstructionInfoOrderBy, where *model.ConstructionInfoBoolExp) ([]*model1.ConstructionInfo, error)
 	ConstructionInfoAggregate(ctx context.Context, distinctOn []model.ConstructionInfoSelectColumn, limit *int, offset *int, orderBy []*model.ConstructionInfoOrderBy, where *model.ConstructionInfoBoolExp) (*model.ConstructionInfoAggregate, error)
 	ConstructionInfoByPk(ctx context.Context, id int64) (*model1.ConstructionInfo, error)
+	ConstructionInfoByUnionPk(ctx context.Context, constructionInfoID string) (*model1.ConstructionInfo, error)
 	ConstructionUploadPic(ctx context.Context, distinctOn []model.ConstructionUploadPicSelectColumn, limit *int, offset *int, orderBy []*model.ConstructionUploadPicOrderBy, where *model.ConstructionUploadPicBoolExp) ([]*model1.ConstructionUploadPic, error)
 	ConstructionUploadPicAggregate(ctx context.Context, distinctOn []model.ConstructionUploadPicSelectColumn, limit *int, offset *int, orderBy []*model.ConstructionUploadPicOrderBy, where *model.ConstructionUploadPicBoolExp) (*model.ConstructionUploadPicAggregate, error)
 	ConstructionUploadPicByPk(ctx context.Context, id int64) (*model1.ConstructionUploadPic, error)
+	ConstructionUploadPicByUnionPk(ctx context.Context, constructionUploadPicID string) (*model1.ConstructionUploadPic, error)
 	OfflineRegistrationRecord(ctx context.Context, distinctOn []model.OfflineRegistrationRecordSelectColumn, limit *int, offset *int, orderBy []*model.OfflineRegistrationRecordOrderBy, where *model.OfflineRegistrationRecordBoolExp) ([]*model1.OfflineRegistrationRecord, error)
 	OfflineRegistrationRecordAggregate(ctx context.Context, distinctOn []model.OfflineRegistrationRecordSelectColumn, limit *int, offset *int, orderBy []*model.OfflineRegistrationRecordOrderBy, where *model.OfflineRegistrationRecordBoolExp) (*model.OfflineRegistrationRecordAggregate, error)
 	OfflineRegistrationRecordByPk(ctx context.Context, id int64) (*model1.OfflineRegistrationRecord, error)
+	OfflineRegistrationRecordByUnionPk(ctx context.Context, offlineRegistrationRecordID string) (*model1.OfflineRegistrationRecord, error)
 	SnapshotSystemPassingAlarm(ctx context.Context, distinctOn []model.SnapshotSystemPassingAlarmSelectColumn, limit *int, offset *int, orderBy []*model.SnapshotSystemPassingAlarmOrderBy, where *model.SnapshotSystemPassingAlarmBoolExp) ([]*model1.SnapshotSystemPassingAlarm, error)
 	SnapshotSystemPassingAlarmAggregate(ctx context.Context, distinctOn []model.SnapshotSystemPassingAlarmSelectColumn, limit *int, offset *int, orderBy []*model.SnapshotSystemPassingAlarmOrderBy, where *model.SnapshotSystemPassingAlarmBoolExp) (*model.SnapshotSystemPassingAlarmAggregate, error)
 	SnapshotSystemPassingAlarmByPk(ctx context.Context, id int64) (*model1.SnapshotSystemPassingAlarm, error)
+	SnapshotSystemPassingAlarmByUnionPk(ctx context.Context, snapshotSystemPassingAlarmID string) (*model1.SnapshotSystemPassingAlarm, error)
 	VehiclePassingRecord(ctx context.Context, distinctOn []model.VehiclePassingRecordSelectColumn, limit *int, offset *int, orderBy []*model.VehiclePassingRecordOrderBy, where *model.VehiclePassingRecordBoolExp) ([]*model1.VehiclePassingRecord, error)
 	VehiclePassingRecordAggregate(ctx context.Context, distinctOn []model.VehiclePassingRecordSelectColumn, limit *int, offset *int, orderBy []*model.VehiclePassingRecordOrderBy, where *model.VehiclePassingRecordBoolExp) (*model.VehiclePassingRecordAggregate, error)
 	VehiclePassingRecordByPk(ctx context.Context, id int64) (*model1.VehiclePassingRecord, error)
+	VehiclePassingRecordByUnionPk(ctx context.Context, vehiclePassingRecordID string) (*model1.VehiclePassingRecord, error)
 }
 
 type executableSchema struct {
@@ -2957,6 +2993,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.DeleteConstructionCameraByPk(childComplexity, args["id"].(int64)), true
 
+	case "Mutation.delete_construction_camera_by_union_pk":
+		if e.complexity.Mutation.DeleteConstructionCameraByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_delete_construction_camera_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.DeleteConstructionCameraByUnionPk(childComplexity, args["construction_camera_id"].(string)), true
+
 	case "Mutation.delete_construction_info":
 		if e.complexity.Mutation.DeleteConstructionInfo == nil {
 			break
@@ -2980,6 +3028,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Mutation.DeleteConstructionInfoByPk(childComplexity, args["id"].(int64)), true
+
+	case "Mutation.delete_construction_info_by_union_pk":
+		if e.complexity.Mutation.DeleteConstructionInfoByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_delete_construction_info_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.DeleteConstructionInfoByUnionPk(childComplexity, args["construction_info_id"].(string)), true
 
 	case "Mutation.delete_construction_upload_pic":
 		if e.complexity.Mutation.DeleteConstructionUploadPic == nil {
@@ -3005,6 +3065,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.DeleteConstructionUploadPicByPk(childComplexity, args["id"].(int64)), true
 
+	case "Mutation.delete_construction_upload_pic_by_union_pk":
+		if e.complexity.Mutation.DeleteConstructionUploadPicByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_delete_construction_upload_pic_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.DeleteConstructionUploadPicByUnionPk(childComplexity, args["construction_upload_pic_id"].(string)), true
+
 	case "Mutation.delete_offline_registration_record":
 		if e.complexity.Mutation.DeleteOfflineRegistrationRecord == nil {
 			break
@@ -3028,6 +3100,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Mutation.DeleteOfflineRegistrationRecordByPk(childComplexity, args["id"].(int64)), true
+
+	case "Mutation.delete_offline_registration_record_by_union_pk":
+		if e.complexity.Mutation.DeleteOfflineRegistrationRecordByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_delete_offline_registration_record_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.DeleteOfflineRegistrationRecordByUnionPk(childComplexity, args["offline_registration_record_id"].(string)), true
 
 	case "Mutation.delete_snapshot_system_passing_alarm":
 		if e.complexity.Mutation.DeleteSnapshotSystemPassingAlarm == nil {
@@ -3053,6 +3137,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.DeleteSnapshotSystemPassingAlarmByPk(childComplexity, args["id"].(int64)), true
 
+	case "Mutation.delete_snapshot_system_passing_alarm_by_union_pk":
+		if e.complexity.Mutation.DeleteSnapshotSystemPassingAlarmByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_delete_snapshot_system_passing_alarm_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.DeleteSnapshotSystemPassingAlarmByUnionPk(childComplexity, args["snapshot_system_passing_alarm_id"].(string)), true
+
 	case "Mutation.delete_vehicle_passing_record":
 		if e.complexity.Mutation.DeleteVehiclePassingRecord == nil {
 			break
@@ -3076,6 +3172,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Mutation.DeleteVehiclePassingRecordByPk(childComplexity, args["id"].(int64)), true
+
+	case "Mutation.delete_vehicle_passing_record_by_union_pk":
+		if e.complexity.Mutation.DeleteVehiclePassingRecordByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_delete_vehicle_passing_record_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.DeleteVehiclePassingRecordByUnionPk(childComplexity, args["vehicle_passing_record_id"].(string)), true
 
 	case "Mutation.insert_construction_camera":
 		if e.complexity.Mutation.InsertConstructionCamera == nil {
@@ -3245,6 +3353,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.UpdateConstructionCameraByPk(childComplexity, args["_inc"].(*model.ConstructionCameraIncInput), args["_set"].(*model.ConstructionCameraSetInput), args["id"].(int64)), true
 
+	case "Mutation.update_construction_camera_by_union_pk":
+		if e.complexity.Mutation.UpdateConstructionCameraByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_update_construction_camera_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.UpdateConstructionCameraByUnionPk(childComplexity, args["_inc"].(*model.ConstructionCameraIncInput), args["_set"].(*model.ConstructionCameraSetInput), args["construction_camera_id"].(string)), true
+
 	case "Mutation.update_construction_info":
 		if e.complexity.Mutation.UpdateConstructionInfo == nil {
 			break
@@ -3268,6 +3388,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Mutation.UpdateConstructionInfoByPk(childComplexity, args["_inc"].(*model.ConstructionInfoIncInput), args["_set"].(*model.ConstructionInfoSetInput), args["id"].(int64)), true
+
+	case "Mutation.update_construction_info_by_union_pk":
+		if e.complexity.Mutation.UpdateConstructionInfoByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_update_construction_info_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.UpdateConstructionInfoByUnionPk(childComplexity, args["_inc"].(*model.ConstructionInfoIncInput), args["_set"].(*model.ConstructionInfoSetInput), args["construction_info_id"].(string)), true
 
 	case "Mutation.update_construction_upload_pic":
 		if e.complexity.Mutation.UpdateConstructionUploadPic == nil {
@@ -3293,6 +3425,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.UpdateConstructionUploadPicByPk(childComplexity, args["_inc"].(*model.ConstructionUploadPicIncInput), args["_set"].(*model.ConstructionUploadPicSetInput), args["id"].(int64)), true
 
+	case "Mutation.update_construction_upload_pic_by_union_pk":
+		if e.complexity.Mutation.UpdateConstructionUploadPicByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_update_construction_upload_pic_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.UpdateConstructionUploadPicByUnionPk(childComplexity, args["_inc"].(*model.ConstructionUploadPicIncInput), args["_set"].(*model.ConstructionUploadPicSetInput), args["construction_upload_pic_id"].(string)), true
+
 	case "Mutation.update_offline_registration_record":
 		if e.complexity.Mutation.UpdateOfflineRegistrationRecord == nil {
 			break
@@ -3316,6 +3460,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Mutation.UpdateOfflineRegistrationRecordByPk(childComplexity, args["_inc"].(*model.OfflineRegistrationRecordIncInput), args["_set"].(*model.OfflineRegistrationRecordSetInput), args["id"].(int64)), true
+
+	case "Mutation.update_offline_registration_record_by_union_pk":
+		if e.complexity.Mutation.UpdateOfflineRegistrationRecordByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_update_offline_registration_record_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.UpdateOfflineRegistrationRecordByUnionPk(childComplexity, args["_inc"].(*model.OfflineRegistrationRecordIncInput), args["_set"].(*model.OfflineRegistrationRecordSetInput), args["offline_registration_record_id"].(string)), true
 
 	case "Mutation.update_snapshot_system_passing_alarm":
 		if e.complexity.Mutation.UpdateSnapshotSystemPassingAlarm == nil {
@@ -3341,6 +3497,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.UpdateSnapshotSystemPassingAlarmByPk(childComplexity, args["_inc"].(*model.SnapshotSystemPassingAlarmIncInput), args["_set"].(*model.SnapshotSystemPassingAlarmSetInput), args["id"].(int64)), true
 
+	case "Mutation.update_snapshot_system_passing_alarm_by_union_pk":
+		if e.complexity.Mutation.UpdateSnapshotSystemPassingAlarmByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_update_snapshot_system_passing_alarm_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.UpdateSnapshotSystemPassingAlarmByUnionPk(childComplexity, args["_inc"].(*model.SnapshotSystemPassingAlarmIncInput), args["_set"].(*model.SnapshotSystemPassingAlarmSetInput), args["snapshot_system_passing_alarm_id"].(string)), true
+
 	case "Mutation.update_vehicle_passing_record":
 		if e.complexity.Mutation.UpdateVehiclePassingRecord == nil {
 			break
@@ -3364,6 +3532,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Mutation.UpdateVehiclePassingRecordByPk(childComplexity, args["_inc"].(*model.VehiclePassingRecordIncInput), args["_set"].(*model.VehiclePassingRecordSetInput), args["id"].(int64)), true
+
+	case "Mutation.update_vehicle_passing_record_by_union_pk":
+		if e.complexity.Mutation.UpdateVehiclePassingRecordByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_update_vehicle_passing_record_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.UpdateVehiclePassingRecordByUnionPk(childComplexity, args["_inc"].(*model.VehiclePassingRecordIncInput), args["_set"].(*model.VehiclePassingRecordSetInput), args["vehicle_passing_record_id"].(string)), true
 
 	case "OfflineRegistrationRecord.created_at":
 		if e.complexity.OfflineRegistrationRecord.CreatedAt == nil {
@@ -3407,12 +3587,12 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.OfflineRegistrationRecord.IsDeleted(childComplexity), true
 
-	case "OfflineRegistrationRecord.offline_registration_record":
-		if e.complexity.OfflineRegistrationRecord.OfflineRegistrationRecord == nil {
+	case "OfflineRegistrationRecord.offline_registration_record_id":
+		if e.complexity.OfflineRegistrationRecord.OfflineRegistrationRecordID == nil {
 			break
 		}
 
-		return e.complexity.OfflineRegistrationRecord.OfflineRegistrationRecord(childComplexity), true
+		return e.complexity.OfflineRegistrationRecord.OfflineRegistrationRecordID(childComplexity), true
 
 	case "OfflineRegistrationRecord.outage_registration_id":
 		if e.complexity.OfflineRegistrationRecord.OutageRegistrationID == nil {
@@ -3589,12 +3769,12 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.OfflineRegistrationRecordMaxFields.IsDeleted(childComplexity), true
 
-	case "OfflineRegistrationRecordMaxFields.offline_registration_record":
-		if e.complexity.OfflineRegistrationRecordMaxFields.OfflineRegistrationRecord == nil {
+	case "OfflineRegistrationRecordMaxFields.offline_registration_record_id":
+		if e.complexity.OfflineRegistrationRecordMaxFields.OfflineRegistrationRecordID == nil {
 			break
 		}
 
-		return e.complexity.OfflineRegistrationRecordMaxFields.OfflineRegistrationRecord(childComplexity), true
+		return e.complexity.OfflineRegistrationRecordMaxFields.OfflineRegistrationRecordID(childComplexity), true
 
 	case "OfflineRegistrationRecordMaxFields.outage_registration_id":
 		if e.complexity.OfflineRegistrationRecordMaxFields.OutageRegistrationID == nil {
@@ -3680,12 +3860,12 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.OfflineRegistrationRecordMinFields.IsDeleted(childComplexity), true
 
-	case "OfflineRegistrationRecordMinFields.offline_registration_record":
-		if e.complexity.OfflineRegistrationRecordMinFields.OfflineRegistrationRecord == nil {
+	case "OfflineRegistrationRecordMinFields.offline_registration_record_id":
+		if e.complexity.OfflineRegistrationRecordMinFields.OfflineRegistrationRecordID == nil {
 			break
 		}
 
-		return e.complexity.OfflineRegistrationRecordMinFields.OfflineRegistrationRecord(childComplexity), true
+		return e.complexity.OfflineRegistrationRecordMinFields.OfflineRegistrationRecordID(childComplexity), true
 
 	case "OfflineRegistrationRecordMinFields.outage_registration_id":
 		if e.complexity.OfflineRegistrationRecordMinFields.OutageRegistrationID == nil {
@@ -3828,6 +4008,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Query.ConstructionCameraByPk(childComplexity, args["id"].(int64)), true
 
+	case "Query.construction_camera_by_union_pk":
+		if e.complexity.Query.ConstructionCameraByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Query_construction_camera_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.ConstructionCameraByUnionPk(childComplexity, args["construction_camera_id"].(string)), true
+
 	case "Query.construction_info":
 		if e.complexity.Query.ConstructionInfo == nil {
 			break
@@ -3863,6 +4055,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Query.ConstructionInfoByPk(childComplexity, args["id"].(int64)), true
+
+	case "Query.construction_info_by_union_pk":
+		if e.complexity.Query.ConstructionInfoByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Query_construction_info_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.ConstructionInfoByUnionPk(childComplexity, args["construction_info_id"].(string)), true
 
 	case "Query.construction_upload_pic":
 		if e.complexity.Query.ConstructionUploadPic == nil {
@@ -3900,6 +4104,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Query.ConstructionUploadPicByPk(childComplexity, args["id"].(int64)), true
 
+	case "Query.construction_upload_pic_by_union_pk":
+		if e.complexity.Query.ConstructionUploadPicByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Query_construction_upload_pic_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.ConstructionUploadPicByUnionPk(childComplexity, args["construction_upload_pic_id"].(string)), true
+
 	case "Query.offline_registration_record":
 		if e.complexity.Query.OfflineRegistrationRecord == nil {
 			break
@@ -3935,6 +4151,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Query.OfflineRegistrationRecordByPk(childComplexity, args["id"].(int64)), true
+
+	case "Query.offline_registration_record_by_union_pk":
+		if e.complexity.Query.OfflineRegistrationRecordByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Query_offline_registration_record_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.OfflineRegistrationRecordByUnionPk(childComplexity, args["offline_registration_record_id"].(string)), true
 
 	case "Query.snapshot_system_passing_alarm":
 		if e.complexity.Query.SnapshotSystemPassingAlarm == nil {
@@ -3972,6 +4200,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Query.SnapshotSystemPassingAlarmByPk(childComplexity, args["id"].(int64)), true
 
+	case "Query.snapshot_system_passing_alarm_by_union_pk":
+		if e.complexity.Query.SnapshotSystemPassingAlarmByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Query_snapshot_system_passing_alarm_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.SnapshotSystemPassingAlarmByUnionPk(childComplexity, args["snapshot_system_passing_alarm_id"].(string)), true
+
 	case "Query.vehicle_passing_record":
 		if e.complexity.Query.VehiclePassingRecord == nil {
 			break
@@ -4007,6 +4247,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Query.VehiclePassingRecordByPk(childComplexity, args["id"].(int64)), true
+
+	case "Query.vehicle_passing_record_by_union_pk":
+		if e.complexity.Query.VehiclePassingRecordByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Query_vehicle_passing_record_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.VehiclePassingRecordByUnionPk(childComplexity, args["vehicle_passing_record_id"].(string)), true
 
 	case "SnapshotSystemPassingAlarm.alarm_type":
 		if e.complexity.SnapshotSystemPassingAlarm.AlarmType == nil {
@@ -5696,6 +5948,7 @@ input ConstructionCameraBoolExp {
 input type for inserting data into table "construction_camera"
 """
 input ConstructionCameraInsertInput {
+	construction_camera_id: String!
 	device_name: String
 	ip_address: String
 	port: String
@@ -5704,6 +5957,8 @@ input ConstructionCameraInsertInput {
 	sim_number: String
 	registration_time: Timestamptz
 	is_deleted: Boolean
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -5818,6 +6073,10 @@ extend type Query {
 	主键查询
 	"""
 	construction_camera_by_pk(id: Bigint!): ConstructionCamera!
+	"""
+	联合主键查询
+	"""
+	construction_camera_by_union_pk(construction_camera_id: String!): ConstructionCamera!
 }
 extend type Mutation {
 	"""
@@ -5841,9 +6100,17 @@ extend type Mutation {
 	"""
 	update_construction_camera(_inc: ConstructionCameraIncInput, _set: ConstructionCameraSetInput, where: ConstructionCameraBoolExp!): ConstructionCameraMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_construction_camera_by_pk(_inc: ConstructionCameraIncInput, _set: ConstructionCameraSetInput, id: Bigint!): ConstructionCamera
+	"""
+	根据联合主键更新
+	"""
+	update_construction_camera_by_union_pk(_inc: ConstructionCameraIncInput, _set: ConstructionCameraSetInput, construction_camera_id: String!): ConstructionCamera
+	"""
+	根据联合主键删除记录
+	"""
+	delete_construction_camera_by_union_pk(construction_camera_id: String!): ConstructionCamera
 }
 `, BuiltIn: false},
 	{Name: "graph/graphqls/construction_info.graphqls", Input: `"""
@@ -6291,6 +6558,7 @@ input ConstructionInfoBoolExp {
 input type for inserting data into table "construction_info"
 """
 input ConstructionInfoInsertInput {
+	construction_info_id: String!
 	project_name: String
 	project_code: String
 	contract_start_date: Timestamptz
@@ -6323,6 +6591,8 @@ input ConstructionInfoInsertInput {
 	is_installation: String
 	is_deleted: Boolean
 	registration_time: Timestamptz
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -6559,6 +6829,10 @@ extend type Query {
 	主键查询
 	"""
 	construction_info_by_pk(id: Bigint!): ConstructionInfo!
+	"""
+	联合主键查询
+	"""
+	construction_info_by_union_pk(construction_info_id: String!): ConstructionInfo!
 }
 extend type Mutation {
 	"""
@@ -6582,9 +6856,17 @@ extend type Mutation {
 	"""
 	update_construction_info(_inc: ConstructionInfoIncInput, _set: ConstructionInfoSetInput, where: ConstructionInfoBoolExp!): ConstructionInfoMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_construction_info_by_pk(_inc: ConstructionInfoIncInput, _set: ConstructionInfoSetInput, id: Bigint!): ConstructionInfo
+	"""
+	根据联合主键更新
+	"""
+	update_construction_info_by_union_pk(_inc: ConstructionInfoIncInput, _set: ConstructionInfoSetInput, construction_info_id: String!): ConstructionInfo
+	"""
+	根据联合主键删除记录
+	"""
+	delete_construction_info_by_union_pk(construction_info_id: String!): ConstructionInfo
 }
 `, BuiltIn: false},
 	{Name: "graph/graphqls/construction_upload_pic.graphqls", Input: `"""
@@ -6784,9 +7066,12 @@ input ConstructionUploadPicBoolExp {
 input type for inserting data into table "construction_upload_pic"
 """
 input ConstructionUploadPicInsertInput {
+	construction_upload_pic_id: String!
 	construction_info_id: String
 	picture_url: String
 	is_deleted: Boolean
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -6876,6 +7161,10 @@ extend type Query {
 	主键查询
 	"""
 	construction_upload_pic_by_pk(id: Bigint!): ConstructionUploadPic!
+	"""
+	联合主键查询
+	"""
+	construction_upload_pic_by_union_pk(construction_upload_pic_id: String!): ConstructionUploadPic!
 }
 extend type Mutation {
 	"""
@@ -6899,9 +7188,17 @@ extend type Mutation {
 	"""
 	update_construction_upload_pic(_inc: ConstructionUploadPicIncInput, _set: ConstructionUploadPicSetInput, where: ConstructionUploadPicBoolExp!): ConstructionUploadPicMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_construction_upload_pic_by_pk(_inc: ConstructionUploadPicIncInput, _set: ConstructionUploadPicSetInput, id: Bigint!): ConstructionUploadPic
+	"""
+	根据联合主键更新
+	"""
+	update_construction_upload_pic_by_union_pk(_inc: ConstructionUploadPicIncInput, _set: ConstructionUploadPicSetInput, construction_upload_pic_id: String!): ConstructionUploadPic
+	"""
+	根据联合主键删除记录
+	"""
+	delete_construction_upload_pic_by_union_pk(construction_upload_pic_id: String!): ConstructionUploadPic
 }
 `, BuiltIn: false},
 	{Name: "graph/graphqls/offline_registration_record.graphqls", Input: `"""
@@ -6915,7 +7212,7 @@ type OfflineRegistrationRecord {
 	"""
 	 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                                                   )
 	"""
-	offline_registration_record: String!
+	offline_registration_record_id: String!
 	"""
 	 停运登记表的ID                                  ( outage_registration 停运登记表的outage_registration_id )
 	"""
@@ -6994,7 +7291,7 @@ aggregate max on columns of table "offline_registration_record"
 """
 type OfflineRegistrationRecordMaxFields {
 	id: Bigint
-	offline_registration_record: String
+	offline_registration_record_id: String
 	outage_registration_id: String
 	registration_content: String
 	registration_time: Timestamptz
@@ -7012,7 +7309,7 @@ aggregate min on columns of table "offline_registration_record"
 """
 type OfflineRegistrationRecordMinFields {
 	id: Bigint
-	offline_registration_record: String
+	offline_registration_record_id: String
 	outage_registration_id: String
 	registration_content: String
 	registration_time: Timestamptz
@@ -7079,7 +7376,7 @@ ordering options when selecting data from "offline_registration_record"
 """
 input OfflineRegistrationRecordOrderBy {
 	id: OrderBy
-	offline_registration_record: OrderBy
+	offline_registration_record_id: OrderBy
 	outage_registration_id: OrderBy
 	registration_content: OrderBy
 	registration_time: OrderBy
@@ -7100,7 +7397,7 @@ input OfflineRegistrationRecordBoolExp {
 	_not: OfflineRegistrationRecordBoolExp
 	_or: [OfflineRegistrationRecordBoolExp]
 	id: BigintComparisonExp
-	offline_registration_record: StringComparisonExp
+	offline_registration_record_id: StringComparisonExp
 	outage_registration_id: StringComparisonExp
 	registration_content: StringComparisonExp
 	registration_time: TimestamptzComparisonExp
@@ -7117,11 +7414,14 @@ input OfflineRegistrationRecordBoolExp {
 input type for inserting data into table "offline_registration_record"
 """
 input OfflineRegistrationRecordInsertInput {
+	offline_registration_record_id: String!
 	outage_registration_id: String
 	registration_content: String
 	registration_time: Timestamptz
 	registrant: String
 	is_deleted: Boolean
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -7138,7 +7438,7 @@ input type for updating data in table "offline_registration_record"
 """
 input OfflineRegistrationRecordSetInput {
 	id: Bigint
-	offline_registration_record: String
+	offline_registration_record_id: String
 	outage_registration_id: String
 	registration_content: String
 	registration_time: Timestamptz
@@ -7162,7 +7462,7 @@ enum OfflineRegistrationRecordSelectColumn {
 	"""
 	 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                                                   )
 	"""
-	offline_registration_record
+	offline_registration_record_id
 	"""
 	 停运登记表的ID                                  ( outage_registration 停运登记表的outage_registration_id )
 	"""
@@ -7221,6 +7521,10 @@ extend type Query {
 	主键查询
 	"""
 	offline_registration_record_by_pk(id: Bigint!): OfflineRegistrationRecord!
+	"""
+	联合主键查询
+	"""
+	offline_registration_record_by_union_pk(offline_registration_record_id: String!): OfflineRegistrationRecord!
 }
 extend type Mutation {
 	"""
@@ -7244,9 +7548,17 @@ extend type Mutation {
 	"""
 	update_offline_registration_record(_inc: OfflineRegistrationRecordIncInput, _set: OfflineRegistrationRecordSetInput, where: OfflineRegistrationRecordBoolExp!): OfflineRegistrationRecordMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_offline_registration_record_by_pk(_inc: OfflineRegistrationRecordIncInput, _set: OfflineRegistrationRecordSetInput, id: Bigint!): OfflineRegistrationRecord
+	"""
+	根据联合主键更新
+	"""
+	update_offline_registration_record_by_union_pk(_inc: OfflineRegistrationRecordIncInput, _set: OfflineRegistrationRecordSetInput, offline_registration_record_id: String!): OfflineRegistrationRecord
+	"""
+	根据联合主键删除记录
+	"""
+	delete_offline_registration_record_by_union_pk(offline_registration_record_id: String!): OfflineRegistrationRecord
 }
 `, BuiltIn: false},
 	{Name: "graph/graphqls/snapshot_system_passing_alarm.graphqls", Input: `"""
@@ -7534,7 +7846,9 @@ input SnapshotSystemPassingAlarmBoolExp {
 input type for inserting data into table "snapshot_system_passing_alarm"
 """
 input SnapshotSystemPassingAlarmInsertInput {
+	snapshot_system_passing_alarm_id: String!
 	passing_id: String
+	vehicle_id: String!
 	license_plate_number: String
 	registration_time: Timestamptz
 	supervision_time: Timestamptz
@@ -7545,6 +7859,8 @@ input SnapshotSystemPassingAlarmInsertInput {
 	vehicle_type: Int
 	is_online: Boolean
 	is_supervision: Boolean
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -7681,6 +7997,10 @@ extend type Query {
 	主键查询
 	"""
 	snapshot_system_passing_alarm_by_pk(id: Bigint!): SnapshotSystemPassingAlarm!
+	"""
+	联合主键查询
+	"""
+	snapshot_system_passing_alarm_by_union_pk(snapshot_system_passing_alarm_id: String!): SnapshotSystemPassingAlarm!
 }
 extend type Mutation {
 	"""
@@ -7704,9 +8024,17 @@ extend type Mutation {
 	"""
 	update_snapshot_system_passing_alarm(_inc: SnapshotSystemPassingAlarmIncInput, _set: SnapshotSystemPassingAlarmSetInput, where: SnapshotSystemPassingAlarmBoolExp!): SnapshotSystemPassingAlarmMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_snapshot_system_passing_alarm_by_pk(_inc: SnapshotSystemPassingAlarmIncInput, _set: SnapshotSystemPassingAlarmSetInput, id: Bigint!): SnapshotSystemPassingAlarm
+	"""
+	根据联合主键更新
+	"""
+	update_snapshot_system_passing_alarm_by_union_pk(_inc: SnapshotSystemPassingAlarmIncInput, _set: SnapshotSystemPassingAlarmSetInput, snapshot_system_passing_alarm_id: String!): SnapshotSystemPassingAlarm
+	"""
+	根据联合主键删除记录
+	"""
+	delete_snapshot_system_passing_alarm_by_union_pk(snapshot_system_passing_alarm_id: String!): SnapshotSystemPassingAlarm
 }
 `, BuiltIn: false},
 	{Name: "graph/graphqls/vehicle_passing_record.graphqls", Input: `"""
@@ -7962,6 +8290,8 @@ input VehiclePassingRecordBoolExp {
 input type for inserting data into table "vehicle_passing_record"
 """
 input VehiclePassingRecordInsertInput {
+	vehicle_passing_record_id: String!
+	vehicle_id: String!
 	license_plate_number: String
 	passing_time: Timestamptz
 	registration_time: Timestamptz
@@ -7971,6 +8301,8 @@ input VehiclePassingRecordInsertInput {
 	review_status: String
 	vehicle_type: String
 	is_online: Boolean
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -8095,6 +8427,10 @@ extend type Query {
 	主键查询
 	"""
 	vehicle_passing_record_by_pk(id: Bigint!): VehiclePassingRecord!
+	"""
+	联合主键查询
+	"""
+	vehicle_passing_record_by_union_pk(vehicle_passing_record_id: String!): VehiclePassingRecord!
 }
 extend type Mutation {
 	"""
@@ -8118,9 +8454,17 @@ extend type Mutation {
 	"""
 	update_vehicle_passing_record(_inc: VehiclePassingRecordIncInput, _set: VehiclePassingRecordSetInput, where: VehiclePassingRecordBoolExp!): VehiclePassingRecordMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_vehicle_passing_record_by_pk(_inc: VehiclePassingRecordIncInput, _set: VehiclePassingRecordSetInput, id: Bigint!): VehiclePassingRecord
+	"""
+	根据联合主键更新
+	"""
+	update_vehicle_passing_record_by_union_pk(_inc: VehiclePassingRecordIncInput, _set: VehiclePassingRecordSetInput, vehicle_passing_record_id: String!): VehiclePassingRecord
+	"""
+	根据联合主键删除记录
+	"""
+	delete_vehicle_passing_record_by_union_pk(vehicle_passing_record_id: String!): VehiclePassingRecord
 }
 `, BuiltIn: false},
 }
@@ -8160,6 +8504,21 @@ func (ec *executionContext) field_Mutation_delete_construction_camera_by_pk_args
 	return args, nil
 }
 
+func (ec *executionContext) field_Mutation_delete_construction_camera_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["construction_camera_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("construction_camera_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["construction_camera_id"] = arg0
+	return args, nil
+}
+
 func (ec *executionContext) field_Mutation_delete_construction_info_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -8187,6 +8546,21 @@ func (ec *executionContext) field_Mutation_delete_construction_info_by_pk_args(c
 		}
 	}
 	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_delete_construction_info_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["construction_info_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("construction_info_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["construction_info_id"] = arg0
 	return args, nil
 }
 
@@ -8220,6 +8594,21 @@ func (ec *executionContext) field_Mutation_delete_construction_upload_pic_by_pk_
 	return args, nil
 }
 
+func (ec *executionContext) field_Mutation_delete_construction_upload_pic_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["construction_upload_pic_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("construction_upload_pic_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["construction_upload_pic_id"] = arg0
+	return args, nil
+}
+
 func (ec *executionContext) field_Mutation_delete_offline_registration_record_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -8247,6 +8636,21 @@ func (ec *executionContext) field_Mutation_delete_offline_registration_record_by
 		}
 	}
 	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_delete_offline_registration_record_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["offline_registration_record_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("offline_registration_record_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["offline_registration_record_id"] = arg0
 	return args, nil
 }
 
@@ -8280,6 +8684,21 @@ func (ec *executionContext) field_Mutation_delete_snapshot_system_passing_alarm_
 	return args, nil
 }
 
+func (ec *executionContext) field_Mutation_delete_snapshot_system_passing_alarm_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["snapshot_system_passing_alarm_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("snapshot_system_passing_alarm_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["snapshot_system_passing_alarm_id"] = arg0
+	return args, nil
+}
+
 func (ec *executionContext) field_Mutation_delete_vehicle_passing_record_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -8307,6 +8726,21 @@ func (ec *executionContext) field_Mutation_delete_vehicle_passing_record_by_pk_a
 		}
 	}
 	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_delete_vehicle_passing_record_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["vehicle_passing_record_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("vehicle_passing_record_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["vehicle_passing_record_id"] = arg0
 	return args, nil
 }
 
@@ -8556,6 +8990,39 @@ func (ec *executionContext) field_Mutation_update_construction_camera_by_pk_args
 	return args, nil
 }
 
+func (ec *executionContext) field_Mutation_update_construction_camera_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *model.ConstructionCameraIncInput
+	if tmp, ok := rawArgs["_inc"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
+		arg0, err = ec.unmarshalOConstructionCameraIncInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_snapshot_systemᚋgraphᚋmodelᚐConstructionCameraIncInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_inc"] = arg0
+	var arg1 *model.ConstructionCameraSetInput
+	if tmp, ok := rawArgs["_set"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
+		arg1, err = ec.unmarshalOConstructionCameraSetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_snapshot_systemᚋgraphᚋmodelᚐConstructionCameraSetInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_set"] = arg1
+	var arg2 string
+	if tmp, ok := rawArgs["construction_camera_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("construction_camera_id"))
+		arg2, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["construction_camera_id"] = arg2
+	return args, nil
+}
+
 func (ec *executionContext) field_Mutation_update_construction_info_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -8619,6 +9086,39 @@ func (ec *executionContext) field_Mutation_update_construction_info_by_pk_args(c
 		}
 	}
 	args["id"] = arg2
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_update_construction_info_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *model.ConstructionInfoIncInput
+	if tmp, ok := rawArgs["_inc"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
+		arg0, err = ec.unmarshalOConstructionInfoIncInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_snapshot_systemᚋgraphᚋmodelᚐConstructionInfoIncInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_inc"] = arg0
+	var arg1 *model.ConstructionInfoSetInput
+	if tmp, ok := rawArgs["_set"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
+		arg1, err = ec.unmarshalOConstructionInfoSetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_snapshot_systemᚋgraphᚋmodelᚐConstructionInfoSetInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_set"] = arg1
+	var arg2 string
+	if tmp, ok := rawArgs["construction_info_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("construction_info_id"))
+		arg2, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["construction_info_id"] = arg2
 	return args, nil
 }
 
@@ -8688,6 +9188,39 @@ func (ec *executionContext) field_Mutation_update_construction_upload_pic_by_pk_
 	return args, nil
 }
 
+func (ec *executionContext) field_Mutation_update_construction_upload_pic_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *model.ConstructionUploadPicIncInput
+	if tmp, ok := rawArgs["_inc"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
+		arg0, err = ec.unmarshalOConstructionUploadPicIncInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_snapshot_systemᚋgraphᚋmodelᚐConstructionUploadPicIncInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_inc"] = arg0
+	var arg1 *model.ConstructionUploadPicSetInput
+	if tmp, ok := rawArgs["_set"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
+		arg1, err = ec.unmarshalOConstructionUploadPicSetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_snapshot_systemᚋgraphᚋmodelᚐConstructionUploadPicSetInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_set"] = arg1
+	var arg2 string
+	if tmp, ok := rawArgs["construction_upload_pic_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("construction_upload_pic_id"))
+		arg2, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["construction_upload_pic_id"] = arg2
+	return args, nil
+}
+
 func (ec *executionContext) field_Mutation_update_offline_registration_record_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -8751,6 +9284,39 @@ func (ec *executionContext) field_Mutation_update_offline_registration_record_by
 		}
 	}
 	args["id"] = arg2
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_update_offline_registration_record_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *model.OfflineRegistrationRecordIncInput
+	if tmp, ok := rawArgs["_inc"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
+		arg0, err = ec.unmarshalOOfflineRegistrationRecordIncInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_snapshot_systemᚋgraphᚋmodelᚐOfflineRegistrationRecordIncInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_inc"] = arg0
+	var arg1 *model.OfflineRegistrationRecordSetInput
+	if tmp, ok := rawArgs["_set"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
+		arg1, err = ec.unmarshalOOfflineRegistrationRecordSetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_snapshot_systemᚋgraphᚋmodelᚐOfflineRegistrationRecordSetInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_set"] = arg1
+	var arg2 string
+	if tmp, ok := rawArgs["offline_registration_record_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("offline_registration_record_id"))
+		arg2, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["offline_registration_record_id"] = arg2
 	return args, nil
 }
 
@@ -8820,6 +9386,39 @@ func (ec *executionContext) field_Mutation_update_snapshot_system_passing_alarm_
 	return args, nil
 }
 
+func (ec *executionContext) field_Mutation_update_snapshot_system_passing_alarm_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *model.SnapshotSystemPassingAlarmIncInput
+	if tmp, ok := rawArgs["_inc"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
+		arg0, err = ec.unmarshalOSnapshotSystemPassingAlarmIncInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_snapshot_systemᚋgraphᚋmodelᚐSnapshotSystemPassingAlarmIncInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_inc"] = arg0
+	var arg1 *model.SnapshotSystemPassingAlarmSetInput
+	if tmp, ok := rawArgs["_set"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
+		arg1, err = ec.unmarshalOSnapshotSystemPassingAlarmSetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_snapshot_systemᚋgraphᚋmodelᚐSnapshotSystemPassingAlarmSetInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_set"] = arg1
+	var arg2 string
+	if tmp, ok := rawArgs["snapshot_system_passing_alarm_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("snapshot_system_passing_alarm_id"))
+		arg2, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["snapshot_system_passing_alarm_id"] = arg2
+	return args, nil
+}
+
 func (ec *executionContext) field_Mutation_update_vehicle_passing_record_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -8883,6 +9482,39 @@ func (ec *executionContext) field_Mutation_update_vehicle_passing_record_by_pk_a
 		}
 	}
 	args["id"] = arg2
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_update_vehicle_passing_record_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *model.VehiclePassingRecordIncInput
+	if tmp, ok := rawArgs["_inc"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
+		arg0, err = ec.unmarshalOVehiclePassingRecordIncInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_snapshot_systemᚋgraphᚋmodelᚐVehiclePassingRecordIncInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_inc"] = arg0
+	var arg1 *model.VehiclePassingRecordSetInput
+	if tmp, ok := rawArgs["_set"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
+		arg1, err = ec.unmarshalOVehiclePassingRecordSetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_snapshot_systemᚋgraphᚋmodelᚐVehiclePassingRecordSetInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_set"] = arg1
+	var arg2 string
+	if tmp, ok := rawArgs["vehicle_passing_record_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("vehicle_passing_record_id"))
+		arg2, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["vehicle_passing_record_id"] = arg2
 	return args, nil
 }
 
@@ -9018,6 +9650,21 @@ func (ec *executionContext) field_Query_construction_camera_by_pk_args(ctx conte
 	return args, nil
 }
 
+func (ec *executionContext) field_Query_construction_camera_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["construction_camera_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("construction_camera_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["construction_camera_id"] = arg0
+	return args, nil
+}
+
 func (ec *executionContext) field_Query_construction_info_aggregate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -9132,6 +9779,21 @@ func (ec *executionContext) field_Query_construction_info_by_pk_args(ctx context
 		}
 	}
 	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Query_construction_info_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["construction_info_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("construction_info_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["construction_info_id"] = arg0
 	return args, nil
 }
 
@@ -9252,6 +9914,21 @@ func (ec *executionContext) field_Query_construction_upload_pic_by_pk_args(ctx c
 	return args, nil
 }
 
+func (ec *executionContext) field_Query_construction_upload_pic_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["construction_upload_pic_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("construction_upload_pic_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["construction_upload_pic_id"] = arg0
+	return args, nil
+}
+
 func (ec *executionContext) field_Query_offline_registration_record_aggregate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -9366,6 +10043,21 @@ func (ec *executionContext) field_Query_offline_registration_record_by_pk_args(c
 		}
 	}
 	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Query_offline_registration_record_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["offline_registration_record_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("offline_registration_record_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["offline_registration_record_id"] = arg0
 	return args, nil
 }
 
@@ -9486,6 +10178,21 @@ func (ec *executionContext) field_Query_snapshot_system_passing_alarm_by_pk_args
 	return args, nil
 }
 
+func (ec *executionContext) field_Query_snapshot_system_passing_alarm_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["snapshot_system_passing_alarm_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("snapshot_system_passing_alarm_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["snapshot_system_passing_alarm_id"] = arg0
+	return args, nil
+}
+
 func (ec *executionContext) field_Query_vehicle_passing_record_aggregate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -9600,6 +10307,21 @@ func (ec *executionContext) field_Query_vehicle_passing_record_by_pk_args(ctx co
 		}
 	}
 	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Query_vehicle_passing_record_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["vehicle_passing_record_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("vehicle_passing_record_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["vehicle_passing_record_id"] = arg0
 	return args, nil
 }
 
@@ -18985,6 +19707,84 @@ func (ec *executionContext) _Mutation_update_construction_camera_by_pk(ctx conte
 	return ec.marshalOConstructionCamera2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_snapshot_systemᚋmodelᚐConstructionCamera(ctx, field.Selections, res)
 }
 
+func (ec *executionContext) _Mutation_update_construction_camera_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_construction_camera_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateConstructionCameraByUnionPk(rctx, args["_inc"].(*model.ConstructionCameraIncInput), args["_set"].(*model.ConstructionCameraSetInput), args["construction_camera_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.ConstructionCamera)
+	fc.Result = res
+	return ec.marshalOConstructionCamera2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_snapshot_systemᚋmodelᚐConstructionCamera(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_delete_construction_camera_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_delete_construction_camera_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().DeleteConstructionCameraByUnionPk(rctx, args["construction_camera_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.ConstructionCamera)
+	fc.Result = res
+	return ec.marshalOConstructionCamera2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_snapshot_systemᚋmodelᚐConstructionCamera(ctx, field.Selections, res)
+}
+
 func (ec *executionContext) _Mutation_delete_construction_info(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -19206,6 +20006,84 @@ func (ec *executionContext) _Mutation_update_construction_info_by_pk(ctx context
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
 		return ec.resolvers.Mutation().UpdateConstructionInfoByPk(rctx, args["_inc"].(*model.ConstructionInfoIncInput), args["_set"].(*model.ConstructionInfoSetInput), args["id"].(int64))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.ConstructionInfo)
+	fc.Result = res
+	return ec.marshalOConstructionInfo2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_snapshot_systemᚋmodelᚐConstructionInfo(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_update_construction_info_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_construction_info_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateConstructionInfoByUnionPk(rctx, args["_inc"].(*model.ConstructionInfoIncInput), args["_set"].(*model.ConstructionInfoSetInput), args["construction_info_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.ConstructionInfo)
+	fc.Result = res
+	return ec.marshalOConstructionInfo2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_snapshot_systemᚋmodelᚐConstructionInfo(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_delete_construction_info_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_delete_construction_info_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().DeleteConstructionInfoByUnionPk(rctx, args["construction_info_id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -19453,6 +20331,84 @@ func (ec *executionContext) _Mutation_update_construction_upload_pic_by_pk(ctx c
 	return ec.marshalOConstructionUploadPic2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_snapshot_systemᚋmodelᚐConstructionUploadPic(ctx, field.Selections, res)
 }
 
+func (ec *executionContext) _Mutation_update_construction_upload_pic_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_construction_upload_pic_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateConstructionUploadPicByUnionPk(rctx, args["_inc"].(*model.ConstructionUploadPicIncInput), args["_set"].(*model.ConstructionUploadPicSetInput), args["construction_upload_pic_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.ConstructionUploadPic)
+	fc.Result = res
+	return ec.marshalOConstructionUploadPic2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_snapshot_systemᚋmodelᚐConstructionUploadPic(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_delete_construction_upload_pic_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_delete_construction_upload_pic_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().DeleteConstructionUploadPicByUnionPk(rctx, args["construction_upload_pic_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.ConstructionUploadPic)
+	fc.Result = res
+	return ec.marshalOConstructionUploadPic2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_snapshot_systemᚋmodelᚐConstructionUploadPic(ctx, field.Selections, res)
+}
+
 func (ec *executionContext) _Mutation_delete_offline_registration_record(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -19674,6 +20630,84 @@ func (ec *executionContext) _Mutation_update_offline_registration_record_by_pk(c
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
 		return ec.resolvers.Mutation().UpdateOfflineRegistrationRecordByPk(rctx, args["_inc"].(*model.OfflineRegistrationRecordIncInput), args["_set"].(*model.OfflineRegistrationRecordSetInput), args["id"].(int64))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.OfflineRegistrationRecord)
+	fc.Result = res
+	return ec.marshalOOfflineRegistrationRecord2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_snapshot_systemᚋmodelᚐOfflineRegistrationRecord(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_update_offline_registration_record_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_offline_registration_record_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateOfflineRegistrationRecordByUnionPk(rctx, args["_inc"].(*model.OfflineRegistrationRecordIncInput), args["_set"].(*model.OfflineRegistrationRecordSetInput), args["offline_registration_record_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.OfflineRegistrationRecord)
+	fc.Result = res
+	return ec.marshalOOfflineRegistrationRecord2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_snapshot_systemᚋmodelᚐOfflineRegistrationRecord(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_delete_offline_registration_record_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_delete_offline_registration_record_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().DeleteOfflineRegistrationRecordByUnionPk(rctx, args["offline_registration_record_id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -19921,6 +20955,84 @@ func (ec *executionContext) _Mutation_update_snapshot_system_passing_alarm_by_pk
 	return ec.marshalOSnapshotSystemPassingAlarm2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_snapshot_systemᚋmodelᚐSnapshotSystemPassingAlarm(ctx, field.Selections, res)
 }
 
+func (ec *executionContext) _Mutation_update_snapshot_system_passing_alarm_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_snapshot_system_passing_alarm_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateSnapshotSystemPassingAlarmByUnionPk(rctx, args["_inc"].(*model.SnapshotSystemPassingAlarmIncInput), args["_set"].(*model.SnapshotSystemPassingAlarmSetInput), args["snapshot_system_passing_alarm_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.SnapshotSystemPassingAlarm)
+	fc.Result = res
+	return ec.marshalOSnapshotSystemPassingAlarm2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_snapshot_systemᚋmodelᚐSnapshotSystemPassingAlarm(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_delete_snapshot_system_passing_alarm_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_delete_snapshot_system_passing_alarm_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().DeleteSnapshotSystemPassingAlarmByUnionPk(rctx, args["snapshot_system_passing_alarm_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.SnapshotSystemPassingAlarm)
+	fc.Result = res
+	return ec.marshalOSnapshotSystemPassingAlarm2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_snapshot_systemᚋmodelᚐSnapshotSystemPassingAlarm(ctx, field.Selections, res)
+}
+
 func (ec *executionContext) _Mutation_delete_vehicle_passing_record(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -20155,6 +21267,84 @@ func (ec *executionContext) _Mutation_update_vehicle_passing_record_by_pk(ctx co
 	return ec.marshalOVehiclePassingRecord2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_snapshot_systemᚋmodelᚐVehiclePassingRecord(ctx, field.Selections, res)
 }
 
+func (ec *executionContext) _Mutation_update_vehicle_passing_record_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_vehicle_passing_record_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateVehiclePassingRecordByUnionPk(rctx, args["_inc"].(*model.VehiclePassingRecordIncInput), args["_set"].(*model.VehiclePassingRecordSetInput), args["vehicle_passing_record_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.VehiclePassingRecord)
+	fc.Result = res
+	return ec.marshalOVehiclePassingRecord2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_snapshot_systemᚋmodelᚐVehiclePassingRecord(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_delete_vehicle_passing_record_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_delete_vehicle_passing_record_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().DeleteVehiclePassingRecordByUnionPk(rctx, args["vehicle_passing_record_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.VehiclePassingRecord)
+	fc.Result = res
+	return ec.marshalOVehiclePassingRecord2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_snapshot_systemᚋmodelᚐVehiclePassingRecord(ctx, field.Selections, res)
+}
+
 func (ec *executionContext) _OfflineRegistrationRecord_id(ctx context.Context, field graphql.CollectedField, obj *model1.OfflineRegistrationRecord) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -20190,7 +21380,7 @@ func (ec *executionContext) _OfflineRegistrationRecord_id(ctx context.Context, f
 	return ec.marshalNBigint2int64(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _OfflineRegistrationRecord_offline_registration_record(ctx context.Context, field graphql.CollectedField, obj *model1.OfflineRegistrationRecord) (ret graphql.Marshaler) {
+func (ec *executionContext) _OfflineRegistrationRecord_offline_registration_record_id(ctx context.Context, field graphql.CollectedField, obj *model1.OfflineRegistrationRecord) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -20208,7 +21398,7 @@ func (ec *executionContext) _OfflineRegistrationRecord_offline_registration_reco
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.OfflineRegistrationRecord, nil
+		return obj.OfflineRegistrationRecordID, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -21031,7 +22221,7 @@ func (ec *executionContext) _OfflineRegistrationRecordMaxFields_id(ctx context.C
 	return ec.marshalOBigint2ᚖint64(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _OfflineRegistrationRecordMaxFields_offline_registration_record(ctx context.Context, field graphql.CollectedField, obj *model.OfflineRegistrationRecordMaxFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _OfflineRegistrationRecordMaxFields_offline_registration_record_id(ctx context.Context, field graphql.CollectedField, obj *model.OfflineRegistrationRecordMaxFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -21049,7 +22239,7 @@ func (ec *executionContext) _OfflineRegistrationRecordMaxFields_offline_registra
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.OfflineRegistrationRecord, nil
+		return obj.OfflineRegistrationRecordID, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -21447,7 +22637,7 @@ func (ec *executionContext) _OfflineRegistrationRecordMinFields_id(ctx context.C
 	return ec.marshalOBigint2ᚖint64(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _OfflineRegistrationRecordMinFields_offline_registration_record(ctx context.Context, field graphql.CollectedField, obj *model.OfflineRegistrationRecordMinFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _OfflineRegistrationRecordMinFields_offline_registration_record_id(ctx context.Context, field graphql.CollectedField, obj *model.OfflineRegistrationRecordMinFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -21465,7 +22655,7 @@ func (ec *executionContext) _OfflineRegistrationRecordMinFields_offline_registra
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.OfflineRegistrationRecord, nil
+		return obj.OfflineRegistrationRecordID, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -22251,6 +23441,48 @@ func (ec *executionContext) _Query_construction_camera_by_pk(ctx context.Context
 	return ec.marshalNConstructionCamera2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_snapshot_systemᚋmodelᚐConstructionCamera(ctx, field.Selections, res)
 }
 
+func (ec *executionContext) _Query_construction_camera_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_construction_camera_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().ConstructionCameraByUnionPk(rctx, args["construction_camera_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*model1.ConstructionCamera)
+	fc.Result = res
+	return ec.marshalNConstructionCamera2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_snapshot_systemᚋmodelᚐConstructionCamera(ctx, field.Selections, res)
+}
+
 func (ec *executionContext) _Query_construction_info(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -22361,6 +23593,48 @@ func (ec *executionContext) _Query_construction_info_by_pk(ctx context.Context, 
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
 		return ec.resolvers.Query().ConstructionInfoByPk(rctx, args["id"].(int64))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*model1.ConstructionInfo)
+	fc.Result = res
+	return ec.marshalNConstructionInfo2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_snapshot_systemᚋmodelᚐConstructionInfo(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Query_construction_info_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_construction_info_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().ConstructionInfoByUnionPk(rctx, args["construction_info_id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -22503,6 +23777,48 @@ func (ec *executionContext) _Query_construction_upload_pic_by_pk(ctx context.Con
 	return ec.marshalNConstructionUploadPic2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_snapshot_systemᚋmodelᚐConstructionUploadPic(ctx, field.Selections, res)
 }
 
+func (ec *executionContext) _Query_construction_upload_pic_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_construction_upload_pic_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().ConstructionUploadPicByUnionPk(rctx, args["construction_upload_pic_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*model1.ConstructionUploadPic)
+	fc.Result = res
+	return ec.marshalNConstructionUploadPic2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_snapshot_systemᚋmodelᚐConstructionUploadPic(ctx, field.Selections, res)
+}
+
 func (ec *executionContext) _Query_offline_registration_record(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -22613,6 +23929,48 @@ func (ec *executionContext) _Query_offline_registration_record_by_pk(ctx context
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
 		return ec.resolvers.Query().OfflineRegistrationRecordByPk(rctx, args["id"].(int64))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*model1.OfflineRegistrationRecord)
+	fc.Result = res
+	return ec.marshalNOfflineRegistrationRecord2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_snapshot_systemᚋmodelᚐOfflineRegistrationRecord(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Query_offline_registration_record_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_offline_registration_record_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().OfflineRegistrationRecordByUnionPk(rctx, args["offline_registration_record_id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -22755,6 +24113,48 @@ func (ec *executionContext) _Query_snapshot_system_passing_alarm_by_pk(ctx conte
 	return ec.marshalNSnapshotSystemPassingAlarm2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_snapshot_systemᚋmodelᚐSnapshotSystemPassingAlarm(ctx, field.Selections, res)
 }
 
+func (ec *executionContext) _Query_snapshot_system_passing_alarm_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_snapshot_system_passing_alarm_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().SnapshotSystemPassingAlarmByUnionPk(rctx, args["snapshot_system_passing_alarm_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*model1.SnapshotSystemPassingAlarm)
+	fc.Result = res
+	return ec.marshalNSnapshotSystemPassingAlarm2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_snapshot_systemᚋmodelᚐSnapshotSystemPassingAlarm(ctx, field.Selections, res)
+}
+
 func (ec *executionContext) _Query_vehicle_passing_record(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -22865,6 +24265,48 @@ func (ec *executionContext) _Query_vehicle_passing_record_by_pk(ctx context.Cont
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
 		return ec.resolvers.Query().VehiclePassingRecordByPk(rctx, args["id"].(int64))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*model1.VehiclePassingRecord)
+	fc.Result = res
+	return ec.marshalNVehiclePassingRecord2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_snapshot_systemᚋmodelᚐVehiclePassingRecord(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Query_vehicle_passing_record_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_vehicle_passing_record_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().VehiclePassingRecordByUnionPk(rctx, args["vehicle_passing_record_id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -30007,6 +31449,14 @@ func (ec *executionContext) unmarshalInputConstructionCameraInsertInput(ctx cont
 
 	for k, v := range asMap {
 		switch k {
+		case "construction_camera_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("construction_camera_id"))
+			it.ConstructionCameraID, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "device_name":
 			var err error
 
@@ -30068,6 +31518,22 @@ func (ec *executionContext) unmarshalInputConstructionCameraInsertInput(ctx cont
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_deleted"))
 			it.IsDeleted, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
+			it.CreatedAt, err = ec.unmarshalNTimestamptz2timeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
+			it.CreatedBy, err = ec.unmarshalNString2string(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -30787,6 +32253,14 @@ func (ec *executionContext) unmarshalInputConstructionInfoInsertInput(ctx contex
 
 	for k, v := range asMap {
 		switch k {
+		case "construction_info_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("construction_info_id"))
+			it.ConstructionInfoID, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "project_name":
 			var err error
 
@@ -31040,6 +32514,22 @@ func (ec *executionContext) unmarshalInputConstructionInfoInsertInput(ctx contex
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("registration_time"))
 			it.RegistrationTime, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
+			it.CreatedAt, err = ec.unmarshalNTimestamptz2timeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
+			it.CreatedBy, err = ec.unmarshalNString2string(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -31895,6 +33385,14 @@ func (ec *executionContext) unmarshalInputConstructionUploadPicInsertInput(ctx c
 
 	for k, v := range asMap {
 		switch k {
+		case "construction_upload_pic_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("construction_upload_pic_id"))
+			it.ConstructionUploadPicID, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "construction_info_id":
 			var err error
 
@@ -31916,6 +33414,22 @@ func (ec *executionContext) unmarshalInputConstructionUploadPicInsertInput(ctx c
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_deleted"))
 			it.IsDeleted, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
+			it.CreatedAt, err = ec.unmarshalNTimestamptz2timeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
+			it.CreatedBy, err = ec.unmarshalNString2string(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -32157,8 +33671,8 @@ func (ec *executionContext) unmarshalInputConstructionUploadPicSetInput(ctx cont
 	return it, nil
 }
 
-func (ec *executionContext) unmarshalInputFloatComparisonExp(ctx context.Context, obj interface{}) (model1.FloatComparisonExp, error) {
-	var it model1.FloatComparisonExp
+func (ec *executionContext) unmarshalInputFloatComparisonExp(ctx context.Context, obj interface{}) (model2.FloatComparisonExp, error) {
+	var it model2.FloatComparisonExp
 	var asMap = obj.(map[string]interface{})
 
 	for k, v := range asMap {
@@ -32531,11 +34045,11 @@ func (ec *executionContext) unmarshalInputOfflineRegistrationRecordBoolExp(ctx c
 			if err != nil {
 				return it, err
 			}
-		case "offline_registration_record":
+		case "offline_registration_record_id":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("offline_registration_record"))
-			it.OfflineRegistrationRecord, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("offline_registration_record_id"))
+			it.OfflineRegistrationRecordID, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -32659,6 +34173,14 @@ func (ec *executionContext) unmarshalInputOfflineRegistrationRecordInsertInput(c
 
 	for k, v := range asMap {
 		switch k {
+		case "offline_registration_record_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("offline_registration_record_id"))
+			it.OfflineRegistrationRecordID, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "outage_registration_id":
 			var err error
 
@@ -32696,6 +34218,22 @@ func (ec *executionContext) unmarshalInputOfflineRegistrationRecordInsertInput(c
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_deleted"))
 			it.IsDeleted, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
+			it.CreatedAt, err = ec.unmarshalNTimestamptz2timeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
+			it.CreatedBy, err = ec.unmarshalNString2string(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -32751,11 +34289,11 @@ func (ec *executionContext) unmarshalInputOfflineRegistrationRecordOrderBy(ctx c
 			if err != nil {
 				return it, err
 			}
-		case "offline_registration_record":
+		case "offline_registration_record_id":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("offline_registration_record"))
-			it.OfflineRegistrationRecord, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("offline_registration_record_id"))
+			it.OfflineRegistrationRecordID, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -32867,11 +34405,11 @@ func (ec *executionContext) unmarshalInputOfflineRegistrationRecordSetInput(ctx 
 			if err != nil {
 				return it, err
 			}
-		case "offline_registration_record":
+		case "offline_registration_record_id":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("offline_registration_record"))
-			it.OfflineRegistrationRecord, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("offline_registration_record_id"))
+			it.OfflineRegistrationRecordID, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -33291,11 +34829,27 @@ func (ec *executionContext) unmarshalInputSnapshotSystemPassingAlarmInsertInput(
 
 	for k, v := range asMap {
 		switch k {
+		case "snapshot_system_passing_alarm_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("snapshot_system_passing_alarm_id"))
+			it.SnapshotSystemPassingAlarmID, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "passing_id":
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("passing_id"))
 			it.PassingID, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "vehicle_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("vehicle_id"))
+			it.VehicleID, err = ec.unmarshalNString2string(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -33376,6 +34930,22 @@ func (ec *executionContext) unmarshalInputSnapshotSystemPassingAlarmInsertInput(
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_supervision"))
 			it.IsSupervision, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
+			it.CreatedAt, err = ec.unmarshalNTimestamptz2timeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
+			it.CreatedBy, err = ec.unmarshalNString2string(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -34183,6 +35753,22 @@ func (ec *executionContext) unmarshalInputVehiclePassingRecordInsertInput(ctx co
 
 	for k, v := range asMap {
 		switch k {
+		case "vehicle_passing_record_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("vehicle_passing_record_id"))
+			it.VehiclePassingRecordID, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "vehicle_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("vehicle_id"))
+			it.VehicleID, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "license_plate_number":
 			var err error
 
@@ -34252,6 +35838,22 @@ func (ec *executionContext) unmarshalInputVehiclePassingRecordInsertInput(ctx co
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_online"))
 			it.IsOnline, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
+			it.CreatedAt, err = ec.unmarshalNTimestamptz2timeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
+			it.CreatedBy, err = ec.unmarshalNString2string(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -36184,6 +37786,10 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			out.Values[i] = ec._Mutation_update_construction_camera(ctx, field)
 		case "update_construction_camera_by_pk":
 			out.Values[i] = ec._Mutation_update_construction_camera_by_pk(ctx, field)
+		case "update_construction_camera_by_union_pk":
+			out.Values[i] = ec._Mutation_update_construction_camera_by_union_pk(ctx, field)
+		case "delete_construction_camera_by_union_pk":
+			out.Values[i] = ec._Mutation_delete_construction_camera_by_union_pk(ctx, field)
 		case "delete_construction_info":
 			out.Values[i] = ec._Mutation_delete_construction_info(ctx, field)
 		case "delete_construction_info_by_pk":
@@ -36196,6 +37802,10 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			out.Values[i] = ec._Mutation_update_construction_info(ctx, field)
 		case "update_construction_info_by_pk":
 			out.Values[i] = ec._Mutation_update_construction_info_by_pk(ctx, field)
+		case "update_construction_info_by_union_pk":
+			out.Values[i] = ec._Mutation_update_construction_info_by_union_pk(ctx, field)
+		case "delete_construction_info_by_union_pk":
+			out.Values[i] = ec._Mutation_delete_construction_info_by_union_pk(ctx, field)
 		case "delete_construction_upload_pic":
 			out.Values[i] = ec._Mutation_delete_construction_upload_pic(ctx, field)
 		case "delete_construction_upload_pic_by_pk":
@@ -36208,6 +37818,10 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			out.Values[i] = ec._Mutation_update_construction_upload_pic(ctx, field)
 		case "update_construction_upload_pic_by_pk":
 			out.Values[i] = ec._Mutation_update_construction_upload_pic_by_pk(ctx, field)
+		case "update_construction_upload_pic_by_union_pk":
+			out.Values[i] = ec._Mutation_update_construction_upload_pic_by_union_pk(ctx, field)
+		case "delete_construction_upload_pic_by_union_pk":
+			out.Values[i] = ec._Mutation_delete_construction_upload_pic_by_union_pk(ctx, field)
 		case "delete_offline_registration_record":
 			out.Values[i] = ec._Mutation_delete_offline_registration_record(ctx, field)
 		case "delete_offline_registration_record_by_pk":
@@ -36220,6 +37834,10 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			out.Values[i] = ec._Mutation_update_offline_registration_record(ctx, field)
 		case "update_offline_registration_record_by_pk":
 			out.Values[i] = ec._Mutation_update_offline_registration_record_by_pk(ctx, field)
+		case "update_offline_registration_record_by_union_pk":
+			out.Values[i] = ec._Mutation_update_offline_registration_record_by_union_pk(ctx, field)
+		case "delete_offline_registration_record_by_union_pk":
+			out.Values[i] = ec._Mutation_delete_offline_registration_record_by_union_pk(ctx, field)
 		case "delete_snapshot_system_passing_alarm":
 			out.Values[i] = ec._Mutation_delete_snapshot_system_passing_alarm(ctx, field)
 		case "delete_snapshot_system_passing_alarm_by_pk":
@@ -36232,6 +37850,10 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			out.Values[i] = ec._Mutation_update_snapshot_system_passing_alarm(ctx, field)
 		case "update_snapshot_system_passing_alarm_by_pk":
 			out.Values[i] = ec._Mutation_update_snapshot_system_passing_alarm_by_pk(ctx, field)
+		case "update_snapshot_system_passing_alarm_by_union_pk":
+			out.Values[i] = ec._Mutation_update_snapshot_system_passing_alarm_by_union_pk(ctx, field)
+		case "delete_snapshot_system_passing_alarm_by_union_pk":
+			out.Values[i] = ec._Mutation_delete_snapshot_system_passing_alarm_by_union_pk(ctx, field)
 		case "delete_vehicle_passing_record":
 			out.Values[i] = ec._Mutation_delete_vehicle_passing_record(ctx, field)
 		case "delete_vehicle_passing_record_by_pk":
@@ -36244,6 +37866,10 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			out.Values[i] = ec._Mutation_update_vehicle_passing_record(ctx, field)
 		case "update_vehicle_passing_record_by_pk":
 			out.Values[i] = ec._Mutation_update_vehicle_passing_record_by_pk(ctx, field)
+		case "update_vehicle_passing_record_by_union_pk":
+			out.Values[i] = ec._Mutation_update_vehicle_passing_record_by_union_pk(ctx, field)
+		case "delete_vehicle_passing_record_by_union_pk":
+			out.Values[i] = ec._Mutation_delete_vehicle_passing_record_by_union_pk(ctx, field)
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}
@@ -36271,8 +37897,8 @@ func (ec *executionContext) _OfflineRegistrationRecord(ctx context.Context, sel 
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "offline_registration_record":
-			out.Values[i] = ec._OfflineRegistrationRecord_offline_registration_record(ctx, field, obj)
+		case "offline_registration_record_id":
+			out.Values[i] = ec._OfflineRegistrationRecord_offline_registration_record_id(ctx, field, obj)
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
@@ -36420,8 +38046,8 @@ func (ec *executionContext) _OfflineRegistrationRecordMaxFields(ctx context.Cont
 			out.Values[i] = graphql.MarshalString("OfflineRegistrationRecordMaxFields")
 		case "id":
 			out.Values[i] = ec._OfflineRegistrationRecordMaxFields_id(ctx, field, obj)
-		case "offline_registration_record":
-			out.Values[i] = ec._OfflineRegistrationRecordMaxFields_offline_registration_record(ctx, field, obj)
+		case "offline_registration_record_id":
+			out.Values[i] = ec._OfflineRegistrationRecordMaxFields_offline_registration_record_id(ctx, field, obj)
 		case "outage_registration_id":
 			out.Values[i] = ec._OfflineRegistrationRecordMaxFields_outage_registration_id(ctx, field, obj)
 		case "registration_content":
@@ -36468,8 +38094,8 @@ func (ec *executionContext) _OfflineRegistrationRecordMinFields(ctx context.Cont
 			out.Values[i] = graphql.MarshalString("OfflineRegistrationRecordMinFields")
 		case "id":
 			out.Values[i] = ec._OfflineRegistrationRecordMinFields_id(ctx, field, obj)
-		case "offline_registration_record":
-			out.Values[i] = ec._OfflineRegistrationRecordMinFields_offline_registration_record(ctx, field, obj)
+		case "offline_registration_record_id":
+			out.Values[i] = ec._OfflineRegistrationRecordMinFields_offline_registration_record_id(ctx, field, obj)
 		case "outage_registration_id":
 			out.Values[i] = ec._OfflineRegistrationRecordMinFields_outage_registration_id(ctx, field, obj)
 		case "registration_content":
@@ -36760,6 +38386,20 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 				}
 				return res
 			})
+		case "construction_camera_by_union_pk":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_construction_camera_by_union_pk(ctx, field)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			})
 		case "construction_info":
 			field := field
 			out.Concurrently(i, func() (res graphql.Marshaler) {
@@ -36797,6 +38437,20 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_construction_info_by_pk(ctx, field)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			})
+		case "construction_info_by_union_pk":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_construction_info_by_union_pk(ctx, field)
 				if res == graphql.Null {
 					atomic.AddUint32(&invalids, 1)
 				}
@@ -36844,6 +38498,20 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 				}
 				return res
 			})
+		case "construction_upload_pic_by_union_pk":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_construction_upload_pic_by_union_pk(ctx, field)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			})
 		case "offline_registration_record":
 			field := field
 			out.Concurrently(i, func() (res graphql.Marshaler) {
@@ -36881,6 +38549,20 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_offline_registration_record_by_pk(ctx, field)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			})
+		case "offline_registration_record_by_union_pk":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_offline_registration_record_by_union_pk(ctx, field)
 				if res == graphql.Null {
 					atomic.AddUint32(&invalids, 1)
 				}
@@ -36928,6 +38610,20 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 				}
 				return res
 			})
+		case "snapshot_system_passing_alarm_by_union_pk":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_snapshot_system_passing_alarm_by_union_pk(ctx, field)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			})
 		case "vehicle_passing_record":
 			field := field
 			out.Concurrently(i, func() (res graphql.Marshaler) {
@@ -36965,6 +38661,20 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_vehicle_passing_record_by_pk(ctx, field)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			})
+		case "vehicle_passing_record_by_union_pk":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_vehicle_passing_record_by_union_pk(ctx, field)
 				if res == graphql.Null {
 					atomic.AddUint32(&invalids, 1)
 				}

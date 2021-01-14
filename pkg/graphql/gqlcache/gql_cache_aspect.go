@@ -96,6 +96,7 @@ func (n *GqlCacheAspect) SetListQueryCache(ctx context.Context, key string, data
 	if !n.GqlCacheConf.EnableListCache {
 		return nil
 	}
+
 	return n.ListCacher.Set(ctx, key, data, n.GqlCacheConf.ListCacheTimeout)
 }
 

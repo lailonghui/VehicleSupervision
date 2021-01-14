@@ -275,6 +275,7 @@ input RegionalViolationRegisterBoolExp {
 input type for inserting data into table "regional_violation_register"
 """
 input RegionalViolationRegisterInsertInput {
+	regional_violation_register_id: String!
 	violation_detail_id: String
 	vehicle_id: String
 	driver_id: String
@@ -285,6 +286,8 @@ input RegionalViolationRegisterInsertInput {
 	processing_agency: String
 	operator: String
 	is_register: Boolean
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -417,6 +420,10 @@ extend type Query {
 	主键查询
 	"""
 	regional_violation_register_by_pk(id: Bigint!): RegionalViolationRegister!
+	"""
+	联合主键查询
+	"""
+	regional_violation_register_by_union_pk(regional_violation_register_id: String!): RegionalViolationRegister!
 }
 extend type Mutation {
 	"""
@@ -440,7 +447,15 @@ extend type Mutation {
 	"""
 	update_regional_violation_register(_inc: RegionalViolationRegisterIncInput, _set: RegionalViolationRegisterSetInput, where: RegionalViolationRegisterBoolExp!): RegionalViolationRegisterMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_regional_violation_register_by_pk(_inc: RegionalViolationRegisterIncInput, _set: RegionalViolationRegisterSetInput, id: Bigint!): RegionalViolationRegister
+	"""
+	根据联合主键更新
+	"""
+	update_regional_violation_register_by_union_pk(_inc: RegionalViolationRegisterIncInput, _set: RegionalViolationRegisterSetInput, regional_violation_register_id: String!): RegionalViolationRegister
+	"""
+	根据联合主键删除记录
+	"""
+	delete_regional_violation_register_by_union_pk(regional_violation_register_id: String!): RegionalViolationRegister
 }

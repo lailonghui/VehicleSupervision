@@ -83,14 +83,18 @@ type DriverFingerprintAssociationIncInput struct {
 
 // input type for inserting data into table "driver_fingerprint_association"
 type DriverFingerprintAssociationInsertInput struct {
-	FingerprintName     *string    `json:"fingerprint_name"`
-	DriverFingerprintID *string    `json:"driver_fingerprint_id"`
-	PictureAddress      *string    `json:"picture_address"`
-	IsDeleted           *bool      `json:"is_deleted"`
-	UpdatedAt           *time.Time `json:"updated_at"`
-	UpdatedBy           *string    `json:"updated_by"`
-	DeletedAt           *time.Time `json:"deleted_at"`
-	DeletedBy           *string    `json:"deleted_by"`
+	DriverFingerprintAssociationID string     `json:"driver_fingerprint_association_id"`
+	DriverID                       string     `json:"driver_id"`
+	FingerprintName                *string    `json:"fingerprint_name"`
+	DriverFingerprintID            *string    `json:"driver_fingerprint_id"`
+	PictureAddress                 *string    `json:"picture_address"`
+	IsDeleted                      *bool      `json:"is_deleted"`
+	CreatedAt                      time.Time  `json:"created_at"`
+	CreatedBy                      string     `json:"created_by"`
+	UpdatedAt                      *time.Time `json:"updated_at"`
+	UpdatedBy                      *string    `json:"updated_by"`
+	DeletedAt                      *time.Time `json:"deleted_at"`
+	DeletedBy                      *string    `json:"deleted_by"`
 }
 
 // aggregate max on columns of table "driver_fingerprint_association"
@@ -246,24 +250,28 @@ type DriverFingerprintIncInput struct {
 
 // input type for inserting data into table "driver_fingerprint"
 type DriverFingerprintInsertInput struct {
-	DriverName      *string    `json:"driver_name"`
-	UserID          *string    `json:"user_id"`
-	Signature       *string    `json:"signature"`
-	FingerprintName *string    `json:"fingerprint_name"`
-	SimNumber       *string    `json:"sim_number"`
-	InstructionID   *string    `json:"instruction_id"`
-	OperationType   *int       `json:"operation_type"`
-	Content         *string    `json:"content"`
-	OperationTime   *time.Time `json:"operation_time"`
-	UploadTime      *time.Time `json:"upload_time"`
-	Timestamp       *string    `json:"timestamp"`
-	TernimalID      *string    `json:"ternimal_id"`
-	IsSuccess       *bool      `json:"is_success"`
-	IsDeleted       *bool      `json:"is_deleted"`
-	UpdatedAt       *time.Time `json:"updated_at"`
-	UpdatedBy       *string    `json:"updated_by"`
-	DeletedAt       *time.Time `json:"deleted_at"`
-	DeletedBy       *string    `json:"deleted_by"`
+	DriverFingerprintID string     `json:"driver_fingerprint_id"`
+	DriverID            string     `json:"driver_id"`
+	DriverName          *string    `json:"driver_name"`
+	UserID              *string    `json:"user_id"`
+	Signature           *string    `json:"signature"`
+	FingerprintName     *string    `json:"fingerprint_name"`
+	SimNumber           *string    `json:"sim_number"`
+	InstructionID       *string    `json:"instruction_id"`
+	OperationType       *int       `json:"operation_type"`
+	Content             *string    `json:"content"`
+	OperationTime       *time.Time `json:"operation_time"`
+	UploadTime          *time.Time `json:"upload_time"`
+	Timestamp           *string    `json:"timestamp"`
+	TernimalID          *string    `json:"ternimal_id"`
+	IsSuccess           *bool      `json:"is_success"`
+	IsDeleted           *bool      `json:"is_deleted"`
+	CreatedAt           time.Time  `json:"created_at"`
+	CreatedBy           string     `json:"created_by"`
+	UpdatedAt           *time.Time `json:"updated_at"`
+	UpdatedBy           *string    `json:"updated_by"`
+	DeletedAt           *time.Time `json:"deleted_at"`
+	DeletedBy           *string    `json:"deleted_by"`
 }
 
 // aggregate max on columns of table "driver_fingerprint"
@@ -564,20 +572,24 @@ type DriverIdentityInfoReportIncInput struct {
 
 // input type for inserting data into table "driver_identity_info_report"
 type DriverIdentityInfoReportInsertInput struct {
-	IcCardStatus        *int       `json:"ic_card_status"`
-	OperationTime       *time.Time `json:"operation_time"`
-	DriverName          *string    `json:"driver_name"`
-	LicenseNumber       *string    `json:"license_number"`
-	Imel                *string    `json:"imel"`
-	IcCardReadingResult *string    `json:"ic_card_reading_result"`
-	OccupationalNumber  *string    `json:"occupational_number"`
-	DriverLicenseName   *string    `json:"driver_license_name"`
-	LicenseExpireDate   *time.Time `json:"license_expire_date"`
-	RegistrationTime    *time.Time `json:"registration_time"`
-	UpdatedAt           *time.Time `json:"updated_at"`
-	UpdatedBy           *string    `json:"updated_by"`
-	DeletedAt           *time.Time `json:"deleted_at"`
-	DeletedBy           *string    `json:"deleted_by"`
+	DriverIdentityInfoReportID string     `json:"driver_identity_info_report_id"`
+	VehicleID                  string     `json:"vehicle_id"`
+	IcCardStatus               *int       `json:"ic_card_status"`
+	OperationTime              *time.Time `json:"operation_time"`
+	DriverName                 *string    `json:"driver_name"`
+	LicenseNumber              *string    `json:"license_number"`
+	Imel                       *string    `json:"imel"`
+	IcCardReadingResult        *string    `json:"ic_card_reading_result"`
+	OccupationalNumber         *string    `json:"occupational_number"`
+	DriverLicenseName          *string    `json:"driver_license_name"`
+	LicenseExpireDate          *time.Time `json:"license_expire_date"`
+	RegistrationTime           *time.Time `json:"registration_time"`
+	CreatedAt                  time.Time  `json:"created_at"`
+	CreatedBy                  string     `json:"created_by"`
+	UpdatedAt                  *time.Time `json:"updated_at"`
+	UpdatedBy                  *string    `json:"updated_by"`
+	DeletedAt                  *time.Time `json:"deleted_at"`
+	DeletedBy                  *string    `json:"deleted_by"`
 }
 
 // aggregate max on columns of table "driver_identity_info_report"
@@ -722,6 +734,7 @@ type DriverIdentityInfoReportVarianceFields struct {
 
 // input type for inserting data into table "driver_identity"
 type DriverIdentityInsertInput struct {
+	IdentityID                    string     `json:"identity_id"`
 	IDCardNum                     *string    `json:"id_card_num"`
 	IDCardBirthday                *time.Time `json:"id_card_birthday"`
 	IDCardSignGovernment          *string    `json:"id_card_sign_government"`
@@ -752,6 +765,8 @@ type DriverIdentityInsertInput struct {
 	DriverLicenseIssueDate        *time.Time `json:"driver_license_issue_date"`
 	WorkingTime                   *time.Time `json:"working_time"`
 	IsReview                      *bool      `json:"is_review"`
+	CreatedAt                     time.Time  `json:"created_at"`
+	CreatedBy                     string     `json:"created_by"`
 	UpdatedAt                     *time.Time `json:"updated_at"`
 	UpdatedBy                     *string    `json:"updated_by"`
 	DeletedAt                     *time.Time `json:"deleted_at"`
@@ -1071,6 +1086,7 @@ type DriverInfoIncInput struct {
 
 // input type for inserting data into table "driver_info"
 type DriverInfoInsertInput struct {
+	DriverID          string     `json:"driver_id"`
 	EnterpriseID      *string    `json:"enterprise_id"`
 	DepartmentID      *string    `json:"department_id"`
 	DriverIdentityID  *string    `json:"driver_identity_id"`
@@ -1100,6 +1116,8 @@ type DriverInfoInsertInput struct {
 	Operator          *string    `json:"operator"`
 	IsBlacklist       *bool      `json:"is_blacklist"`
 	BlacklistDeadline *time.Time `json:"blacklist_deadline"`
+	CreatedAt         time.Time  `json:"created_at"`
+	CreatedBy         string     `json:"created_by"`
 	UpdatedAt         *time.Time `json:"updated_at"`
 	UpdatedBy         *string    `json:"updated_by"`
 	DeletedAt         *time.Time `json:"deleted_at"`
@@ -1378,20 +1396,24 @@ type DrivingLicenseRegistrationInspectionIncInput struct {
 
 // input type for inserting data into table "driving_license_registration_inspection"
 type DrivingLicenseRegistrationInspectionInsertInput struct {
-	IcCardStatus        *int       `json:"ic_card_status"`
-	OperationTime       *time.Time `json:"operation_time"`
-	DriverName          *string    `json:"driver_name"`
-	LicenseNumber       *string    `json:"license_number"`
-	Imel                *string    `json:"imel"`
-	IcCardReadingResult *string    `json:"ic_card_reading_result"`
-	OccupationalNumber  *string    `json:"occupational_number"`
-	DriverLicenseName   *string    `json:"driver_license_name"`
-	LicenseExpireDate   *time.Time `json:"license_expire_date"`
-	RegistrationTime    *time.Time `json:"registration_time"`
-	UpdatedAt           *time.Time `json:"updated_at"`
-	UpdatedBy           *string    `json:"updated_by"`
-	DeletedAt           *time.Time `json:"deleted_at"`
-	DeletedBy           *string    `json:"deleted_by"`
+	DriverIDInfoReportID string     `json:"driver_id_info_report_id"`
+	VehicleID            string     `json:"vehicle_id"`
+	IcCardStatus         *int       `json:"ic_card_status"`
+	OperationTime        *time.Time `json:"operation_time"`
+	DriverName           *string    `json:"driver_name"`
+	LicenseNumber        *string    `json:"license_number"`
+	Imel                 *string    `json:"imel"`
+	IcCardReadingResult  *string    `json:"ic_card_reading_result"`
+	OccupationalNumber   *string    `json:"occupational_number"`
+	DriverLicenseName    *string    `json:"driver_license_name"`
+	LicenseExpireDate    *time.Time `json:"license_expire_date"`
+	RegistrationTime     *time.Time `json:"registration_time"`
+	CreatedAt            time.Time  `json:"created_at"`
+	CreatedBy            string     `json:"created_by"`
+	UpdatedAt            *time.Time `json:"updated_at"`
+	UpdatedBy            *string    `json:"updated_by"`
+	DeletedAt            *time.Time `json:"deleted_at"`
+	DeletedBy            *string    `json:"deleted_by"`
 }
 
 // aggregate max on columns of table "driving_license_registration_inspection"

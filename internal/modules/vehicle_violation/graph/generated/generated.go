@@ -473,72 +473,76 @@ type ComplexityRoot struct {
 	}
 
 	Mutation struct {
-		DeleteAppEnforcement                    func(childComplexity int, where model.AppEnforcementBoolExp) int
-		DeleteAppEnforcementByPk                func(childComplexity int, id int64) int
-		DeleteDeductionReport                   func(childComplexity int, where model.DeductionReportBoolExp) int
-		DeleteDeductionReportByPk               func(childComplexity int, id int64) int
-		DeleteDriverPeccancyCheck               func(childComplexity int, where model.DriverPeccancyCheckBoolExp) int
-		DeleteDriverPeccancyCheckByPk           func(childComplexity int, id int64) int
-		DeleteIllegalPhoto                      func(childComplexity int, where model.IllegalPhotoBoolExp) int
-		DeleteIllegalPhotoByPk                  func(childComplexity int, id int64) int
-		DeleteRegionalViolationRegister         func(childComplexity int, where model.RegionalViolationRegisterBoolExp) int
-		DeleteRegionalViolationRegisterByPk     func(childComplexity int, id int64) int
-		DeleteSeriousTrafficViolation           func(childComplexity int, where model.SeriousTrafficViolationBoolExp) int
-		DeleteSeriousTrafficViolationByPk       func(childComplexity int, id int64) int
-		DeleteVehicleViolationDetails           func(childComplexity int, where model.VehicleViolationDetailsBoolExp) int
-		DeleteVehicleViolationDetailsByPk       func(childComplexity int, id int64) int
-		DeleteVehicleViolationScoringItems      func(childComplexity int, where model.VehicleViolationScoringItemsBoolExp) int
-		DeleteVehicleViolationScoringItemsByPk  func(childComplexity int, id int64) int
-		DeleteVehicleViolationScoringRecord     func(childComplexity int, where model.VehicleViolationScoringRecordBoolExp) int
-		DeleteVehicleViolationScoringRecordByPk func(childComplexity int, id int64) int
-		DeleteVioCodewfdm                       func(childComplexity int, where model.VioCodewfdmBoolExp) int
-		DeleteVioCodewfdmByPk                   func(childComplexity int, id string) int
-		DeleteViolationRegistration             func(childComplexity int, where model.ViolationRegistrationBoolExp) int
-		DeleteViolationRegistrationByPk         func(childComplexity int, id int64) int
-		InsertAppEnforcement                    func(childComplexity int, objects []*model.AppEnforcementInsertInput) int
-		InsertAppEnforcementOne                 func(childComplexity int, objects model.AppEnforcementInsertInput) int
-		InsertDeductionReport                   func(childComplexity int, objects []*model.DeductionReportInsertInput) int
-		InsertDeductionReportOne                func(childComplexity int, objects model.DeductionReportInsertInput) int
-		InsertDriverPeccancyCheck               func(childComplexity int, objects []*model.DriverPeccancyCheckInsertInput) int
-		InsertDriverPeccancyCheckOne            func(childComplexity int, objects model.DriverPeccancyCheckInsertInput) int
-		InsertIllegalPhoto                      func(childComplexity int, objects []*model.IllegalPhotoInsertInput) int
-		InsertIllegalPhotoOne                   func(childComplexity int, objects model.IllegalPhotoInsertInput) int
-		InsertRegionalViolationRegister         func(childComplexity int, objects []*model.RegionalViolationRegisterInsertInput) int
-		InsertRegionalViolationRegisterOne      func(childComplexity int, objects model.RegionalViolationRegisterInsertInput) int
-		InsertSeriousTrafficViolation           func(childComplexity int, objects []*model.SeriousTrafficViolationInsertInput) int
-		InsertSeriousTrafficViolationOne        func(childComplexity int, objects model.SeriousTrafficViolationInsertInput) int
-		InsertVehicleViolationDetails           func(childComplexity int, objects []*model.VehicleViolationDetailsInsertInput) int
-		InsertVehicleViolationDetailsOne        func(childComplexity int, objects model.VehicleViolationDetailsInsertInput) int
-		InsertVehicleViolationScoringItems      func(childComplexity int, objects []*model.VehicleViolationScoringItemsInsertInput) int
-		InsertVehicleViolationScoringItemsOne   func(childComplexity int, objects model.VehicleViolationScoringItemsInsertInput) int
-		InsertVehicleViolationScoringRecord     func(childComplexity int, objects []*model.VehicleViolationScoringRecordInsertInput) int
-		InsertVehicleViolationScoringRecordOne  func(childComplexity int, objects model.VehicleViolationScoringRecordInsertInput) int
-		InsertVioCodewfdm                       func(childComplexity int, objects []*model.VioCodewfdmInsertInput) int
-		InsertVioCodewfdmOne                    func(childComplexity int, objects model.VioCodewfdmInsertInput) int
-		InsertViolationRegistration             func(childComplexity int, objects []*model.ViolationRegistrationInsertInput) int
-		InsertViolationRegistrationOne          func(childComplexity int, objects model.ViolationRegistrationInsertInput) int
-		UpdateAppEnforcement                    func(childComplexity int, inc *model.AppEnforcementIncInput, set *model.AppEnforcementSetInput, where model.AppEnforcementBoolExp) int
-		UpdateAppEnforcementByPk                func(childComplexity int, inc *model.AppEnforcementIncInput, set *model.AppEnforcementSetInput, id int64) int
-		UpdateDeductionReport                   func(childComplexity int, inc *model.DeductionReportIncInput, set *model.DeductionReportSetInput, where model.DeductionReportBoolExp) int
-		UpdateDeductionReportByPk               func(childComplexity int, inc *model.DeductionReportIncInput, set *model.DeductionReportSetInput, id int64) int
-		UpdateDriverPeccancyCheck               func(childComplexity int, inc *model.DriverPeccancyCheckIncInput, set *model.DriverPeccancyCheckSetInput, where model.DriverPeccancyCheckBoolExp) int
-		UpdateDriverPeccancyCheckByPk           func(childComplexity int, inc *model.DriverPeccancyCheckIncInput, set *model.DriverPeccancyCheckSetInput, id int64) int
-		UpdateIllegalPhoto                      func(childComplexity int, inc *model.IllegalPhotoIncInput, set *model.IllegalPhotoSetInput, where model.IllegalPhotoBoolExp) int
-		UpdateIllegalPhotoByPk                  func(childComplexity int, inc *model.IllegalPhotoIncInput, set *model.IllegalPhotoSetInput, id int64) int
-		UpdateRegionalViolationRegister         func(childComplexity int, inc *model.RegionalViolationRegisterIncInput, set *model.RegionalViolationRegisterSetInput, where model.RegionalViolationRegisterBoolExp) int
-		UpdateRegionalViolationRegisterByPk     func(childComplexity int, inc *model.RegionalViolationRegisterIncInput, set *model.RegionalViolationRegisterSetInput, id int64) int
-		UpdateSeriousTrafficViolation           func(childComplexity int, inc *model.SeriousTrafficViolationIncInput, set *model.SeriousTrafficViolationSetInput, where model.SeriousTrafficViolationBoolExp) int
-		UpdateSeriousTrafficViolationByPk       func(childComplexity int, inc *model.SeriousTrafficViolationIncInput, set *model.SeriousTrafficViolationSetInput, id int64) int
-		UpdateVehicleViolationDetails           func(childComplexity int, inc *model.VehicleViolationDetailsIncInput, set *model.VehicleViolationDetailsSetInput, where model.VehicleViolationDetailsBoolExp) int
-		UpdateVehicleViolationDetailsByPk       func(childComplexity int, inc *model.VehicleViolationDetailsIncInput, set *model.VehicleViolationDetailsSetInput, id int64) int
-		UpdateVehicleViolationScoringItems      func(childComplexity int, inc *model.VehicleViolationScoringItemsIncInput, set *model.VehicleViolationScoringItemsSetInput, where model.VehicleViolationScoringItemsBoolExp) int
-		UpdateVehicleViolationScoringItemsByPk  func(childComplexity int, inc *model.VehicleViolationScoringItemsIncInput, set *model.VehicleViolationScoringItemsSetInput, id int64) int
-		UpdateVehicleViolationScoringRecord     func(childComplexity int, inc *model.VehicleViolationScoringRecordIncInput, set *model.VehicleViolationScoringRecordSetInput, where model.VehicleViolationScoringRecordBoolExp) int
-		UpdateVehicleViolationScoringRecordByPk func(childComplexity int, inc *model.VehicleViolationScoringRecordIncInput, set *model.VehicleViolationScoringRecordSetInput, id int64) int
-		UpdateVioCodewfdm                       func(childComplexity int, inc *model.VioCodewfdmIncInput, set *model.VioCodewfdmSetInput, where model.VioCodewfdmBoolExp) int
-		UpdateVioCodewfdmByPk                   func(childComplexity int, inc *model.VioCodewfdmIncInput, set *model.VioCodewfdmSetInput, id string) int
-		UpdateViolationRegistration             func(childComplexity int, inc *model.ViolationRegistrationIncInput, set *model.ViolationRegistrationSetInput, where model.ViolationRegistrationBoolExp) int
-		UpdateViolationRegistrationByPk         func(childComplexity int, inc *model.ViolationRegistrationIncInput, set *model.ViolationRegistrationSetInput, id int64) int
+		DeleteAppEnforcement                     func(childComplexity int, where model.AppEnforcementBoolExp) int
+		DeleteAppEnforcementByPk                 func(childComplexity int, id int64) int
+		DeleteDeductionReport                    func(childComplexity int, where model.DeductionReportBoolExp) int
+		DeleteDeductionReportByPk                func(childComplexity int, id int64) int
+		DeleteDeductionReportByUnionPk           func(childComplexity int, deductionReportID string) int
+		DeleteDriverPeccancyCheck                func(childComplexity int, where model.DriverPeccancyCheckBoolExp) int
+		DeleteDriverPeccancyCheckByPk            func(childComplexity int, id int64) int
+		DeleteIllegalPhoto                       func(childComplexity int, where model.IllegalPhotoBoolExp) int
+		DeleteIllegalPhotoByPk                   func(childComplexity int, id int64) int
+		DeleteIllegalPhotoByUnionPk              func(childComplexity int, illegalPhotoID string) int
+		DeleteRegionalViolationRegister          func(childComplexity int, where model.RegionalViolationRegisterBoolExp) int
+		DeleteRegionalViolationRegisterByPk      func(childComplexity int, id int64) int
+		DeleteRegionalViolationRegisterByUnionPk func(childComplexity int, regionalViolationRegisterID string) int
+		DeleteSeriousTrafficViolation            func(childComplexity int, where model.SeriousTrafficViolationBoolExp) int
+		DeleteSeriousTrafficViolationByPk        func(childComplexity int, id int64) int
+		DeleteSeriousTrafficViolationByUnionPk   func(childComplexity int, seriousTrafficViolationID string) int
+		DeleteVehicleViolationDetails            func(childComplexity int, where model.VehicleViolationDetailsBoolExp) int
+		DeleteVehicleViolationDetailsByPk        func(childComplexity int, id int64) int
+		DeleteVehicleViolationScoringItems       func(childComplexity int, where model.VehicleViolationScoringItemsBoolExp) int
+		DeleteVehicleViolationScoringItemsByPk   func(childComplexity int, id int64) int
+		DeleteVehicleViolationScoringRecord      func(childComplexity int, where model.VehicleViolationScoringRecordBoolExp) int
+		DeleteVehicleViolationScoringRecordByPk  func(childComplexity int, id int64) int
+		DeleteViolationRegistration              func(childComplexity int, where model.ViolationRegistrationBoolExp) int
+		DeleteViolationRegistrationByPk          func(childComplexity int, id int64) int
+		DeleteViolationRegistrationByUnionPk     func(childComplexity int, violationRegistrationID string) int
+		InsertAppEnforcement                     func(childComplexity int, objects []*model.AppEnforcementInsertInput) int
+		InsertAppEnforcementOne                  func(childComplexity int, objects model.AppEnforcementInsertInput) int
+		InsertDeductionReport                    func(childComplexity int, objects []*model.DeductionReportInsertInput) int
+		InsertDeductionReportOne                 func(childComplexity int, objects model.DeductionReportInsertInput) int
+		InsertDriverPeccancyCheck                func(childComplexity int, objects []*model.DriverPeccancyCheckInsertInput) int
+		InsertDriverPeccancyCheckOne             func(childComplexity int, objects model.DriverPeccancyCheckInsertInput) int
+		InsertIllegalPhoto                       func(childComplexity int, objects []*model.IllegalPhotoInsertInput) int
+		InsertIllegalPhotoOne                    func(childComplexity int, objects model.IllegalPhotoInsertInput) int
+		InsertRegionalViolationRegister          func(childComplexity int, objects []*model.RegionalViolationRegisterInsertInput) int
+		InsertRegionalViolationRegisterOne       func(childComplexity int, objects model.RegionalViolationRegisterInsertInput) int
+		InsertSeriousTrafficViolation            func(childComplexity int, objects []*model.SeriousTrafficViolationInsertInput) int
+		InsertSeriousTrafficViolationOne         func(childComplexity int, objects model.SeriousTrafficViolationInsertInput) int
+		InsertVehicleViolationDetails            func(childComplexity int, objects []*model.VehicleViolationDetailsInsertInput) int
+		InsertVehicleViolationDetailsOne         func(childComplexity int, objects model.VehicleViolationDetailsInsertInput) int
+		InsertVehicleViolationScoringItems       func(childComplexity int, objects []*model.VehicleViolationScoringItemsInsertInput) int
+		InsertVehicleViolationScoringItemsOne    func(childComplexity int, objects model.VehicleViolationScoringItemsInsertInput) int
+		InsertVehicleViolationScoringRecord      func(childComplexity int, objects []*model.VehicleViolationScoringRecordInsertInput) int
+		InsertVehicleViolationScoringRecordOne   func(childComplexity int, objects model.VehicleViolationScoringRecordInsertInput) int
+		InsertViolationRegistration              func(childComplexity int, objects []*model.ViolationRegistrationInsertInput) int
+		InsertViolationRegistrationOne           func(childComplexity int, objects model.ViolationRegistrationInsertInput) int
+		UpdateAppEnforcement                     func(childComplexity int, inc *model.AppEnforcementIncInput, set *model.AppEnforcementSetInput, where model.AppEnforcementBoolExp) int
+		UpdateAppEnforcementByPk                 func(childComplexity int, inc *model.AppEnforcementIncInput, set *model.AppEnforcementSetInput, id int64) int
+		UpdateDeductionReport                    func(childComplexity int, inc *model.DeductionReportIncInput, set *model.DeductionReportSetInput, where model.DeductionReportBoolExp) int
+		UpdateDeductionReportByPk                func(childComplexity int, inc *model.DeductionReportIncInput, set *model.DeductionReportSetInput, id int64) int
+		UpdateDeductionReportByUnionPk           func(childComplexity int, inc *model.DeductionReportIncInput, set *model.DeductionReportSetInput, deductionReportID string) int
+		UpdateDriverPeccancyCheck                func(childComplexity int, inc *model.DriverPeccancyCheckIncInput, set *model.DriverPeccancyCheckSetInput, where model.DriverPeccancyCheckBoolExp) int
+		UpdateDriverPeccancyCheckByPk            func(childComplexity int, inc *model.DriverPeccancyCheckIncInput, set *model.DriverPeccancyCheckSetInput, id int64) int
+		UpdateIllegalPhoto                       func(childComplexity int, inc *model.IllegalPhotoIncInput, set *model.IllegalPhotoSetInput, where model.IllegalPhotoBoolExp) int
+		UpdateIllegalPhotoByPk                   func(childComplexity int, inc *model.IllegalPhotoIncInput, set *model.IllegalPhotoSetInput, id int64) int
+		UpdateIllegalPhotoByUnionPk              func(childComplexity int, inc *model.IllegalPhotoIncInput, set *model.IllegalPhotoSetInput, illegalPhotoID string) int
+		UpdateRegionalViolationRegister          func(childComplexity int, inc *model.RegionalViolationRegisterIncInput, set *model.RegionalViolationRegisterSetInput, where model.RegionalViolationRegisterBoolExp) int
+		UpdateRegionalViolationRegisterByPk      func(childComplexity int, inc *model.RegionalViolationRegisterIncInput, set *model.RegionalViolationRegisterSetInput, id int64) int
+		UpdateRegionalViolationRegisterByUnionPk func(childComplexity int, inc *model.RegionalViolationRegisterIncInput, set *model.RegionalViolationRegisterSetInput, regionalViolationRegisterID string) int
+		UpdateSeriousTrafficViolation            func(childComplexity int, inc *model.SeriousTrafficViolationIncInput, set *model.SeriousTrafficViolationSetInput, where model.SeriousTrafficViolationBoolExp) int
+		UpdateSeriousTrafficViolationByPk        func(childComplexity int, inc *model.SeriousTrafficViolationIncInput, set *model.SeriousTrafficViolationSetInput, id int64) int
+		UpdateSeriousTrafficViolationByUnionPk   func(childComplexity int, inc *model.SeriousTrafficViolationIncInput, set *model.SeriousTrafficViolationSetInput, seriousTrafficViolationID string) int
+		UpdateVehicleViolationDetails            func(childComplexity int, inc *model.VehicleViolationDetailsIncInput, set *model.VehicleViolationDetailsSetInput, where model.VehicleViolationDetailsBoolExp) int
+		UpdateVehicleViolationDetailsByPk        func(childComplexity int, inc *model.VehicleViolationDetailsIncInput, set *model.VehicleViolationDetailsSetInput, id int64) int
+		UpdateVehicleViolationScoringItems       func(childComplexity int, inc *model.VehicleViolationScoringItemsIncInput, set *model.VehicleViolationScoringItemsSetInput, where model.VehicleViolationScoringItemsBoolExp) int
+		UpdateVehicleViolationScoringItemsByPk   func(childComplexity int, inc *model.VehicleViolationScoringItemsIncInput, set *model.VehicleViolationScoringItemsSetInput, id int64) int
+		UpdateVehicleViolationScoringRecord      func(childComplexity int, inc *model.VehicleViolationScoringRecordIncInput, set *model.VehicleViolationScoringRecordSetInput, where model.VehicleViolationScoringRecordBoolExp) int
+		UpdateVehicleViolationScoringRecordByPk  func(childComplexity int, inc *model.VehicleViolationScoringRecordIncInput, set *model.VehicleViolationScoringRecordSetInput, id int64) int
+		UpdateViolationRegistration              func(childComplexity int, inc *model.ViolationRegistrationIncInput, set *model.ViolationRegistrationSetInput, where model.ViolationRegistrationBoolExp) int
+		UpdateViolationRegistrationByPk          func(childComplexity int, inc *model.ViolationRegistrationIncInput, set *model.ViolationRegistrationSetInput, id int64) int
+		UpdateViolationRegistrationByUnionPk     func(childComplexity int, inc *model.ViolationRegistrationIncInput, set *model.ViolationRegistrationSetInput, violationRegistrationID string) int
 	}
 
 	Query struct {
@@ -548,18 +552,22 @@ type ComplexityRoot struct {
 		DeductionReport                        func(childComplexity int, distinctOn []model.DeductionReportSelectColumn, limit *int, offset *int, orderBy []*model.DeductionReportOrderBy, where *model.DeductionReportBoolExp) int
 		DeductionReportAggregate               func(childComplexity int, distinctOn []model.DeductionReportSelectColumn, limit *int, offset *int, orderBy []*model.DeductionReportOrderBy, where *model.DeductionReportBoolExp) int
 		DeductionReportByPk                    func(childComplexity int, id int64) int
+		DeductionReportByUnionPk               func(childComplexity int, deductionReportID string) int
 		DriverPeccancyCheck                    func(childComplexity int, distinctOn []model.DriverPeccancyCheckSelectColumn, limit *int, offset *int, orderBy []*model.DriverPeccancyCheckOrderBy, where *model.DriverPeccancyCheckBoolExp) int
 		DriverPeccancyCheckAggregate           func(childComplexity int, distinctOn []model.DriverPeccancyCheckSelectColumn, limit *int, offset *int, orderBy []*model.DriverPeccancyCheckOrderBy, where *model.DriverPeccancyCheckBoolExp) int
 		DriverPeccancyCheckByPk                func(childComplexity int, id int64) int
 		IllegalPhoto                           func(childComplexity int, distinctOn []model.IllegalPhotoSelectColumn, limit *int, offset *int, orderBy []*model.IllegalPhotoOrderBy, where *model.IllegalPhotoBoolExp) int
 		IllegalPhotoAggregate                  func(childComplexity int, distinctOn []model.IllegalPhotoSelectColumn, limit *int, offset *int, orderBy []*model.IllegalPhotoOrderBy, where *model.IllegalPhotoBoolExp) int
 		IllegalPhotoByPk                       func(childComplexity int, id int64) int
+		IllegalPhotoByUnionPk                  func(childComplexity int, illegalPhotoID string) int
 		RegionalViolationRegister              func(childComplexity int, distinctOn []model.RegionalViolationRegisterSelectColumn, limit *int, offset *int, orderBy []*model.RegionalViolationRegisterOrderBy, where *model.RegionalViolationRegisterBoolExp) int
 		RegionalViolationRegisterAggregate     func(childComplexity int, distinctOn []model.RegionalViolationRegisterSelectColumn, limit *int, offset *int, orderBy []*model.RegionalViolationRegisterOrderBy, where *model.RegionalViolationRegisterBoolExp) int
 		RegionalViolationRegisterByPk          func(childComplexity int, id int64) int
+		RegionalViolationRegisterByUnionPk     func(childComplexity int, regionalViolationRegisterID string) int
 		SeriousTrafficViolation                func(childComplexity int, distinctOn []model.SeriousTrafficViolationSelectColumn, limit *int, offset *int, orderBy []*model.SeriousTrafficViolationOrderBy, where *model.SeriousTrafficViolationBoolExp) int
 		SeriousTrafficViolationAggregate       func(childComplexity int, distinctOn []model.SeriousTrafficViolationSelectColumn, limit *int, offset *int, orderBy []*model.SeriousTrafficViolationOrderBy, where *model.SeriousTrafficViolationBoolExp) int
 		SeriousTrafficViolationByPk            func(childComplexity int, id int64) int
+		SeriousTrafficViolationByUnionPk       func(childComplexity int, seriousTrafficViolationID string) int
 		VehicleViolationDetails                func(childComplexity int, distinctOn []model.VehicleViolationDetailsSelectColumn, limit *int, offset *int, orderBy []*model.VehicleViolationDetailsOrderBy, where *model.VehicleViolationDetailsBoolExp) int
 		VehicleViolationDetailsAggregate       func(childComplexity int, distinctOn []model.VehicleViolationDetailsSelectColumn, limit *int, offset *int, orderBy []*model.VehicleViolationDetailsOrderBy, where *model.VehicleViolationDetailsBoolExp) int
 		VehicleViolationDetailsByPk            func(childComplexity int, id int64) int
@@ -569,12 +577,10 @@ type ComplexityRoot struct {
 		VehicleViolationScoringRecord          func(childComplexity int, distinctOn []model.VehicleViolationScoringRecordSelectColumn, limit *int, offset *int, orderBy []*model.VehicleViolationScoringRecordOrderBy, where *model.VehicleViolationScoringRecordBoolExp) int
 		VehicleViolationScoringRecordAggregate func(childComplexity int, distinctOn []model.VehicleViolationScoringRecordSelectColumn, limit *int, offset *int, orderBy []*model.VehicleViolationScoringRecordOrderBy, where *model.VehicleViolationScoringRecordBoolExp) int
 		VehicleViolationScoringRecordByPk      func(childComplexity int, id int64) int
-		VioCodewfdm                            func(childComplexity int, distinctOn []model.VioCodewfdmSelectColumn, limit *int, offset *int, orderBy []*model.VioCodewfdmOrderBy, where *model.VioCodewfdmBoolExp) int
-		VioCodewfdmAggregate                   func(childComplexity int, distinctOn []model.VioCodewfdmSelectColumn, limit *int, offset *int, orderBy []*model.VioCodewfdmOrderBy, where *model.VioCodewfdmBoolExp) int
-		VioCodewfdmByPk                        func(childComplexity int, id string) int
 		ViolationRegistration                  func(childComplexity int, distinctOn []model.ViolationRegistrationSelectColumn, limit *int, offset *int, orderBy []*model.ViolationRegistrationOrderBy, where *model.ViolationRegistrationBoolExp) int
 		ViolationRegistrationAggregate         func(childComplexity int, distinctOn []model.ViolationRegistrationSelectColumn, limit *int, offset *int, orderBy []*model.ViolationRegistrationOrderBy, where *model.ViolationRegistrationBoolExp) int
 		ViolationRegistrationByPk              func(childComplexity int, id int64) int
+		ViolationRegistrationByUnionPk         func(childComplexity int, violationRegistrationID string) int
 	}
 
 	RegionalViolationRegister struct {
@@ -1222,104 +1228,6 @@ type ComplexityRoot struct {
 		ID            func(childComplexity int) int
 	}
 
-	VioCodewfdm struct {
-		FkjeMax func(childComplexity int) int
-		FkjeMin func(childComplexity int) int
-		Wfjfs   func(childComplexity int) int
-		Wfms    func(childComplexity int) int
-		Wfxw    func(childComplexity int) int
-		Xh      func(childComplexity int) int
-	}
-
-	VioCodewfdmAggregate struct {
-		Aggregate func(childComplexity int) int
-	}
-
-	VioCodewfdmAggregateFields struct {
-		Avg        func(childComplexity int) int
-		Count      func(childComplexity int) int
-		Max        func(childComplexity int) int
-		Min        func(childComplexity int) int
-		Stddev     func(childComplexity int) int
-		StddevPop  func(childComplexity int) int
-		StddevSamp func(childComplexity int) int
-		Sum        func(childComplexity int) int
-		VarPop     func(childComplexity int) int
-		VarSamp    func(childComplexity int) int
-		Variance   func(childComplexity int) int
-	}
-
-	VioCodewfdmAvgFields struct {
-		FkjeMax func(childComplexity int) int
-		FkjeMin func(childComplexity int) int
-		Wfjfs   func(childComplexity int) int
-	}
-
-	VioCodewfdmMaxFields struct {
-		FkjeMax func(childComplexity int) int
-		FkjeMin func(childComplexity int) int
-		Wfjfs   func(childComplexity int) int
-		Wfms    func(childComplexity int) int
-		Wfxw    func(childComplexity int) int
-		Xh      func(childComplexity int) int
-	}
-
-	VioCodewfdmMinFields struct {
-		FkjeMax func(childComplexity int) int
-		FkjeMin func(childComplexity int) int
-		Wfjfs   func(childComplexity int) int
-		Wfms    func(childComplexity int) int
-		Wfxw    func(childComplexity int) int
-		Xh      func(childComplexity int) int
-	}
-
-	VioCodewfdmMutationResponse struct {
-		AffectedRows func(childComplexity int) int
-		Returning    func(childComplexity int) int
-	}
-
-	VioCodewfdmStddevFields struct {
-		FkjeMax func(childComplexity int) int
-		FkjeMin func(childComplexity int) int
-		Wfjfs   func(childComplexity int) int
-	}
-
-	VioCodewfdmStddevPopFields struct {
-		FkjeMax func(childComplexity int) int
-		FkjeMin func(childComplexity int) int
-		Wfjfs   func(childComplexity int) int
-	}
-
-	VioCodewfdmStddevSampFields struct {
-		FkjeMax func(childComplexity int) int
-		FkjeMin func(childComplexity int) int
-		Wfjfs   func(childComplexity int) int
-	}
-
-	VioCodewfdmSumFields struct {
-		FkjeMax func(childComplexity int) int
-		FkjeMin func(childComplexity int) int
-		Wfjfs   func(childComplexity int) int
-	}
-
-	VioCodewfdmVarPopFields struct {
-		FkjeMax func(childComplexity int) int
-		FkjeMin func(childComplexity int) int
-		Wfjfs   func(childComplexity int) int
-	}
-
-	VioCodewfdmVarSampFields struct {
-		FkjeMax func(childComplexity int) int
-		FkjeMin func(childComplexity int) int
-		Wfjfs   func(childComplexity int) int
-	}
-
-	VioCodewfdmVarianceFields struct {
-		FkjeMax func(childComplexity int) int
-		FkjeMin func(childComplexity int) int
-		Wfjfs   func(childComplexity int) int
-	}
-
 	ViolationRegistration struct {
 		Cause                   func(childComplexity int) int
 		CityID                  func(childComplexity int) int
@@ -1485,6 +1393,8 @@ type MutationResolver interface {
 	InsertDeductionReportOne(ctx context.Context, objects model.DeductionReportInsertInput) (*model1.DeductionReport, error)
 	UpdateDeductionReport(ctx context.Context, inc *model.DeductionReportIncInput, set *model.DeductionReportSetInput, where model.DeductionReportBoolExp) (*model.DeductionReportMutationResponse, error)
 	UpdateDeductionReportByPk(ctx context.Context, inc *model.DeductionReportIncInput, set *model.DeductionReportSetInput, id int64) (*model1.DeductionReport, error)
+	UpdateDeductionReportByUnionPk(ctx context.Context, inc *model.DeductionReportIncInput, set *model.DeductionReportSetInput, deductionReportID string) (*model1.DeductionReport, error)
+	DeleteDeductionReportByUnionPk(ctx context.Context, deductionReportID string) (*model1.DeductionReport, error)
 	DeleteDriverPeccancyCheck(ctx context.Context, where model.DriverPeccancyCheckBoolExp) (*model.DriverPeccancyCheckMutationResponse, error)
 	DeleteDriverPeccancyCheckByPk(ctx context.Context, id int64) (*model1.DriverPeccancyCheck, error)
 	InsertDriverPeccancyCheck(ctx context.Context, objects []*model.DriverPeccancyCheckInsertInput) (*model.DriverPeccancyCheckMutationResponse, error)
@@ -1497,18 +1407,24 @@ type MutationResolver interface {
 	InsertIllegalPhotoOne(ctx context.Context, objects model.IllegalPhotoInsertInput) (*model1.IllegalPhoto, error)
 	UpdateIllegalPhoto(ctx context.Context, inc *model.IllegalPhotoIncInput, set *model.IllegalPhotoSetInput, where model.IllegalPhotoBoolExp) (*model.IllegalPhotoMutationResponse, error)
 	UpdateIllegalPhotoByPk(ctx context.Context, inc *model.IllegalPhotoIncInput, set *model.IllegalPhotoSetInput, id int64) (*model1.IllegalPhoto, error)
+	UpdateIllegalPhotoByUnionPk(ctx context.Context, inc *model.IllegalPhotoIncInput, set *model.IllegalPhotoSetInput, illegalPhotoID string) (*model1.IllegalPhoto, error)
+	DeleteIllegalPhotoByUnionPk(ctx context.Context, illegalPhotoID string) (*model1.IllegalPhoto, error)
 	DeleteRegionalViolationRegister(ctx context.Context, where model.RegionalViolationRegisterBoolExp) (*model.RegionalViolationRegisterMutationResponse, error)
 	DeleteRegionalViolationRegisterByPk(ctx context.Context, id int64) (*model1.RegionalViolationRegister, error)
 	InsertRegionalViolationRegister(ctx context.Context, objects []*model.RegionalViolationRegisterInsertInput) (*model.RegionalViolationRegisterMutationResponse, error)
 	InsertRegionalViolationRegisterOne(ctx context.Context, objects model.RegionalViolationRegisterInsertInput) (*model1.RegionalViolationRegister, error)
 	UpdateRegionalViolationRegister(ctx context.Context, inc *model.RegionalViolationRegisterIncInput, set *model.RegionalViolationRegisterSetInput, where model.RegionalViolationRegisterBoolExp) (*model.RegionalViolationRegisterMutationResponse, error)
 	UpdateRegionalViolationRegisterByPk(ctx context.Context, inc *model.RegionalViolationRegisterIncInput, set *model.RegionalViolationRegisterSetInput, id int64) (*model1.RegionalViolationRegister, error)
+	UpdateRegionalViolationRegisterByUnionPk(ctx context.Context, inc *model.RegionalViolationRegisterIncInput, set *model.RegionalViolationRegisterSetInput, regionalViolationRegisterID string) (*model1.RegionalViolationRegister, error)
+	DeleteRegionalViolationRegisterByUnionPk(ctx context.Context, regionalViolationRegisterID string) (*model1.RegionalViolationRegister, error)
 	DeleteSeriousTrafficViolation(ctx context.Context, where model.SeriousTrafficViolationBoolExp) (*model.SeriousTrafficViolationMutationResponse, error)
 	DeleteSeriousTrafficViolationByPk(ctx context.Context, id int64) (*model1.SeriousTrafficViolation, error)
 	InsertSeriousTrafficViolation(ctx context.Context, objects []*model.SeriousTrafficViolationInsertInput) (*model.SeriousTrafficViolationMutationResponse, error)
 	InsertSeriousTrafficViolationOne(ctx context.Context, objects model.SeriousTrafficViolationInsertInput) (*model1.SeriousTrafficViolation, error)
 	UpdateSeriousTrafficViolation(ctx context.Context, inc *model.SeriousTrafficViolationIncInput, set *model.SeriousTrafficViolationSetInput, where model.SeriousTrafficViolationBoolExp) (*model.SeriousTrafficViolationMutationResponse, error)
 	UpdateSeriousTrafficViolationByPk(ctx context.Context, inc *model.SeriousTrafficViolationIncInput, set *model.SeriousTrafficViolationSetInput, id int64) (*model1.SeriousTrafficViolation, error)
+	UpdateSeriousTrafficViolationByUnionPk(ctx context.Context, inc *model.SeriousTrafficViolationIncInput, set *model.SeriousTrafficViolationSetInput, seriousTrafficViolationID string) (*model1.SeriousTrafficViolation, error)
+	DeleteSeriousTrafficViolationByUnionPk(ctx context.Context, seriousTrafficViolationID string) (*model1.SeriousTrafficViolation, error)
 	DeleteVehicleViolationDetails(ctx context.Context, where model.VehicleViolationDetailsBoolExp) (*model.VehicleViolationDetailsMutationResponse, error)
 	DeleteVehicleViolationDetailsByPk(ctx context.Context, id int64) (*model1.VehicleViolationDetails, error)
 	InsertVehicleViolationDetails(ctx context.Context, objects []*model.VehicleViolationDetailsInsertInput) (*model.VehicleViolationDetailsMutationResponse, error)
@@ -1527,18 +1443,14 @@ type MutationResolver interface {
 	InsertVehicleViolationScoringRecordOne(ctx context.Context, objects model.VehicleViolationScoringRecordInsertInput) (*model1.VehicleViolationScoringRecord, error)
 	UpdateVehicleViolationScoringRecord(ctx context.Context, inc *model.VehicleViolationScoringRecordIncInput, set *model.VehicleViolationScoringRecordSetInput, where model.VehicleViolationScoringRecordBoolExp) (*model.VehicleViolationScoringRecordMutationResponse, error)
 	UpdateVehicleViolationScoringRecordByPk(ctx context.Context, inc *model.VehicleViolationScoringRecordIncInput, set *model.VehicleViolationScoringRecordSetInput, id int64) (*model1.VehicleViolationScoringRecord, error)
-	DeleteVioCodewfdm(ctx context.Context, where model.VioCodewfdmBoolExp) (*model.VioCodewfdmMutationResponse, error)
-	DeleteVioCodewfdmByPk(ctx context.Context, id string) (*model1.VioCodewfdm, error)
-	InsertVioCodewfdm(ctx context.Context, objects []*model.VioCodewfdmInsertInput) (*model.VioCodewfdmMutationResponse, error)
-	InsertVioCodewfdmOne(ctx context.Context, objects model.VioCodewfdmInsertInput) (*model1.VioCodewfdm, error)
-	UpdateVioCodewfdm(ctx context.Context, inc *model.VioCodewfdmIncInput, set *model.VioCodewfdmSetInput, where model.VioCodewfdmBoolExp) (*model.VioCodewfdmMutationResponse, error)
-	UpdateVioCodewfdmByPk(ctx context.Context, inc *model.VioCodewfdmIncInput, set *model.VioCodewfdmSetInput, id string) (*model1.VioCodewfdm, error)
 	DeleteViolationRegistration(ctx context.Context, where model.ViolationRegistrationBoolExp) (*model.ViolationRegistrationMutationResponse, error)
 	DeleteViolationRegistrationByPk(ctx context.Context, id int64) (*model1.ViolationRegistration, error)
 	InsertViolationRegistration(ctx context.Context, objects []*model.ViolationRegistrationInsertInput) (*model.ViolationRegistrationMutationResponse, error)
 	InsertViolationRegistrationOne(ctx context.Context, objects model.ViolationRegistrationInsertInput) (*model1.ViolationRegistration, error)
 	UpdateViolationRegistration(ctx context.Context, inc *model.ViolationRegistrationIncInput, set *model.ViolationRegistrationSetInput, where model.ViolationRegistrationBoolExp) (*model.ViolationRegistrationMutationResponse, error)
 	UpdateViolationRegistrationByPk(ctx context.Context, inc *model.ViolationRegistrationIncInput, set *model.ViolationRegistrationSetInput, id int64) (*model1.ViolationRegistration, error)
+	UpdateViolationRegistrationByUnionPk(ctx context.Context, inc *model.ViolationRegistrationIncInput, set *model.ViolationRegistrationSetInput, violationRegistrationID string) (*model1.ViolationRegistration, error)
+	DeleteViolationRegistrationByUnionPk(ctx context.Context, violationRegistrationID string) (*model1.ViolationRegistration, error)
 }
 type QueryResolver interface {
 	AppEnforcement(ctx context.Context, distinctOn []model.AppEnforcementSelectColumn, limit *int, offset *int, orderBy []*model.AppEnforcementOrderBy, where *model.AppEnforcementBoolExp) ([]*model1.AppEnforcement, error)
@@ -1547,18 +1459,22 @@ type QueryResolver interface {
 	DeductionReport(ctx context.Context, distinctOn []model.DeductionReportSelectColumn, limit *int, offset *int, orderBy []*model.DeductionReportOrderBy, where *model.DeductionReportBoolExp) ([]*model1.DeductionReport, error)
 	DeductionReportAggregate(ctx context.Context, distinctOn []model.DeductionReportSelectColumn, limit *int, offset *int, orderBy []*model.DeductionReportOrderBy, where *model.DeductionReportBoolExp) (*model.DeductionReportAggregate, error)
 	DeductionReportByPk(ctx context.Context, id int64) (*model1.DeductionReport, error)
+	DeductionReportByUnionPk(ctx context.Context, deductionReportID string) (*model1.DeductionReport, error)
 	DriverPeccancyCheck(ctx context.Context, distinctOn []model.DriverPeccancyCheckSelectColumn, limit *int, offset *int, orderBy []*model.DriverPeccancyCheckOrderBy, where *model.DriverPeccancyCheckBoolExp) ([]*model1.DriverPeccancyCheck, error)
 	DriverPeccancyCheckAggregate(ctx context.Context, distinctOn []model.DriverPeccancyCheckSelectColumn, limit *int, offset *int, orderBy []*model.DriverPeccancyCheckOrderBy, where *model.DriverPeccancyCheckBoolExp) (*model.DriverPeccancyCheckAggregate, error)
 	DriverPeccancyCheckByPk(ctx context.Context, id int64) (*model1.DriverPeccancyCheck, error)
 	IllegalPhoto(ctx context.Context, distinctOn []model.IllegalPhotoSelectColumn, limit *int, offset *int, orderBy []*model.IllegalPhotoOrderBy, where *model.IllegalPhotoBoolExp) ([]*model1.IllegalPhoto, error)
 	IllegalPhotoAggregate(ctx context.Context, distinctOn []model.IllegalPhotoSelectColumn, limit *int, offset *int, orderBy []*model.IllegalPhotoOrderBy, where *model.IllegalPhotoBoolExp) (*model.IllegalPhotoAggregate, error)
 	IllegalPhotoByPk(ctx context.Context, id int64) (*model1.IllegalPhoto, error)
+	IllegalPhotoByUnionPk(ctx context.Context, illegalPhotoID string) (*model1.IllegalPhoto, error)
 	RegionalViolationRegister(ctx context.Context, distinctOn []model.RegionalViolationRegisterSelectColumn, limit *int, offset *int, orderBy []*model.RegionalViolationRegisterOrderBy, where *model.RegionalViolationRegisterBoolExp) ([]*model1.RegionalViolationRegister, error)
 	RegionalViolationRegisterAggregate(ctx context.Context, distinctOn []model.RegionalViolationRegisterSelectColumn, limit *int, offset *int, orderBy []*model.RegionalViolationRegisterOrderBy, where *model.RegionalViolationRegisterBoolExp) (*model.RegionalViolationRegisterAggregate, error)
 	RegionalViolationRegisterByPk(ctx context.Context, id int64) (*model1.RegionalViolationRegister, error)
+	RegionalViolationRegisterByUnionPk(ctx context.Context, regionalViolationRegisterID string) (*model1.RegionalViolationRegister, error)
 	SeriousTrafficViolation(ctx context.Context, distinctOn []model.SeriousTrafficViolationSelectColumn, limit *int, offset *int, orderBy []*model.SeriousTrafficViolationOrderBy, where *model.SeriousTrafficViolationBoolExp) ([]*model1.SeriousTrafficViolation, error)
 	SeriousTrafficViolationAggregate(ctx context.Context, distinctOn []model.SeriousTrafficViolationSelectColumn, limit *int, offset *int, orderBy []*model.SeriousTrafficViolationOrderBy, where *model.SeriousTrafficViolationBoolExp) (*model.SeriousTrafficViolationAggregate, error)
 	SeriousTrafficViolationByPk(ctx context.Context, id int64) (*model1.SeriousTrafficViolation, error)
+	SeriousTrafficViolationByUnionPk(ctx context.Context, seriousTrafficViolationID string) (*model1.SeriousTrafficViolation, error)
 	VehicleViolationDetails(ctx context.Context, distinctOn []model.VehicleViolationDetailsSelectColumn, limit *int, offset *int, orderBy []*model.VehicleViolationDetailsOrderBy, where *model.VehicleViolationDetailsBoolExp) ([]*model1.VehicleViolationDetails, error)
 	VehicleViolationDetailsAggregate(ctx context.Context, distinctOn []model.VehicleViolationDetailsSelectColumn, limit *int, offset *int, orderBy []*model.VehicleViolationDetailsOrderBy, where *model.VehicleViolationDetailsBoolExp) (*model.VehicleViolationDetailsAggregate, error)
 	VehicleViolationDetailsByPk(ctx context.Context, id int64) (*model1.VehicleViolationDetails, error)
@@ -1568,12 +1484,10 @@ type QueryResolver interface {
 	VehicleViolationScoringRecord(ctx context.Context, distinctOn []model.VehicleViolationScoringRecordSelectColumn, limit *int, offset *int, orderBy []*model.VehicleViolationScoringRecordOrderBy, where *model.VehicleViolationScoringRecordBoolExp) ([]*model1.VehicleViolationScoringRecord, error)
 	VehicleViolationScoringRecordAggregate(ctx context.Context, distinctOn []model.VehicleViolationScoringRecordSelectColumn, limit *int, offset *int, orderBy []*model.VehicleViolationScoringRecordOrderBy, where *model.VehicleViolationScoringRecordBoolExp) (*model.VehicleViolationScoringRecordAggregate, error)
 	VehicleViolationScoringRecordByPk(ctx context.Context, id int64) (*model1.VehicleViolationScoringRecord, error)
-	VioCodewfdm(ctx context.Context, distinctOn []model.VioCodewfdmSelectColumn, limit *int, offset *int, orderBy []*model.VioCodewfdmOrderBy, where *model.VioCodewfdmBoolExp) ([]*model1.VioCodewfdm, error)
-	VioCodewfdmAggregate(ctx context.Context, distinctOn []model.VioCodewfdmSelectColumn, limit *int, offset *int, orderBy []*model.VioCodewfdmOrderBy, where *model.VioCodewfdmBoolExp) (*model.VioCodewfdmAggregate, error)
-	VioCodewfdmByPk(ctx context.Context, id string) (*model1.VioCodewfdm, error)
 	ViolationRegistration(ctx context.Context, distinctOn []model.ViolationRegistrationSelectColumn, limit *int, offset *int, orderBy []*model.ViolationRegistrationOrderBy, where *model.ViolationRegistrationBoolExp) ([]*model1.ViolationRegistration, error)
 	ViolationRegistrationAggregate(ctx context.Context, distinctOn []model.ViolationRegistrationSelectColumn, limit *int, offset *int, orderBy []*model.ViolationRegistrationOrderBy, where *model.ViolationRegistrationBoolExp) (*model.ViolationRegistrationAggregate, error)
 	ViolationRegistrationByPk(ctx context.Context, id int64) (*model1.ViolationRegistration, error)
+	ViolationRegistrationByUnionPk(ctx context.Context, violationRegistrationID string) (*model1.ViolationRegistration, error)
 }
 
 type executableSchema struct {
@@ -3438,6 +3352,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.DeleteDeductionReportByPk(childComplexity, args["id"].(int64)), true
 
+	case "Mutation.delete_deduction_report_by_union_pk":
+		if e.complexity.Mutation.DeleteDeductionReportByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_delete_deduction_report_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.DeleteDeductionReportByUnionPk(childComplexity, args["deduction_report_id"].(string)), true
+
 	case "Mutation.delete_driver_peccancy_check":
 		if e.complexity.Mutation.DeleteDriverPeccancyCheck == nil {
 			break
@@ -3486,6 +3412,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.DeleteIllegalPhotoByPk(childComplexity, args["id"].(int64)), true
 
+	case "Mutation.delete_illegal_photo_by_union_pk":
+		if e.complexity.Mutation.DeleteIllegalPhotoByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_delete_illegal_photo_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.DeleteIllegalPhotoByUnionPk(childComplexity, args["illegal_photo_id"].(string)), true
+
 	case "Mutation.delete_regional_violation_register":
 		if e.complexity.Mutation.DeleteRegionalViolationRegister == nil {
 			break
@@ -3510,6 +3448,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.DeleteRegionalViolationRegisterByPk(childComplexity, args["id"].(int64)), true
 
+	case "Mutation.delete_regional_violation_register_by_union_pk":
+		if e.complexity.Mutation.DeleteRegionalViolationRegisterByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_delete_regional_violation_register_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.DeleteRegionalViolationRegisterByUnionPk(childComplexity, args["regional_violation_register_id"].(string)), true
+
 	case "Mutation.delete_serious_traffic_violation":
 		if e.complexity.Mutation.DeleteSeriousTrafficViolation == nil {
 			break
@@ -3533,6 +3483,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Mutation.DeleteSeriousTrafficViolationByPk(childComplexity, args["id"].(int64)), true
+
+	case "Mutation.delete_serious_traffic_violation_by_union_pk":
+		if e.complexity.Mutation.DeleteSeriousTrafficViolationByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_delete_serious_traffic_violation_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.DeleteSeriousTrafficViolationByUnionPk(childComplexity, args["serious_traffic_violation_id"].(string)), true
 
 	case "Mutation.delete_vehicle_violation_details":
 		if e.complexity.Mutation.DeleteVehicleViolationDetails == nil {
@@ -3606,30 +3568,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.DeleteVehicleViolationScoringRecordByPk(childComplexity, args["id"].(int64)), true
 
-	case "Mutation.delete_vio_codewfdm":
-		if e.complexity.Mutation.DeleteVioCodewfdm == nil {
-			break
-		}
-
-		args, err := ec.field_Mutation_delete_vio_codewfdm_args(context.TODO(), rawArgs)
-		if err != nil {
-			return 0, false
-		}
-
-		return e.complexity.Mutation.DeleteVioCodewfdm(childComplexity, args["where"].(model.VioCodewfdmBoolExp)), true
-
-	case "Mutation.delete_vio_codewfdm_by_pk":
-		if e.complexity.Mutation.DeleteVioCodewfdmByPk == nil {
-			break
-		}
-
-		args, err := ec.field_Mutation_delete_vio_codewfdm_by_pk_args(context.TODO(), rawArgs)
-		if err != nil {
-			return 0, false
-		}
-
-		return e.complexity.Mutation.DeleteVioCodewfdmByPk(childComplexity, args["id"].(string)), true
-
 	case "Mutation.delete_violation_registration":
 		if e.complexity.Mutation.DeleteViolationRegistration == nil {
 			break
@@ -3653,6 +3591,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Mutation.DeleteViolationRegistrationByPk(childComplexity, args["id"].(int64)), true
+
+	case "Mutation.delete_violation_registration_by_union_pk":
+		if e.complexity.Mutation.DeleteViolationRegistrationByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_delete_violation_registration_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.DeleteViolationRegistrationByUnionPk(childComplexity, args["violation_registration_id"].(string)), true
 
 	case "Mutation.insert_app_enforcement":
 		if e.complexity.Mutation.InsertAppEnforcement == nil {
@@ -3870,30 +3820,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.InsertVehicleViolationScoringRecordOne(childComplexity, args["objects"].(model.VehicleViolationScoringRecordInsertInput)), true
 
-	case "Mutation.insert_vio_codewfdm":
-		if e.complexity.Mutation.InsertVioCodewfdm == nil {
-			break
-		}
-
-		args, err := ec.field_Mutation_insert_vio_codewfdm_args(context.TODO(), rawArgs)
-		if err != nil {
-			return 0, false
-		}
-
-		return e.complexity.Mutation.InsertVioCodewfdm(childComplexity, args["objects"].([]*model.VioCodewfdmInsertInput)), true
-
-	case "Mutation.insert_vio_codewfdm_one":
-		if e.complexity.Mutation.InsertVioCodewfdmOne == nil {
-			break
-		}
-
-		args, err := ec.field_Mutation_insert_vio_codewfdm_one_args(context.TODO(), rawArgs)
-		if err != nil {
-			return 0, false
-		}
-
-		return e.complexity.Mutation.InsertVioCodewfdmOne(childComplexity, args["objects"].(model.VioCodewfdmInsertInput)), true
-
 	case "Mutation.insert_violation_registration":
 		if e.complexity.Mutation.InsertViolationRegistration == nil {
 			break
@@ -3966,6 +3892,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.UpdateDeductionReportByPk(childComplexity, args["_inc"].(*model.DeductionReportIncInput), args["_set"].(*model.DeductionReportSetInput), args["id"].(int64)), true
 
+	case "Mutation.update_deduction_report_by_union_pk":
+		if e.complexity.Mutation.UpdateDeductionReportByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_update_deduction_report_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.UpdateDeductionReportByUnionPk(childComplexity, args["_inc"].(*model.DeductionReportIncInput), args["_set"].(*model.DeductionReportSetInput), args["deduction_report_id"].(string)), true
+
 	case "Mutation.update_driver_peccancy_check":
 		if e.complexity.Mutation.UpdateDriverPeccancyCheck == nil {
 			break
@@ -4014,6 +3952,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.UpdateIllegalPhotoByPk(childComplexity, args["_inc"].(*model.IllegalPhotoIncInput), args["_set"].(*model.IllegalPhotoSetInput), args["id"].(int64)), true
 
+	case "Mutation.update_illegal_photo_by_union_pk":
+		if e.complexity.Mutation.UpdateIllegalPhotoByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_update_illegal_photo_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.UpdateIllegalPhotoByUnionPk(childComplexity, args["_inc"].(*model.IllegalPhotoIncInput), args["_set"].(*model.IllegalPhotoSetInput), args["illegal_photo_id"].(string)), true
+
 	case "Mutation.update_regional_violation_register":
 		if e.complexity.Mutation.UpdateRegionalViolationRegister == nil {
 			break
@@ -4038,6 +3988,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.UpdateRegionalViolationRegisterByPk(childComplexity, args["_inc"].(*model.RegionalViolationRegisterIncInput), args["_set"].(*model.RegionalViolationRegisterSetInput), args["id"].(int64)), true
 
+	case "Mutation.update_regional_violation_register_by_union_pk":
+		if e.complexity.Mutation.UpdateRegionalViolationRegisterByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_update_regional_violation_register_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.UpdateRegionalViolationRegisterByUnionPk(childComplexity, args["_inc"].(*model.RegionalViolationRegisterIncInput), args["_set"].(*model.RegionalViolationRegisterSetInput), args["regional_violation_register_id"].(string)), true
+
 	case "Mutation.update_serious_traffic_violation":
 		if e.complexity.Mutation.UpdateSeriousTrafficViolation == nil {
 			break
@@ -4061,6 +4023,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Mutation.UpdateSeriousTrafficViolationByPk(childComplexity, args["_inc"].(*model.SeriousTrafficViolationIncInput), args["_set"].(*model.SeriousTrafficViolationSetInput), args["id"].(int64)), true
+
+	case "Mutation.update_serious_traffic_violation_by_union_pk":
+		if e.complexity.Mutation.UpdateSeriousTrafficViolationByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_update_serious_traffic_violation_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.UpdateSeriousTrafficViolationByUnionPk(childComplexity, args["_inc"].(*model.SeriousTrafficViolationIncInput), args["_set"].(*model.SeriousTrafficViolationSetInput), args["serious_traffic_violation_id"].(string)), true
 
 	case "Mutation.update_vehicle_violation_details":
 		if e.complexity.Mutation.UpdateVehicleViolationDetails == nil {
@@ -4134,30 +4108,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.UpdateVehicleViolationScoringRecordByPk(childComplexity, args["_inc"].(*model.VehicleViolationScoringRecordIncInput), args["_set"].(*model.VehicleViolationScoringRecordSetInput), args["id"].(int64)), true
 
-	case "Mutation.update_vio_codewfdm":
-		if e.complexity.Mutation.UpdateVioCodewfdm == nil {
-			break
-		}
-
-		args, err := ec.field_Mutation_update_vio_codewfdm_args(context.TODO(), rawArgs)
-		if err != nil {
-			return 0, false
-		}
-
-		return e.complexity.Mutation.UpdateVioCodewfdm(childComplexity, args["_inc"].(*model.VioCodewfdmIncInput), args["_set"].(*model.VioCodewfdmSetInput), args["where"].(model.VioCodewfdmBoolExp)), true
-
-	case "Mutation.update_vio_codewfdm_by_pk":
-		if e.complexity.Mutation.UpdateVioCodewfdmByPk == nil {
-			break
-		}
-
-		args, err := ec.field_Mutation_update_vio_codewfdm_by_pk_args(context.TODO(), rawArgs)
-		if err != nil {
-			return 0, false
-		}
-
-		return e.complexity.Mutation.UpdateVioCodewfdmByPk(childComplexity, args["_inc"].(*model.VioCodewfdmIncInput), args["_set"].(*model.VioCodewfdmSetInput), args["id"].(string)), true
-
 	case "Mutation.update_violation_registration":
 		if e.complexity.Mutation.UpdateViolationRegistration == nil {
 			break
@@ -4181,6 +4131,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Mutation.UpdateViolationRegistrationByPk(childComplexity, args["_inc"].(*model.ViolationRegistrationIncInput), args["_set"].(*model.ViolationRegistrationSetInput), args["id"].(int64)), true
+
+	case "Mutation.update_violation_registration_by_union_pk":
+		if e.complexity.Mutation.UpdateViolationRegistrationByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_update_violation_registration_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.UpdateViolationRegistrationByUnionPk(childComplexity, args["_inc"].(*model.ViolationRegistrationIncInput), args["_set"].(*model.ViolationRegistrationSetInput), args["violation_registration_id"].(string)), true
 
 	case "Query.app_enforcement":
 		if e.complexity.Query.AppEnforcement == nil {
@@ -4254,6 +4216,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Query.DeductionReportByPk(childComplexity, args["id"].(int64)), true
 
+	case "Query.deduction_report_by_union_pk":
+		if e.complexity.Query.DeductionReportByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Query_deduction_report_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.DeductionReportByUnionPk(childComplexity, args["deduction_report_id"].(string)), true
+
 	case "Query.driver_peccancy_check":
 		if e.complexity.Query.DriverPeccancyCheck == nil {
 			break
@@ -4326,6 +4300,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Query.IllegalPhotoByPk(childComplexity, args["id"].(int64)), true
 
+	case "Query.illegal_photo_by_union_pk":
+		if e.complexity.Query.IllegalPhotoByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Query_illegal_photo_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.IllegalPhotoByUnionPk(childComplexity, args["illegal_photo_id"].(string)), true
+
 	case "Query.regional_violation_register":
 		if e.complexity.Query.RegionalViolationRegister == nil {
 			break
@@ -4362,6 +4348,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Query.RegionalViolationRegisterByPk(childComplexity, args["id"].(int64)), true
 
+	case "Query.regional_violation_register_by_union_pk":
+		if e.complexity.Query.RegionalViolationRegisterByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Query_regional_violation_register_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.RegionalViolationRegisterByUnionPk(childComplexity, args["regional_violation_register_id"].(string)), true
+
 	case "Query.serious_traffic_violation":
 		if e.complexity.Query.SeriousTrafficViolation == nil {
 			break
@@ -4397,6 +4395,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Query.SeriousTrafficViolationByPk(childComplexity, args["id"].(int64)), true
+
+	case "Query.serious_traffic_violation_by_union_pk":
+		if e.complexity.Query.SeriousTrafficViolationByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Query_serious_traffic_violation_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.SeriousTrafficViolationByUnionPk(childComplexity, args["serious_traffic_violation_id"].(string)), true
 
 	case "Query.vehicle_violation_details":
 		if e.complexity.Query.VehicleViolationDetails == nil {
@@ -4506,42 +4516,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Query.VehicleViolationScoringRecordByPk(childComplexity, args["id"].(int64)), true
 
-	case "Query.vio_codewfdm":
-		if e.complexity.Query.VioCodewfdm == nil {
-			break
-		}
-
-		args, err := ec.field_Query_vio_codewfdm_args(context.TODO(), rawArgs)
-		if err != nil {
-			return 0, false
-		}
-
-		return e.complexity.Query.VioCodewfdm(childComplexity, args["distinct_on"].([]model.VioCodewfdmSelectColumn), args["limit"].(*int), args["offset"].(*int), args["order_by"].([]*model.VioCodewfdmOrderBy), args["where"].(*model.VioCodewfdmBoolExp)), true
-
-	case "Query.vio_codewfdm_aggregate":
-		if e.complexity.Query.VioCodewfdmAggregate == nil {
-			break
-		}
-
-		args, err := ec.field_Query_vio_codewfdm_aggregate_args(context.TODO(), rawArgs)
-		if err != nil {
-			return 0, false
-		}
-
-		return e.complexity.Query.VioCodewfdmAggregate(childComplexity, args["distinct_on"].([]model.VioCodewfdmSelectColumn), args["limit"].(*int), args["offset"].(*int), args["order_by"].([]*model.VioCodewfdmOrderBy), args["where"].(*model.VioCodewfdmBoolExp)), true
-
-	case "Query.vio_codewfdm_by_pk":
-		if e.complexity.Query.VioCodewfdmByPk == nil {
-			break
-		}
-
-		args, err := ec.field_Query_vio_codewfdm_by_pk_args(context.TODO(), rawArgs)
-		if err != nil {
-			return 0, false
-		}
-
-		return e.complexity.Query.VioCodewfdmByPk(childComplexity, args["id"].(string)), true
-
 	case "Query.violation_registration":
 		if e.complexity.Query.ViolationRegistration == nil {
 			break
@@ -4577,6 +4551,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Query.ViolationRegistrationByPk(childComplexity, args["id"].(int64)), true
+
+	case "Query.violation_registration_by_union_pk":
+		if e.complexity.Query.ViolationRegistrationByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Query_violation_registration_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.ViolationRegistrationByUnionPk(childComplexity, args["violation_registration_id"].(string)), true
 
 	case "RegionalViolationRegister.created_at":
 		if e.complexity.RegionalViolationRegister.CreatedAt == nil {
@@ -7623,398 +7609,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.VehicleViolationScoringRecordVarianceFields.ID(childComplexity), true
 
-	case "VioCodewfdm.fkje_max":
-		if e.complexity.VioCodewfdm.FkjeMax == nil {
-			break
-		}
-
-		return e.complexity.VioCodewfdm.FkjeMax(childComplexity), true
-
-	case "VioCodewfdm.fkje_min":
-		if e.complexity.VioCodewfdm.FkjeMin == nil {
-			break
-		}
-
-		return e.complexity.VioCodewfdm.FkjeMin(childComplexity), true
-
-	case "VioCodewfdm.wfjfs":
-		if e.complexity.VioCodewfdm.Wfjfs == nil {
-			break
-		}
-
-		return e.complexity.VioCodewfdm.Wfjfs(childComplexity), true
-
-	case "VioCodewfdm.wfms":
-		if e.complexity.VioCodewfdm.Wfms == nil {
-			break
-		}
-
-		return e.complexity.VioCodewfdm.Wfms(childComplexity), true
-
-	case "VioCodewfdm.wfxw":
-		if e.complexity.VioCodewfdm.Wfxw == nil {
-			break
-		}
-
-		return e.complexity.VioCodewfdm.Wfxw(childComplexity), true
-
-	case "VioCodewfdm.xh":
-		if e.complexity.VioCodewfdm.Xh == nil {
-			break
-		}
-
-		return e.complexity.VioCodewfdm.Xh(childComplexity), true
-
-	case "VioCodewfdmAggregate.aggregate":
-		if e.complexity.VioCodewfdmAggregate.Aggregate == nil {
-			break
-		}
-
-		return e.complexity.VioCodewfdmAggregate.Aggregate(childComplexity), true
-
-	case "VioCodewfdmAggregateFields.avg":
-		if e.complexity.VioCodewfdmAggregateFields.Avg == nil {
-			break
-		}
-
-		return e.complexity.VioCodewfdmAggregateFields.Avg(childComplexity), true
-
-	case "VioCodewfdmAggregateFields.count":
-		if e.complexity.VioCodewfdmAggregateFields.Count == nil {
-			break
-		}
-
-		return e.complexity.VioCodewfdmAggregateFields.Count(childComplexity), true
-
-	case "VioCodewfdmAggregateFields.max":
-		if e.complexity.VioCodewfdmAggregateFields.Max == nil {
-			break
-		}
-
-		return e.complexity.VioCodewfdmAggregateFields.Max(childComplexity), true
-
-	case "VioCodewfdmAggregateFields.min":
-		if e.complexity.VioCodewfdmAggregateFields.Min == nil {
-			break
-		}
-
-		return e.complexity.VioCodewfdmAggregateFields.Min(childComplexity), true
-
-	case "VioCodewfdmAggregateFields.stddev":
-		if e.complexity.VioCodewfdmAggregateFields.Stddev == nil {
-			break
-		}
-
-		return e.complexity.VioCodewfdmAggregateFields.Stddev(childComplexity), true
-
-	case "VioCodewfdmAggregateFields.stddev_pop":
-		if e.complexity.VioCodewfdmAggregateFields.StddevPop == nil {
-			break
-		}
-
-		return e.complexity.VioCodewfdmAggregateFields.StddevPop(childComplexity), true
-
-	case "VioCodewfdmAggregateFields.stddev_samp":
-		if e.complexity.VioCodewfdmAggregateFields.StddevSamp == nil {
-			break
-		}
-
-		return e.complexity.VioCodewfdmAggregateFields.StddevSamp(childComplexity), true
-
-	case "VioCodewfdmAggregateFields.sum":
-		if e.complexity.VioCodewfdmAggregateFields.Sum == nil {
-			break
-		}
-
-		return e.complexity.VioCodewfdmAggregateFields.Sum(childComplexity), true
-
-	case "VioCodewfdmAggregateFields.var_pop":
-		if e.complexity.VioCodewfdmAggregateFields.VarPop == nil {
-			break
-		}
-
-		return e.complexity.VioCodewfdmAggregateFields.VarPop(childComplexity), true
-
-	case "VioCodewfdmAggregateFields.var_samp":
-		if e.complexity.VioCodewfdmAggregateFields.VarSamp == nil {
-			break
-		}
-
-		return e.complexity.VioCodewfdmAggregateFields.VarSamp(childComplexity), true
-
-	case "VioCodewfdmAggregateFields.variance":
-		if e.complexity.VioCodewfdmAggregateFields.Variance == nil {
-			break
-		}
-
-		return e.complexity.VioCodewfdmAggregateFields.Variance(childComplexity), true
-
-	case "VioCodewfdmAvgFields.fkje_max":
-		if e.complexity.VioCodewfdmAvgFields.FkjeMax == nil {
-			break
-		}
-
-		return e.complexity.VioCodewfdmAvgFields.FkjeMax(childComplexity), true
-
-	case "VioCodewfdmAvgFields.fkje_min":
-		if e.complexity.VioCodewfdmAvgFields.FkjeMin == nil {
-			break
-		}
-
-		return e.complexity.VioCodewfdmAvgFields.FkjeMin(childComplexity), true
-
-	case "VioCodewfdmAvgFields.wfjfs":
-		if e.complexity.VioCodewfdmAvgFields.Wfjfs == nil {
-			break
-		}
-
-		return e.complexity.VioCodewfdmAvgFields.Wfjfs(childComplexity), true
-
-	case "VioCodewfdmMaxFields.fkje_max":
-		if e.complexity.VioCodewfdmMaxFields.FkjeMax == nil {
-			break
-		}
-
-		return e.complexity.VioCodewfdmMaxFields.FkjeMax(childComplexity), true
-
-	case "VioCodewfdmMaxFields.fkje_min":
-		if e.complexity.VioCodewfdmMaxFields.FkjeMin == nil {
-			break
-		}
-
-		return e.complexity.VioCodewfdmMaxFields.FkjeMin(childComplexity), true
-
-	case "VioCodewfdmMaxFields.wfjfs":
-		if e.complexity.VioCodewfdmMaxFields.Wfjfs == nil {
-			break
-		}
-
-		return e.complexity.VioCodewfdmMaxFields.Wfjfs(childComplexity), true
-
-	case "VioCodewfdmMaxFields.wfms":
-		if e.complexity.VioCodewfdmMaxFields.Wfms == nil {
-			break
-		}
-
-		return e.complexity.VioCodewfdmMaxFields.Wfms(childComplexity), true
-
-	case "VioCodewfdmMaxFields.wfxw":
-		if e.complexity.VioCodewfdmMaxFields.Wfxw == nil {
-			break
-		}
-
-		return e.complexity.VioCodewfdmMaxFields.Wfxw(childComplexity), true
-
-	case "VioCodewfdmMaxFields.xh":
-		if e.complexity.VioCodewfdmMaxFields.Xh == nil {
-			break
-		}
-
-		return e.complexity.VioCodewfdmMaxFields.Xh(childComplexity), true
-
-	case "VioCodewfdmMinFields.fkje_max":
-		if e.complexity.VioCodewfdmMinFields.FkjeMax == nil {
-			break
-		}
-
-		return e.complexity.VioCodewfdmMinFields.FkjeMax(childComplexity), true
-
-	case "VioCodewfdmMinFields.fkje_min":
-		if e.complexity.VioCodewfdmMinFields.FkjeMin == nil {
-			break
-		}
-
-		return e.complexity.VioCodewfdmMinFields.FkjeMin(childComplexity), true
-
-	case "VioCodewfdmMinFields.wfjfs":
-		if e.complexity.VioCodewfdmMinFields.Wfjfs == nil {
-			break
-		}
-
-		return e.complexity.VioCodewfdmMinFields.Wfjfs(childComplexity), true
-
-	case "VioCodewfdmMinFields.wfms":
-		if e.complexity.VioCodewfdmMinFields.Wfms == nil {
-			break
-		}
-
-		return e.complexity.VioCodewfdmMinFields.Wfms(childComplexity), true
-
-	case "VioCodewfdmMinFields.wfxw":
-		if e.complexity.VioCodewfdmMinFields.Wfxw == nil {
-			break
-		}
-
-		return e.complexity.VioCodewfdmMinFields.Wfxw(childComplexity), true
-
-	case "VioCodewfdmMinFields.xh":
-		if e.complexity.VioCodewfdmMinFields.Xh == nil {
-			break
-		}
-
-		return e.complexity.VioCodewfdmMinFields.Xh(childComplexity), true
-
-	case "VioCodewfdmMutationResponse.affected_rows":
-		if e.complexity.VioCodewfdmMutationResponse.AffectedRows == nil {
-			break
-		}
-
-		return e.complexity.VioCodewfdmMutationResponse.AffectedRows(childComplexity), true
-
-	case "VioCodewfdmMutationResponse.returning":
-		if e.complexity.VioCodewfdmMutationResponse.Returning == nil {
-			break
-		}
-
-		return e.complexity.VioCodewfdmMutationResponse.Returning(childComplexity), true
-
-	case "VioCodewfdmStddevFields.fkje_max":
-		if e.complexity.VioCodewfdmStddevFields.FkjeMax == nil {
-			break
-		}
-
-		return e.complexity.VioCodewfdmStddevFields.FkjeMax(childComplexity), true
-
-	case "VioCodewfdmStddevFields.fkje_min":
-		if e.complexity.VioCodewfdmStddevFields.FkjeMin == nil {
-			break
-		}
-
-		return e.complexity.VioCodewfdmStddevFields.FkjeMin(childComplexity), true
-
-	case "VioCodewfdmStddevFields.wfjfs":
-		if e.complexity.VioCodewfdmStddevFields.Wfjfs == nil {
-			break
-		}
-
-		return e.complexity.VioCodewfdmStddevFields.Wfjfs(childComplexity), true
-
-	case "VioCodewfdmStddevPopFields.fkje_max":
-		if e.complexity.VioCodewfdmStddevPopFields.FkjeMax == nil {
-			break
-		}
-
-		return e.complexity.VioCodewfdmStddevPopFields.FkjeMax(childComplexity), true
-
-	case "VioCodewfdmStddevPopFields.fkje_min":
-		if e.complexity.VioCodewfdmStddevPopFields.FkjeMin == nil {
-			break
-		}
-
-		return e.complexity.VioCodewfdmStddevPopFields.FkjeMin(childComplexity), true
-
-	case "VioCodewfdmStddevPopFields.wfjfs":
-		if e.complexity.VioCodewfdmStddevPopFields.Wfjfs == nil {
-			break
-		}
-
-		return e.complexity.VioCodewfdmStddevPopFields.Wfjfs(childComplexity), true
-
-	case "VioCodewfdmStddevSampFields.fkje_max":
-		if e.complexity.VioCodewfdmStddevSampFields.FkjeMax == nil {
-			break
-		}
-
-		return e.complexity.VioCodewfdmStddevSampFields.FkjeMax(childComplexity), true
-
-	case "VioCodewfdmStddevSampFields.fkje_min":
-		if e.complexity.VioCodewfdmStddevSampFields.FkjeMin == nil {
-			break
-		}
-
-		return e.complexity.VioCodewfdmStddevSampFields.FkjeMin(childComplexity), true
-
-	case "VioCodewfdmStddevSampFields.wfjfs":
-		if e.complexity.VioCodewfdmStddevSampFields.Wfjfs == nil {
-			break
-		}
-
-		return e.complexity.VioCodewfdmStddevSampFields.Wfjfs(childComplexity), true
-
-	case "VioCodewfdmSumFields.fkje_max":
-		if e.complexity.VioCodewfdmSumFields.FkjeMax == nil {
-			break
-		}
-
-		return e.complexity.VioCodewfdmSumFields.FkjeMax(childComplexity), true
-
-	case "VioCodewfdmSumFields.fkje_min":
-		if e.complexity.VioCodewfdmSumFields.FkjeMin == nil {
-			break
-		}
-
-		return e.complexity.VioCodewfdmSumFields.FkjeMin(childComplexity), true
-
-	case "VioCodewfdmSumFields.wfjfs":
-		if e.complexity.VioCodewfdmSumFields.Wfjfs == nil {
-			break
-		}
-
-		return e.complexity.VioCodewfdmSumFields.Wfjfs(childComplexity), true
-
-	case "VioCodewfdmVarPopFields.fkje_max":
-		if e.complexity.VioCodewfdmVarPopFields.FkjeMax == nil {
-			break
-		}
-
-		return e.complexity.VioCodewfdmVarPopFields.FkjeMax(childComplexity), true
-
-	case "VioCodewfdmVarPopFields.fkje_min":
-		if e.complexity.VioCodewfdmVarPopFields.FkjeMin == nil {
-			break
-		}
-
-		return e.complexity.VioCodewfdmVarPopFields.FkjeMin(childComplexity), true
-
-	case "VioCodewfdmVarPopFields.wfjfs":
-		if e.complexity.VioCodewfdmVarPopFields.Wfjfs == nil {
-			break
-		}
-
-		return e.complexity.VioCodewfdmVarPopFields.Wfjfs(childComplexity), true
-
-	case "VioCodewfdmVarSampFields.fkje_max":
-		if e.complexity.VioCodewfdmVarSampFields.FkjeMax == nil {
-			break
-		}
-
-		return e.complexity.VioCodewfdmVarSampFields.FkjeMax(childComplexity), true
-
-	case "VioCodewfdmVarSampFields.fkje_min":
-		if e.complexity.VioCodewfdmVarSampFields.FkjeMin == nil {
-			break
-		}
-
-		return e.complexity.VioCodewfdmVarSampFields.FkjeMin(childComplexity), true
-
-	case "VioCodewfdmVarSampFields.wfjfs":
-		if e.complexity.VioCodewfdmVarSampFields.Wfjfs == nil {
-			break
-		}
-
-		return e.complexity.VioCodewfdmVarSampFields.Wfjfs(childComplexity), true
-
-	case "VioCodewfdmVarianceFields.fkje_max":
-		if e.complexity.VioCodewfdmVarianceFields.FkjeMax == nil {
-			break
-		}
-
-		return e.complexity.VioCodewfdmVarianceFields.FkjeMax(childComplexity), true
-
-	case "VioCodewfdmVarianceFields.fkje_min":
-		if e.complexity.VioCodewfdmVarianceFields.FkjeMin == nil {
-			break
-		}
-
-		return e.complexity.VioCodewfdmVarianceFields.FkjeMin(childComplexity), true
-
-	case "VioCodewfdmVarianceFields.wfjfs":
-		if e.complexity.VioCodewfdmVarianceFields.Wfjfs == nil {
-			break
-		}
-
-		return e.complexity.VioCodewfdmVarianceFields.Wfjfs(childComplexity), true
-
 	case "ViolationRegistration.cause":
 		if e.complexity.ViolationRegistration.Cause == nil {
 			break
@@ -9079,6 +8673,7 @@ input AppEnforcementBoolExp {
 input type for inserting data into table "app_enforcement"
 """
 input AppEnforcementInsertInput {
+	illegal_photo_id: String!
 	vehicle_id: String
 	operation_user: String
 	edit_text: String
@@ -9086,6 +8681,8 @@ input AppEnforcementInsertInput {
 	location_description: String
 	enterprise_type: String
 	picket_status: Int
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -9219,7 +8816,7 @@ extend type Mutation {
 	"""
 	update_app_enforcement(_inc: AppEnforcementIncInput, _set: AppEnforcementSetInput, where: AppEnforcementBoolExp!): AppEnforcementMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_app_enforcement_by_pk(_inc: AppEnforcementIncInput, _set: AppEnforcementSetInput, id: Bigint!): AppEnforcement
 }
@@ -9622,12 +9219,15 @@ input DeductionReportBoolExp {
 input type for inserting data into table "deduction_report"
 """
 input DeductionReportInsertInput {
+	deduction_report_id: String!
 	area_id: String
 	date: String
 	cause: String
 	input_person: String
 	input_time: Timestamptz
 	demerit_points: Numeric
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -9733,6 +9333,10 @@ extend type Query {
 	主键查询
 	"""
 	deduction_report_by_pk(id: Bigint!): DeductionReport!
+	"""
+	联合主键查询
+	"""
+	deduction_report_by_union_pk(deduction_report_id: String!): DeductionReport!
 }
 extend type Mutation {
 	"""
@@ -9756,9 +9360,17 @@ extend type Mutation {
 	"""
 	update_deduction_report(_inc: DeductionReportIncInput, _set: DeductionReportSetInput, where: DeductionReportBoolExp!): DeductionReportMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_deduction_report_by_pk(_inc: DeductionReportIncInput, _set: DeductionReportSetInput, id: Bigint!): DeductionReport
+	"""
+	根据联合主键更新
+	"""
+	update_deduction_report_by_union_pk(_inc: DeductionReportIncInput, _set: DeductionReportSetInput, deduction_report_id: String!): DeductionReport
+	"""
+	根据联合主键删除记录
+	"""
+	delete_deduction_report_by_union_pk(deduction_report_id: String!): DeductionReport
 }
 `, BuiltIn: false},
 	{Name: "graph/graphqls/driver_peccancy_check.graphqls", Input: `"""
@@ -9953,6 +9565,8 @@ input DriverPeccancyCheckInsertInput {
 	vehicle_id: String
 	driver_id: String
 	enterprise_id: String
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -10060,7 +9674,7 @@ extend type Mutation {
 	"""
 	update_driver_peccancy_check(_inc: DriverPeccancyCheckIncInput, _set: DriverPeccancyCheckSetInput, where: DriverPeccancyCheckBoolExp!): DriverPeccancyCheckMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_driver_peccancy_check_by_pk(_inc: DriverPeccancyCheckIncInput, _set: DriverPeccancyCheckSetInput, id: Bigint!): DriverPeccancyCheck
 }
@@ -10270,10 +9884,13 @@ input IllegalPhotoBoolExp {
 input type for inserting data into table "illegal_photo"
 """
 input IllegalPhotoInsertInput {
+	illegal_photo_id: String!
 	picture_name: String
 	picture_address: String
 	is_synchronized: Boolean
 	is_deleted: Boolean
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -10368,6 +9985,10 @@ extend type Query {
 	主键查询
 	"""
 	illegal_photo_by_pk(id: Bigint!): IllegalPhoto!
+	"""
+	联合主键查询
+	"""
+	illegal_photo_by_union_pk(illegal_photo_id: String!): IllegalPhoto!
 }
 extend type Mutation {
 	"""
@@ -10391,9 +10012,17 @@ extend type Mutation {
 	"""
 	update_illegal_photo(_inc: IllegalPhotoIncInput, _set: IllegalPhotoSetInput, where: IllegalPhotoBoolExp!): IllegalPhotoMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_illegal_photo_by_pk(_inc: IllegalPhotoIncInput, _set: IllegalPhotoSetInput, id: Bigint!): IllegalPhoto
+	"""
+	根据联合主键更新
+	"""
+	update_illegal_photo_by_union_pk(_inc: IllegalPhotoIncInput, _set: IllegalPhotoSetInput, illegal_photo_id: String!): IllegalPhoto
+	"""
+	根据联合主键删除记录
+	"""
+	delete_illegal_photo_by_union_pk(illegal_photo_id: String!): IllegalPhoto
 }
 `, BuiltIn: false},
 	{Name: "graph/graphqls/regional_violation_register.graphqls", Input: `"""
@@ -10673,6 +10302,7 @@ input RegionalViolationRegisterBoolExp {
 input type for inserting data into table "regional_violation_register"
 """
 input RegionalViolationRegisterInsertInput {
+	regional_violation_register_id: String!
 	violation_detail_id: String
 	vehicle_id: String
 	driver_id: String
@@ -10683,6 +10313,8 @@ input RegionalViolationRegisterInsertInput {
 	processing_agency: String
 	operator: String
 	is_register: Boolean
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -10815,6 +10447,10 @@ extend type Query {
 	主键查询
 	"""
 	regional_violation_register_by_pk(id: Bigint!): RegionalViolationRegister!
+	"""
+	联合主键查询
+	"""
+	regional_violation_register_by_union_pk(regional_violation_register_id: String!): RegionalViolationRegister!
 }
 extend type Mutation {
 	"""
@@ -10838,9 +10474,17 @@ extend type Mutation {
 	"""
 	update_regional_violation_register(_inc: RegionalViolationRegisterIncInput, _set: RegionalViolationRegisterSetInput, where: RegionalViolationRegisterBoolExp!): RegionalViolationRegisterMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_regional_violation_register_by_pk(_inc: RegionalViolationRegisterIncInput, _set: RegionalViolationRegisterSetInput, id: Bigint!): RegionalViolationRegister
+	"""
+	根据联合主键更新
+	"""
+	update_regional_violation_register_by_union_pk(_inc: RegionalViolationRegisterIncInput, _set: RegionalViolationRegisterSetInput, regional_violation_register_id: String!): RegionalViolationRegister
+	"""
+	根据联合主键删除记录
+	"""
+	delete_regional_violation_register_by_union_pk(regional_violation_register_id: String!): RegionalViolationRegister
 }
 `, BuiltIn: false},
 	{Name: "graph/graphqls/serious_traffic_violation.graphqls", Input: `"""
@@ -11040,9 +10684,12 @@ input SeriousTrafficViolationBoolExp {
 input type for inserting data into table "serious_traffic_violation"
 """
 input SeriousTrafficViolationInsertInput {
+	serious_traffic_violation_id: String!
 	vehicle_id: String
 	illegal_code: String
 	illegal_time: Timestamptz
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -11132,6 +10779,10 @@ extend type Query {
 	主键查询
 	"""
 	serious_traffic_violation_by_pk(id: Bigint!): SeriousTrafficViolation!
+	"""
+	联合主键查询
+	"""
+	serious_traffic_violation_by_union_pk(serious_traffic_violation_id: String!): SeriousTrafficViolation!
 }
 extend type Mutation {
 	"""
@@ -11155,9 +10806,17 @@ extend type Mutation {
 	"""
 	update_serious_traffic_violation(_inc: SeriousTrafficViolationIncInput, _set: SeriousTrafficViolationSetInput, where: SeriousTrafficViolationBoolExp!): SeriousTrafficViolationMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_serious_traffic_violation_by_pk(_inc: SeriousTrafficViolationIncInput, _set: SeriousTrafficViolationSetInput, id: Bigint!): SeriousTrafficViolation
+	"""
+	根据联合主键更新
+	"""
+	update_serious_traffic_violation_by_union_pk(_inc: SeriousTrafficViolationIncInput, _set: SeriousTrafficViolationSetInput, serious_traffic_violation_id: String!): SeriousTrafficViolation
+	"""
+	根据联合主键删除记录
+	"""
+	delete_serious_traffic_violation_by_union_pk(serious_traffic_violation_id: String!): SeriousTrafficViolation
 }
 `, BuiltIn: false},
 	{Name: "graph/graphqls/vehicle_violation_details.graphqls", Input: `"""
@@ -11549,6 +11208,7 @@ input VehicleViolationDetailsBoolExp {
 input type for inserting data into table "vehicle_violation_details"
 """
 input VehicleViolationDetailsInsertInput {
+	violation_detail_id: String!
 	vehicle_id: String
 	driver_id: String
 	enterprise_id: String
@@ -11573,6 +11233,8 @@ input VehicleViolationDetailsInsertInput {
 	handle_at: Timestamptz
 	is_send: Boolean
 	is_deleted: Boolean
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -11793,7 +11455,7 @@ extend type Mutation {
 	"""
 	update_vehicle_violation_details(_inc: VehicleViolationDetailsIncInput, _set: VehicleViolationDetailsSetInput, where: VehicleViolationDetailsBoolExp!): VehicleViolationDetailsMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_vehicle_violation_details_by_pk(_inc: VehicleViolationDetailsIncInput, _set: VehicleViolationDetailsSetInput, id: Bigint!): VehicleViolationDetails
 }
@@ -12019,10 +11681,13 @@ input VehicleViolationScoringItemsBoolExp {
 input type for inserting data into table "vehicle_violation_scoring_items"
 """
 input VehicleViolationScoringItemsInsertInput {
+	violation_scoring_item_id: String!
 	deduction_item_description: String
 	deduction_category: Int
 	demerit_points: Numeric
 	is_deleted: Boolean
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -12142,7 +11807,7 @@ extend type Mutation {
 	"""
 	update_vehicle_violation_scoring_items(_inc: VehicleViolationScoringItemsIncInput, _set: VehicleViolationScoringItemsSetInput, where: VehicleViolationScoringItemsBoolExp!): VehicleViolationScoringItemsMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_vehicle_violation_scoring_items_by_pk(_inc: VehicleViolationScoringItemsIncInput, _set: VehicleViolationScoringItemsSetInput, id: Bigint!): VehicleViolationScoringItems
 }
@@ -12368,11 +12033,14 @@ input VehicleViolationScoringRecordBoolExp {
 input type for inserting data into table "vehicle_violation_scoring_record"
 """
 input VehicleViolationScoringRecordInsertInput {
+	violation_scoring_id: String!
 	vehicle_id: String
 	violation_scoring_item_id: String
 	demerit_points: Numeric
 	remarks: String
 	is_deleted: Boolean
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -12496,277 +12164,9 @@ extend type Mutation {
 	"""
 	update_vehicle_violation_scoring_record(_inc: VehicleViolationScoringRecordIncInput, _set: VehicleViolationScoringRecordSetInput, where: VehicleViolationScoringRecordBoolExp!): VehicleViolationScoringRecordMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_vehicle_violation_scoring_record_by_pk(_inc: VehicleViolationScoringRecordIncInput, _set: VehicleViolationScoringRecordSetInput, id: Bigint!): VehicleViolationScoringRecord
-}
-`, BuiltIn: false},
-	{Name: "graph/graphqls/vio_codewfdm.graphqls", Input: `"""
-违法描述字典表(交警提供数据表，暂无修改)
-"""
-type VioCodewfdm {
-	"""
-	 违法行为     
-	"""
-	wfxw: String!
-	"""
-	 违法描述     
-	"""
-	wfms: String
-	"""
-	 违法计分数   
-	"""
-	wfjfs: Numeric
-	"""
-	 最小罚款金额 
-	"""
-	fkje_min: Numeric
-	"""
-	 最大罚款金额 
-	"""
-	fkje_max: Numeric
-	"""
-	 序号         
-	"""
-	xh: String
-}
-"""
-aggregated selection of "vio_codewfdm"
-"""
-type VioCodewfdmAggregate {
-	aggregate: VioCodewfdmAggregateFields
-}
-"""
-aggregate fields of "vio_codewfdm"
-"""
-type VioCodewfdmAggregateFields {
-	avg: VioCodewfdmAvgFields
-	count: Int
-	max: VioCodewfdmMaxFields
-	min: VioCodewfdmMinFields
-	stddev: VioCodewfdmStddevFields
-	stddev_pop: VioCodewfdmStddevPopFields
-	stddev_samp: VioCodewfdmStddevSampFields
-	sum: VioCodewfdmSumFields
-	var_pop: VioCodewfdmVarPopFields
-	var_samp: VioCodewfdmVarSampFields
-	variance: VioCodewfdmVarianceFields
-}
-"""
-aggregate avg on columns of table "vio_codewfdm"
-"""
-type VioCodewfdmAvgFields {
-	wfjfs: Numeric
-	fkje_min: Numeric
-	fkje_max: Numeric
-}
-"""
-aggregate max on columns of table "vio_codewfdm"
-"""
-type VioCodewfdmMaxFields {
-	wfxw: String
-	wfms: String
-	wfjfs: Numeric
-	fkje_min: Numeric
-	fkje_max: Numeric
-	xh: String
-}
-"""
-aggregate min on columns of table "vio_codewfdm"
-"""
-type VioCodewfdmMinFields {
-	wfxw: String
-	wfms: String
-	wfjfs: Numeric
-	fkje_min: Numeric
-	fkje_max: Numeric
-	xh: String
-}
-"""
-aggregate stddev on columns of table "vio_codewfdm"
-"""
-type VioCodewfdmStddevFields {
-	wfjfs: Numeric
-	fkje_min: Numeric
-	fkje_max: Numeric
-}
-"""
-aggregate stddev_pop on columns of table "vio_codewfdm"
-"""
-type VioCodewfdmStddevPopFields {
-	wfjfs: Numeric
-	fkje_min: Numeric
-	fkje_max: Numeric
-}
-"""
-aggregate stddev_samp on columns of table "vio_codewfdm"
-"""
-type VioCodewfdmStddevSampFields {
-	wfjfs: Numeric
-	fkje_min: Numeric
-	fkje_max: Numeric
-}
-"""
-aggregate sum on columns of table "vio_codewfdm"
-"""
-type VioCodewfdmSumFields {
-	wfjfs: Numeric
-	fkje_min: Numeric
-	fkje_max: Numeric
-}
-"""
-aggregate var_pop on columns of table "vio_codewfdm"
-"""
-type VioCodewfdmVarPopFields {
-	wfjfs: Numeric
-	fkje_min: Numeric
-	fkje_max: Numeric
-}
-"""
-aggregate var_samp on columns of table "vio_codewfdm"
-"""
-type VioCodewfdmVarSampFields {
-	wfjfs: Numeric
-	fkje_min: Numeric
-	fkje_max: Numeric
-}
-"""
-aggregate variance on columns of table "vio_codewfdm"
-"""
-type VioCodewfdmVarianceFields {
-	wfjfs: Numeric
-	fkje_min: Numeric
-	fkje_max: Numeric
-}
-"""
-response of any mutation on the table "vio_codewfdm"
-"""
-type VioCodewfdmMutationResponse {
-	affected_rows: Int!
-	returning: [VioCodewfdm!]!
-}
-"""
-ordering options when selecting data from "vio_codewfdm"
-"""
-input VioCodewfdmOrderBy {
-	wfxw: OrderBy
-	wfms: OrderBy
-	wfjfs: OrderBy
-	fkje_min: OrderBy
-	fkje_max: OrderBy
-	xh: OrderBy
-}
-"""
-Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'vio_codewfdm'.
-"""
-input VioCodewfdmBoolExp {
-	_and: [VioCodewfdmBoolExp]
-	_not: VioCodewfdmBoolExp
-	_or: [VioCodewfdmBoolExp]
-	wfxw: StringComparisonExp
-	wfms: StringComparisonExp
-	wfjfs: NumericComparisonExp
-	fkje_min: NumericComparisonExp
-	fkje_max: NumericComparisonExp
-	xh: StringComparisonExp
-}
-"""
-input type for inserting data into table "vio_codewfdm"
-"""
-input VioCodewfdmInsertInput {
-	wfms: String
-	wfjfs: Numeric
-	fkje_min: Numeric
-	fkje_max: Numeric
-	xh: String
-}
-"""
-input type for incrementing integer column in table "vio_codewfdm"
-"""
-input VioCodewfdmIncInput {
-	wfjfs: Numeric
-	fkje_min: Numeric
-	fkje_max: Numeric
-}
-"""
-input type for updating data in table "vio_codewfdm"
-"""
-input VioCodewfdmSetInput {
-	wfxw: String
-	wfms: String
-	wfjfs: Numeric
-	fkje_min: Numeric
-	fkje_max: Numeric
-	xh: String
-}
-"""
-可选select
-"""
-enum VioCodewfdmSelectColumn {
-	"""
-	 违法行为     
-	"""
-	wfxw
-	"""
-	 违法描述     
-	"""
-	wfms
-	"""
-	 违法计分数   
-	"""
-	wfjfs
-	"""
-	 最小罚款金额 
-	"""
-	fkje_min
-	"""
-	 最大罚款金额 
-	"""
-	fkje_max
-	"""
-	 序号         
-	"""
-	xh
-}
-extend type Query {
-	"""
-	列表查询
-	"""
-	vio_codewfdm(distinct_on: [VioCodewfdmSelectColumn!], limit: Int, offset: Int, order_by: [VioCodewfdmOrderBy!], where: VioCodewfdmBoolExp): [VioCodewfdm!]!
-	"""
-	聚合查询
-	"""
-	vio_codewfdm_aggregate(distinct_on: [VioCodewfdmSelectColumn!], limit: Int, offset: Int, order_by: [VioCodewfdmOrderBy!], where: VioCodewfdmBoolExp): VioCodewfdmAggregate!
-	"""
-	主键查询
-	"""
-	vio_codewfdm_by_pk(id: String!): VioCodewfdm!
-}
-extend type Mutation {
-	"""
-	删除记录
-	"""
-	delete_vio_codewfdm(where: VioCodewfdmBoolExp!): VioCodewfdmMutationResponse
-	"""
-	根据主键删除记录
-	"""
-	delete_vio_codewfdm_by_pk(id: String!): VioCodewfdm
-	"""
-	插入
-	"""
-	insert_vio_codewfdm(objects: [VioCodewfdmInsertInput!]!): VioCodewfdmMutationResponse
-	"""
-	插入一条记录
-	"""
-	insert_vio_codewfdm_one(objects: VioCodewfdmInsertInput!): VioCodewfdm
-	"""
-	更新
-	"""
-	update_vio_codewfdm(_inc: VioCodewfdmIncInput, _set: VioCodewfdmSetInput, where: VioCodewfdmBoolExp!): VioCodewfdmMutationResponse
-	"""
-	更新
-	"""
-	update_vio_codewfdm_by_pk(_inc: VioCodewfdmIncInput, _set: VioCodewfdmSetInput, id: String!): VioCodewfdm
 }
 `, BuiltIn: false},
 	{Name: "graph/graphqls/violation_registration.graphqls", Input: `"""
@@ -13110,6 +12510,7 @@ input ViolationRegistrationBoolExp {
 input type for inserting data into table "violation_registration"
 """
 input ViolationRegistrationInsertInput {
+	violation_registration_id: String!
 	vehicle_id: String
 	license_plate_number: String
 	id_card_num: String
@@ -13131,6 +12532,8 @@ input ViolationRegistrationInsertInput {
 	is_supervised: String
 	is_accident: String
 	is_deleted: Boolean
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -13310,6 +12713,10 @@ extend type Query {
 	主键查询
 	"""
 	violation_registration_by_pk(id: Bigint!): ViolationRegistration!
+	"""
+	联合主键查询
+	"""
+	violation_registration_by_union_pk(violation_registration_id: String!): ViolationRegistration!
 }
 extend type Mutation {
 	"""
@@ -13333,9 +12740,17 @@ extend type Mutation {
 	"""
 	update_violation_registration(_inc: ViolationRegistrationIncInput, _set: ViolationRegistrationSetInput, where: ViolationRegistrationBoolExp!): ViolationRegistrationMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_violation_registration_by_pk(_inc: ViolationRegistrationIncInput, _set: ViolationRegistrationSetInput, id: Bigint!): ViolationRegistration
+	"""
+	根据联合主键更新
+	"""
+	update_violation_registration_by_union_pk(_inc: ViolationRegistrationIncInput, _set: ViolationRegistrationSetInput, violation_registration_id: String!): ViolationRegistration
+	"""
+	根据联合主键删除记录
+	"""
+	delete_violation_registration_by_union_pk(violation_registration_id: String!): ViolationRegistration
 }
 `, BuiltIn: false},
 }
@@ -13405,6 +12820,21 @@ func (ec *executionContext) field_Mutation_delete_deduction_report_by_pk_args(ct
 	return args, nil
 }
 
+func (ec *executionContext) field_Mutation_delete_deduction_report_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["deduction_report_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deduction_report_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["deduction_report_id"] = arg0
+	return args, nil
+}
+
 func (ec *executionContext) field_Mutation_delete_driver_peccancy_check_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -13465,6 +12895,21 @@ func (ec *executionContext) field_Mutation_delete_illegal_photo_by_pk_args(ctx c
 	return args, nil
 }
 
+func (ec *executionContext) field_Mutation_delete_illegal_photo_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["illegal_photo_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("illegal_photo_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["illegal_photo_id"] = arg0
+	return args, nil
+}
+
 func (ec *executionContext) field_Mutation_delete_regional_violation_register_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -13495,6 +12940,21 @@ func (ec *executionContext) field_Mutation_delete_regional_violation_register_by
 	return args, nil
 }
 
+func (ec *executionContext) field_Mutation_delete_regional_violation_register_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["regional_violation_register_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("regional_violation_register_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["regional_violation_register_id"] = arg0
+	return args, nil
+}
+
 func (ec *executionContext) field_Mutation_delete_serious_traffic_violation_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -13522,6 +12982,21 @@ func (ec *executionContext) field_Mutation_delete_serious_traffic_violation_by_p
 		}
 	}
 	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_delete_serious_traffic_violation_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["serious_traffic_violation_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("serious_traffic_violation_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["serious_traffic_violation_id"] = arg0
 	return args, nil
 }
 
@@ -13615,36 +13090,6 @@ func (ec *executionContext) field_Mutation_delete_vehicle_violation_scoring_reco
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_delete_vio_codewfdm_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
-	var err error
-	args := map[string]interface{}{}
-	var arg0 model.VioCodewfdmBoolExp
-	if tmp, ok := rawArgs["where"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("where"))
-		arg0, err = ec.unmarshalNVioCodewfdmBoolExp2VehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmBoolExp(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["where"] = arg0
-	return args, nil
-}
-
-func (ec *executionContext) field_Mutation_delete_vio_codewfdm_by_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
-	var err error
-	args := map[string]interface{}{}
-	var arg0 string
-	if tmp, ok := rawArgs["id"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-		arg0, err = ec.unmarshalNString2string(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["id"] = arg0
-	return args, nil
-}
-
 func (ec *executionContext) field_Mutation_delete_violation_registration_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -13672,6 +13117,21 @@ func (ec *executionContext) field_Mutation_delete_violation_registration_by_pk_a
 		}
 	}
 	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_delete_violation_registration_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["violation_registration_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("violation_registration_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["violation_registration_id"] = arg0
 	return args, nil
 }
 
@@ -13945,36 +13405,6 @@ func (ec *executionContext) field_Mutation_insert_vehicle_violation_scoring_reco
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_insert_vio_codewfdm_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
-	var err error
-	args := map[string]interface{}{}
-	var arg0 []*model.VioCodewfdmInsertInput
-	if tmp, ok := rawArgs["objects"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("objects"))
-		arg0, err = ec.unmarshalNVioCodewfdmInsertInput2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmInsertInputᚄ(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["objects"] = arg0
-	return args, nil
-}
-
-func (ec *executionContext) field_Mutation_insert_vio_codewfdm_one_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
-	var err error
-	args := map[string]interface{}{}
-	var arg0 model.VioCodewfdmInsertInput
-	if tmp, ok := rawArgs["objects"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("objects"))
-		arg0, err = ec.unmarshalNVioCodewfdmInsertInput2VehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmInsertInput(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["objects"] = arg0
-	return args, nil
-}
-
 func (ec *executionContext) field_Mutation_insert_violation_registration_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -14137,6 +13567,39 @@ func (ec *executionContext) field_Mutation_update_deduction_report_by_pk_args(ct
 	return args, nil
 }
 
+func (ec *executionContext) field_Mutation_update_deduction_report_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *model.DeductionReportIncInput
+	if tmp, ok := rawArgs["_inc"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
+		arg0, err = ec.unmarshalODeductionReportIncInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐDeductionReportIncInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_inc"] = arg0
+	var arg1 *model.DeductionReportSetInput
+	if tmp, ok := rawArgs["_set"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
+		arg1, err = ec.unmarshalODeductionReportSetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐDeductionReportSetInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_set"] = arg1
+	var arg2 string
+	if tmp, ok := rawArgs["deduction_report_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deduction_report_id"))
+		arg2, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["deduction_report_id"] = arg2
+	return args, nil
+}
+
 func (ec *executionContext) field_Mutation_update_driver_peccancy_check_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -14269,6 +13732,39 @@ func (ec *executionContext) field_Mutation_update_illegal_photo_by_pk_args(ctx c
 	return args, nil
 }
 
+func (ec *executionContext) field_Mutation_update_illegal_photo_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *model.IllegalPhotoIncInput
+	if tmp, ok := rawArgs["_inc"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
+		arg0, err = ec.unmarshalOIllegalPhotoIncInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐIllegalPhotoIncInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_inc"] = arg0
+	var arg1 *model.IllegalPhotoSetInput
+	if tmp, ok := rawArgs["_set"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
+		arg1, err = ec.unmarshalOIllegalPhotoSetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐIllegalPhotoSetInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_set"] = arg1
+	var arg2 string
+	if tmp, ok := rawArgs["illegal_photo_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("illegal_photo_id"))
+		arg2, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["illegal_photo_id"] = arg2
+	return args, nil
+}
+
 func (ec *executionContext) field_Mutation_update_regional_violation_register_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -14335,6 +13831,39 @@ func (ec *executionContext) field_Mutation_update_regional_violation_register_by
 	return args, nil
 }
 
+func (ec *executionContext) field_Mutation_update_regional_violation_register_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *model.RegionalViolationRegisterIncInput
+	if tmp, ok := rawArgs["_inc"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
+		arg0, err = ec.unmarshalORegionalViolationRegisterIncInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐRegionalViolationRegisterIncInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_inc"] = arg0
+	var arg1 *model.RegionalViolationRegisterSetInput
+	if tmp, ok := rawArgs["_set"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
+		arg1, err = ec.unmarshalORegionalViolationRegisterSetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐRegionalViolationRegisterSetInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_set"] = arg1
+	var arg2 string
+	if tmp, ok := rawArgs["regional_violation_register_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("regional_violation_register_id"))
+		arg2, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["regional_violation_register_id"] = arg2
+	return args, nil
+}
+
 func (ec *executionContext) field_Mutation_update_serious_traffic_violation_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -14398,6 +13927,39 @@ func (ec *executionContext) field_Mutation_update_serious_traffic_violation_by_p
 		}
 	}
 	args["id"] = arg2
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_update_serious_traffic_violation_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *model.SeriousTrafficViolationIncInput
+	if tmp, ok := rawArgs["_inc"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
+		arg0, err = ec.unmarshalOSeriousTrafficViolationIncInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐSeriousTrafficViolationIncInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_inc"] = arg0
+	var arg1 *model.SeriousTrafficViolationSetInput
+	if tmp, ok := rawArgs["_set"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
+		arg1, err = ec.unmarshalOSeriousTrafficViolationSetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐSeriousTrafficViolationSetInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_set"] = arg1
+	var arg2 string
+	if tmp, ok := rawArgs["serious_traffic_violation_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("serious_traffic_violation_id"))
+		arg2, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["serious_traffic_violation_id"] = arg2
 	return args, nil
 }
 
@@ -14599,72 +14161,6 @@ func (ec *executionContext) field_Mutation_update_vehicle_violation_scoring_reco
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_update_vio_codewfdm_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
-	var err error
-	args := map[string]interface{}{}
-	var arg0 *model.VioCodewfdmIncInput
-	if tmp, ok := rawArgs["_inc"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
-		arg0, err = ec.unmarshalOVioCodewfdmIncInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmIncInput(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["_inc"] = arg0
-	var arg1 *model.VioCodewfdmSetInput
-	if tmp, ok := rawArgs["_set"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
-		arg1, err = ec.unmarshalOVioCodewfdmSetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmSetInput(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["_set"] = arg1
-	var arg2 model.VioCodewfdmBoolExp
-	if tmp, ok := rawArgs["where"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("where"))
-		arg2, err = ec.unmarshalNVioCodewfdmBoolExp2VehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmBoolExp(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["where"] = arg2
-	return args, nil
-}
-
-func (ec *executionContext) field_Mutation_update_vio_codewfdm_by_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
-	var err error
-	args := map[string]interface{}{}
-	var arg0 *model.VioCodewfdmIncInput
-	if tmp, ok := rawArgs["_inc"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
-		arg0, err = ec.unmarshalOVioCodewfdmIncInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmIncInput(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["_inc"] = arg0
-	var arg1 *model.VioCodewfdmSetInput
-	if tmp, ok := rawArgs["_set"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
-		arg1, err = ec.unmarshalOVioCodewfdmSetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmSetInput(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["_set"] = arg1
-	var arg2 string
-	if tmp, ok := rawArgs["id"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-		arg2, err = ec.unmarshalNString2string(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["id"] = arg2
-	return args, nil
-}
-
 func (ec *executionContext) field_Mutation_update_violation_registration_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -14728,6 +14224,39 @@ func (ec *executionContext) field_Mutation_update_violation_registration_by_pk_a
 		}
 	}
 	args["id"] = arg2
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_update_violation_registration_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *model.ViolationRegistrationIncInput
+	if tmp, ok := rawArgs["_inc"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
+		arg0, err = ec.unmarshalOViolationRegistrationIncInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐViolationRegistrationIncInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_inc"] = arg0
+	var arg1 *model.ViolationRegistrationSetInput
+	if tmp, ok := rawArgs["_set"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
+		arg1, err = ec.unmarshalOViolationRegistrationSetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐViolationRegistrationSetInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_set"] = arg1
+	var arg2 string
+	if tmp, ok := rawArgs["violation_registration_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("violation_registration_id"))
+		arg2, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["violation_registration_id"] = arg2
 	return args, nil
 }
 
@@ -14980,6 +14509,21 @@ func (ec *executionContext) field_Query_deduction_report_by_pk_args(ctx context.
 	return args, nil
 }
 
+func (ec *executionContext) field_Query_deduction_report_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["deduction_report_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deduction_report_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["deduction_report_id"] = arg0
+	return args, nil
+}
+
 func (ec *executionContext) field_Query_driver_peccancy_check_aggregate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -15214,6 +14758,21 @@ func (ec *executionContext) field_Query_illegal_photo_by_pk_args(ctx context.Con
 	return args, nil
 }
 
+func (ec *executionContext) field_Query_illegal_photo_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["illegal_photo_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("illegal_photo_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["illegal_photo_id"] = arg0
+	return args, nil
+}
+
 func (ec *executionContext) field_Query_regional_violation_register_aggregate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -15331,6 +14890,21 @@ func (ec *executionContext) field_Query_regional_violation_register_by_pk_args(c
 	return args, nil
 }
 
+func (ec *executionContext) field_Query_regional_violation_register_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["regional_violation_register_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("regional_violation_register_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["regional_violation_register_id"] = arg0
+	return args, nil
+}
+
 func (ec *executionContext) field_Query_serious_traffic_violation_aggregate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -15445,6 +15019,21 @@ func (ec *executionContext) field_Query_serious_traffic_violation_by_pk_args(ctx
 		}
 	}
 	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Query_serious_traffic_violation_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["serious_traffic_violation_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("serious_traffic_violation_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["serious_traffic_violation_id"] = arg0
 	return args, nil
 }
 
@@ -15799,123 +15388,6 @@ func (ec *executionContext) field_Query_vehicle_violation_scoring_record_by_pk_a
 	return args, nil
 }
 
-func (ec *executionContext) field_Query_vio_codewfdm_aggregate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
-	var err error
-	args := map[string]interface{}{}
-	var arg0 []model.VioCodewfdmSelectColumn
-	if tmp, ok := rawArgs["distinct_on"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("distinct_on"))
-		arg0, err = ec.unmarshalOVioCodewfdmSelectColumn2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmSelectColumnᚄ(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["distinct_on"] = arg0
-	var arg1 *int
-	if tmp, ok := rawArgs["limit"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("limit"))
-		arg1, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["limit"] = arg1
-	var arg2 *int
-	if tmp, ok := rawArgs["offset"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("offset"))
-		arg2, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["offset"] = arg2
-	var arg3 []*model.VioCodewfdmOrderBy
-	if tmp, ok := rawArgs["order_by"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("order_by"))
-		arg3, err = ec.unmarshalOVioCodewfdmOrderBy2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmOrderByᚄ(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["order_by"] = arg3
-	var arg4 *model.VioCodewfdmBoolExp
-	if tmp, ok := rawArgs["where"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("where"))
-		arg4, err = ec.unmarshalOVioCodewfdmBoolExp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmBoolExp(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["where"] = arg4
-	return args, nil
-}
-
-func (ec *executionContext) field_Query_vio_codewfdm_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
-	var err error
-	args := map[string]interface{}{}
-	var arg0 []model.VioCodewfdmSelectColumn
-	if tmp, ok := rawArgs["distinct_on"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("distinct_on"))
-		arg0, err = ec.unmarshalOVioCodewfdmSelectColumn2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmSelectColumnᚄ(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["distinct_on"] = arg0
-	var arg1 *int
-	if tmp, ok := rawArgs["limit"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("limit"))
-		arg1, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["limit"] = arg1
-	var arg2 *int
-	if tmp, ok := rawArgs["offset"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("offset"))
-		arg2, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["offset"] = arg2
-	var arg3 []*model.VioCodewfdmOrderBy
-	if tmp, ok := rawArgs["order_by"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("order_by"))
-		arg3, err = ec.unmarshalOVioCodewfdmOrderBy2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmOrderByᚄ(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["order_by"] = arg3
-	var arg4 *model.VioCodewfdmBoolExp
-	if tmp, ok := rawArgs["where"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("where"))
-		arg4, err = ec.unmarshalOVioCodewfdmBoolExp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmBoolExp(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["where"] = arg4
-	return args, nil
-}
-
-func (ec *executionContext) field_Query_vio_codewfdm_by_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
-	var err error
-	args := map[string]interface{}{}
-	var arg0 string
-	if tmp, ok := rawArgs["id"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-		arg0, err = ec.unmarshalNString2string(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["id"] = arg0
-	return args, nil
-}
-
 func (ec *executionContext) field_Query_violation_registration_aggregate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -16030,6 +15502,21 @@ func (ec *executionContext) field_Query_violation_registration_by_pk_args(ctx co
 		}
 	}
 	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Query_violation_registration_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["violation_registration_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("violation_registration_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["violation_registration_id"] = arg0
 	return args, nil
 }
 
@@ -24832,6 +24319,84 @@ func (ec *executionContext) _Mutation_update_deduction_report_by_pk(ctx context.
 	return ec.marshalODeductionReport2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋmodelᚐDeductionReport(ctx, field.Selections, res)
 }
 
+func (ec *executionContext) _Mutation_update_deduction_report_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_deduction_report_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateDeductionReportByUnionPk(rctx, args["_inc"].(*model.DeductionReportIncInput), args["_set"].(*model.DeductionReportSetInput), args["deduction_report_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.DeductionReport)
+	fc.Result = res
+	return ec.marshalODeductionReport2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋmodelᚐDeductionReport(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_delete_deduction_report_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_delete_deduction_report_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().DeleteDeductionReportByUnionPk(rctx, args["deduction_report_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.DeductionReport)
+	fc.Result = res
+	return ec.marshalODeductionReport2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋmodelᚐDeductionReport(ctx, field.Selections, res)
+}
+
 func (ec *executionContext) _Mutation_delete_driver_peccancy_check(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -25300,6 +24865,84 @@ func (ec *executionContext) _Mutation_update_illegal_photo_by_pk(ctx context.Con
 	return ec.marshalOIllegalPhoto2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋmodelᚐIllegalPhoto(ctx, field.Selections, res)
 }
 
+func (ec *executionContext) _Mutation_update_illegal_photo_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_illegal_photo_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateIllegalPhotoByUnionPk(rctx, args["_inc"].(*model.IllegalPhotoIncInput), args["_set"].(*model.IllegalPhotoSetInput), args["illegal_photo_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.IllegalPhoto)
+	fc.Result = res
+	return ec.marshalOIllegalPhoto2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋmodelᚐIllegalPhoto(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_delete_illegal_photo_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_delete_illegal_photo_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().DeleteIllegalPhotoByUnionPk(rctx, args["illegal_photo_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.IllegalPhoto)
+	fc.Result = res
+	return ec.marshalOIllegalPhoto2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋmodelᚐIllegalPhoto(ctx, field.Selections, res)
+}
+
 func (ec *executionContext) _Mutation_delete_regional_violation_register(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -25534,6 +25177,84 @@ func (ec *executionContext) _Mutation_update_regional_violation_register_by_pk(c
 	return ec.marshalORegionalViolationRegister2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋmodelᚐRegionalViolationRegister(ctx, field.Selections, res)
 }
 
+func (ec *executionContext) _Mutation_update_regional_violation_register_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_regional_violation_register_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateRegionalViolationRegisterByUnionPk(rctx, args["_inc"].(*model.RegionalViolationRegisterIncInput), args["_set"].(*model.RegionalViolationRegisterSetInput), args["regional_violation_register_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.RegionalViolationRegister)
+	fc.Result = res
+	return ec.marshalORegionalViolationRegister2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋmodelᚐRegionalViolationRegister(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_delete_regional_violation_register_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_delete_regional_violation_register_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().DeleteRegionalViolationRegisterByUnionPk(rctx, args["regional_violation_register_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.RegionalViolationRegister)
+	fc.Result = res
+	return ec.marshalORegionalViolationRegister2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋmodelᚐRegionalViolationRegister(ctx, field.Selections, res)
+}
+
 func (ec *executionContext) _Mutation_delete_serious_traffic_violation(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -25755,6 +25476,84 @@ func (ec *executionContext) _Mutation_update_serious_traffic_violation_by_pk(ctx
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
 		return ec.resolvers.Mutation().UpdateSeriousTrafficViolationByPk(rctx, args["_inc"].(*model.SeriousTrafficViolationIncInput), args["_set"].(*model.SeriousTrafficViolationSetInput), args["id"].(int64))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.SeriousTrafficViolation)
+	fc.Result = res
+	return ec.marshalOSeriousTrafficViolation2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋmodelᚐSeriousTrafficViolation(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_update_serious_traffic_violation_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_serious_traffic_violation_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateSeriousTrafficViolationByUnionPk(rctx, args["_inc"].(*model.SeriousTrafficViolationIncInput), args["_set"].(*model.SeriousTrafficViolationSetInput), args["serious_traffic_violation_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.SeriousTrafficViolation)
+	fc.Result = res
+	return ec.marshalOSeriousTrafficViolation2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋmodelᚐSeriousTrafficViolation(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_delete_serious_traffic_violation_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_delete_serious_traffic_violation_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().DeleteSeriousTrafficViolationByUnionPk(rctx, args["serious_traffic_violation_id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -26470,240 +26269,6 @@ func (ec *executionContext) _Mutation_update_vehicle_violation_scoring_record_by
 	return ec.marshalOVehicleViolationScoringRecord2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋmodelᚐVehicleViolationScoringRecord(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _Mutation_delete_vio_codewfdm(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "Mutation",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   true,
-		IsResolver: true,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_Mutation_delete_vio_codewfdm_args(ctx, rawArgs)
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	fc.Args = args
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().DeleteVioCodewfdm(rctx, args["where"].(model.VioCodewfdmBoolExp))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.VioCodewfdmMutationResponse)
-	fc.Result = res
-	return ec.marshalOVioCodewfdmMutationResponse2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmMutationResponse(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _Mutation_delete_vio_codewfdm_by_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "Mutation",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   true,
-		IsResolver: true,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_Mutation_delete_vio_codewfdm_by_pk_args(ctx, rawArgs)
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	fc.Args = args
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().DeleteVioCodewfdmByPk(rctx, args["id"].(string))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model1.VioCodewfdm)
-	fc.Result = res
-	return ec.marshalOVioCodewfdm2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋmodelᚐVioCodewfdm(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _Mutation_insert_vio_codewfdm(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "Mutation",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   true,
-		IsResolver: true,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_Mutation_insert_vio_codewfdm_args(ctx, rawArgs)
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	fc.Args = args
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().InsertVioCodewfdm(rctx, args["objects"].([]*model.VioCodewfdmInsertInput))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.VioCodewfdmMutationResponse)
-	fc.Result = res
-	return ec.marshalOVioCodewfdmMutationResponse2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmMutationResponse(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _Mutation_insert_vio_codewfdm_one(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "Mutation",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   true,
-		IsResolver: true,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_Mutation_insert_vio_codewfdm_one_args(ctx, rawArgs)
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	fc.Args = args
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().InsertVioCodewfdmOne(rctx, args["objects"].(model.VioCodewfdmInsertInput))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model1.VioCodewfdm)
-	fc.Result = res
-	return ec.marshalOVioCodewfdm2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋmodelᚐVioCodewfdm(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _Mutation_update_vio_codewfdm(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "Mutation",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   true,
-		IsResolver: true,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_Mutation_update_vio_codewfdm_args(ctx, rawArgs)
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	fc.Args = args
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().UpdateVioCodewfdm(rctx, args["_inc"].(*model.VioCodewfdmIncInput), args["_set"].(*model.VioCodewfdmSetInput), args["where"].(model.VioCodewfdmBoolExp))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.VioCodewfdmMutationResponse)
-	fc.Result = res
-	return ec.marshalOVioCodewfdmMutationResponse2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmMutationResponse(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _Mutation_update_vio_codewfdm_by_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "Mutation",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   true,
-		IsResolver: true,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_Mutation_update_vio_codewfdm_by_pk_args(ctx, rawArgs)
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	fc.Args = args
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().UpdateVioCodewfdmByPk(rctx, args["_inc"].(*model.VioCodewfdmIncInput), args["_set"].(*model.VioCodewfdmSetInput), args["id"].(string))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model1.VioCodewfdm)
-	fc.Result = res
-	return ec.marshalOVioCodewfdm2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋmodelᚐVioCodewfdm(ctx, field.Selections, res)
-}
-
 func (ec *executionContext) _Mutation_delete_violation_registration(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -26925,6 +26490,84 @@ func (ec *executionContext) _Mutation_update_violation_registration_by_pk(ctx co
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
 		return ec.resolvers.Mutation().UpdateViolationRegistrationByPk(rctx, args["_inc"].(*model.ViolationRegistrationIncInput), args["_set"].(*model.ViolationRegistrationSetInput), args["id"].(int64))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.ViolationRegistration)
+	fc.Result = res
+	return ec.marshalOViolationRegistration2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋmodelᚐViolationRegistration(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_update_violation_registration_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_violation_registration_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateViolationRegistrationByUnionPk(rctx, args["_inc"].(*model.ViolationRegistrationIncInput), args["_set"].(*model.ViolationRegistrationSetInput), args["violation_registration_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.ViolationRegistration)
+	fc.Result = res
+	return ec.marshalOViolationRegistration2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋmodelᚐViolationRegistration(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_delete_violation_registration_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_delete_violation_registration_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().DeleteViolationRegistrationByUnionPk(rctx, args["violation_registration_id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -27174,6 +26817,48 @@ func (ec *executionContext) _Query_deduction_report_by_pk(ctx context.Context, f
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
 		return ec.resolvers.Query().DeductionReportByPk(rctx, args["id"].(int64))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*model1.DeductionReport)
+	fc.Result = res
+	return ec.marshalNDeductionReport2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋmodelᚐDeductionReport(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Query_deduction_report_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_deduction_report_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().DeductionReportByUnionPk(rctx, args["deduction_report_id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -27442,6 +27127,48 @@ func (ec *executionContext) _Query_illegal_photo_by_pk(ctx context.Context, fiel
 	return ec.marshalNIllegalPhoto2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋmodelᚐIllegalPhoto(ctx, field.Selections, res)
 }
 
+func (ec *executionContext) _Query_illegal_photo_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_illegal_photo_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().IllegalPhotoByUnionPk(rctx, args["illegal_photo_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*model1.IllegalPhoto)
+	fc.Result = res
+	return ec.marshalNIllegalPhoto2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋmodelᚐIllegalPhoto(ctx, field.Selections, res)
+}
+
 func (ec *executionContext) _Query_regional_violation_register(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -27568,6 +27295,48 @@ func (ec *executionContext) _Query_regional_violation_register_by_pk(ctx context
 	return ec.marshalNRegionalViolationRegister2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋmodelᚐRegionalViolationRegister(ctx, field.Selections, res)
 }
 
+func (ec *executionContext) _Query_regional_violation_register_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_regional_violation_register_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().RegionalViolationRegisterByUnionPk(rctx, args["regional_violation_register_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*model1.RegionalViolationRegister)
+	fc.Result = res
+	return ec.marshalNRegionalViolationRegister2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋmodelᚐRegionalViolationRegister(ctx, field.Selections, res)
+}
+
 func (ec *executionContext) _Query_serious_traffic_violation(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -27678,6 +27447,48 @@ func (ec *executionContext) _Query_serious_traffic_violation_by_pk(ctx context.C
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
 		return ec.resolvers.Query().SeriousTrafficViolationByPk(rctx, args["id"].(int64))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*model1.SeriousTrafficViolation)
+	fc.Result = res
+	return ec.marshalNSeriousTrafficViolation2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋmodelᚐSeriousTrafficViolation(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Query_serious_traffic_violation_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_serious_traffic_violation_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().SeriousTrafficViolationByUnionPk(rctx, args["serious_traffic_violation_id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -28072,132 +27883,6 @@ func (ec *executionContext) _Query_vehicle_violation_scoring_record_by_pk(ctx co
 	return ec.marshalNVehicleViolationScoringRecord2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋmodelᚐVehicleViolationScoringRecord(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _Query_vio_codewfdm(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "Query",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   true,
-		IsResolver: true,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_Query_vio_codewfdm_args(ctx, rawArgs)
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	fc.Args = args
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Query().VioCodewfdm(rctx, args["distinct_on"].([]model.VioCodewfdmSelectColumn), args["limit"].(*int), args["offset"].(*int), args["order_by"].([]*model.VioCodewfdmOrderBy), args["where"].(*model.VioCodewfdmBoolExp))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.([]*model1.VioCodewfdm)
-	fc.Result = res
-	return ec.marshalNVioCodewfdm2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋmodelᚐVioCodewfdmᚄ(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _Query_vio_codewfdm_aggregate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "Query",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   true,
-		IsResolver: true,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_Query_vio_codewfdm_aggregate_args(ctx, rawArgs)
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	fc.Args = args
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Query().VioCodewfdmAggregate(rctx, args["distinct_on"].([]model.VioCodewfdmSelectColumn), args["limit"].(*int), args["offset"].(*int), args["order_by"].([]*model.VioCodewfdmOrderBy), args["where"].(*model.VioCodewfdmBoolExp))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(*model.VioCodewfdmAggregate)
-	fc.Result = res
-	return ec.marshalNVioCodewfdmAggregate2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmAggregate(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _Query_vio_codewfdm_by_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "Query",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   true,
-		IsResolver: true,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_Query_vio_codewfdm_by_pk_args(ctx, rawArgs)
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	fc.Args = args
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Query().VioCodewfdmByPk(rctx, args["id"].(string))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(*model1.VioCodewfdm)
-	fc.Result = res
-	return ec.marshalNVioCodewfdm2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋmodelᚐVioCodewfdm(ctx, field.Selections, res)
-}
-
 func (ec *executionContext) _Query_violation_registration(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -28308,6 +27993,48 @@ func (ec *executionContext) _Query_violation_registration_by_pk(ctx context.Cont
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
 		return ec.resolvers.Query().ViolationRegistrationByPk(rctx, args["id"].(int64))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*model1.ViolationRegistration)
+	fc.Result = res
+	return ec.marshalNViolationRegistration2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋmodelᚐViolationRegistration(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Query_violation_registration_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_violation_registration_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().ViolationRegistrationByUnionPk(rctx, args["violation_registration_id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -42405,1807 +42132,6 @@ func (ec *executionContext) _VehicleViolationScoringRecordVarianceFields_demerit
 	return ec.marshalONumeric2ᚖfloat64(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _VioCodewfdm_wfxw(ctx context.Context, field graphql.CollectedField, obj *model1.VioCodewfdm) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "VioCodewfdm",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.Wfxw, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(string)
-	fc.Result = res
-	return ec.marshalNString2string(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _VioCodewfdm_wfms(ctx context.Context, field graphql.CollectedField, obj *model1.VioCodewfdm) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "VioCodewfdm",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.Wfms, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _VioCodewfdm_wfjfs(ctx context.Context, field graphql.CollectedField, obj *model1.VioCodewfdm) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "VioCodewfdm",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.Wfjfs, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*float64)
-	fc.Result = res
-	return ec.marshalONumeric2ᚖfloat64(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _VioCodewfdm_fkje_min(ctx context.Context, field graphql.CollectedField, obj *model1.VioCodewfdm) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "VioCodewfdm",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.FkjeMin, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*float64)
-	fc.Result = res
-	return ec.marshalONumeric2ᚖfloat64(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _VioCodewfdm_fkje_max(ctx context.Context, field graphql.CollectedField, obj *model1.VioCodewfdm) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "VioCodewfdm",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.FkjeMax, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*float64)
-	fc.Result = res
-	return ec.marshalONumeric2ᚖfloat64(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _VioCodewfdm_xh(ctx context.Context, field graphql.CollectedField, obj *model1.VioCodewfdm) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "VioCodewfdm",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.Xh, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _VioCodewfdmAggregate_aggregate(ctx context.Context, field graphql.CollectedField, obj *model.VioCodewfdmAggregate) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "VioCodewfdmAggregate",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.Aggregate, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.VioCodewfdmAggregateFields)
-	fc.Result = res
-	return ec.marshalOVioCodewfdmAggregateFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmAggregateFields(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _VioCodewfdmAggregateFields_avg(ctx context.Context, field graphql.CollectedField, obj *model.VioCodewfdmAggregateFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "VioCodewfdmAggregateFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.Avg, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.VioCodewfdmAvgFields)
-	fc.Result = res
-	return ec.marshalOVioCodewfdmAvgFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmAvgFields(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _VioCodewfdmAggregateFields_count(ctx context.Context, field graphql.CollectedField, obj *model.VioCodewfdmAggregateFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "VioCodewfdmAggregateFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.Count, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*int)
-	fc.Result = res
-	return ec.marshalOInt2ᚖint(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _VioCodewfdmAggregateFields_max(ctx context.Context, field graphql.CollectedField, obj *model.VioCodewfdmAggregateFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "VioCodewfdmAggregateFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.Max, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.VioCodewfdmMaxFields)
-	fc.Result = res
-	return ec.marshalOVioCodewfdmMaxFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmMaxFields(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _VioCodewfdmAggregateFields_min(ctx context.Context, field graphql.CollectedField, obj *model.VioCodewfdmAggregateFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "VioCodewfdmAggregateFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.Min, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.VioCodewfdmMinFields)
-	fc.Result = res
-	return ec.marshalOVioCodewfdmMinFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmMinFields(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _VioCodewfdmAggregateFields_stddev(ctx context.Context, field graphql.CollectedField, obj *model.VioCodewfdmAggregateFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "VioCodewfdmAggregateFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.Stddev, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.VioCodewfdmStddevFields)
-	fc.Result = res
-	return ec.marshalOVioCodewfdmStddevFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmStddevFields(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _VioCodewfdmAggregateFields_stddev_pop(ctx context.Context, field graphql.CollectedField, obj *model.VioCodewfdmAggregateFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "VioCodewfdmAggregateFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.StddevPop, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.VioCodewfdmStddevPopFields)
-	fc.Result = res
-	return ec.marshalOVioCodewfdmStddevPopFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmStddevPopFields(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _VioCodewfdmAggregateFields_stddev_samp(ctx context.Context, field graphql.CollectedField, obj *model.VioCodewfdmAggregateFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "VioCodewfdmAggregateFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.StddevSamp, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.VioCodewfdmStddevSampFields)
-	fc.Result = res
-	return ec.marshalOVioCodewfdmStddevSampFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmStddevSampFields(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _VioCodewfdmAggregateFields_sum(ctx context.Context, field graphql.CollectedField, obj *model.VioCodewfdmAggregateFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "VioCodewfdmAggregateFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.Sum, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.VioCodewfdmSumFields)
-	fc.Result = res
-	return ec.marshalOVioCodewfdmSumFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmSumFields(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _VioCodewfdmAggregateFields_var_pop(ctx context.Context, field graphql.CollectedField, obj *model.VioCodewfdmAggregateFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "VioCodewfdmAggregateFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.VarPop, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.VioCodewfdmVarPopFields)
-	fc.Result = res
-	return ec.marshalOVioCodewfdmVarPopFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmVarPopFields(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _VioCodewfdmAggregateFields_var_samp(ctx context.Context, field graphql.CollectedField, obj *model.VioCodewfdmAggregateFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "VioCodewfdmAggregateFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.VarSamp, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.VioCodewfdmVarSampFields)
-	fc.Result = res
-	return ec.marshalOVioCodewfdmVarSampFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmVarSampFields(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _VioCodewfdmAggregateFields_variance(ctx context.Context, field graphql.CollectedField, obj *model.VioCodewfdmAggregateFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "VioCodewfdmAggregateFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.Variance, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.VioCodewfdmVarianceFields)
-	fc.Result = res
-	return ec.marshalOVioCodewfdmVarianceFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmVarianceFields(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _VioCodewfdmAvgFields_wfjfs(ctx context.Context, field graphql.CollectedField, obj *model.VioCodewfdmAvgFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "VioCodewfdmAvgFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.Wfjfs, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*float64)
-	fc.Result = res
-	return ec.marshalONumeric2ᚖfloat64(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _VioCodewfdmAvgFields_fkje_min(ctx context.Context, field graphql.CollectedField, obj *model.VioCodewfdmAvgFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "VioCodewfdmAvgFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.FkjeMin, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*float64)
-	fc.Result = res
-	return ec.marshalONumeric2ᚖfloat64(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _VioCodewfdmAvgFields_fkje_max(ctx context.Context, field graphql.CollectedField, obj *model.VioCodewfdmAvgFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "VioCodewfdmAvgFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.FkjeMax, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*float64)
-	fc.Result = res
-	return ec.marshalONumeric2ᚖfloat64(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _VioCodewfdmMaxFields_wfxw(ctx context.Context, field graphql.CollectedField, obj *model.VioCodewfdmMaxFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "VioCodewfdmMaxFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.Wfxw, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _VioCodewfdmMaxFields_wfms(ctx context.Context, field graphql.CollectedField, obj *model.VioCodewfdmMaxFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "VioCodewfdmMaxFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.Wfms, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _VioCodewfdmMaxFields_wfjfs(ctx context.Context, field graphql.CollectedField, obj *model.VioCodewfdmMaxFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "VioCodewfdmMaxFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.Wfjfs, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*float64)
-	fc.Result = res
-	return ec.marshalONumeric2ᚖfloat64(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _VioCodewfdmMaxFields_fkje_min(ctx context.Context, field graphql.CollectedField, obj *model.VioCodewfdmMaxFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "VioCodewfdmMaxFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.FkjeMin, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*float64)
-	fc.Result = res
-	return ec.marshalONumeric2ᚖfloat64(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _VioCodewfdmMaxFields_fkje_max(ctx context.Context, field graphql.CollectedField, obj *model.VioCodewfdmMaxFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "VioCodewfdmMaxFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.FkjeMax, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*float64)
-	fc.Result = res
-	return ec.marshalONumeric2ᚖfloat64(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _VioCodewfdmMaxFields_xh(ctx context.Context, field graphql.CollectedField, obj *model.VioCodewfdmMaxFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "VioCodewfdmMaxFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.Xh, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _VioCodewfdmMinFields_wfxw(ctx context.Context, field graphql.CollectedField, obj *model.VioCodewfdmMinFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "VioCodewfdmMinFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.Wfxw, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _VioCodewfdmMinFields_wfms(ctx context.Context, field graphql.CollectedField, obj *model.VioCodewfdmMinFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "VioCodewfdmMinFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.Wfms, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _VioCodewfdmMinFields_wfjfs(ctx context.Context, field graphql.CollectedField, obj *model.VioCodewfdmMinFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "VioCodewfdmMinFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.Wfjfs, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*float64)
-	fc.Result = res
-	return ec.marshalONumeric2ᚖfloat64(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _VioCodewfdmMinFields_fkje_min(ctx context.Context, field graphql.CollectedField, obj *model.VioCodewfdmMinFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "VioCodewfdmMinFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.FkjeMin, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*float64)
-	fc.Result = res
-	return ec.marshalONumeric2ᚖfloat64(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _VioCodewfdmMinFields_fkje_max(ctx context.Context, field graphql.CollectedField, obj *model.VioCodewfdmMinFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "VioCodewfdmMinFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.FkjeMax, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*float64)
-	fc.Result = res
-	return ec.marshalONumeric2ᚖfloat64(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _VioCodewfdmMinFields_xh(ctx context.Context, field graphql.CollectedField, obj *model.VioCodewfdmMinFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "VioCodewfdmMinFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.Xh, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _VioCodewfdmMutationResponse_affected_rows(ctx context.Context, field graphql.CollectedField, obj *model.VioCodewfdmMutationResponse) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "VioCodewfdmMutationResponse",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.AffectedRows, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(int)
-	fc.Result = res
-	return ec.marshalNInt2int(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _VioCodewfdmMutationResponse_returning(ctx context.Context, field graphql.CollectedField, obj *model.VioCodewfdmMutationResponse) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "VioCodewfdmMutationResponse",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.Returning, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.([]*model1.VioCodewfdm)
-	fc.Result = res
-	return ec.marshalNVioCodewfdm2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋmodelᚐVioCodewfdmᚄ(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _VioCodewfdmStddevFields_wfjfs(ctx context.Context, field graphql.CollectedField, obj *model.VioCodewfdmStddevFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "VioCodewfdmStddevFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.Wfjfs, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*float64)
-	fc.Result = res
-	return ec.marshalONumeric2ᚖfloat64(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _VioCodewfdmStddevFields_fkje_min(ctx context.Context, field graphql.CollectedField, obj *model.VioCodewfdmStddevFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "VioCodewfdmStddevFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.FkjeMin, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*float64)
-	fc.Result = res
-	return ec.marshalONumeric2ᚖfloat64(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _VioCodewfdmStddevFields_fkje_max(ctx context.Context, field graphql.CollectedField, obj *model.VioCodewfdmStddevFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "VioCodewfdmStddevFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.FkjeMax, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*float64)
-	fc.Result = res
-	return ec.marshalONumeric2ᚖfloat64(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _VioCodewfdmStddevPopFields_wfjfs(ctx context.Context, field graphql.CollectedField, obj *model.VioCodewfdmStddevPopFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "VioCodewfdmStddevPopFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.Wfjfs, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*float64)
-	fc.Result = res
-	return ec.marshalONumeric2ᚖfloat64(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _VioCodewfdmStddevPopFields_fkje_min(ctx context.Context, field graphql.CollectedField, obj *model.VioCodewfdmStddevPopFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "VioCodewfdmStddevPopFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.FkjeMin, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*float64)
-	fc.Result = res
-	return ec.marshalONumeric2ᚖfloat64(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _VioCodewfdmStddevPopFields_fkje_max(ctx context.Context, field graphql.CollectedField, obj *model.VioCodewfdmStddevPopFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "VioCodewfdmStddevPopFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.FkjeMax, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*float64)
-	fc.Result = res
-	return ec.marshalONumeric2ᚖfloat64(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _VioCodewfdmStddevSampFields_wfjfs(ctx context.Context, field graphql.CollectedField, obj *model.VioCodewfdmStddevSampFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "VioCodewfdmStddevSampFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.Wfjfs, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*float64)
-	fc.Result = res
-	return ec.marshalONumeric2ᚖfloat64(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _VioCodewfdmStddevSampFields_fkje_min(ctx context.Context, field graphql.CollectedField, obj *model.VioCodewfdmStddevSampFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "VioCodewfdmStddevSampFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.FkjeMin, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*float64)
-	fc.Result = res
-	return ec.marshalONumeric2ᚖfloat64(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _VioCodewfdmStddevSampFields_fkje_max(ctx context.Context, field graphql.CollectedField, obj *model.VioCodewfdmStddevSampFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "VioCodewfdmStddevSampFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.FkjeMax, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*float64)
-	fc.Result = res
-	return ec.marshalONumeric2ᚖfloat64(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _VioCodewfdmSumFields_wfjfs(ctx context.Context, field graphql.CollectedField, obj *model.VioCodewfdmSumFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "VioCodewfdmSumFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.Wfjfs, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*float64)
-	fc.Result = res
-	return ec.marshalONumeric2ᚖfloat64(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _VioCodewfdmSumFields_fkje_min(ctx context.Context, field graphql.CollectedField, obj *model.VioCodewfdmSumFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "VioCodewfdmSumFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.FkjeMin, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*float64)
-	fc.Result = res
-	return ec.marshalONumeric2ᚖfloat64(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _VioCodewfdmSumFields_fkje_max(ctx context.Context, field graphql.CollectedField, obj *model.VioCodewfdmSumFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "VioCodewfdmSumFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.FkjeMax, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*float64)
-	fc.Result = res
-	return ec.marshalONumeric2ᚖfloat64(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _VioCodewfdmVarPopFields_wfjfs(ctx context.Context, field graphql.CollectedField, obj *model.VioCodewfdmVarPopFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "VioCodewfdmVarPopFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.Wfjfs, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*float64)
-	fc.Result = res
-	return ec.marshalONumeric2ᚖfloat64(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _VioCodewfdmVarPopFields_fkje_min(ctx context.Context, field graphql.CollectedField, obj *model.VioCodewfdmVarPopFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "VioCodewfdmVarPopFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.FkjeMin, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*float64)
-	fc.Result = res
-	return ec.marshalONumeric2ᚖfloat64(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _VioCodewfdmVarPopFields_fkje_max(ctx context.Context, field graphql.CollectedField, obj *model.VioCodewfdmVarPopFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "VioCodewfdmVarPopFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.FkjeMax, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*float64)
-	fc.Result = res
-	return ec.marshalONumeric2ᚖfloat64(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _VioCodewfdmVarSampFields_wfjfs(ctx context.Context, field graphql.CollectedField, obj *model.VioCodewfdmVarSampFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "VioCodewfdmVarSampFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.Wfjfs, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*float64)
-	fc.Result = res
-	return ec.marshalONumeric2ᚖfloat64(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _VioCodewfdmVarSampFields_fkje_min(ctx context.Context, field graphql.CollectedField, obj *model.VioCodewfdmVarSampFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "VioCodewfdmVarSampFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.FkjeMin, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*float64)
-	fc.Result = res
-	return ec.marshalONumeric2ᚖfloat64(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _VioCodewfdmVarSampFields_fkje_max(ctx context.Context, field graphql.CollectedField, obj *model.VioCodewfdmVarSampFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "VioCodewfdmVarSampFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.FkjeMax, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*float64)
-	fc.Result = res
-	return ec.marshalONumeric2ᚖfloat64(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _VioCodewfdmVarianceFields_wfjfs(ctx context.Context, field graphql.CollectedField, obj *model.VioCodewfdmVarianceFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "VioCodewfdmVarianceFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.Wfjfs, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*float64)
-	fc.Result = res
-	return ec.marshalONumeric2ᚖfloat64(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _VioCodewfdmVarianceFields_fkje_min(ctx context.Context, field graphql.CollectedField, obj *model.VioCodewfdmVarianceFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "VioCodewfdmVarianceFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.FkjeMin, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*float64)
-	fc.Result = res
-	return ec.marshalONumeric2ᚖfloat64(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _VioCodewfdmVarianceFields_fkje_max(ctx context.Context, field graphql.CollectedField, obj *model.VioCodewfdmVarianceFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "VioCodewfdmVarianceFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.FkjeMax, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*float64)
-	fc.Result = res
-	return ec.marshalONumeric2ᚖfloat64(ctx, field.Selections, res)
-}
-
 func (ec *executionContext) _ViolationRegistration_id(ctx context.Context, field graphql.CollectedField, obj *model1.ViolationRegistration) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -48989,6 +46915,14 @@ func (ec *executionContext) unmarshalInputAppEnforcementInsertInput(ctx context.
 
 	for k, v := range asMap {
 		switch k {
+		case "illegal_photo_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("illegal_photo_id"))
+			it.IllegalPhotoID, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "vehicle_id":
 			var err error
 
@@ -49042,6 +46976,22 @@ func (ec *executionContext) unmarshalInputAppEnforcementInsertInput(ctx context.
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("picket_status"))
 			it.PicketStatus, err = ec.unmarshalOInt2ᚖint(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
+			it.CreatedAt, err = ec.unmarshalNTimestamptz2timeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
+			it.CreatedBy, err = ec.unmarshalNString2string(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -49697,6 +47647,14 @@ func (ec *executionContext) unmarshalInputDeductionReportInsertInput(ctx context
 
 	for k, v := range asMap {
 		switch k {
+		case "deduction_report_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deduction_report_id"))
+			it.DeductionReportID, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "area_id":
 			var err error
 
@@ -49742,6 +47700,22 @@ func (ec *executionContext) unmarshalInputDeductionReportInsertInput(ctx context
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("demerit_points"))
 			it.DemeritPoints, err = ec.unmarshalONumeric2ᚖfloat64(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
+			it.CreatedAt, err = ec.unmarshalNTimestamptz2timeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
+			it.CreatedBy, err = ec.unmarshalNString2string(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -50197,6 +48171,22 @@ func (ec *executionContext) unmarshalInputDriverPeccancyCheckInsertInput(ctx con
 			if err != nil {
 				return it, err
 			}
+		case "created_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
+			it.CreatedAt, err = ec.unmarshalNTimestamptz2timeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
+			it.CreatedBy, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "updated_at":
 			var err error
 
@@ -50419,8 +48409,8 @@ func (ec *executionContext) unmarshalInputDriverPeccancyCheckSetInput(ctx contex
 	return it, nil
 }
 
-func (ec *executionContext) unmarshalInputFloatComparisonExp(ctx context.Context, obj interface{}) (model1.FloatComparisonExp, error) {
-	var it model1.FloatComparisonExp
+func (ec *executionContext) unmarshalInputFloatComparisonExp(ctx context.Context, obj interface{}) (model2.FloatComparisonExp, error) {
+	var it model2.FloatComparisonExp
 	var asMap = obj.(map[string]interface{})
 
 	for k, v := range asMap {
@@ -50661,6 +48651,14 @@ func (ec *executionContext) unmarshalInputIllegalPhotoInsertInput(ctx context.Co
 
 	for k, v := range asMap {
 		switch k {
+		case "illegal_photo_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("illegal_photo_id"))
+			it.IllegalPhotoID, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "picture_name":
 			var err error
 
@@ -50690,6 +48688,22 @@ func (ec *executionContext) unmarshalInputIllegalPhotoInsertInput(ctx context.Co
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_deleted"))
 			it.IsDeleted, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
+			it.CreatedAt, err = ec.unmarshalNTimestamptz2timeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
+			it.CreatedBy, err = ec.unmarshalNString2string(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -51513,6 +49527,14 @@ func (ec *executionContext) unmarshalInputRegionalViolationRegisterInsertInput(c
 
 	for k, v := range asMap {
 		switch k {
+		case "regional_violation_register_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("regional_violation_register_id"))
+			it.RegionalViolationRegisterID, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "violation_detail_id":
 			var err error
 
@@ -51590,6 +49612,22 @@ func (ec *executionContext) unmarshalInputRegionalViolationRegisterInsertInput(c
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_register"))
 			it.IsRegister, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
+			it.CreatedAt, err = ec.unmarshalNTimestamptz2timeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
+			it.CreatedBy, err = ec.unmarshalNString2string(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -52117,6 +50155,14 @@ func (ec *executionContext) unmarshalInputSeriousTrafficViolationInsertInput(ctx
 
 	for k, v := range asMap {
 		switch k {
+		case "serious_traffic_violation_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("serious_traffic_violation_id"))
+			it.SeriousTrafficViolationID, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "vehicle_id":
 			var err error
 
@@ -52138,6 +50184,22 @@ func (ec *executionContext) unmarshalInputSeriousTrafficViolationInsertInput(ctx
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("illegal_time"))
 			it.IllegalTime, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
+			it.CreatedAt, err = ec.unmarshalNTimestamptz2timeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
+			it.CreatedBy, err = ec.unmarshalNString2string(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -52937,6 +50999,14 @@ func (ec *executionContext) unmarshalInputVehicleViolationDetailsInsertInput(ctx
 
 	for k, v := range asMap {
 		switch k {
+		case "violation_detail_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("violation_detail_id"))
+			it.ViolationDetailID, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "vehicle_id":
 			var err error
 
@@ -53126,6 +51196,22 @@ func (ec *executionContext) unmarshalInputVehicleViolationDetailsInsertInput(ctx
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_deleted"))
 			it.IsDeleted, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
+			it.CreatedAt, err = ec.unmarshalNTimestamptz2timeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
+			it.CreatedBy, err = ec.unmarshalNString2string(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -53877,6 +51963,14 @@ func (ec *executionContext) unmarshalInputVehicleViolationScoringItemsInsertInpu
 
 	for k, v := range asMap {
 		switch k {
+		case "violation_scoring_item_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("violation_scoring_item_id"))
+			it.ViolationScoringItemID, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "deduction_item_description":
 			var err error
 
@@ -53906,6 +52000,22 @@ func (ec *executionContext) unmarshalInputVehicleViolationScoringItemsInsertInpu
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_deleted"))
 			it.IsDeleted, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
+			it.CreatedAt, err = ec.unmarshalNTimestamptz2timeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
+			it.CreatedBy, err = ec.unmarshalNString2string(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -54337,6 +52447,14 @@ func (ec *executionContext) unmarshalInputVehicleViolationScoringRecordInsertInp
 
 	for k, v := range asMap {
 		switch k {
+		case "violation_scoring_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("violation_scoring_id"))
+			it.ViolationScoringID, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "vehicle_id":
 			var err error
 
@@ -54374,6 +52492,22 @@ func (ec *executionContext) unmarshalInputVehicleViolationScoringRecordInsertInp
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_deleted"))
 			it.IsDeleted, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
+			it.CreatedAt, err = ec.unmarshalNTimestamptz2timeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
+			it.CreatedBy, err = ec.unmarshalNString2string(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -54638,298 +52772,6 @@ func (ec *executionContext) unmarshalInputVehicleViolationScoringRecordSetInput(
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_by"))
 			it.DeletedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		}
-	}
-
-	return it, nil
-}
-
-func (ec *executionContext) unmarshalInputVioCodewfdmBoolExp(ctx context.Context, obj interface{}) (model.VioCodewfdmBoolExp, error) {
-	var it model.VioCodewfdmBoolExp
-	var asMap = obj.(map[string]interface{})
-
-	for k, v := range asMap {
-		switch k {
-		case "_and":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_and"))
-			it.And, err = ec.unmarshalOVioCodewfdmBoolExp2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmBoolExp(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "_not":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_not"))
-			it.Not, err = ec.unmarshalOVioCodewfdmBoolExp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmBoolExp(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "_or":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_or"))
-			it.Or, err = ec.unmarshalOVioCodewfdmBoolExp2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmBoolExp(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "wfxw":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("wfxw"))
-			it.Wfxw, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "wfms":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("wfms"))
-			it.Wfms, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "wfjfs":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("wfjfs"))
-			it.Wfjfs, err = ec.unmarshalONumericComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐNumericComparisonExp(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "fkje_min":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("fkje_min"))
-			it.FkjeMin, err = ec.unmarshalONumericComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐNumericComparisonExp(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "fkje_max":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("fkje_max"))
-			it.FkjeMax, err = ec.unmarshalONumericComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐNumericComparisonExp(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "xh":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("xh"))
-			it.Xh, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		}
-	}
-
-	return it, nil
-}
-
-func (ec *executionContext) unmarshalInputVioCodewfdmIncInput(ctx context.Context, obj interface{}) (model.VioCodewfdmIncInput, error) {
-	var it model.VioCodewfdmIncInput
-	var asMap = obj.(map[string]interface{})
-
-	for k, v := range asMap {
-		switch k {
-		case "wfjfs":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("wfjfs"))
-			it.Wfjfs, err = ec.unmarshalONumeric2ᚖfloat64(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "fkje_min":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("fkje_min"))
-			it.FkjeMin, err = ec.unmarshalONumeric2ᚖfloat64(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "fkje_max":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("fkje_max"))
-			it.FkjeMax, err = ec.unmarshalONumeric2ᚖfloat64(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		}
-	}
-
-	return it, nil
-}
-
-func (ec *executionContext) unmarshalInputVioCodewfdmInsertInput(ctx context.Context, obj interface{}) (model.VioCodewfdmInsertInput, error) {
-	var it model.VioCodewfdmInsertInput
-	var asMap = obj.(map[string]interface{})
-
-	for k, v := range asMap {
-		switch k {
-		case "wfms":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("wfms"))
-			it.Wfms, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "wfjfs":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("wfjfs"))
-			it.Wfjfs, err = ec.unmarshalONumeric2ᚖfloat64(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "fkje_min":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("fkje_min"))
-			it.FkjeMin, err = ec.unmarshalONumeric2ᚖfloat64(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "fkje_max":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("fkje_max"))
-			it.FkjeMax, err = ec.unmarshalONumeric2ᚖfloat64(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "xh":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("xh"))
-			it.Xh, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		}
-	}
-
-	return it, nil
-}
-
-func (ec *executionContext) unmarshalInputVioCodewfdmOrderBy(ctx context.Context, obj interface{}) (model.VioCodewfdmOrderBy, error) {
-	var it model.VioCodewfdmOrderBy
-	var asMap = obj.(map[string]interface{})
-
-	for k, v := range asMap {
-		switch k {
-		case "wfxw":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("wfxw"))
-			it.Wfxw, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "wfms":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("wfms"))
-			it.Wfms, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "wfjfs":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("wfjfs"))
-			it.Wfjfs, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "fkje_min":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("fkje_min"))
-			it.FkjeMin, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "fkje_max":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("fkje_max"))
-			it.FkjeMax, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "xh":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("xh"))
-			it.Xh, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		}
-	}
-
-	return it, nil
-}
-
-func (ec *executionContext) unmarshalInputVioCodewfdmSetInput(ctx context.Context, obj interface{}) (model.VioCodewfdmSetInput, error) {
-	var it model.VioCodewfdmSetInput
-	var asMap = obj.(map[string]interface{})
-
-	for k, v := range asMap {
-		switch k {
-		case "wfxw":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("wfxw"))
-			it.Wfxw, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "wfms":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("wfms"))
-			it.Wfms, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "wfjfs":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("wfjfs"))
-			it.Wfjfs, err = ec.unmarshalONumeric2ᚖfloat64(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "fkje_min":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("fkje_min"))
-			it.FkjeMin, err = ec.unmarshalONumeric2ᚖfloat64(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "fkje_max":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("fkje_max"))
-			it.FkjeMax, err = ec.unmarshalONumeric2ᚖfloat64(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "xh":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("xh"))
-			it.Xh, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -55233,6 +53075,14 @@ func (ec *executionContext) unmarshalInputViolationRegistrationInsertInput(ctx c
 
 	for k, v := range asMap {
 		switch k {
+		case "violation_registration_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("violation_registration_id"))
+			it.ViolationRegistrationID, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "vehicle_id":
 			var err error
 
@@ -55398,6 +53248,22 @@ func (ec *executionContext) unmarshalInputViolationRegistrationInsertInput(ctx c
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_deleted"))
 			it.IsDeleted, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
+			it.CreatedAt, err = ec.unmarshalNTimestamptz2timeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
+			it.CreatedBy, err = ec.unmarshalNString2string(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -57789,6 +55655,10 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			out.Values[i] = ec._Mutation_update_deduction_report(ctx, field)
 		case "update_deduction_report_by_pk":
 			out.Values[i] = ec._Mutation_update_deduction_report_by_pk(ctx, field)
+		case "update_deduction_report_by_union_pk":
+			out.Values[i] = ec._Mutation_update_deduction_report_by_union_pk(ctx, field)
+		case "delete_deduction_report_by_union_pk":
+			out.Values[i] = ec._Mutation_delete_deduction_report_by_union_pk(ctx, field)
 		case "delete_driver_peccancy_check":
 			out.Values[i] = ec._Mutation_delete_driver_peccancy_check(ctx, field)
 		case "delete_driver_peccancy_check_by_pk":
@@ -57813,6 +55683,10 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			out.Values[i] = ec._Mutation_update_illegal_photo(ctx, field)
 		case "update_illegal_photo_by_pk":
 			out.Values[i] = ec._Mutation_update_illegal_photo_by_pk(ctx, field)
+		case "update_illegal_photo_by_union_pk":
+			out.Values[i] = ec._Mutation_update_illegal_photo_by_union_pk(ctx, field)
+		case "delete_illegal_photo_by_union_pk":
+			out.Values[i] = ec._Mutation_delete_illegal_photo_by_union_pk(ctx, field)
 		case "delete_regional_violation_register":
 			out.Values[i] = ec._Mutation_delete_regional_violation_register(ctx, field)
 		case "delete_regional_violation_register_by_pk":
@@ -57825,6 +55699,10 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			out.Values[i] = ec._Mutation_update_regional_violation_register(ctx, field)
 		case "update_regional_violation_register_by_pk":
 			out.Values[i] = ec._Mutation_update_regional_violation_register_by_pk(ctx, field)
+		case "update_regional_violation_register_by_union_pk":
+			out.Values[i] = ec._Mutation_update_regional_violation_register_by_union_pk(ctx, field)
+		case "delete_regional_violation_register_by_union_pk":
+			out.Values[i] = ec._Mutation_delete_regional_violation_register_by_union_pk(ctx, field)
 		case "delete_serious_traffic_violation":
 			out.Values[i] = ec._Mutation_delete_serious_traffic_violation(ctx, field)
 		case "delete_serious_traffic_violation_by_pk":
@@ -57837,6 +55715,10 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			out.Values[i] = ec._Mutation_update_serious_traffic_violation(ctx, field)
 		case "update_serious_traffic_violation_by_pk":
 			out.Values[i] = ec._Mutation_update_serious_traffic_violation_by_pk(ctx, field)
+		case "update_serious_traffic_violation_by_union_pk":
+			out.Values[i] = ec._Mutation_update_serious_traffic_violation_by_union_pk(ctx, field)
+		case "delete_serious_traffic_violation_by_union_pk":
+			out.Values[i] = ec._Mutation_delete_serious_traffic_violation_by_union_pk(ctx, field)
 		case "delete_vehicle_violation_details":
 			out.Values[i] = ec._Mutation_delete_vehicle_violation_details(ctx, field)
 		case "delete_vehicle_violation_details_by_pk":
@@ -57873,18 +55755,6 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			out.Values[i] = ec._Mutation_update_vehicle_violation_scoring_record(ctx, field)
 		case "update_vehicle_violation_scoring_record_by_pk":
 			out.Values[i] = ec._Mutation_update_vehicle_violation_scoring_record_by_pk(ctx, field)
-		case "delete_vio_codewfdm":
-			out.Values[i] = ec._Mutation_delete_vio_codewfdm(ctx, field)
-		case "delete_vio_codewfdm_by_pk":
-			out.Values[i] = ec._Mutation_delete_vio_codewfdm_by_pk(ctx, field)
-		case "insert_vio_codewfdm":
-			out.Values[i] = ec._Mutation_insert_vio_codewfdm(ctx, field)
-		case "insert_vio_codewfdm_one":
-			out.Values[i] = ec._Mutation_insert_vio_codewfdm_one(ctx, field)
-		case "update_vio_codewfdm":
-			out.Values[i] = ec._Mutation_update_vio_codewfdm(ctx, field)
-		case "update_vio_codewfdm_by_pk":
-			out.Values[i] = ec._Mutation_update_vio_codewfdm_by_pk(ctx, field)
 		case "delete_violation_registration":
 			out.Values[i] = ec._Mutation_delete_violation_registration(ctx, field)
 		case "delete_violation_registration_by_pk":
@@ -57897,6 +55767,10 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			out.Values[i] = ec._Mutation_update_violation_registration(ctx, field)
 		case "update_violation_registration_by_pk":
 			out.Values[i] = ec._Mutation_update_violation_registration_by_pk(ctx, field)
+		case "update_violation_registration_by_union_pk":
+			out.Values[i] = ec._Mutation_update_violation_registration_by_union_pk(ctx, field)
+		case "delete_violation_registration_by_union_pk":
+			out.Values[i] = ec._Mutation_delete_violation_registration_by_union_pk(ctx, field)
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}
@@ -58007,6 +55881,20 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 				}
 				return res
 			})
+		case "deduction_report_by_union_pk":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_deduction_report_by_union_pk(ctx, field)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			})
 		case "driver_peccancy_check":
 			field := field
 			out.Concurrently(i, func() (res graphql.Marshaler) {
@@ -58091,6 +55979,20 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 				}
 				return res
 			})
+		case "illegal_photo_by_union_pk":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_illegal_photo_by_union_pk(ctx, field)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			})
 		case "regional_violation_register":
 			field := field
 			out.Concurrently(i, func() (res graphql.Marshaler) {
@@ -58133,6 +56035,20 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 				}
 				return res
 			})
+		case "regional_violation_register_by_union_pk":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_regional_violation_register_by_union_pk(ctx, field)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			})
 		case "serious_traffic_violation":
 			field := field
 			out.Concurrently(i, func() (res graphql.Marshaler) {
@@ -58170,6 +56086,20 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_serious_traffic_violation_by_pk(ctx, field)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			})
+		case "serious_traffic_violation_by_union_pk":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_serious_traffic_violation_by_union_pk(ctx, field)
 				if res == graphql.Null {
 					atomic.AddUint32(&invalids, 1)
 				}
@@ -58301,48 +56231,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 				}
 				return res
 			})
-		case "vio_codewfdm":
-			field := field
-			out.Concurrently(i, func() (res graphql.Marshaler) {
-				defer func() {
-					if r := recover(); r != nil {
-						ec.Error(ctx, ec.Recover(ctx, r))
-					}
-				}()
-				res = ec._Query_vio_codewfdm(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
-				return res
-			})
-		case "vio_codewfdm_aggregate":
-			field := field
-			out.Concurrently(i, func() (res graphql.Marshaler) {
-				defer func() {
-					if r := recover(); r != nil {
-						ec.Error(ctx, ec.Recover(ctx, r))
-					}
-				}()
-				res = ec._Query_vio_codewfdm_aggregate(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
-				return res
-			})
-		case "vio_codewfdm_by_pk":
-			field := field
-			out.Concurrently(i, func() (res graphql.Marshaler) {
-				defer func() {
-					if r := recover(); r != nil {
-						ec.Error(ctx, ec.Recover(ctx, r))
-					}
-				}()
-				res = ec._Query_vio_codewfdm_by_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
-				return res
-			})
 		case "violation_registration":
 			field := field
 			out.Concurrently(i, func() (res graphql.Marshaler) {
@@ -58380,6 +56268,20 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_violation_registration_by_pk(ctx, field)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			})
+		case "violation_registration_by_union_pk":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_violation_registration_by_union_pk(ctx, field)
 				if res == graphql.Null {
 					atomic.AddUint32(&invalids, 1)
 				}
@@ -60900,435 +58802,6 @@ func (ec *executionContext) _VehicleViolationScoringRecordVarianceFields(ctx con
 	return out
 }
 
-var vioCodewfdmImplementors = []string{"VioCodewfdm"}
-
-func (ec *executionContext) _VioCodewfdm(ctx context.Context, sel ast.SelectionSet, obj *model1.VioCodewfdm) graphql.Marshaler {
-	fields := graphql.CollectFields(ec.OperationContext, sel, vioCodewfdmImplementors)
-
-	out := graphql.NewFieldSet(fields)
-	var invalids uint32
-	for i, field := range fields {
-		switch field.Name {
-		case "__typename":
-			out.Values[i] = graphql.MarshalString("VioCodewfdm")
-		case "wfxw":
-			out.Values[i] = ec._VioCodewfdm_wfxw(ctx, field, obj)
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
-		case "wfms":
-			out.Values[i] = ec._VioCodewfdm_wfms(ctx, field, obj)
-		case "wfjfs":
-			out.Values[i] = ec._VioCodewfdm_wfjfs(ctx, field, obj)
-		case "fkje_min":
-			out.Values[i] = ec._VioCodewfdm_fkje_min(ctx, field, obj)
-		case "fkje_max":
-			out.Values[i] = ec._VioCodewfdm_fkje_max(ctx, field, obj)
-		case "xh":
-			out.Values[i] = ec._VioCodewfdm_xh(ctx, field, obj)
-		default:
-			panic("unknown field " + strconv.Quote(field.Name))
-		}
-	}
-	out.Dispatch()
-	if invalids > 0 {
-		return graphql.Null
-	}
-	return out
-}
-
-var vioCodewfdmAggregateImplementors = []string{"VioCodewfdmAggregate"}
-
-func (ec *executionContext) _VioCodewfdmAggregate(ctx context.Context, sel ast.SelectionSet, obj *model.VioCodewfdmAggregate) graphql.Marshaler {
-	fields := graphql.CollectFields(ec.OperationContext, sel, vioCodewfdmAggregateImplementors)
-
-	out := graphql.NewFieldSet(fields)
-	var invalids uint32
-	for i, field := range fields {
-		switch field.Name {
-		case "__typename":
-			out.Values[i] = graphql.MarshalString("VioCodewfdmAggregate")
-		case "aggregate":
-			out.Values[i] = ec._VioCodewfdmAggregate_aggregate(ctx, field, obj)
-		default:
-			panic("unknown field " + strconv.Quote(field.Name))
-		}
-	}
-	out.Dispatch()
-	if invalids > 0 {
-		return graphql.Null
-	}
-	return out
-}
-
-var vioCodewfdmAggregateFieldsImplementors = []string{"VioCodewfdmAggregateFields"}
-
-func (ec *executionContext) _VioCodewfdmAggregateFields(ctx context.Context, sel ast.SelectionSet, obj *model.VioCodewfdmAggregateFields) graphql.Marshaler {
-	fields := graphql.CollectFields(ec.OperationContext, sel, vioCodewfdmAggregateFieldsImplementors)
-
-	out := graphql.NewFieldSet(fields)
-	var invalids uint32
-	for i, field := range fields {
-		switch field.Name {
-		case "__typename":
-			out.Values[i] = graphql.MarshalString("VioCodewfdmAggregateFields")
-		case "avg":
-			out.Values[i] = ec._VioCodewfdmAggregateFields_avg(ctx, field, obj)
-		case "count":
-			out.Values[i] = ec._VioCodewfdmAggregateFields_count(ctx, field, obj)
-		case "max":
-			out.Values[i] = ec._VioCodewfdmAggregateFields_max(ctx, field, obj)
-		case "min":
-			out.Values[i] = ec._VioCodewfdmAggregateFields_min(ctx, field, obj)
-		case "stddev":
-			out.Values[i] = ec._VioCodewfdmAggregateFields_stddev(ctx, field, obj)
-		case "stddev_pop":
-			out.Values[i] = ec._VioCodewfdmAggregateFields_stddev_pop(ctx, field, obj)
-		case "stddev_samp":
-			out.Values[i] = ec._VioCodewfdmAggregateFields_stddev_samp(ctx, field, obj)
-		case "sum":
-			out.Values[i] = ec._VioCodewfdmAggregateFields_sum(ctx, field, obj)
-		case "var_pop":
-			out.Values[i] = ec._VioCodewfdmAggregateFields_var_pop(ctx, field, obj)
-		case "var_samp":
-			out.Values[i] = ec._VioCodewfdmAggregateFields_var_samp(ctx, field, obj)
-		case "variance":
-			out.Values[i] = ec._VioCodewfdmAggregateFields_variance(ctx, field, obj)
-		default:
-			panic("unknown field " + strconv.Quote(field.Name))
-		}
-	}
-	out.Dispatch()
-	if invalids > 0 {
-		return graphql.Null
-	}
-	return out
-}
-
-var vioCodewfdmAvgFieldsImplementors = []string{"VioCodewfdmAvgFields"}
-
-func (ec *executionContext) _VioCodewfdmAvgFields(ctx context.Context, sel ast.SelectionSet, obj *model.VioCodewfdmAvgFields) graphql.Marshaler {
-	fields := graphql.CollectFields(ec.OperationContext, sel, vioCodewfdmAvgFieldsImplementors)
-
-	out := graphql.NewFieldSet(fields)
-	var invalids uint32
-	for i, field := range fields {
-		switch field.Name {
-		case "__typename":
-			out.Values[i] = graphql.MarshalString("VioCodewfdmAvgFields")
-		case "wfjfs":
-			out.Values[i] = ec._VioCodewfdmAvgFields_wfjfs(ctx, field, obj)
-		case "fkje_min":
-			out.Values[i] = ec._VioCodewfdmAvgFields_fkje_min(ctx, field, obj)
-		case "fkje_max":
-			out.Values[i] = ec._VioCodewfdmAvgFields_fkje_max(ctx, field, obj)
-		default:
-			panic("unknown field " + strconv.Quote(field.Name))
-		}
-	}
-	out.Dispatch()
-	if invalids > 0 {
-		return graphql.Null
-	}
-	return out
-}
-
-var vioCodewfdmMaxFieldsImplementors = []string{"VioCodewfdmMaxFields"}
-
-func (ec *executionContext) _VioCodewfdmMaxFields(ctx context.Context, sel ast.SelectionSet, obj *model.VioCodewfdmMaxFields) graphql.Marshaler {
-	fields := graphql.CollectFields(ec.OperationContext, sel, vioCodewfdmMaxFieldsImplementors)
-
-	out := graphql.NewFieldSet(fields)
-	var invalids uint32
-	for i, field := range fields {
-		switch field.Name {
-		case "__typename":
-			out.Values[i] = graphql.MarshalString("VioCodewfdmMaxFields")
-		case "wfxw":
-			out.Values[i] = ec._VioCodewfdmMaxFields_wfxw(ctx, field, obj)
-		case "wfms":
-			out.Values[i] = ec._VioCodewfdmMaxFields_wfms(ctx, field, obj)
-		case "wfjfs":
-			out.Values[i] = ec._VioCodewfdmMaxFields_wfjfs(ctx, field, obj)
-		case "fkje_min":
-			out.Values[i] = ec._VioCodewfdmMaxFields_fkje_min(ctx, field, obj)
-		case "fkje_max":
-			out.Values[i] = ec._VioCodewfdmMaxFields_fkje_max(ctx, field, obj)
-		case "xh":
-			out.Values[i] = ec._VioCodewfdmMaxFields_xh(ctx, field, obj)
-		default:
-			panic("unknown field " + strconv.Quote(field.Name))
-		}
-	}
-	out.Dispatch()
-	if invalids > 0 {
-		return graphql.Null
-	}
-	return out
-}
-
-var vioCodewfdmMinFieldsImplementors = []string{"VioCodewfdmMinFields"}
-
-func (ec *executionContext) _VioCodewfdmMinFields(ctx context.Context, sel ast.SelectionSet, obj *model.VioCodewfdmMinFields) graphql.Marshaler {
-	fields := graphql.CollectFields(ec.OperationContext, sel, vioCodewfdmMinFieldsImplementors)
-
-	out := graphql.NewFieldSet(fields)
-	var invalids uint32
-	for i, field := range fields {
-		switch field.Name {
-		case "__typename":
-			out.Values[i] = graphql.MarshalString("VioCodewfdmMinFields")
-		case "wfxw":
-			out.Values[i] = ec._VioCodewfdmMinFields_wfxw(ctx, field, obj)
-		case "wfms":
-			out.Values[i] = ec._VioCodewfdmMinFields_wfms(ctx, field, obj)
-		case "wfjfs":
-			out.Values[i] = ec._VioCodewfdmMinFields_wfjfs(ctx, field, obj)
-		case "fkje_min":
-			out.Values[i] = ec._VioCodewfdmMinFields_fkje_min(ctx, field, obj)
-		case "fkje_max":
-			out.Values[i] = ec._VioCodewfdmMinFields_fkje_max(ctx, field, obj)
-		case "xh":
-			out.Values[i] = ec._VioCodewfdmMinFields_xh(ctx, field, obj)
-		default:
-			panic("unknown field " + strconv.Quote(field.Name))
-		}
-	}
-	out.Dispatch()
-	if invalids > 0 {
-		return graphql.Null
-	}
-	return out
-}
-
-var vioCodewfdmMutationResponseImplementors = []string{"VioCodewfdmMutationResponse"}
-
-func (ec *executionContext) _VioCodewfdmMutationResponse(ctx context.Context, sel ast.SelectionSet, obj *model.VioCodewfdmMutationResponse) graphql.Marshaler {
-	fields := graphql.CollectFields(ec.OperationContext, sel, vioCodewfdmMutationResponseImplementors)
-
-	out := graphql.NewFieldSet(fields)
-	var invalids uint32
-	for i, field := range fields {
-		switch field.Name {
-		case "__typename":
-			out.Values[i] = graphql.MarshalString("VioCodewfdmMutationResponse")
-		case "affected_rows":
-			out.Values[i] = ec._VioCodewfdmMutationResponse_affected_rows(ctx, field, obj)
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
-		case "returning":
-			out.Values[i] = ec._VioCodewfdmMutationResponse_returning(ctx, field, obj)
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
-		default:
-			panic("unknown field " + strconv.Quote(field.Name))
-		}
-	}
-	out.Dispatch()
-	if invalids > 0 {
-		return graphql.Null
-	}
-	return out
-}
-
-var vioCodewfdmStddevFieldsImplementors = []string{"VioCodewfdmStddevFields"}
-
-func (ec *executionContext) _VioCodewfdmStddevFields(ctx context.Context, sel ast.SelectionSet, obj *model.VioCodewfdmStddevFields) graphql.Marshaler {
-	fields := graphql.CollectFields(ec.OperationContext, sel, vioCodewfdmStddevFieldsImplementors)
-
-	out := graphql.NewFieldSet(fields)
-	var invalids uint32
-	for i, field := range fields {
-		switch field.Name {
-		case "__typename":
-			out.Values[i] = graphql.MarshalString("VioCodewfdmStddevFields")
-		case "wfjfs":
-			out.Values[i] = ec._VioCodewfdmStddevFields_wfjfs(ctx, field, obj)
-		case "fkje_min":
-			out.Values[i] = ec._VioCodewfdmStddevFields_fkje_min(ctx, field, obj)
-		case "fkje_max":
-			out.Values[i] = ec._VioCodewfdmStddevFields_fkje_max(ctx, field, obj)
-		default:
-			panic("unknown field " + strconv.Quote(field.Name))
-		}
-	}
-	out.Dispatch()
-	if invalids > 0 {
-		return graphql.Null
-	}
-	return out
-}
-
-var vioCodewfdmStddevPopFieldsImplementors = []string{"VioCodewfdmStddevPopFields"}
-
-func (ec *executionContext) _VioCodewfdmStddevPopFields(ctx context.Context, sel ast.SelectionSet, obj *model.VioCodewfdmStddevPopFields) graphql.Marshaler {
-	fields := graphql.CollectFields(ec.OperationContext, sel, vioCodewfdmStddevPopFieldsImplementors)
-
-	out := graphql.NewFieldSet(fields)
-	var invalids uint32
-	for i, field := range fields {
-		switch field.Name {
-		case "__typename":
-			out.Values[i] = graphql.MarshalString("VioCodewfdmStddevPopFields")
-		case "wfjfs":
-			out.Values[i] = ec._VioCodewfdmStddevPopFields_wfjfs(ctx, field, obj)
-		case "fkje_min":
-			out.Values[i] = ec._VioCodewfdmStddevPopFields_fkje_min(ctx, field, obj)
-		case "fkje_max":
-			out.Values[i] = ec._VioCodewfdmStddevPopFields_fkje_max(ctx, field, obj)
-		default:
-			panic("unknown field " + strconv.Quote(field.Name))
-		}
-	}
-	out.Dispatch()
-	if invalids > 0 {
-		return graphql.Null
-	}
-	return out
-}
-
-var vioCodewfdmStddevSampFieldsImplementors = []string{"VioCodewfdmStddevSampFields"}
-
-func (ec *executionContext) _VioCodewfdmStddevSampFields(ctx context.Context, sel ast.SelectionSet, obj *model.VioCodewfdmStddevSampFields) graphql.Marshaler {
-	fields := graphql.CollectFields(ec.OperationContext, sel, vioCodewfdmStddevSampFieldsImplementors)
-
-	out := graphql.NewFieldSet(fields)
-	var invalids uint32
-	for i, field := range fields {
-		switch field.Name {
-		case "__typename":
-			out.Values[i] = graphql.MarshalString("VioCodewfdmStddevSampFields")
-		case "wfjfs":
-			out.Values[i] = ec._VioCodewfdmStddevSampFields_wfjfs(ctx, field, obj)
-		case "fkje_min":
-			out.Values[i] = ec._VioCodewfdmStddevSampFields_fkje_min(ctx, field, obj)
-		case "fkje_max":
-			out.Values[i] = ec._VioCodewfdmStddevSampFields_fkje_max(ctx, field, obj)
-		default:
-			panic("unknown field " + strconv.Quote(field.Name))
-		}
-	}
-	out.Dispatch()
-	if invalids > 0 {
-		return graphql.Null
-	}
-	return out
-}
-
-var vioCodewfdmSumFieldsImplementors = []string{"VioCodewfdmSumFields"}
-
-func (ec *executionContext) _VioCodewfdmSumFields(ctx context.Context, sel ast.SelectionSet, obj *model.VioCodewfdmSumFields) graphql.Marshaler {
-	fields := graphql.CollectFields(ec.OperationContext, sel, vioCodewfdmSumFieldsImplementors)
-
-	out := graphql.NewFieldSet(fields)
-	var invalids uint32
-	for i, field := range fields {
-		switch field.Name {
-		case "__typename":
-			out.Values[i] = graphql.MarshalString("VioCodewfdmSumFields")
-		case "wfjfs":
-			out.Values[i] = ec._VioCodewfdmSumFields_wfjfs(ctx, field, obj)
-		case "fkje_min":
-			out.Values[i] = ec._VioCodewfdmSumFields_fkje_min(ctx, field, obj)
-		case "fkje_max":
-			out.Values[i] = ec._VioCodewfdmSumFields_fkje_max(ctx, field, obj)
-		default:
-			panic("unknown field " + strconv.Quote(field.Name))
-		}
-	}
-	out.Dispatch()
-	if invalids > 0 {
-		return graphql.Null
-	}
-	return out
-}
-
-var vioCodewfdmVarPopFieldsImplementors = []string{"VioCodewfdmVarPopFields"}
-
-func (ec *executionContext) _VioCodewfdmVarPopFields(ctx context.Context, sel ast.SelectionSet, obj *model.VioCodewfdmVarPopFields) graphql.Marshaler {
-	fields := graphql.CollectFields(ec.OperationContext, sel, vioCodewfdmVarPopFieldsImplementors)
-
-	out := graphql.NewFieldSet(fields)
-	var invalids uint32
-	for i, field := range fields {
-		switch field.Name {
-		case "__typename":
-			out.Values[i] = graphql.MarshalString("VioCodewfdmVarPopFields")
-		case "wfjfs":
-			out.Values[i] = ec._VioCodewfdmVarPopFields_wfjfs(ctx, field, obj)
-		case "fkje_min":
-			out.Values[i] = ec._VioCodewfdmVarPopFields_fkje_min(ctx, field, obj)
-		case "fkje_max":
-			out.Values[i] = ec._VioCodewfdmVarPopFields_fkje_max(ctx, field, obj)
-		default:
-			panic("unknown field " + strconv.Quote(field.Name))
-		}
-	}
-	out.Dispatch()
-	if invalids > 0 {
-		return graphql.Null
-	}
-	return out
-}
-
-var vioCodewfdmVarSampFieldsImplementors = []string{"VioCodewfdmVarSampFields"}
-
-func (ec *executionContext) _VioCodewfdmVarSampFields(ctx context.Context, sel ast.SelectionSet, obj *model.VioCodewfdmVarSampFields) graphql.Marshaler {
-	fields := graphql.CollectFields(ec.OperationContext, sel, vioCodewfdmVarSampFieldsImplementors)
-
-	out := graphql.NewFieldSet(fields)
-	var invalids uint32
-	for i, field := range fields {
-		switch field.Name {
-		case "__typename":
-			out.Values[i] = graphql.MarshalString("VioCodewfdmVarSampFields")
-		case "wfjfs":
-			out.Values[i] = ec._VioCodewfdmVarSampFields_wfjfs(ctx, field, obj)
-		case "fkje_min":
-			out.Values[i] = ec._VioCodewfdmVarSampFields_fkje_min(ctx, field, obj)
-		case "fkje_max":
-			out.Values[i] = ec._VioCodewfdmVarSampFields_fkje_max(ctx, field, obj)
-		default:
-			panic("unknown field " + strconv.Quote(field.Name))
-		}
-	}
-	out.Dispatch()
-	if invalids > 0 {
-		return graphql.Null
-	}
-	return out
-}
-
-var vioCodewfdmVarianceFieldsImplementors = []string{"VioCodewfdmVarianceFields"}
-
-func (ec *executionContext) _VioCodewfdmVarianceFields(ctx context.Context, sel ast.SelectionSet, obj *model.VioCodewfdmVarianceFields) graphql.Marshaler {
-	fields := graphql.CollectFields(ec.OperationContext, sel, vioCodewfdmVarianceFieldsImplementors)
-
-	out := graphql.NewFieldSet(fields)
-	var invalids uint32
-	for i, field := range fields {
-		switch field.Name {
-		case "__typename":
-			out.Values[i] = graphql.MarshalString("VioCodewfdmVarianceFields")
-		case "wfjfs":
-			out.Values[i] = ec._VioCodewfdmVarianceFields_wfjfs(ctx, field, obj)
-		case "fkje_min":
-			out.Values[i] = ec._VioCodewfdmVarianceFields_fkje_min(ctx, field, obj)
-		case "fkje_max":
-			out.Values[i] = ec._VioCodewfdmVarianceFields_fkje_max(ctx, field, obj)
-		default:
-			panic("unknown field " + strconv.Quote(field.Name))
-		}
-	}
-	out.Dispatch()
-	if invalids > 0 {
-		return graphql.Null
-	}
-	return out
-}
-
 var violationRegistrationImplementors = []string{"ViolationRegistration"}
 
 func (ec *executionContext) _ViolationRegistration(ctx context.Context, sel ast.SelectionSet, obj *model1.ViolationRegistration) graphql.Marshaler {
@@ -63315,122 +60788,6 @@ func (ec *executionContext) unmarshalNVehicleViolationScoringRecordSelectColumn2
 }
 
 func (ec *executionContext) marshalNVehicleViolationScoringRecordSelectColumn2VehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVehicleViolationScoringRecordSelectColumn(ctx context.Context, sel ast.SelectionSet, v model.VehicleViolationScoringRecordSelectColumn) graphql.Marshaler {
-	return v
-}
-
-func (ec *executionContext) marshalNVioCodewfdm2VehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋmodelᚐVioCodewfdm(ctx context.Context, sel ast.SelectionSet, v model1.VioCodewfdm) graphql.Marshaler {
-	return ec._VioCodewfdm(ctx, sel, &v)
-}
-
-func (ec *executionContext) marshalNVioCodewfdm2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋmodelᚐVioCodewfdmᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.VioCodewfdm) graphql.Marshaler {
-	ret := make(graphql.Array, len(v))
-	var wg sync.WaitGroup
-	isLen1 := len(v) == 1
-	if !isLen1 {
-		wg.Add(len(v))
-	}
-	for i := range v {
-		i := i
-		fc := &graphql.FieldContext{
-			Index:  &i,
-			Result: &v[i],
-		}
-		ctx := graphql.WithFieldContext(ctx, fc)
-		f := func(i int) {
-			defer func() {
-				if r := recover(); r != nil {
-					ec.Error(ctx, ec.Recover(ctx, r))
-					ret = nil
-				}
-			}()
-			if !isLen1 {
-				defer wg.Done()
-			}
-			ret[i] = ec.marshalNVioCodewfdm2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋmodelᚐVioCodewfdm(ctx, sel, v[i])
-		}
-		if isLen1 {
-			f(i)
-		} else {
-			go f(i)
-		}
-
-	}
-	wg.Wait()
-	return ret
-}
-
-func (ec *executionContext) marshalNVioCodewfdm2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋmodelᚐVioCodewfdm(ctx context.Context, sel ast.SelectionSet, v *model1.VioCodewfdm) graphql.Marshaler {
-	if v == nil {
-		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	return ec._VioCodewfdm(ctx, sel, v)
-}
-
-func (ec *executionContext) marshalNVioCodewfdmAggregate2VehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmAggregate(ctx context.Context, sel ast.SelectionSet, v model.VioCodewfdmAggregate) graphql.Marshaler {
-	return ec._VioCodewfdmAggregate(ctx, sel, &v)
-}
-
-func (ec *executionContext) marshalNVioCodewfdmAggregate2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmAggregate(ctx context.Context, sel ast.SelectionSet, v *model.VioCodewfdmAggregate) graphql.Marshaler {
-	if v == nil {
-		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	return ec._VioCodewfdmAggregate(ctx, sel, v)
-}
-
-func (ec *executionContext) unmarshalNVioCodewfdmBoolExp2VehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmBoolExp(ctx context.Context, v interface{}) (model.VioCodewfdmBoolExp, error) {
-	res, err := ec.unmarshalInputVioCodewfdmBoolExp(ctx, v)
-	return res, graphql.ErrorOnPath(ctx, err)
-}
-
-func (ec *executionContext) unmarshalNVioCodewfdmInsertInput2VehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmInsertInput(ctx context.Context, v interface{}) (model.VioCodewfdmInsertInput, error) {
-	res, err := ec.unmarshalInputVioCodewfdmInsertInput(ctx, v)
-	return res, graphql.ErrorOnPath(ctx, err)
-}
-
-func (ec *executionContext) unmarshalNVioCodewfdmInsertInput2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmInsertInputᚄ(ctx context.Context, v interface{}) ([]*model.VioCodewfdmInsertInput, error) {
-	var vSlice []interface{}
-	if v != nil {
-		if tmp1, ok := v.([]interface{}); ok {
-			vSlice = tmp1
-		} else {
-			vSlice = []interface{}{v}
-		}
-	}
-	var err error
-	res := make([]*model.VioCodewfdmInsertInput, len(vSlice))
-	for i := range vSlice {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
-		res[i], err = ec.unmarshalNVioCodewfdmInsertInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmInsertInput(ctx, vSlice[i])
-		if err != nil {
-			return nil, err
-		}
-	}
-	return res, nil
-}
-
-func (ec *executionContext) unmarshalNVioCodewfdmInsertInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmInsertInput(ctx context.Context, v interface{}) (*model.VioCodewfdmInsertInput, error) {
-	res, err := ec.unmarshalInputVioCodewfdmInsertInput(ctx, v)
-	return &res, graphql.ErrorOnPath(ctx, err)
-}
-
-func (ec *executionContext) unmarshalNVioCodewfdmOrderBy2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmOrderBy(ctx context.Context, v interface{}) (*model.VioCodewfdmOrderBy, error) {
-	res, err := ec.unmarshalInputVioCodewfdmOrderBy(ctx, v)
-	return &res, graphql.ErrorOnPath(ctx, err)
-}
-
-func (ec *executionContext) unmarshalNVioCodewfdmSelectColumn2VehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmSelectColumn(ctx context.Context, v interface{}) (model.VioCodewfdmSelectColumn, error) {
-	var res model.VioCodewfdmSelectColumn
-	err := res.UnmarshalGQL(v)
-	return res, graphql.ErrorOnPath(ctx, err)
-}
-
-func (ec *executionContext) marshalNVioCodewfdmSelectColumn2VehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmSelectColumn(ctx context.Context, sel ast.SelectionSet, v model.VioCodewfdmSelectColumn) graphql.Marshaler {
 	return v
 }
 
@@ -66369,233 +63726,6 @@ func (ec *executionContext) marshalOVehicleViolationScoringRecordVarianceFields2
 		return graphql.Null
 	}
 	return ec._VehicleViolationScoringRecordVarianceFields(ctx, sel, v)
-}
-
-func (ec *executionContext) marshalOVioCodewfdm2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋmodelᚐVioCodewfdm(ctx context.Context, sel ast.SelectionSet, v *model1.VioCodewfdm) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return ec._VioCodewfdm(ctx, sel, v)
-}
-
-func (ec *executionContext) marshalOVioCodewfdmAggregateFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmAggregateFields(ctx context.Context, sel ast.SelectionSet, v *model.VioCodewfdmAggregateFields) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return ec._VioCodewfdmAggregateFields(ctx, sel, v)
-}
-
-func (ec *executionContext) marshalOVioCodewfdmAvgFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmAvgFields(ctx context.Context, sel ast.SelectionSet, v *model.VioCodewfdmAvgFields) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return ec._VioCodewfdmAvgFields(ctx, sel, v)
-}
-
-func (ec *executionContext) unmarshalOVioCodewfdmBoolExp2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmBoolExp(ctx context.Context, v interface{}) ([]*model.VioCodewfdmBoolExp, error) {
-	if v == nil {
-		return nil, nil
-	}
-	var vSlice []interface{}
-	if v != nil {
-		if tmp1, ok := v.([]interface{}); ok {
-			vSlice = tmp1
-		} else {
-			vSlice = []interface{}{v}
-		}
-	}
-	var err error
-	res := make([]*model.VioCodewfdmBoolExp, len(vSlice))
-	for i := range vSlice {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
-		res[i], err = ec.unmarshalOVioCodewfdmBoolExp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmBoolExp(ctx, vSlice[i])
-		if err != nil {
-			return nil, err
-		}
-	}
-	return res, nil
-}
-
-func (ec *executionContext) unmarshalOVioCodewfdmBoolExp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmBoolExp(ctx context.Context, v interface{}) (*model.VioCodewfdmBoolExp, error) {
-	if v == nil {
-		return nil, nil
-	}
-	res, err := ec.unmarshalInputVioCodewfdmBoolExp(ctx, v)
-	return &res, graphql.ErrorOnPath(ctx, err)
-}
-
-func (ec *executionContext) unmarshalOVioCodewfdmIncInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmIncInput(ctx context.Context, v interface{}) (*model.VioCodewfdmIncInput, error) {
-	if v == nil {
-		return nil, nil
-	}
-	res, err := ec.unmarshalInputVioCodewfdmIncInput(ctx, v)
-	return &res, graphql.ErrorOnPath(ctx, err)
-}
-
-func (ec *executionContext) marshalOVioCodewfdmMaxFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmMaxFields(ctx context.Context, sel ast.SelectionSet, v *model.VioCodewfdmMaxFields) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return ec._VioCodewfdmMaxFields(ctx, sel, v)
-}
-
-func (ec *executionContext) marshalOVioCodewfdmMinFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmMinFields(ctx context.Context, sel ast.SelectionSet, v *model.VioCodewfdmMinFields) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return ec._VioCodewfdmMinFields(ctx, sel, v)
-}
-
-func (ec *executionContext) marshalOVioCodewfdmMutationResponse2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmMutationResponse(ctx context.Context, sel ast.SelectionSet, v *model.VioCodewfdmMutationResponse) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return ec._VioCodewfdmMutationResponse(ctx, sel, v)
-}
-
-func (ec *executionContext) unmarshalOVioCodewfdmOrderBy2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmOrderByᚄ(ctx context.Context, v interface{}) ([]*model.VioCodewfdmOrderBy, error) {
-	if v == nil {
-		return nil, nil
-	}
-	var vSlice []interface{}
-	if v != nil {
-		if tmp1, ok := v.([]interface{}); ok {
-			vSlice = tmp1
-		} else {
-			vSlice = []interface{}{v}
-		}
-	}
-	var err error
-	res := make([]*model.VioCodewfdmOrderBy, len(vSlice))
-	for i := range vSlice {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
-		res[i], err = ec.unmarshalNVioCodewfdmOrderBy2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmOrderBy(ctx, vSlice[i])
-		if err != nil {
-			return nil, err
-		}
-	}
-	return res, nil
-}
-
-func (ec *executionContext) unmarshalOVioCodewfdmSelectColumn2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmSelectColumnᚄ(ctx context.Context, v interface{}) ([]model.VioCodewfdmSelectColumn, error) {
-	if v == nil {
-		return nil, nil
-	}
-	var vSlice []interface{}
-	if v != nil {
-		if tmp1, ok := v.([]interface{}); ok {
-			vSlice = tmp1
-		} else {
-			vSlice = []interface{}{v}
-		}
-	}
-	var err error
-	res := make([]model.VioCodewfdmSelectColumn, len(vSlice))
-	for i := range vSlice {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
-		res[i], err = ec.unmarshalNVioCodewfdmSelectColumn2VehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmSelectColumn(ctx, vSlice[i])
-		if err != nil {
-			return nil, err
-		}
-	}
-	return res, nil
-}
-
-func (ec *executionContext) marshalOVioCodewfdmSelectColumn2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmSelectColumnᚄ(ctx context.Context, sel ast.SelectionSet, v []model.VioCodewfdmSelectColumn) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	ret := make(graphql.Array, len(v))
-	var wg sync.WaitGroup
-	isLen1 := len(v) == 1
-	if !isLen1 {
-		wg.Add(len(v))
-	}
-	for i := range v {
-		i := i
-		fc := &graphql.FieldContext{
-			Index:  &i,
-			Result: &v[i],
-		}
-		ctx := graphql.WithFieldContext(ctx, fc)
-		f := func(i int) {
-			defer func() {
-				if r := recover(); r != nil {
-					ec.Error(ctx, ec.Recover(ctx, r))
-					ret = nil
-				}
-			}()
-			if !isLen1 {
-				defer wg.Done()
-			}
-			ret[i] = ec.marshalNVioCodewfdmSelectColumn2VehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmSelectColumn(ctx, sel, v[i])
-		}
-		if isLen1 {
-			f(i)
-		} else {
-			go f(i)
-		}
-
-	}
-	wg.Wait()
-	return ret
-}
-
-func (ec *executionContext) unmarshalOVioCodewfdmSetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmSetInput(ctx context.Context, v interface{}) (*model.VioCodewfdmSetInput, error) {
-	if v == nil {
-		return nil, nil
-	}
-	res, err := ec.unmarshalInputVioCodewfdmSetInput(ctx, v)
-	return &res, graphql.ErrorOnPath(ctx, err)
-}
-
-func (ec *executionContext) marshalOVioCodewfdmStddevFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmStddevFields(ctx context.Context, sel ast.SelectionSet, v *model.VioCodewfdmStddevFields) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return ec._VioCodewfdmStddevFields(ctx, sel, v)
-}
-
-func (ec *executionContext) marshalOVioCodewfdmStddevPopFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmStddevPopFields(ctx context.Context, sel ast.SelectionSet, v *model.VioCodewfdmStddevPopFields) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return ec._VioCodewfdmStddevPopFields(ctx, sel, v)
-}
-
-func (ec *executionContext) marshalOVioCodewfdmStddevSampFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmStddevSampFields(ctx context.Context, sel ast.SelectionSet, v *model.VioCodewfdmStddevSampFields) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return ec._VioCodewfdmStddevSampFields(ctx, sel, v)
-}
-
-func (ec *executionContext) marshalOVioCodewfdmSumFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmSumFields(ctx context.Context, sel ast.SelectionSet, v *model.VioCodewfdmSumFields) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return ec._VioCodewfdmSumFields(ctx, sel, v)
-}
-
-func (ec *executionContext) marshalOVioCodewfdmVarPopFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmVarPopFields(ctx context.Context, sel ast.SelectionSet, v *model.VioCodewfdmVarPopFields) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return ec._VioCodewfdmVarPopFields(ctx, sel, v)
-}
-
-func (ec *executionContext) marshalOVioCodewfdmVarSampFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmVarSampFields(ctx context.Context, sel ast.SelectionSet, v *model.VioCodewfdmVarSampFields) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return ec._VioCodewfdmVarSampFields(ctx, sel, v)
-}
-
-func (ec *executionContext) marshalOVioCodewfdmVarianceFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmVarianceFields(ctx context.Context, sel ast.SelectionSet, v *model.VioCodewfdmVarianceFields) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return ec._VioCodewfdmVarianceFields(ctx, sel, v)
 }
 
 func (ec *executionContext) marshalOViolationRegistration2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋmodelᚐViolationRegistration(ctx context.Context, sel ast.SelectionSet, v *model1.ViolationRegistration) graphql.Marshaler {

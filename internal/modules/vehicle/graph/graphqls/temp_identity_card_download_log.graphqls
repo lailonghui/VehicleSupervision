@@ -211,10 +211,14 @@ input TempIdentityCardDownloadLogBoolExp {
 input type for inserting data into table "temp_identity_card_download_log"
 """
 input TempIdentityCardDownloadLogInsertInput {
+	temp_identity_card_download_id: String!
+	vehicle_id: String!
 	valid_from: Timestamptz
 	valid_until: Timestamptz
 	operator: String
 	is_deleted: Boolean
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -337,7 +341,7 @@ extend type Mutation {
 	"""
 	update_temp_identity_card_download_log(_inc: TempIdentityCardDownloadLogIncInput, _set: TempIdentityCardDownloadLogSetInput, where: TempIdentityCardDownloadLogBoolExp!): TempIdentityCardDownloadLogMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_temp_identity_card_download_log_by_pk(_inc: TempIdentityCardDownloadLogIncInput, _set: TempIdentityCardDownloadLogSetInput, id: Bigint!): TempIdentityCardDownloadLog
 }

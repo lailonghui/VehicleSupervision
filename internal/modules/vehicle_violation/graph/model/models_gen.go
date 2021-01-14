@@ -67,6 +67,7 @@ type AppEnforcementIncInput struct {
 
 // input type for inserting data into table "app_enforcement"
 type AppEnforcementInsertInput struct {
+	IllegalPhotoID      string     `json:"illegal_photo_id"`
 	VehicleID           *string    `json:"vehicle_id"`
 	OperationUser       *string    `json:"operation_user"`
 	EditText            *string    `json:"edit_text"`
@@ -74,6 +75,8 @@ type AppEnforcementInsertInput struct {
 	LocationDescription *string    `json:"location_description"`
 	EnterpriseType      *string    `json:"enterprise_type"`
 	PicketStatus        *int       `json:"picket_status"`
+	CreatedAt           time.Time  `json:"created_at"`
+	CreatedBy           string     `json:"created_by"`
 	UpdatedAt           *time.Time `json:"updated_at"`
 	UpdatedBy           *string    `json:"updated_by"`
 	DeletedAt           *time.Time `json:"deleted_at"`
@@ -259,16 +262,19 @@ type DeductionReportIncInput struct {
 
 // input type for inserting data into table "deduction_report"
 type DeductionReportInsertInput struct {
-	AreaID        *string    `json:"area_id"`
-	Date          *string    `json:"date"`
-	Cause         *string    `json:"cause"`
-	InputPerson   *string    `json:"input_person"`
-	InputTime     *time.Time `json:"input_time"`
-	DemeritPoints *float64   `json:"demerit_points"`
-	UpdatedAt     *time.Time `json:"updated_at"`
-	UpdatedBy     *string    `json:"updated_by"`
-	DeletedAt     *time.Time `json:"deleted_at"`
-	DeletedBy     *string    `json:"deleted_by"`
+	DeductionReportID string     `json:"deduction_report_id"`
+	AreaID            *string    `json:"area_id"`
+	Date              *string    `json:"date"`
+	Cause             *string    `json:"cause"`
+	InputPerson       *string    `json:"input_person"`
+	InputTime         *time.Time `json:"input_time"`
+	DemeritPoints     *float64   `json:"demerit_points"`
+	CreatedAt         time.Time  `json:"created_at"`
+	CreatedBy         string     `json:"created_by"`
+	UpdatedAt         *time.Time `json:"updated_at"`
+	UpdatedBy         *string    `json:"updated_by"`
+	DeletedAt         *time.Time `json:"deleted_at"`
+	DeletedBy         *string    `json:"deleted_by"`
 }
 
 // aggregate max on columns of table "deduction_report"
@@ -443,6 +449,8 @@ type DriverPeccancyCheckInsertInput struct {
 	VehicleID    *string    `json:"vehicle_id"`
 	DriverID     *string    `json:"driver_id"`
 	EnterpriseID *string    `json:"enterprise_id"`
+	CreatedAt    time.Time  `json:"created_at"`
+	CreatedBy    string     `json:"created_by"`
 	UpdatedAt    *time.Time `json:"updated_at"`
 	UpdatedBy    *string    `json:"updated_by"`
 	DeletedAt    *time.Time `json:"deleted_at"`
@@ -597,10 +605,13 @@ type IllegalPhotoIncInput struct {
 
 // input type for inserting data into table "illegal_photo"
 type IllegalPhotoInsertInput struct {
+	IllegalPhotoID string     `json:"illegal_photo_id"`
 	PictureName    *string    `json:"picture_name"`
 	PictureAddress *string    `json:"picture_address"`
 	IsSynchronized *bool      `json:"is_synchronized"`
 	IsDeleted      *bool      `json:"is_deleted"`
+	CreatedAt      time.Time  `json:"created_at"`
+	CreatedBy      string     `json:"created_by"`
 	UpdatedAt      *time.Time `json:"updated_at"`
 	UpdatedBy      *string    `json:"updated_by"`
 	DeletedAt      *time.Time `json:"deleted_at"`
@@ -774,21 +785,24 @@ type RegionalViolationRegisterIncInput struct {
 
 // input type for inserting data into table "regional_violation_register"
 type RegionalViolationRegisterInsertInput struct {
-	ViolationDetailID *string    `json:"violation_detail_id"`
-	VehicleID         *string    `json:"vehicle_id"`
-	DriverID          *string    `json:"driver_id"`
-	IllegalCode       *int       `json:"illegal_code"`
-	IllegalTime       *time.Time `json:"illegal_time"`
-	IllegalType       *int       `json:"illegal_type"`
-	RegisterTime      *time.Time `json:"register_time"`
-	ProcessingAgency  *string    `json:"processing_agency"`
-	Operator          *string    `json:"operator"`
-	IsRegister        *bool      `json:"is_register"`
-	UpdatedAt         *time.Time `json:"updated_at"`
-	UpdatedBy         *string    `json:"updated_by"`
-	DeletedAt         *time.Time `json:"deleted_at"`
-	DeletedBy         *string    `json:"deleted_by"`
-	IsDeleted         *bool      `json:"is_deleted"`
+	RegionalViolationRegisterID string     `json:"regional_violation_register_id"`
+	ViolationDetailID           *string    `json:"violation_detail_id"`
+	VehicleID                   *string    `json:"vehicle_id"`
+	DriverID                    *string    `json:"driver_id"`
+	IllegalCode                 *int       `json:"illegal_code"`
+	IllegalTime                 *time.Time `json:"illegal_time"`
+	IllegalType                 *int       `json:"illegal_type"`
+	RegisterTime                *time.Time `json:"register_time"`
+	ProcessingAgency            *string    `json:"processing_agency"`
+	Operator                    *string    `json:"operator"`
+	IsRegister                  *bool      `json:"is_register"`
+	CreatedAt                   time.Time  `json:"created_at"`
+	CreatedBy                   string     `json:"created_by"`
+	UpdatedAt                   *time.Time `json:"updated_at"`
+	UpdatedBy                   *string    `json:"updated_by"`
+	DeletedAt                   *time.Time `json:"deleted_at"`
+	DeletedBy                   *string    `json:"deleted_by"`
+	IsDeleted                   *bool      `json:"is_deleted"`
 }
 
 // aggregate max on columns of table "regional_violation_register"
@@ -988,13 +1002,16 @@ type SeriousTrafficViolationIncInput struct {
 
 // input type for inserting data into table "serious_traffic_violation"
 type SeriousTrafficViolationInsertInput struct {
-	VehicleID   *string    `json:"vehicle_id"`
-	IllegalCode *string    `json:"illegal_code"`
-	IllegalTime *time.Time `json:"illegal_time"`
-	UpdatedAt   *time.Time `json:"updated_at"`
-	UpdatedBy   *string    `json:"updated_by"`
-	DeletedAt   *time.Time `json:"deleted_at"`
-	DeletedBy   *string    `json:"deleted_by"`
+	SeriousTrafficViolationID string     `json:"serious_traffic_violation_id"`
+	VehicleID                 *string    `json:"vehicle_id"`
+	IllegalCode               *string    `json:"illegal_code"`
+	IllegalTime               *time.Time `json:"illegal_time"`
+	CreatedAt                 time.Time  `json:"created_at"`
+	CreatedBy                 string     `json:"created_by"`
+	UpdatedAt                 *time.Time `json:"updated_at"`
+	UpdatedBy                 *string    `json:"updated_by"`
+	DeletedAt                 *time.Time `json:"deleted_at"`
+	DeletedBy                 *string    `json:"deleted_by"`
 }
 
 // aggregate max on columns of table "serious_traffic_violation"
@@ -1175,6 +1192,7 @@ type VehicleViolationDetailsIncInput struct {
 
 // input type for inserting data into table "vehicle_violation_details"
 type VehicleViolationDetailsInsertInput struct {
+	ViolationDetailID     string     `json:"violation_detail_id"`
 	VehicleID             *string    `json:"vehicle_id"`
 	DriverID              *string    `json:"driver_id"`
 	EnterpriseID          *string    `json:"enterprise_id"`
@@ -1199,6 +1217,8 @@ type VehicleViolationDetailsInsertInput struct {
 	HandleAt              *time.Time `json:"handle_at"`
 	IsSend                *bool      `json:"is_send"`
 	IsDeleted             *bool      `json:"is_deleted"`
+	CreatedAt             time.Time  `json:"created_at"`
+	CreatedBy             string     `json:"created_by"`
 	UpdatedAt             *time.Time `json:"updated_at"`
 	UpdatedBy             *string    `json:"updated_by"`
 	DeletedAt             *time.Time `json:"deleted_at"`
@@ -1466,10 +1486,13 @@ type VehicleViolationScoringItemsIncInput struct {
 
 // input type for inserting data into table "vehicle_violation_scoring_items"
 type VehicleViolationScoringItemsInsertInput struct {
+	ViolationScoringItemID   string     `json:"violation_scoring_item_id"`
 	DeductionItemDescription *string    `json:"deduction_item_description"`
 	DeductionCategory        *int       `json:"deduction_category"`
 	DemeritPoints            *float64   `json:"demerit_points"`
 	IsDeleted                *bool      `json:"is_deleted"`
+	CreatedAt                time.Time  `json:"created_at"`
+	CreatedBy                string     `json:"created_by"`
 	UpdatedAt                *time.Time `json:"updated_at"`
 	UpdatedBy                *string    `json:"updated_by"`
 	DeletedAt                *time.Time `json:"deleted_at"`
@@ -1649,11 +1672,14 @@ type VehicleViolationScoringRecordIncInput struct {
 
 // input type for inserting data into table "vehicle_violation_scoring_record"
 type VehicleViolationScoringRecordInsertInput struct {
+	ViolationScoringID     string     `json:"violation_scoring_id"`
 	VehicleID              *string    `json:"vehicle_id"`
 	ViolationScoringItemID *string    `json:"violation_scoring_item_id"`
 	DemeritPoints          *float64   `json:"demerit_points"`
 	Remarks                *string    `json:"remarks"`
 	IsDeleted              *bool      `json:"is_deleted"`
+	CreatedAt              time.Time  `json:"created_at"`
+	CreatedBy              string     `json:"created_by"`
 	UpdatedAt              *time.Time `json:"updated_at"`
 	UpdatedBy              *string    `json:"updated_by"`
 	DeletedAt              *time.Time `json:"deleted_at"`
@@ -1776,157 +1802,6 @@ type VehicleViolationScoringRecordVarianceFields struct {
 	DemeritPoints *float64 `json:"demerit_points"`
 }
 
-// aggregated selection of "vio_codewfdm"
-type VioCodewfdmAggregate struct {
-	Aggregate *VioCodewfdmAggregateFields `json:"aggregate"`
-}
-
-// aggregate fields of "vio_codewfdm"
-type VioCodewfdmAggregateFields struct {
-	Avg        *VioCodewfdmAvgFields        `json:"avg"`
-	Count      *int                         `json:"count"`
-	Max        *VioCodewfdmMaxFields        `json:"max"`
-	Min        *VioCodewfdmMinFields        `json:"min"`
-	Stddev     *VioCodewfdmStddevFields     `json:"stddev"`
-	StddevPop  *VioCodewfdmStddevPopFields  `json:"stddev_pop"`
-	StddevSamp *VioCodewfdmStddevSampFields `json:"stddev_samp"`
-	Sum        *VioCodewfdmSumFields        `json:"sum"`
-	VarPop     *VioCodewfdmVarPopFields     `json:"var_pop"`
-	VarSamp    *VioCodewfdmVarSampFields    `json:"var_samp"`
-	Variance   *VioCodewfdmVarianceFields   `json:"variance"`
-}
-
-// aggregate avg on columns of table "vio_codewfdm"
-type VioCodewfdmAvgFields struct {
-	Wfjfs   *float64 `json:"wfjfs"`
-	FkjeMin *float64 `json:"fkje_min"`
-	FkjeMax *float64 `json:"fkje_max"`
-}
-
-// Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'vio_codewfdm'.
-type VioCodewfdmBoolExp struct {
-	And     []*VioCodewfdmBoolExp       `json:"_and"`
-	Not     *VioCodewfdmBoolExp         `json:"_not"`
-	Or      []*VioCodewfdmBoolExp       `json:"_or"`
-	Wfxw    *model.StringComparisonExp  `json:"wfxw"`
-	Wfms    *model.StringComparisonExp  `json:"wfms"`
-	Wfjfs   *model.NumericComparisonExp `json:"wfjfs"`
-	FkjeMin *model.NumericComparisonExp `json:"fkje_min"`
-	FkjeMax *model.NumericComparisonExp `json:"fkje_max"`
-	Xh      *model.StringComparisonExp  `json:"xh"`
-}
-
-// input type for incrementing integer column in table "vio_codewfdm"
-type VioCodewfdmIncInput struct {
-	Wfjfs   *float64 `json:"wfjfs"`
-	FkjeMin *float64 `json:"fkje_min"`
-	FkjeMax *float64 `json:"fkje_max"`
-}
-
-// input type for inserting data into table "vio_codewfdm"
-type VioCodewfdmInsertInput struct {
-	Wfms    *string  `json:"wfms"`
-	Wfjfs   *float64 `json:"wfjfs"`
-	FkjeMin *float64 `json:"fkje_min"`
-	FkjeMax *float64 `json:"fkje_max"`
-	Xh      *string  `json:"xh"`
-}
-
-// aggregate max on columns of table "vio_codewfdm"
-type VioCodewfdmMaxFields struct {
-	Wfxw    *string  `json:"wfxw"`
-	Wfms    *string  `json:"wfms"`
-	Wfjfs   *float64 `json:"wfjfs"`
-	FkjeMin *float64 `json:"fkje_min"`
-	FkjeMax *float64 `json:"fkje_max"`
-	Xh      *string  `json:"xh"`
-}
-
-// aggregate min on columns of table "vio_codewfdm"
-type VioCodewfdmMinFields struct {
-	Wfxw    *string  `json:"wfxw"`
-	Wfms    *string  `json:"wfms"`
-	Wfjfs   *float64 `json:"wfjfs"`
-	FkjeMin *float64 `json:"fkje_min"`
-	FkjeMax *float64 `json:"fkje_max"`
-	Xh      *string  `json:"xh"`
-}
-
-// response of any mutation on the table "vio_codewfdm"
-type VioCodewfdmMutationResponse struct {
-	AffectedRows int                   `json:"affected_rows"`
-	Returning    []*model1.VioCodewfdm `json:"returning"`
-}
-
-// ordering options when selecting data from "vio_codewfdm"
-type VioCodewfdmOrderBy struct {
-	Wfxw    *model.OrderBy `json:"wfxw"`
-	Wfms    *model.OrderBy `json:"wfms"`
-	Wfjfs   *model.OrderBy `json:"wfjfs"`
-	FkjeMin *model.OrderBy `json:"fkje_min"`
-	FkjeMax *model.OrderBy `json:"fkje_max"`
-	Xh      *model.OrderBy `json:"xh"`
-}
-
-// input type for updating data in table "vio_codewfdm"
-type VioCodewfdmSetInput struct {
-	Wfxw    *string  `json:"wfxw"`
-	Wfms    *string  `json:"wfms"`
-	Wfjfs   *float64 `json:"wfjfs"`
-	FkjeMin *float64 `json:"fkje_min"`
-	FkjeMax *float64 `json:"fkje_max"`
-	Xh      *string  `json:"xh"`
-}
-
-// aggregate stddev on columns of table "vio_codewfdm"
-type VioCodewfdmStddevFields struct {
-	Wfjfs   *float64 `json:"wfjfs"`
-	FkjeMin *float64 `json:"fkje_min"`
-	FkjeMax *float64 `json:"fkje_max"`
-}
-
-// aggregate stddev_pop on columns of table "vio_codewfdm"
-type VioCodewfdmStddevPopFields struct {
-	Wfjfs   *float64 `json:"wfjfs"`
-	FkjeMin *float64 `json:"fkje_min"`
-	FkjeMax *float64 `json:"fkje_max"`
-}
-
-// aggregate stddev_samp on columns of table "vio_codewfdm"
-type VioCodewfdmStddevSampFields struct {
-	Wfjfs   *float64 `json:"wfjfs"`
-	FkjeMin *float64 `json:"fkje_min"`
-	FkjeMax *float64 `json:"fkje_max"`
-}
-
-// aggregate sum on columns of table "vio_codewfdm"
-type VioCodewfdmSumFields struct {
-	Wfjfs   *float64 `json:"wfjfs"`
-	FkjeMin *float64 `json:"fkje_min"`
-	FkjeMax *float64 `json:"fkje_max"`
-}
-
-// aggregate var_pop on columns of table "vio_codewfdm"
-type VioCodewfdmVarPopFields struct {
-	Wfjfs   *float64 `json:"wfjfs"`
-	FkjeMin *float64 `json:"fkje_min"`
-	FkjeMax *float64 `json:"fkje_max"`
-}
-
-// aggregate var_samp on columns of table "vio_codewfdm"
-type VioCodewfdmVarSampFields struct {
-	Wfjfs   *float64 `json:"wfjfs"`
-	FkjeMin *float64 `json:"fkje_min"`
-	FkjeMax *float64 `json:"fkje_max"`
-}
-
-// aggregate variance on columns of table "vio_codewfdm"
-type VioCodewfdmVarianceFields struct {
-	Wfjfs   *float64 `json:"wfjfs"`
-	FkjeMin *float64 `json:"fkje_min"`
-	FkjeMax *float64 `json:"fkje_max"`
-}
-
 // aggregated selection of "violation_registration"
 type ViolationRegistrationAggregate struct {
 	Aggregate *ViolationRegistrationAggregateFields `json:"aggregate"`
@@ -1995,31 +1870,34 @@ type ViolationRegistrationIncInput struct {
 
 // input type for inserting data into table "violation_registration"
 type ViolationRegistrationInsertInput struct {
-	VehicleID          *string    `json:"vehicle_id"`
-	LicensePlateNumber *string    `json:"license_plate_number"`
-	IDCardNum          *string    `json:"id_card_num"`
-	Name               *string    `json:"name"`
-	Location           *string    `json:"location"`
-	Cause              *string    `json:"cause"`
-	IllegalTime        *time.Time `json:"illegal_time"`
-	Operator           *string    `json:"operator"`
-	IllegalArea        *string    `json:"illegal_area"`
-	IllegalCode        *string    `json:"illegal_code"`
-	VehicleArea        *string    `json:"vehicle_area"`
-	VehicleEnterprise  *string    `json:"vehicle_enterprise"`
-	ProvinceID         *string    `json:"province_id"`
-	CityID             *string    `json:"city_id"`
-	DistrictID         *string    `json:"district_id"`
-	Supervisor         *string    `json:"supervisor"`
-	SupervisionTime    *string    `json:"supervision_time"`
-	SepervisionRemarks *string    `json:"sepervision_remarks"`
-	IsSupervised       *string    `json:"is_supervised"`
-	IsAccident         *string    `json:"is_accident"`
-	IsDeleted          *bool      `json:"is_deleted"`
-	UpdatedAt          *time.Time `json:"updated_at"`
-	UpdatedBy          *string    `json:"updated_by"`
-	DeletedAt          *time.Time `json:"deleted_at"`
-	DeletedBy          *string    `json:"deleted_by"`
+	ViolationRegistrationID string     `json:"violation_registration_id"`
+	VehicleID               *string    `json:"vehicle_id"`
+	LicensePlateNumber      *string    `json:"license_plate_number"`
+	IDCardNum               *string    `json:"id_card_num"`
+	Name                    *string    `json:"name"`
+	Location                *string    `json:"location"`
+	Cause                   *string    `json:"cause"`
+	IllegalTime             *time.Time `json:"illegal_time"`
+	Operator                *string    `json:"operator"`
+	IllegalArea             *string    `json:"illegal_area"`
+	IllegalCode             *string    `json:"illegal_code"`
+	VehicleArea             *string    `json:"vehicle_area"`
+	VehicleEnterprise       *string    `json:"vehicle_enterprise"`
+	ProvinceID              *string    `json:"province_id"`
+	CityID                  *string    `json:"city_id"`
+	DistrictID              *string    `json:"district_id"`
+	Supervisor              *string    `json:"supervisor"`
+	SupervisionTime         *string    `json:"supervision_time"`
+	SepervisionRemarks      *string    `json:"sepervision_remarks"`
+	IsSupervised            *string    `json:"is_supervised"`
+	IsAccident              *string    `json:"is_accident"`
+	IsDeleted               *bool      `json:"is_deleted"`
+	CreatedAt               time.Time  `json:"created_at"`
+	CreatedBy               string     `json:"created_by"`
+	UpdatedAt               *time.Time `json:"updated_at"`
+	UpdatedBy               *string    `json:"updated_by"`
+	DeletedAt               *time.Time `json:"deleted_at"`
+	DeletedBy               *string    `json:"deleted_by"`
 }
 
 // aggregate max on columns of table "violation_registration"
@@ -2948,62 +2826,6 @@ func (e *VehicleViolationScoringRecordSelectColumn) UnmarshalGQL(v interface{}) 
 }
 
 func (e VehicleViolationScoringRecordSelectColumn) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
-}
-
-// 可选select
-type VioCodewfdmSelectColumn string
-
-const (
-	// 违法行为
-	VioCodewfdmSelectColumnWfxw VioCodewfdmSelectColumn = "wfxw"
-	// 违法描述
-	VioCodewfdmSelectColumnWfms VioCodewfdmSelectColumn = "wfms"
-	// 违法计分数
-	VioCodewfdmSelectColumnWfjfs VioCodewfdmSelectColumn = "wfjfs"
-	// 最小罚款金额
-	VioCodewfdmSelectColumnFkjeMin VioCodewfdmSelectColumn = "fkje_min"
-	// 最大罚款金额
-	VioCodewfdmSelectColumnFkjeMax VioCodewfdmSelectColumn = "fkje_max"
-	// 序号
-	VioCodewfdmSelectColumnXh VioCodewfdmSelectColumn = "xh"
-)
-
-var AllVioCodewfdmSelectColumn = []VioCodewfdmSelectColumn{
-	VioCodewfdmSelectColumnWfxw,
-	VioCodewfdmSelectColumnWfms,
-	VioCodewfdmSelectColumnWfjfs,
-	VioCodewfdmSelectColumnFkjeMin,
-	VioCodewfdmSelectColumnFkjeMax,
-	VioCodewfdmSelectColumnXh,
-}
-
-func (e VioCodewfdmSelectColumn) IsValid() bool {
-	switch e {
-	case VioCodewfdmSelectColumnWfxw, VioCodewfdmSelectColumnWfms, VioCodewfdmSelectColumnWfjfs, VioCodewfdmSelectColumnFkjeMin, VioCodewfdmSelectColumnFkjeMax, VioCodewfdmSelectColumnXh:
-		return true
-	}
-	return false
-}
-
-func (e VioCodewfdmSelectColumn) String() string {
-	return string(e)
-}
-
-func (e *VioCodewfdmSelectColumn) UnmarshalGQL(v interface{}) error {
-	str, ok := v.(string)
-	if !ok {
-		return fmt.Errorf("enums must be strings")
-	}
-
-	*e = VioCodewfdmSelectColumn(str)
-	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid VioCodewfdmSelectColumn", str)
-	}
-	return nil
-}
-
-func (e VioCodewfdmSelectColumn) MarshalGQL(w io.Writer) {
 	fmt.Fprint(w, strconv.Quote(e.String()))
 }
 

@@ -235,12 +235,16 @@ input VehicleStatusChangeLogBoolExp {
 input type for inserting data into table "vehicle_status_change_log"
 """
 input VehicleStatusChangeLogInsertInput {
+	vehicle_status_change_log_id: String!
+	vehicle_id: String!
 	terminal_id: String
 	start_time: Timestamptz
 	end_time: Timestamptz
 	vehicle_status_type: Int
 	value: String
 	is_completed: Boolean
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -351,6 +355,10 @@ extend type Query {
 	主键查询
 	"""
 	vehicle_status_change_log_by_pk(id: Bigint!): VehicleStatusChangeLog!
+	"""
+	联合主键查询
+	"""
+	vehicle_status_change_log_by_union_pk(vehicle_status_change_log_id: String!): VehicleStatusChangeLog!
 }
 extend type Mutation {
 	"""
@@ -374,7 +382,15 @@ extend type Mutation {
 	"""
 	update_vehicle_status_change_log(_inc: VehicleStatusChangeLogIncInput, _set: VehicleStatusChangeLogSetInput, where: VehicleStatusChangeLogBoolExp!): VehicleStatusChangeLogMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_vehicle_status_change_log_by_pk(_inc: VehicleStatusChangeLogIncInput, _set: VehicleStatusChangeLogSetInput, id: Bigint!): VehicleStatusChangeLog
+	"""
+	根据联合主键更新
+	"""
+	update_vehicle_status_change_log_by_union_pk(_inc: VehicleStatusChangeLogIncInput, _set: VehicleStatusChangeLogSetInput, vehicle_status_change_log_id: String!): VehicleStatusChangeLog
+	"""
+	根据联合主键删除记录
+	"""
+	delete_vehicle_status_change_log_by_union_pk(vehicle_status_change_log_id: String!): VehicleStatusChangeLog
 }

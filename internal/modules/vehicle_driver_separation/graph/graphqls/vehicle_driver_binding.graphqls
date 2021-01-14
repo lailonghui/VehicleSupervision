@@ -203,9 +203,12 @@ input VehicleDriverBindingBoolExp {
 input type for inserting data into table "vehicle_driver_binding"
 """
 input VehicleDriverBindingInsertInput {
+	vehicle_driver_binding_id: String!
 	driver_id: String
 	vehicle_id: String
 	remarks: String
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -301,6 +304,10 @@ extend type Query {
 	主键查询
 	"""
 	vehicle_driver_binding_by_pk(id: Bigint!): VehicleDriverBinding!
+	"""
+	联合主键查询
+	"""
+	vehicle_driver_binding_by_union_pk(vehicle_driver_binding_id: String!): VehicleDriverBinding!
 }
 extend type Mutation {
 	"""
@@ -324,7 +331,15 @@ extend type Mutation {
 	"""
 	update_vehicle_driver_binding(_inc: VehicleDriverBindingIncInput, _set: VehicleDriverBindingSetInput, where: VehicleDriverBindingBoolExp!): VehicleDriverBindingMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_vehicle_driver_binding_by_pk(_inc: VehicleDriverBindingIncInput, _set: VehicleDriverBindingSetInput, id: Bigint!): VehicleDriverBinding
+	"""
+	根据联合主键更新
+	"""
+	update_vehicle_driver_binding_by_union_pk(_inc: VehicleDriverBindingIncInput, _set: VehicleDriverBindingSetInput, vehicle_driver_binding_id: String!): VehicleDriverBinding
+	"""
+	根据联合主键删除记录
+	"""
+	delete_vehicle_driver_binding_by_union_pk(vehicle_driver_binding_id: String!): VehicleDriverBinding
 }

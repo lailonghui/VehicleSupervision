@@ -79,6 +79,7 @@ type DynamicSpotCheckDisposalIncInput struct {
 
 // input type for inserting data into table "dynamic_spot_check_disposal"
 type DynamicSpotCheckDisposalInsertInput struct {
+	VehicleID                     string     `json:"vehicle_id"`
 	EnterpriseID                  *string    `json:"enterprise_id"`
 	Telephone                     *string    `json:"telephone"`
 	SendTime                      *time.Time `json:"send_time"`
@@ -98,6 +99,8 @@ type DynamicSpotCheckDisposalInsertInput struct {
 	DisposalMethod                *int       `json:"disposal_method"`
 	DisposalResult                *string    `json:"disposal_result"`
 	IsDeleted                     *bool      `json:"is_deleted"`
+	CreatedAt                     time.Time  `json:"created_at"`
+	CreatedBy                     string     `json:"created_by"`
 	UpdatedAt                     *time.Time `json:"updated_at"`
 	UpdatedBy                     *string    `json:"updated_by"`
 	DeletedAt                     *time.Time `json:"deleted_at"`
@@ -448,6 +451,7 @@ type DynamicSupervisionDetailIncInput struct {
 
 // input type for inserting data into table "dynamic_supervision_detail"
 type DynamicSupervisionDetailInsertInput struct {
+	SupervisionDetailID          string     `json:"supervision_detail_id"`
 	SupervisionID                *string    `json:"supervision_id"`
 	DriverID                     *string    `json:"driver_id"`
 	EnterpriseID                 *string    `json:"enterprise_id"`
@@ -501,6 +505,8 @@ type DynamicSupervisionDetailInsertInput struct {
 	DisposalResults6             *string    `json:"disposal_results6"`
 	DisposalResults7             *string    `json:"disposal_results7"`
 	IsDeleted                    *bool      `json:"is_deleted"`
+	CreatedAt                    time.Time  `json:"created_at"`
+	CreatedBy                    string     `json:"created_by"`
 	UpdatedAt                    *time.Time `json:"updated_at"`
 	UpdatedBy                    *string    `json:"updated_by"`
 	DeletedAt                    *time.Time `json:"deleted_at"`
@@ -864,6 +870,7 @@ type DynamicSupervisionIncInput struct {
 
 // input type for inserting data into table "dynamic_supervision"
 type DynamicSupervisionInsertInput struct {
+	SupervisionID        string     `json:"supervision_id"`
 	SpotCheckDate        *time.Time `json:"spot_check_date"`
 	SpotCheckTotalNumber *int       `json:"spot_check_total_number"`
 	SpotCheckNumber      *int       `json:"spot_check_number"`
@@ -876,6 +883,8 @@ type DynamicSupervisionInsertInput struct {
 	Year                 *int       `json:"year"`
 	Month                *int       `json:"month"`
 	Day                  *int       `json:"day"`
+	CreatedAt            time.Time  `json:"created_at"`
+	CreatedBy            string     `json:"created_by"`
 	UpdatedAt            *time.Time `json:"updated_at"`
 	UpdatedBy            *string    `json:"updated_by"`
 	DeletedAt            *time.Time `json:"deleted_at"`
@@ -1131,6 +1140,8 @@ type MuckTruckOnlineIncInput struct {
 
 // input type for inserting data into table "muck_truck_online"
 type MuckTruckOnlineInsertInput struct {
+	MuckTruckOnlineID       string     `json:"muck_truck_online_id"`
+	VehicleID               string     `json:"vehicle_id"`
 	IsOnline                *bool      `json:"is_online"`
 	IsPay                   *bool      `json:"is_pay"`
 	IsGpsOnline             *bool      `json:"is_gps_online"`
@@ -1141,6 +1152,8 @@ type MuckTruckOnlineInsertInput struct {
 	LocationTime            *time.Time `json:"location_time"`
 	SelfNumber              *string    `json:"self_number"`
 	Area                    *string    `json:"area"`
+	CreatedAt               time.Time  `json:"created_at"`
+	CreatedBy               string     `json:"created_by"`
 	UpdatedAt               *time.Time `json:"updated_at"`
 	UpdatedBy               *string    `json:"updated_by"`
 	DeletedAt               *time.Time `json:"deleted_at"`
@@ -1329,12 +1342,15 @@ type RegionIssuedIncInput struct {
 
 // input type for inserting data into table "region_issued"
 type RegionIssuedInsertInput struct {
-	RegionName *string    `json:"region_name"`
-	Imel       *string    `json:"imel"`
-	UpdatedAt  *time.Time `json:"updated_at"`
-	UpdatedBy  *string    `json:"updated_by"`
-	DeletedAt  *time.Time `json:"deleted_at"`
-	DeletedBy  *string    `json:"deleted_by"`
+	RegionIssuedID string     `json:"region_issued_id"`
+	RegionName     *string    `json:"region_name"`
+	Imel           *string    `json:"imel"`
+	CreatedAt      time.Time  `json:"created_at"`
+	CreatedBy      string     `json:"created_by"`
+	UpdatedAt      *time.Time `json:"updated_at"`
+	UpdatedBy      *string    `json:"updated_by"`
+	DeletedAt      *time.Time `json:"deleted_at"`
+	DeletedBy      *string    `json:"deleted_by"`
 }
 
 // aggregate max on columns of table "region_issued"
@@ -1500,23 +1516,26 @@ type RegionManagementIncInput struct {
 
 // input type for inserting data into table "region_management"
 type RegionManagementInsertInput struct {
-	RegionID         *string    `json:"region_id"`
-	RegionName       *string    `json:"region_name"`
-	RegionType       *string    `json:"region_type"`
-	RegionNature     *string    `json:"region_nature"`
-	AlarmBeginTime   *time.Time `json:"alarm_begin_time"`
-	AlarmEndTime     *time.Time `json:"alarm_end_time"`
-	EnterpriseName   *string    `json:"enterprise_name"`
-	Duration         *int       `json:"duration_"`
-	MaxSpeed         *int       `json:"max_speed"`
-	CircleRadius     *int       `json:"circle_radius"`
-	RegionCoordinate *string    `json:"region_coordinate"`
-	IsSuperRegion    *bool      `json:"is_super_region"`
-	IsDeleted        *bool      `json:"is_deleted"`
-	UpdatedAt        *time.Time `json:"updated_at"`
-	UpdatedBy        *string    `json:"updated_by"`
-	DeletedAt        *time.Time `json:"deleted_at"`
-	DeletedBy        *string    `json:"deleted_by"`
+	RegionManagementID string     `json:"region_management_id"`
+	RegionID           *string    `json:"region_id"`
+	RegionName         *string    `json:"region_name"`
+	RegionType         *string    `json:"region_type"`
+	RegionNature       *string    `json:"region_nature"`
+	AlarmBeginTime     *time.Time `json:"alarm_begin_time"`
+	AlarmEndTime       *time.Time `json:"alarm_end_time"`
+	EnterpriseName     *string    `json:"enterprise_name"`
+	Duration           *int       `json:"duration_"`
+	MaxSpeed           *int       `json:"max_speed"`
+	CircleRadius       *int       `json:"circle_radius"`
+	RegionCoordinate   *string    `json:"region_coordinate"`
+	IsSuperRegion      *bool      `json:"is_super_region"`
+	IsDeleted          *bool      `json:"is_deleted"`
+	CreatedAt          time.Time  `json:"created_at"`
+	CreatedBy          string     `json:"created_by"`
+	UpdatedAt          *time.Time `json:"updated_at"`
+	UpdatedBy          *string    `json:"updated_by"`
+	DeletedAt          *time.Time `json:"deleted_at"`
+	DeletedBy          *string    `json:"deleted_by"`
 }
 
 // aggregate max on columns of table "region_management"
@@ -1777,6 +1796,7 @@ type VehicleAlarmSupervisionIncInput struct {
 
 // input type for inserting data into table "vehicle_alarm_supervision"
 type VehicleAlarmSupervisionInsertInput struct {
+	VehicleAlarmSupervisionID         string     `json:"vehicle_alarm_supervision_id"`
 	SuperivisionAuthorityID           *string    `json:"superivision_authority_id"`
 	SuperivisionType                  *string    `json:"superivision_type"`
 	AreaID                            *string    `json:"area_id"`
@@ -1800,6 +1820,8 @@ type VehicleAlarmSupervisionInsertInput struct {
 	CheckAbnormalVehicleNumber        *int       `json:"check_abnormal_vehicle_number"`
 	AbnormalDisposalNumber            *int       `json:"abnormal_disposal_number"`
 	AbnormalDisposalRate              *float64   `json:"abnormal_disposal_rate"`
+	CreatedAt                         time.Time  `json:"created_at"`
+	CreatedBy                         string     `json:"created_by"`
 	UpdatedAt                         *time.Time `json:"updated_at"`
 	UpdatedBy                         *string    `json:"updated_by"`
 	DeletedAt                         *time.Time `json:"deleted_at"`
@@ -2138,20 +2160,24 @@ type VehicleAlarmTimesRecordIncInput struct {
 
 // input type for inserting data into table "vehicle_alarm_times_record"
 type VehicleAlarmTimesRecordInsertInput struct {
-	AlarmType       *string    `json:"alarm_type"`
-	DisposalMeasure *string    `json:"disposal_measure"`
-	DisposalTime    *time.Time `json:"disposal_time"`
-	DisposalResult  *string    `json:"disposal_result"`
-	IsDisposal      *bool      `json:"is_disposal"`
-	DisposalMethod  *int       `json:"disposal_method"`
-	DutyPerson      *string    `json:"duty_person"`
-	AlarmTimes      *string    `json:"alarm_times"`
-	Remarks         *string    `json:"remarks"`
-	RecordTime      *time.Time `json:"record_time"`
-	UpdatedAt       *time.Time `json:"updated_at"`
-	UpdatedBy       *string    `json:"updated_by"`
-	DeletedAt       *time.Time `json:"deleted_at"`
-	DeletedBy       *string    `json:"deleted_by"`
+	VehicleAlarmTimesRecordID string     `json:"vehicle_alarm_times_record_id"`
+	VehicleID                 string     `json:"vehicle_id"`
+	AlarmType                 *string    `json:"alarm_type"`
+	DisposalMeasure           *string    `json:"disposal_measure"`
+	DisposalTime              *time.Time `json:"disposal_time"`
+	DisposalResult            *string    `json:"disposal_result"`
+	IsDisposal                *bool      `json:"is_disposal"`
+	DisposalMethod            *int       `json:"disposal_method"`
+	DutyPerson                *string    `json:"duty_person"`
+	AlarmTimes                *string    `json:"alarm_times"`
+	Remarks                   *string    `json:"remarks"`
+	RecordTime                *time.Time `json:"record_time"`
+	CreatedAt                 time.Time  `json:"created_at"`
+	CreatedBy                 string     `json:"created_by"`
+	UpdatedAt                 *time.Time `json:"updated_at"`
+	UpdatedBy                 *string    `json:"updated_by"`
+	DeletedAt                 *time.Time `json:"deleted_at"`
+	DeletedBy                 *string    `json:"deleted_by"`
 }
 
 // aggregate max on columns of table "vehicle_alarm_times_record"
@@ -2356,25 +2382,28 @@ type VehicleOfflineDisposalIncInput struct {
 
 // input type for inserting data into table "vehicle_offline_disposal"
 type VehicleOfflineDisposalInsertInput struct {
-	EnterpriseID        *string    `json:"enterprise_id"`
-	Telephone           *string    `json:"telephone"`
-	Content             *string    `json:"content"`
-	SendTime            *time.Time `json:"send_time"`
-	UserID              *string    `json:"user_id"`
-	IsSmsPush           *bool      `json:"is_sms_push"`
-	IsReport            *bool      `json:"is_report"`
-	IsVoiceNotification *bool      `json:"is_voice_notification"`
-	IsAppPush           *bool      `json:"is_app_push"`
-	NotificationContent *string    `json:"notification_content"`
-	VoiceContent        *string    `json:"voice_content"`
-	AppPushContent      *string    `json:"app_push_content"`
-	SupervisionDetailID *string    `json:"supervision_detail_id"`
-	DisposalMethod      *string    `json:"disposal_method"`
-	IsDeleted           *bool      `json:"is_deleted"`
-	UpdatedAt           *time.Time `json:"updated_at"`
-	UpdatedBy           *string    `json:"updated_by"`
-	DeletedAt           *time.Time `json:"deleted_at"`
-	DeletedBy           *string    `json:"deleted_by"`
+	VehicleOfflineDisposalID string     `json:"vehicle_offline_disposal_id"`
+	EnterpriseID             *string    `json:"enterprise_id"`
+	Telephone                *string    `json:"telephone"`
+	Content                  *string    `json:"content"`
+	SendTime                 *time.Time `json:"send_time"`
+	UserID                   *string    `json:"user_id"`
+	IsSmsPush                *bool      `json:"is_sms_push"`
+	IsReport                 *bool      `json:"is_report"`
+	IsVoiceNotification      *bool      `json:"is_voice_notification"`
+	IsAppPush                *bool      `json:"is_app_push"`
+	NotificationContent      *string    `json:"notification_content"`
+	VoiceContent             *string    `json:"voice_content"`
+	AppPushContent           *string    `json:"app_push_content"`
+	SupervisionDetailID      *string    `json:"supervision_detail_id"`
+	DisposalMethod           *string    `json:"disposal_method"`
+	IsDeleted                *bool      `json:"is_deleted"`
+	CreatedAt                time.Time  `json:"created_at"`
+	CreatedBy                string     `json:"created_by"`
+	UpdatedAt                *time.Time `json:"updated_at"`
+	UpdatedBy                *string    `json:"updated_by"`
+	DeletedAt                *time.Time `json:"deleted_at"`
+	DeletedBy                *string    `json:"deleted_by"`
 }
 
 // aggregate max on columns of table "vehicle_offline_disposal"

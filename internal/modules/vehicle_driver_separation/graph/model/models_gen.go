@@ -65,6 +65,7 @@ type CaseApprovalReviewCallIncInput struct {
 
 // input type for inserting data into table "case_approval_review_call"
 type CaseApprovalReviewCallInsertInput struct {
+	CaseApprovalReviewCallID      string     `json:"case_approval_review_call_id"`
 	CaseApprovalReviewOperationID *string    `json:"case_approval_review_operation_id"`
 	TelephoneNumber               *string    `json:"telephone_number"`
 	DialTime                      *time.Time `json:"dial_time"`
@@ -72,6 +73,8 @@ type CaseApprovalReviewCallInsertInput struct {
 	InformContent                 *string    `json:"inform_content"`
 	Reviewer                      *string    `json:"reviewer"`
 	ReviewTime                    *time.Time `json:"review_time"`
+	CreatedAt                     time.Time  `json:"created_at"`
+	CreatedBy                     string     `json:"created_by"`
 	UpdatedAt                     *time.Time `json:"updated_at"`
 	UpdatedBy                     *string    `json:"updated_by"`
 	DeletedAt                     *time.Time `json:"deleted_at"`
@@ -246,14 +249,17 @@ type CaseApprovalReviewOperationIncInput struct {
 
 // input type for inserting data into table "case_approval_review_operation"
 type CaseApprovalReviewOperationInsertInput struct {
-	ReviewOpinion *string    `json:"review_opinion"`
-	ReviewResult  *string    `json:"review_result"`
-	Reviewer      *string    `json:"reviewer"`
-	ReviewTime    *time.Time `json:"review_time"`
-	UpdatedAt     *time.Time `json:"updated_at"`
-	UpdatedBy     *string    `json:"updated_by"`
-	DeletedAt     *time.Time `json:"deleted_at"`
-	DeletedBy     *string    `json:"deleted_by"`
+	CaseApprovalReviewOperationID string     `json:"case_approval_review_operation_id"`
+	ReviewOpinion                 *string    `json:"review_opinion"`
+	ReviewResult                  *string    `json:"review_result"`
+	Reviewer                      *string    `json:"reviewer"`
+	ReviewTime                    *time.Time `json:"review_time"`
+	CreatedAt                     time.Time  `json:"created_at"`
+	CreatedBy                     string     `json:"created_by"`
+	UpdatedAt                     *time.Time `json:"updated_at"`
+	UpdatedBy                     *string    `json:"updated_by"`
+	DeletedAt                     *time.Time `json:"deleted_at"`
+	DeletedBy                     *string    `json:"deleted_by"`
 }
 
 // aggregate max on columns of table "case_approval_review_operation"
@@ -430,6 +436,7 @@ type DisputeViolationRecordIncInput struct {
 
 // input type for inserting data into table "dispute_violation_record"
 type DisputeViolationRecordInsertInput struct {
+	DisputeViolationID          string     `json:"dispute_violation_id"`
 	ViolationDetailID           *string    `json:"violation_detail_id"`
 	WrittenApplicationMaterials *string    `json:"written_application_materials"`
 	LaborContract               *string    `json:"labor_contract"`
@@ -449,6 +456,8 @@ type DisputeViolationRecordInsertInput struct {
 	ApproveState                *int       `json:"approve_state"`
 	UpdateTimeIn                *time.Time `json:"update_time_in"`
 	ContactAddress              *string    `json:"contact_address"`
+	CreatedAt                   time.Time  `json:"created_at"`
+	CreatedBy                   string     `json:"created_by"`
 	UpdatedAt                   *time.Time `json:"updated_at"`
 	UpdatedBy                   *string    `json:"updated_by"`
 	DeletedAt                   *time.Time `json:"deleted_at"`
@@ -505,14 +514,15 @@ type DisputeViolationRecordLogIncInput struct {
 
 // input type for inserting data into table "dispute_violation_record_log"
 type DisputeViolationRecordLogInsertInput struct {
-	DisputeViolationID *string    `json:"dispute_violation_id"`
-	Reviewer           *string    `json:"reviewer"`
-	ReviewTime         *time.Time `json:"review_time"`
-	ReviewOpinion      *string    `json:"review_opinion"`
-	ReviewResult       *string    `json:"review_result"`
-	ReviewActionName   *string    `json:"review_action_name"`
-	Approver           *string    `json:"approver"`
-	UpdateTimeIn       *string    `json:"update_time_in"`
+	DisputeViolationLogID string     `json:"dispute_violation_log_id"`
+	DisputeViolationID    *string    `json:"dispute_violation_id"`
+	Reviewer              *string    `json:"reviewer"`
+	ReviewTime            *time.Time `json:"review_time"`
+	ReviewOpinion         *string    `json:"review_opinion"`
+	ReviewResult          *string    `json:"review_result"`
+	ReviewActionName      *string    `json:"review_action_name"`
+	Approver              *string    `json:"approver"`
+	UpdateTimeIn          *string    `json:"update_time_in"`
 }
 
 // aggregate max on columns of table "dispute_violation_record_log"
@@ -851,6 +861,7 @@ type DrivingLogInfoIncInput struct {
 
 // input type for inserting data into table "driving_log_info"
 type DrivingLogInfoInsertInput struct {
+	DrivingLogInfoID string     `json:"driving_log_info_id"`
 	VehicleID        *string    `json:"vehicle_id"`
 	DriverID         *string    `json:"driver_id"`
 	DrivingStartTime *time.Time `json:"driving_start_time"`
@@ -863,6 +874,8 @@ type DrivingLogInfoInsertInput struct {
 	ReviewStatus     *int       `json:"review_status"`
 	ReviewAgecyLevel *int       `json:"review_agecy_level"`
 	IsMarkup         *bool      `json:"is_markup"`
+	CreatedAt        time.Time  `json:"created_at"`
+	CreatedBy        string     `json:"created_by"`
 	UpdatedAt        *time.Time `json:"updated_at"`
 	UpdatedBy        *string    `json:"updated_by"`
 	DeletedAt        *time.Time `json:"deleted_at"`
@@ -1071,14 +1084,17 @@ type VehicleDriverBindingIncInput struct {
 
 // input type for inserting data into table "vehicle_driver_binding"
 type VehicleDriverBindingInsertInput struct {
-	DriverID  *string    `json:"driver_id"`
-	VehicleID *string    `json:"vehicle_id"`
-	Remarks   *string    `json:"remarks"`
-	UpdatedAt *time.Time `json:"updated_at"`
-	UpdatedBy *string    `json:"updated_by"`
-	DeletedAt *time.Time `json:"deleted_at"`
-	DeletedBy *string    `json:"deleted_by"`
-	IsDeleted *bool      `json:"is_deleted"`
+	VehicleDriverBindingID string     `json:"vehicle_driver_binding_id"`
+	DriverID               *string    `json:"driver_id"`
+	VehicleID              *string    `json:"vehicle_id"`
+	Remarks                *string    `json:"remarks"`
+	CreatedAt              time.Time  `json:"created_at"`
+	CreatedBy              string     `json:"created_by"`
+	UpdatedAt              *time.Time `json:"updated_at"`
+	UpdatedBy              *string    `json:"updated_by"`
+	DeletedAt              *time.Time `json:"deleted_at"`
+	DeletedBy              *string    `json:"deleted_by"`
+	IsDeleted              *bool      `json:"is_deleted"`
 }
 
 // aggregate max on columns of table "vehicle_driver_binding"

@@ -1,24 +1,162 @@
 package model
 
 import (
+	"VehicleSupervision/internal/cache"
 	"VehicleSupervision/internal/db"
+	"VehicleSupervision/internal/server/middle"
+	"VehicleSupervision/pkg/logger"
+	"context"
+	"sync"
 	"time"
+
+	"go.uber.org/zap"
+	"gorm.io/gorm"
 )
 
-// go:generate go run github.com/vektah/dataloaden ViolationRegistrationLoader string *VehicleSupervision/internal/modules/vehicle_violation/model.ViolationRegistration
+//go:generate go run github.com/vektah/dataloaden ViolationRegistrationUnionPkLoader string *VehicleSupervision/internal/modules/vehicle_violation/model.ViolationRegistration
 
-func (t ViolationRegistration) TableName() string {
+// 数据库表名
+func (t *ViolationRegistration) TableName() string {
 	return "violation_registration"
 }
 
-func (t *ViolationRegistration) NewLoader() *ViolationRegistrationLoader {
-	return &ViolationRegistrationLoader{
+// 主键列名
+func (t *ViolationRegistration) PrimaryColumnName() string {
+	return "id"
+}
+
+// 获取主键
+func (t *ViolationRegistration) GetPrimary() int64 {
+	return t.ID
+}
+
+// 新建主键dataloader
+func (t *ViolationRegistrationPkLoader) NewLoader(ctx context.Context) *ViolationRegistrationPkLoader {
+	return &ViolationRegistrationPkLoader{
 		wait:     2 * time.Millisecond,
 		maxBatch: 100,
 		fetch: func(keys []string) ([]*ViolationRegistration, []error) {
-			var rs []*ViolationRegistration
-			// TODO 按实际需要实现
-			db.DB.Model(&ViolationRegistration{}).Where("id in ?", keys).Find(&rs)
+			var rs []*ViolationRegistration = make([]*ViolationRegistration, len(keys))
+			var m ViolationRegistration
+			wg := sync.WaitGroup{}
+			if middle.IsEnableGqlCache(ctx) {
+				// 如果启用缓存，则从缓存中查询数据
+				cacheAspect, cacheErr := cache.GetGqlCacheAspect(m.TableName())
+				for i := range keys {
+					wg.Add(1)
+					go func(i int) {
+
+						defer wg.Done()
+						logger.Info("dataloader获取值", zap.Int("i", i))
+						// 如果启用缓存，则从缓存中查询数据
+						var entity ViolationRegistration
+						cacheKey := keys[i]
+						if cacheErr == nil {
+							exist, err := cacheAspect.OnPkQuery(ctx, cacheKey, &entity)
+							logger.Info("dataloader获取缓存值", zap.Error(err), zap.Bool("exist", exist), zap.Any("entity", entity))
+							if err != nil {
+								return
+							}
+							if exist {
+								if entity.GetPrimary() != 0 {
+									rs[i] = &entity
+								}
+								return
+							}
+						}
+						// 缓存中找不到数据的话，查询数据库获取数据
+						tx := db.DB.Model(m).Where(m.PrimaryColumnName()+" = ?", keys[i]).First(&entity)
+						err := tx.Error
+						if err != nil {
+							if err == gorm.ErrRecordNotFound {
+								if cacheErr == nil {
+									_ = cacheAspect.SetNotExistPkQueryCache(ctx, cacheKey, "")
+								}
+								return
+							}
+							return
+						}
+						// 设置数据到缓存
+						if cacheErr == nil {
+							_ = cacheAspect.SetPkQueryCache(ctx, cacheKey, entity)
+						}
+						rs[i] = &entity
+					}(i)
+				}
+
+			}
+			wg.Wait()
+			return rs, nil
+		},
+	}
+}
+
+// 联合主键列名
+func (t *ViolationRegistration) UnionPrimaryColumnName() string {
+	return "violation_registration_id"
+}
+
+// 获取联合主键
+func (t *ViolationRegistration) GetUnionPrimary() string {
+	return t.ViolationRegistrationID
+}
+
+// 新建联合主键dataloader
+func (t *ViolationRegistrationUnionPkLoader) NewLoader(ctx context.Context) *ViolationRegistrationUnionPkLoader {
+	return &ViolationRegistrationUnionPkLoader{
+		wait:     2 * time.Millisecond,
+		maxBatch: 100,
+		fetch: func(keys []string) ([]*ViolationRegistration, []error) {
+			var rs []*ViolationRegistration = make([]*ViolationRegistration, len(keys))
+			var m ViolationRegistration
+			wg := sync.WaitGroup{}
+			if middle.IsEnableGqlCache(ctx) {
+				// 如果启用缓存，则从缓存中查询数据
+				cacheAspect, cacheErr := cache.GetGqlCacheAspect(m.TableName())
+				for i := range keys {
+					wg.Add(1)
+					go func(i int) {
+
+						defer wg.Done()
+						logger.Info("dataloader获取值", zap.Int("i", i))
+						// 如果启用缓存，则从缓存中查询数据
+						var entity ViolationRegistration
+						cacheKey := keys[i]
+						if cacheErr == nil {
+							exist, err := cacheAspect.OnUnionPkQuery(ctx, cacheKey, &entity)
+							logger.Info("dataloader获取缓存值", zap.Error(err), zap.Bool("exist", exist), zap.Any("entity", entity))
+							if err != nil {
+								return
+							}
+							if exist {
+								if entity.GetPrimary() != 0 {
+									rs[i] = &entity
+								}
+								return
+							}
+						}
+						// 缓存中找不到数据的话，查询数据库获取数据
+						tx := db.DB.Model(m).Where(m.UnionPrimaryColumnName()+" = ?", keys[i]).First(&entity)
+						err := tx.Error
+						if err != nil {
+							if err == gorm.ErrRecordNotFound {
+								if cacheErr == nil {
+									_ = cacheAspect.SetNotExistUnionPkQueryCache(ctx, cacheKey, "")
+								}
+								return
+							}
+							return
+						}
+						// 设置数据到缓存
+						if cacheErr == nil {
+							_ = cacheAspect.SetUnionPkQueryCache(ctx, cacheKey, entity)
+						}
+						rs[i] = &entity
+					}(i)
+				}
+
+			}
+			wg.Wait()
 			return rs, nil
 		},
 	}

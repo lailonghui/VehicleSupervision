@@ -227,12 +227,15 @@ input VideoPlatformAlarmTypeBoolExp {
 input type for inserting data into table "video_platform_alarm_type"
 """
 input VideoPlatformAlarmTypeInsertInput {
+	video_platform_alarm_type_id: String!
 	vehicle_alarm_data_id: Int
 	alarm_type: String
 	alarm_source: String
 	alarm_classify: String
 	alarm_code: String
 	is_deleted: Boolean
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -338,6 +341,10 @@ extend type Query {
 	主键查询
 	"""
 	video_platform_alarm_type_by_pk(id: Bigint!): VideoPlatformAlarmType!
+	"""
+	联合主键查询
+	"""
+	video_platform_alarm_type_by_union_pk(video_platform_alarm_type_id: String!): VideoPlatformAlarmType!
 }
 extend type Mutation {
 	"""
@@ -361,7 +368,15 @@ extend type Mutation {
 	"""
 	update_video_platform_alarm_type(_inc: VideoPlatformAlarmTypeIncInput, _set: VideoPlatformAlarmTypeSetInput, where: VideoPlatformAlarmTypeBoolExp!): VideoPlatformAlarmTypeMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_video_platform_alarm_type_by_pk(_inc: VideoPlatformAlarmTypeIncInput, _set: VideoPlatformAlarmTypeSetInput, id: Bigint!): VideoPlatformAlarmType
+	"""
+	根据联合主键更新
+	"""
+	update_video_platform_alarm_type_by_union_pk(_inc: VideoPlatformAlarmTypeIncInput, _set: VideoPlatformAlarmTypeSetInput, video_platform_alarm_type_id: String!): VideoPlatformAlarmType
+	"""
+	根据联合主键删除记录
+	"""
+	delete_video_platform_alarm_type_by_union_pk(video_platform_alarm_type_id: String!): VideoPlatformAlarmType
 }

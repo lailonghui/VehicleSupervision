@@ -243,12 +243,16 @@ input VehicleOperationHistoryBoolExp {
 input type for inserting data into table "vehicle_operation_history"
 """
 input VehicleOperationHistoryInsertInput {
+	vehicle_operation_history_id: String!
+	vehicle_id: String!
 	remarks: String
 	operation_type: Int
 	operator: String
 	review_status: Int
 	area: String
 	reviewer: String
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -360,6 +364,10 @@ extend type Query {
 	主键查询
 	"""
 	vehicle_operation_history_by_pk(id: Bigint!): VehicleOperationHistory!
+	"""
+	联合主键查询
+	"""
+	vehicle_operation_history_by_union_pk(vehicle_operation_history_id: String!): VehicleOperationHistory!
 }
 extend type Mutation {
 	"""
@@ -383,7 +391,15 @@ extend type Mutation {
 	"""
 	update_vehicle_operation_history(_inc: VehicleOperationHistoryIncInput, _set: VehicleOperationHistorySetInput, where: VehicleOperationHistoryBoolExp!): VehicleOperationHistoryMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_vehicle_operation_history_by_pk(_inc: VehicleOperationHistoryIncInput, _set: VehicleOperationHistorySetInput, id: Bigint!): VehicleOperationHistory
+	"""
+	根据联合主键更新
+	"""
+	update_vehicle_operation_history_by_union_pk(_inc: VehicleOperationHistoryIncInput, _set: VehicleOperationHistorySetInput, vehicle_operation_history_id: String!): VehicleOperationHistory
+	"""
+	根据联合主键删除记录
+	"""
+	delete_vehicle_operation_history_by_union_pk(vehicle_operation_history_id: String!): VehicleOperationHistory
 }

@@ -203,10 +203,13 @@ input IllegalPhotoBoolExp {
 input type for inserting data into table "illegal_photo"
 """
 input IllegalPhotoInsertInput {
+	illegal_photo_id: String!
 	picture_name: String
 	picture_address: String
 	is_synchronized: Boolean
 	is_deleted: Boolean
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -301,6 +304,10 @@ extend type Query {
 	主键查询
 	"""
 	illegal_photo_by_pk(id: Bigint!): IllegalPhoto!
+	"""
+	联合主键查询
+	"""
+	illegal_photo_by_union_pk(illegal_photo_id: String!): IllegalPhoto!
 }
 extend type Mutation {
 	"""
@@ -324,7 +331,15 @@ extend type Mutation {
 	"""
 	update_illegal_photo(_inc: IllegalPhotoIncInput, _set: IllegalPhotoSetInput, where: IllegalPhotoBoolExp!): IllegalPhotoMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_illegal_photo_by_pk(_inc: IllegalPhotoIncInput, _set: IllegalPhotoSetInput, id: Bigint!): IllegalPhoto
+	"""
+	根据联合主键更新
+	"""
+	update_illegal_photo_by_union_pk(_inc: IllegalPhotoIncInput, _set: IllegalPhotoSetInput, illegal_photo_id: String!): IllegalPhoto
+	"""
+	根据联合主键删除记录
+	"""
+	delete_illegal_photo_by_union_pk(illegal_photo_id: String!): IllegalPhoto
 }

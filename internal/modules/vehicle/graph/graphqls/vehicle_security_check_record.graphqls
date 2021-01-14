@@ -355,6 +355,8 @@ input VehicleSecurityCheckRecordBoolExp {
 input type for inserting data into table "vehicle_security_check_record"
 """
 input VehicleSecurityCheckRecordInsertInput {
+	vehicle_security_check_record_id: String!
+	vehicle_id: String!
 	enterprise_id: String
 	brake: Int
 	tire: Int
@@ -367,6 +369,8 @@ input VehicleSecurityCheckRecordInsertInput {
 	turn_signal: Int
 	brake_light: Int
 	last_check_time: Timestamptz
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -516,6 +520,10 @@ extend type Query {
 	主键查询
 	"""
 	vehicle_security_check_record_by_pk(id: Bigint!): VehicleSecurityCheckRecord!
+	"""
+	联合主键查询
+	"""
+	vehicle_security_check_record_by_union_pk(vehicle_security_check_record_id: String!): VehicleSecurityCheckRecord!
 }
 extend type Mutation {
 	"""
@@ -539,7 +547,15 @@ extend type Mutation {
 	"""
 	update_vehicle_security_check_record(_inc: VehicleSecurityCheckRecordIncInput, _set: VehicleSecurityCheckRecordSetInput, where: VehicleSecurityCheckRecordBoolExp!): VehicleSecurityCheckRecordMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_vehicle_security_check_record_by_pk(_inc: VehicleSecurityCheckRecordIncInput, _set: VehicleSecurityCheckRecordSetInput, id: Bigint!): VehicleSecurityCheckRecord
+	"""
+	根据联合主键更新
+	"""
+	update_vehicle_security_check_record_by_union_pk(_inc: VehicleSecurityCheckRecordIncInput, _set: VehicleSecurityCheckRecordSetInput, vehicle_security_check_record_id: String!): VehicleSecurityCheckRecord
+	"""
+	根据联合主键删除记录
+	"""
+	delete_vehicle_security_check_record_by_union_pk(vehicle_security_check_record_id: String!): VehicleSecurityCheckRecord
 }

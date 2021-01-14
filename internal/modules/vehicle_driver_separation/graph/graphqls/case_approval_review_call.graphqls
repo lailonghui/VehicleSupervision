@@ -227,6 +227,7 @@ input CaseApprovalReviewCallBoolExp {
 input type for inserting data into table "case_approval_review_call"
 """
 input CaseApprovalReviewCallInsertInput {
+	case_approval_review_call_id: String!
 	case_approval_review_operation_id: String
 	telephone_number: String
 	dial_time: Timestamptz
@@ -234,6 +235,8 @@ input CaseApprovalReviewCallInsertInput {
 	inform_content: String
 	reviewer: String
 	review_time: Timestamptz
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -343,6 +346,10 @@ extend type Query {
 	主键查询
 	"""
 	case_approval_review_call_by_pk(id: Bigint!): CaseApprovalReviewCall!
+	"""
+	联合主键查询
+	"""
+	case_approval_review_call_by_union_pk(case_approval_review_call_id: String!): CaseApprovalReviewCall!
 }
 extend type Mutation {
 	"""
@@ -366,7 +373,15 @@ extend type Mutation {
 	"""
 	update_case_approval_review_call(_inc: CaseApprovalReviewCallIncInput, _set: CaseApprovalReviewCallSetInput, where: CaseApprovalReviewCallBoolExp!): CaseApprovalReviewCallMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_case_approval_review_call_by_pk(_inc: CaseApprovalReviewCallIncInput, _set: CaseApprovalReviewCallSetInput, id: Bigint!): CaseApprovalReviewCall
+	"""
+	根据联合主键更新
+	"""
+	update_case_approval_review_call_by_union_pk(_inc: CaseApprovalReviewCallIncInput, _set: CaseApprovalReviewCallSetInput, case_approval_review_call_id: String!): CaseApprovalReviewCall
+	"""
+	根据联合主键删除记录
+	"""
+	delete_case_approval_review_call_by_union_pk(case_approval_review_call_id: String!): CaseApprovalReviewCall
 }

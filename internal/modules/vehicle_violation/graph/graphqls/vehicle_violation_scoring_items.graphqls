@@ -219,10 +219,13 @@ input VehicleViolationScoringItemsBoolExp {
 input type for inserting data into table "vehicle_violation_scoring_items"
 """
 input VehicleViolationScoringItemsInsertInput {
+	violation_scoring_item_id: String!
 	deduction_item_description: String
 	deduction_category: Int
 	demerit_points: Numeric
 	is_deleted: Boolean
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -342,7 +345,7 @@ extend type Mutation {
 	"""
 	update_vehicle_violation_scoring_items(_inc: VehicleViolationScoringItemsIncInput, _set: VehicleViolationScoringItemsSetInput, where: VehicleViolationScoringItemsBoolExp!): VehicleViolationScoringItemsMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_vehicle_violation_scoring_items_by_pk(_inc: VehicleViolationScoringItemsIncInput, _set: VehicleViolationScoringItemsSetInput, id: Bigint!): VehicleViolationScoringItems
 }

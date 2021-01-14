@@ -267,6 +267,8 @@ input DriverIdentityInfoReportBoolExp {
 input type for inserting data into table "driver_identity_info_report"
 """
 input DriverIdentityInfoReportInsertInput {
+	driver_identity_info_report_id: String!
+	vehicle_id: String!
 	ic_card_status: Int
 	operation_time: Timestamptz
 	driver_name: String
@@ -277,6 +279,8 @@ input DriverIdentityInfoReportInsertInput {
 	driver_license_name: String
 	license_expire_date: Timestamptz
 	registration_time: Timestamptz
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -407,6 +411,10 @@ extend type Query {
 	主键查询
 	"""
 	driver_identity_info_report_by_pk(id: Bigint!): DriverIdentityInfoReport!
+	"""
+	联合主键查询
+	"""
+	driver_identity_info_report_by_union_pk(driver_identity_info_report_id: String!): DriverIdentityInfoReport!
 }
 extend type Mutation {
 	"""
@@ -430,7 +438,15 @@ extend type Mutation {
 	"""
 	update_driver_identity_info_report(_inc: DriverIdentityInfoReportIncInput, _set: DriverIdentityInfoReportSetInput, where: DriverIdentityInfoReportBoolExp!): DriverIdentityInfoReportMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_driver_identity_info_report_by_pk(_inc: DriverIdentityInfoReportIncInput, _set: DriverIdentityInfoReportSetInput, id: Bigint!): DriverIdentityInfoReport
+	"""
+	根据联合主键更新
+	"""
+	update_driver_identity_info_report_by_union_pk(_inc: DriverIdentityInfoReportIncInput, _set: DriverIdentityInfoReportSetInput, driver_identity_info_report_id: String!): DriverIdentityInfoReport
+	"""
+	根据联合主键删除记录
+	"""
+	delete_driver_identity_info_report_by_union_pk(driver_identity_info_report_id: String!): DriverIdentityInfoReport
 }

@@ -299,6 +299,8 @@ input DriverFingerprintBoolExp {
 input type for inserting data into table "driver_fingerprint"
 """
 input DriverFingerprintInsertInput {
+	driver_fingerprint_id: String!
+	driver_id: String!
 	driver_name: String
 	user_id: String
 	signature: String
@@ -313,6 +315,8 @@ input DriverFingerprintInsertInput {
 	ternimal_id: String
 	is_success: Boolean
 	is_deleted: Boolean
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -463,6 +467,10 @@ extend type Query {
 	主键查询
 	"""
 	driver_fingerprint_by_pk(id: Bigint!): DriverFingerprint!
+	"""
+	联合主键查询
+	"""
+	driver_fingerprint_by_union_pk(driver_fingerprint_id: String!): DriverFingerprint!
 }
 extend type Mutation {
 	"""
@@ -486,7 +494,15 @@ extend type Mutation {
 	"""
 	update_driver_fingerprint(_inc: DriverFingerprintIncInput, _set: DriverFingerprintSetInput, where: DriverFingerprintBoolExp!): DriverFingerprintMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_driver_fingerprint_by_pk(_inc: DriverFingerprintIncInput, _set: DriverFingerprintSetInput, id: Bigint!): DriverFingerprint
+	"""
+	根据联合主键更新
+	"""
+	update_driver_fingerprint_by_union_pk(_inc: DriverFingerprintIncInput, _set: DriverFingerprintSetInput, driver_fingerprint_id: String!): DriverFingerprint
+	"""
+	根据联合主键删除记录
+	"""
+	delete_driver_fingerprint_by_union_pk(driver_fingerprint_id: String!): DriverFingerprint
 }

@@ -203,9 +203,13 @@ input CatalogNewVehicleRecordBoolExp {
 input type for inserting data into table "catalog_new_vehicle_record"
 """
 input CatalogNewVehicleRecordInsertInput {
+	catalog_new_vehicle_record_id: String!
+	vehicle_id: String!
 	terminal_id: String
 	reviewer: String
 	is_deleted: Boolean
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -300,6 +304,10 @@ extend type Query {
 	主键查询
 	"""
 	catalog_new_vehicle_record_by_pk(id: Bigint!): CatalogNewVehicleRecord!
+	"""
+	联合主键查询
+	"""
+	catalog_new_vehicle_record_by_union_pk(catalog_new_vehicle_record_id: String!): CatalogNewVehicleRecord!
 }
 extend type Mutation {
 	"""
@@ -323,7 +331,15 @@ extend type Mutation {
 	"""
 	update_catalog_new_vehicle_record(_inc: CatalogNewVehicleRecordIncInput, _set: CatalogNewVehicleRecordSetInput, where: CatalogNewVehicleRecordBoolExp!): CatalogNewVehicleRecordMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_catalog_new_vehicle_record_by_pk(_inc: CatalogNewVehicleRecordIncInput, _set: CatalogNewVehicleRecordSetInput, id: Bigint!): CatalogNewVehicleRecord
+	"""
+	根据联合主键更新
+	"""
+	update_catalog_new_vehicle_record_by_union_pk(_inc: CatalogNewVehicleRecordIncInput, _set: CatalogNewVehicleRecordSetInput, catalog_new_vehicle_record_id: String!): CatalogNewVehicleRecord
+	"""
+	根据联合主键删除记录
+	"""
+	delete_catalog_new_vehicle_record_by_union_pk(catalog_new_vehicle_record_id: String!): CatalogNewVehicleRecord
 }

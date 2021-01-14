@@ -259,6 +259,8 @@ input MuckTruckOnlineBoolExp {
 input type for inserting data into table "muck_truck_online"
 """
 input MuckTruckOnlineInsertInput {
+	muck_truck_online_id: String!
+	vehicle_id: String!
 	is_online: Boolean
 	is_pay: Boolean
 	is_gps_online: Boolean
@@ -269,6 +271,8 @@ input MuckTruckOnlineInsertInput {
 	location_time: Timestamptz
 	self_number: String
 	area: String
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -398,6 +402,10 @@ extend type Query {
 	主键查询
 	"""
 	muck_truck_online_by_pk(id: Bigint!): MuckTruckOnline!
+	"""
+	联合主键查询
+	"""
+	muck_truck_online_by_union_pk(muck_truck_online_id: String!): MuckTruckOnline!
 }
 extend type Mutation {
 	"""
@@ -421,7 +429,15 @@ extend type Mutation {
 	"""
 	update_muck_truck_online(_inc: MuckTruckOnlineIncInput, _set: MuckTruckOnlineSetInput, where: MuckTruckOnlineBoolExp!): MuckTruckOnlineMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_muck_truck_online_by_pk(_inc: MuckTruckOnlineIncInput, _set: MuckTruckOnlineSetInput, id: Bigint!): MuckTruckOnline
+	"""
+	根据联合主键更新
+	"""
+	update_muck_truck_online_by_union_pk(_inc: MuckTruckOnlineIncInput, _set: MuckTruckOnlineSetInput, muck_truck_online_id: String!): MuckTruckOnline
+	"""
+	根据联合主键删除记录
+	"""
+	delete_muck_truck_online_by_union_pk(muck_truck_online_id: String!): MuckTruckOnline
 }

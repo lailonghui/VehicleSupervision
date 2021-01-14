@@ -267,6 +267,8 @@ input VehicleEnterpriseChangeReviewBoolExp {
 input type for inserting data into table "vehicle_enterprise_change_review"
 """
 input VehicleEnterpriseChangeReviewInsertInput {
+	vehicle_enterprise_change_review_id: String!
+	vehicle_id: String!
 	target_enterprise_id: String
 	remarks: String
 	upload_document_src: String
@@ -276,6 +278,8 @@ input VehicleEnterpriseChangeReviewInsertInput {
 	changed_area: String
 	changed_self_number: String
 	is_deleted: Boolean
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -402,6 +406,10 @@ extend type Query {
 	主键查询
 	"""
 	vehicle_enterprise_change_review_by_pk(id: Bigint!): VehicleEnterpriseChangeReview!
+	"""
+	联合主键查询
+	"""
+	vehicle_enterprise_change_review_by_union_pk(vehicle_enterprise_change_review_id: String!): VehicleEnterpriseChangeReview!
 }
 extend type Mutation {
 	"""
@@ -425,7 +433,15 @@ extend type Mutation {
 	"""
 	update_vehicle_enterprise_change_review(_inc: VehicleEnterpriseChangeReviewIncInput, _set: VehicleEnterpriseChangeReviewSetInput, where: VehicleEnterpriseChangeReviewBoolExp!): VehicleEnterpriseChangeReviewMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_vehicle_enterprise_change_review_by_pk(_inc: VehicleEnterpriseChangeReviewIncInput, _set: VehicleEnterpriseChangeReviewSetInput, id: Bigint!): VehicleEnterpriseChangeReview
+	"""
+	根据联合主键更新
+	"""
+	update_vehicle_enterprise_change_review_by_union_pk(_inc: VehicleEnterpriseChangeReviewIncInput, _set: VehicleEnterpriseChangeReviewSetInput, vehicle_enterprise_change_review_id: String!): VehicleEnterpriseChangeReview
+	"""
+	根据联合主键删除记录
+	"""
+	delete_vehicle_enterprise_change_review_by_union_pk(vehicle_enterprise_change_review_id: String!): VehicleEnterpriseChangeReview
 }

@@ -190,6 +190,8 @@ input DriverPeccancyCheckInsertInput {
 	vehicle_id: String
 	driver_id: String
 	enterprise_id: String
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -297,7 +299,7 @@ extend type Mutation {
 	"""
 	update_driver_peccancy_check(_inc: DriverPeccancyCheckIncInput, _set: DriverPeccancyCheckSetInput, where: DriverPeccancyCheckBoolExp!): DriverPeccancyCheckMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_driver_peccancy_check_by_pk(_inc: DriverPeccancyCheckIncInput, _set: DriverPeccancyCheckSetInput, id: Bigint!): DriverPeccancyCheck
 }

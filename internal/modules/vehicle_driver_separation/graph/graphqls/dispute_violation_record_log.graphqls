@@ -187,6 +187,7 @@ input DisputeViolationRecordLogBoolExp {
 input type for inserting data into table "dispute_violation_record_log"
 """
 input DisputeViolationRecordLogInsertInput {
+	dispute_violation_log_id: String!
 	dispute_violation_id: String
 	reviewer: String
 	review_time: Timestamptz
@@ -298,7 +299,7 @@ extend type Mutation {
 	"""
 	update_dispute_violation_record_log(_inc: DisputeViolationRecordLogIncInput, _set: DisputeViolationRecordLogSetInput, where: DisputeViolationRecordLogBoolExp!): DisputeViolationRecordLogMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_dispute_violation_record_log_by_pk(_inc: DisputeViolationRecordLogIncInput, _set: DisputeViolationRecordLogSetInput, id: Bigint!): DisputeViolationRecordLog
 }

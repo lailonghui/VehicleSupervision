@@ -227,12 +227,15 @@ input DeductionReportBoolExp {
 input type for inserting data into table "deduction_report"
 """
 input DeductionReportInsertInput {
+	deduction_report_id: String!
 	area_id: String
 	date: String
 	cause: String
 	input_person: String
 	input_time: Timestamptz
 	demerit_points: Numeric
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -338,6 +341,10 @@ extend type Query {
 	主键查询
 	"""
 	deduction_report_by_pk(id: Bigint!): DeductionReport!
+	"""
+	联合主键查询
+	"""
+	deduction_report_by_union_pk(deduction_report_id: String!): DeductionReport!
 }
 extend type Mutation {
 	"""
@@ -361,7 +368,15 @@ extend type Mutation {
 	"""
 	update_deduction_report(_inc: DeductionReportIncInput, _set: DeductionReportSetInput, where: DeductionReportBoolExp!): DeductionReportMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_deduction_report_by_pk(_inc: DeductionReportIncInput, _set: DeductionReportSetInput, id: Bigint!): DeductionReport
+	"""
+	根据联合主键更新
+	"""
+	update_deduction_report_by_union_pk(_inc: DeductionReportIncInput, _set: DeductionReportSetInput, deduction_report_id: String!): DeductionReport
+	"""
+	根据联合主键删除记录
+	"""
+	delete_deduction_report_by_union_pk(deduction_report_id: String!): DeductionReport
 }

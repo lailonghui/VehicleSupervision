@@ -363,6 +363,7 @@ input SellerFilingBoolExp {
 input type for inserting data into table "seller_filing"
 """
 input SellerFilingInsertInput {
+	seller_filing_id: String!
 	seller: String
 	business_license: String
 	organization_code: String
@@ -387,6 +388,8 @@ input SellerFilingInsertInput {
 	catalog_id: String
 	platform_docking_technology_agreement: String
 	is_deleted: Boolean
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -581,6 +584,10 @@ extend type Query {
 	主键查询
 	"""
 	seller_filing_by_pk(id: Bigint!): SellerFiling!
+	"""
+	联合主键查询
+	"""
+	seller_filing_by_union_pk(seller_filing_id: String!): SellerFiling!
 }
 extend type Mutation {
 	"""
@@ -604,7 +611,15 @@ extend type Mutation {
 	"""
 	update_seller_filing(_inc: SellerFilingIncInput, _set: SellerFilingSetInput, where: SellerFilingBoolExp!): SellerFilingMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_seller_filing_by_pk(_inc: SellerFilingIncInput, _set: SellerFilingSetInput, id: Bigint!): SellerFiling
+	"""
+	根据联合主键更新
+	"""
+	update_seller_filing_by_union_pk(_inc: SellerFilingIncInput, _set: SellerFilingSetInput, seller_filing_id: String!): SellerFiling
+	"""
+	根据联合主键删除记录
+	"""
+	delete_seller_filing_by_union_pk(seller_filing_id: String!): SellerFiling
 }

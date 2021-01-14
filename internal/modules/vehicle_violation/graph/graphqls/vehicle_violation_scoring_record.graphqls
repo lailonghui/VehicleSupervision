@@ -219,11 +219,14 @@ input VehicleViolationScoringRecordBoolExp {
 input type for inserting data into table "vehicle_violation_scoring_record"
 """
 input VehicleViolationScoringRecordInsertInput {
+	violation_scoring_id: String!
 	vehicle_id: String
 	violation_scoring_item_id: String
 	demerit_points: Numeric
 	remarks: String
 	is_deleted: Boolean
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -347,7 +350,7 @@ extend type Mutation {
 	"""
 	update_vehicle_violation_scoring_record(_inc: VehicleViolationScoringRecordIncInput, _set: VehicleViolationScoringRecordSetInput, where: VehicleViolationScoringRecordBoolExp!): VehicleViolationScoringRecordMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_vehicle_violation_scoring_record_by_pk(_inc: VehicleViolationScoringRecordIncInput, _set: VehicleViolationScoringRecordSetInput, id: Bigint!): VehicleViolationScoringRecord
 }

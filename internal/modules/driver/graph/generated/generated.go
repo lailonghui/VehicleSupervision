@@ -941,11 +941,15 @@ type ComplexityRoot struct {
 		DeleteDriverFingerprint                        func(childComplexity int, where model.DriverFingerprintBoolExp) int
 		DeleteDriverFingerprintAssociation             func(childComplexity int, where model.DriverFingerprintAssociationBoolExp) int
 		DeleteDriverFingerprintAssociationByPk         func(childComplexity int, id int64) int
+		DeleteDriverFingerprintAssociationByUnionPk    func(childComplexity int, driverFingerprintAssociationID string) int
 		DeleteDriverFingerprintByPk                    func(childComplexity int, id int64) int
+		DeleteDriverFingerprintByUnionPk               func(childComplexity int, driverFingerprintID string) int
 		DeleteDriverIdentity                           func(childComplexity int, where model.DriverIdentityBoolExp) int
 		DeleteDriverIdentityByPk                       func(childComplexity int, id int64) int
+		DeleteDriverIdentityByUnionPk                  func(childComplexity int, identityID string) int
 		DeleteDriverIdentityInfoReport                 func(childComplexity int, where model.DriverIdentityInfoReportBoolExp) int
 		DeleteDriverIdentityInfoReportByPk             func(childComplexity int, id int64) int
+		DeleteDriverIdentityInfoReportByUnionPk        func(childComplexity int, driverIdentityInfoReportID string) int
 		DeleteDriverInfo                               func(childComplexity int, where model.DriverInfoBoolExp) int
 		DeleteDriverInfoByPk                           func(childComplexity int, id int64) int
 		DeleteDrivingLicenseRegistrationInspection     func(childComplexity int, where model.DrivingLicenseRegistrationInspectionBoolExp) int
@@ -965,11 +969,15 @@ type ComplexityRoot struct {
 		UpdateDriverFingerprint                        func(childComplexity int, inc *model.DriverFingerprintIncInput, set *model.DriverFingerprintSetInput, where model.DriverFingerprintBoolExp) int
 		UpdateDriverFingerprintAssociation             func(childComplexity int, inc *model.DriverFingerprintAssociationIncInput, set *model.DriverFingerprintAssociationSetInput, where model.DriverFingerprintAssociationBoolExp) int
 		UpdateDriverFingerprintAssociationByPk         func(childComplexity int, inc *model.DriverFingerprintAssociationIncInput, set *model.DriverFingerprintAssociationSetInput, id int64) int
+		UpdateDriverFingerprintAssociationByUnionPk    func(childComplexity int, inc *model.DriverFingerprintAssociationIncInput, set *model.DriverFingerprintAssociationSetInput, driverFingerprintAssociationID string) int
 		UpdateDriverFingerprintByPk                    func(childComplexity int, inc *model.DriverFingerprintIncInput, set *model.DriverFingerprintSetInput, id int64) int
+		UpdateDriverFingerprintByUnionPk               func(childComplexity int, inc *model.DriverFingerprintIncInput, set *model.DriverFingerprintSetInput, driverFingerprintID string) int
 		UpdateDriverIdentity                           func(childComplexity int, inc *model.DriverIdentityIncInput, set *model.DriverIdentitySetInput, where model.DriverIdentityBoolExp) int
 		UpdateDriverIdentityByPk                       func(childComplexity int, inc *model.DriverIdentityIncInput, set *model.DriverIdentitySetInput, id int64) int
+		UpdateDriverIdentityByUnionPk                  func(childComplexity int, inc *model.DriverIdentityIncInput, set *model.DriverIdentitySetInput, identityID string) int
 		UpdateDriverIdentityInfoReport                 func(childComplexity int, inc *model.DriverIdentityInfoReportIncInput, set *model.DriverIdentityInfoReportSetInput, where model.DriverIdentityInfoReportBoolExp) int
 		UpdateDriverIdentityInfoReportByPk             func(childComplexity int, inc *model.DriverIdentityInfoReportIncInput, set *model.DriverIdentityInfoReportSetInput, id int64) int
+		UpdateDriverIdentityInfoReportByUnionPk        func(childComplexity int, inc *model.DriverIdentityInfoReportIncInput, set *model.DriverIdentityInfoReportSetInput, driverIdentityInfoReportID string) int
 		UpdateDriverInfo                               func(childComplexity int, inc *model.DriverInfoIncInput, set *model.DriverInfoSetInput, where model.DriverInfoBoolExp) int
 		UpdateDriverInfoByPk                           func(childComplexity int, inc *model.DriverInfoIncInput, set *model.DriverInfoSetInput, id int64) int
 		UpdateDrivingLicenseRegistrationInspection     func(childComplexity int, inc *model.DrivingLicenseRegistrationInspectionIncInput, set *model.DrivingLicenseRegistrationInspectionSetInput, where model.DrivingLicenseRegistrationInspectionBoolExp) int
@@ -982,13 +990,17 @@ type ComplexityRoot struct {
 		DriverFingerprintAssociation                  func(childComplexity int, distinctOn []model.DriverFingerprintAssociationSelectColumn, limit *int, offset *int, orderBy []*model.DriverFingerprintAssociationOrderBy, where *model.DriverFingerprintAssociationBoolExp) int
 		DriverFingerprintAssociationAggregate         func(childComplexity int, distinctOn []model.DriverFingerprintAssociationSelectColumn, limit *int, offset *int, orderBy []*model.DriverFingerprintAssociationOrderBy, where *model.DriverFingerprintAssociationBoolExp) int
 		DriverFingerprintAssociationByPk              func(childComplexity int, id int64) int
+		DriverFingerprintAssociationByUnionPk         func(childComplexity int, driverFingerprintAssociationID string) int
 		DriverFingerprintByPk                         func(childComplexity int, id int64) int
+		DriverFingerprintByUnionPk                    func(childComplexity int, driverFingerprintID string) int
 		DriverIdentity                                func(childComplexity int, distinctOn []model.DriverIdentitySelectColumn, limit *int, offset *int, orderBy []*model.DriverIdentityOrderBy, where *model.DriverIdentityBoolExp) int
 		DriverIdentityAggregate                       func(childComplexity int, distinctOn []model.DriverIdentitySelectColumn, limit *int, offset *int, orderBy []*model.DriverIdentityOrderBy, where *model.DriverIdentityBoolExp) int
 		DriverIdentityByPk                            func(childComplexity int, id int64) int
+		DriverIdentityByUnionPk                       func(childComplexity int, identityID string) int
 		DriverIdentityInfoReport                      func(childComplexity int, distinctOn []model.DriverIdentityInfoReportSelectColumn, limit *int, offset *int, orderBy []*model.DriverIdentityInfoReportOrderBy, where *model.DriverIdentityInfoReportBoolExp) int
 		DriverIdentityInfoReportAggregate             func(childComplexity int, distinctOn []model.DriverIdentityInfoReportSelectColumn, limit *int, offset *int, orderBy []*model.DriverIdentityInfoReportOrderBy, where *model.DriverIdentityInfoReportBoolExp) int
 		DriverIdentityInfoReportByPk                  func(childComplexity int, id int64) int
+		DriverIdentityInfoReportByUnionPk             func(childComplexity int, driverIdentityInfoReportID string) int
 		DriverInfo                                    func(childComplexity int, distinctOn []model.DriverInfoSelectColumn, limit *int, offset *int, orderBy []*model.DriverInfoOrderBy, where *model.DriverInfoBoolExp) int
 		DriverInfoAggregate                           func(childComplexity int, distinctOn []model.DriverInfoSelectColumn, limit *int, offset *int, orderBy []*model.DriverInfoOrderBy, where *model.DriverInfoBoolExp) int
 		DriverInfoByPk                                func(childComplexity int, id int64) int
@@ -1005,24 +1017,32 @@ type MutationResolver interface {
 	InsertDriverFingerprintOne(ctx context.Context, objects model.DriverFingerprintInsertInput) (*model1.DriverFingerprint, error)
 	UpdateDriverFingerprint(ctx context.Context, inc *model.DriverFingerprintIncInput, set *model.DriverFingerprintSetInput, where model.DriverFingerprintBoolExp) (*model.DriverFingerprintMutationResponse, error)
 	UpdateDriverFingerprintByPk(ctx context.Context, inc *model.DriverFingerprintIncInput, set *model.DriverFingerprintSetInput, id int64) (*model1.DriverFingerprint, error)
+	UpdateDriverFingerprintByUnionPk(ctx context.Context, inc *model.DriverFingerprintIncInput, set *model.DriverFingerprintSetInput, driverFingerprintID string) (*model1.DriverFingerprint, error)
+	DeleteDriverFingerprintByUnionPk(ctx context.Context, driverFingerprintID string) (*model1.DriverFingerprint, error)
 	DeleteDriverFingerprintAssociation(ctx context.Context, where model.DriverFingerprintAssociationBoolExp) (*model.DriverFingerprintAssociationMutationResponse, error)
 	DeleteDriverFingerprintAssociationByPk(ctx context.Context, id int64) (*model1.DriverFingerprintAssociation, error)
 	InsertDriverFingerprintAssociation(ctx context.Context, objects []*model.DriverFingerprintAssociationInsertInput) (*model.DriverFingerprintAssociationMutationResponse, error)
 	InsertDriverFingerprintAssociationOne(ctx context.Context, objects model.DriverFingerprintAssociationInsertInput) (*model1.DriverFingerprintAssociation, error)
 	UpdateDriverFingerprintAssociation(ctx context.Context, inc *model.DriverFingerprintAssociationIncInput, set *model.DriverFingerprintAssociationSetInput, where model.DriverFingerprintAssociationBoolExp) (*model.DriverFingerprintAssociationMutationResponse, error)
 	UpdateDriverFingerprintAssociationByPk(ctx context.Context, inc *model.DriverFingerprintAssociationIncInput, set *model.DriverFingerprintAssociationSetInput, id int64) (*model1.DriverFingerprintAssociation, error)
+	UpdateDriverFingerprintAssociationByUnionPk(ctx context.Context, inc *model.DriverFingerprintAssociationIncInput, set *model.DriverFingerprintAssociationSetInput, driverFingerprintAssociationID string) (*model1.DriverFingerprintAssociation, error)
+	DeleteDriverFingerprintAssociationByUnionPk(ctx context.Context, driverFingerprintAssociationID string) (*model1.DriverFingerprintAssociation, error)
 	DeleteDriverIdentity(ctx context.Context, where model.DriverIdentityBoolExp) (*model.DriverIdentityMutationResponse, error)
 	DeleteDriverIdentityByPk(ctx context.Context, id int64) (*model1.DriverIdentity, error)
 	InsertDriverIdentity(ctx context.Context, objects []*model.DriverIdentityInsertInput) (*model.DriverIdentityMutationResponse, error)
 	InsertDriverIdentityOne(ctx context.Context, objects model.DriverIdentityInsertInput) (*model1.DriverIdentity, error)
 	UpdateDriverIdentity(ctx context.Context, inc *model.DriverIdentityIncInput, set *model.DriverIdentitySetInput, where model.DriverIdentityBoolExp) (*model.DriverIdentityMutationResponse, error)
 	UpdateDriverIdentityByPk(ctx context.Context, inc *model.DriverIdentityIncInput, set *model.DriverIdentitySetInput, id int64) (*model1.DriverIdentity, error)
+	UpdateDriverIdentityByUnionPk(ctx context.Context, inc *model.DriverIdentityIncInput, set *model.DriverIdentitySetInput, identityID string) (*model1.DriverIdentity, error)
+	DeleteDriverIdentityByUnionPk(ctx context.Context, identityID string) (*model1.DriverIdentity, error)
 	DeleteDriverIdentityInfoReport(ctx context.Context, where model.DriverIdentityInfoReportBoolExp) (*model.DriverIdentityInfoReportMutationResponse, error)
 	DeleteDriverIdentityInfoReportByPk(ctx context.Context, id int64) (*model1.DriverIdentityInfoReport, error)
 	InsertDriverIdentityInfoReport(ctx context.Context, objects []*model.DriverIdentityInfoReportInsertInput) (*model.DriverIdentityInfoReportMutationResponse, error)
 	InsertDriverIdentityInfoReportOne(ctx context.Context, objects model.DriverIdentityInfoReportInsertInput) (*model1.DriverIdentityInfoReport, error)
 	UpdateDriverIdentityInfoReport(ctx context.Context, inc *model.DriverIdentityInfoReportIncInput, set *model.DriverIdentityInfoReportSetInput, where model.DriverIdentityInfoReportBoolExp) (*model.DriverIdentityInfoReportMutationResponse, error)
 	UpdateDriverIdentityInfoReportByPk(ctx context.Context, inc *model.DriverIdentityInfoReportIncInput, set *model.DriverIdentityInfoReportSetInput, id int64) (*model1.DriverIdentityInfoReport, error)
+	UpdateDriverIdentityInfoReportByUnionPk(ctx context.Context, inc *model.DriverIdentityInfoReportIncInput, set *model.DriverIdentityInfoReportSetInput, driverIdentityInfoReportID string) (*model1.DriverIdentityInfoReport, error)
+	DeleteDriverIdentityInfoReportByUnionPk(ctx context.Context, driverIdentityInfoReportID string) (*model1.DriverIdentityInfoReport, error)
 	DeleteDriverInfo(ctx context.Context, where model.DriverInfoBoolExp) (*model.DriverInfoMutationResponse, error)
 	DeleteDriverInfoByPk(ctx context.Context, id int64) (*model1.DriverInfo, error)
 	InsertDriverInfo(ctx context.Context, objects []*model.DriverInfoInsertInput) (*model.DriverInfoMutationResponse, error)
@@ -1040,15 +1060,19 @@ type QueryResolver interface {
 	DriverFingerprint(ctx context.Context, distinctOn []model.DriverFingerprintSelectColumn, limit *int, offset *int, orderBy []*model.DriverFingerprintOrderBy, where *model.DriverFingerprintBoolExp) ([]*model1.DriverFingerprint, error)
 	DriverFingerprintAggregate(ctx context.Context, distinctOn []model.DriverFingerprintSelectColumn, limit *int, offset *int, orderBy []*model.DriverFingerprintOrderBy, where *model.DriverFingerprintBoolExp) (*model.DriverFingerprintAggregate, error)
 	DriverFingerprintByPk(ctx context.Context, id int64) (*model1.DriverFingerprint, error)
+	DriverFingerprintByUnionPk(ctx context.Context, driverFingerprintID string) (*model1.DriverFingerprint, error)
 	DriverFingerprintAssociation(ctx context.Context, distinctOn []model.DriverFingerprintAssociationSelectColumn, limit *int, offset *int, orderBy []*model.DriverFingerprintAssociationOrderBy, where *model.DriverFingerprintAssociationBoolExp) ([]*model1.DriverFingerprintAssociation, error)
 	DriverFingerprintAssociationAggregate(ctx context.Context, distinctOn []model.DriverFingerprintAssociationSelectColumn, limit *int, offset *int, orderBy []*model.DriverFingerprintAssociationOrderBy, where *model.DriverFingerprintAssociationBoolExp) (*model.DriverFingerprintAssociationAggregate, error)
 	DriverFingerprintAssociationByPk(ctx context.Context, id int64) (*model1.DriverFingerprintAssociation, error)
+	DriverFingerprintAssociationByUnionPk(ctx context.Context, driverFingerprintAssociationID string) (*model1.DriverFingerprintAssociation, error)
 	DriverIdentity(ctx context.Context, distinctOn []model.DriverIdentitySelectColumn, limit *int, offset *int, orderBy []*model.DriverIdentityOrderBy, where *model.DriverIdentityBoolExp) ([]*model1.DriverIdentity, error)
 	DriverIdentityAggregate(ctx context.Context, distinctOn []model.DriverIdentitySelectColumn, limit *int, offset *int, orderBy []*model.DriverIdentityOrderBy, where *model.DriverIdentityBoolExp) (*model.DriverIdentityAggregate, error)
 	DriverIdentityByPk(ctx context.Context, id int64) (*model1.DriverIdentity, error)
+	DriverIdentityByUnionPk(ctx context.Context, identityID string) (*model1.DriverIdentity, error)
 	DriverIdentityInfoReport(ctx context.Context, distinctOn []model.DriverIdentityInfoReportSelectColumn, limit *int, offset *int, orderBy []*model.DriverIdentityInfoReportOrderBy, where *model.DriverIdentityInfoReportBoolExp) ([]*model1.DriverIdentityInfoReport, error)
 	DriverIdentityInfoReportAggregate(ctx context.Context, distinctOn []model.DriverIdentityInfoReportSelectColumn, limit *int, offset *int, orderBy []*model.DriverIdentityInfoReportOrderBy, where *model.DriverIdentityInfoReportBoolExp) (*model.DriverIdentityInfoReportAggregate, error)
 	DriverIdentityInfoReportByPk(ctx context.Context, id int64) (*model1.DriverIdentityInfoReport, error)
+	DriverIdentityInfoReportByUnionPk(ctx context.Context, driverIdentityInfoReportID string) (*model1.DriverIdentityInfoReport, error)
 	DriverInfo(ctx context.Context, distinctOn []model.DriverInfoSelectColumn, limit *int, offset *int, orderBy []*model.DriverInfoOrderBy, where *model.DriverInfoBoolExp) ([]*model1.DriverInfo, error)
 	DriverInfoAggregate(ctx context.Context, distinctOn []model.DriverInfoSelectColumn, limit *int, offset *int, orderBy []*model.DriverInfoOrderBy, where *model.DriverInfoBoolExp) (*model.DriverInfoAggregate, error)
 	DriverInfoByPk(ctx context.Context, id int64) (*model1.DriverInfo, error)
@@ -5574,6 +5598,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.DeleteDriverFingerprintAssociationByPk(childComplexity, args["id"].(int64)), true
 
+	case "Mutation.delete_driver_fingerprint_association_by_union_pk":
+		if e.complexity.Mutation.DeleteDriverFingerprintAssociationByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_delete_driver_fingerprint_association_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.DeleteDriverFingerprintAssociationByUnionPk(childComplexity, args["driver_fingerprint_association_id"].(string)), true
+
 	case "Mutation.delete_driver_fingerprint_by_pk":
 		if e.complexity.Mutation.DeleteDriverFingerprintByPk == nil {
 			break
@@ -5585,6 +5621,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Mutation.DeleteDriverFingerprintByPk(childComplexity, args["id"].(int64)), true
+
+	case "Mutation.delete_driver_fingerprint_by_union_pk":
+		if e.complexity.Mutation.DeleteDriverFingerprintByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_delete_driver_fingerprint_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.DeleteDriverFingerprintByUnionPk(childComplexity, args["driver_fingerprint_id"].(string)), true
 
 	case "Mutation.delete_driver_identity":
 		if e.complexity.Mutation.DeleteDriverIdentity == nil {
@@ -5610,6 +5658,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.DeleteDriverIdentityByPk(childComplexity, args["id"].(int64)), true
 
+	case "Mutation.delete_driver_identity_by_union_pk":
+		if e.complexity.Mutation.DeleteDriverIdentityByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_delete_driver_identity_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.DeleteDriverIdentityByUnionPk(childComplexity, args["identity_id"].(string)), true
+
 	case "Mutation.delete_driver_identity_info_report":
 		if e.complexity.Mutation.DeleteDriverIdentityInfoReport == nil {
 			break
@@ -5633,6 +5693,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Mutation.DeleteDriverIdentityInfoReportByPk(childComplexity, args["id"].(int64)), true
+
+	case "Mutation.delete_driver_identity_info_report_by_union_pk":
+		if e.complexity.Mutation.DeleteDriverIdentityInfoReportByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_delete_driver_identity_info_report_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.DeleteDriverIdentityInfoReportByUnionPk(childComplexity, args["driver_identity_info_report_id"].(string)), true
 
 	case "Mutation.delete_driver_info":
 		if e.complexity.Mutation.DeleteDriverInfo == nil {
@@ -5862,6 +5934,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.UpdateDriverFingerprintAssociationByPk(childComplexity, args["_inc"].(*model.DriverFingerprintAssociationIncInput), args["_set"].(*model.DriverFingerprintAssociationSetInput), args["id"].(int64)), true
 
+	case "Mutation.update_driver_fingerprint_association_by_union_pk":
+		if e.complexity.Mutation.UpdateDriverFingerprintAssociationByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_update_driver_fingerprint_association_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.UpdateDriverFingerprintAssociationByUnionPk(childComplexity, args["_inc"].(*model.DriverFingerprintAssociationIncInput), args["_set"].(*model.DriverFingerprintAssociationSetInput), args["driver_fingerprint_association_id"].(string)), true
+
 	case "Mutation.update_driver_fingerprint_by_pk":
 		if e.complexity.Mutation.UpdateDriverFingerprintByPk == nil {
 			break
@@ -5873,6 +5957,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Mutation.UpdateDriverFingerprintByPk(childComplexity, args["_inc"].(*model.DriverFingerprintIncInput), args["_set"].(*model.DriverFingerprintSetInput), args["id"].(int64)), true
+
+	case "Mutation.update_driver_fingerprint_by_union_pk":
+		if e.complexity.Mutation.UpdateDriverFingerprintByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_update_driver_fingerprint_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.UpdateDriverFingerprintByUnionPk(childComplexity, args["_inc"].(*model.DriverFingerprintIncInput), args["_set"].(*model.DriverFingerprintSetInput), args["driver_fingerprint_id"].(string)), true
 
 	case "Mutation.update_driver_identity":
 		if e.complexity.Mutation.UpdateDriverIdentity == nil {
@@ -5898,6 +5994,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.UpdateDriverIdentityByPk(childComplexity, args["_inc"].(*model.DriverIdentityIncInput), args["_set"].(*model.DriverIdentitySetInput), args["id"].(int64)), true
 
+	case "Mutation.update_driver_identity_by_union_pk":
+		if e.complexity.Mutation.UpdateDriverIdentityByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_update_driver_identity_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.UpdateDriverIdentityByUnionPk(childComplexity, args["_inc"].(*model.DriverIdentityIncInput), args["_set"].(*model.DriverIdentitySetInput), args["identity_id"].(string)), true
+
 	case "Mutation.update_driver_identity_info_report":
 		if e.complexity.Mutation.UpdateDriverIdentityInfoReport == nil {
 			break
@@ -5921,6 +6029,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Mutation.UpdateDriverIdentityInfoReportByPk(childComplexity, args["_inc"].(*model.DriverIdentityInfoReportIncInput), args["_set"].(*model.DriverIdentityInfoReportSetInput), args["id"].(int64)), true
+
+	case "Mutation.update_driver_identity_info_report_by_union_pk":
+		if e.complexity.Mutation.UpdateDriverIdentityInfoReportByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_update_driver_identity_info_report_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.UpdateDriverIdentityInfoReportByUnionPk(childComplexity, args["_inc"].(*model.DriverIdentityInfoReportIncInput), args["_set"].(*model.DriverIdentityInfoReportSetInput), args["driver_identity_info_report_id"].(string)), true
 
 	case "Mutation.update_driver_info":
 		if e.complexity.Mutation.UpdateDriverInfo == nil {
@@ -6030,6 +6150,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Query.DriverFingerprintAssociationByPk(childComplexity, args["id"].(int64)), true
 
+	case "Query.driver_fingerprint_association_by_union_pk":
+		if e.complexity.Query.DriverFingerprintAssociationByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Query_driver_fingerprint_association_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.DriverFingerprintAssociationByUnionPk(childComplexity, args["driver_fingerprint_association_id"].(string)), true
+
 	case "Query.driver_fingerprint_by_pk":
 		if e.complexity.Query.DriverFingerprintByPk == nil {
 			break
@@ -6041,6 +6173,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Query.DriverFingerprintByPk(childComplexity, args["id"].(int64)), true
+
+	case "Query.driver_fingerprint_by_union_pk":
+		if e.complexity.Query.DriverFingerprintByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Query_driver_fingerprint_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.DriverFingerprintByUnionPk(childComplexity, args["driver_fingerprint_id"].(string)), true
 
 	case "Query.driver_identity":
 		if e.complexity.Query.DriverIdentity == nil {
@@ -6078,6 +6222,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Query.DriverIdentityByPk(childComplexity, args["id"].(int64)), true
 
+	case "Query.driver_identity_by_union_pk":
+		if e.complexity.Query.DriverIdentityByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Query_driver_identity_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.DriverIdentityByUnionPk(childComplexity, args["identity_id"].(string)), true
+
 	case "Query.driver_identity_info_report":
 		if e.complexity.Query.DriverIdentityInfoReport == nil {
 			break
@@ -6113,6 +6269,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Query.DriverIdentityInfoReportByPk(childComplexity, args["id"].(int64)), true
+
+	case "Query.driver_identity_info_report_by_union_pk":
+		if e.complexity.Query.DriverIdentityInfoReportByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Query_driver_identity_info_report_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.DriverIdentityInfoReportByUnionPk(childComplexity, args["driver_identity_info_report_id"].(string)), true
 
 	case "Query.driver_info":
 		if e.complexity.Query.DriverInfo == nil {
@@ -6720,6 +6888,8 @@ input DriverFingerprintBoolExp {
 input type for inserting data into table "driver_fingerprint"
 """
 input DriverFingerprintInsertInput {
+	driver_fingerprint_id: String!
+	driver_id: String!
 	driver_name: String
 	user_id: String
 	signature: String
@@ -6734,6 +6904,8 @@ input DriverFingerprintInsertInput {
 	ternimal_id: String
 	is_success: Boolean
 	is_deleted: Boolean
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -6884,6 +7056,10 @@ extend type Query {
 	主键查询
 	"""
 	driver_fingerprint_by_pk(id: Bigint!): DriverFingerprint!
+	"""
+	联合主键查询
+	"""
+	driver_fingerprint_by_union_pk(driver_fingerprint_id: String!): DriverFingerprint!
 }
 extend type Mutation {
 	"""
@@ -6907,9 +7083,17 @@ extend type Mutation {
 	"""
 	update_driver_fingerprint(_inc: DriverFingerprintIncInput, _set: DriverFingerprintSetInput, where: DriverFingerprintBoolExp!): DriverFingerprintMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_driver_fingerprint_by_pk(_inc: DriverFingerprintIncInput, _set: DriverFingerprintSetInput, id: Bigint!): DriverFingerprint
+	"""
+	根据联合主键更新
+	"""
+	update_driver_fingerprint_by_union_pk(_inc: DriverFingerprintIncInput, _set: DriverFingerprintSetInput, driver_fingerprint_id: String!): DriverFingerprint
+	"""
+	根据联合主键删除记录
+	"""
+	delete_driver_fingerprint_by_union_pk(driver_fingerprint_id: String!): DriverFingerprint
 }
 `, BuiltIn: false},
 	{Name: "graph/graphqls/driver_fingerprint_association.graphqls", Input: `"""
@@ -7125,10 +7309,14 @@ input DriverFingerprintAssociationBoolExp {
 input type for inserting data into table "driver_fingerprint_association"
 """
 input DriverFingerprintAssociationInsertInput {
+	driver_fingerprint_association_id: String!
+	driver_id: String!
 	fingerprint_name: String
 	driver_fingerprint_id: String
 	picture_address: String
 	is_deleted: Boolean
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -7228,6 +7416,10 @@ extend type Query {
 	主键查询
 	"""
 	driver_fingerprint_association_by_pk(id: Bigint!): DriverFingerprintAssociation!
+	"""
+	联合主键查询
+	"""
+	driver_fingerprint_association_by_union_pk(driver_fingerprint_association_id: String!): DriverFingerprintAssociation!
 }
 extend type Mutation {
 	"""
@@ -7251,9 +7443,17 @@ extend type Mutation {
 	"""
 	update_driver_fingerprint_association(_inc: DriverFingerprintAssociationIncInput, _set: DriverFingerprintAssociationSetInput, where: DriverFingerprintAssociationBoolExp!): DriverFingerprintAssociationMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_driver_fingerprint_association_by_pk(_inc: DriverFingerprintAssociationIncInput, _set: DriverFingerprintAssociationSetInput, id: Bigint!): DriverFingerprintAssociation
+	"""
+	根据联合主键更新
+	"""
+	update_driver_fingerprint_association_by_union_pk(_inc: DriverFingerprintAssociationIncInput, _set: DriverFingerprintAssociationSetInput, driver_fingerprint_association_id: String!): DriverFingerprintAssociation
+	"""
+	根据联合主键删除记录
+	"""
+	delete_driver_fingerprint_association_by_union_pk(driver_fingerprint_association_id: String!): DriverFingerprintAssociation
 }
 `, BuiltIn: false},
 	{Name: "graph/graphqls/driver_identity.graphqls", Input: `"""
@@ -7701,6 +7901,7 @@ input DriverIdentityBoolExp {
 input type for inserting data into table "driver_identity"
 """
 input DriverIdentityInsertInput {
+	identity_id: String!
 	id_card_num: String
 	id_card_birthday: Timestamptz
 	id_card_sign_government: String
@@ -7731,6 +7932,8 @@ input DriverIdentityInsertInput {
 	driver_license_issue_date: Timestamptz
 	working_time: Timestamptz
 	is_review: Boolean
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -7964,6 +8167,10 @@ extend type Query {
 	主键查询
 	"""
 	driver_identity_by_pk(id: Bigint!): DriverIdentity!
+	"""
+	联合主键查询
+	"""
+	driver_identity_by_union_pk(identity_id: String!): DriverIdentity!
 }
 extend type Mutation {
 	"""
@@ -7987,9 +8194,17 @@ extend type Mutation {
 	"""
 	update_driver_identity(_inc: DriverIdentityIncInput, _set: DriverIdentitySetInput, where: DriverIdentityBoolExp!): DriverIdentityMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_driver_identity_by_pk(_inc: DriverIdentityIncInput, _set: DriverIdentitySetInput, id: Bigint!): DriverIdentity
+	"""
+	根据联合主键更新
+	"""
+	update_driver_identity_by_union_pk(_inc: DriverIdentityIncInput, _set: DriverIdentitySetInput, identity_id: String!): DriverIdentity
+	"""
+	根据联合主键删除记录
+	"""
+	delete_driver_identity_by_union_pk(identity_id: String!): DriverIdentity
 }
 `, BuiltIn: false},
 	{Name: "graph/graphqls/driver_identity_info_report.graphqls", Input: `"""
@@ -8261,6 +8476,8 @@ input DriverIdentityInfoReportBoolExp {
 input type for inserting data into table "driver_identity_info_report"
 """
 input DriverIdentityInfoReportInsertInput {
+	driver_identity_info_report_id: String!
+	vehicle_id: String!
 	ic_card_status: Int
 	operation_time: Timestamptz
 	driver_name: String
@@ -8271,6 +8488,8 @@ input DriverIdentityInfoReportInsertInput {
 	driver_license_name: String
 	license_expire_date: Timestamptz
 	registration_time: Timestamptz
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -8401,6 +8620,10 @@ extend type Query {
 	主键查询
 	"""
 	driver_identity_info_report_by_pk(id: Bigint!): DriverIdentityInfoReport!
+	"""
+	联合主键查询
+	"""
+	driver_identity_info_report_by_union_pk(driver_identity_info_report_id: String!): DriverIdentityInfoReport!
 }
 extend type Mutation {
 	"""
@@ -8424,9 +8647,17 @@ extend type Mutation {
 	"""
 	update_driver_identity_info_report(_inc: DriverIdentityInfoReportIncInput, _set: DriverIdentityInfoReportSetInput, where: DriverIdentityInfoReportBoolExp!): DriverIdentityInfoReportMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_driver_identity_info_report_by_pk(_inc: DriverIdentityInfoReportIncInput, _set: DriverIdentityInfoReportSetInput, id: Bigint!): DriverIdentityInfoReport
+	"""
+	根据联合主键更新
+	"""
+	update_driver_identity_info_report_by_union_pk(_inc: DriverIdentityInfoReportIncInput, _set: DriverIdentityInfoReportSetInput, driver_identity_info_report_id: String!): DriverIdentityInfoReport
+	"""
+	根据联合主键删除记录
+	"""
+	delete_driver_identity_info_report_by_union_pk(driver_identity_info_report_id: String!): DriverIdentityInfoReport
 }
 `, BuiltIn: false},
 	{Name: "graph/graphqls/driver_info.graphqls", Input: `"""
@@ -8842,6 +9073,7 @@ input DriverInfoBoolExp {
 input type for inserting data into table "driver_info"
 """
 input DriverInfoInsertInput {
+	driver_id: String!
 	enterprise_id: String
 	department_id: String
 	driver_identity_id: String
@@ -8871,6 +9103,8 @@ input DriverInfoInsertInput {
 	operator: String
 	is_blacklist: Boolean
 	blacklist_deadline: Timestamptz
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -9114,7 +9348,7 @@ extend type Mutation {
 	"""
 	update_driver_info(_inc: DriverInfoIncInput, _set: DriverInfoSetInput, where: DriverInfoBoolExp!): DriverInfoMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_driver_info_by_pk(_inc: DriverInfoIncInput, _set: DriverInfoSetInput, id: Bigint!): DriverInfo
 }
@@ -9388,6 +9622,8 @@ input DrivingLicenseRegistrationInspectionBoolExp {
 input type for inserting data into table "driving_license_registration_inspection"
 """
 input DrivingLicenseRegistrationInspectionInsertInput {
+	driver_id_info_report_id: String!
+	vehicle_id: String!
 	ic_card_status: Int
 	operation_time: Timestamptz
 	driver_name: String
@@ -9398,6 +9634,8 @@ input DrivingLicenseRegistrationInspectionInsertInput {
 	driver_license_name: String
 	license_expire_date: Timestamptz
 	registration_time: Timestamptz
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -9551,7 +9789,7 @@ extend type Mutation {
 	"""
 	update_driving_license_registration_inspection(_inc: DrivingLicenseRegistrationInspectionIncInput, _set: DrivingLicenseRegistrationInspectionSetInput, where: DrivingLicenseRegistrationInspectionBoolExp!): DrivingLicenseRegistrationInspectionMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_driving_license_registration_inspection_by_pk(_inc: DrivingLicenseRegistrationInspectionIncInput, _set: DrivingLicenseRegistrationInspectionSetInput, id: Bigint!): DrivingLicenseRegistrationInspection
 }
@@ -9608,6 +9846,21 @@ func (ec *executionContext) field_Mutation_delete_driver_fingerprint_association
 	return args, nil
 }
 
+func (ec *executionContext) field_Mutation_delete_driver_fingerprint_association_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["driver_fingerprint_association_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("driver_fingerprint_association_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["driver_fingerprint_association_id"] = arg0
+	return args, nil
+}
+
 func (ec *executionContext) field_Mutation_delete_driver_fingerprint_by_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -9620,6 +9873,21 @@ func (ec *executionContext) field_Mutation_delete_driver_fingerprint_by_pk_args(
 		}
 	}
 	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_delete_driver_fingerprint_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["driver_fingerprint_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("driver_fingerprint_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["driver_fingerprint_id"] = arg0
 	return args, nil
 }
 
@@ -9653,6 +9921,21 @@ func (ec *executionContext) field_Mutation_delete_driver_identity_by_pk_args(ctx
 	return args, nil
 }
 
+func (ec *executionContext) field_Mutation_delete_driver_identity_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["identity_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("identity_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["identity_id"] = arg0
+	return args, nil
+}
+
 func (ec *executionContext) field_Mutation_delete_driver_identity_info_report_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -9680,6 +9963,21 @@ func (ec *executionContext) field_Mutation_delete_driver_identity_info_report_by
 		}
 	}
 	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_delete_driver_identity_info_report_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["driver_identity_info_report_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("driver_identity_info_report_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["driver_identity_info_report_id"] = arg0
 	return args, nil
 }
 
@@ -10022,6 +10320,39 @@ func (ec *executionContext) field_Mutation_update_driver_fingerprint_association
 	return args, nil
 }
 
+func (ec *executionContext) field_Mutation_update_driver_fingerprint_association_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *model.DriverFingerprintAssociationIncInput
+	if tmp, ok := rawArgs["_inc"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
+		arg0, err = ec.unmarshalODriverFingerprintAssociationIncInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverFingerprintAssociationIncInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_inc"] = arg0
+	var arg1 *model.DriverFingerprintAssociationSetInput
+	if tmp, ok := rawArgs["_set"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
+		arg1, err = ec.unmarshalODriverFingerprintAssociationSetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverFingerprintAssociationSetInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_set"] = arg1
+	var arg2 string
+	if tmp, ok := rawArgs["driver_fingerprint_association_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("driver_fingerprint_association_id"))
+		arg2, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["driver_fingerprint_association_id"] = arg2
+	return args, nil
+}
+
 func (ec *executionContext) field_Mutation_update_driver_fingerprint_by_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -10052,6 +10383,39 @@ func (ec *executionContext) field_Mutation_update_driver_fingerprint_by_pk_args(
 		}
 	}
 	args["id"] = arg2
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_update_driver_fingerprint_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *model.DriverFingerprintIncInput
+	if tmp, ok := rawArgs["_inc"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
+		arg0, err = ec.unmarshalODriverFingerprintIncInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverFingerprintIncInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_inc"] = arg0
+	var arg1 *model.DriverFingerprintSetInput
+	if tmp, ok := rawArgs["_set"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
+		arg1, err = ec.unmarshalODriverFingerprintSetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverFingerprintSetInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_set"] = arg1
+	var arg2 string
+	if tmp, ok := rawArgs["driver_fingerprint_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("driver_fingerprint_id"))
+		arg2, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["driver_fingerprint_id"] = arg2
 	return args, nil
 }
 
@@ -10121,6 +10485,39 @@ func (ec *executionContext) field_Mutation_update_driver_identity_by_pk_args(ctx
 	return args, nil
 }
 
+func (ec *executionContext) field_Mutation_update_driver_identity_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *model.DriverIdentityIncInput
+	if tmp, ok := rawArgs["_inc"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
+		arg0, err = ec.unmarshalODriverIdentityIncInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIdentityIncInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_inc"] = arg0
+	var arg1 *model.DriverIdentitySetInput
+	if tmp, ok := rawArgs["_set"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
+		arg1, err = ec.unmarshalODriverIdentitySetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIdentitySetInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_set"] = arg1
+	var arg2 string
+	if tmp, ok := rawArgs["identity_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("identity_id"))
+		arg2, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["identity_id"] = arg2
+	return args, nil
+}
+
 func (ec *executionContext) field_Mutation_update_driver_identity_info_report_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -10184,6 +10581,39 @@ func (ec *executionContext) field_Mutation_update_driver_identity_info_report_by
 		}
 	}
 	args["id"] = arg2
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_update_driver_identity_info_report_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *model.DriverIdentityInfoReportIncInput
+	if tmp, ok := rawArgs["_inc"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
+		arg0, err = ec.unmarshalODriverIdentityInfoReportIncInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIdentityInfoReportIncInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_inc"] = arg0
+	var arg1 *model.DriverIdentityInfoReportSetInput
+	if tmp, ok := rawArgs["_set"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
+		arg1, err = ec.unmarshalODriverIdentityInfoReportSetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIdentityInfoReportSetInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_set"] = arg1
+	var arg2 string
+	if tmp, ok := rawArgs["driver_identity_info_report_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("driver_identity_info_report_id"))
+		arg2, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["driver_identity_info_report_id"] = arg2
 	return args, nil
 }
 
@@ -10553,6 +10983,21 @@ func (ec *executionContext) field_Query_driver_fingerprint_association_by_pk_arg
 	return args, nil
 }
 
+func (ec *executionContext) field_Query_driver_fingerprint_association_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["driver_fingerprint_association_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("driver_fingerprint_association_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["driver_fingerprint_association_id"] = arg0
+	return args, nil
+}
+
 func (ec *executionContext) field_Query_driver_fingerprint_by_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -10565,6 +11010,21 @@ func (ec *executionContext) field_Query_driver_fingerprint_by_pk_args(ctx contex
 		}
 	}
 	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Query_driver_fingerprint_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["driver_fingerprint_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("driver_fingerprint_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["driver_fingerprint_id"] = arg0
 	return args, nil
 }
 
@@ -10685,6 +11145,21 @@ func (ec *executionContext) field_Query_driver_identity_by_pk_args(ctx context.C
 	return args, nil
 }
 
+func (ec *executionContext) field_Query_driver_identity_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["identity_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("identity_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["identity_id"] = arg0
+	return args, nil
+}
+
 func (ec *executionContext) field_Query_driver_identity_info_report_aggregate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -10799,6 +11274,21 @@ func (ec *executionContext) field_Query_driver_identity_info_report_by_pk_args(c
 		}
 	}
 	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Query_driver_identity_info_report_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["driver_identity_info_report_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("driver_identity_info_report_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["driver_identity_info_report_id"] = arg0
 	return args, nil
 }
 
@@ -31844,6 +32334,84 @@ func (ec *executionContext) _Mutation_update_driver_fingerprint_by_pk(ctx contex
 	return ec.marshalODriverFingerprint2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋmodelᚐDriverFingerprint(ctx, field.Selections, res)
 }
 
+func (ec *executionContext) _Mutation_update_driver_fingerprint_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_driver_fingerprint_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateDriverFingerprintByUnionPk(rctx, args["_inc"].(*model.DriverFingerprintIncInput), args["_set"].(*model.DriverFingerprintSetInput), args["driver_fingerprint_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.DriverFingerprint)
+	fc.Result = res
+	return ec.marshalODriverFingerprint2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋmodelᚐDriverFingerprint(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_delete_driver_fingerprint_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_delete_driver_fingerprint_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().DeleteDriverFingerprintByUnionPk(rctx, args["driver_fingerprint_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.DriverFingerprint)
+	fc.Result = res
+	return ec.marshalODriverFingerprint2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋmodelᚐDriverFingerprint(ctx, field.Selections, res)
+}
+
 func (ec *executionContext) _Mutation_delete_driver_fingerprint_association(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -32065,6 +32633,84 @@ func (ec *executionContext) _Mutation_update_driver_fingerprint_association_by_p
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
 		return ec.resolvers.Mutation().UpdateDriverFingerprintAssociationByPk(rctx, args["_inc"].(*model.DriverFingerprintAssociationIncInput), args["_set"].(*model.DriverFingerprintAssociationSetInput), args["id"].(int64))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.DriverFingerprintAssociation)
+	fc.Result = res
+	return ec.marshalODriverFingerprintAssociation2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋmodelᚐDriverFingerprintAssociation(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_update_driver_fingerprint_association_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_driver_fingerprint_association_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateDriverFingerprintAssociationByUnionPk(rctx, args["_inc"].(*model.DriverFingerprintAssociationIncInput), args["_set"].(*model.DriverFingerprintAssociationSetInput), args["driver_fingerprint_association_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.DriverFingerprintAssociation)
+	fc.Result = res
+	return ec.marshalODriverFingerprintAssociation2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋmodelᚐDriverFingerprintAssociation(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_delete_driver_fingerprint_association_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_delete_driver_fingerprint_association_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().DeleteDriverFingerprintAssociationByUnionPk(rctx, args["driver_fingerprint_association_id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -32312,6 +32958,84 @@ func (ec *executionContext) _Mutation_update_driver_identity_by_pk(ctx context.C
 	return ec.marshalODriverIdentity2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋmodelᚐDriverIdentity(ctx, field.Selections, res)
 }
 
+func (ec *executionContext) _Mutation_update_driver_identity_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_driver_identity_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateDriverIdentityByUnionPk(rctx, args["_inc"].(*model.DriverIdentityIncInput), args["_set"].(*model.DriverIdentitySetInput), args["identity_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.DriverIdentity)
+	fc.Result = res
+	return ec.marshalODriverIdentity2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋmodelᚐDriverIdentity(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_delete_driver_identity_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_delete_driver_identity_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().DeleteDriverIdentityByUnionPk(rctx, args["identity_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.DriverIdentity)
+	fc.Result = res
+	return ec.marshalODriverIdentity2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋmodelᚐDriverIdentity(ctx, field.Selections, res)
+}
+
 func (ec *executionContext) _Mutation_delete_driver_identity_info_report(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -32533,6 +33257,84 @@ func (ec *executionContext) _Mutation_update_driver_identity_info_report_by_pk(c
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
 		return ec.resolvers.Mutation().UpdateDriverIdentityInfoReportByPk(rctx, args["_inc"].(*model.DriverIdentityInfoReportIncInput), args["_set"].(*model.DriverIdentityInfoReportSetInput), args["id"].(int64))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.DriverIdentityInfoReport)
+	fc.Result = res
+	return ec.marshalODriverIdentityInfoReport2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋmodelᚐDriverIdentityInfoReport(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_update_driver_identity_info_report_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_driver_identity_info_report_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateDriverIdentityInfoReportByUnionPk(rctx, args["_inc"].(*model.DriverIdentityInfoReportIncInput), args["_set"].(*model.DriverIdentityInfoReportSetInput), args["driver_identity_info_report_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.DriverIdentityInfoReport)
+	fc.Result = res
+	return ec.marshalODriverIdentityInfoReport2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋmodelᚐDriverIdentityInfoReport(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_delete_driver_identity_info_report_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_delete_driver_identity_info_report_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().DeleteDriverIdentityInfoReportByUnionPk(rctx, args["driver_identity_info_report_id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -33140,6 +33942,48 @@ func (ec *executionContext) _Query_driver_fingerprint_by_pk(ctx context.Context,
 	return ec.marshalNDriverFingerprint2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋmodelᚐDriverFingerprint(ctx, field.Selections, res)
 }
 
+func (ec *executionContext) _Query_driver_fingerprint_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_driver_fingerprint_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().DriverFingerprintByUnionPk(rctx, args["driver_fingerprint_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*model1.DriverFingerprint)
+	fc.Result = res
+	return ec.marshalNDriverFingerprint2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋmodelᚐDriverFingerprint(ctx, field.Selections, res)
+}
+
 func (ec *executionContext) _Query_driver_fingerprint_association(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -33250,6 +34094,48 @@ func (ec *executionContext) _Query_driver_fingerprint_association_by_pk(ctx cont
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
 		return ec.resolvers.Query().DriverFingerprintAssociationByPk(rctx, args["id"].(int64))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*model1.DriverFingerprintAssociation)
+	fc.Result = res
+	return ec.marshalNDriverFingerprintAssociation2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋmodelᚐDriverFingerprintAssociation(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Query_driver_fingerprint_association_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_driver_fingerprint_association_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().DriverFingerprintAssociationByUnionPk(rctx, args["driver_fingerprint_association_id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -33392,6 +34278,48 @@ func (ec *executionContext) _Query_driver_identity_by_pk(ctx context.Context, fi
 	return ec.marshalNDriverIdentity2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋmodelᚐDriverIdentity(ctx, field.Selections, res)
 }
 
+func (ec *executionContext) _Query_driver_identity_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_driver_identity_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().DriverIdentityByUnionPk(rctx, args["identity_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*model1.DriverIdentity)
+	fc.Result = res
+	return ec.marshalNDriverIdentity2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋmodelᚐDriverIdentity(ctx, field.Selections, res)
+}
+
 func (ec *executionContext) _Query_driver_identity_info_report(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -33502,6 +34430,48 @@ func (ec *executionContext) _Query_driver_identity_info_report_by_pk(ctx context
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
 		return ec.resolvers.Query().DriverIdentityInfoReportByPk(rctx, args["id"].(int64))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*model1.DriverIdentityInfoReport)
+	fc.Result = res
+	return ec.marshalNDriverIdentityInfoReport2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋmodelᚐDriverIdentityInfoReport(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Query_driver_identity_info_report_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_driver_identity_info_report_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().DriverIdentityInfoReportByUnionPk(rctx, args["driver_identity_info_report_id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -35262,6 +36232,22 @@ func (ec *executionContext) unmarshalInputDriverFingerprintAssociationInsertInpu
 
 	for k, v := range asMap {
 		switch k {
+		case "driver_fingerprint_association_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("driver_fingerprint_association_id"))
+			it.DriverFingerprintAssociationID, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "driver_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("driver_id"))
+			it.DriverID, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "fingerprint_name":
 			var err error
 
@@ -35291,6 +36277,22 @@ func (ec *executionContext) unmarshalInputDriverFingerprintAssociationInsertInpu
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_deleted"))
 			it.IsDeleted, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
+			it.CreatedAt, err = ec.unmarshalNTimestamptz2timeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
+			it.CreatedBy, err = ec.unmarshalNString2string(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -35818,6 +36820,22 @@ func (ec *executionContext) unmarshalInputDriverFingerprintInsertInput(ctx conte
 
 	for k, v := range asMap {
 		switch k {
+		case "driver_fingerprint_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("driver_fingerprint_id"))
+			it.DriverFingerprintID, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "driver_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("driver_id"))
+			it.DriverID, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "driver_name":
 			var err error
 
@@ -35927,6 +36945,22 @@ func (ec *executionContext) unmarshalInputDriverFingerprintInsertInput(ctx conte
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_deleted"))
 			it.IsDeleted, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
+			it.CreatedAt, err = ec.unmarshalNTimestamptz2timeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
+			it.CreatedBy, err = ec.unmarshalNString2string(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -36974,6 +38008,22 @@ func (ec *executionContext) unmarshalInputDriverIdentityInfoReportInsertInput(ct
 
 	for k, v := range asMap {
 		switch k {
+		case "driver_identity_info_report_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("driver_identity_info_report_id"))
+			it.DriverIdentityInfoReportID, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "vehicle_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("vehicle_id"))
+			it.VehicleID, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "ic_card_status":
 			var err error
 
@@ -37051,6 +38101,22 @@ func (ec *executionContext) unmarshalInputDriverIdentityInfoReportInsertInput(ct
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("registration_time"))
 			it.RegistrationTime, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
+			it.CreatedAt, err = ec.unmarshalNTimestamptz2timeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
+			it.CreatedBy, err = ec.unmarshalNString2string(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -37426,6 +38492,14 @@ func (ec *executionContext) unmarshalInputDriverIdentityInsertInput(ctx context.
 
 	for k, v := range asMap {
 		switch k {
+		case "identity_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("identity_id"))
+			it.IdentityID, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "id_card_num":
 			var err error
 
@@ -37663,6 +38737,22 @@ func (ec *executionContext) unmarshalInputDriverIdentityInsertInput(ctx context.
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_review"))
 			it.IsReview, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
+			it.CreatedAt, err = ec.unmarshalNTimestamptz2timeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
+			it.CreatedBy, err = ec.unmarshalNString2string(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -38726,6 +39816,14 @@ func (ec *executionContext) unmarshalInputDriverInfoInsertInput(ctx context.Cont
 
 	for k, v := range asMap {
 		switch k {
+		case "driver_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("driver_id"))
+			it.DriverID, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "enterprise_id":
 			var err error
 
@@ -38955,6 +40053,22 @@ func (ec *executionContext) unmarshalInputDriverInfoInsertInput(ctx context.Cont
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("blacklist_deadline"))
 			it.BlacklistDeadline, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
+			it.CreatedAt, err = ec.unmarshalNTimestamptz2timeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
+			it.CreatedBy, err = ec.unmarshalNString2string(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -39834,6 +40948,22 @@ func (ec *executionContext) unmarshalInputDrivingLicenseRegistrationInspectionIn
 
 	for k, v := range asMap {
 		switch k {
+		case "driver_id_info_report_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("driver_id_info_report_id"))
+			it.DriverIDInfoReportID, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "vehicle_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("vehicle_id"))
+			it.VehicleID, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "ic_card_status":
 			var err error
 
@@ -39911,6 +41041,22 @@ func (ec *executionContext) unmarshalInputDrivingLicenseRegistrationInspectionIn
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("registration_time"))
 			it.RegistrationTime, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
+			it.CreatedAt, err = ec.unmarshalNTimestamptz2timeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
+			it.CreatedBy, err = ec.unmarshalNString2string(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -40280,8 +41426,8 @@ func (ec *executionContext) unmarshalInputDrivingLicenseRegistrationInspectionSe
 	return it, nil
 }
 
-func (ec *executionContext) unmarshalInputFloatComparisonExp(ctx context.Context, obj interface{}) (model1.FloatComparisonExp, error) {
-	var it model1.FloatComparisonExp
+func (ec *executionContext) unmarshalInputFloatComparisonExp(ctx context.Context, obj interface{}) (model2.FloatComparisonExp, error) {
+	var it model2.FloatComparisonExp
 	var asMap = obj.(map[string]interface{})
 
 	for k, v := range asMap {
@@ -44195,6 +45341,10 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			out.Values[i] = ec._Mutation_update_driver_fingerprint(ctx, field)
 		case "update_driver_fingerprint_by_pk":
 			out.Values[i] = ec._Mutation_update_driver_fingerprint_by_pk(ctx, field)
+		case "update_driver_fingerprint_by_union_pk":
+			out.Values[i] = ec._Mutation_update_driver_fingerprint_by_union_pk(ctx, field)
+		case "delete_driver_fingerprint_by_union_pk":
+			out.Values[i] = ec._Mutation_delete_driver_fingerprint_by_union_pk(ctx, field)
 		case "delete_driver_fingerprint_association":
 			out.Values[i] = ec._Mutation_delete_driver_fingerprint_association(ctx, field)
 		case "delete_driver_fingerprint_association_by_pk":
@@ -44207,6 +45357,10 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			out.Values[i] = ec._Mutation_update_driver_fingerprint_association(ctx, field)
 		case "update_driver_fingerprint_association_by_pk":
 			out.Values[i] = ec._Mutation_update_driver_fingerprint_association_by_pk(ctx, field)
+		case "update_driver_fingerprint_association_by_union_pk":
+			out.Values[i] = ec._Mutation_update_driver_fingerprint_association_by_union_pk(ctx, field)
+		case "delete_driver_fingerprint_association_by_union_pk":
+			out.Values[i] = ec._Mutation_delete_driver_fingerprint_association_by_union_pk(ctx, field)
 		case "delete_driver_identity":
 			out.Values[i] = ec._Mutation_delete_driver_identity(ctx, field)
 		case "delete_driver_identity_by_pk":
@@ -44219,6 +45373,10 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			out.Values[i] = ec._Mutation_update_driver_identity(ctx, field)
 		case "update_driver_identity_by_pk":
 			out.Values[i] = ec._Mutation_update_driver_identity_by_pk(ctx, field)
+		case "update_driver_identity_by_union_pk":
+			out.Values[i] = ec._Mutation_update_driver_identity_by_union_pk(ctx, field)
+		case "delete_driver_identity_by_union_pk":
+			out.Values[i] = ec._Mutation_delete_driver_identity_by_union_pk(ctx, field)
 		case "delete_driver_identity_info_report":
 			out.Values[i] = ec._Mutation_delete_driver_identity_info_report(ctx, field)
 		case "delete_driver_identity_info_report_by_pk":
@@ -44231,6 +45389,10 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			out.Values[i] = ec._Mutation_update_driver_identity_info_report(ctx, field)
 		case "update_driver_identity_info_report_by_pk":
 			out.Values[i] = ec._Mutation_update_driver_identity_info_report_by_pk(ctx, field)
+		case "update_driver_identity_info_report_by_union_pk":
+			out.Values[i] = ec._Mutation_update_driver_identity_info_report_by_union_pk(ctx, field)
+		case "delete_driver_identity_info_report_by_union_pk":
+			out.Values[i] = ec._Mutation_delete_driver_identity_info_report_by_union_pk(ctx, field)
 		case "delete_driver_info":
 			out.Values[i] = ec._Mutation_delete_driver_info(ctx, field)
 		case "delete_driver_info_by_pk":
@@ -44323,6 +45485,20 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 				}
 				return res
 			})
+		case "driver_fingerprint_by_union_pk":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_driver_fingerprint_by_union_pk(ctx, field)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			})
 		case "driver_fingerprint_association":
 			field := field
 			out.Concurrently(i, func() (res graphql.Marshaler) {
@@ -44360,6 +45536,20 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_driver_fingerprint_association_by_pk(ctx, field)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			})
+		case "driver_fingerprint_association_by_union_pk":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_driver_fingerprint_association_by_union_pk(ctx, field)
 				if res == graphql.Null {
 					atomic.AddUint32(&invalids, 1)
 				}
@@ -44407,6 +45597,20 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 				}
 				return res
 			})
+		case "driver_identity_by_union_pk":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_driver_identity_by_union_pk(ctx, field)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			})
 		case "driver_identity_info_report":
 			field := field
 			out.Concurrently(i, func() (res graphql.Marshaler) {
@@ -44444,6 +45648,20 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_driver_identity_info_report_by_pk(ctx, field)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			})
+		case "driver_identity_info_report_by_union_pk":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_driver_identity_info_report_by_union_pk(ctx, field)
 				if res == graphql.Null {
 					atomic.AddUint32(&invalids, 1)
 				}

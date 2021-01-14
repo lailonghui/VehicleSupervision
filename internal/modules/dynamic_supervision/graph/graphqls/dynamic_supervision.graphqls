@@ -331,6 +331,7 @@ input DynamicSupervisionBoolExp {
 input type for inserting data into table "dynamic_supervision"
 """
 input DynamicSupervisionInsertInput {
+	supervision_id: String!
 	spot_check_date: Timestamptz
 	spot_check_total_number: Int
 	spot_check_number: Int
@@ -343,6 +344,8 @@ input DynamicSupervisionInsertInput {
 	year: Int
 	month: Int
 	day: Int
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -490,6 +493,10 @@ extend type Query {
 	主键查询
 	"""
 	dynamic_supervision_by_pk(id: Bigint!): DynamicSupervision!
+	"""
+	联合主键查询
+	"""
+	dynamic_supervision_by_union_pk(supervision_id: String!): DynamicSupervision!
 }
 extend type Mutation {
 	"""
@@ -513,7 +520,15 @@ extend type Mutation {
 	"""
 	update_dynamic_supervision(_inc: DynamicSupervisionIncInput, _set: DynamicSupervisionSetInput, where: DynamicSupervisionBoolExp!): DynamicSupervisionMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_dynamic_supervision_by_pk(_inc: DynamicSupervisionIncInput, _set: DynamicSupervisionSetInput, id: Bigint!): DynamicSupervision
+	"""
+	根据联合主键更新
+	"""
+	update_dynamic_supervision_by_union_pk(_inc: DynamicSupervisionIncInput, _set: DynamicSupervisionSetInput, supervision_id: String!): DynamicSupervision
+	"""
+	根据联合主键删除记录
+	"""
+	delete_dynamic_supervision_by_union_pk(supervision_id: String!): DynamicSupervision
 }

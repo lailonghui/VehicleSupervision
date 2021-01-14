@@ -299,6 +299,8 @@ input OfflineAlarmRegistrationBoolExp {
 input type for inserting data into table "offline_alarm_registration"
 """
 input OfflineAlarmRegistrationInsertInput {
+	offline_alarm_registration_id: String!
+	vehicle_id: String!
 	offline_start_time: Timestamptz
 	offline_end_time: Timestamptz
 	registration_user: String
@@ -313,6 +315,8 @@ input OfflineAlarmRegistrationInsertInput {
 	is_end_alarm: Boolean
 	is_send_sms: Boolean
 	is_need_maintain: Boolean
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -463,6 +467,10 @@ extend type Query {
 	主键查询
 	"""
 	offline_alarm_registration_by_pk(id: Bigint!): OfflineAlarmRegistration!
+	"""
+	联合主键查询
+	"""
+	offline_alarm_registration_by_union_pk(offline_alarm_registration_id: String!): OfflineAlarmRegistration!
 }
 extend type Mutation {
 	"""
@@ -486,7 +494,15 @@ extend type Mutation {
 	"""
 	update_offline_alarm_registration(_inc: OfflineAlarmRegistrationIncInput, _set: OfflineAlarmRegistrationSetInput, where: OfflineAlarmRegistrationBoolExp!): OfflineAlarmRegistrationMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_offline_alarm_registration_by_pk(_inc: OfflineAlarmRegistrationIncInput, _set: OfflineAlarmRegistrationSetInput, id: Bigint!): OfflineAlarmRegistration
+	"""
+	根据联合主键更新
+	"""
+	update_offline_alarm_registration_by_union_pk(_inc: OfflineAlarmRegistrationIncInput, _set: OfflineAlarmRegistrationSetInput, offline_alarm_registration_id: String!): OfflineAlarmRegistration
+	"""
+	根据联合主键删除记录
+	"""
+	delete_offline_alarm_registration_by_union_pk(offline_alarm_registration_id: String!): OfflineAlarmRegistration
 }

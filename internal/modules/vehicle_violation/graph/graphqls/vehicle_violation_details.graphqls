@@ -387,6 +387,7 @@ input VehicleViolationDetailsBoolExp {
 input type for inserting data into table "vehicle_violation_details"
 """
 input VehicleViolationDetailsInsertInput {
+	violation_detail_id: String!
 	vehicle_id: String
 	driver_id: String
 	enterprise_id: String
@@ -411,6 +412,8 @@ input VehicleViolationDetailsInsertInput {
 	handle_at: Timestamptz
 	is_send: Boolean
 	is_deleted: Boolean
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -631,7 +634,7 @@ extend type Mutation {
 	"""
 	update_vehicle_violation_details(_inc: VehicleViolationDetailsIncInput, _set: VehicleViolationDetailsSetInput, where: VehicleViolationDetailsBoolExp!): VehicleViolationDetailsMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_vehicle_violation_details_by_pk(_inc: VehicleViolationDetailsIncInput, _set: VehicleViolationDetailsSetInput, id: Bigint!): VehicleViolationDetails
 }

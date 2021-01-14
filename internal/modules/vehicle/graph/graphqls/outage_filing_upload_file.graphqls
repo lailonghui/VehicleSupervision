@@ -195,9 +195,12 @@ input OutageFilingUploadFileBoolExp {
 input type for inserting data into table "outage_filing_upload_file"
 """
 input OutageFilingUploadFileInsertInput {
+	outage_filing_upload_file_id: String!
 	file_path: String
 	file_type: String
 	is_deleted: Boolean
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -287,6 +290,10 @@ extend type Query {
 	主键查询
 	"""
 	outage_filing_upload_file_by_pk(id: Bigint!): OutageFilingUploadFile!
+	"""
+	联合主键查询
+	"""
+	outage_filing_upload_file_by_union_pk(outage_filing_upload_file_id: String!): OutageFilingUploadFile!
 }
 extend type Mutation {
 	"""
@@ -310,7 +317,15 @@ extend type Mutation {
 	"""
 	update_outage_filing_upload_file(_inc: OutageFilingUploadFileIncInput, _set: OutageFilingUploadFileSetInput, where: OutageFilingUploadFileBoolExp!): OutageFilingUploadFileMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_outage_filing_upload_file_by_pk(_inc: OutageFilingUploadFileIncInput, _set: OutageFilingUploadFileSetInput, id: Bigint!): OutageFilingUploadFile
+	"""
+	根据联合主键更新
+	"""
+	update_outage_filing_upload_file_by_union_pk(_inc: OutageFilingUploadFileIncInput, _set: OutageFilingUploadFileSetInput, outage_filing_upload_file_id: String!): OutageFilingUploadFile
+	"""
+	根据联合主键删除记录
+	"""
+	delete_outage_filing_upload_file_by_union_pk(outage_filing_upload_file_id: String!): OutageFilingUploadFile
 }

@@ -459,6 +459,7 @@ input VehicleAlarmSupervisionBoolExp {
 input type for inserting data into table "vehicle_alarm_supervision"
 """
 input VehicleAlarmSupervisionInsertInput {
+	vehicle_alarm_supervision_id: String!
 	superivision_authority_id: String
 	superivision_type: String
 	area_id: String
@@ -482,6 +483,8 @@ input VehicleAlarmSupervisionInsertInput {
 	check_abnormal_vehicle_number: Int
 	abnormal_disposal_number: Int
 	abnormal_disposal_rate: Numeric
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -684,6 +687,10 @@ extend type Query {
 	主键查询
 	"""
 	vehicle_alarm_supervision_by_pk(id: Bigint!): VehicleAlarmSupervision!
+	"""
+	联合主键查询
+	"""
+	vehicle_alarm_supervision_by_union_pk(vehicle_alarm_supervision_id: String!): VehicleAlarmSupervision!
 }
 extend type Mutation {
 	"""
@@ -707,7 +714,15 @@ extend type Mutation {
 	"""
 	update_vehicle_alarm_supervision(_inc: VehicleAlarmSupervisionIncInput, _set: VehicleAlarmSupervisionSetInput, where: VehicleAlarmSupervisionBoolExp!): VehicleAlarmSupervisionMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_vehicle_alarm_supervision_by_pk(_inc: VehicleAlarmSupervisionIncInput, _set: VehicleAlarmSupervisionSetInput, id: Bigint!): VehicleAlarmSupervision
+	"""
+	根据联合主键更新
+	"""
+	update_vehicle_alarm_supervision_by_union_pk(_inc: VehicleAlarmSupervisionIncInput, _set: VehicleAlarmSupervisionSetInput, vehicle_alarm_supervision_id: String!): VehicleAlarmSupervision
+	"""
+	根据联合主键删除记录
+	"""
+	delete_vehicle_alarm_supervision_by_union_pk(vehicle_alarm_supervision_id: String!): VehicleAlarmSupervision
 }

@@ -6,19 +6,6 @@ import (
 	"time"
 )
 
-// expression to compare columns of type Float. All fields are combined with logical 'AND'.
-type FloatComparisonExp struct {
-	Eq     *float64  `json:"_eq"`
-	Gt     *float64  `json:"_gt"`
-	Gte    *float64  `json:"_gte"`
-	In     []float64 `json:"_in"`
-	IsNull *bool     `json:"_is_null"`
-	Lt     *float64  `json:"_lt"`
-	Lte    *float64  `json:"_lte"`
-	Neq    *float64  `json:"_neq"`
-	Nin    []float64 `json:"_nin"`
-}
-
 // 车辆信息表
 type VehicleInfo struct {
 	// 按指定方法生成，生成方法见下面说明                           ( 主键                                                         )

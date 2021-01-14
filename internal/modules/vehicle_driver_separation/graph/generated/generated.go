@@ -647,51 +647,61 @@ type ComplexityRoot struct {
 	}
 
 	Mutation struct {
-		DeleteCaseApprovalReviewCall          func(childComplexity int, where model.CaseApprovalReviewCallBoolExp) int
-		DeleteCaseApprovalReviewCallByPk      func(childComplexity int, id int64) int
-		DeleteCaseApprovalReviewOperation     func(childComplexity int, where model.CaseApprovalReviewOperationBoolExp) int
-		DeleteCaseApprovalReviewOperationByPk func(childComplexity int, id int64) int
-		DeleteDisputeViolationRecord          func(childComplexity int, where model.DisputeViolationRecordBoolExp) int
-		DeleteDisputeViolationRecordByPk      func(childComplexity int, id int64) int
-		DeleteDisputeViolationRecordLog       func(childComplexity int, where model.DisputeViolationRecordLogBoolExp) int
-		DeleteDisputeViolationRecordLogByPk   func(childComplexity int, id int64) int
-		DeleteDrivingLogInfo                  func(childComplexity int, where model.DrivingLogInfoBoolExp) int
-		DeleteDrivingLogInfoByPk              func(childComplexity int, id int64) int
-		DeleteVehicleDriverBinding            func(childComplexity int, where model.VehicleDriverBindingBoolExp) int
-		DeleteVehicleDriverBindingByPk        func(childComplexity int, id int64) int
-		InsertCaseApprovalReviewCall          func(childComplexity int, objects []*model.CaseApprovalReviewCallInsertInput) int
-		InsertCaseApprovalReviewCallOne       func(childComplexity int, objects model.CaseApprovalReviewCallInsertInput) int
-		InsertCaseApprovalReviewOperation     func(childComplexity int, objects []*model.CaseApprovalReviewOperationInsertInput) int
-		InsertCaseApprovalReviewOperationOne  func(childComplexity int, objects model.CaseApprovalReviewOperationInsertInput) int
-		InsertDisputeViolationRecord          func(childComplexity int, objects []*model.DisputeViolationRecordInsertInput) int
-		InsertDisputeViolationRecordLog       func(childComplexity int, objects []*model.DisputeViolationRecordLogInsertInput) int
-		InsertDisputeViolationRecordLogOne    func(childComplexity int, objects model.DisputeViolationRecordLogInsertInput) int
-		InsertDisputeViolationRecordOne       func(childComplexity int, objects model.DisputeViolationRecordInsertInput) int
-		InsertDrivingLogInfo                  func(childComplexity int, objects []*model.DrivingLogInfoInsertInput) int
-		InsertDrivingLogInfoOne               func(childComplexity int, objects model.DrivingLogInfoInsertInput) int
-		InsertVehicleDriverBinding            func(childComplexity int, objects []*model.VehicleDriverBindingInsertInput) int
-		InsertVehicleDriverBindingOne         func(childComplexity int, objects model.VehicleDriverBindingInsertInput) int
-		UpdateCaseApprovalReviewCall          func(childComplexity int, inc *model.CaseApprovalReviewCallIncInput, set *model.CaseApprovalReviewCallSetInput, where model.CaseApprovalReviewCallBoolExp) int
-		UpdateCaseApprovalReviewCallByPk      func(childComplexity int, inc *model.CaseApprovalReviewCallIncInput, set *model.CaseApprovalReviewCallSetInput, id int64) int
-		UpdateCaseApprovalReviewOperation     func(childComplexity int, inc *model.CaseApprovalReviewOperationIncInput, set *model.CaseApprovalReviewOperationSetInput, where model.CaseApprovalReviewOperationBoolExp) int
-		UpdateCaseApprovalReviewOperationByPk func(childComplexity int, inc *model.CaseApprovalReviewOperationIncInput, set *model.CaseApprovalReviewOperationSetInput, id int64) int
-		UpdateDisputeViolationRecord          func(childComplexity int, inc *model.DisputeViolationRecordIncInput, set *model.DisputeViolationRecordSetInput, where model.DisputeViolationRecordBoolExp) int
-		UpdateDisputeViolationRecordByPk      func(childComplexity int, inc *model.DisputeViolationRecordIncInput, set *model.DisputeViolationRecordSetInput, id int64) int
-		UpdateDisputeViolationRecordLog       func(childComplexity int, inc *model.DisputeViolationRecordLogIncInput, set *model.DisputeViolationRecordLogSetInput, where model.DisputeViolationRecordLogBoolExp) int
-		UpdateDisputeViolationRecordLogByPk   func(childComplexity int, inc *model.DisputeViolationRecordLogIncInput, set *model.DisputeViolationRecordLogSetInput, id int64) int
-		UpdateDrivingLogInfo                  func(childComplexity int, inc *model.DrivingLogInfoIncInput, set *model.DrivingLogInfoSetInput, where model.DrivingLogInfoBoolExp) int
-		UpdateDrivingLogInfoByPk              func(childComplexity int, inc *model.DrivingLogInfoIncInput, set *model.DrivingLogInfoSetInput, id int64) int
-		UpdateVehicleDriverBinding            func(childComplexity int, inc *model.VehicleDriverBindingIncInput, set *model.VehicleDriverBindingSetInput, where model.VehicleDriverBindingBoolExp) int
-		UpdateVehicleDriverBindingByPk        func(childComplexity int, inc *model.VehicleDriverBindingIncInput, set *model.VehicleDriverBindingSetInput, id int64) int
+		DeleteCaseApprovalReviewCall               func(childComplexity int, where model.CaseApprovalReviewCallBoolExp) int
+		DeleteCaseApprovalReviewCallByPk           func(childComplexity int, id int64) int
+		DeleteCaseApprovalReviewCallByUnionPk      func(childComplexity int, caseApprovalReviewCallID string) int
+		DeleteCaseApprovalReviewOperation          func(childComplexity int, where model.CaseApprovalReviewOperationBoolExp) int
+		DeleteCaseApprovalReviewOperationByPk      func(childComplexity int, id int64) int
+		DeleteCaseApprovalReviewOperationByUnionPk func(childComplexity int, caseApprovalReviewOperationID string) int
+		DeleteDisputeViolationRecord               func(childComplexity int, where model.DisputeViolationRecordBoolExp) int
+		DeleteDisputeViolationRecordByPk           func(childComplexity int, id int64) int
+		DeleteDisputeViolationRecordLog            func(childComplexity int, where model.DisputeViolationRecordLogBoolExp) int
+		DeleteDisputeViolationRecordLogByPk        func(childComplexity int, id int64) int
+		DeleteDrivingLogInfo                       func(childComplexity int, where model.DrivingLogInfoBoolExp) int
+		DeleteDrivingLogInfoByPk                   func(childComplexity int, id int64) int
+		DeleteDrivingLogInfoByUnionPk              func(childComplexity int, drivingLogInfoID string) int
+		DeleteVehicleDriverBinding                 func(childComplexity int, where model.VehicleDriverBindingBoolExp) int
+		DeleteVehicleDriverBindingByPk             func(childComplexity int, id int64) int
+		DeleteVehicleDriverBindingByUnionPk        func(childComplexity int, vehicleDriverBindingID string) int
+		InsertCaseApprovalReviewCall               func(childComplexity int, objects []*model.CaseApprovalReviewCallInsertInput) int
+		InsertCaseApprovalReviewCallOne            func(childComplexity int, objects model.CaseApprovalReviewCallInsertInput) int
+		InsertCaseApprovalReviewOperation          func(childComplexity int, objects []*model.CaseApprovalReviewOperationInsertInput) int
+		InsertCaseApprovalReviewOperationOne       func(childComplexity int, objects model.CaseApprovalReviewOperationInsertInput) int
+		InsertDisputeViolationRecord               func(childComplexity int, objects []*model.DisputeViolationRecordInsertInput) int
+		InsertDisputeViolationRecordLog            func(childComplexity int, objects []*model.DisputeViolationRecordLogInsertInput) int
+		InsertDisputeViolationRecordLogOne         func(childComplexity int, objects model.DisputeViolationRecordLogInsertInput) int
+		InsertDisputeViolationRecordOne            func(childComplexity int, objects model.DisputeViolationRecordInsertInput) int
+		InsertDrivingLogInfo                       func(childComplexity int, objects []*model.DrivingLogInfoInsertInput) int
+		InsertDrivingLogInfoOne                    func(childComplexity int, objects model.DrivingLogInfoInsertInput) int
+		InsertVehicleDriverBinding                 func(childComplexity int, objects []*model.VehicleDriverBindingInsertInput) int
+		InsertVehicleDriverBindingOne              func(childComplexity int, objects model.VehicleDriverBindingInsertInput) int
+		UpdateCaseApprovalReviewCall               func(childComplexity int, inc *model.CaseApprovalReviewCallIncInput, set *model.CaseApprovalReviewCallSetInput, where model.CaseApprovalReviewCallBoolExp) int
+		UpdateCaseApprovalReviewCallByPk           func(childComplexity int, inc *model.CaseApprovalReviewCallIncInput, set *model.CaseApprovalReviewCallSetInput, id int64) int
+		UpdateCaseApprovalReviewCallByUnionPk      func(childComplexity int, inc *model.CaseApprovalReviewCallIncInput, set *model.CaseApprovalReviewCallSetInput, caseApprovalReviewCallID string) int
+		UpdateCaseApprovalReviewOperation          func(childComplexity int, inc *model.CaseApprovalReviewOperationIncInput, set *model.CaseApprovalReviewOperationSetInput, where model.CaseApprovalReviewOperationBoolExp) int
+		UpdateCaseApprovalReviewOperationByPk      func(childComplexity int, inc *model.CaseApprovalReviewOperationIncInput, set *model.CaseApprovalReviewOperationSetInput, id int64) int
+		UpdateCaseApprovalReviewOperationByUnionPk func(childComplexity int, inc *model.CaseApprovalReviewOperationIncInput, set *model.CaseApprovalReviewOperationSetInput, caseApprovalReviewOperationID string) int
+		UpdateDisputeViolationRecord               func(childComplexity int, inc *model.DisputeViolationRecordIncInput, set *model.DisputeViolationRecordSetInput, where model.DisputeViolationRecordBoolExp) int
+		UpdateDisputeViolationRecordByPk           func(childComplexity int, inc *model.DisputeViolationRecordIncInput, set *model.DisputeViolationRecordSetInput, id int64) int
+		UpdateDisputeViolationRecordLog            func(childComplexity int, inc *model.DisputeViolationRecordLogIncInput, set *model.DisputeViolationRecordLogSetInput, where model.DisputeViolationRecordLogBoolExp) int
+		UpdateDisputeViolationRecordLogByPk        func(childComplexity int, inc *model.DisputeViolationRecordLogIncInput, set *model.DisputeViolationRecordLogSetInput, id int64) int
+		UpdateDrivingLogInfo                       func(childComplexity int, inc *model.DrivingLogInfoIncInput, set *model.DrivingLogInfoSetInput, where model.DrivingLogInfoBoolExp) int
+		UpdateDrivingLogInfoByPk                   func(childComplexity int, inc *model.DrivingLogInfoIncInput, set *model.DrivingLogInfoSetInput, id int64) int
+		UpdateDrivingLogInfoByUnionPk              func(childComplexity int, inc *model.DrivingLogInfoIncInput, set *model.DrivingLogInfoSetInput, drivingLogInfoID string) int
+		UpdateVehicleDriverBinding                 func(childComplexity int, inc *model.VehicleDriverBindingIncInput, set *model.VehicleDriverBindingSetInput, where model.VehicleDriverBindingBoolExp) int
+		UpdateVehicleDriverBindingByPk             func(childComplexity int, inc *model.VehicleDriverBindingIncInput, set *model.VehicleDriverBindingSetInput, id int64) int
+		UpdateVehicleDriverBindingByUnionPk        func(childComplexity int, inc *model.VehicleDriverBindingIncInput, set *model.VehicleDriverBindingSetInput, vehicleDriverBindingID string) int
 	}
 
 	Query struct {
 		CaseApprovalReviewCall               func(childComplexity int, distinctOn []model.CaseApprovalReviewCallSelectColumn, limit *int, offset *int, orderBy []*model.CaseApprovalReviewCallOrderBy, where *model.CaseApprovalReviewCallBoolExp) int
 		CaseApprovalReviewCallAggregate      func(childComplexity int, distinctOn []model.CaseApprovalReviewCallSelectColumn, limit *int, offset *int, orderBy []*model.CaseApprovalReviewCallOrderBy, where *model.CaseApprovalReviewCallBoolExp) int
 		CaseApprovalReviewCallByPk           func(childComplexity int, id int64) int
+		CaseApprovalReviewCallByUnionPk      func(childComplexity int, caseApprovalReviewCallID string) int
 		CaseApprovalReviewOperation          func(childComplexity int, distinctOn []model.CaseApprovalReviewOperationSelectColumn, limit *int, offset *int, orderBy []*model.CaseApprovalReviewOperationOrderBy, where *model.CaseApprovalReviewOperationBoolExp) int
 		CaseApprovalReviewOperationAggregate func(childComplexity int, distinctOn []model.CaseApprovalReviewOperationSelectColumn, limit *int, offset *int, orderBy []*model.CaseApprovalReviewOperationOrderBy, where *model.CaseApprovalReviewOperationBoolExp) int
 		CaseApprovalReviewOperationByPk      func(childComplexity int, id int64) int
+		CaseApprovalReviewOperationByUnionPk func(childComplexity int, caseApprovalReviewOperationID string) int
 		DisputeViolationRecord               func(childComplexity int, distinctOn []model.DisputeViolationRecordSelectColumn, limit *int, offset *int, orderBy []*model.DisputeViolationRecordOrderBy, where *model.DisputeViolationRecordBoolExp) int
 		DisputeViolationRecordAggregate      func(childComplexity int, distinctOn []model.DisputeViolationRecordSelectColumn, limit *int, offset *int, orderBy []*model.DisputeViolationRecordOrderBy, where *model.DisputeViolationRecordBoolExp) int
 		DisputeViolationRecordByPk           func(childComplexity int, id int64) int
@@ -701,9 +711,11 @@ type ComplexityRoot struct {
 		DrivingLogInfo                       func(childComplexity int, distinctOn []model.DrivingLogInfoSelectColumn, limit *int, offset *int, orderBy []*model.DrivingLogInfoOrderBy, where *model.DrivingLogInfoBoolExp) int
 		DrivingLogInfoAggregate              func(childComplexity int, distinctOn []model.DrivingLogInfoSelectColumn, limit *int, offset *int, orderBy []*model.DrivingLogInfoOrderBy, where *model.DrivingLogInfoBoolExp) int
 		DrivingLogInfoByPk                   func(childComplexity int, id int64) int
+		DrivingLogInfoByUnionPk              func(childComplexity int, drivingLogInfoID string) int
 		VehicleDriverBinding                 func(childComplexity int, distinctOn []model.VehicleDriverBindingSelectColumn, limit *int, offset *int, orderBy []*model.VehicleDriverBindingOrderBy, where *model.VehicleDriverBindingBoolExp) int
 		VehicleDriverBindingAggregate        func(childComplexity int, distinctOn []model.VehicleDriverBindingSelectColumn, limit *int, offset *int, orderBy []*model.VehicleDriverBindingOrderBy, where *model.VehicleDriverBindingBoolExp) int
 		VehicleDriverBindingByPk             func(childComplexity int, id int64) int
+		VehicleDriverBindingByUnionPk        func(childComplexity int, vehicleDriverBindingID string) int
 	}
 
 	VehicleDriverBinding struct {
@@ -814,12 +826,16 @@ type MutationResolver interface {
 	InsertCaseApprovalReviewCallOne(ctx context.Context, objects model.CaseApprovalReviewCallInsertInput) (*model1.CaseApprovalReviewCall, error)
 	UpdateCaseApprovalReviewCall(ctx context.Context, inc *model.CaseApprovalReviewCallIncInput, set *model.CaseApprovalReviewCallSetInput, where model.CaseApprovalReviewCallBoolExp) (*model.CaseApprovalReviewCallMutationResponse, error)
 	UpdateCaseApprovalReviewCallByPk(ctx context.Context, inc *model.CaseApprovalReviewCallIncInput, set *model.CaseApprovalReviewCallSetInput, id int64) (*model1.CaseApprovalReviewCall, error)
+	UpdateCaseApprovalReviewCallByUnionPk(ctx context.Context, inc *model.CaseApprovalReviewCallIncInput, set *model.CaseApprovalReviewCallSetInput, caseApprovalReviewCallID string) (*model1.CaseApprovalReviewCall, error)
+	DeleteCaseApprovalReviewCallByUnionPk(ctx context.Context, caseApprovalReviewCallID string) (*model1.CaseApprovalReviewCall, error)
 	DeleteCaseApprovalReviewOperation(ctx context.Context, where model.CaseApprovalReviewOperationBoolExp) (*model.CaseApprovalReviewOperationMutationResponse, error)
 	DeleteCaseApprovalReviewOperationByPk(ctx context.Context, id int64) (*model1.CaseApprovalReviewOperation, error)
 	InsertCaseApprovalReviewOperation(ctx context.Context, objects []*model.CaseApprovalReviewOperationInsertInput) (*model.CaseApprovalReviewOperationMutationResponse, error)
 	InsertCaseApprovalReviewOperationOne(ctx context.Context, objects model.CaseApprovalReviewOperationInsertInput) (*model1.CaseApprovalReviewOperation, error)
 	UpdateCaseApprovalReviewOperation(ctx context.Context, inc *model.CaseApprovalReviewOperationIncInput, set *model.CaseApprovalReviewOperationSetInput, where model.CaseApprovalReviewOperationBoolExp) (*model.CaseApprovalReviewOperationMutationResponse, error)
 	UpdateCaseApprovalReviewOperationByPk(ctx context.Context, inc *model.CaseApprovalReviewOperationIncInput, set *model.CaseApprovalReviewOperationSetInput, id int64) (*model1.CaseApprovalReviewOperation, error)
+	UpdateCaseApprovalReviewOperationByUnionPk(ctx context.Context, inc *model.CaseApprovalReviewOperationIncInput, set *model.CaseApprovalReviewOperationSetInput, caseApprovalReviewOperationID string) (*model1.CaseApprovalReviewOperation, error)
+	DeleteCaseApprovalReviewOperationByUnionPk(ctx context.Context, caseApprovalReviewOperationID string) (*model1.CaseApprovalReviewOperation, error)
 	DeleteDisputeViolationRecord(ctx context.Context, where model.DisputeViolationRecordBoolExp) (*model.DisputeViolationRecordMutationResponse, error)
 	DeleteDisputeViolationRecordByPk(ctx context.Context, id int64) (*model1.DisputeViolationRecord, error)
 	InsertDisputeViolationRecord(ctx context.Context, objects []*model.DisputeViolationRecordInsertInput) (*model.DisputeViolationRecordMutationResponse, error)
@@ -838,20 +854,26 @@ type MutationResolver interface {
 	InsertDrivingLogInfoOne(ctx context.Context, objects model.DrivingLogInfoInsertInput) (*model1.DrivingLogInfo, error)
 	UpdateDrivingLogInfo(ctx context.Context, inc *model.DrivingLogInfoIncInput, set *model.DrivingLogInfoSetInput, where model.DrivingLogInfoBoolExp) (*model.DrivingLogInfoMutationResponse, error)
 	UpdateDrivingLogInfoByPk(ctx context.Context, inc *model.DrivingLogInfoIncInput, set *model.DrivingLogInfoSetInput, id int64) (*model1.DrivingLogInfo, error)
+	UpdateDrivingLogInfoByUnionPk(ctx context.Context, inc *model.DrivingLogInfoIncInput, set *model.DrivingLogInfoSetInput, drivingLogInfoID string) (*model1.DrivingLogInfo, error)
+	DeleteDrivingLogInfoByUnionPk(ctx context.Context, drivingLogInfoID string) (*model1.DrivingLogInfo, error)
 	DeleteVehicleDriverBinding(ctx context.Context, where model.VehicleDriverBindingBoolExp) (*model.VehicleDriverBindingMutationResponse, error)
 	DeleteVehicleDriverBindingByPk(ctx context.Context, id int64) (*model1.VehicleDriverBinding, error)
 	InsertVehicleDriverBinding(ctx context.Context, objects []*model.VehicleDriverBindingInsertInput) (*model.VehicleDriverBindingMutationResponse, error)
 	InsertVehicleDriverBindingOne(ctx context.Context, objects model.VehicleDriverBindingInsertInput) (*model1.VehicleDriverBinding, error)
 	UpdateVehicleDriverBinding(ctx context.Context, inc *model.VehicleDriverBindingIncInput, set *model.VehicleDriverBindingSetInput, where model.VehicleDriverBindingBoolExp) (*model.VehicleDriverBindingMutationResponse, error)
 	UpdateVehicleDriverBindingByPk(ctx context.Context, inc *model.VehicleDriverBindingIncInput, set *model.VehicleDriverBindingSetInput, id int64) (*model1.VehicleDriverBinding, error)
+	UpdateVehicleDriverBindingByUnionPk(ctx context.Context, inc *model.VehicleDriverBindingIncInput, set *model.VehicleDriverBindingSetInput, vehicleDriverBindingID string) (*model1.VehicleDriverBinding, error)
+	DeleteVehicleDriverBindingByUnionPk(ctx context.Context, vehicleDriverBindingID string) (*model1.VehicleDriverBinding, error)
 }
 type QueryResolver interface {
 	CaseApprovalReviewCall(ctx context.Context, distinctOn []model.CaseApprovalReviewCallSelectColumn, limit *int, offset *int, orderBy []*model.CaseApprovalReviewCallOrderBy, where *model.CaseApprovalReviewCallBoolExp) ([]*model1.CaseApprovalReviewCall, error)
 	CaseApprovalReviewCallAggregate(ctx context.Context, distinctOn []model.CaseApprovalReviewCallSelectColumn, limit *int, offset *int, orderBy []*model.CaseApprovalReviewCallOrderBy, where *model.CaseApprovalReviewCallBoolExp) (*model.CaseApprovalReviewCallAggregate, error)
 	CaseApprovalReviewCallByPk(ctx context.Context, id int64) (*model1.CaseApprovalReviewCall, error)
+	CaseApprovalReviewCallByUnionPk(ctx context.Context, caseApprovalReviewCallID string) (*model1.CaseApprovalReviewCall, error)
 	CaseApprovalReviewOperation(ctx context.Context, distinctOn []model.CaseApprovalReviewOperationSelectColumn, limit *int, offset *int, orderBy []*model.CaseApprovalReviewOperationOrderBy, where *model.CaseApprovalReviewOperationBoolExp) ([]*model1.CaseApprovalReviewOperation, error)
 	CaseApprovalReviewOperationAggregate(ctx context.Context, distinctOn []model.CaseApprovalReviewOperationSelectColumn, limit *int, offset *int, orderBy []*model.CaseApprovalReviewOperationOrderBy, where *model.CaseApprovalReviewOperationBoolExp) (*model.CaseApprovalReviewOperationAggregate, error)
 	CaseApprovalReviewOperationByPk(ctx context.Context, id int64) (*model1.CaseApprovalReviewOperation, error)
+	CaseApprovalReviewOperationByUnionPk(ctx context.Context, caseApprovalReviewOperationID string) (*model1.CaseApprovalReviewOperation, error)
 	DisputeViolationRecord(ctx context.Context, distinctOn []model.DisputeViolationRecordSelectColumn, limit *int, offset *int, orderBy []*model.DisputeViolationRecordOrderBy, where *model.DisputeViolationRecordBoolExp) ([]*model1.DisputeViolationRecord, error)
 	DisputeViolationRecordAggregate(ctx context.Context, distinctOn []model.DisputeViolationRecordSelectColumn, limit *int, offset *int, orderBy []*model.DisputeViolationRecordOrderBy, where *model.DisputeViolationRecordBoolExp) (*model.DisputeViolationRecordAggregate, error)
 	DisputeViolationRecordByPk(ctx context.Context, id int64) (*model1.DisputeViolationRecord, error)
@@ -861,9 +883,11 @@ type QueryResolver interface {
 	DrivingLogInfo(ctx context.Context, distinctOn []model.DrivingLogInfoSelectColumn, limit *int, offset *int, orderBy []*model.DrivingLogInfoOrderBy, where *model.DrivingLogInfoBoolExp) ([]*model1.DrivingLogInfo, error)
 	DrivingLogInfoAggregate(ctx context.Context, distinctOn []model.DrivingLogInfoSelectColumn, limit *int, offset *int, orderBy []*model.DrivingLogInfoOrderBy, where *model.DrivingLogInfoBoolExp) (*model.DrivingLogInfoAggregate, error)
 	DrivingLogInfoByPk(ctx context.Context, id int64) (*model1.DrivingLogInfo, error)
+	DrivingLogInfoByUnionPk(ctx context.Context, drivingLogInfoID string) (*model1.DrivingLogInfo, error)
 	VehicleDriverBinding(ctx context.Context, distinctOn []model.VehicleDriverBindingSelectColumn, limit *int, offset *int, orderBy []*model.VehicleDriverBindingOrderBy, where *model.VehicleDriverBindingBoolExp) ([]*model1.VehicleDriverBinding, error)
 	VehicleDriverBindingAggregate(ctx context.Context, distinctOn []model.VehicleDriverBindingSelectColumn, limit *int, offset *int, orderBy []*model.VehicleDriverBindingOrderBy, where *model.VehicleDriverBindingBoolExp) (*model.VehicleDriverBindingAggregate, error)
 	VehicleDriverBindingByPk(ctx context.Context, id int64) (*model1.VehicleDriverBinding, error)
+	VehicleDriverBindingByUnionPk(ctx context.Context, vehicleDriverBindingID string) (*model1.VehicleDriverBinding, error)
 }
 
 type executableSchema struct {
@@ -3628,6 +3652,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.DeleteCaseApprovalReviewCallByPk(childComplexity, args["id"].(int64)), true
 
+	case "Mutation.delete_case_approval_review_call_by_union_pk":
+		if e.complexity.Mutation.DeleteCaseApprovalReviewCallByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_delete_case_approval_review_call_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.DeleteCaseApprovalReviewCallByUnionPk(childComplexity, args["case_approval_review_call_id"].(string)), true
+
 	case "Mutation.delete_case_approval_review_operation":
 		if e.complexity.Mutation.DeleteCaseApprovalReviewOperation == nil {
 			break
@@ -3651,6 +3687,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Mutation.DeleteCaseApprovalReviewOperationByPk(childComplexity, args["id"].(int64)), true
+
+	case "Mutation.delete_case_approval_review_operation_by_union_pk":
+		if e.complexity.Mutation.DeleteCaseApprovalReviewOperationByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_delete_case_approval_review_operation_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.DeleteCaseApprovalReviewOperationByUnionPk(childComplexity, args["case_approval_review_operation_id"].(string)), true
 
 	case "Mutation.delete_dispute_violation_record":
 		if e.complexity.Mutation.DeleteDisputeViolationRecord == nil {
@@ -3724,6 +3772,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.DeleteDrivingLogInfoByPk(childComplexity, args["id"].(int64)), true
 
+	case "Mutation.delete_driving_log_info_by_union_pk":
+		if e.complexity.Mutation.DeleteDrivingLogInfoByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_delete_driving_log_info_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.DeleteDrivingLogInfoByUnionPk(childComplexity, args["driving_log_info_id"].(string)), true
+
 	case "Mutation.delete_vehicle_driver_binding":
 		if e.complexity.Mutation.DeleteVehicleDriverBinding == nil {
 			break
@@ -3747,6 +3807,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Mutation.DeleteVehicleDriverBindingByPk(childComplexity, args["id"].(int64)), true
+
+	case "Mutation.delete_vehicle_driver_binding_by_union_pk":
+		if e.complexity.Mutation.DeleteVehicleDriverBindingByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_delete_vehicle_driver_binding_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.DeleteVehicleDriverBindingByUnionPk(childComplexity, args["vehicle_driver_binding_id"].(string)), true
 
 	case "Mutation.insert_case_approval_review_call":
 		if e.complexity.Mutation.InsertCaseApprovalReviewCall == nil {
@@ -3916,6 +3988,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.UpdateCaseApprovalReviewCallByPk(childComplexity, args["_inc"].(*model.CaseApprovalReviewCallIncInput), args["_set"].(*model.CaseApprovalReviewCallSetInput), args["id"].(int64)), true
 
+	case "Mutation.update_case_approval_review_call_by_union_pk":
+		if e.complexity.Mutation.UpdateCaseApprovalReviewCallByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_update_case_approval_review_call_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.UpdateCaseApprovalReviewCallByUnionPk(childComplexity, args["_inc"].(*model.CaseApprovalReviewCallIncInput), args["_set"].(*model.CaseApprovalReviewCallSetInput), args["case_approval_review_call_id"].(string)), true
+
 	case "Mutation.update_case_approval_review_operation":
 		if e.complexity.Mutation.UpdateCaseApprovalReviewOperation == nil {
 			break
@@ -3939,6 +4023,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Mutation.UpdateCaseApprovalReviewOperationByPk(childComplexity, args["_inc"].(*model.CaseApprovalReviewOperationIncInput), args["_set"].(*model.CaseApprovalReviewOperationSetInput), args["id"].(int64)), true
+
+	case "Mutation.update_case_approval_review_operation_by_union_pk":
+		if e.complexity.Mutation.UpdateCaseApprovalReviewOperationByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_update_case_approval_review_operation_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.UpdateCaseApprovalReviewOperationByUnionPk(childComplexity, args["_inc"].(*model.CaseApprovalReviewOperationIncInput), args["_set"].(*model.CaseApprovalReviewOperationSetInput), args["case_approval_review_operation_id"].(string)), true
 
 	case "Mutation.update_dispute_violation_record":
 		if e.complexity.Mutation.UpdateDisputeViolationRecord == nil {
@@ -4012,6 +4108,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.UpdateDrivingLogInfoByPk(childComplexity, args["_inc"].(*model.DrivingLogInfoIncInput), args["_set"].(*model.DrivingLogInfoSetInput), args["id"].(int64)), true
 
+	case "Mutation.update_driving_log_info_by_union_pk":
+		if e.complexity.Mutation.UpdateDrivingLogInfoByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_update_driving_log_info_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.UpdateDrivingLogInfoByUnionPk(childComplexity, args["_inc"].(*model.DrivingLogInfoIncInput), args["_set"].(*model.DrivingLogInfoSetInput), args["driving_log_info_id"].(string)), true
+
 	case "Mutation.update_vehicle_driver_binding":
 		if e.complexity.Mutation.UpdateVehicleDriverBinding == nil {
 			break
@@ -4035,6 +4143,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Mutation.UpdateVehicleDriverBindingByPk(childComplexity, args["_inc"].(*model.VehicleDriverBindingIncInput), args["_set"].(*model.VehicleDriverBindingSetInput), args["id"].(int64)), true
+
+	case "Mutation.update_vehicle_driver_binding_by_union_pk":
+		if e.complexity.Mutation.UpdateVehicleDriverBindingByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_update_vehicle_driver_binding_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.UpdateVehicleDriverBindingByUnionPk(childComplexity, args["_inc"].(*model.VehicleDriverBindingIncInput), args["_set"].(*model.VehicleDriverBindingSetInput), args["vehicle_driver_binding_id"].(string)), true
 
 	case "Query.case_approval_review_call":
 		if e.complexity.Query.CaseApprovalReviewCall == nil {
@@ -4072,6 +4192,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Query.CaseApprovalReviewCallByPk(childComplexity, args["id"].(int64)), true
 
+	case "Query.case_approval_review_call_by_union_pk":
+		if e.complexity.Query.CaseApprovalReviewCallByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Query_case_approval_review_call_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.CaseApprovalReviewCallByUnionPk(childComplexity, args["case_approval_review_call_id"].(string)), true
+
 	case "Query.case_approval_review_operation":
 		if e.complexity.Query.CaseApprovalReviewOperation == nil {
 			break
@@ -4107,6 +4239,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Query.CaseApprovalReviewOperationByPk(childComplexity, args["id"].(int64)), true
+
+	case "Query.case_approval_review_operation_by_union_pk":
+		if e.complexity.Query.CaseApprovalReviewOperationByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Query_case_approval_review_operation_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.CaseApprovalReviewOperationByUnionPk(childComplexity, args["case_approval_review_operation_id"].(string)), true
 
 	case "Query.dispute_violation_record":
 		if e.complexity.Query.DisputeViolationRecord == nil {
@@ -4216,6 +4360,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Query.DrivingLogInfoByPk(childComplexity, args["id"].(int64)), true
 
+	case "Query.driving_log_info_by_union_pk":
+		if e.complexity.Query.DrivingLogInfoByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Query_driving_log_info_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.DrivingLogInfoByUnionPk(childComplexity, args["driving_log_info_id"].(string)), true
+
 	case "Query.vehicle_driver_binding":
 		if e.complexity.Query.VehicleDriverBinding == nil {
 			break
@@ -4251,6 +4407,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Query.VehicleDriverBindingByPk(childComplexity, args["id"].(int64)), true
+
+	case "Query.vehicle_driver_binding_by_union_pk":
+		if e.complexity.Query.VehicleDriverBindingByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Query_vehicle_driver_binding_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.VehicleDriverBindingByUnionPk(childComplexity, args["vehicle_driver_binding_id"].(string)), true
 
 	case "VehicleDriverBinding.created_at":
 		if e.complexity.VehicleDriverBinding.CreatedAt == nil {
@@ -4951,6 +5119,7 @@ input CaseApprovalReviewCallBoolExp {
 input type for inserting data into table "case_approval_review_call"
 """
 input CaseApprovalReviewCallInsertInput {
+	case_approval_review_call_id: String!
 	case_approval_review_operation_id: String
 	telephone_number: String
 	dial_time: Timestamptz
@@ -4958,6 +5127,8 @@ input CaseApprovalReviewCallInsertInput {
 	inform_content: String
 	reviewer: String
 	review_time: Timestamptz
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -5067,6 +5238,10 @@ extend type Query {
 	主键查询
 	"""
 	case_approval_review_call_by_pk(id: Bigint!): CaseApprovalReviewCall!
+	"""
+	联合主键查询
+	"""
+	case_approval_review_call_by_union_pk(case_approval_review_call_id: String!): CaseApprovalReviewCall!
 }
 extend type Mutation {
 	"""
@@ -5090,9 +5265,17 @@ extend type Mutation {
 	"""
 	update_case_approval_review_call(_inc: CaseApprovalReviewCallIncInput, _set: CaseApprovalReviewCallSetInput, where: CaseApprovalReviewCallBoolExp!): CaseApprovalReviewCallMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_case_approval_review_call_by_pk(_inc: CaseApprovalReviewCallIncInput, _set: CaseApprovalReviewCallSetInput, id: Bigint!): CaseApprovalReviewCall
+	"""
+	根据联合主键更新
+	"""
+	update_case_approval_review_call_by_union_pk(_inc: CaseApprovalReviewCallIncInput, _set: CaseApprovalReviewCallSetInput, case_approval_review_call_id: String!): CaseApprovalReviewCall
+	"""
+	根据联合主键删除记录
+	"""
+	delete_case_approval_review_call_by_union_pk(case_approval_review_call_id: String!): CaseApprovalReviewCall
 }
 `, BuiltIn: false},
 	{Name: "graph/graphqls/case_approval_review_operation.graphqls", Input: `"""
@@ -5300,10 +5483,13 @@ input CaseApprovalReviewOperationBoolExp {
 input type for inserting data into table "case_approval_review_operation"
 """
 input CaseApprovalReviewOperationInsertInput {
+	case_approval_review_operation_id: String!
 	review_opinion: String
 	review_result: String
 	reviewer: String
 	review_time: Timestamptz
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -5398,6 +5584,10 @@ extend type Query {
 	主键查询
 	"""
 	case_approval_review_operation_by_pk(id: Bigint!): CaseApprovalReviewOperation!
+	"""
+	联合主键查询
+	"""
+	case_approval_review_operation_by_union_pk(case_approval_review_operation_id: String!): CaseApprovalReviewOperation!
 }
 extend type Mutation {
 	"""
@@ -5421,9 +5611,17 @@ extend type Mutation {
 	"""
 	update_case_approval_review_operation(_inc: CaseApprovalReviewOperationIncInput, _set: CaseApprovalReviewOperationSetInput, where: CaseApprovalReviewOperationBoolExp!): CaseApprovalReviewOperationMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_case_approval_review_operation_by_pk(_inc: CaseApprovalReviewOperationIncInput, _set: CaseApprovalReviewOperationSetInput, id: Bigint!): CaseApprovalReviewOperation
+	"""
+	根据联合主键更新
+	"""
+	update_case_approval_review_operation_by_union_pk(_inc: CaseApprovalReviewOperationIncInput, _set: CaseApprovalReviewOperationSetInput, case_approval_review_operation_id: String!): CaseApprovalReviewOperation
+	"""
+	根据联合主键删除记录
+	"""
+	delete_case_approval_review_operation_by_union_pk(case_approval_review_operation_id: String!): CaseApprovalReviewOperation
 }
 `, BuiltIn: false},
 	{Name: "graph/graphqls/common.graphqls", Input: `
@@ -5936,6 +6134,7 @@ input DisputeViolationRecordBoolExp {
 input type for inserting data into table "dispute_violation_record"
 """
 input DisputeViolationRecordInsertInput {
+	dispute_violation_id: String!
 	violation_detail_id: String
 	written_application_materials: String
 	labor_contract: String
@@ -5955,6 +6154,8 @@ input DisputeViolationRecordInsertInput {
 	approve_state: Int
 	update_time_in: Timestamptz
 	contact_address: String
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -6154,7 +6355,7 @@ extend type Mutation {
 	"""
 	update_dispute_violation_record(_inc: DisputeViolationRecordIncInput, _set: DisputeViolationRecordSetInput, where: DisputeViolationRecordBoolExp!): DisputeViolationRecordMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_dispute_violation_record_by_pk(_inc: DisputeViolationRecordIncInput, _set: DisputeViolationRecordSetInput, id: Bigint!): DisputeViolationRecord
 }
@@ -6348,6 +6549,7 @@ input DisputeViolationRecordLogBoolExp {
 input type for inserting data into table "dispute_violation_record_log"
 """
 input DisputeViolationRecordLogInsertInput {
+	dispute_violation_log_id: String!
 	dispute_violation_id: String
 	reviewer: String
 	review_time: Timestamptz
@@ -6459,7 +6661,7 @@ extend type Mutation {
 	"""
 	update_dispute_violation_record_log(_inc: DisputeViolationRecordLogIncInput, _set: DisputeViolationRecordLogSetInput, where: DisputeViolationRecordLogBoolExp!): DisputeViolationRecordLogMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_dispute_violation_record_log_by_pk(_inc: DisputeViolationRecordLogIncInput, _set: DisputeViolationRecordLogSetInput, id: Bigint!): DisputeViolationRecordLog
 }
@@ -6749,6 +6951,7 @@ input DrivingLogInfoBoolExp {
 input type for inserting data into table "driving_log_info"
 """
 input DrivingLogInfoInsertInput {
+	driving_log_info_id: String!
 	vehicle_id: String
 	driver_id: String
 	driving_start_time: Timestamptz
@@ -6761,6 +6964,8 @@ input DrivingLogInfoInsertInput {
 	review_status: Int
 	review_agecy_level: Int
 	is_markup: Boolean
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -6897,6 +7102,10 @@ extend type Query {
 	主键查询
 	"""
 	driving_log_info_by_pk(id: Bigint!): DrivingLogInfo!
+	"""
+	联合主键查询
+	"""
+	driving_log_info_by_union_pk(driving_log_info_id: String!): DrivingLogInfo!
 }
 extend type Mutation {
 	"""
@@ -6920,9 +7129,17 @@ extend type Mutation {
 	"""
 	update_driving_log_info(_inc: DrivingLogInfoIncInput, _set: DrivingLogInfoSetInput, where: DrivingLogInfoBoolExp!): DrivingLogInfoMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_driving_log_info_by_pk(_inc: DrivingLogInfoIncInput, _set: DrivingLogInfoSetInput, id: Bigint!): DrivingLogInfo
+	"""
+	根据联合主键更新
+	"""
+	update_driving_log_info_by_union_pk(_inc: DrivingLogInfoIncInput, _set: DrivingLogInfoSetInput, driving_log_info_id: String!): DrivingLogInfo
+	"""
+	根据联合主键删除记录
+	"""
+	delete_driving_log_info_by_union_pk(driving_log_info_id: String!): DrivingLogInfo
 }
 `, BuiltIn: false},
 	{Name: "graph/graphqls/vehicle_driver_binding.graphqls", Input: `"""
@@ -7130,9 +7347,12 @@ input VehicleDriverBindingBoolExp {
 input type for inserting data into table "vehicle_driver_binding"
 """
 input VehicleDriverBindingInsertInput {
+	vehicle_driver_binding_id: String!
 	driver_id: String
 	vehicle_id: String
 	remarks: String
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -7228,6 +7448,10 @@ extend type Query {
 	主键查询
 	"""
 	vehicle_driver_binding_by_pk(id: Bigint!): VehicleDriverBinding!
+	"""
+	联合主键查询
+	"""
+	vehicle_driver_binding_by_union_pk(vehicle_driver_binding_id: String!): VehicleDriverBinding!
 }
 extend type Mutation {
 	"""
@@ -7251,9 +7475,17 @@ extend type Mutation {
 	"""
 	update_vehicle_driver_binding(_inc: VehicleDriverBindingIncInput, _set: VehicleDriverBindingSetInput, where: VehicleDriverBindingBoolExp!): VehicleDriverBindingMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_vehicle_driver_binding_by_pk(_inc: VehicleDriverBindingIncInput, _set: VehicleDriverBindingSetInput, id: Bigint!): VehicleDriverBinding
+	"""
+	根据联合主键更新
+	"""
+	update_vehicle_driver_binding_by_union_pk(_inc: VehicleDriverBindingIncInput, _set: VehicleDriverBindingSetInput, vehicle_driver_binding_id: String!): VehicleDriverBinding
+	"""
+	根据联合主键删除记录
+	"""
+	delete_vehicle_driver_binding_by_union_pk(vehicle_driver_binding_id: String!): VehicleDriverBinding
 }
 `, BuiltIn: false},
 }
@@ -7293,6 +7525,21 @@ func (ec *executionContext) field_Mutation_delete_case_approval_review_call_by_p
 	return args, nil
 }
 
+func (ec *executionContext) field_Mutation_delete_case_approval_review_call_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["case_approval_review_call_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("case_approval_review_call_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["case_approval_review_call_id"] = arg0
+	return args, nil
+}
+
 func (ec *executionContext) field_Mutation_delete_case_approval_review_operation_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -7320,6 +7567,21 @@ func (ec *executionContext) field_Mutation_delete_case_approval_review_operation
 		}
 	}
 	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_delete_case_approval_review_operation_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["case_approval_review_operation_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("case_approval_review_operation_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["case_approval_review_operation_id"] = arg0
 	return args, nil
 }
 
@@ -7413,6 +7675,21 @@ func (ec *executionContext) field_Mutation_delete_driving_log_info_by_pk_args(ct
 	return args, nil
 }
 
+func (ec *executionContext) field_Mutation_delete_driving_log_info_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["driving_log_info_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("driving_log_info_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["driving_log_info_id"] = arg0
+	return args, nil
+}
+
 func (ec *executionContext) field_Mutation_delete_vehicle_driver_binding_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -7440,6 +7717,21 @@ func (ec *executionContext) field_Mutation_delete_vehicle_driver_binding_by_pk_a
 		}
 	}
 	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_delete_vehicle_driver_binding_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["vehicle_driver_binding_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("vehicle_driver_binding_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["vehicle_driver_binding_id"] = arg0
 	return args, nil
 }
 
@@ -7689,6 +7981,39 @@ func (ec *executionContext) field_Mutation_update_case_approval_review_call_by_p
 	return args, nil
 }
 
+func (ec *executionContext) field_Mutation_update_case_approval_review_call_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *model.CaseApprovalReviewCallIncInput
+	if tmp, ok := rawArgs["_inc"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
+		arg0, err = ec.unmarshalOCaseApprovalReviewCallIncInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_driver_separationᚋgraphᚋmodelᚐCaseApprovalReviewCallIncInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_inc"] = arg0
+	var arg1 *model.CaseApprovalReviewCallSetInput
+	if tmp, ok := rawArgs["_set"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
+		arg1, err = ec.unmarshalOCaseApprovalReviewCallSetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_driver_separationᚋgraphᚋmodelᚐCaseApprovalReviewCallSetInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_set"] = arg1
+	var arg2 string
+	if tmp, ok := rawArgs["case_approval_review_call_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("case_approval_review_call_id"))
+		arg2, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["case_approval_review_call_id"] = arg2
+	return args, nil
+}
+
 func (ec *executionContext) field_Mutation_update_case_approval_review_operation_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -7752,6 +8077,39 @@ func (ec *executionContext) field_Mutation_update_case_approval_review_operation
 		}
 	}
 	args["id"] = arg2
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_update_case_approval_review_operation_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *model.CaseApprovalReviewOperationIncInput
+	if tmp, ok := rawArgs["_inc"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
+		arg0, err = ec.unmarshalOCaseApprovalReviewOperationIncInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_driver_separationᚋgraphᚋmodelᚐCaseApprovalReviewOperationIncInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_inc"] = arg0
+	var arg1 *model.CaseApprovalReviewOperationSetInput
+	if tmp, ok := rawArgs["_set"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
+		arg1, err = ec.unmarshalOCaseApprovalReviewOperationSetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_driver_separationᚋgraphᚋmodelᚐCaseApprovalReviewOperationSetInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_set"] = arg1
+	var arg2 string
+	if tmp, ok := rawArgs["case_approval_review_operation_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("case_approval_review_operation_id"))
+		arg2, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["case_approval_review_operation_id"] = arg2
 	return args, nil
 }
 
@@ -7953,6 +8311,39 @@ func (ec *executionContext) field_Mutation_update_driving_log_info_by_pk_args(ct
 	return args, nil
 }
 
+func (ec *executionContext) field_Mutation_update_driving_log_info_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *model.DrivingLogInfoIncInput
+	if tmp, ok := rawArgs["_inc"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
+		arg0, err = ec.unmarshalODrivingLogInfoIncInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_driver_separationᚋgraphᚋmodelᚐDrivingLogInfoIncInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_inc"] = arg0
+	var arg1 *model.DrivingLogInfoSetInput
+	if tmp, ok := rawArgs["_set"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
+		arg1, err = ec.unmarshalODrivingLogInfoSetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_driver_separationᚋgraphᚋmodelᚐDrivingLogInfoSetInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_set"] = arg1
+	var arg2 string
+	if tmp, ok := rawArgs["driving_log_info_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("driving_log_info_id"))
+		arg2, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["driving_log_info_id"] = arg2
+	return args, nil
+}
+
 func (ec *executionContext) field_Mutation_update_vehicle_driver_binding_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -8016,6 +8407,39 @@ func (ec *executionContext) field_Mutation_update_vehicle_driver_binding_by_pk_a
 		}
 	}
 	args["id"] = arg2
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_update_vehicle_driver_binding_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *model.VehicleDriverBindingIncInput
+	if tmp, ok := rawArgs["_inc"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
+		arg0, err = ec.unmarshalOVehicleDriverBindingIncInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_driver_separationᚋgraphᚋmodelᚐVehicleDriverBindingIncInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_inc"] = arg0
+	var arg1 *model.VehicleDriverBindingSetInput
+	if tmp, ok := rawArgs["_set"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
+		arg1, err = ec.unmarshalOVehicleDriverBindingSetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_driver_separationᚋgraphᚋmodelᚐVehicleDriverBindingSetInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_set"] = arg1
+	var arg2 string
+	if tmp, ok := rawArgs["vehicle_driver_binding_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("vehicle_driver_binding_id"))
+		arg2, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["vehicle_driver_binding_id"] = arg2
 	return args, nil
 }
 
@@ -8151,6 +8575,21 @@ func (ec *executionContext) field_Query_case_approval_review_call_by_pk_args(ctx
 	return args, nil
 }
 
+func (ec *executionContext) field_Query_case_approval_review_call_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["case_approval_review_call_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("case_approval_review_call_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["case_approval_review_call_id"] = arg0
+	return args, nil
+}
+
 func (ec *executionContext) field_Query_case_approval_review_operation_aggregate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -8265,6 +8704,21 @@ func (ec *executionContext) field_Query_case_approval_review_operation_by_pk_arg
 		}
 	}
 	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Query_case_approval_review_operation_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["case_approval_review_operation_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("case_approval_review_operation_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["case_approval_review_operation_id"] = arg0
 	return args, nil
 }
 
@@ -8619,6 +9073,21 @@ func (ec *executionContext) field_Query_driving_log_info_by_pk_args(ctx context.
 	return args, nil
 }
 
+func (ec *executionContext) field_Query_driving_log_info_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["driving_log_info_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("driving_log_info_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["driving_log_info_id"] = arg0
+	return args, nil
+}
+
 func (ec *executionContext) field_Query_vehicle_driver_binding_aggregate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -8733,6 +9202,21 @@ func (ec *executionContext) field_Query_vehicle_driver_binding_by_pk_args(ctx co
 		}
 	}
 	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Query_vehicle_driver_binding_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["vehicle_driver_binding_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("vehicle_driver_binding_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["vehicle_driver_binding_id"] = arg0
 	return args, nil
 }
 
@@ -21540,6 +22024,84 @@ func (ec *executionContext) _Mutation_update_case_approval_review_call_by_pk(ctx
 	return ec.marshalOCaseApprovalReviewCall2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_driver_separationᚋmodelᚐCaseApprovalReviewCall(ctx, field.Selections, res)
 }
 
+func (ec *executionContext) _Mutation_update_case_approval_review_call_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_case_approval_review_call_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateCaseApprovalReviewCallByUnionPk(rctx, args["_inc"].(*model.CaseApprovalReviewCallIncInput), args["_set"].(*model.CaseApprovalReviewCallSetInput), args["case_approval_review_call_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.CaseApprovalReviewCall)
+	fc.Result = res
+	return ec.marshalOCaseApprovalReviewCall2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_driver_separationᚋmodelᚐCaseApprovalReviewCall(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_delete_case_approval_review_call_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_delete_case_approval_review_call_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().DeleteCaseApprovalReviewCallByUnionPk(rctx, args["case_approval_review_call_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.CaseApprovalReviewCall)
+	fc.Result = res
+	return ec.marshalOCaseApprovalReviewCall2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_driver_separationᚋmodelᚐCaseApprovalReviewCall(ctx, field.Selections, res)
+}
+
 func (ec *executionContext) _Mutation_delete_case_approval_review_operation(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -21761,6 +22323,84 @@ func (ec *executionContext) _Mutation_update_case_approval_review_operation_by_p
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
 		return ec.resolvers.Mutation().UpdateCaseApprovalReviewOperationByPk(rctx, args["_inc"].(*model.CaseApprovalReviewOperationIncInput), args["_set"].(*model.CaseApprovalReviewOperationSetInput), args["id"].(int64))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.CaseApprovalReviewOperation)
+	fc.Result = res
+	return ec.marshalOCaseApprovalReviewOperation2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_driver_separationᚋmodelᚐCaseApprovalReviewOperation(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_update_case_approval_review_operation_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_case_approval_review_operation_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateCaseApprovalReviewOperationByUnionPk(rctx, args["_inc"].(*model.CaseApprovalReviewOperationIncInput), args["_set"].(*model.CaseApprovalReviewOperationSetInput), args["case_approval_review_operation_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.CaseApprovalReviewOperation)
+	fc.Result = res
+	return ec.marshalOCaseApprovalReviewOperation2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_driver_separationᚋmodelᚐCaseApprovalReviewOperation(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_delete_case_approval_review_operation_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_delete_case_approval_review_operation_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().DeleteCaseApprovalReviewOperationByUnionPk(rctx, args["case_approval_review_operation_id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -22476,6 +23116,84 @@ func (ec *executionContext) _Mutation_update_driving_log_info_by_pk(ctx context.
 	return ec.marshalODrivingLogInfo2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_driver_separationᚋmodelᚐDrivingLogInfo(ctx, field.Selections, res)
 }
 
+func (ec *executionContext) _Mutation_update_driving_log_info_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_driving_log_info_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateDrivingLogInfoByUnionPk(rctx, args["_inc"].(*model.DrivingLogInfoIncInput), args["_set"].(*model.DrivingLogInfoSetInput), args["driving_log_info_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.DrivingLogInfo)
+	fc.Result = res
+	return ec.marshalODrivingLogInfo2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_driver_separationᚋmodelᚐDrivingLogInfo(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_delete_driving_log_info_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_delete_driving_log_info_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().DeleteDrivingLogInfoByUnionPk(rctx, args["driving_log_info_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.DrivingLogInfo)
+	fc.Result = res
+	return ec.marshalODrivingLogInfo2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_driver_separationᚋmodelᚐDrivingLogInfo(ctx, field.Selections, res)
+}
+
 func (ec *executionContext) _Mutation_delete_vehicle_driver_binding(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -22710,6 +23428,84 @@ func (ec *executionContext) _Mutation_update_vehicle_driver_binding_by_pk(ctx co
 	return ec.marshalOVehicleDriverBinding2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_driver_separationᚋmodelᚐVehicleDriverBinding(ctx, field.Selections, res)
 }
 
+func (ec *executionContext) _Mutation_update_vehicle_driver_binding_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_vehicle_driver_binding_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateVehicleDriverBindingByUnionPk(rctx, args["_inc"].(*model.VehicleDriverBindingIncInput), args["_set"].(*model.VehicleDriverBindingSetInput), args["vehicle_driver_binding_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.VehicleDriverBinding)
+	fc.Result = res
+	return ec.marshalOVehicleDriverBinding2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_driver_separationᚋmodelᚐVehicleDriverBinding(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_delete_vehicle_driver_binding_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_delete_vehicle_driver_binding_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().DeleteVehicleDriverBindingByUnionPk(rctx, args["vehicle_driver_binding_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.VehicleDriverBinding)
+	fc.Result = res
+	return ec.marshalOVehicleDriverBinding2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_driver_separationᚋmodelᚐVehicleDriverBinding(ctx, field.Selections, res)
+}
+
 func (ec *executionContext) _Query_case_approval_review_call(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -22836,6 +23632,48 @@ func (ec *executionContext) _Query_case_approval_review_call_by_pk(ctx context.C
 	return ec.marshalNCaseApprovalReviewCall2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_driver_separationᚋmodelᚐCaseApprovalReviewCall(ctx, field.Selections, res)
 }
 
+func (ec *executionContext) _Query_case_approval_review_call_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_case_approval_review_call_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().CaseApprovalReviewCallByUnionPk(rctx, args["case_approval_review_call_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*model1.CaseApprovalReviewCall)
+	fc.Result = res
+	return ec.marshalNCaseApprovalReviewCall2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_driver_separationᚋmodelᚐCaseApprovalReviewCall(ctx, field.Selections, res)
+}
+
 func (ec *executionContext) _Query_case_approval_review_operation(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -22946,6 +23784,48 @@ func (ec *executionContext) _Query_case_approval_review_operation_by_pk(ctx cont
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
 		return ec.resolvers.Query().CaseApprovalReviewOperationByPk(rctx, args["id"].(int64))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*model1.CaseApprovalReviewOperation)
+	fc.Result = res
+	return ec.marshalNCaseApprovalReviewOperation2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_driver_separationᚋmodelᚐCaseApprovalReviewOperation(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Query_case_approval_review_operation_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_case_approval_review_operation_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().CaseApprovalReviewOperationByUnionPk(rctx, args["case_approval_review_operation_id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -23340,6 +24220,48 @@ func (ec *executionContext) _Query_driving_log_info_by_pk(ctx context.Context, f
 	return ec.marshalNDrivingLogInfo2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_driver_separationᚋmodelᚐDrivingLogInfo(ctx, field.Selections, res)
 }
 
+func (ec *executionContext) _Query_driving_log_info_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_driving_log_info_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().DrivingLogInfoByUnionPk(rctx, args["driving_log_info_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*model1.DrivingLogInfo)
+	fc.Result = res
+	return ec.marshalNDrivingLogInfo2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_driver_separationᚋmodelᚐDrivingLogInfo(ctx, field.Selections, res)
+}
+
 func (ec *executionContext) _Query_vehicle_driver_binding(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -23450,6 +24372,48 @@ func (ec *executionContext) _Query_vehicle_driver_binding_by_pk(ctx context.Cont
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
 		return ec.resolvers.Query().VehicleDriverBindingByPk(rctx, args["id"].(int64))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*model1.VehicleDriverBinding)
+	fc.Result = res
+	return ec.marshalNVehicleDriverBinding2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_driver_separationᚋmodelᚐVehicleDriverBinding(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Query_vehicle_driver_binding_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_vehicle_driver_binding_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().VehicleDriverBindingByUnionPk(rctx, args["vehicle_driver_binding_id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -26848,6 +27812,14 @@ func (ec *executionContext) unmarshalInputCaseApprovalReviewCallInsertInput(ctx 
 
 	for k, v := range asMap {
 		switch k {
+		case "case_approval_review_call_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("case_approval_review_call_id"))
+			it.CaseApprovalReviewCallID, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "case_approval_review_operation_id":
 			var err error
 
@@ -26901,6 +27873,22 @@ func (ec *executionContext) unmarshalInputCaseApprovalReviewCallInsertInput(ctx 
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("review_time"))
 			it.ReviewTime, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
+			it.CreatedAt, err = ec.unmarshalNTimestamptz2timeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
+			it.CreatedBy, err = ec.unmarshalNString2string(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -27364,6 +28352,14 @@ func (ec *executionContext) unmarshalInputCaseApprovalReviewOperationInsertInput
 
 	for k, v := range asMap {
 		switch k {
+		case "case_approval_review_operation_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("case_approval_review_operation_id"))
+			it.CaseApprovalReviewOperationID, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "review_opinion":
 			var err error
 
@@ -27393,6 +28389,22 @@ func (ec *executionContext) unmarshalInputCaseApprovalReviewOperationInsertInput
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("review_time"))
 			it.ReviewTime, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
+			it.CreatedAt, err = ec.unmarshalNTimestamptz2timeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
+			it.CreatedBy, err = ec.unmarshalNString2string(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -27944,6 +28956,14 @@ func (ec *executionContext) unmarshalInputDisputeViolationRecordInsertInput(ctx 
 
 	for k, v := range asMap {
 		switch k {
+		case "dispute_violation_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("dispute_violation_id"))
+			it.DisputeViolationID, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "violation_detail_id":
 			var err error
 
@@ -28093,6 +29113,22 @@ func (ec *executionContext) unmarshalInputDisputeViolationRecordInsertInput(ctx 
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("contact_address"))
 			it.ContactAddress, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
+			it.CreatedAt, err = ec.unmarshalNTimestamptz2timeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
+			it.CreatedBy, err = ec.unmarshalNString2string(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -28284,6 +29320,14 @@ func (ec *executionContext) unmarshalInputDisputeViolationRecordLogInsertInput(c
 
 	for k, v := range asMap {
 		switch k {
+		case "dispute_violation_log_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("dispute_violation_log_id"))
+			it.DisputeViolationLogID, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "dispute_violation_id":
 			var err error
 
@@ -29248,6 +30292,14 @@ func (ec *executionContext) unmarshalInputDrivingLogInfoInsertInput(ctx context.
 
 	for k, v := range asMap {
 		switch k {
+		case "driving_log_info_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("driving_log_info_id"))
+			it.DrivingLogInfoID, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "vehicle_id":
 			var err error
 
@@ -29341,6 +30393,22 @@ func (ec *executionContext) unmarshalInputDrivingLogInfoInsertInput(ctx context.
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_markup"))
 			it.IsMarkup, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
+			it.CreatedAt, err = ec.unmarshalNTimestamptz2timeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
+			it.CreatedBy, err = ec.unmarshalNString2string(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -29726,8 +30794,8 @@ func (ec *executionContext) unmarshalInputDrivingLogInfoSetInput(ctx context.Con
 	return it, nil
 }
 
-func (ec *executionContext) unmarshalInputFloatComparisonExp(ctx context.Context, obj interface{}) (model1.FloatComparisonExp, error) {
-	var it model1.FloatComparisonExp
+func (ec *executionContext) unmarshalInputFloatComparisonExp(ctx context.Context, obj interface{}) (model2.FloatComparisonExp, error) {
+	var it model2.FloatComparisonExp
 	var asMap = obj.(map[string]interface{})
 
 	for k, v := range asMap {
@@ -30520,6 +31588,14 @@ func (ec *executionContext) unmarshalInputVehicleDriverBindingInsertInput(ctx co
 
 	for k, v := range asMap {
 		switch k {
+		case "vehicle_driver_binding_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("vehicle_driver_binding_id"))
+			it.VehicleDriverBindingID, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "driver_id":
 			var err error
 
@@ -30541,6 +31617,22 @@ func (ec *executionContext) unmarshalInputVehicleDriverBindingInsertInput(ctx co
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("remarks"))
 			it.Remarks, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
+			it.CreatedAt, err = ec.unmarshalNTimestamptz2timeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
+			it.CreatedBy, err = ec.unmarshalNString2string(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -33243,6 +34335,10 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			out.Values[i] = ec._Mutation_update_case_approval_review_call(ctx, field)
 		case "update_case_approval_review_call_by_pk":
 			out.Values[i] = ec._Mutation_update_case_approval_review_call_by_pk(ctx, field)
+		case "update_case_approval_review_call_by_union_pk":
+			out.Values[i] = ec._Mutation_update_case_approval_review_call_by_union_pk(ctx, field)
+		case "delete_case_approval_review_call_by_union_pk":
+			out.Values[i] = ec._Mutation_delete_case_approval_review_call_by_union_pk(ctx, field)
 		case "delete_case_approval_review_operation":
 			out.Values[i] = ec._Mutation_delete_case_approval_review_operation(ctx, field)
 		case "delete_case_approval_review_operation_by_pk":
@@ -33255,6 +34351,10 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			out.Values[i] = ec._Mutation_update_case_approval_review_operation(ctx, field)
 		case "update_case_approval_review_operation_by_pk":
 			out.Values[i] = ec._Mutation_update_case_approval_review_operation_by_pk(ctx, field)
+		case "update_case_approval_review_operation_by_union_pk":
+			out.Values[i] = ec._Mutation_update_case_approval_review_operation_by_union_pk(ctx, field)
+		case "delete_case_approval_review_operation_by_union_pk":
+			out.Values[i] = ec._Mutation_delete_case_approval_review_operation_by_union_pk(ctx, field)
 		case "delete_dispute_violation_record":
 			out.Values[i] = ec._Mutation_delete_dispute_violation_record(ctx, field)
 		case "delete_dispute_violation_record_by_pk":
@@ -33291,6 +34391,10 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			out.Values[i] = ec._Mutation_update_driving_log_info(ctx, field)
 		case "update_driving_log_info_by_pk":
 			out.Values[i] = ec._Mutation_update_driving_log_info_by_pk(ctx, field)
+		case "update_driving_log_info_by_union_pk":
+			out.Values[i] = ec._Mutation_update_driving_log_info_by_union_pk(ctx, field)
+		case "delete_driving_log_info_by_union_pk":
+			out.Values[i] = ec._Mutation_delete_driving_log_info_by_union_pk(ctx, field)
 		case "delete_vehicle_driver_binding":
 			out.Values[i] = ec._Mutation_delete_vehicle_driver_binding(ctx, field)
 		case "delete_vehicle_driver_binding_by_pk":
@@ -33303,6 +34407,10 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			out.Values[i] = ec._Mutation_update_vehicle_driver_binding(ctx, field)
 		case "update_vehicle_driver_binding_by_pk":
 			out.Values[i] = ec._Mutation_update_vehicle_driver_binding_by_pk(ctx, field)
+		case "update_vehicle_driver_binding_by_union_pk":
+			out.Values[i] = ec._Mutation_update_vehicle_driver_binding_by_union_pk(ctx, field)
+		case "delete_vehicle_driver_binding_by_union_pk":
+			out.Values[i] = ec._Mutation_delete_vehicle_driver_binding_by_union_pk(ctx, field)
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}
@@ -33371,6 +34479,20 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 				}
 				return res
 			})
+		case "case_approval_review_call_by_union_pk":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_case_approval_review_call_by_union_pk(ctx, field)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			})
 		case "case_approval_review_operation":
 			field := field
 			out.Concurrently(i, func() (res graphql.Marshaler) {
@@ -33408,6 +34530,20 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_case_approval_review_operation_by_pk(ctx, field)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			})
+		case "case_approval_review_operation_by_union_pk":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_case_approval_review_operation_by_union_pk(ctx, field)
 				if res == graphql.Null {
 					atomic.AddUint32(&invalids, 1)
 				}
@@ -33539,6 +34675,20 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 				}
 				return res
 			})
+		case "driving_log_info_by_union_pk":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_driving_log_info_by_union_pk(ctx, field)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			})
 		case "vehicle_driver_binding":
 			field := field
 			out.Concurrently(i, func() (res graphql.Marshaler) {
@@ -33576,6 +34726,20 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_vehicle_driver_binding_by_pk(ctx, field)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			})
+		case "vehicle_driver_binding_by_union_pk":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_vehicle_driver_binding_by_union_pk(ctx, field)
 				if res == graphql.Null {
 					atomic.AddUint32(&invalids, 1)
 				}

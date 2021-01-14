@@ -243,6 +243,8 @@ input VehicleIncrementRecordBoolExp {
 input type for inserting data into table "vehicle_increment_record"
 """
 input VehicleIncrementRecordInsertInput {
+	increment_record_id: String!
+	vehicle_id: String!
 	enterprise_id: String
 	self_number: String
 	operation_type: String
@@ -251,6 +253,8 @@ input VehicleIncrementRecordInsertInput {
 	area: String
 	original_number: String
 	operator: String
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -370,6 +374,10 @@ extend type Query {
 	主键查询
 	"""
 	vehicle_increment_record_by_pk(id: Bigint!): VehicleIncrementRecord!
+	"""
+	联合主键查询
+	"""
+	vehicle_increment_record_by_union_pk(increment_record_id: String!): VehicleIncrementRecord!
 }
 extend type Mutation {
 	"""
@@ -393,7 +401,15 @@ extend type Mutation {
 	"""
 	update_vehicle_increment_record(_inc: VehicleIncrementRecordIncInput, _set: VehicleIncrementRecordSetInput, where: VehicleIncrementRecordBoolExp!): VehicleIncrementRecordMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_vehicle_increment_record_by_pk(_inc: VehicleIncrementRecordIncInput, _set: VehicleIncrementRecordSetInput, id: Bigint!): VehicleIncrementRecord
+	"""
+	根据联合主键更新
+	"""
+	update_vehicle_increment_record_by_union_pk(_inc: VehicleIncrementRecordIncInput, _set: VehicleIncrementRecordSetInput, increment_record_id: String!): VehicleIncrementRecord
+	"""
+	根据联合主键删除记录
+	"""
+	delete_vehicle_increment_record_by_union_pk(increment_record_id: String!): VehicleIncrementRecord
 }

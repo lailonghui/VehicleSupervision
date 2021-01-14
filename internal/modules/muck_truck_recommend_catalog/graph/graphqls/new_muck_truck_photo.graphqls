@@ -195,9 +195,12 @@ input NewMuckTruckPhotoBoolExp {
 input type for inserting data into table "new_muck_truck_photo"
 """
 input NewMuckTruckPhotoInsertInput {
+	new_muck_truck_photo_id: String!
 	vehicle_id: String
 	file_path: String
 	upload_user: String
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -287,6 +290,10 @@ extend type Query {
 	主键查询
 	"""
 	new_muck_truck_photo_by_pk(id: Bigint!): NewMuckTruckPhoto!
+	"""
+	联合主键查询
+	"""
+	new_muck_truck_photo_by_union_pk(new_muck_truck_photo_id: String!): NewMuckTruckPhoto!
 }
 extend type Mutation {
 	"""
@@ -310,7 +317,15 @@ extend type Mutation {
 	"""
 	update_new_muck_truck_photo(_inc: NewMuckTruckPhotoIncInput, _set: NewMuckTruckPhotoSetInput, where: NewMuckTruckPhotoBoolExp!): NewMuckTruckPhotoMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_new_muck_truck_photo_by_pk(_inc: NewMuckTruckPhotoIncInput, _set: NewMuckTruckPhotoSetInput, id: Bigint!): NewMuckTruckPhoto
+	"""
+	根据联合主键更新
+	"""
+	update_new_muck_truck_photo_by_union_pk(_inc: NewMuckTruckPhotoIncInput, _set: NewMuckTruckPhotoSetInput, new_muck_truck_photo_id: String!): NewMuckTruckPhoto
+	"""
+	根据联合主键删除记录
+	"""
+	delete_new_muck_truck_photo_by_union_pk(new_muck_truck_photo_id: String!): NewMuckTruckPhoto
 }

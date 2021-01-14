@@ -251,6 +251,7 @@ input NewMuckTruckInfoBoolExp {
 input type for inserting data into table "new_muck_truck_info"
 """
 input NewMuckTruckInfoInsertInput {
+	new_muck_truck_info_id: String!
 	vehicle_id: String
 	license_plate_number: String
 	registration_time: Timestamptz
@@ -261,6 +262,8 @@ input NewMuckTruckInfoInsertInput {
 	height: String
 	sealing_device: String
 	top_cover_height: String
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -385,6 +388,10 @@ extend type Query {
 	主键查询
 	"""
 	new_muck_truck_info_by_pk(id: Bigint!): NewMuckTruckInfo!
+	"""
+	联合主键查询
+	"""
+	new_muck_truck_info_by_union_pk(new_muck_truck_info_id: String!): NewMuckTruckInfo!
 }
 extend type Mutation {
 	"""
@@ -408,7 +415,15 @@ extend type Mutation {
 	"""
 	update_new_muck_truck_info(_inc: NewMuckTruckInfoIncInput, _set: NewMuckTruckInfoSetInput, where: NewMuckTruckInfoBoolExp!): NewMuckTruckInfoMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_new_muck_truck_info_by_pk(_inc: NewMuckTruckInfoIncInput, _set: NewMuckTruckInfoSetInput, id: Bigint!): NewMuckTruckInfo
+	"""
+	根据联合主键更新
+	"""
+	update_new_muck_truck_info_by_union_pk(_inc: NewMuckTruckInfoIncInput, _set: NewMuckTruckInfoSetInput, new_muck_truck_info_id: String!): NewMuckTruckInfo
+	"""
+	根据联合主键删除记录
+	"""
+	delete_new_muck_truck_info_by_union_pk(new_muck_truck_info_id: String!): NewMuckTruckInfo
 }

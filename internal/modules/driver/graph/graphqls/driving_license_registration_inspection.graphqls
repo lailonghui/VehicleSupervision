@@ -267,6 +267,8 @@ input DrivingLicenseRegistrationInspectionBoolExp {
 input type for inserting data into table "driving_license_registration_inspection"
 """
 input DrivingLicenseRegistrationInspectionInsertInput {
+	driver_id_info_report_id: String!
+	vehicle_id: String!
 	ic_card_status: Int
 	operation_time: Timestamptz
 	driver_name: String
@@ -277,6 +279,8 @@ input DrivingLicenseRegistrationInspectionInsertInput {
 	driver_license_name: String
 	license_expire_date: Timestamptz
 	registration_time: Timestamptz
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -430,7 +434,7 @@ extend type Mutation {
 	"""
 	update_driving_license_registration_inspection(_inc: DrivingLicenseRegistrationInspectionIncInput, _set: DrivingLicenseRegistrationInspectionSetInput, where: DrivingLicenseRegistrationInspectionBoolExp!): DrivingLicenseRegistrationInspectionMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_driving_license_registration_inspection_by_pk(_inc: DrivingLicenseRegistrationInspectionIncInput, _set: DrivingLicenseRegistrationInspectionSetInput, id: Bigint!): DrivingLicenseRegistrationInspection
 }

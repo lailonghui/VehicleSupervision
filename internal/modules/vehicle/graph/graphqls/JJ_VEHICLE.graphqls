@@ -315,6 +315,7 @@ input JjVehicleBoolExp {
 input type for inserting data into table "jj_vehicle"
 """
 input JjVehicleInsertInput {
+	vehicle_id: String!
 	hphm: String
 	hpzl: String
 	syr: String
@@ -484,6 +485,10 @@ extend type Query {
 	主键查询
 	"""
 	jj_vehicle_by_pk(id: Bigint!): JjVehicle!
+	"""
+	联合主键查询
+	"""
+	jj_vehicle_by_union_pk(vehicle_id: String!): JjVehicle!
 }
 extend type Mutation {
 	"""
@@ -507,7 +512,15 @@ extend type Mutation {
 	"""
 	update_jj_vehicle(_inc: JjVehicleIncInput, _set: JjVehicleSetInput, where: JjVehicleBoolExp!): JjVehicleMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_jj_vehicle_by_pk(_inc: JjVehicleIncInput, _set: JjVehicleSetInput, id: Bigint!): JjVehicle
+	"""
+	根据联合主键更新
+	"""
+	update_jj_vehicle_by_union_pk(_inc: JjVehicleIncInput, _set: JjVehicleSetInput, vehicle_id: String!): JjVehicle
+	"""
+	根据联合主键删除记录
+	"""
+	delete_jj_vehicle_by_union_pk(vehicle_id: String!): JjVehicle
 }

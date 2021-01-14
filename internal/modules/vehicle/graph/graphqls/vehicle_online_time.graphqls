@@ -235,10 +235,14 @@ input VehicleOnlineTimeBoolExp {
 input type for inserting data into table "vehicle_online_time"
 """
 input VehicleOnlineTimeInsertInput {
+	online_time_id: String!
+	vehicle_id: String!
 	online_time: Numeric
 	offline_time: Numeric
 	total_time: Numeric
 	is_online: Boolean
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -341,6 +345,10 @@ extend type Query {
 	主键查询
 	"""
 	vehicle_online_time_by_pk(id: Bigint!): VehicleOnlineTime!
+	"""
+	联合主键查询
+	"""
+	vehicle_online_time_by_union_pk(online_time_id: String!): VehicleOnlineTime!
 }
 extend type Mutation {
 	"""
@@ -364,7 +372,15 @@ extend type Mutation {
 	"""
 	update_vehicle_online_time(_inc: VehicleOnlineTimeIncInput, _set: VehicleOnlineTimeSetInput, where: VehicleOnlineTimeBoolExp!): VehicleOnlineTimeMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_vehicle_online_time_by_pk(_inc: VehicleOnlineTimeIncInput, _set: VehicleOnlineTimeSetInput, id: Bigint!): VehicleOnlineTime
+	"""
+	根据联合主键更新
+	"""
+	update_vehicle_online_time_by_union_pk(_inc: VehicleOnlineTimeIncInput, _set: VehicleOnlineTimeSetInput, online_time_id: String!): VehicleOnlineTime
+	"""
+	根据联合主键删除记录
+	"""
+	delete_vehicle_online_time_by_union_pk(online_time_id: String!): VehicleOnlineTime
 }

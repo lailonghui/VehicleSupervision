@@ -667,6 +667,7 @@ input VehicleInfoBoolExp {
 input type for inserting data into table "vehicle_info"
 """
 input VehicleInfoInsertInput {
+	vehicle_id: String!
 	enterprise_id: String
 	department_id: String
 	industry_category: Int
@@ -714,6 +715,8 @@ input VehicleInfoInsertInput {
 	is_deleted: Boolean
 	record_at: Timestamptz
 	record_by: String
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -1061,7 +1064,7 @@ extend type Mutation {
 	"""
 	update_vehicle_info(_inc: VehicleInfoIncInput, _set: VehicleInfoSetInput, where: VehicleInfoBoolExp!): VehicleInfoMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_vehicle_info_by_pk(_inc: VehicleInfoIncInput, _set: VehicleInfoSetInput, id: Bigint!): VehicleInfo
 }

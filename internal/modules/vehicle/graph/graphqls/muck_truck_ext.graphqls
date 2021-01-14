@@ -659,6 +659,7 @@ input MuckTruckExtBoolExp {
 input type for inserting data into table "muck_truck_ext"
 """
 input MuckTruckExtInsertInput {
+	vehicle_id: String!
 	vehicle_picture: String
 	engine_number: String
 	review_time: Timestamptz
@@ -715,6 +716,8 @@ input MuckTruckExtInsertInput {
 	self_number: String
 	mobile_card_location: String
 	load_category: String
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -1097,7 +1100,7 @@ extend type Mutation {
 	"""
 	update_muck_truck_ext(_inc: MuckTruckExtIncInput, _set: MuckTruckExtSetInput, where: MuckTruckExtBoolExp!): MuckTruckExtMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_muck_truck_ext_by_pk(_inc: MuckTruckExtIncInput, _set: MuckTruckExtSetInput, id: Bigint!): MuckTruckExt
 }

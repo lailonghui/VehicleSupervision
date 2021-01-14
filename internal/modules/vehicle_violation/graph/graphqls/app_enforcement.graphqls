@@ -235,6 +235,7 @@ input AppEnforcementBoolExp {
 input type for inserting data into table "app_enforcement"
 """
 input AppEnforcementInsertInput {
+	illegal_photo_id: String!
 	vehicle_id: String
 	operation_user: String
 	edit_text: String
@@ -242,6 +243,8 @@ input AppEnforcementInsertInput {
 	location_description: String
 	enterprise_type: String
 	picket_status: Int
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -375,7 +378,7 @@ extend type Mutation {
 	"""
 	update_app_enforcement(_inc: AppEnforcementIncInput, _set: AppEnforcementSetInput, where: AppEnforcementBoolExp!): AppEnforcementMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_app_enforcement_by_pk(_inc: AppEnforcementIncInput, _set: AppEnforcementSetInput, id: Bigint!): AppEnforcement
 }

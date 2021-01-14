@@ -339,6 +339,7 @@ input ViolationRegistrationBoolExp {
 input type for inserting data into table "violation_registration"
 """
 input ViolationRegistrationInsertInput {
+	violation_registration_id: String!
 	vehicle_id: String
 	license_plate_number: String
 	id_card_num: String
@@ -360,6 +361,8 @@ input ViolationRegistrationInsertInput {
 	is_supervised: String
 	is_accident: String
 	is_deleted: Boolean
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -539,6 +542,10 @@ extend type Query {
 	主键查询
 	"""
 	violation_registration_by_pk(id: Bigint!): ViolationRegistration!
+	"""
+	联合主键查询
+	"""
+	violation_registration_by_union_pk(violation_registration_id: String!): ViolationRegistration!
 }
 extend type Mutation {
 	"""
@@ -562,7 +569,15 @@ extend type Mutation {
 	"""
 	update_violation_registration(_inc: ViolationRegistrationIncInput, _set: ViolationRegistrationSetInput, where: ViolationRegistrationBoolExp!): ViolationRegistrationMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_violation_registration_by_pk(_inc: ViolationRegistrationIncInput, _set: ViolationRegistrationSetInput, id: Bigint!): ViolationRegistration
+	"""
+	根据联合主键更新
+	"""
+	update_violation_registration_by_union_pk(_inc: ViolationRegistrationIncInput, _set: ViolationRegistrationSetInput, violation_registration_id: String!): ViolationRegistration
+	"""
+	根据联合主键删除记录
+	"""
+	delete_violation_registration_by_union_pk(violation_registration_id: String!): ViolationRegistration
 }

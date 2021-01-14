@@ -227,6 +227,7 @@ input EnterpriseAlarmSendPoliceBoolExp {
 input type for inserting data into table "enterprise_alarm_send_police"
 """
 input EnterpriseAlarmSendPoliceInsertInput {
+	enterprise_alarm_send_police_id: String!
 	enterprise_id: String
 	enterprise_name: String
 	enterprise_contact: String
@@ -234,6 +235,8 @@ input EnterpriseAlarmSendPoliceInsertInput {
 	police: String
 	police_phone: String
 	phlice_department: String
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -343,6 +346,10 @@ extend type Query {
 	主键查询
 	"""
 	enterprise_alarm_send_police_by_pk(id: Bigint!): EnterpriseAlarmSendPolice!
+	"""
+	联合主键查询
+	"""
+	enterprise_alarm_send_police_by_union_pk(enterprise_alarm_send_police_id: String!): EnterpriseAlarmSendPolice!
 }
 extend type Mutation {
 	"""
@@ -366,7 +373,15 @@ extend type Mutation {
 	"""
 	update_enterprise_alarm_send_police(_inc: EnterpriseAlarmSendPoliceIncInput, _set: EnterpriseAlarmSendPoliceSetInput, where: EnterpriseAlarmSendPoliceBoolExp!): EnterpriseAlarmSendPoliceMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_enterprise_alarm_send_police_by_pk(_inc: EnterpriseAlarmSendPoliceIncInput, _set: EnterpriseAlarmSendPoliceSetInput, id: Bigint!): EnterpriseAlarmSendPolice
+	"""
+	根据联合主键更新
+	"""
+	update_enterprise_alarm_send_police_by_union_pk(_inc: EnterpriseAlarmSendPoliceIncInput, _set: EnterpriseAlarmSendPoliceSetInput, enterprise_alarm_send_police_id: String!): EnterpriseAlarmSendPolice
+	"""
+	根据联合主键删除记录
+	"""
+	delete_enterprise_alarm_send_police_by_union_pk(enterprise_alarm_send_police_id: String!): EnterpriseAlarmSendPolice
 }

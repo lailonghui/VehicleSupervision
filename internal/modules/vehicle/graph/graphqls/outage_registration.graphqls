@@ -299,6 +299,8 @@ input OutageRegistrationBoolExp {
 input type for inserting data into table "outage_registration"
 """
 input OutageRegistrationInsertInput {
+	outage_registration_id: String!
+	vehicle_id: String!
 	user_id: String
 	outage_start_time: Timestamptz
 	outage_end_time: Timestamptz
@@ -314,6 +316,8 @@ input OutageRegistrationInsertInput {
 	is_invalid: Boolean
 	is_latest: Boolean
 	is_deleted: Boolean
+	created_at: Timestamptz!
+	created_by: String!
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -468,6 +472,10 @@ extend type Query {
 	主键查询
 	"""
 	outage_registration_by_pk(id: Bigint!): OutageRegistration!
+	"""
+	联合主键查询
+	"""
+	outage_registration_by_union_pk(outage_registration_id: String!): OutageRegistration!
 }
 extend type Mutation {
 	"""
@@ -491,7 +499,15 @@ extend type Mutation {
 	"""
 	update_outage_registration(_inc: OutageRegistrationIncInput, _set: OutageRegistrationSetInput, where: OutageRegistrationBoolExp!): OutageRegistrationMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_outage_registration_by_pk(_inc: OutageRegistrationIncInput, _set: OutageRegistrationSetInput, id: Bigint!): OutageRegistration
+	"""
+	根据联合主键更新
+	"""
+	update_outage_registration_by_union_pk(_inc: OutageRegistrationIncInput, _set: OutageRegistrationSetInput, outage_registration_id: String!): OutageRegistration
+	"""
+	根据联合主键删除记录
+	"""
+	delete_outage_registration_by_union_pk(outage_registration_id: String!): OutageRegistration
 }

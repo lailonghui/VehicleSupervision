@@ -62,13 +62,17 @@ type CatalogNewVehicleRecordIncInput struct {
 
 // input type for inserting data into table "catalog_new_vehicle_record"
 type CatalogNewVehicleRecordInsertInput struct {
-	TerminalID *string    `json:"terminal_id"`
-	Reviewer   *string    `json:"reviewer"`
-	IsDeleted  *bool      `json:"is_deleted"`
-	UpdatedAt  *time.Time `json:"updated_at"`
-	UpdatedBy  *string    `json:"updated_by"`
-	DeletedAt  *time.Time `json:"deleted_at"`
-	DeletedBy  *string    `json:"deleted_by"`
+	CatalogNewVehicleRecordID string     `json:"catalog_new_vehicle_record_id"`
+	VehicleID                 string     `json:"vehicle_id"`
+	TerminalID                *string    `json:"terminal_id"`
+	Reviewer                  *string    `json:"reviewer"`
+	IsDeleted                 *bool      `json:"is_deleted"`
+	CreatedAt                 time.Time  `json:"created_at"`
+	CreatedBy                 string     `json:"created_by"`
+	UpdatedAt                 *time.Time `json:"updated_at"`
+	UpdatedBy                 *string    `json:"updated_by"`
+	DeletedAt                 *time.Time `json:"deleted_at"`
+	DeletedBy                 *string    `json:"deleted_by"`
 }
 
 // aggregate max on columns of table "catalog_new_vehicle_record"
@@ -244,6 +248,7 @@ type JjVehicleIncInput struct {
 
 // input type for inserting data into table "jj_vehicle"
 type JjVehicleInsertInput struct {
+	VehicleID  string     `json:"vehicle_id"`
 	Hphm       *string    `json:"hphm"`
 	Hpzl       *string    `json:"hpzl"`
 	Syr        *string    `json:"syr"`
@@ -550,6 +555,7 @@ type MuckTruckExtIncInput struct {
 
 // input type for inserting data into table "muck_truck_ext"
 type MuckTruckExtInsertInput struct {
+	VehicleID                            string     `json:"vehicle_id"`
 	VehiclePicture                       *string    `json:"vehicle_picture"`
 	EngineNumber                         *string    `json:"engine_number"`
 	ReviewTime                           *time.Time `json:"review_time"`
@@ -606,6 +612,8 @@ type MuckTruckExtInsertInput struct {
 	SelfNumber                           *string    `json:"self_number"`
 	MobileCardLocation                   *string    `json:"mobile_card_location"`
 	LoadCategory                         *string    `json:"load_category"`
+	CreatedAt                            time.Time  `json:"created_at"`
+	CreatedBy                            string     `json:"created_by"`
 	UpdatedAt                            *time.Time `json:"updated_at"`
 	UpdatedBy                            *string    `json:"updated_by"`
 	DeletedAt                            *time.Time `json:"deleted_at"`
@@ -1039,33 +1047,37 @@ type MuckTruckPreviewNumberIncInput struct {
 
 // input type for inserting data into table "muck_truck_preview_number"
 type MuckTruckPreviewNumberInsertInput struct {
-	SvnNumber               *string    `json:"svn_number"`
-	RegistrationTime        *string    `json:"registration_time"`
-	Confirmor               *string    `json:"confirmor"`
-	ConfirmTime             *time.Time `json:"confirm_time"`
-	ConfirmStatus           *int       `json:"confirm_status"`
-	FrontLicensePlate       *string    `json:"front_license_plate"`
-	RearLicensePlate        *string    `json:"rear_license_plate"`
-	SideLicensePlate        *string    `json:"side_license_plate"`
-	OriginalNumber          *string    `json:"original_number"`
-	IsReviewAutomatically   *bool      `json:"is_review_automatically"`
-	ProductionStatus        *int       `json:"production_status"`
-	ProductionTime          *time.Time `json:"production_time"`
-	MarkingTime             *time.Time `json:"marking_time"`
-	ProductionTimes         *int       `json:"production_times"`
-	SubmitProductionTime    *time.Time `json:"submit_production_time"`
-	ContactPerson           *string    `json:"contact_person"`
-	ContactPhone            *string    `json:"contact_phone"`
-	WorkNumberPlateColor    *string    `json:"work_number_plate_color"`
-	InitialRegistrationDate *time.Time `json:"initial_registration_date"`
-	UnlawfulViolationNumber *int       `json:"unlawful_violation_number"`
-	IsRegisterSaleOrder     *bool      `json:"is_register_sale_order"`
-	Remarks                 *string    `json:"remarks"`
-	IsDeleted               *bool      `json:"is_deleted"`
-	UpdatedAt               *time.Time `json:"updated_at"`
-	UpdatedBy               *string    `json:"updated_by"`
-	DeletedAt               *time.Time `json:"deleted_at"`
-	DeletedBy               *string    `json:"deleted_by"`
+	MuckTruckPreviewNumberID string     `json:"muck_truck_preview_number_id"`
+	VehicleID                string     `json:"vehicle_id"`
+	SvnNumber                *string    `json:"svn_number"`
+	RegistrationTime         *string    `json:"registration_time"`
+	Confirmor                *string    `json:"confirmor"`
+	ConfirmTime              *time.Time `json:"confirm_time"`
+	ConfirmStatus            *int       `json:"confirm_status"`
+	FrontLicensePlate        *string    `json:"front_license_plate"`
+	RearLicensePlate         *string    `json:"rear_license_plate"`
+	SideLicensePlate         *string    `json:"side_license_plate"`
+	OriginalNumber           *string    `json:"original_number"`
+	IsReviewAutomatically    *bool      `json:"is_review_automatically"`
+	ProductionStatus         *int       `json:"production_status"`
+	ProductionTime           *time.Time `json:"production_time"`
+	MarkingTime              *time.Time `json:"marking_time"`
+	ProductionTimes          *int       `json:"production_times"`
+	SubmitProductionTime     *time.Time `json:"submit_production_time"`
+	ContactPerson            *string    `json:"contact_person"`
+	ContactPhone             *string    `json:"contact_phone"`
+	WorkNumberPlateColor     *string    `json:"work_number_plate_color"`
+	InitialRegistrationDate  *time.Time `json:"initial_registration_date"`
+	UnlawfulViolationNumber  *int       `json:"unlawful_violation_number"`
+	IsRegisterSaleOrder      *bool      `json:"is_register_sale_order"`
+	Remarks                  *string    `json:"remarks"`
+	IsDeleted                *bool      `json:"is_deleted"`
+	CreatedAt                time.Time  `json:"created_at"`
+	CreatedBy                string     `json:"created_by"`
+	UpdatedAt                *time.Time `json:"updated_at"`
+	UpdatedBy                *string    `json:"updated_by"`
+	DeletedAt                *time.Time `json:"deleted_at"`
+	DeletedBy                *string    `json:"deleted_by"`
 }
 
 // aggregate max on columns of table "muck_truck_preview_number"
@@ -1378,6 +1390,8 @@ type MuckTruckTestSituationIncInput struct {
 
 // input type for inserting data into table "muck_truck_test_situation"
 type MuckTruckTestSituationInsertInput struct {
+	MuckTruckTestSituationID string     `json:"muck_truck_test_situation_id"`
+	VehicleID                string     `json:"vehicle_id"`
 	AirtightState            *int       `json:"airtight_state"`
 	LoadState                *int       `json:"load_state"`
 	LiftingStatus            *int       `json:"lifting_status"`
@@ -1397,6 +1411,8 @@ type MuckTruckTestSituationInsertInput struct {
 	IsDetectIllegalStart     *bool      `json:"is_detect_illegal_start"`
 	IsPassed                 *bool      `json:"is_passed"`
 	IsDeleted                *bool      `json:"is_deleted"`
+	CreatedAt                time.Time  `json:"created_at"`
+	CreatedBy                string     `json:"created_by"`
 	UpdatedAt                *time.Time `json:"updated_at"`
 	UpdatedBy                *string    `json:"updated_by"`
 	DeletedAt                *time.Time `json:"deleted_at"`
@@ -1726,10 +1742,15 @@ type MuckTruckWorkerIdentityCardOrdersIncInput struct {
 
 // input type for inserting data into table "muck_truck_worker_identity_card_orders"
 type MuckTruckWorkerIdentityCardOrdersInsertInput struct {
-	UpdatedAt *time.Time `json:"updated_at"`
-	UpdatedBy *string    `json:"updated_by"`
-	DeletedAt *time.Time `json:"deleted_at"`
-	DeletedBy *string    `json:"deleted_by"`
+	MuckTruckWorkerOrdersID string     `json:"muck_truck_worker_orders_id"`
+	VehicleID               string     `json:"vehicle_id"`
+	PreviewNumberID         string     `json:"preview_number_id"`
+	CreatedAt               time.Time  `json:"created_at"`
+	CreatedBy               string     `json:"created_by"`
+	UpdatedAt               *time.Time `json:"updated_at"`
+	UpdatedBy               *string    `json:"updated_by"`
+	DeletedAt               *time.Time `json:"deleted_at"`
+	DeletedBy               *string    `json:"deleted_by"`
 }
 
 // aggregate max on columns of table "muck_truck_worker_identity_card_orders"
@@ -1906,6 +1927,7 @@ type OperatingVehicleExtIncInput struct {
 
 // input type for inserting data into table "operating_vehicle_ext"
 type OperatingVehicleExtInsertInput struct {
+	VehicleID                    string     `json:"vehicle_id"`
 	Agent                        *string    `json:"agent"`
 	ContactNumber                *string    `json:"contact_number"`
 	Platform                     *int       `json:"platform"`
@@ -1932,6 +1954,8 @@ type OperatingVehicleExtInsertInput struct {
 	ServiceExpirationTime        *time.Time `json:"service_expiration_time"`
 	ContractTime                 *time.Time `json:"contract_time"`
 	InstallationTime             *time.Time `json:"installation_time"`
+	CreatedAt                    time.Time  `json:"created_at"`
+	CreatedBy                    string     `json:"created_by"`
 	UpdatedAt                    *time.Time `json:"updated_at"`
 	UpdatedBy                    *string    `json:"updated_by"`
 	DeletedAt                    *time.Time `json:"deleted_at"`
@@ -2195,13 +2219,16 @@ type OutageFilingUploadFileIncInput struct {
 
 // input type for inserting data into table "outage_filing_upload_file"
 type OutageFilingUploadFileInsertInput struct {
-	FilePath  *string    `json:"file_path"`
-	FileType  *string    `json:"file_type"`
-	IsDeleted *bool      `json:"is_deleted"`
-	UpdatedAt *time.Time `json:"updated_at"`
-	UpdatedBy *string    `json:"updated_by"`
-	DeletedAt *time.Time `json:"deleted_at"`
-	DeletedBy *string    `json:"deleted_by"`
+	OutageFilingUploadFileID string     `json:"outage_filing_upload_file_id"`
+	FilePath                 *string    `json:"file_path"`
+	FileType                 *string    `json:"file_type"`
+	IsDeleted                *bool      `json:"is_deleted"`
+	CreatedAt                time.Time  `json:"created_at"`
+	CreatedBy                string     `json:"created_by"`
+	UpdatedAt                *time.Time `json:"updated_at"`
+	UpdatedBy                *string    `json:"updated_by"`
+	DeletedAt                *time.Time `json:"deleted_at"`
+	DeletedBy                *string    `json:"deleted_by"`
 }
 
 // aggregate max on columns of table "outage_filing_upload_file"
@@ -2368,6 +2395,8 @@ type OutageRegistrationIncInput struct {
 
 // input type for inserting data into table "outage_registration"
 type OutageRegistrationInsertInput struct {
+	OutageRegistrationID     string     `json:"outage_registration_id"`
+	VehicleID                string     `json:"vehicle_id"`
 	UserID                   *string    `json:"user_id"`
 	OutageStartTime          *time.Time `json:"outage_start_time"`
 	OutageEndTime            *time.Time `json:"outage_end_time"`
@@ -2383,6 +2412,8 @@ type OutageRegistrationInsertInput struct {
 	IsInvalid                *bool      `json:"is_invalid"`
 	IsLatest                 *bool      `json:"is_latest"`
 	IsDeleted                *bool      `json:"is_deleted"`
+	CreatedAt                time.Time  `json:"created_at"`
+	CreatedBy                string     `json:"created_by"`
 	UpdatedAt                *time.Time `json:"updated_at"`
 	UpdatedBy                *string    `json:"updated_by"`
 	DeletedAt                *time.Time `json:"deleted_at"`
@@ -2604,6 +2635,7 @@ type OwnerInfoIncInput struct {
 
 // input type for inserting data into table "owner_info"
 type OwnerInfoInsertInput struct {
+	OwnerID      string     `json:"owner_id"`
 	DepartmentID *string    `json:"department_id"`
 	Name         *string    `json:"name"`
 	Address      *string    `json:"address"`
@@ -2617,6 +2649,8 @@ type OwnerInfoInsertInput struct {
 	Agent        *string    `json:"agent"`
 	Operator     *string    `json:"operator"`
 	IsDeleted    *bool      `json:"is_deleted"`
+	CreatedAt    time.Time  `json:"created_at"`
+	CreatedBy    string     `json:"created_by"`
 	UpdatedAt    *time.Time `json:"updated_at"`
 	UpdatedBy    *string    `json:"updated_by"`
 	DeletedAt    *time.Time `json:"deleted_at"`
@@ -2846,6 +2880,7 @@ type ProvinceUploadVehicleIncInput struct {
 
 // input type for inserting data into table "province_upload_vehicle"
 type ProvinceUploadVehicleInsertInput struct {
+	ProvinceUploadVehicleID            string     `json:"province_upload_vehicle_id"`
 	LicensePlateNumber                 *string    `json:"license_plate_number"`
 	LicensePlateColor                  *int       `json:"license_plate_color"`
 	EnterpriseID                       *string    `json:"enterprise_id"`
@@ -2864,6 +2899,8 @@ type ProvinceUploadVehicleInsertInput struct {
 	TransportAgencySynchronizationTime *time.Time `json:"transport_agency_synchronization_time"`
 	DeviceModel                        *string    `json:"device_model"`
 	TerminalModel                      *string    `json:"terminal_model"`
+	CreatedAt                          time.Time  `json:"created_at"`
+	CreatedBy                          string     `json:"created_by"`
 	UpdatedAt                          *time.Time `json:"updated_at"`
 	UpdatedBy                          *string    `json:"updated_by"`
 	DeletedAt                          *time.Time `json:"deleted_at"`
@@ -3118,14 +3155,18 @@ type TempIdentityCardDownloadLogIncInput struct {
 
 // input type for inserting data into table "temp_identity_card_download_log"
 type TempIdentityCardDownloadLogInsertInput struct {
-	ValidFrom  *time.Time `json:"valid_from"`
-	ValidUntil *time.Time `json:"valid_until"`
-	Operator   *string    `json:"operator"`
-	IsDeleted  *bool      `json:"is_deleted"`
-	UpdatedAt  *time.Time `json:"updated_at"`
-	UpdatedBy  *string    `json:"updated_by"`
-	DeletedAt  *time.Time `json:"deleted_at"`
-	DeletedBy  *string    `json:"deleted_by"`
+	TempIdentityCardDownloadID string     `json:"temp_identity_card_download_id"`
+	VehicleID                  string     `json:"vehicle_id"`
+	ValidFrom                  *time.Time `json:"valid_from"`
+	ValidUntil                 *time.Time `json:"valid_until"`
+	Operator                   *string    `json:"operator"`
+	IsDeleted                  *bool      `json:"is_deleted"`
+	CreatedAt                  time.Time  `json:"created_at"`
+	CreatedBy                  string     `json:"created_by"`
+	UpdatedAt                  *time.Time `json:"updated_at"`
+	UpdatedBy                  *string    `json:"updated_by"`
+	DeletedAt                  *time.Time `json:"deleted_at"`
+	DeletedBy                  *string    `json:"deleted_by"`
 }
 
 // aggregate max on columns of table "temp_identity_card_download_log"
@@ -3295,15 +3336,18 @@ type VehicleEnterpriseChangeLogIncInput struct {
 
 // input type for inserting data into table "vehicle_enterprise_change_log"
 type VehicleEnterpriseChangeLogInsertInput struct {
-	ChangedType    *int       `json:"changed_type"`
-	ChangedStep    *int       `json:"changed_step"`
-	Operator       *string    `json:"operator"`
-	ChangeReviewID *string    `json:"change_review_id"`
-	ReviewStatus   *int       `json:"review_status"`
-	UpdatedAt      *time.Time `json:"updated_at"`
-	UpdatedBy      *string    `json:"updated_by"`
-	DeletedAt      *time.Time `json:"deleted_at"`
-	DeletedBy      *string    `json:"deleted_by"`
+	VehicleEnterpriseChangeLogID string     `json:"vehicle_enterprise_change_log_id"`
+	ChangedType                  *int       `json:"changed_type"`
+	ChangedStep                  *int       `json:"changed_step"`
+	Operator                     *string    `json:"operator"`
+	ChangeReviewID               *string    `json:"change_review_id"`
+	ReviewStatus                 *int       `json:"review_status"`
+	CreatedAt                    time.Time  `json:"created_at"`
+	CreatedBy                    string     `json:"created_by"`
+	UpdatedAt                    *time.Time `json:"updated_at"`
+	UpdatedBy                    *string    `json:"updated_by"`
+	DeletedAt                    *time.Time `json:"deleted_at"`
+	DeletedBy                    *string    `json:"deleted_by"`
 }
 
 // aggregate max on columns of table "vehicle_enterprise_change_log"
@@ -3497,19 +3541,23 @@ type VehicleEnterpriseChangeReviewIncInput struct {
 
 // input type for inserting data into table "vehicle_enterprise_change_review"
 type VehicleEnterpriseChangeReviewInsertInput struct {
-	TargetEnterpriseID *string    `json:"target_enterprise_id"`
-	Remarks            *string    `json:"remarks"`
-	UploadDocumentSrc  *string    `json:"upload_document_src"`
-	ReviewStatus       *int       `json:"review_status"`
-	ChangeType         *int       `json:"change_type"`
-	OriginalArea       *string    `json:"original_area"`
-	ChangedArea        *string    `json:"changed_area"`
-	ChangedSelfNumber  *string    `json:"changed_self_number"`
-	IsDeleted          *bool      `json:"is_deleted"`
-	UpdatedAt          *time.Time `json:"updated_at"`
-	UpdatedBy          *string    `json:"updated_by"`
-	DeletedAt          *time.Time `json:"deleted_at"`
-	DeletedBy          *string    `json:"deleted_by"`
+	VehicleEnterpriseChangeReviewID string     `json:"vehicle_enterprise_change_review_id"`
+	VehicleID                       string     `json:"vehicle_id"`
+	TargetEnterpriseID              *string    `json:"target_enterprise_id"`
+	Remarks                         *string    `json:"remarks"`
+	UploadDocumentSrc               *string    `json:"upload_document_src"`
+	ReviewStatus                    *int       `json:"review_status"`
+	ChangeType                      *int       `json:"change_type"`
+	OriginalArea                    *string    `json:"original_area"`
+	ChangedArea                     *string    `json:"changed_area"`
+	ChangedSelfNumber               *string    `json:"changed_self_number"`
+	IsDeleted                       *bool      `json:"is_deleted"`
+	CreatedAt                       time.Time  `json:"created_at"`
+	CreatedBy                       string     `json:"created_by"`
+	UpdatedAt                       *time.Time `json:"updated_at"`
+	UpdatedBy                       *string    `json:"updated_by"`
+	DeletedAt                       *time.Time `json:"deleted_at"`
+	DeletedBy                       *string    `json:"deleted_by"`
 }
 
 // aggregate max on columns of table "vehicle_enterprise_change_review"
@@ -3716,12 +3764,15 @@ type VehicleExitCatalogLogIncInput struct {
 
 // input type for inserting data into table "vehicle_exit_catalog_log"
 type VehicleExitCatalogLogInsertInput struct {
+	VehicleExitCatalogLogID    string     `json:"vehicle_exit_catalog_log_id"`
 	VehicleExitCatalogReviewID *string    `json:"vehicle_exit_catalog_review_id"`
 	ExitType                   *int       `json:"exit_type"`
 	ExitStep                   *int       `json:"exit_step"`
 	Operator                   *string    `json:"operator"`
 	ReviewStatus               *int       `json:"review_status"`
 	ReviewUserGroup            *int       `json:"review_user_group"`
+	CreatedAt                  time.Time  `json:"created_at"`
+	CreatedBy                  string     `json:"created_by"`
 	UpdatedAt                  *time.Time `json:"updated_at"`
 	UpdatedBy                  *string    `json:"updated_by"`
 	DeletedAt                  *time.Time `json:"deleted_at"`
@@ -3933,20 +3984,24 @@ type VehicleExitCatalogReviewIncInput struct {
 
 // input type for inserting data into table "vehicle_exit_catalog_review"
 type VehicleExitCatalogReviewInsertInput struct {
-	EnterpriseID           *string    `json:"enterprise_id"`
-	Remarks                *string    `json:"remarks"`
-	ReviewStatus           *int       `json:"review_status"`
-	ExitType               *int       `json:"exit_type"`
-	ExitStep               *int       `json:"exit_step"`
-	AreaID                 *string    `json:"area_id"`
-	OriginalEnterpriseID   *string    `json:"original_enterprise_id"`
-	OriginalEnterpriseName *string    `json:"original_enterprise_name"`
-	OriginalSelfNumber     *string    `json:"original_self_number"`
-	IsDeleted              *bool      `json:"is_deleted"`
-	UpdatedAt              *time.Time `json:"updated_at"`
-	UpdatedBy              *string    `json:"updated_by"`
-	DeletedAt              *time.Time `json:"deleted_at"`
-	DeletedBy              *string    `json:"deleted_by"`
+	VehicleExitCatalogReviewID string     `json:"vehicle_exit_catalog_review_id"`
+	VehicleID                  string     `json:"vehicle_id"`
+	EnterpriseID               *string    `json:"enterprise_id"`
+	Remarks                    *string    `json:"remarks"`
+	ReviewStatus               *int       `json:"review_status"`
+	ExitType                   *int       `json:"exit_type"`
+	ExitStep                   *int       `json:"exit_step"`
+	AreaID                     *string    `json:"area_id"`
+	OriginalEnterpriseID       *string    `json:"original_enterprise_id"`
+	OriginalEnterpriseName     *string    `json:"original_enterprise_name"`
+	OriginalSelfNumber         *string    `json:"original_self_number"`
+	IsDeleted                  *bool      `json:"is_deleted"`
+	CreatedAt                  time.Time  `json:"created_at"`
+	CreatedBy                  string     `json:"created_by"`
+	UpdatedAt                  *time.Time `json:"updated_at"`
+	UpdatedBy                  *string    `json:"updated_by"`
+	DeletedAt                  *time.Time `json:"deleted_at"`
+	DeletedBy                  *string    `json:"deleted_by"`
 }
 
 // aggregate max on columns of table "vehicle_exit_catalog_review"
@@ -4159,6 +4214,8 @@ type VehicleIncrementRecordIncInput struct {
 
 // input type for inserting data into table "vehicle_increment_record"
 type VehicleIncrementRecordInsertInput struct {
+	IncrementRecordID  string     `json:"increment_record_id"`
+	VehicleID          string     `json:"vehicle_id"`
 	EnterpriseID       *string    `json:"enterprise_id"`
 	SelfNumber         *string    `json:"self_number"`
 	OperationType      *string    `json:"operation_type"`
@@ -4167,6 +4224,8 @@ type VehicleIncrementRecordInsertInput struct {
 	Area               *string    `json:"area"`
 	OriginalNumber     *string    `json:"original_number"`
 	Operator           *string    `json:"operator"`
+	CreatedAt          time.Time  `json:"created_at"`
+	CreatedBy          string     `json:"created_by"`
 	UpdatedAt          *time.Time `json:"updated_at"`
 	UpdatedBy          *string    `json:"updated_by"`
 	DeletedAt          *time.Time `json:"deleted_at"`
@@ -4422,6 +4481,7 @@ type VehicleInfoIncInput struct {
 
 // input type for inserting data into table "vehicle_info"
 type VehicleInfoInsertInput struct {
+	VehicleID                   string     `json:"vehicle_id"`
 	EnterpriseID                *string    `json:"enterprise_id"`
 	DepartmentID                *string    `json:"department_id"`
 	IndustryCategory            *int       `json:"industry_category"`
@@ -4469,6 +4529,8 @@ type VehicleInfoInsertInput struct {
 	IsDeleted                   *bool      `json:"is_deleted"`
 	RecordAt                    *time.Time `json:"record_at"`
 	RecordBy                    *string    `json:"record_by"`
+	CreatedAt                   time.Time  `json:"created_at"`
+	CreatedBy                   string     `json:"created_by"`
 	UpdatedAt                   *time.Time `json:"updated_at"`
 	UpdatedBy                   *string    `json:"updated_by"`
 	DeletedAt                   *time.Time `json:"deleted_at"`
@@ -4915,14 +4977,18 @@ type VehicleOnlineTimeIncInput struct {
 
 // input type for inserting data into table "vehicle_online_time"
 type VehicleOnlineTimeInsertInput struct {
-	OnlineTime  *float64   `json:"online_time"`
-	OfflineTime *float64   `json:"offline_time"`
-	TotalTime   *float64   `json:"total_time"`
-	IsOnline    *bool      `json:"is_online"`
-	UpdatedAt   *time.Time `json:"updated_at"`
-	UpdatedBy   *string    `json:"updated_by"`
-	DeletedAt   *time.Time `json:"deleted_at"`
-	DeletedBy   *string    `json:"deleted_by"`
+	OnlineTimeID string     `json:"online_time_id"`
+	VehicleID    string     `json:"vehicle_id"`
+	OnlineTime   *float64   `json:"online_time"`
+	OfflineTime  *float64   `json:"offline_time"`
+	TotalTime    *float64   `json:"total_time"`
+	IsOnline     *bool      `json:"is_online"`
+	CreatedAt    time.Time  `json:"created_at"`
+	CreatedBy    string     `json:"created_by"`
+	UpdatedAt    *time.Time `json:"updated_at"`
+	UpdatedBy    *string    `json:"updated_by"`
+	DeletedAt    *time.Time `json:"deleted_at"`
+	DeletedBy    *string    `json:"deleted_by"`
 }
 
 // aggregate max on columns of table "vehicle_online_time"
@@ -5113,16 +5179,20 @@ type VehicleOperationHistoryIncInput struct {
 
 // input type for inserting data into table "vehicle_operation_history"
 type VehicleOperationHistoryInsertInput struct {
-	Remarks       *string    `json:"remarks"`
-	OperationType *int       `json:"operation_type"`
-	Operator      *string    `json:"operator"`
-	ReviewStatus  *int       `json:"review_status"`
-	Area          *string    `json:"area"`
-	Reviewer      *string    `json:"reviewer"`
-	UpdatedAt     *time.Time `json:"updated_at"`
-	UpdatedBy     *string    `json:"updated_by"`
-	DeletedAt     *time.Time `json:"deleted_at"`
-	DeletedBy     *string    `json:"deleted_by"`
+	VehicleOperationHistoryID string     `json:"vehicle_operation_history_id"`
+	VehicleID                 string     `json:"vehicle_id"`
+	Remarks                   *string    `json:"remarks"`
+	OperationType             *int       `json:"operation_type"`
+	Operator                  *string    `json:"operator"`
+	ReviewStatus              *int       `json:"review_status"`
+	Area                      *string    `json:"area"`
+	Reviewer                  *string    `json:"reviewer"`
+	CreatedAt                 time.Time  `json:"created_at"`
+	CreatedBy                 string     `json:"created_by"`
+	UpdatedAt                 *time.Time `json:"updated_at"`
+	UpdatedBy                 *string    `json:"updated_by"`
+	DeletedAt                 *time.Time `json:"deleted_at"`
+	DeletedBy                 *string    `json:"deleted_by"`
 }
 
 // aggregate max on columns of table "vehicle_operation_history"
@@ -5312,14 +5382,18 @@ type VehicleReserveHistoryRecordIncInput struct {
 
 // input type for inserting data into table "vehicle_reserve_history_record"
 type VehicleReserveHistoryRecordInsertInput struct {
-	Operation       *int       `json:"operation"`
-	OperationUser   *string    `json:"operation_user"`
-	OperationTime   *time.Time `json:"operation_time"`
-	OperationSource *int       `json:"operation_source"`
-	UpdatedAt       *time.Time `json:"updated_at"`
-	UpdatedBy       *string    `json:"updated_by"`
-	DeletedAt       *time.Time `json:"deleted_at"`
-	DeletedBy       *string    `json:"deleted_by"`
+	VehicleReserveHistoryRecordID string     `json:"vehicle_reserve_history_record_id"`
+	VehicleID                     string     `json:"vehicle_id"`
+	Operation                     *int       `json:"operation"`
+	OperationUser                 *string    `json:"operation_user"`
+	OperationTime                 *time.Time `json:"operation_time"`
+	OperationSource               *int       `json:"operation_source"`
+	CreatedAt                     time.Time  `json:"created_at"`
+	CreatedBy                     string     `json:"created_by"`
+	UpdatedAt                     *time.Time `json:"updated_at"`
+	UpdatedBy                     *string    `json:"updated_by"`
+	DeletedAt                     *time.Time `json:"deleted_at"`
+	DeletedBy                     *string    `json:"deleted_by"`
 }
 
 // aggregate max on columns of table "vehicle_reserve_history_record"
@@ -5525,22 +5599,26 @@ type VehicleSecurityCheckRecordIncInput struct {
 
 // input type for inserting data into table "vehicle_security_check_record"
 type VehicleSecurityCheckRecordInsertInput struct {
-	EnterpriseID  *string    `json:"enterprise_id"`
-	Brake         *int       `json:"brake"`
-	Tire          *int       `json:"tire"`
-	Screw         *int       `json:"screw"`
-	HydraulicOil  *int       `json:"hydraulic_oil"`
-	EngineOil     *int       `json:"engine_oil"`
-	Water         *int       `json:"water"`
-	Headlight     *int       `json:"headlight"`
-	Taillight     *int       `json:"taillight"`
-	TurnSignal    *int       `json:"turn_signal"`
-	BrakeLight    *int       `json:"brake_light"`
-	LastCheckTime *time.Time `json:"last_check_time"`
-	UpdatedAt     *time.Time `json:"updated_at"`
-	UpdatedBy     *string    `json:"updated_by"`
-	DeletedAt     *time.Time `json:"deleted_at"`
-	DeletedBy     *string    `json:"deleted_by"`
+	VehicleSecurityCheckRecordID string     `json:"vehicle_security_check_record_id"`
+	VehicleID                    string     `json:"vehicle_id"`
+	EnterpriseID                 *string    `json:"enterprise_id"`
+	Brake                        *int       `json:"brake"`
+	Tire                         *int       `json:"tire"`
+	Screw                        *int       `json:"screw"`
+	HydraulicOil                 *int       `json:"hydraulic_oil"`
+	EngineOil                    *int       `json:"engine_oil"`
+	Water                        *int       `json:"water"`
+	Headlight                    *int       `json:"headlight"`
+	Taillight                    *int       `json:"taillight"`
+	TurnSignal                   *int       `json:"turn_signal"`
+	BrakeLight                   *int       `json:"brake_light"`
+	LastCheckTime                *time.Time `json:"last_check_time"`
+	CreatedAt                    time.Time  `json:"created_at"`
+	CreatedBy                    string     `json:"created_by"`
+	UpdatedAt                    *time.Time `json:"updated_at"`
+	UpdatedBy                    *string    `json:"updated_by"`
+	DeletedAt                    *time.Time `json:"deleted_at"`
+	DeletedBy                    *string    `json:"deleted_by"`
 }
 
 // aggregate max on columns of table "vehicle_security_check_record"
@@ -5807,15 +5885,19 @@ type VehicleStateLatestIncInput struct {
 
 // input type for inserting data into table "vehicle_state_latest"
 type VehicleStateLatestInsertInput struct {
-	OperationType       *string    `json:"operation_type"`
-	Operator            *string    `json:"operator"`
-	OperatorInstitution *string    `json:"operator_institution"`
-	Status              *string    `json:"status"`
-	SpeedLimit          *string    `json:"speed_limit"`
-	UpdatedAt           *time.Time `json:"updated_at"`
-	UpdatedBy           *string    `json:"updated_by"`
-	DeletedAt           *time.Time `json:"deleted_at"`
-	DeletedBy           *string    `json:"deleted_by"`
+	VehicleStateLatestID string     `json:"vehicle_state_latest_id"`
+	VehicleID            string     `json:"vehicle_id"`
+	OperationType        *string    `json:"operation_type"`
+	Operator             *string    `json:"operator"`
+	OperatorInstitution  *string    `json:"operator_institution"`
+	Status               *string    `json:"status"`
+	SpeedLimit           *string    `json:"speed_limit"`
+	CreatedAt            time.Time  `json:"created_at"`
+	CreatedBy            string     `json:"created_by"`
+	UpdatedAt            *time.Time `json:"updated_at"`
+	UpdatedBy            *string    `json:"updated_by"`
+	DeletedAt            *time.Time `json:"deleted_at"`
+	DeletedBy            *string    `json:"deleted_by"`
 }
 
 // aggregate max on columns of table "vehicle_state_latest"
@@ -5987,16 +6069,20 @@ type VehicleStatusChangeLogIncInput struct {
 
 // input type for inserting data into table "vehicle_status_change_log"
 type VehicleStatusChangeLogInsertInput struct {
-	TerminalID        *string    `json:"terminal_id"`
-	StartTime         *time.Time `json:"start_time"`
-	EndTime           *time.Time `json:"end_time"`
-	VehicleStatusType *int       `json:"vehicle_status_type"`
-	Value             *string    `json:"value"`
-	IsCompleted       *bool      `json:"is_completed"`
-	UpdatedAt         *time.Time `json:"updated_at"`
-	UpdatedBy         *string    `json:"updated_by"`
-	DeletedAt         *time.Time `json:"deleted_at"`
-	DeletedBy         *string    `json:"deleted_by"`
+	VehicleStatusChangeLogID string     `json:"vehicle_status_change_log_id"`
+	VehicleID                string     `json:"vehicle_id"`
+	TerminalID               *string    `json:"terminal_id"`
+	StartTime                *time.Time `json:"start_time"`
+	EndTime                  *time.Time `json:"end_time"`
+	VehicleStatusType        *int       `json:"vehicle_status_type"`
+	Value                    *string    `json:"value"`
+	IsCompleted              *bool      `json:"is_completed"`
+	CreatedAt                time.Time  `json:"created_at"`
+	CreatedBy                string     `json:"created_by"`
+	UpdatedAt                *time.Time `json:"updated_at"`
+	UpdatedBy                *string    `json:"updated_by"`
+	DeletedAt                *time.Time `json:"deleted_at"`
+	DeletedBy                *string    `json:"deleted_by"`
 }
 
 // aggregate max on columns of table "vehicle_status_change_log"
@@ -6177,6 +6263,8 @@ type VehicleSupervisionPhotoIncInput struct {
 
 // input type for inserting data into table "vehicle_supervision_photo"
 type VehicleSupervisionPhotoInsertInput struct {
+	SupervisionPhotoID      string     `json:"supervision_photo_id"`
+	VehicleID               string     `json:"vehicle_id"`
 	DriverID                *string    `json:"driver_id"`
 	EnterpriseID            *string    `json:"enterprise_id"`
 	CameraID                *int       `json:"camera_id"`
