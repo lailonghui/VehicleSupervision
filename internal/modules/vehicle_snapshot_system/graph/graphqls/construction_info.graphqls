@@ -1,0 +1,755 @@
+"""
+工地信息表
+"""
+type ConstructionInfo {
+	"""
+	 按指定方法生成                                  ( 主键                       )
+	"""
+	id: Bigint!
+	"""
+	 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                   )
+	"""
+	construction_info_id: String!
+	"""
+	 项目名称                                        
+	"""
+	project_name: String
+	"""
+	 工程项目代码                                    
+	"""
+	project_code: String
+	"""
+	 合同开工日期                                    
+	"""
+	contract_start_date: Timestamptz
+	"""
+	 合同竣工日期                                    
+	"""
+	contract_completion_date: Timestamptz
+	"""
+	 建设单位                                        
+	"""
+	build_agency: String
+	"""
+	 项目负责人                                      
+	"""
+	project_manager: String
+	"""
+	 地区                                            
+	"""
+	area_id: String
+	"""
+	 地址                                            
+	"""
+	address: String
+	"""
+	 地图经纬度                                      
+	"""
+	map_coordinate: Point
+	"""
+	 施工单位                                        ( 与建设单位的区别？         )
+	"""
+	construction_agency: String
+	"""
+	 监理单位                                        
+	"""
+	supervision_agency: String
+	"""
+	 设备安装单位                                    
+	"""
+	device_installation_agency: String
+	"""
+	 设备安装地点                                    
+	"""
+	device_installation_location: String
+	"""
+	 服务合同编号                                    
+	"""
+	service_contract_number: String
+	"""
+	 合同签署时间                                    
+	"""
+	contract_signing_time: Timestamptz
+	"""
+	 服务启用日期                                    
+	"""
+	service_activation_date: Timestamptz
+	"""
+	 证明有效期                                      
+	"""
+	proof_valid_date: Timestamptz
+	"""
+	 经纬度                                          
+	"""
+	coordinate: Point
+	"""
+	 安装时间                                        
+	"""
+	installation_time: Timestamptz
+	"""
+	 项目名称标签                                    
+	"""
+	project_name_tag: String
+	"""
+	 进出口数量                                      
+	"""
+	import_export_quantity: String
+	"""
+	 停用原因                                        
+	"""
+	deactivation_reason: String
+	"""
+	 未安装原因                                      
+	"""
+	uninstalled_reason: String
+	"""
+	 证明起始有效期                                  
+	"""
+	proof_valid_date_until: Timestamptz
+	"""
+	 类型（1.工地 2.矿山）                           
+	"""
+	construction_type: Int
+	"""
+	 联系人                                          
+	"""
+	contact_person: String
+	"""
+	 联系电话                                        
+	"""
+	contact_phone: String
+	"""
+	 是否完工（0.未完工 1.已完工 2.已停用）          
+	"""
+	finished: Int
+	"""
+	 是否市直属                                      
+	"""
+	is_city_directly: String
+	"""
+	 是否安装（0.未申请 1.已安装 2.已申请未安装）    
+	"""
+	is_installation: String
+	"""
+	 是否删除                                        
+	"""
+	is_deleted: Boolean
+	"""
+	 登记时间                                        
+	"""
+	registration_time: Timestamptz
+	"""
+	 创建时间                                        
+	"""
+	created_at: Timestamptz!
+	"""
+	 创建人                                          ( system_user表的user_id )
+	"""
+	created_by: String!
+	"""
+	 修改时间                                        
+	"""
+	updated_at: Timestamptz
+	"""
+	 修改人                                          ( system_user表的user_id )
+	"""
+	updated_by: String
+	"""
+	 删除时间                                        
+	"""
+	deleted_at: Timestamptz
+	"""
+	 删除人                                          ( system_user表的user_id )
+	"""
+	deleted_by: String
+}
+"""
+aggregated selection of "construction_info"
+"""
+type ConstructionInfoAggregate {
+	aggregate: ConstructionInfoAggregateFields
+}
+"""
+aggregate fields of "construction_info"
+"""
+type ConstructionInfoAggregateFields {
+	avg: ConstructionInfoAvgFields
+	count: Int
+	max: ConstructionInfoMaxFields
+	min: ConstructionInfoMinFields
+	stddev: ConstructionInfoStddevFields
+	stddev_pop: ConstructionInfoStddevPopFields
+	stddev_samp: ConstructionInfoStddevSampFields
+	sum: ConstructionInfoSumFields
+	var_pop: ConstructionInfoVarPopFields
+	var_samp: ConstructionInfoVarSampFields
+	variance: ConstructionInfoVarianceFields
+}
+"""
+aggregate avg on columns of table "construction_info"
+"""
+type ConstructionInfoAvgFields {
+	id: Bigint
+	construction_type: Int
+	finished: Int
+}
+"""
+aggregate max on columns of table "construction_info"
+"""
+type ConstructionInfoMaxFields {
+	id: Bigint
+	construction_info_id: String
+	project_name: String
+	project_code: String
+	contract_start_date: Timestamptz
+	contract_completion_date: Timestamptz
+	build_agency: String
+	project_manager: String
+	area_id: String
+	address: String
+	map_coordinate: Point
+	construction_agency: String
+	supervision_agency: String
+	device_installation_agency: String
+	device_installation_location: String
+	service_contract_number: String
+	contract_signing_time: Timestamptz
+	service_activation_date: Timestamptz
+	proof_valid_date: Timestamptz
+	coordinate: Point
+	installation_time: Timestamptz
+	project_name_tag: String
+	import_export_quantity: String
+	deactivation_reason: String
+	uninstalled_reason: String
+	proof_valid_date_until: Timestamptz
+	construction_type: Int
+	contact_person: String
+	contact_phone: String
+	finished: Int
+	is_city_directly: String
+	is_installation: String
+	is_deleted: Boolean
+	registration_time: Timestamptz
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+aggregate min on columns of table "construction_info"
+"""
+type ConstructionInfoMinFields {
+	id: Bigint
+	construction_info_id: String
+	project_name: String
+	project_code: String
+	contract_start_date: Timestamptz
+	contract_completion_date: Timestamptz
+	build_agency: String
+	project_manager: String
+	area_id: String
+	address: String
+	map_coordinate: Point
+	construction_agency: String
+	supervision_agency: String
+	device_installation_agency: String
+	device_installation_location: String
+	service_contract_number: String
+	contract_signing_time: Timestamptz
+	service_activation_date: Timestamptz
+	proof_valid_date: Timestamptz
+	coordinate: Point
+	installation_time: Timestamptz
+	project_name_tag: String
+	import_export_quantity: String
+	deactivation_reason: String
+	uninstalled_reason: String
+	proof_valid_date_until: Timestamptz
+	construction_type: Int
+	contact_person: String
+	contact_phone: String
+	finished: Int
+	is_city_directly: String
+	is_installation: String
+	is_deleted: Boolean
+	registration_time: Timestamptz
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+aggregate stddev on columns of table "construction_info"
+"""
+type ConstructionInfoStddevFields {
+	id: Bigint
+	construction_type: Int
+	finished: Int
+}
+"""
+aggregate stddev_pop on columns of table "construction_info"
+"""
+type ConstructionInfoStddevPopFields {
+	id: Bigint
+	construction_type: Int
+	finished: Int
+}
+"""
+aggregate stddev_samp on columns of table "construction_info"
+"""
+type ConstructionInfoStddevSampFields {
+	id: Bigint
+	construction_type: Int
+	finished: Int
+}
+"""
+aggregate sum on columns of table "construction_info"
+"""
+type ConstructionInfoSumFields {
+	id: Bigint
+	construction_type: Int
+	finished: Int
+}
+"""
+aggregate var_pop on columns of table "construction_info"
+"""
+type ConstructionInfoVarPopFields {
+	id: Bigint
+	construction_type: Int
+	finished: Int
+}
+"""
+aggregate var_samp on columns of table "construction_info"
+"""
+type ConstructionInfoVarSampFields {
+	id: Bigint
+	construction_type: Int
+	finished: Int
+}
+"""
+aggregate variance on columns of table "construction_info"
+"""
+type ConstructionInfoVarianceFields {
+	id: Bigint
+	construction_type: Int
+	finished: Int
+}
+"""
+response of any mutation on the table "construction_info"
+"""
+type ConstructionInfoMutationResponse {
+	affected_rows: Int!
+	returning: [ConstructionInfo!]!
+}
+"""
+ordering options when selecting data from "construction_info"
+"""
+input ConstructionInfoOrderBy {
+	id: OrderBy
+	construction_info_id: OrderBy
+	project_name: OrderBy
+	project_code: OrderBy
+	contract_start_date: OrderBy
+	contract_completion_date: OrderBy
+	build_agency: OrderBy
+	project_manager: OrderBy
+	area_id: OrderBy
+	address: OrderBy
+	map_coordinate: OrderBy
+	construction_agency: OrderBy
+	supervision_agency: OrderBy
+	device_installation_agency: OrderBy
+	device_installation_location: OrderBy
+	service_contract_number: OrderBy
+	contract_signing_time: OrderBy
+	service_activation_date: OrderBy
+	proof_valid_date: OrderBy
+	coordinate: OrderBy
+	installation_time: OrderBy
+	project_name_tag: OrderBy
+	import_export_quantity: OrderBy
+	deactivation_reason: OrderBy
+	uninstalled_reason: OrderBy
+	proof_valid_date_until: OrderBy
+	construction_type: OrderBy
+	contact_person: OrderBy
+	contact_phone: OrderBy
+	finished: OrderBy
+	is_city_directly: OrderBy
+	is_installation: OrderBy
+	is_deleted: OrderBy
+	registration_time: OrderBy
+	created_at: OrderBy
+	created_by: OrderBy
+	updated_at: OrderBy
+	updated_by: OrderBy
+	deleted_at: OrderBy
+	deleted_by: OrderBy
+}
+"""
+Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'construction_info'.
+"""
+input ConstructionInfoBoolExp {
+	_and: [ConstructionInfoBoolExp]
+	_not: ConstructionInfoBoolExp
+	_or: [ConstructionInfoBoolExp]
+	id: BigintComparisonExp
+	construction_info_id: StringComparisonExp
+	project_name: StringComparisonExp
+	project_code: StringComparisonExp
+	contract_start_date: TimestamptzComparisonExp
+	contract_completion_date: TimestamptzComparisonExp
+	build_agency: StringComparisonExp
+	project_manager: StringComparisonExp
+	area_id: StringComparisonExp
+	address: StringComparisonExp
+	map_coordinate: PointComparisonExp
+	construction_agency: StringComparisonExp
+	supervision_agency: StringComparisonExp
+	device_installation_agency: StringComparisonExp
+	device_installation_location: StringComparisonExp
+	service_contract_number: StringComparisonExp
+	contract_signing_time: TimestamptzComparisonExp
+	service_activation_date: TimestamptzComparisonExp
+	proof_valid_date: TimestamptzComparisonExp
+	coordinate: PointComparisonExp
+	installation_time: TimestamptzComparisonExp
+	project_name_tag: StringComparisonExp
+	import_export_quantity: StringComparisonExp
+	deactivation_reason: StringComparisonExp
+	uninstalled_reason: StringComparisonExp
+	proof_valid_date_until: TimestamptzComparisonExp
+	construction_type: IntComparisonExp
+	contact_person: StringComparisonExp
+	contact_phone: StringComparisonExp
+	finished: IntComparisonExp
+	is_city_directly: StringComparisonExp
+	is_installation: StringComparisonExp
+	is_deleted: BooleanComparisonExp
+	registration_time: TimestamptzComparisonExp
+	created_at: TimestamptzComparisonExp
+	created_by: StringComparisonExp
+	updated_at: TimestamptzComparisonExp
+	updated_by: StringComparisonExp
+	deleted_at: TimestamptzComparisonExp
+	deleted_by: StringComparisonExp
+}
+"""
+input type for inserting data into table "construction_info"
+"""
+input ConstructionInfoInsertInput {
+	construction_info_id: String!
+	project_name: String
+	project_code: String
+	contract_start_date: Timestamptz
+	contract_completion_date: Timestamptz
+	build_agency: String
+	project_manager: String
+	area_id: String
+	address: String
+	map_coordinate: Point
+	construction_agency: String
+	supervision_agency: String
+	device_installation_agency: String
+	device_installation_location: String
+	service_contract_number: String
+	contract_signing_time: Timestamptz
+	service_activation_date: Timestamptz
+	proof_valid_date: Timestamptz
+	coordinate: Point
+	installation_time: Timestamptz
+	project_name_tag: String
+	import_export_quantity: String
+	deactivation_reason: String
+	uninstalled_reason: String
+	proof_valid_date_until: Timestamptz
+	construction_type: Int
+	contact_person: String
+	contact_phone: String
+	finished: Int
+	is_city_directly: String
+	is_installation: String
+	is_deleted: Boolean
+	registration_time: Timestamptz
+	created_at: Timestamptz!
+	created_by: String!
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+input type for incrementing integer column in table "construction_info"
+"""
+input ConstructionInfoIncInput {
+	id: Bigint
+	construction_type: Int
+	finished: Int
+}
+"""
+input type for updating data in table "construction_info"
+"""
+input ConstructionInfoSetInput {
+	id: Bigint
+	construction_info_id: String
+	project_name: String
+	project_code: String
+	contract_start_date: Timestamptz
+	contract_completion_date: Timestamptz
+	build_agency: String
+	project_manager: String
+	area_id: String
+	address: String
+	map_coordinate: Point
+	construction_agency: String
+	supervision_agency: String
+	device_installation_agency: String
+	device_installation_location: String
+	service_contract_number: String
+	contract_signing_time: Timestamptz
+	service_activation_date: Timestamptz
+	proof_valid_date: Timestamptz
+	coordinate: Point
+	installation_time: Timestamptz
+	project_name_tag: String
+	import_export_quantity: String
+	deactivation_reason: String
+	uninstalled_reason: String
+	proof_valid_date_until: Timestamptz
+	construction_type: Int
+	contact_person: String
+	contact_phone: String
+	finished: Int
+	is_city_directly: String
+	is_installation: String
+	is_deleted: Boolean
+	registration_time: Timestamptz
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+可选select
+"""
+enum ConstructionInfoSelectColumn {
+	"""
+	 按指定方法生成                                  ( 主键                       )
+	"""
+	id
+	"""
+	 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                   )
+	"""
+	construction_info_id
+	"""
+	 项目名称                                        
+	"""
+	project_name
+	"""
+	 工程项目代码                                    
+	"""
+	project_code
+	"""
+	 合同开工日期                                    
+	"""
+	contract_start_date
+	"""
+	 合同竣工日期                                    
+	"""
+	contract_completion_date
+	"""
+	 建设单位                                        
+	"""
+	build_agency
+	"""
+	 项目负责人                                      
+	"""
+	project_manager
+	"""
+	 地区                                            
+	"""
+	area_id
+	"""
+	 地址                                            
+	"""
+	address
+	"""
+	 地图经纬度                                      
+	"""
+	map_coordinate
+	"""
+	 施工单位                                        ( 与建设单位的区别？         )
+	"""
+	construction_agency
+	"""
+	 监理单位                                        
+	"""
+	supervision_agency
+	"""
+	 设备安装单位                                    
+	"""
+	device_installation_agency
+	"""
+	 设备安装地点                                    
+	"""
+	device_installation_location
+	"""
+	 服务合同编号                                    
+	"""
+	service_contract_number
+	"""
+	 合同签署时间                                    
+	"""
+	contract_signing_time
+	"""
+	 服务启用日期                                    
+	"""
+	service_activation_date
+	"""
+	 证明有效期                                      
+	"""
+	proof_valid_date
+	"""
+	 经纬度                                          
+	"""
+	coordinate
+	"""
+	 安装时间                                        
+	"""
+	installation_time
+	"""
+	 项目名称标签                                    
+	"""
+	project_name_tag
+	"""
+	 进出口数量                                      
+	"""
+	import_export_quantity
+	"""
+	 停用原因                                        
+	"""
+	deactivation_reason
+	"""
+	 未安装原因                                      
+	"""
+	uninstalled_reason
+	"""
+	 证明起始有效期                                  
+	"""
+	proof_valid_date_until
+	"""
+	 类型（1.工地 2.矿山）                           
+	"""
+	construction_type
+	"""
+	 联系人                                          
+	"""
+	contact_person
+	"""
+	 联系电话                                        
+	"""
+	contact_phone
+	"""
+	 是否完工（0.未完工 1.已完工 2.已停用）          
+	"""
+	finished
+	"""
+	 是否市直属                                      
+	"""
+	is_city_directly
+	"""
+	 是否安装（0.未申请 1.已安装 2.已申请未安装）    
+	"""
+	is_installation
+	"""
+	 是否删除                                        
+	"""
+	is_deleted
+	"""
+	 登记时间                                        
+	"""
+	registration_time
+	"""
+	 创建时间                                        
+	"""
+	created_at
+	"""
+	 创建人                                          ( system_user表的user_id )
+	"""
+	created_by
+	"""
+	 修改时间                                        
+	"""
+	updated_at
+	"""
+	 修改人                                          ( system_user表的user_id )
+	"""
+	updated_by
+	"""
+	 删除时间                                        
+	"""
+	deleted_at
+	"""
+	 删除人                                          ( system_user表的user_id )
+	"""
+	deleted_by
+}
+extend type Query {
+	"""
+	列表查询
+	"""
+	construction_info(distinct_on: [ConstructionInfoSelectColumn!], limit: Int, offset: Int, order_by: [ConstructionInfoOrderBy!], where: ConstructionInfoBoolExp): [ConstructionInfo!]!
+	"""
+	聚合查询
+	"""
+	construction_info_aggregate(distinct_on: [ConstructionInfoSelectColumn!], limit: Int, offset: Int, order_by: [ConstructionInfoOrderBy!], where: ConstructionInfoBoolExp): ConstructionInfoAggregate!
+	"""
+	主键查询
+	"""
+	construction_info_by_pk(id: Bigint!): ConstructionInfo!
+	"""
+	联合主键查询
+	"""
+	construction_info_by_union_pk(construction_info_id: String!): ConstructionInfo!
+}
+extend type Mutation {
+	"""
+	删除记录
+	"""
+	delete_construction_info(where: ConstructionInfoBoolExp!): ConstructionInfoMutationResponse
+	"""
+	根据主键删除记录
+	"""
+	delete_construction_info_by_pk(id: Bigint!): ConstructionInfo
+	"""
+	插入
+	"""
+	insert_construction_info(objects: [ConstructionInfoInsertInput!]!): ConstructionInfoMutationResponse
+	"""
+	插入一条记录
+	"""
+	insert_construction_info_one(objects: ConstructionInfoInsertInput!): ConstructionInfo
+	"""
+	更新
+	"""
+	update_construction_info(_inc: ConstructionInfoIncInput, _set: ConstructionInfoSetInput, where: ConstructionInfoBoolExp!): ConstructionInfoMutationResponse
+	"""
+	根据主键更新
+	"""
+	update_construction_info_by_pk(_inc: ConstructionInfoIncInput, _set: ConstructionInfoSetInput, id: Bigint!): ConstructionInfo
+	"""
+	根据联合主键更新
+	"""
+	update_construction_info_by_union_pk(_inc: ConstructionInfoIncInput, _set: ConstructionInfoSetInput, construction_info_id: String!): ConstructionInfo
+	"""
+	根据联合主键删除记录
+	"""
+	delete_construction_info_by_union_pk(construction_info_id: String!): ConstructionInfo
+}

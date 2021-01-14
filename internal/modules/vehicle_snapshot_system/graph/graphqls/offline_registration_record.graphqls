@@ -1,0 +1,359 @@
+"""
+不在线登记记录表
+"""
+type OfflineRegistrationRecord {
+	"""
+	 按指定方法生成                                  ( 主键                                                       )
+	"""
+	id: Bigint!
+	"""
+	 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                                                   )
+	"""
+	offline_registration_record_id: String!
+	"""
+	 停运登记表的ID                                  ( outage_registration 停运登记表的outage_registration_id )
+	"""
+	outage_registration_id: String
+	"""
+	 登记内容                                        
+	"""
+	registration_content: String
+	"""
+	 登记时间                                        
+	"""
+	registration_time: Timestamptz
+	"""
+	 登记人                                          
+	"""
+	registrant: String
+	"""
+	 是否删除                                        
+	"""
+	is_deleted: Boolean
+	"""
+	 创建时间                                        
+	"""
+	created_at: Timestamptz!
+	"""
+	 创建人                                          ( system_user表的user_id                                 )
+	"""
+	created_by: String!
+	"""
+	 修改时间                                        
+	"""
+	updated_at: Timestamptz
+	"""
+	 修改人                                          ( system_user表的user_id                                 )
+	"""
+	updated_by: String
+	"""
+	 删除时间                                        
+	"""
+	deleted_at: Timestamptz
+	"""
+	 删除人                                          ( system_user表的user_id                                 )
+	"""
+	deleted_by: String
+}
+"""
+aggregated selection of "offline_registration_record"
+"""
+type OfflineRegistrationRecordAggregate {
+	aggregate: OfflineRegistrationRecordAggregateFields
+}
+"""
+aggregate fields of "offline_registration_record"
+"""
+type OfflineRegistrationRecordAggregateFields {
+	avg: OfflineRegistrationRecordAvgFields
+	count: Int
+	max: OfflineRegistrationRecordMaxFields
+	min: OfflineRegistrationRecordMinFields
+	stddev: OfflineRegistrationRecordStddevFields
+	stddev_pop: OfflineRegistrationRecordStddevPopFields
+	stddev_samp: OfflineRegistrationRecordStddevSampFields
+	sum: OfflineRegistrationRecordSumFields
+	var_pop: OfflineRegistrationRecordVarPopFields
+	var_samp: OfflineRegistrationRecordVarSampFields
+	variance: OfflineRegistrationRecordVarianceFields
+}
+"""
+aggregate avg on columns of table "offline_registration_record"
+"""
+type OfflineRegistrationRecordAvgFields {
+	id: Bigint
+}
+"""
+aggregate max on columns of table "offline_registration_record"
+"""
+type OfflineRegistrationRecordMaxFields {
+	id: Bigint
+	offline_registration_record_id: String
+	outage_registration_id: String
+	registration_content: String
+	registration_time: Timestamptz
+	registrant: String
+	is_deleted: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+aggregate min on columns of table "offline_registration_record"
+"""
+type OfflineRegistrationRecordMinFields {
+	id: Bigint
+	offline_registration_record_id: String
+	outage_registration_id: String
+	registration_content: String
+	registration_time: Timestamptz
+	registrant: String
+	is_deleted: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+aggregate stddev on columns of table "offline_registration_record"
+"""
+type OfflineRegistrationRecordStddevFields {
+	id: Bigint
+}
+"""
+aggregate stddev_pop on columns of table "offline_registration_record"
+"""
+type OfflineRegistrationRecordStddevPopFields {
+	id: Bigint
+}
+"""
+aggregate stddev_samp on columns of table "offline_registration_record"
+"""
+type OfflineRegistrationRecordStddevSampFields {
+	id: Bigint
+}
+"""
+aggregate sum on columns of table "offline_registration_record"
+"""
+type OfflineRegistrationRecordSumFields {
+	id: Bigint
+}
+"""
+aggregate var_pop on columns of table "offline_registration_record"
+"""
+type OfflineRegistrationRecordVarPopFields {
+	id: Bigint
+}
+"""
+aggregate var_samp on columns of table "offline_registration_record"
+"""
+type OfflineRegistrationRecordVarSampFields {
+	id: Bigint
+}
+"""
+aggregate variance on columns of table "offline_registration_record"
+"""
+type OfflineRegistrationRecordVarianceFields {
+	id: Bigint
+}
+"""
+response of any mutation on the table "offline_registration_record"
+"""
+type OfflineRegistrationRecordMutationResponse {
+	affected_rows: Int!
+	returning: [OfflineRegistrationRecord!]!
+}
+"""
+ordering options when selecting data from "offline_registration_record"
+"""
+input OfflineRegistrationRecordOrderBy {
+	id: OrderBy
+	offline_registration_record_id: OrderBy
+	outage_registration_id: OrderBy
+	registration_content: OrderBy
+	registration_time: OrderBy
+	registrant: OrderBy
+	is_deleted: OrderBy
+	created_at: OrderBy
+	created_by: OrderBy
+	updated_at: OrderBy
+	updated_by: OrderBy
+	deleted_at: OrderBy
+	deleted_by: OrderBy
+}
+"""
+Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'offline_registration_record'.
+"""
+input OfflineRegistrationRecordBoolExp {
+	_and: [OfflineRegistrationRecordBoolExp]
+	_not: OfflineRegistrationRecordBoolExp
+	_or: [OfflineRegistrationRecordBoolExp]
+	id: BigintComparisonExp
+	offline_registration_record_id: StringComparisonExp
+	outage_registration_id: StringComparisonExp
+	registration_content: StringComparisonExp
+	registration_time: TimestamptzComparisonExp
+	registrant: StringComparisonExp
+	is_deleted: BooleanComparisonExp
+	created_at: TimestamptzComparisonExp
+	created_by: StringComparisonExp
+	updated_at: TimestamptzComparisonExp
+	updated_by: StringComparisonExp
+	deleted_at: TimestamptzComparisonExp
+	deleted_by: StringComparisonExp
+}
+"""
+input type for inserting data into table "offline_registration_record"
+"""
+input OfflineRegistrationRecordInsertInput {
+	offline_registration_record_id: String!
+	outage_registration_id: String
+	registration_content: String
+	registration_time: Timestamptz
+	registrant: String
+	is_deleted: Boolean
+	created_at: Timestamptz!
+	created_by: String!
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+input type for incrementing integer column in table "offline_registration_record"
+"""
+input OfflineRegistrationRecordIncInput {
+	id: Bigint
+}
+"""
+input type for updating data in table "offline_registration_record"
+"""
+input OfflineRegistrationRecordSetInput {
+	id: Bigint
+	offline_registration_record_id: String
+	outage_registration_id: String
+	registration_content: String
+	registration_time: Timestamptz
+	registrant: String
+	is_deleted: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+可选select
+"""
+enum OfflineRegistrationRecordSelectColumn {
+	"""
+	 按指定方法生成                                  ( 主键                                                       )
+	"""
+	id
+	"""
+	 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                                                   )
+	"""
+	offline_registration_record_id
+	"""
+	 停运登记表的ID                                  ( outage_registration 停运登记表的outage_registration_id )
+	"""
+	outage_registration_id
+	"""
+	 登记内容                                        
+	"""
+	registration_content
+	"""
+	 登记时间                                        
+	"""
+	registration_time
+	"""
+	 登记人                                          
+	"""
+	registrant
+	"""
+	 是否删除                                        
+	"""
+	is_deleted
+	"""
+	 创建时间                                        
+	"""
+	created_at
+	"""
+	 创建人                                          ( system_user表的user_id                                 )
+	"""
+	created_by
+	"""
+	 修改时间                                        
+	"""
+	updated_at
+	"""
+	 修改人                                          ( system_user表的user_id                                 )
+	"""
+	updated_by
+	"""
+	 删除时间                                        
+	"""
+	deleted_at
+	"""
+	 删除人                                          ( system_user表的user_id                                 )
+	"""
+	deleted_by
+}
+extend type Query {
+	"""
+	列表查询
+	"""
+	offline_registration_record(distinct_on: [OfflineRegistrationRecordSelectColumn!], limit: Int, offset: Int, order_by: [OfflineRegistrationRecordOrderBy!], where: OfflineRegistrationRecordBoolExp): [OfflineRegistrationRecord!]!
+	"""
+	聚合查询
+	"""
+	offline_registration_record_aggregate(distinct_on: [OfflineRegistrationRecordSelectColumn!], limit: Int, offset: Int, order_by: [OfflineRegistrationRecordOrderBy!], where: OfflineRegistrationRecordBoolExp): OfflineRegistrationRecordAggregate!
+	"""
+	主键查询
+	"""
+	offline_registration_record_by_pk(id: Bigint!): OfflineRegistrationRecord!
+	"""
+	联合主键查询
+	"""
+	offline_registration_record_by_union_pk(offline_registration_record_id: String!): OfflineRegistrationRecord!
+}
+extend type Mutation {
+	"""
+	删除记录
+	"""
+	delete_offline_registration_record(where: OfflineRegistrationRecordBoolExp!): OfflineRegistrationRecordMutationResponse
+	"""
+	根据主键删除记录
+	"""
+	delete_offline_registration_record_by_pk(id: Bigint!): OfflineRegistrationRecord
+	"""
+	插入
+	"""
+	insert_offline_registration_record(objects: [OfflineRegistrationRecordInsertInput!]!): OfflineRegistrationRecordMutationResponse
+	"""
+	插入一条记录
+	"""
+	insert_offline_registration_record_one(objects: OfflineRegistrationRecordInsertInput!): OfflineRegistrationRecord
+	"""
+	更新
+	"""
+	update_offline_registration_record(_inc: OfflineRegistrationRecordIncInput, _set: OfflineRegistrationRecordSetInput, where: OfflineRegistrationRecordBoolExp!): OfflineRegistrationRecordMutationResponse
+	"""
+	根据主键更新
+	"""
+	update_offline_registration_record_by_pk(_inc: OfflineRegistrationRecordIncInput, _set: OfflineRegistrationRecordSetInput, id: Bigint!): OfflineRegistrationRecord
+	"""
+	根据联合主键更新
+	"""
+	update_offline_registration_record_by_union_pk(_inc: OfflineRegistrationRecordIncInput, _set: OfflineRegistrationRecordSetInput, offline_registration_record_id: String!): OfflineRegistrationRecord
+	"""
+	根据联合主键删除记录
+	"""
+	delete_offline_registration_record_by_union_pk(offline_registration_record_id: String!): OfflineRegistrationRecord
+}
