@@ -43,6 +43,6 @@ redis:
 log:
   path: "runtime/logs"
   level: "debug"
-  mode: "all" #日志模式,console,file,all
+  mode: "file" #日志模式,console,file,all
 gql:
   cacheConfigFile: "config/gqlcache.yaml"

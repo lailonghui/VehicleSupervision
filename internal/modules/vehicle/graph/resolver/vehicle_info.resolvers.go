@@ -334,9 +334,11 @@ func (r *queryResolver) VehicleInfoByPk(ctx context.Context, id int64) (*model1.
 				return nil, err
 			}
 			if exist {
-				if rs.GetPrimary() != 0 {
+
+				if rs.GetPrimary() == 0 {
 					return nil, nil
 				}
+
 				return &rs, nil
 			}
 		}
