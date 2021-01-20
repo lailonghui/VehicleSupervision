@@ -58,9 +58,11 @@ func (t *VehicleSaleRecordPkLoader) NewLoader(ctx context.Context) *VehicleSaleR
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}
@@ -129,9 +131,11 @@ func (t *VehicleSaleRecordUnionPkLoader) NewLoader(ctx context.Context) *Vehicle
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}

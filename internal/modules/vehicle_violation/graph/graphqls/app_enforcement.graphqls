@@ -354,7 +354,7 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	app_enforcement_by_pk(id: Bigint!): AppEnforcement!
+	app_enforcement_by_pk(id: Bigint!): AppEnforcement
 }
 extend type Mutation {
 	"""

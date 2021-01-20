@@ -536,7 +536,7 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	dispute_violation_record_by_pk(id: Bigint!): DisputeViolationRecord!
+	dispute_violation_record_by_pk(id: Bigint!): DisputeViolationRecord
 }
 extend type Mutation {
 	"""

@@ -513,11 +513,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	ride_hailing_driver_verify_by_pk(id: Bigint!): RideHailingDriverVerify!
+	ride_hailing_driver_verify_by_pk(id: Bigint!): RideHailingDriverVerify
 	"""
 	联合主键查询
 	"""
-	ride_hailing_driver_verify_by_union_pk(ride_hailing_driver_verify_id: String!): RideHailingDriverVerify!
+	ride_hailing_driver_verify_by_union_pk(ride_hailing_driver_verify_id: String!): RideHailingDriverVerify
 }
 extend type Mutation {
 	"""

@@ -415,11 +415,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	terminal_modal_by_pk(id: Bigint!): TerminalModal!
+	terminal_modal_by_pk(id: Bigint!): TerminalModal
 	"""
 	联合主键查询
 	"""
-	terminal_modal_by_union_pk(terminal_modal_id: String!): TerminalModal!
+	terminal_modal_by_union_pk(terminal_modal_id: String!): TerminalModal
 }
 extend type Mutation {
 	"""

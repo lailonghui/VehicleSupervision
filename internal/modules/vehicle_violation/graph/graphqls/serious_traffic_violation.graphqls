@@ -289,11 +289,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	serious_traffic_violation_by_pk(id: Bigint!): SeriousTrafficViolation!
+	serious_traffic_violation_by_pk(id: Bigint!): SeriousTrafficViolation
 	"""
 	联合主键查询
 	"""
-	serious_traffic_violation_by_union_pk(serious_traffic_violation_id: String!): SeriousTrafficViolation!
+	serious_traffic_violation_by_union_pk(serious_traffic_violation_id: String!): SeriousTrafficViolation
 }
 extend type Mutation {
 	"""

@@ -58,9 +58,11 @@ func (t *DriverPeccancyCheckPkLoader) NewLoader(ctx context.Context) *DriverPecc
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}

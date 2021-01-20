@@ -58,9 +58,11 @@ func (t *DistrictAlarmContentPushPkLoader) NewLoader(ctx context.Context) *Distr
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}

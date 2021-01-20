@@ -397,9 +397,11 @@ func (r *queryResolver) DepartmentByPk(ctx context.Context, id int64) (*model1.D
 				return nil, err
 			}
 			if exist {
-				if rs.GetPrimary() != 0 {
+
+				if rs.GetPrimary() == 0 {
 					return nil, nil
 				}
+
 				return &rs, nil
 			}
 		}
@@ -411,7 +413,7 @@ func (r *queryResolver) DepartmentByPk(ctx context.Context, id int64) (*model1.D
 				if cacheErr == nil {
 					_ = cacheAspect.SetNotExistPkQueryCache(ctx, cacheKey, "")
 				}
-				return &rs, nil
+				return nil, nil
 			}
 			return &rs, err
 		}
@@ -425,6 +427,9 @@ func (r *queryResolver) DepartmentByPk(ctx context.Context, id int64) (*model1.D
 	tx := db.DB.Model(m).First(&rs, id)
 	err := tx.Error
 	if err != nil {
+		if err == gorm.ErrRecordNotFound {
+			return nil, nil
+		}
 		return nil, err
 	}
 	return &rs, nil
@@ -443,9 +448,11 @@ func (r *queryResolver) DepartmentByUnionPk(ctx context.Context, departmentID st
 				return nil, err
 			}
 			if exist {
-				if rs.GetPrimary() != 0 {
+
+				if rs.GetPrimary() == 0 {
 					return nil, nil
 				}
+
 				return &rs, nil
 			}
 		}
@@ -457,7 +464,7 @@ func (r *queryResolver) DepartmentByUnionPk(ctx context.Context, departmentID st
 				if cacheErr == nil {
 					_ = cacheAspect.SetNotExistUnionPkQueryCache(ctx, cacheKey, "")
 				}
-				return &rs, nil
+				return nil, nil
 			}
 			return nil, err
 		}
@@ -472,7 +479,7 @@ func (r *queryResolver) DepartmentByUnionPk(ctx context.Context, departmentID st
 	err := tx.Error
 	if err != nil {
 		if err == gorm.ErrRecordNotFound {
-			return &rs, nil
+			return nil, nil
 		}
 		return nil, err
 	}

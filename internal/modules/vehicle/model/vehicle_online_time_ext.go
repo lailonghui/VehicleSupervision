@@ -58,9 +58,11 @@ func (t *VehicleOnlineTimePkLoader) NewLoader(ctx context.Context) *VehicleOnlin
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}
@@ -129,9 +131,11 @@ func (t *VehicleOnlineTimeUnionPkLoader) NewLoader(ctx context.Context) *Vehicle
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}

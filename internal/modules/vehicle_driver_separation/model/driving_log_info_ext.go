@@ -58,9 +58,11 @@ func (t *DrivingLogInfoPkLoader) NewLoader(ctx context.Context) *DrivingLogInfoP
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}
@@ -129,9 +131,11 @@ func (t *DrivingLogInfoUnionPkLoader) NewLoader(ctx context.Context) *DrivingLog
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}

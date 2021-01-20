@@ -289,7 +289,7 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	terminal_types_by_pk(id: Bigint!): TerminalTypes!
+	terminal_types_by_pk(id: Bigint!): TerminalTypes
 }
 extend type Mutation {
 	"""

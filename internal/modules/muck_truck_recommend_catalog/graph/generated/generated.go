@@ -9847,11 +9847,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	muck_truck_purchase_intention_by_pk(id: Bigint!): MuckTruckPurchaseIntention!
+	muck_truck_purchase_intention_by_pk(id: Bigint!): MuckTruckPurchaseIntention
 	"""
 	联合主键查询
 	"""
-	muck_truck_purchase_intention_by_union_pk(muck_truck_purchase_intention_id: String!): MuckTruckPurchaseIntention!
+	muck_truck_purchase_intention_by_union_pk(muck_truck_purchase_intention_id: String!): MuckTruckPurchaseIntention
 }
 extend type Mutation {
 	"""
@@ -10619,11 +10619,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	muck_truck_sale_order_by_pk(id: Bigint!): MuckTruckSaleOrder!
+	muck_truck_sale_order_by_pk(id: Bigint!): MuckTruckSaleOrder
 	"""
 	联合主键查询
 	"""
-	muck_truck_sale_order_by_union_pk(muck_truck_sale_order_id: String!): MuckTruckSaleOrder!
+	muck_truck_sale_order_by_union_pk(muck_truck_sale_order_id: String!): MuckTruckSaleOrder
 }
 extend type Mutation {
 	"""
@@ -11146,11 +11146,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	muck_truck_sale_order_detail_by_pk(id: Bigint!): MuckTruckSaleOrderDetail!
+	muck_truck_sale_order_detail_by_pk(id: Bigint!): MuckTruckSaleOrderDetail
 	"""
 	联合主键查询
 	"""
-	muck_truck_sale_order_detail_by_union_pk(muck_truck_sale_order_detail_id: String!): MuckTruckSaleOrderDetail!
+	muck_truck_sale_order_detail_by_union_pk(muck_truck_sale_order_detail_id: String!): MuckTruckSaleOrderDetail
 }
 extend type Mutation {
 	"""
@@ -11576,11 +11576,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	new_muck_truck_info_by_pk(id: Bigint!): NewMuckTruckInfo!
+	new_muck_truck_info_by_pk(id: Bigint!): NewMuckTruckInfo
 	"""
 	联合主键查询
 	"""
-	new_muck_truck_info_by_union_pk(new_muck_truck_info_id: String!): NewMuckTruckInfo!
+	new_muck_truck_info_by_union_pk(new_muck_truck_info_id: String!): NewMuckTruckInfo
 }
 extend type Mutation {
 	"""
@@ -11908,11 +11908,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	new_muck_truck_photo_by_pk(id: Bigint!): NewMuckTruckPhoto!
+	new_muck_truck_photo_by_pk(id: Bigint!): NewMuckTruckPhoto
 	"""
 	联合主键查询
 	"""
-	new_muck_truck_photo_by_union_pk(new_muck_truck_photo_id: String!): NewMuckTruckPhoto!
+	new_muck_truck_photo_by_union_pk(new_muck_truck_photo_id: String!): NewMuckTruckPhoto
 }
 extend type Mutation {
 	"""
@@ -12212,11 +12212,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	new_muck_truck_recommend_catalog_by_pk(id: Bigint!): NewMuckTruckRecommendCatalog!
+	new_muck_truck_recommend_catalog_by_pk(id: Bigint!): NewMuckTruckRecommendCatalog
 	"""
 	联合主键查询
 	"""
-	new_muck_truck_recommend_catalog_by_union_pk(new_muck_truck_recommend_catalog_id: String!): NewMuckTruckRecommendCatalog!
+	new_muck_truck_recommend_catalog_by_union_pk(new_muck_truck_recommend_catalog_id: String!): NewMuckTruckRecommendCatalog
 }
 extend type Mutation {
 	"""
@@ -12838,11 +12838,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	seller_filing_by_pk(id: Bigint!): SellerFiling!
+	seller_filing_by_pk(id: Bigint!): SellerFiling
 	"""
 	联合主键查询
 	"""
-	seller_filing_by_union_pk(seller_filing_id: String!): SellerFiling!
+	seller_filing_by_union_pk(seller_filing_id: String!): SellerFiling
 }
 extend type Mutation {
 	"""
@@ -13221,11 +13221,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	seller_rating_record_by_pk(id: Bigint!): SellerRatingRecord!
+	seller_rating_record_by_pk(id: Bigint!): SellerRatingRecord
 	"""
 	联合主键查询
 	"""
-	seller_rating_record_by_union_pk(seller_rating_record_id: String!): SellerRatingRecord!
+	seller_rating_record_by_union_pk(seller_rating_record_id: String!): SellerRatingRecord
 }
 extend type Mutation {
 	"""
@@ -13730,11 +13730,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	vehicle_sale_record_by_pk(id: Bigint!): VehicleSaleRecord!
+	vehicle_sale_record_by_pk(id: Bigint!): VehicleSaleRecord
 	"""
 	联合主键查询
 	"""
-	vehicle_sale_record_by_union_pk(vehicle_sale_record_id: String!): VehicleSaleRecord!
+	vehicle_sale_record_by_union_pk(vehicle_sale_record_id: String!): VehicleSaleRecord
 }
 extend type Mutation {
 	"""
@@ -39041,14 +39041,11 @@ func (ec *executionContext) _Query_muck_truck_purchase_intention_by_pk(ctx conte
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.MuckTruckPurchaseIntention)
 	fc.Result = res
-	return ec.marshalNMuckTruckPurchaseIntention2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋmodelᚐMuckTruckPurchaseIntention(ctx, field.Selections, res)
+	return ec.marshalOMuckTruckPurchaseIntention2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋmodelᚐMuckTruckPurchaseIntention(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_muck_truck_purchase_intention_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -39083,14 +39080,11 @@ func (ec *executionContext) _Query_muck_truck_purchase_intention_by_union_pk(ctx
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.MuckTruckPurchaseIntention)
 	fc.Result = res
-	return ec.marshalNMuckTruckPurchaseIntention2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋmodelᚐMuckTruckPurchaseIntention(ctx, field.Selections, res)
+	return ec.marshalOMuckTruckPurchaseIntention2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋmodelᚐMuckTruckPurchaseIntention(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_muck_truck_sale_order(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -39209,14 +39203,11 @@ func (ec *executionContext) _Query_muck_truck_sale_order_by_pk(ctx context.Conte
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.MuckTruckSaleOrder)
 	fc.Result = res
-	return ec.marshalNMuckTruckSaleOrder2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋmodelᚐMuckTruckSaleOrder(ctx, field.Selections, res)
+	return ec.marshalOMuckTruckSaleOrder2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋmodelᚐMuckTruckSaleOrder(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_muck_truck_sale_order_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -39251,14 +39242,11 @@ func (ec *executionContext) _Query_muck_truck_sale_order_by_union_pk(ctx context
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.MuckTruckSaleOrder)
 	fc.Result = res
-	return ec.marshalNMuckTruckSaleOrder2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋmodelᚐMuckTruckSaleOrder(ctx, field.Selections, res)
+	return ec.marshalOMuckTruckSaleOrder2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋmodelᚐMuckTruckSaleOrder(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_muck_truck_sale_order_detail(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -39377,14 +39365,11 @@ func (ec *executionContext) _Query_muck_truck_sale_order_detail_by_pk(ctx contex
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.MuckTruckSaleOrderDetail)
 	fc.Result = res
-	return ec.marshalNMuckTruckSaleOrderDetail2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋmodelᚐMuckTruckSaleOrderDetail(ctx, field.Selections, res)
+	return ec.marshalOMuckTruckSaleOrderDetail2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋmodelᚐMuckTruckSaleOrderDetail(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_muck_truck_sale_order_detail_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -39419,14 +39404,11 @@ func (ec *executionContext) _Query_muck_truck_sale_order_detail_by_union_pk(ctx 
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.MuckTruckSaleOrderDetail)
 	fc.Result = res
-	return ec.marshalNMuckTruckSaleOrderDetail2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋmodelᚐMuckTruckSaleOrderDetail(ctx, field.Selections, res)
+	return ec.marshalOMuckTruckSaleOrderDetail2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋmodelᚐMuckTruckSaleOrderDetail(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_new_muck_truck_info(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -39545,14 +39527,11 @@ func (ec *executionContext) _Query_new_muck_truck_info_by_pk(ctx context.Context
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.NewMuckTruckInfo)
 	fc.Result = res
-	return ec.marshalNNewMuckTruckInfo2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋmodelᚐNewMuckTruckInfo(ctx, field.Selections, res)
+	return ec.marshalONewMuckTruckInfo2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋmodelᚐNewMuckTruckInfo(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_new_muck_truck_info_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -39587,14 +39566,11 @@ func (ec *executionContext) _Query_new_muck_truck_info_by_union_pk(ctx context.C
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.NewMuckTruckInfo)
 	fc.Result = res
-	return ec.marshalNNewMuckTruckInfo2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋmodelᚐNewMuckTruckInfo(ctx, field.Selections, res)
+	return ec.marshalONewMuckTruckInfo2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋmodelᚐNewMuckTruckInfo(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_new_muck_truck_photo(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -39713,14 +39689,11 @@ func (ec *executionContext) _Query_new_muck_truck_photo_by_pk(ctx context.Contex
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.NewMuckTruckPhoto)
 	fc.Result = res
-	return ec.marshalNNewMuckTruckPhoto2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋmodelᚐNewMuckTruckPhoto(ctx, field.Selections, res)
+	return ec.marshalONewMuckTruckPhoto2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋmodelᚐNewMuckTruckPhoto(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_new_muck_truck_photo_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -39755,14 +39728,11 @@ func (ec *executionContext) _Query_new_muck_truck_photo_by_union_pk(ctx context.
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.NewMuckTruckPhoto)
 	fc.Result = res
-	return ec.marshalNNewMuckTruckPhoto2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋmodelᚐNewMuckTruckPhoto(ctx, field.Selections, res)
+	return ec.marshalONewMuckTruckPhoto2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋmodelᚐNewMuckTruckPhoto(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_new_muck_truck_recommend_catalog(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -39881,14 +39851,11 @@ func (ec *executionContext) _Query_new_muck_truck_recommend_catalog_by_pk(ctx co
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.NewMuckTruckRecommendCatalog)
 	fc.Result = res
-	return ec.marshalNNewMuckTruckRecommendCatalog2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋmodelᚐNewMuckTruckRecommendCatalog(ctx, field.Selections, res)
+	return ec.marshalONewMuckTruckRecommendCatalog2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋmodelᚐNewMuckTruckRecommendCatalog(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_new_muck_truck_recommend_catalog_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -39923,14 +39890,11 @@ func (ec *executionContext) _Query_new_muck_truck_recommend_catalog_by_union_pk(
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.NewMuckTruckRecommendCatalog)
 	fc.Result = res
-	return ec.marshalNNewMuckTruckRecommendCatalog2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋmodelᚐNewMuckTruckRecommendCatalog(ctx, field.Selections, res)
+	return ec.marshalONewMuckTruckRecommendCatalog2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋmodelᚐNewMuckTruckRecommendCatalog(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_seller_filing(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -40049,14 +40013,11 @@ func (ec *executionContext) _Query_seller_filing_by_pk(ctx context.Context, fiel
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.SellerFiling)
 	fc.Result = res
-	return ec.marshalNSellerFiling2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋmodelᚐSellerFiling(ctx, field.Selections, res)
+	return ec.marshalOSellerFiling2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋmodelᚐSellerFiling(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_seller_filing_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -40091,14 +40052,11 @@ func (ec *executionContext) _Query_seller_filing_by_union_pk(ctx context.Context
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.SellerFiling)
 	fc.Result = res
-	return ec.marshalNSellerFiling2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋmodelᚐSellerFiling(ctx, field.Selections, res)
+	return ec.marshalOSellerFiling2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋmodelᚐSellerFiling(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_seller_rating_record(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -40217,14 +40175,11 @@ func (ec *executionContext) _Query_seller_rating_record_by_pk(ctx context.Contex
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.SellerRatingRecord)
 	fc.Result = res
-	return ec.marshalNSellerRatingRecord2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋmodelᚐSellerRatingRecord(ctx, field.Selections, res)
+	return ec.marshalOSellerRatingRecord2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋmodelᚐSellerRatingRecord(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_seller_rating_record_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -40259,14 +40214,11 @@ func (ec *executionContext) _Query_seller_rating_record_by_union_pk(ctx context.
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.SellerRatingRecord)
 	fc.Result = res
-	return ec.marshalNSellerRatingRecord2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋmodelᚐSellerRatingRecord(ctx, field.Selections, res)
+	return ec.marshalOSellerRatingRecord2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋmodelᚐSellerRatingRecord(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_vehicle_sale_record(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -40385,14 +40337,11 @@ func (ec *executionContext) _Query_vehicle_sale_record_by_pk(ctx context.Context
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.VehicleSaleRecord)
 	fc.Result = res
-	return ec.marshalNVehicleSaleRecord2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋmodelᚐVehicleSaleRecord(ctx, field.Selections, res)
+	return ec.marshalOVehicleSaleRecord2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋmodelᚐVehicleSaleRecord(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_vehicle_sale_record_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -40427,14 +40376,11 @@ func (ec *executionContext) _Query_vehicle_sale_record_by_union_pk(ctx context.C
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.VehicleSaleRecord)
 	fc.Result = res
-	return ec.marshalNVehicleSaleRecord2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋmodelᚐVehicleSaleRecord(ctx, field.Selections, res)
+	return ec.marshalOVehicleSaleRecord2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋmodelᚐVehicleSaleRecord(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query___type(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -62065,9 +62011,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_muck_truck_purchase_intention_by_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "muck_truck_purchase_intention_by_union_pk":
@@ -62079,9 +62022,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_muck_truck_purchase_intention_by_union_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "muck_truck_sale_order":
@@ -62121,9 +62061,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_muck_truck_sale_order_by_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "muck_truck_sale_order_by_union_pk":
@@ -62135,9 +62072,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_muck_truck_sale_order_by_union_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "muck_truck_sale_order_detail":
@@ -62177,9 +62111,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_muck_truck_sale_order_detail_by_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "muck_truck_sale_order_detail_by_union_pk":
@@ -62191,9 +62122,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_muck_truck_sale_order_detail_by_union_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "new_muck_truck_info":
@@ -62233,9 +62161,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_new_muck_truck_info_by_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "new_muck_truck_info_by_union_pk":
@@ -62247,9 +62172,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_new_muck_truck_info_by_union_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "new_muck_truck_photo":
@@ -62289,9 +62211,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_new_muck_truck_photo_by_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "new_muck_truck_photo_by_union_pk":
@@ -62303,9 +62222,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_new_muck_truck_photo_by_union_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "new_muck_truck_recommend_catalog":
@@ -62345,9 +62261,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_new_muck_truck_recommend_catalog_by_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "new_muck_truck_recommend_catalog_by_union_pk":
@@ -62359,9 +62272,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_new_muck_truck_recommend_catalog_by_union_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "seller_filing":
@@ -62401,9 +62311,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_seller_filing_by_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "seller_filing_by_union_pk":
@@ -62415,9 +62322,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_seller_filing_by_union_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "seller_rating_record":
@@ -62457,9 +62361,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_seller_rating_record_by_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "seller_rating_record_by_union_pk":
@@ -62471,9 +62372,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_seller_rating_record_by_union_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "vehicle_sale_record":
@@ -62513,9 +62411,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_vehicle_sale_record_by_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "vehicle_sale_record_by_union_pk":
@@ -62527,9 +62422,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_vehicle_sale_record_by_union_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "__type":
@@ -64423,10 +64315,6 @@ func (ec *executionContext) marshalNJsonb2string(ctx context.Context, sel ast.Se
 	return res
 }
 
-func (ec *executionContext) marshalNMuckTruckPurchaseIntention2VehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋmodelᚐMuckTruckPurchaseIntention(ctx context.Context, sel ast.SelectionSet, v model1.MuckTruckPurchaseIntention) graphql.Marshaler {
-	return ec._MuckTruckPurchaseIntention(ctx, sel, &v)
-}
-
 func (ec *executionContext) marshalNMuckTruckPurchaseIntention2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋmodelᚐMuckTruckPurchaseIntentionᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.MuckTruckPurchaseIntention) graphql.Marshaler {
 	ret := make(graphql.Array, len(v))
 	var wg sync.WaitGroup
@@ -64539,10 +64427,6 @@ func (ec *executionContext) marshalNMuckTruckPurchaseIntentionSelectColumn2Vehic
 	return v
 }
 
-func (ec *executionContext) marshalNMuckTruckSaleOrder2VehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋmodelᚐMuckTruckSaleOrder(ctx context.Context, sel ast.SelectionSet, v model1.MuckTruckSaleOrder) graphql.Marshaler {
-	return ec._MuckTruckSaleOrder(ctx, sel, &v)
-}
-
 func (ec *executionContext) marshalNMuckTruckSaleOrder2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋmodelᚐMuckTruckSaleOrderᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.MuckTruckSaleOrder) graphql.Marshaler {
 	ret := make(graphql.Array, len(v))
 	var wg sync.WaitGroup
@@ -64607,10 +64491,6 @@ func (ec *executionContext) marshalNMuckTruckSaleOrderAggregate2ᚖVehicleSuperv
 func (ec *executionContext) unmarshalNMuckTruckSaleOrderBoolExp2VehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋgraphᚋmodelᚐMuckTruckSaleOrderBoolExp(ctx context.Context, v interface{}) (model.MuckTruckSaleOrderBoolExp, error) {
 	res, err := ec.unmarshalInputMuckTruckSaleOrderBoolExp(ctx, v)
 	return res, graphql.ErrorOnPath(ctx, err)
-}
-
-func (ec *executionContext) marshalNMuckTruckSaleOrderDetail2VehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋmodelᚐMuckTruckSaleOrderDetail(ctx context.Context, sel ast.SelectionSet, v model1.MuckTruckSaleOrderDetail) graphql.Marshaler {
-	return ec._MuckTruckSaleOrderDetail(ctx, sel, &v)
 }
 
 func (ec *executionContext) marshalNMuckTruckSaleOrderDetail2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋmodelᚐMuckTruckSaleOrderDetailᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.MuckTruckSaleOrderDetail) graphql.Marshaler {
@@ -64771,10 +64651,6 @@ func (ec *executionContext) marshalNMuckTruckSaleOrderSelectColumn2VehicleSuperv
 	return v
 }
 
-func (ec *executionContext) marshalNNewMuckTruckInfo2VehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋmodelᚐNewMuckTruckInfo(ctx context.Context, sel ast.SelectionSet, v model1.NewMuckTruckInfo) graphql.Marshaler {
-	return ec._NewMuckTruckInfo(ctx, sel, &v)
-}
-
 func (ec *executionContext) marshalNNewMuckTruckInfo2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋmodelᚐNewMuckTruckInfoᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.NewMuckTruckInfo) graphql.Marshaler {
 	ret := make(graphql.Array, len(v))
 	var wg sync.WaitGroup
@@ -64887,10 +64763,6 @@ func (ec *executionContext) marshalNNewMuckTruckInfoSelectColumn2VehicleSupervis
 	return v
 }
 
-func (ec *executionContext) marshalNNewMuckTruckPhoto2VehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋmodelᚐNewMuckTruckPhoto(ctx context.Context, sel ast.SelectionSet, v model1.NewMuckTruckPhoto) graphql.Marshaler {
-	return ec._NewMuckTruckPhoto(ctx, sel, &v)
-}
-
 func (ec *executionContext) marshalNNewMuckTruckPhoto2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋmodelᚐNewMuckTruckPhotoᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.NewMuckTruckPhoto) graphql.Marshaler {
 	ret := make(graphql.Array, len(v))
 	var wg sync.WaitGroup
@@ -65001,10 +64873,6 @@ func (ec *executionContext) unmarshalNNewMuckTruckPhotoSelectColumn2VehicleSuper
 
 func (ec *executionContext) marshalNNewMuckTruckPhotoSelectColumn2VehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋgraphᚋmodelᚐNewMuckTruckPhotoSelectColumn(ctx context.Context, sel ast.SelectionSet, v model.NewMuckTruckPhotoSelectColumn) graphql.Marshaler {
 	return v
-}
-
-func (ec *executionContext) marshalNNewMuckTruckRecommendCatalog2VehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋmodelᚐNewMuckTruckRecommendCatalog(ctx context.Context, sel ast.SelectionSet, v model1.NewMuckTruckRecommendCatalog) graphql.Marshaler {
-	return ec._NewMuckTruckRecommendCatalog(ctx, sel, &v)
 }
 
 func (ec *executionContext) marshalNNewMuckTruckRecommendCatalog2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋmodelᚐNewMuckTruckRecommendCatalogᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.NewMuckTruckRecommendCatalog) graphql.Marshaler {
@@ -65149,10 +65017,6 @@ func (ec *executionContext) marshalNPoint2string(ctx context.Context, sel ast.Se
 	return res
 }
 
-func (ec *executionContext) marshalNSellerFiling2VehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋmodelᚐSellerFiling(ctx context.Context, sel ast.SelectionSet, v model1.SellerFiling) graphql.Marshaler {
-	return ec._SellerFiling(ctx, sel, &v)
-}
-
 func (ec *executionContext) marshalNSellerFiling2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋmodelᚐSellerFilingᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.SellerFiling) graphql.Marshaler {
 	ret := make(graphql.Array, len(v))
 	var wg sync.WaitGroup
@@ -65263,10 +65127,6 @@ func (ec *executionContext) unmarshalNSellerFilingSelectColumn2VehicleSupervisio
 
 func (ec *executionContext) marshalNSellerFilingSelectColumn2VehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋgraphᚋmodelᚐSellerFilingSelectColumn(ctx context.Context, sel ast.SelectionSet, v model.SellerFilingSelectColumn) graphql.Marshaler {
 	return v
-}
-
-func (ec *executionContext) marshalNSellerRatingRecord2VehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋmodelᚐSellerRatingRecord(ctx context.Context, sel ast.SelectionSet, v model1.SellerRatingRecord) graphql.Marshaler {
-	return ec._SellerRatingRecord(ctx, sel, &v)
 }
 
 func (ec *executionContext) marshalNSellerRatingRecord2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋmodelᚐSellerRatingRecordᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.SellerRatingRecord) graphql.Marshaler {
@@ -65430,10 +65290,6 @@ func (ec *executionContext) marshalNTimestamptz2ᚖtimeᚐTime(ctx context.Conte
 		}
 	}
 	return res
-}
-
-func (ec *executionContext) marshalNVehicleSaleRecord2VehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋmodelᚐVehicleSaleRecord(ctx context.Context, sel ast.SelectionSet, v model1.VehicleSaleRecord) graphql.Marshaler {
-	return ec._VehicleSaleRecord(ctx, sel, &v)
 }
 
 func (ec *executionContext) marshalNVehicleSaleRecord2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋmuck_truck_recommend_catalogᚋmodelᚐVehicleSaleRecordᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.VehicleSaleRecord) graphql.Marshaler {

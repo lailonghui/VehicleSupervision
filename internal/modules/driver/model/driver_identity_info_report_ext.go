@@ -58,9 +58,11 @@ func (t *DriverIdentityInfoReportPkLoader) NewLoader(ctx context.Context) *Drive
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}
@@ -129,9 +131,11 @@ func (t *DriverIdentityInfoReportUnionPkLoader) NewLoader(ctx context.Context) *
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}

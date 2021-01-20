@@ -58,9 +58,11 @@ func (t *TerminalOperLogPkLoader) NewLoader(ctx context.Context) *TerminalOperLo
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}
@@ -129,9 +131,11 @@ func (t *TerminalOperLogUnionPkLoader) NewLoader(ctx context.Context) *TerminalO
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}

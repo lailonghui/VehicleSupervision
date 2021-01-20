@@ -58,9 +58,11 @@ func (t *VideoPlatformAlarmTypePkLoader) NewLoader(ctx context.Context) *VideoPl
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}
@@ -129,9 +131,11 @@ func (t *VideoPlatformAlarmTypeUnionPkLoader) NewLoader(ctx context.Context) *Vi
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}

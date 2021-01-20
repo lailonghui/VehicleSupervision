@@ -340,11 +340,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	deduction_report_by_pk(id: Bigint!): DeductionReport!
+	deduction_report_by_pk(id: Bigint!): DeductionReport
 	"""
 	联合主键查询
 	"""
-	deduction_report_by_union_pk(deduction_report_id: String!): DeductionReport!
+	deduction_report_by_union_pk(deduction_report_id: String!): DeductionReport
 }
 extend type Mutation {
 	"""

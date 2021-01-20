@@ -303,11 +303,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	control_line_time_by_pk(id: Bigint!): ControlLineTime!
+	control_line_time_by_pk(id: Bigint!): ControlLineTime
 	"""
 	联合主键查询
 	"""
-	control_line_time_by_union_pk(control_line_time_id: String!): ControlLineTime!
+	control_line_time_by_union_pk(control_line_time_id: String!): ControlLineTime
 }
 extend type Mutation {
 	"""

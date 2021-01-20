@@ -58,9 +58,11 @@ func (t *ProvinceUploadVehiclePkLoader) NewLoader(ctx context.Context) *Province
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}
@@ -129,9 +131,11 @@ func (t *ProvinceUploadVehicleUnionPkLoader) NewLoader(ctx context.Context) *Pro
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}

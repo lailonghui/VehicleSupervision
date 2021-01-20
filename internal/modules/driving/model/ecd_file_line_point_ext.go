@@ -58,9 +58,11 @@ func (t *EcdFileLinePointPkLoader) NewLoader(ctx context.Context) *EcdFileLinePo
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}
@@ -129,9 +131,11 @@ func (t *EcdFileLinePointUnionPkLoader) NewLoader(ctx context.Context) *EcdFileL
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}

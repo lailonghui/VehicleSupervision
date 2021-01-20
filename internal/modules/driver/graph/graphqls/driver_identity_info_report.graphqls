@@ -410,11 +410,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	driver_identity_info_report_by_pk(id: Bigint!): DriverIdentityInfoReport!
+	driver_identity_info_report_by_pk(id: Bigint!): DriverIdentityInfoReport
 	"""
 	联合主键查询
 	"""
-	driver_identity_info_report_by_union_pk(driver_identity_info_report_id: String!): DriverIdentityInfoReport!
+	driver_identity_info_report_by_union_pk(driver_identity_info_report_id: String!): DriverIdentityInfoReport
 }
 extend type Mutation {
 	"""

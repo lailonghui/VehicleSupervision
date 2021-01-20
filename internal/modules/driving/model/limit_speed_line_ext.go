@@ -58,9 +58,11 @@ func (t *LimitSpeedLinePkLoader) NewLoader(ctx context.Context) *LimitSpeedLineP
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}
@@ -129,9 +131,11 @@ func (t *LimitSpeedLineUnionPkLoader) NewLoader(ctx context.Context) *LimitSpeed
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}

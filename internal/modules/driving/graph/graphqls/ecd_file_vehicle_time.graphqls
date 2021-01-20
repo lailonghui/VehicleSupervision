@@ -410,11 +410,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	ecd_file_vehicle_time_by_pk(id: Bigint!): EcdFileVehicleTime!
+	ecd_file_vehicle_time_by_pk(id: Bigint!): EcdFileVehicleTime
 	"""
 	联合主键查询
 	"""
-	ecd_file_vehicle_time_by_union_pk(vehicle_time_id: String!): EcdFileVehicleTime!
+	ecd_file_vehicle_time_by_union_pk(vehicle_time_id: String!): EcdFileVehicleTime
 }
 extend type Mutation {
 	"""

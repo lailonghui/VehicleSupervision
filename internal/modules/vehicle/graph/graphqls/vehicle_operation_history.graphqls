@@ -363,11 +363,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	vehicle_operation_history_by_pk(id: Bigint!): VehicleOperationHistory!
+	vehicle_operation_history_by_pk(id: Bigint!): VehicleOperationHistory
 	"""
 	联合主键查询
 	"""
-	vehicle_operation_history_by_union_pk(vehicle_operation_history_id: String!): VehicleOperationHistory!
+	vehicle_operation_history_by_union_pk(vehicle_operation_history_id: String!): VehicleOperationHistory
 }
 extend type Mutation {
 	"""

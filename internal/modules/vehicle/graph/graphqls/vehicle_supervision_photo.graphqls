@@ -326,11 +326,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	vehicle_supervision_photo_by_pk(id: Bigint!): VehicleSupervisionPhoto!
+	vehicle_supervision_photo_by_pk(id: Bigint!): VehicleSupervisionPhoto
 	"""
 	联合主键查询
 	"""
-	vehicle_supervision_photo_by_union_pk(supervision_photo_id: String!): VehicleSupervisionPhoto!
+	vehicle_supervision_photo_by_union_pk(supervision_photo_id: String!): VehicleSupervisionPhoto
 }
 extend type Mutation {
 	"""

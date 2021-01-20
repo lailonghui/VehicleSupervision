@@ -354,11 +354,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	enterprise_contact_by_pk(id: Bigint!): EnterpriseContact!
+	enterprise_contact_by_pk(id: Bigint!): EnterpriseContact
 	"""
 	联合主键查询
 	"""
-	enterprise_contact_by_union_pk(contact_id: String!): EnterpriseContact!
+	enterprise_contact_by_union_pk(contact_id: String!): EnterpriseContact
 }
 extend type Mutation {
 	"""

@@ -363,11 +363,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	electric_fence_by_pk(id: Bigint!): ElectricFence!
+	electric_fence_by_pk(id: Bigint!): ElectricFence
 	"""
 	联合主键查询
 	"""
-	electric_fence_by_union_pk(electric_fence_id: String!): ElectricFence!
+	electric_fence_by_union_pk(electric_fence_id: String!): ElectricFence
 }
 extend type Mutation {
 	"""

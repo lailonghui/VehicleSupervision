@@ -405,11 +405,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	vehicle_enterprise_change_review_by_pk(id: Bigint!): VehicleEnterpriseChangeReview!
+	vehicle_enterprise_change_review_by_pk(id: Bigint!): VehicleEnterpriseChangeReview
 	"""
 	联合主键查询
 	"""
-	vehicle_enterprise_change_review_by_union_pk(vehicle_enterprise_change_review_id: String!): VehicleEnterpriseChangeReview!
+	vehicle_enterprise_change_review_by_union_pk(vehicle_enterprise_change_review_id: String!): VehicleEnterpriseChangeReview
 }
 extend type Mutation {
 	"""

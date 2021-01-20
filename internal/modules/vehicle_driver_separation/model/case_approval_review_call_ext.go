@@ -58,9 +58,11 @@ func (t *CaseApprovalReviewCallPkLoader) NewLoader(ctx context.Context) *CaseApp
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}
@@ -129,9 +131,11 @@ func (t *CaseApprovalReviewCallUnionPkLoader) NewLoader(ctx context.Context) *Ca
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}

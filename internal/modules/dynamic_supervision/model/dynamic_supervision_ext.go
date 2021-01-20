@@ -58,9 +58,11 @@ func (t *DynamicSupervisionPkLoader) NewLoader(ctx context.Context) *DynamicSupe
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}
@@ -129,9 +131,11 @@ func (t *DynamicSupervisionUnionPkLoader) NewLoader(ctx context.Context) *Dynami
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}

@@ -7055,11 +7055,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	driver_fingerprint_by_pk(id: Bigint!): DriverFingerprint!
+	driver_fingerprint_by_pk(id: Bigint!): DriverFingerprint
 	"""
 	联合主键查询
 	"""
-	driver_fingerprint_by_union_pk(driver_fingerprint_id: String!): DriverFingerprint!
+	driver_fingerprint_by_union_pk(driver_fingerprint_id: String!): DriverFingerprint
 }
 extend type Mutation {
 	"""
@@ -7415,11 +7415,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	driver_fingerprint_association_by_pk(id: Bigint!): DriverFingerprintAssociation!
+	driver_fingerprint_association_by_pk(id: Bigint!): DriverFingerprintAssociation
 	"""
 	联合主键查询
 	"""
-	driver_fingerprint_association_by_union_pk(driver_fingerprint_association_id: String!): DriverFingerprintAssociation!
+	driver_fingerprint_association_by_union_pk(driver_fingerprint_association_id: String!): DriverFingerprintAssociation
 }
 extend type Mutation {
 	"""
@@ -8166,11 +8166,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	driver_identity_by_pk(id: Bigint!): DriverIdentity!
+	driver_identity_by_pk(id: Bigint!): DriverIdentity
 	"""
 	联合主键查询
 	"""
-	driver_identity_by_union_pk(identity_id: String!): DriverIdentity!
+	driver_identity_by_union_pk(identity_id: String!): DriverIdentity
 }
 extend type Mutation {
 	"""
@@ -8619,11 +8619,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	driver_identity_info_report_by_pk(id: Bigint!): DriverIdentityInfoReport!
+	driver_identity_info_report_by_pk(id: Bigint!): DriverIdentityInfoReport
 	"""
 	联合主键查询
 	"""
-	driver_identity_info_report_by_union_pk(driver_identity_info_report_id: String!): DriverIdentityInfoReport!
+	driver_identity_info_report_by_union_pk(driver_identity_info_report_id: String!): DriverIdentityInfoReport
 }
 extend type Mutation {
 	"""
@@ -9324,7 +9324,7 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	driver_info_by_pk(id: Bigint!): DriverInfo!
+	driver_info_by_pk(id: Bigint!): DriverInfo
 }
 extend type Mutation {
 	"""
@@ -9765,7 +9765,7 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	driving_license_registration_inspection_by_pk(id: Bigint!): DrivingLicenseRegistrationInspection!
+	driving_license_registration_inspection_by_pk(id: Bigint!): DrivingLicenseRegistrationInspection
 }
 extend type Mutation {
 	"""
@@ -33932,14 +33932,11 @@ func (ec *executionContext) _Query_driver_fingerprint_by_pk(ctx context.Context,
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.DriverFingerprint)
 	fc.Result = res
-	return ec.marshalNDriverFingerprint2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋmodelᚐDriverFingerprint(ctx, field.Selections, res)
+	return ec.marshalODriverFingerprint2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋmodelᚐDriverFingerprint(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_driver_fingerprint_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -33974,14 +33971,11 @@ func (ec *executionContext) _Query_driver_fingerprint_by_union_pk(ctx context.Co
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.DriverFingerprint)
 	fc.Result = res
-	return ec.marshalNDriverFingerprint2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋmodelᚐDriverFingerprint(ctx, field.Selections, res)
+	return ec.marshalODriverFingerprint2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋmodelᚐDriverFingerprint(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_driver_fingerprint_association(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -34100,14 +34094,11 @@ func (ec *executionContext) _Query_driver_fingerprint_association_by_pk(ctx cont
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.DriverFingerprintAssociation)
 	fc.Result = res
-	return ec.marshalNDriverFingerprintAssociation2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋmodelᚐDriverFingerprintAssociation(ctx, field.Selections, res)
+	return ec.marshalODriverFingerprintAssociation2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋmodelᚐDriverFingerprintAssociation(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_driver_fingerprint_association_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -34142,14 +34133,11 @@ func (ec *executionContext) _Query_driver_fingerprint_association_by_union_pk(ct
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.DriverFingerprintAssociation)
 	fc.Result = res
-	return ec.marshalNDriverFingerprintAssociation2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋmodelᚐDriverFingerprintAssociation(ctx, field.Selections, res)
+	return ec.marshalODriverFingerprintAssociation2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋmodelᚐDriverFingerprintAssociation(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_driver_identity(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -34268,14 +34256,11 @@ func (ec *executionContext) _Query_driver_identity_by_pk(ctx context.Context, fi
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.DriverIdentity)
 	fc.Result = res
-	return ec.marshalNDriverIdentity2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋmodelᚐDriverIdentity(ctx, field.Selections, res)
+	return ec.marshalODriverIdentity2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋmodelᚐDriverIdentity(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_driver_identity_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -34310,14 +34295,11 @@ func (ec *executionContext) _Query_driver_identity_by_union_pk(ctx context.Conte
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.DriverIdentity)
 	fc.Result = res
-	return ec.marshalNDriverIdentity2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋmodelᚐDriverIdentity(ctx, field.Selections, res)
+	return ec.marshalODriverIdentity2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋmodelᚐDriverIdentity(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_driver_identity_info_report(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -34436,14 +34418,11 @@ func (ec *executionContext) _Query_driver_identity_info_report_by_pk(ctx context
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.DriverIdentityInfoReport)
 	fc.Result = res
-	return ec.marshalNDriverIdentityInfoReport2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋmodelᚐDriverIdentityInfoReport(ctx, field.Selections, res)
+	return ec.marshalODriverIdentityInfoReport2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋmodelᚐDriverIdentityInfoReport(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_driver_identity_info_report_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -34478,14 +34457,11 @@ func (ec *executionContext) _Query_driver_identity_info_report_by_union_pk(ctx c
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.DriverIdentityInfoReport)
 	fc.Result = res
-	return ec.marshalNDriverIdentityInfoReport2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋmodelᚐDriverIdentityInfoReport(ctx, field.Selections, res)
+	return ec.marshalODriverIdentityInfoReport2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋmodelᚐDriverIdentityInfoReport(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_driver_info(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -34604,14 +34580,11 @@ func (ec *executionContext) _Query_driver_info_by_pk(ctx context.Context, field 
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.DriverInfo)
 	fc.Result = res
-	return ec.marshalNDriverInfo2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋmodelᚐDriverInfo(ctx, field.Selections, res)
+	return ec.marshalODriverInfo2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋmodelᚐDriverInfo(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_driving_license_registration_inspection(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -34730,14 +34703,11 @@ func (ec *executionContext) _Query_driving_license_registration_inspection_by_pk
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.DrivingLicenseRegistrationInspection)
 	fc.Result = res
-	return ec.marshalNDrivingLicenseRegistrationInspection2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋmodelᚐDrivingLicenseRegistrationInspection(ctx, field.Selections, res)
+	return ec.marshalODrivingLicenseRegistrationInspection2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋmodelᚐDrivingLicenseRegistrationInspection(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query___type(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -45480,9 +45450,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_driver_fingerprint_by_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "driver_fingerprint_by_union_pk":
@@ -45494,9 +45461,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_driver_fingerprint_by_union_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "driver_fingerprint_association":
@@ -45536,9 +45500,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_driver_fingerprint_association_by_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "driver_fingerprint_association_by_union_pk":
@@ -45550,9 +45511,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_driver_fingerprint_association_by_union_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "driver_identity":
@@ -45592,9 +45550,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_driver_identity_by_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "driver_identity_by_union_pk":
@@ -45606,9 +45561,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_driver_identity_by_union_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "driver_identity_info_report":
@@ -45648,9 +45600,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_driver_identity_info_report_by_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "driver_identity_info_report_by_union_pk":
@@ -45662,9 +45611,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_driver_identity_info_report_by_union_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "driver_info":
@@ -45704,9 +45650,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_driver_info_by_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "driving_license_registration_inspection":
@@ -45746,9 +45689,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_driving_license_registration_inspection_by_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "__type":
@@ -46041,10 +45981,6 @@ func (ec *executionContext) marshalNBoolean2bool(ctx context.Context, sel ast.Se
 	return res
 }
 
-func (ec *executionContext) marshalNDriverFingerprint2VehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋmodelᚐDriverFingerprint(ctx context.Context, sel ast.SelectionSet, v model1.DriverFingerprint) graphql.Marshaler {
-	return ec._DriverFingerprint(ctx, sel, &v)
-}
-
 func (ec *executionContext) marshalNDriverFingerprint2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋmodelᚐDriverFingerprintᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.DriverFingerprint) graphql.Marshaler {
 	ret := make(graphql.Array, len(v))
 	var wg sync.WaitGroup
@@ -46104,10 +46040,6 @@ func (ec *executionContext) marshalNDriverFingerprintAggregate2ᚖVehicleSupervi
 		return graphql.Null
 	}
 	return ec._DriverFingerprintAggregate(ctx, sel, v)
-}
-
-func (ec *executionContext) marshalNDriverFingerprintAssociation2VehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋmodelᚐDriverFingerprintAssociation(ctx context.Context, sel ast.SelectionSet, v model1.DriverFingerprintAssociation) graphql.Marshaler {
-	return ec._DriverFingerprintAssociation(ctx, sel, &v)
 }
 
 func (ec *executionContext) marshalNDriverFingerprintAssociation2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋmodelᚐDriverFingerprintAssociationᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.DriverFingerprintAssociation) graphql.Marshaler {
@@ -46273,10 +46205,6 @@ func (ec *executionContext) marshalNDriverFingerprintSelectColumn2VehicleSupervi
 	return v
 }
 
-func (ec *executionContext) marshalNDriverIdentity2VehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋmodelᚐDriverIdentity(ctx context.Context, sel ast.SelectionSet, v model1.DriverIdentity) graphql.Marshaler {
-	return ec._DriverIdentity(ctx, sel, &v)
-}
-
 func (ec *executionContext) marshalNDriverIdentity2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋmodelᚐDriverIdentityᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.DriverIdentity) graphql.Marshaler {
 	ret := make(graphql.Array, len(v))
 	var wg sync.WaitGroup
@@ -46341,10 +46269,6 @@ func (ec *executionContext) marshalNDriverIdentityAggregate2ᚖVehicleSupervisio
 func (ec *executionContext) unmarshalNDriverIdentityBoolExp2VehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIdentityBoolExp(ctx context.Context, v interface{}) (model.DriverIdentityBoolExp, error) {
 	res, err := ec.unmarshalInputDriverIdentityBoolExp(ctx, v)
 	return res, graphql.ErrorOnPath(ctx, err)
-}
-
-func (ec *executionContext) marshalNDriverIdentityInfoReport2VehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋmodelᚐDriverIdentityInfoReport(ctx context.Context, sel ast.SelectionSet, v model1.DriverIdentityInfoReport) graphql.Marshaler {
-	return ec._DriverIdentityInfoReport(ctx, sel, &v)
 }
 
 func (ec *executionContext) marshalNDriverIdentityInfoReport2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋmodelᚐDriverIdentityInfoReportᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.DriverIdentityInfoReport) graphql.Marshaler {
@@ -46505,10 +46429,6 @@ func (ec *executionContext) marshalNDriverIdentitySelectColumn2VehicleSupervisio
 	return v
 }
 
-func (ec *executionContext) marshalNDriverInfo2VehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋmodelᚐDriverInfo(ctx context.Context, sel ast.SelectionSet, v model1.DriverInfo) graphql.Marshaler {
-	return ec._DriverInfo(ctx, sel, &v)
-}
-
 func (ec *executionContext) marshalNDriverInfo2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋmodelᚐDriverInfoᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.DriverInfo) graphql.Marshaler {
 	ret := make(graphql.Array, len(v))
 	var wg sync.WaitGroup
@@ -46619,10 +46539,6 @@ func (ec *executionContext) unmarshalNDriverInfoSelectColumn2VehicleSupervision�
 
 func (ec *executionContext) marshalNDriverInfoSelectColumn2VehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverInfoSelectColumn(ctx context.Context, sel ast.SelectionSet, v model.DriverInfoSelectColumn) graphql.Marshaler {
 	return v
-}
-
-func (ec *executionContext) marshalNDrivingLicenseRegistrationInspection2VehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋmodelᚐDrivingLicenseRegistrationInspection(ctx context.Context, sel ast.SelectionSet, v model1.DrivingLicenseRegistrationInspection) graphql.Marshaler {
-	return ec._DrivingLicenseRegistrationInspection(ctx, sel, &v)
 }
 
 func (ec *executionContext) marshalNDrivingLicenseRegistrationInspection2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋmodelᚐDrivingLicenseRegistrationInspectionᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.DrivingLicenseRegistrationInspection) graphql.Marshaler {

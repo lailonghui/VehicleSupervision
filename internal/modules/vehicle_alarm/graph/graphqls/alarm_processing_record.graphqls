@@ -484,7 +484,7 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	alarm_processing_record_by_pk(id: Bigint!): AlarmProcessingRecord!
+	alarm_processing_record_by_pk(id: Bigint!): AlarmProcessingRecord
 }
 extend type Mutation {
 	"""

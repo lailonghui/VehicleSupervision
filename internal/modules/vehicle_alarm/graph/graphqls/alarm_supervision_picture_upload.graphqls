@@ -410,7 +410,7 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	alarm_supervision_picture_upload_by_pk(id: Bigint!): AlarmSupervisionPictureUpload!
+	alarm_supervision_picture_upload_by_pk(id: Bigint!): AlarmSupervisionPictureUpload
 }
 extend type Mutation {
 	"""

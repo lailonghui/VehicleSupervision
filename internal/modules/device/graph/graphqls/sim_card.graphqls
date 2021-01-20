@@ -391,11 +391,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	sim_card_by_pk(id: Bigint!): SimCard!
+	sim_card_by_pk(id: Bigint!): SimCard
 	"""
 	联合主键查询
 	"""
-	sim_card_by_union_pk(sim_card_id: String!): SimCard!
+	sim_card_by_union_pk(sim_card_id: String!): SimCard
 }
 extend type Mutation {
 	"""

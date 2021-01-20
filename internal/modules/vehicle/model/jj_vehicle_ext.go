@@ -58,9 +58,11 @@ func (t *JjVehiclePkLoader) NewLoader(ctx context.Context) *JjVehiclePkLoader {
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}
@@ -129,9 +131,11 @@ func (t *JjVehicleUnionPkLoader) NewLoader(ctx context.Context) *JjVehicleUnionP
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}

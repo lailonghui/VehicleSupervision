@@ -350,7 +350,7 @@ func (r *queryResolver) VehicleInfoByPk(ctx context.Context, id int64) (*model1.
 				if cacheErr == nil {
 					_ = cacheAspect.SetNotExistPkQueryCache(ctx, cacheKey, "")
 				}
-				return &rs, nil
+				return nil, nil
 			}
 			return &rs, err
 		}
@@ -364,6 +364,9 @@ func (r *queryResolver) VehicleInfoByPk(ctx context.Context, id int64) (*model1.
 	tx := db.DB.Model(m).First(&rs, id)
 	err := tx.Error
 	if err != nil {
+		if err == gorm.ErrRecordNotFound {
+			return nil, nil
+		}
 		return nil, err
 	}
 	return &rs, nil

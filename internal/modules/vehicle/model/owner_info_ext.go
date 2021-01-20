@@ -58,9 +58,11 @@ func (t *OwnerInfoPkLoader) NewLoader(ctx context.Context) *OwnerInfoPkLoader {
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}

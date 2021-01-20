@@ -58,9 +58,11 @@ func (t *ViolationRegistrationPkLoader) NewLoader(ctx context.Context) *Violatio
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}
@@ -129,9 +131,11 @@ func (t *ViolationRegistrationUnionPkLoader) NewLoader(ctx context.Context) *Vio
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}

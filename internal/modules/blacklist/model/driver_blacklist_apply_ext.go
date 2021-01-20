@@ -58,9 +58,11 @@ func (t *DriverBlacklistApplyPkLoader) NewLoader(ctx context.Context) *DriverBla
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}
@@ -129,9 +131,11 @@ func (t *DriverBlacklistApplyUnionPkLoader) NewLoader(ctx context.Context) *Driv
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}

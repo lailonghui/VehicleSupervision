@@ -58,9 +58,11 @@ func (t *DrivingLicenseRegistrationInspectionPkLoader) NewLoader(ctx context.Con
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}

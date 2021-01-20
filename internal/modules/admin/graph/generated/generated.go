@@ -11511,11 +11511,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	department_by_pk(id: Bigint!): Department!
+	department_by_pk(id: Bigint!): Department
 	"""
 	联合主键查询
 	"""
-	department_by_union_pk(department_id: String!): Department!
+	department_by_union_pk(department_id: String!): Department
 }
 extend type Mutation {
 	"""
@@ -12660,11 +12660,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	enterprise_by_pk(id: Bigint!): Enterprise!
+	enterprise_by_pk(id: Bigint!): Enterprise
 	"""
 	联合主键查询
 	"""
-	enterprise_by_union_pk(enterprise_id: String!): Enterprise!
+	enterprise_by_union_pk(enterprise_id: String!): Enterprise
 }
 extend type Mutation {
 	"""
@@ -13048,11 +13048,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	enterprise_alarm_send_police_by_pk(id: Bigint!): EnterpriseAlarmSendPolice!
+	enterprise_alarm_send_police_by_pk(id: Bigint!): EnterpriseAlarmSendPolice
 	"""
 	联合主键查询
 	"""
-	enterprise_alarm_send_police_by_union_pk(enterprise_alarm_send_police_id: String!): EnterpriseAlarmSendPolice!
+	enterprise_alarm_send_police_by_union_pk(enterprise_alarm_send_police_id: String!): EnterpriseAlarmSendPolice
 }
 extend type Mutation {
 	"""
@@ -13445,11 +13445,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	enterprise_contact_by_pk(id: Bigint!): EnterpriseContact!
+	enterprise_contact_by_pk(id: Bigint!): EnterpriseContact
 	"""
 	联合主键查询
 	"""
-	enterprise_contact_by_union_pk(contact_id: String!): EnterpriseContact!
+	enterprise_contact_by_union_pk(contact_id: String!): EnterpriseContact
 }
 extend type Mutation {
 	"""
@@ -14187,11 +14187,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	enterprise_muck_trunk_by_pk(id: Bigint!): EnterpriseMuckTrunk!
+	enterprise_muck_trunk_by_pk(id: Bigint!): EnterpriseMuckTrunk
 	"""
 	联合主键查询
 	"""
-	enterprise_muck_trunk_by_union_pk(enterprise_muck_trunk_id: String!): EnterpriseMuckTrunk!
+	enterprise_muck_trunk_by_union_pk(enterprise_muck_trunk_id: String!): EnterpriseMuckTrunk
 }
 extend type Mutation {
 	"""
@@ -14593,11 +14593,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	enterprise_score_log_by_pk(id: Bigint!): EnterpriseScoreLog!
+	enterprise_score_log_by_pk(id: Bigint!): EnterpriseScoreLog
 	"""
 	联合主键查询
 	"""
-	enterprise_score_log_by_union_pk(log_id: String!): EnterpriseScoreLog!
+	enterprise_score_log_by_union_pk(log_id: String!): EnterpriseScoreLog
 }
 extend type Mutation {
 	"""
@@ -14957,11 +14957,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	enterprise_score_set_by_pk(id: Bigint!): EnterpriseScoreSet!
+	enterprise_score_set_by_pk(id: Bigint!): EnterpriseScoreSet
 	"""
 	联合主键查询
 	"""
-	enterprise_score_set_by_union_pk(score_set_id: String!): EnterpriseScoreSet!
+	enterprise_score_set_by_union_pk(score_set_id: String!): EnterpriseScoreSet
 }
 extend type Mutation {
 	"""
@@ -15256,11 +15256,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	enterprise_state_his_by_pk(id: Bigint!): EnterpriseStateHis!
+	enterprise_state_his_by_pk(id: Bigint!): EnterpriseStateHis
 	"""
 	联合主键查询
 	"""
-	enterprise_state_his_by_union_pk(state_his_id: String!): EnterpriseStateHis!
+	enterprise_state_his_by_union_pk(state_his_id: String!): EnterpriseStateHis
 }
 extend type Mutation {
 	"""
@@ -15574,11 +15574,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	enterprise_ukey_by_pk(id: Bigint!): EnterpriseUkey!
+	enterprise_ukey_by_pk(id: Bigint!): EnterpriseUkey
 	"""
 	联合主键查询
 	"""
-	enterprise_ukey_by_union_pk(ukey_id: String!): EnterpriseUkey!
+	enterprise_ukey_by_union_pk(ukey_id: String!): EnterpriseUkey
 }
 extend type Mutation {
 	"""
@@ -16166,11 +16166,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	system_user_by_pk(id: Bigint!): SystemUser!
+	system_user_by_pk(id: Bigint!): SystemUser
 	"""
 	联合主键查询
 	"""
-	system_user_by_union_pk(user_id: String!): SystemUser!
+	system_user_by_union_pk(user_id: String!): SystemUser
 }
 extend type Mutation {
 	"""
@@ -53366,14 +53366,11 @@ func (ec *executionContext) _Query_department_by_pk(ctx context.Context, field g
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.Department)
 	fc.Result = res
-	return ec.marshalNDepartment2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐDepartment(ctx, field.Selections, res)
+	return ec.marshalODepartment2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐDepartment(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_department_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -53408,14 +53405,11 @@ func (ec *executionContext) _Query_department_by_union_pk(ctx context.Context, f
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.Department)
 	fc.Result = res
-	return ec.marshalNDepartment2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐDepartment(ctx, field.Selections, res)
+	return ec.marshalODepartment2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐDepartment(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_enterprise(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -53534,14 +53528,11 @@ func (ec *executionContext) _Query_enterprise_by_pk(ctx context.Context, field g
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.Enterprise)
 	fc.Result = res
-	return ec.marshalNEnterprise2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterprise(ctx, field.Selections, res)
+	return ec.marshalOEnterprise2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterprise(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_enterprise_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -53576,14 +53567,11 @@ func (ec *executionContext) _Query_enterprise_by_union_pk(ctx context.Context, f
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.Enterprise)
 	fc.Result = res
-	return ec.marshalNEnterprise2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterprise(ctx, field.Selections, res)
+	return ec.marshalOEnterprise2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterprise(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_enterprise_alarm_send_police(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -53702,14 +53690,11 @@ func (ec *executionContext) _Query_enterprise_alarm_send_police_by_pk(ctx contex
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.EnterpriseAlarmSendPolice)
 	fc.Result = res
-	return ec.marshalNEnterpriseAlarmSendPolice2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterpriseAlarmSendPolice(ctx, field.Selections, res)
+	return ec.marshalOEnterpriseAlarmSendPolice2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterpriseAlarmSendPolice(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_enterprise_alarm_send_police_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -53744,14 +53729,11 @@ func (ec *executionContext) _Query_enterprise_alarm_send_police_by_union_pk(ctx 
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.EnterpriseAlarmSendPolice)
 	fc.Result = res
-	return ec.marshalNEnterpriseAlarmSendPolice2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterpriseAlarmSendPolice(ctx, field.Selections, res)
+	return ec.marshalOEnterpriseAlarmSendPolice2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterpriseAlarmSendPolice(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_enterprise_contact(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -53870,14 +53852,11 @@ func (ec *executionContext) _Query_enterprise_contact_by_pk(ctx context.Context,
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.EnterpriseContact)
 	fc.Result = res
-	return ec.marshalNEnterpriseContact2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterpriseContact(ctx, field.Selections, res)
+	return ec.marshalOEnterpriseContact2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterpriseContact(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_enterprise_contact_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -53912,14 +53891,11 @@ func (ec *executionContext) _Query_enterprise_contact_by_union_pk(ctx context.Co
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.EnterpriseContact)
 	fc.Result = res
-	return ec.marshalNEnterpriseContact2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterpriseContact(ctx, field.Selections, res)
+	return ec.marshalOEnterpriseContact2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterpriseContact(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_enterprise_muck_trunk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -54038,14 +54014,11 @@ func (ec *executionContext) _Query_enterprise_muck_trunk_by_pk(ctx context.Conte
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.EnterpriseMuckTrunk)
 	fc.Result = res
-	return ec.marshalNEnterpriseMuckTrunk2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterpriseMuckTrunk(ctx, field.Selections, res)
+	return ec.marshalOEnterpriseMuckTrunk2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterpriseMuckTrunk(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_enterprise_muck_trunk_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -54080,14 +54053,11 @@ func (ec *executionContext) _Query_enterprise_muck_trunk_by_union_pk(ctx context
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.EnterpriseMuckTrunk)
 	fc.Result = res
-	return ec.marshalNEnterpriseMuckTrunk2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterpriseMuckTrunk(ctx, field.Selections, res)
+	return ec.marshalOEnterpriseMuckTrunk2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterpriseMuckTrunk(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_enterprise_score_log(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -54206,14 +54176,11 @@ func (ec *executionContext) _Query_enterprise_score_log_by_pk(ctx context.Contex
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.EnterpriseScoreLog)
 	fc.Result = res
-	return ec.marshalNEnterpriseScoreLog2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterpriseScoreLog(ctx, field.Selections, res)
+	return ec.marshalOEnterpriseScoreLog2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterpriseScoreLog(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_enterprise_score_log_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -54248,14 +54215,11 @@ func (ec *executionContext) _Query_enterprise_score_log_by_union_pk(ctx context.
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.EnterpriseScoreLog)
 	fc.Result = res
-	return ec.marshalNEnterpriseScoreLog2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterpriseScoreLog(ctx, field.Selections, res)
+	return ec.marshalOEnterpriseScoreLog2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterpriseScoreLog(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_enterprise_score_set(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -54374,14 +54338,11 @@ func (ec *executionContext) _Query_enterprise_score_set_by_pk(ctx context.Contex
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.EnterpriseScoreSet)
 	fc.Result = res
-	return ec.marshalNEnterpriseScoreSet2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterpriseScoreSet(ctx, field.Selections, res)
+	return ec.marshalOEnterpriseScoreSet2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterpriseScoreSet(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_enterprise_score_set_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -54416,14 +54377,11 @@ func (ec *executionContext) _Query_enterprise_score_set_by_union_pk(ctx context.
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.EnterpriseScoreSet)
 	fc.Result = res
-	return ec.marshalNEnterpriseScoreSet2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterpriseScoreSet(ctx, field.Selections, res)
+	return ec.marshalOEnterpriseScoreSet2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterpriseScoreSet(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_enterprise_state_his(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -54542,14 +54500,11 @@ func (ec *executionContext) _Query_enterprise_state_his_by_pk(ctx context.Contex
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.EnterpriseStateHis)
 	fc.Result = res
-	return ec.marshalNEnterpriseStateHis2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterpriseStateHis(ctx, field.Selections, res)
+	return ec.marshalOEnterpriseStateHis2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterpriseStateHis(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_enterprise_state_his_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -54584,14 +54539,11 @@ func (ec *executionContext) _Query_enterprise_state_his_by_union_pk(ctx context.
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.EnterpriseStateHis)
 	fc.Result = res
-	return ec.marshalNEnterpriseStateHis2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterpriseStateHis(ctx, field.Selections, res)
+	return ec.marshalOEnterpriseStateHis2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterpriseStateHis(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_enterprise_ukey(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -54710,14 +54662,11 @@ func (ec *executionContext) _Query_enterprise_ukey_by_pk(ctx context.Context, fi
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.EnterpriseUkey)
 	fc.Result = res
-	return ec.marshalNEnterpriseUkey2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterpriseUkey(ctx, field.Selections, res)
+	return ec.marshalOEnterpriseUkey2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterpriseUkey(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_enterprise_ukey_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -54752,14 +54701,11 @@ func (ec *executionContext) _Query_enterprise_ukey_by_union_pk(ctx context.Conte
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.EnterpriseUkey)
 	fc.Result = res
-	return ec.marshalNEnterpriseUkey2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterpriseUkey(ctx, field.Selections, res)
+	return ec.marshalOEnterpriseUkey2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterpriseUkey(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_system_user(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -54878,14 +54824,11 @@ func (ec *executionContext) _Query_system_user_by_pk(ctx context.Context, field 
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.SystemUser)
 	fc.Result = res
-	return ec.marshalNSystemUser2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐSystemUser(ctx, field.Selections, res)
+	return ec.marshalOSystemUser2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐSystemUser(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_system_user_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -54920,14 +54863,11 @@ func (ec *executionContext) _Query_system_user_by_union_pk(ctx context.Context, 
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.SystemUser)
 	fc.Result = res
-	return ec.marshalNSystemUser2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐSystemUser(ctx, field.Selections, res)
+	return ec.marshalOSystemUser2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐSystemUser(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query___type(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -74454,9 +74394,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_department_by_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "department_by_union_pk":
@@ -74468,9 +74405,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_department_by_union_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "enterprise":
@@ -74510,9 +74444,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_enterprise_by_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "enterprise_by_union_pk":
@@ -74524,9 +74455,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_enterprise_by_union_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "enterprise_alarm_send_police":
@@ -74566,9 +74494,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_enterprise_alarm_send_police_by_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "enterprise_alarm_send_police_by_union_pk":
@@ -74580,9 +74505,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_enterprise_alarm_send_police_by_union_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "enterprise_contact":
@@ -74622,9 +74544,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_enterprise_contact_by_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "enterprise_contact_by_union_pk":
@@ -74636,9 +74555,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_enterprise_contact_by_union_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "enterprise_muck_trunk":
@@ -74678,9 +74594,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_enterprise_muck_trunk_by_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "enterprise_muck_trunk_by_union_pk":
@@ -74692,9 +74605,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_enterprise_muck_trunk_by_union_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "enterprise_score_log":
@@ -74734,9 +74644,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_enterprise_score_log_by_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "enterprise_score_log_by_union_pk":
@@ -74748,9 +74655,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_enterprise_score_log_by_union_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "enterprise_score_set":
@@ -74790,9 +74694,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_enterprise_score_set_by_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "enterprise_score_set_by_union_pk":
@@ -74804,9 +74705,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_enterprise_score_set_by_union_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "enterprise_state_his":
@@ -74846,9 +74744,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_enterprise_state_his_by_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "enterprise_state_his_by_union_pk":
@@ -74860,9 +74755,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_enterprise_state_his_by_union_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "enterprise_ukey":
@@ -74902,9 +74794,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_enterprise_ukey_by_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "enterprise_ukey_by_union_pk":
@@ -74916,9 +74805,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_enterprise_ukey_by_union_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "system_user":
@@ -74958,9 +74844,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_system_user_by_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "system_user_by_union_pk":
@@ -74972,9 +74855,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_system_user_by_union_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "__type":
@@ -75866,10 +75746,6 @@ func (ec *executionContext) marshalNBoolean2bool(ctx context.Context, sel ast.Se
 	return res
 }
 
-func (ec *executionContext) marshalNDepartment2VehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐDepartment(ctx context.Context, sel ast.SelectionSet, v model1.Department) graphql.Marshaler {
-	return ec._Department(ctx, sel, &v)
-}
-
 func (ec *executionContext) marshalNDepartment2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐDepartmentᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.Department) graphql.Marshaler {
 	ret := make(graphql.Array, len(v))
 	var wg sync.WaitGroup
@@ -75982,10 +75858,6 @@ func (ec *executionContext) marshalNDepartmentSelectColumn2VehicleSupervisionᚋ
 	return v
 }
 
-func (ec *executionContext) marshalNEnterprise2VehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterprise(ctx context.Context, sel ast.SelectionSet, v model1.Enterprise) graphql.Marshaler {
-	return ec._Enterprise(ctx, sel, &v)
-}
-
 func (ec *executionContext) marshalNEnterprise2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterpriseᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.Enterprise) graphql.Marshaler {
 	ret := make(graphql.Array, len(v))
 	var wg sync.WaitGroup
@@ -76045,10 +75917,6 @@ func (ec *executionContext) marshalNEnterpriseAggregate2ᚖVehicleSupervisionᚋ
 		return graphql.Null
 	}
 	return ec._EnterpriseAggregate(ctx, sel, v)
-}
-
-func (ec *executionContext) marshalNEnterpriseAlarmSendPolice2VehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterpriseAlarmSendPolice(ctx context.Context, sel ast.SelectionSet, v model1.EnterpriseAlarmSendPolice) graphql.Marshaler {
-	return ec._EnterpriseAlarmSendPolice(ctx, sel, &v)
 }
 
 func (ec *executionContext) marshalNEnterpriseAlarmSendPolice2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterpriseAlarmSendPoliceᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.EnterpriseAlarmSendPolice) graphql.Marshaler {
@@ -76166,10 +76034,6 @@ func (ec *executionContext) marshalNEnterpriseAlarmSendPoliceSelectColumn2Vehicl
 func (ec *executionContext) unmarshalNEnterpriseBoolExp2VehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterpriseBoolExp(ctx context.Context, v interface{}) (model.EnterpriseBoolExp, error) {
 	res, err := ec.unmarshalInputEnterpriseBoolExp(ctx, v)
 	return res, graphql.ErrorOnPath(ctx, err)
-}
-
-func (ec *executionContext) marshalNEnterpriseContact2VehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterpriseContact(ctx context.Context, sel ast.SelectionSet, v model1.EnterpriseContact) graphql.Marshaler {
-	return ec._EnterpriseContact(ctx, sel, &v)
 }
 
 func (ec *executionContext) marshalNEnterpriseContact2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterpriseContactᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.EnterpriseContact) graphql.Marshaler {
@@ -76315,10 +76179,6 @@ func (ec *executionContext) unmarshalNEnterpriseInsertInput2ᚖVehicleSupervisio
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) marshalNEnterpriseMuckTrunk2VehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterpriseMuckTrunk(ctx context.Context, sel ast.SelectionSet, v model1.EnterpriseMuckTrunk) graphql.Marshaler {
-	return ec._EnterpriseMuckTrunk(ctx, sel, &v)
-}
-
 func (ec *executionContext) marshalNEnterpriseMuckTrunk2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterpriseMuckTrunkᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.EnterpriseMuckTrunk) graphql.Marshaler {
 	ret := make(graphql.Array, len(v))
 	var wg sync.WaitGroup
@@ -76436,10 +76296,6 @@ func (ec *executionContext) unmarshalNEnterpriseOrderBy2ᚖVehicleSupervisionᚋ
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) marshalNEnterpriseScoreLog2VehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterpriseScoreLog(ctx context.Context, sel ast.SelectionSet, v model1.EnterpriseScoreLog) graphql.Marshaler {
-	return ec._EnterpriseScoreLog(ctx, sel, &v)
-}
-
 func (ec *executionContext) marshalNEnterpriseScoreLog2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterpriseScoreLogᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.EnterpriseScoreLog) graphql.Marshaler {
 	ret := make(graphql.Array, len(v))
 	var wg sync.WaitGroup
@@ -76550,10 +76406,6 @@ func (ec *executionContext) unmarshalNEnterpriseScoreLogSelectColumn2VehicleSupe
 
 func (ec *executionContext) marshalNEnterpriseScoreLogSelectColumn2VehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterpriseScoreLogSelectColumn(ctx context.Context, sel ast.SelectionSet, v model.EnterpriseScoreLogSelectColumn) graphql.Marshaler {
 	return v
-}
-
-func (ec *executionContext) marshalNEnterpriseScoreSet2VehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterpriseScoreSet(ctx context.Context, sel ast.SelectionSet, v model1.EnterpriseScoreSet) graphql.Marshaler {
-	return ec._EnterpriseScoreSet(ctx, sel, &v)
 }
 
 func (ec *executionContext) marshalNEnterpriseScoreSet2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterpriseScoreSetᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.EnterpriseScoreSet) graphql.Marshaler {
@@ -76678,10 +76530,6 @@ func (ec *executionContext) marshalNEnterpriseSelectColumn2VehicleSupervisionᚋ
 	return v
 }
 
-func (ec *executionContext) marshalNEnterpriseStateHis2VehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterpriseStateHis(ctx context.Context, sel ast.SelectionSet, v model1.EnterpriseStateHis) graphql.Marshaler {
-	return ec._EnterpriseStateHis(ctx, sel, &v)
-}
-
 func (ec *executionContext) marshalNEnterpriseStateHis2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterpriseStateHisᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.EnterpriseStateHis) graphql.Marshaler {
 	ret := make(graphql.Array, len(v))
 	var wg sync.WaitGroup
@@ -76792,10 +76640,6 @@ func (ec *executionContext) unmarshalNEnterpriseStateHisSelectColumn2VehicleSupe
 
 func (ec *executionContext) marshalNEnterpriseStateHisSelectColumn2VehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterpriseStateHisSelectColumn(ctx context.Context, sel ast.SelectionSet, v model.EnterpriseStateHisSelectColumn) graphql.Marshaler {
 	return v
-}
-
-func (ec *executionContext) marshalNEnterpriseUkey2VehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterpriseUkey(ctx context.Context, sel ast.SelectionSet, v model1.EnterpriseUkey) graphql.Marshaler {
-	return ec._EnterpriseUkey(ctx, sel, &v)
 }
 
 func (ec *executionContext) marshalNEnterpriseUkey2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterpriseUkeyᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.EnterpriseUkey) graphql.Marshaler {
@@ -76998,10 +76842,6 @@ func (ec *executionContext) marshalNString2string(ctx context.Context, sel ast.S
 		}
 	}
 	return res
-}
-
-func (ec *executionContext) marshalNSystemUser2VehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐSystemUser(ctx context.Context, sel ast.SelectionSet, v model1.SystemUser) graphql.Marshaler {
-	return ec._SystemUser(ctx, sel, &v)
 }
 
 func (ec *executionContext) marshalNSystemUser2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐSystemUserᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.SystemUser) graphql.Marshaler {

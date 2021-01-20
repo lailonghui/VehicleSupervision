@@ -466,11 +466,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	vehicle_sale_record_by_pk(id: Bigint!): VehicleSaleRecord!
+	vehicle_sale_record_by_pk(id: Bigint!): VehicleSaleRecord
 	"""
 	联合主键查询
 	"""
-	vehicle_sale_record_by_union_pk(vehicle_sale_record_id: String!): VehicleSaleRecord!
+	vehicle_sale_record_by_union_pk(vehicle_sale_record_id: String!): VehicleSaleRecord
 }
 extend type Mutation {
 	"""

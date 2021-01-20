@@ -58,9 +58,11 @@ func (t *EnterprisePkLoader) NewLoader(ctx context.Context) *EnterprisePkLoader 
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}
@@ -129,9 +131,11 @@ func (t *EnterpriseUnionPkLoader) NewLoader(ctx context.Context) *EnterpriseUnio
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}

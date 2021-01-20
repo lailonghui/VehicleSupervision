@@ -58,9 +58,11 @@ func (t *AppEnforcementPkLoader) NewLoader(ctx context.Context) *AppEnforcementP
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}

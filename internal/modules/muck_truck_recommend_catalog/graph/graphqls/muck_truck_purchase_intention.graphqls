@@ -480,11 +480,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	muck_truck_purchase_intention_by_pk(id: Bigint!): MuckTruckPurchaseIntention!
+	muck_truck_purchase_intention_by_pk(id: Bigint!): MuckTruckPurchaseIntention
 	"""
 	联合主键查询
 	"""
-	muck_truck_purchase_intention_by_union_pk(muck_truck_purchase_intention_id: String!): MuckTruckPurchaseIntention!
+	muck_truck_purchase_intention_by_union_pk(muck_truck_purchase_intention_id: String!): MuckTruckPurchaseIntention
 }
 extend type Mutation {
 	"""

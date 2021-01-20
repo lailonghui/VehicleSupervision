@@ -344,11 +344,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	vehicle_enterprise_change_log_by_pk(id: Bigint!): VehicleEnterpriseChangeLog!
+	vehicle_enterprise_change_log_by_pk(id: Bigint!): VehicleEnterpriseChangeLog
 	"""
 	联合主键查询
 	"""
-	vehicle_enterprise_change_log_by_union_pk(vehicle_enterprise_change_log_id: String!): VehicleEnterpriseChangeLog!
+	vehicle_enterprise_change_log_by_union_pk(vehicle_enterprise_change_log_id: String!): VehicleEnterpriseChangeLog
 }
 extend type Mutation {
 	"""

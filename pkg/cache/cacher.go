@@ -143,7 +143,7 @@ func (r *Cacher) Clear(ctx context.Context) error {
 
 //IsEmpty 判断缓存是否为空
 func (r Cacher) IsEmpty(ctx context.Context) (bool, error) {
-	i, err := r.RedisClient.SCard(ctx, r.getKeySetKey(ctx)).Result()
+	i, err := r.RedisClient.ZCard(ctx, r.getKeySetKey(ctx)).Result()
 	if err != nil {
 		if err == redis.Nil {
 			return true, nil

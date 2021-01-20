@@ -58,9 +58,11 @@ func (t *ConstructionInfoPkLoader) NewLoader(ctx context.Context) *ConstructionI
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}
@@ -129,9 +131,11 @@ func (t *ConstructionInfoUnionPkLoader) NewLoader(ctx context.Context) *Construc
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}

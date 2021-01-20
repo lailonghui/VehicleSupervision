@@ -387,11 +387,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	vehicle_passing_record_by_pk(id: Bigint!): VehiclePassingRecord!
+	vehicle_passing_record_by_pk(id: Bigint!): VehiclePassingRecord
 	"""
 	联合主键查询
 	"""
-	vehicle_passing_record_by_union_pk(vehicle_passing_record_id: String!): VehiclePassingRecord!
+	vehicle_passing_record_by_union_pk(vehicle_passing_record_id: String!): VehiclePassingRecord
 }
 extend type Mutation {
 	"""

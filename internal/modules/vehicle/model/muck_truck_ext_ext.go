@@ -58,9 +58,11 @@ func (t *MuckTruckExtPkLoader) NewLoader(ctx context.Context) *MuckTruckExtPkLoa
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}

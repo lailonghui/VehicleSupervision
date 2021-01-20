@@ -5872,11 +5872,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	driver_blacklist_apply_by_pk(id: Bigint!): DriverBlacklistApply!
+	driver_blacklist_apply_by_pk(id: Bigint!): DriverBlacklistApply
 	"""
 	联合主键查询
 	"""
-	driver_blacklist_apply_by_union_pk(apply_id: String!): DriverBlacklistApply!
+	driver_blacklist_apply_by_union_pk(apply_id: String!): DriverBlacklistApply
 }
 extend type Mutation {
 	"""
@@ -6315,11 +6315,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	driver_blacklist_his_by_pk(id: Bigint!): DriverBlacklistHis!
+	driver_blacklist_his_by_pk(id: Bigint!): DriverBlacklistHis
 	"""
 	联合主键查询
 	"""
-	driver_blacklist_his_by_union_pk(his_id: String!): DriverBlacklistHis!
+	driver_blacklist_his_by_union_pk(his_id: String!): DriverBlacklistHis
 }
 extend type Mutation {
 	"""
@@ -6707,11 +6707,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	enterprise_blacklist_alarm_by_pk(id: Bigint!): EnterpriseBlacklistAlarm!
+	enterprise_blacklist_alarm_by_pk(id: Bigint!): EnterpriseBlacklistAlarm
 	"""
 	联合主键查询
 	"""
-	enterprise_blacklist_alarm_by_union_pk(alarm_id: String!): EnterpriseBlacklistAlarm!
+	enterprise_blacklist_alarm_by_union_pk(alarm_id: String!): EnterpriseBlacklistAlarm
 }
 extend type Mutation {
 	"""
@@ -7085,11 +7085,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	enterprise_blacklist_his_by_pk(id: Bigint!): EnterpriseBlacklistHis!
+	enterprise_blacklist_his_by_pk(id: Bigint!): EnterpriseBlacklistHis
 	"""
 	联合主键查询
 	"""
-	enterprise_blacklist_his_by_union_pk(his_id: String!): EnterpriseBlacklistHis!
+	enterprise_blacklist_his_by_union_pk(his_id: String!): EnterpriseBlacklistHis
 }
 extend type Mutation {
 	"""
@@ -7486,11 +7486,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	vehicle_blacklist_alarm_by_pk(id: Bigint!): VehicleBlacklistAlarm!
+	vehicle_blacklist_alarm_by_pk(id: Bigint!): VehicleBlacklistAlarm
 	"""
 	联合主键查询
 	"""
-	vehicle_blacklist_alarm_by_union_pk(alarm_id: String!): VehicleBlacklistAlarm!
+	vehicle_blacklist_alarm_by_union_pk(alarm_id: String!): VehicleBlacklistAlarm
 }
 extend type Mutation {
 	"""
@@ -7864,11 +7864,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	vehicle_blacklist_his_by_pk(id: Bigint!): VehicleBlacklistHis!
+	vehicle_blacklist_his_by_pk(id: Bigint!): VehicleBlacklistHis
 	"""
 	联合主键查询
 	"""
-	vehicle_blacklist_his_by_union_pk(his_id: String!): VehicleBlacklistHis!
+	vehicle_blacklist_his_by_union_pk(his_id: String!): VehicleBlacklistHis
 }
 extend type Mutation {
 	"""
@@ -22486,14 +22486,11 @@ func (ec *executionContext) _Query_driver_blacklist_apply_by_pk(ctx context.Cont
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.DriverBlacklistApply)
 	fc.Result = res
-	return ec.marshalNDriverBlacklistApply2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋmodelᚐDriverBlacklistApply(ctx, field.Selections, res)
+	return ec.marshalODriverBlacklistApply2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋmodelᚐDriverBlacklistApply(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_driver_blacklist_apply_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -22528,14 +22525,11 @@ func (ec *executionContext) _Query_driver_blacklist_apply_by_union_pk(ctx contex
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.DriverBlacklistApply)
 	fc.Result = res
-	return ec.marshalNDriverBlacklistApply2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋmodelᚐDriverBlacklistApply(ctx, field.Selections, res)
+	return ec.marshalODriverBlacklistApply2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋmodelᚐDriverBlacklistApply(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_driver_blacklist_his(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -22654,14 +22648,11 @@ func (ec *executionContext) _Query_driver_blacklist_his_by_pk(ctx context.Contex
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.DriverBlacklistHis)
 	fc.Result = res
-	return ec.marshalNDriverBlacklistHis2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋmodelᚐDriverBlacklistHis(ctx, field.Selections, res)
+	return ec.marshalODriverBlacklistHis2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋmodelᚐDriverBlacklistHis(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_driver_blacklist_his_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -22696,14 +22687,11 @@ func (ec *executionContext) _Query_driver_blacklist_his_by_union_pk(ctx context.
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.DriverBlacklistHis)
 	fc.Result = res
-	return ec.marshalNDriverBlacklistHis2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋmodelᚐDriverBlacklistHis(ctx, field.Selections, res)
+	return ec.marshalODriverBlacklistHis2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋmodelᚐDriverBlacklistHis(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_enterprise_blacklist_alarm(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -22822,14 +22810,11 @@ func (ec *executionContext) _Query_enterprise_blacklist_alarm_by_pk(ctx context.
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.EnterpriseBlacklistAlarm)
 	fc.Result = res
-	return ec.marshalNEnterpriseBlacklistAlarm2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋmodelᚐEnterpriseBlacklistAlarm(ctx, field.Selections, res)
+	return ec.marshalOEnterpriseBlacklistAlarm2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋmodelᚐEnterpriseBlacklistAlarm(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_enterprise_blacklist_alarm_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -22864,14 +22849,11 @@ func (ec *executionContext) _Query_enterprise_blacklist_alarm_by_union_pk(ctx co
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.EnterpriseBlacklistAlarm)
 	fc.Result = res
-	return ec.marshalNEnterpriseBlacklistAlarm2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋmodelᚐEnterpriseBlacklistAlarm(ctx, field.Selections, res)
+	return ec.marshalOEnterpriseBlacklistAlarm2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋmodelᚐEnterpriseBlacklistAlarm(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_enterprise_blacklist_his(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -22990,14 +22972,11 @@ func (ec *executionContext) _Query_enterprise_blacklist_his_by_pk(ctx context.Co
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.EnterpriseBlacklistHis)
 	fc.Result = res
-	return ec.marshalNEnterpriseBlacklistHis2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋmodelᚐEnterpriseBlacklistHis(ctx, field.Selections, res)
+	return ec.marshalOEnterpriseBlacklistHis2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋmodelᚐEnterpriseBlacklistHis(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_enterprise_blacklist_his_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -23032,14 +23011,11 @@ func (ec *executionContext) _Query_enterprise_blacklist_his_by_union_pk(ctx cont
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.EnterpriseBlacklistHis)
 	fc.Result = res
-	return ec.marshalNEnterpriseBlacklistHis2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋmodelᚐEnterpriseBlacklistHis(ctx, field.Selections, res)
+	return ec.marshalOEnterpriseBlacklistHis2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋmodelᚐEnterpriseBlacklistHis(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_vehicle_blacklist_alarm(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -23158,14 +23134,11 @@ func (ec *executionContext) _Query_vehicle_blacklist_alarm_by_pk(ctx context.Con
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.VehicleBlacklistAlarm)
 	fc.Result = res
-	return ec.marshalNVehicleBlacklistAlarm2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋmodelᚐVehicleBlacklistAlarm(ctx, field.Selections, res)
+	return ec.marshalOVehicleBlacklistAlarm2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋmodelᚐVehicleBlacklistAlarm(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_vehicle_blacklist_alarm_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -23200,14 +23173,11 @@ func (ec *executionContext) _Query_vehicle_blacklist_alarm_by_union_pk(ctx conte
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.VehicleBlacklistAlarm)
 	fc.Result = res
-	return ec.marshalNVehicleBlacklistAlarm2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋmodelᚐVehicleBlacklistAlarm(ctx, field.Selections, res)
+	return ec.marshalOVehicleBlacklistAlarm2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋmodelᚐVehicleBlacklistAlarm(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_vehicle_blacklist_his(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -23326,14 +23296,11 @@ func (ec *executionContext) _Query_vehicle_blacklist_his_by_pk(ctx context.Conte
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.VehicleBlacklistHis)
 	fc.Result = res
-	return ec.marshalNVehicleBlacklistHis2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋmodelᚐVehicleBlacklistHis(ctx, field.Selections, res)
+	return ec.marshalOVehicleBlacklistHis2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋmodelᚐVehicleBlacklistHis(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_vehicle_blacklist_his_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -23368,14 +23335,11 @@ func (ec *executionContext) _Query_vehicle_blacklist_his_by_union_pk(ctx context
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.VehicleBlacklistHis)
 	fc.Result = res
-	return ec.marshalNVehicleBlacklistHis2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋmodelᚐVehicleBlacklistHis(ctx, field.Selections, res)
+	return ec.marshalOVehicleBlacklistHis2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋmodelᚐVehicleBlacklistHis(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query___type(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -36153,9 +36117,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_driver_blacklist_apply_by_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "driver_blacklist_apply_by_union_pk":
@@ -36167,9 +36128,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_driver_blacklist_apply_by_union_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "driver_blacklist_his":
@@ -36209,9 +36167,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_driver_blacklist_his_by_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "driver_blacklist_his_by_union_pk":
@@ -36223,9 +36178,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_driver_blacklist_his_by_union_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "enterprise_blacklist_alarm":
@@ -36265,9 +36217,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_enterprise_blacklist_alarm_by_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "enterprise_blacklist_alarm_by_union_pk":
@@ -36279,9 +36228,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_enterprise_blacklist_alarm_by_union_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "enterprise_blacklist_his":
@@ -36321,9 +36267,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_enterprise_blacklist_his_by_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "enterprise_blacklist_his_by_union_pk":
@@ -36335,9 +36278,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_enterprise_blacklist_his_by_union_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "vehicle_blacklist_alarm":
@@ -36377,9 +36317,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_vehicle_blacklist_alarm_by_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "vehicle_blacklist_alarm_by_union_pk":
@@ -36391,9 +36328,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_vehicle_blacklist_alarm_by_union_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "vehicle_blacklist_his":
@@ -36433,9 +36367,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_vehicle_blacklist_his_by_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "vehicle_blacklist_his_by_union_pk":
@@ -36447,9 +36378,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_vehicle_blacklist_his_by_union_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "__type":
@@ -37736,10 +37664,6 @@ func (ec *executionContext) marshalNBoolean2bool(ctx context.Context, sel ast.Se
 	return res
 }
 
-func (ec *executionContext) marshalNDriverBlacklistApply2VehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋmodelᚐDriverBlacklistApply(ctx context.Context, sel ast.SelectionSet, v model1.DriverBlacklistApply) graphql.Marshaler {
-	return ec._DriverBlacklistApply(ctx, sel, &v)
-}
-
 func (ec *executionContext) marshalNDriverBlacklistApply2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋmodelᚐDriverBlacklistApplyᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.DriverBlacklistApply) graphql.Marshaler {
 	ret := make(graphql.Array, len(v))
 	var wg sync.WaitGroup
@@ -37850,10 +37774,6 @@ func (ec *executionContext) unmarshalNDriverBlacklistApplySelectColumn2VehicleSu
 
 func (ec *executionContext) marshalNDriverBlacklistApplySelectColumn2VehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐDriverBlacklistApplySelectColumn(ctx context.Context, sel ast.SelectionSet, v model.DriverBlacklistApplySelectColumn) graphql.Marshaler {
 	return v
-}
-
-func (ec *executionContext) marshalNDriverBlacklistHis2VehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋmodelᚐDriverBlacklistHis(ctx context.Context, sel ast.SelectionSet, v model1.DriverBlacklistHis) graphql.Marshaler {
-	return ec._DriverBlacklistHis(ctx, sel, &v)
 }
 
 func (ec *executionContext) marshalNDriverBlacklistHis2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋmodelᚐDriverBlacklistHisᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.DriverBlacklistHis) graphql.Marshaler {
@@ -37968,10 +37888,6 @@ func (ec *executionContext) marshalNDriverBlacklistHisSelectColumn2VehicleSuperv
 	return v
 }
 
-func (ec *executionContext) marshalNEnterpriseBlacklistAlarm2VehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋmodelᚐEnterpriseBlacklistAlarm(ctx context.Context, sel ast.SelectionSet, v model1.EnterpriseBlacklistAlarm) graphql.Marshaler {
-	return ec._EnterpriseBlacklistAlarm(ctx, sel, &v)
-}
-
 func (ec *executionContext) marshalNEnterpriseBlacklistAlarm2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋmodelᚐEnterpriseBlacklistAlarmᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.EnterpriseBlacklistAlarm) graphql.Marshaler {
 	ret := make(graphql.Array, len(v))
 	var wg sync.WaitGroup
@@ -38082,10 +37998,6 @@ func (ec *executionContext) unmarshalNEnterpriseBlacklistAlarmSelectColumn2Vehic
 
 func (ec *executionContext) marshalNEnterpriseBlacklistAlarmSelectColumn2VehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐEnterpriseBlacklistAlarmSelectColumn(ctx context.Context, sel ast.SelectionSet, v model.EnterpriseBlacklistAlarmSelectColumn) graphql.Marshaler {
 	return v
-}
-
-func (ec *executionContext) marshalNEnterpriseBlacklistHis2VehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋmodelᚐEnterpriseBlacklistHis(ctx context.Context, sel ast.SelectionSet, v model1.EnterpriseBlacklistHis) graphql.Marshaler {
-	return ec._EnterpriseBlacklistHis(ctx, sel, &v)
 }
 
 func (ec *executionContext) marshalNEnterpriseBlacklistHis2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋmodelᚐEnterpriseBlacklistHisᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.EnterpriseBlacklistHis) graphql.Marshaler {
@@ -38326,10 +38238,6 @@ func (ec *executionContext) marshalNTimestamptz2ᚖtimeᚐTime(ctx context.Conte
 	return res
 }
 
-func (ec *executionContext) marshalNVehicleBlacklistAlarm2VehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋmodelᚐVehicleBlacklistAlarm(ctx context.Context, sel ast.SelectionSet, v model1.VehicleBlacklistAlarm) graphql.Marshaler {
-	return ec._VehicleBlacklistAlarm(ctx, sel, &v)
-}
-
 func (ec *executionContext) marshalNVehicleBlacklistAlarm2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋmodelᚐVehicleBlacklistAlarmᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.VehicleBlacklistAlarm) graphql.Marshaler {
 	ret := make(graphql.Array, len(v))
 	var wg sync.WaitGroup
@@ -38440,10 +38348,6 @@ func (ec *executionContext) unmarshalNVehicleBlacklistAlarmSelectColumn2VehicleS
 
 func (ec *executionContext) marshalNVehicleBlacklistAlarmSelectColumn2VehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐVehicleBlacklistAlarmSelectColumn(ctx context.Context, sel ast.SelectionSet, v model.VehicleBlacklistAlarmSelectColumn) graphql.Marshaler {
 	return v
-}
-
-func (ec *executionContext) marshalNVehicleBlacklistHis2VehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋmodelᚐVehicleBlacklistHis(ctx context.Context, sel ast.SelectionSet, v model1.VehicleBlacklistHis) graphql.Marshaler {
-	return ec._VehicleBlacklistHis(ctx, sel, &v)
 }
 
 func (ec *executionContext) marshalNVehicleBlacklistHis2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋmodelᚐVehicleBlacklistHisᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.VehicleBlacklistHis) graphql.Marshaler {

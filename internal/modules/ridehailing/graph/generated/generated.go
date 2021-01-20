@@ -3334,11 +3334,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	ride_hailing_driver_by_pk(id: Bigint!): RideHailingDriver!
+	ride_hailing_driver_by_pk(id: Bigint!): RideHailingDriver
 	"""
 	联合主键查询
 	"""
-	ride_hailing_driver_by_union_pk(ride_hailing_driver_id: String!): RideHailingDriver!
+	ride_hailing_driver_by_union_pk(ride_hailing_driver_id: String!): RideHailingDriver
 }
 extend type Mutation {
 	"""
@@ -3890,11 +3890,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	ride_hailing_driver_verify_by_pk(id: Bigint!): RideHailingDriverVerify!
+	ride_hailing_driver_verify_by_pk(id: Bigint!): RideHailingDriverVerify
 	"""
 	联合主键查询
 	"""
-	ride_hailing_driver_verify_by_union_pk(ride_hailing_driver_verify_id: String!): RideHailingDriverVerify!
+	ride_hailing_driver_verify_by_union_pk(ride_hailing_driver_verify_id: String!): RideHailingDriverVerify
 }
 extend type Mutation {
 	"""
@@ -5343,14 +5343,11 @@ func (ec *executionContext) _Query_ride_hailing_driver_by_pk(ctx context.Context
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.RideHailingDriver)
 	fc.Result = res
-	return ec.marshalNRideHailingDriver2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋridehailingᚋmodelᚐRideHailingDriver(ctx, field.Selections, res)
+	return ec.marshalORideHailingDriver2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋridehailingᚋmodelᚐRideHailingDriver(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_ride_hailing_driver_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -5385,14 +5382,11 @@ func (ec *executionContext) _Query_ride_hailing_driver_by_union_pk(ctx context.C
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.RideHailingDriver)
 	fc.Result = res
-	return ec.marshalNRideHailingDriver2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋridehailingᚋmodelᚐRideHailingDriver(ctx, field.Selections, res)
+	return ec.marshalORideHailingDriver2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋridehailingᚋmodelᚐRideHailingDriver(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_ride_hailing_driver_verify(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -5511,14 +5505,11 @@ func (ec *executionContext) _Query_ride_hailing_driver_verify_by_pk(ctx context.
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.RideHailingDriverVerify)
 	fc.Result = res
-	return ec.marshalNRideHailingDriverVerify2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋridehailingᚋmodelᚐRideHailingDriverVerify(ctx, field.Selections, res)
+	return ec.marshalORideHailingDriverVerify2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋridehailingᚋmodelᚐRideHailingDriverVerify(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_ride_hailing_driver_verify_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -5553,14 +5544,11 @@ func (ec *executionContext) _Query_ride_hailing_driver_verify_by_union_pk(ctx co
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.RideHailingDriverVerify)
 	fc.Result = res
-	return ec.marshalNRideHailingDriverVerify2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋridehailingᚋmodelᚐRideHailingDriverVerify(ctx, field.Selections, res)
+	return ec.marshalORideHailingDriverVerify2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋridehailingᚋmodelᚐRideHailingDriverVerify(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query___type(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -17721,9 +17709,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_ride_hailing_driver_by_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "ride_hailing_driver_by_union_pk":
@@ -17735,9 +17720,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_ride_hailing_driver_by_union_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "ride_hailing_driver_verify":
@@ -17777,9 +17759,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_ride_hailing_driver_verify_by_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "ride_hailing_driver_verify_by_union_pk":
@@ -17791,9 +17770,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_ride_hailing_driver_verify_by_union_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "__type":
@@ -19303,10 +19279,6 @@ func (ec *executionContext) marshalNPoint2string(ctx context.Context, sel ast.Se
 	return res
 }
 
-func (ec *executionContext) marshalNRideHailingDriver2VehicleSupervisionᚋinternalᚋmodulesᚋridehailingᚋmodelᚐRideHailingDriver(ctx context.Context, sel ast.SelectionSet, v model1.RideHailingDriver) graphql.Marshaler {
-	return ec._RideHailingDriver(ctx, sel, &v)
-}
-
 func (ec *executionContext) marshalNRideHailingDriver2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋridehailingᚋmodelᚐRideHailingDriverᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.RideHailingDriver) graphql.Marshaler {
 	ret := make(graphql.Array, len(v))
 	var wg sync.WaitGroup
@@ -19417,10 +19389,6 @@ func (ec *executionContext) unmarshalNRideHailingDriverSelectColumn2VehicleSuper
 
 func (ec *executionContext) marshalNRideHailingDriverSelectColumn2VehicleSupervisionᚋinternalᚋmodulesᚋridehailingᚋgraphᚋmodelᚐRideHailingDriverSelectColumn(ctx context.Context, sel ast.SelectionSet, v model.RideHailingDriverSelectColumn) graphql.Marshaler {
 	return v
-}
-
-func (ec *executionContext) marshalNRideHailingDriverVerify2VehicleSupervisionᚋinternalᚋmodulesᚋridehailingᚋmodelᚐRideHailingDriverVerify(ctx context.Context, sel ast.SelectionSet, v model1.RideHailingDriverVerify) graphql.Marshaler {
-	return ec._RideHailingDriverVerify(ctx, sel, &v)
 }
 
 func (ec *executionContext) marshalNRideHailingDriverVerify2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋridehailingᚋmodelᚐRideHailingDriverVerifyᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.RideHailingDriverVerify) graphql.Marshaler {

@@ -475,7 +475,7 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	sim_card_all_by_pk(id: Bigint!): SimCardAll!
+	sim_card_all_by_pk(id: Bigint!): SimCardAll
 }
 extend type Mutation {
 	"""

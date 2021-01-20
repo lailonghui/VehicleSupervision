@@ -461,11 +461,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	sim_card_status_by_pk(id: Bigint!): SimCardStatus!
+	sim_card_status_by_pk(id: Bigint!): SimCardStatus
 	"""
 	联合主键查询
 	"""
-	sim_card_status_by_union_pk(sim_card_status_id: String!): SimCardStatus!
+	sim_card_status_by_union_pk(sim_card_status_id: String!): SimCardStatus
 }
 extend type Mutation {
 	"""

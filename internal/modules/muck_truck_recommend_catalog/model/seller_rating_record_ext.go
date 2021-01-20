@@ -58,9 +58,11 @@ func (t *SellerRatingRecordPkLoader) NewLoader(ctx context.Context) *SellerRatin
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}
@@ -129,9 +131,11 @@ func (t *SellerRatingRecordUnionPkLoader) NewLoader(ctx context.Context) *Seller
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}

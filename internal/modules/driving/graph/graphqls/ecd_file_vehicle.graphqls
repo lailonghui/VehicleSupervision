@@ -312,11 +312,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	ecd_file_vehicle_by_pk(id: Bigint!): EcdFileVehicle!
+	ecd_file_vehicle_by_pk(id: Bigint!): EcdFileVehicle
 	"""
 	联合主键查询
 	"""
-	ecd_file_vehicle_by_union_pk(file_vehicle_id: String!): EcdFileVehicle!
+	ecd_file_vehicle_by_union_pk(file_vehicle_id: String!): EcdFileVehicle
 }
 extend type Mutation {
 	"""

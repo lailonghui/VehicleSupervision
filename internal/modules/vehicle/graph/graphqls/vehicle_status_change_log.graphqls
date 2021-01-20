@@ -354,11 +354,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	vehicle_status_change_log_by_pk(id: Bigint!): VehicleStatusChangeLog!
+	vehicle_status_change_log_by_pk(id: Bigint!): VehicleStatusChangeLog
 	"""
 	联合主键查询
 	"""
-	vehicle_status_change_log_by_union_pk(vehicle_status_change_log_id: String!): VehicleStatusChangeLog!
+	vehicle_status_change_log_by_union_pk(vehicle_status_change_log_id: String!): VehicleStatusChangeLog
 }
 extend type Mutation {
 	"""

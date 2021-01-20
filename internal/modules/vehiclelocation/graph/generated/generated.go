@@ -3093,7 +3093,7 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	vehicle_location_his_by_pk(id: Bigint!): VehicleLocationHis!
+	vehicle_location_his_by_pk(id: Bigint!): VehicleLocationHis
 }
 extend type Mutation {
 	"""
@@ -3636,7 +3636,7 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	vehicle_location_last_by_pk(id: Bigint!): VehicleLocationLast!
+	vehicle_location_last_by_pk(id: Bigint!): VehicleLocationLast
 }
 extend type Mutation {
 	"""
@@ -4795,14 +4795,11 @@ func (ec *executionContext) _Query_vehicle_location_his_by_pk(ctx context.Contex
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.VehicleLocationHis)
 	fc.Result = res
-	return ec.marshalNVehicleLocationHis2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehiclelocationᚋmodelᚐVehicleLocationHis(ctx, field.Selections, res)
+	return ec.marshalOVehicleLocationHis2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehiclelocationᚋmodelᚐVehicleLocationHis(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_vehicle_location_last(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -4921,14 +4918,11 @@ func (ec *executionContext) _Query_vehicle_location_last_by_pk(ctx context.Conte
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.VehicleLocationLast)
 	fc.Result = res
-	return ec.marshalNVehicleLocationLast2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehiclelocationᚋmodelᚐVehicleLocationLast(ctx, field.Selections, res)
+	return ec.marshalOVehicleLocationLast2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehiclelocationᚋmodelᚐVehicleLocationLast(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query___type(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -16587,9 +16581,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_vehicle_location_his_by_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "vehicle_location_last":
@@ -16629,9 +16620,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_vehicle_location_last_by_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "__type":
@@ -18159,10 +18147,6 @@ func (ec *executionContext) marshalNTimestamptz2ᚖtimeᚐTime(ctx context.Conte
 	return res
 }
 
-func (ec *executionContext) marshalNVehicleLocationHis2VehicleSupervisionᚋinternalᚋmodulesᚋvehiclelocationᚋmodelᚐVehicleLocationHis(ctx context.Context, sel ast.SelectionSet, v model1.VehicleLocationHis) graphql.Marshaler {
-	return ec._VehicleLocationHis(ctx, sel, &v)
-}
-
 func (ec *executionContext) marshalNVehicleLocationHis2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehiclelocationᚋmodelᚐVehicleLocationHisᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.VehicleLocationHis) graphql.Marshaler {
 	ret := make(graphql.Array, len(v))
 	var wg sync.WaitGroup
@@ -18273,10 +18257,6 @@ func (ec *executionContext) unmarshalNVehicleLocationHisSelectColumn2VehicleSupe
 
 func (ec *executionContext) marshalNVehicleLocationHisSelectColumn2VehicleSupervisionᚋinternalᚋmodulesᚋvehiclelocationᚋgraphᚋmodelᚐVehicleLocationHisSelectColumn(ctx context.Context, sel ast.SelectionSet, v model.VehicleLocationHisSelectColumn) graphql.Marshaler {
 	return v
-}
-
-func (ec *executionContext) marshalNVehicleLocationLast2VehicleSupervisionᚋinternalᚋmodulesᚋvehiclelocationᚋmodelᚐVehicleLocationLast(ctx context.Context, sel ast.SelectionSet, v model1.VehicleLocationLast) graphql.Marshaler {
-	return ec._VehicleLocationLast(ctx, sel, &v)
 }
 
 func (ec *executionContext) marshalNVehicleLocationLast2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehiclelocationᚋmodelᚐVehicleLocationLastᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.VehicleLocationLast) graphql.Marshaler {

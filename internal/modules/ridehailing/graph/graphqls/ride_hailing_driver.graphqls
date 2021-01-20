@@ -621,11 +621,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	ride_hailing_driver_by_pk(id: Bigint!): RideHailingDriver!
+	ride_hailing_driver_by_pk(id: Bigint!): RideHailingDriver
 	"""
 	联合主键查询
 	"""
-	ride_hailing_driver_by_union_pk(ride_hailing_driver_id: String!): RideHailingDriver!
+	ride_hailing_driver_by_union_pk(ride_hailing_driver_id: String!): RideHailingDriver
 }
 extend type Mutation {
 	"""

@@ -335,11 +335,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	vehicle_blacklist_his_by_pk(id: Bigint!): VehicleBlacklistHis!
+	vehicle_blacklist_his_by_pk(id: Bigint!): VehicleBlacklistHis
 	"""
 	联合主键查询
 	"""
-	vehicle_blacklist_his_by_union_pk(his_id: String!): VehicleBlacklistHis!
+	vehicle_blacklist_his_by_union_pk(his_id: String!): VehicleBlacklistHis
 }
 extend type Mutation {
 	"""

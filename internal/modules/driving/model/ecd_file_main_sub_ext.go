@@ -58,9 +58,11 @@ func (t *EcdFileMainSubPkLoader) NewLoader(ctx context.Context) *EcdFileMainSubP
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}
@@ -129,9 +131,11 @@ func (t *EcdFileMainSubUnionPkLoader) NewLoader(ctx context.Context) *EcdFileMai
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}

@@ -610,7 +610,7 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	vehicle_violation_details_by_pk(id: Bigint!): VehicleViolationDetails!
+	vehicle_violation_details_by_pk(id: Bigint!): VehicleViolationDetails
 }
 extend type Mutation {
 	"""

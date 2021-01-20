@@ -58,9 +58,11 @@ func (t *AlarmSupervisionPictureUploadPkLoader) NewLoader(ctx context.Context) *
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}

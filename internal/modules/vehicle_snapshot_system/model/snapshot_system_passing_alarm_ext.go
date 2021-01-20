@@ -58,9 +58,11 @@ func (t *SnapshotSystemPassingAlarmPkLoader) NewLoader(ctx context.Context) *Sna
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}
@@ -129,9 +131,11 @@ func (t *SnapshotSystemPassingAlarmUnionPkLoader) NewLoader(ctx context.Context)
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}

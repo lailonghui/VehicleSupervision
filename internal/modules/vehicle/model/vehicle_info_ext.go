@@ -58,9 +58,11 @@ func (t *VehicleInfoPkLoader) NewLoader(ctx context.Context) *VehicleInfoPkLoade
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}

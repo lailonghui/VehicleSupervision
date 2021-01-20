@@ -58,9 +58,11 @@ func (t *SimCardMgrPkLoader) NewLoader(ctx context.Context) *SimCardMgrPkLoader 
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}
@@ -129,9 +131,11 @@ func (t *SimCardMgrUnionPkLoader) NewLoader(ctx context.Context) *SimCardMgrUnio
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}

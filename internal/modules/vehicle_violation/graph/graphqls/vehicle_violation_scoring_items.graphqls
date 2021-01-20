@@ -321,7 +321,7 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	vehicle_violation_scoring_items_by_pk(id: Bigint!): VehicleViolationScoringItems!
+	vehicle_violation_scoring_items_by_pk(id: Bigint!): VehicleViolationScoringItems
 }
 extend type Mutation {
 	"""

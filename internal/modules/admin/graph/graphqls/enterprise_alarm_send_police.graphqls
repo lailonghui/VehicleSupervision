@@ -345,11 +345,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	enterprise_alarm_send_police_by_pk(id: Bigint!): EnterpriseAlarmSendPolice!
+	enterprise_alarm_send_police_by_pk(id: Bigint!): EnterpriseAlarmSendPolice
 	"""
 	联合主键查询
 	"""
-	enterprise_alarm_send_police_by_union_pk(enterprise_alarm_send_police_id: String!): EnterpriseAlarmSendPolice!
+	enterprise_alarm_send_police_by_union_pk(enterprise_alarm_send_police_id: String!): EnterpriseAlarmSendPolice
 }
 extend type Mutation {
 	"""

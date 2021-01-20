@@ -391,11 +391,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	terminal_param_sub_by_pk(id: Bigint!): TerminalParamSub!
+	terminal_param_sub_by_pk(id: Bigint!): TerminalParamSub
 	"""
 	联合主键查询
 	"""
-	terminal_param_sub_by_union_pk(param_sub_id: String!): TerminalParamSub!
+	terminal_param_sub_by_union_pk(param_sub_id: String!): TerminalParamSub
 }
 extend type Mutation {
 	"""

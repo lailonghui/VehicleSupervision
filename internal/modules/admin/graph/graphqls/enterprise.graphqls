@@ -1106,11 +1106,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	enterprise_by_pk(id: Bigint!): Enterprise!
+	enterprise_by_pk(id: Bigint!): Enterprise
 	"""
 	联合主键查询
 	"""
-	enterprise_by_union_pk(enterprise_id: String!): Enterprise!
+	enterprise_by_union_pk(enterprise_id: String!): Enterprise
 }
 extend type Mutation {
 	"""

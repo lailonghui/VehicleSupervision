@@ -58,9 +58,11 @@ func (t *LimitSpeedPlanDetailPkLoader) NewLoader(ctx context.Context) *LimitSpee
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}
@@ -129,9 +131,11 @@ func (t *LimitSpeedPlanDetailUnionPkLoader) NewLoader(ctx context.Context) *Limi
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}

@@ -317,7 +317,7 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	temp_identity_card_download_log_by_pk(id: Bigint!): TempIdentityCardDownloadLog!
+	temp_identity_card_download_log_by_pk(id: Bigint!): TempIdentityCardDownloadLog
 }
 extend type Mutation {
 	"""

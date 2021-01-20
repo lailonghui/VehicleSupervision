@@ -17045,11 +17045,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	control_line_by_pk(id: Bigint!): ControlLine!
+	control_line_by_pk(id: Bigint!): ControlLine
 	"""
 	联合主键查询
 	"""
-	control_line_by_union_pk(control_line_id: String!): ControlLine!
+	control_line_by_union_pk(control_line_id: String!): ControlLine
 }
 extend type Mutation {
 	"""
@@ -17391,11 +17391,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	control_line_time_by_pk(id: Bigint!): ControlLineTime!
+	control_line_time_by_pk(id: Bigint!): ControlLineTime
 	"""
 	联合主键查询
 	"""
-	control_line_time_by_union_pk(control_line_time_id: String!): ControlLineTime!
+	control_line_time_by_union_pk(control_line_time_id: String!): ControlLineTime
 }
 extend type Mutation {
 	"""
@@ -17825,11 +17825,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	ecd_file_check_his_by_pk(id: Bigint!): EcdFileCheckHis!
+	ecd_file_check_his_by_pk(id: Bigint!): EcdFileCheckHis
 	"""
 	联合主键查询
 	"""
-	ecd_file_check_his_by_union_pk(his_id: String!): EcdFileCheckHis!
+	ecd_file_check_his_by_union_pk(his_id: String!): EcdFileCheckHis
 }
 extend type Mutation {
 	"""
@@ -18157,11 +18157,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	ecd_file_district_by_pk(id: Bigint!): EcdFileDistrict!
+	ecd_file_district_by_pk(id: Bigint!): EcdFileDistrict
 	"""
 	联合主键查询
 	"""
-	ecd_file_district_by_union_pk(file_district_id: String!): EcdFileDistrict!
+	ecd_file_district_by_union_pk(file_district_id: String!): EcdFileDistrict
 }
 extend type Mutation {
 	"""
@@ -18554,11 +18554,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	ecd_file_line_point_by_pk(id: Bigint!): EcdFileLinePoint!
+	ecd_file_line_point_by_pk(id: Bigint!): EcdFileLinePoint
 	"""
 	联合主键查询
 	"""
-	ecd_file_line_point_by_union_pk(line_point_id: String!): EcdFileLinePoint!
+	ecd_file_line_point_by_union_pk(line_point_id: String!): EcdFileLinePoint
 }
 extend type Mutation {
 	"""
@@ -19347,11 +19347,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	ecd_file_main_by_pk(id: Bigint!): EcdFileMain!
+	ecd_file_main_by_pk(id: Bigint!): EcdFileMain
 	"""
 	联合主键查询
 	"""
-	ecd_file_main_by_union_pk(file_main_id: String!): EcdFileMain!
+	ecd_file_main_by_union_pk(file_main_id: String!): EcdFileMain
 }
 extend type Mutation {
 	"""
@@ -20010,11 +20010,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	ecd_file_main_sub_by_pk(id: Bigint!): EcdFileMainSub!
+	ecd_file_main_sub_by_pk(id: Bigint!): EcdFileMainSub
 	"""
 	联合主键查询
 	"""
-	ecd_file_main_sub_by_union_pk(file_main_sub_id: String!): EcdFileMainSub!
+	ecd_file_main_sub_by_union_pk(file_main_sub_id: String!): EcdFileMainSub
 }
 extend type Mutation {
 	"""
@@ -20365,11 +20365,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	ecd_file_vehicle_by_pk(id: Bigint!): EcdFileVehicle!
+	ecd_file_vehicle_by_pk(id: Bigint!): EcdFileVehicle
 	"""
 	联合主键查询
 	"""
-	ecd_file_vehicle_by_union_pk(file_vehicle_id: String!): EcdFileVehicle!
+	ecd_file_vehicle_by_union_pk(file_vehicle_id: String!): EcdFileVehicle
 }
 extend type Mutation {
 	"""
@@ -20818,11 +20818,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	ecd_file_vehicle_time_by_pk(id: Bigint!): EcdFileVehicleTime!
+	ecd_file_vehicle_time_by_pk(id: Bigint!): EcdFileVehicleTime
 	"""
 	联合主键查询
 	"""
-	ecd_file_vehicle_time_by_union_pk(vehicle_time_id: String!): EcdFileVehicleTime!
+	ecd_file_vehicle_time_by_union_pk(vehicle_time_id: String!): EcdFileVehicleTime
 }
 extend type Mutation {
 	"""
@@ -21220,11 +21220,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	ecd_line_by_pk(id: Bigint!): EcdLine!
+	ecd_line_by_pk(id: Bigint!): EcdLine
 	"""
 	联合主键查询
 	"""
-	ecd_line_by_union_pk(line_id: String!): EcdLine!
+	ecd_line_by_union_pk(line_id: String!): EcdLine
 }
 extend type Mutation {
 	"""
@@ -21626,11 +21626,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	electric_fence_by_pk(id: Bigint!): ElectricFence!
+	electric_fence_by_pk(id: Bigint!): ElectricFence
 	"""
 	联合主键查询
 	"""
-	electric_fence_by_union_pk(electric_fence_id: String!): ElectricFence!
+	electric_fence_by_union_pk(electric_fence_id: String!): ElectricFence
 }
 extend type Mutation {
 	"""
@@ -22028,11 +22028,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	electric_fence_enterance_record_by_pk(id: Bigint!): ElectricFenceEnteranceRecord!
+	electric_fence_enterance_record_by_pk(id: Bigint!): ElectricFenceEnteranceRecord
 	"""
 	联合主键查询
 	"""
-	electric_fence_enterance_record_by_union_pk(record_id: String!): ElectricFenceEnteranceRecord!
+	electric_fence_enterance_record_by_union_pk(record_id: String!): ElectricFenceEnteranceRecord
 }
 extend type Mutation {
 	"""
@@ -22499,11 +22499,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	limit_speed_line_by_pk(id: Bigint!): LimitSpeedLine!
+	limit_speed_line_by_pk(id: Bigint!): LimitSpeedLine
 	"""
 	联合主键查询
 	"""
-	limit_speed_line_by_union_pk(limit_speed_line_id: String!): LimitSpeedLine!
+	limit_speed_line_by_union_pk(limit_speed_line_id: String!): LimitSpeedLine
 }
 extend type Mutation {
 	"""
@@ -22868,11 +22868,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	limit_speed_line_time_by_pk(id: Bigint!): LimitSpeedLineTime!
+	limit_speed_line_time_by_pk(id: Bigint!): LimitSpeedLineTime
 	"""
 	联合主键查询
 	"""
-	limit_speed_line_time_by_union_pk(limit_speed_line_time_id: String!): LimitSpeedLineTime!
+	limit_speed_line_time_by_union_pk(limit_speed_line_time_id: String!): LimitSpeedLineTime
 }
 extend type Mutation {
 	"""
@@ -23214,11 +23214,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	limit_speed_plan_by_pk(id: Bigint!): LimitSpeedPlan!
+	limit_speed_plan_by_pk(id: Bigint!): LimitSpeedPlan
 	"""
 	联合主键查询
 	"""
-	limit_speed_plan_by_union_pk(limit_speed_plan_id: String!): LimitSpeedPlan!
+	limit_speed_plan_by_union_pk(limit_speed_plan_id: String!): LimitSpeedPlan
 }
 extend type Mutation {
 	"""
@@ -23643,11 +23643,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	limit_speed_plan_detail_by_pk(id: Bigint!): LimitSpeedPlanDetail!
+	limit_speed_plan_detail_by_pk(id: Bigint!): LimitSpeedPlanDetail
 	"""
 	联合主键查询
 	"""
-	limit_speed_plan_detail_by_union_pk(detail_id: String!): LimitSpeedPlanDetail!
+	limit_speed_plan_detail_by_union_pk(detail_id: String!): LimitSpeedPlanDetail
 }
 extend type Mutation {
 	"""
@@ -24128,11 +24128,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	vehicle_night_travel_record_by_pk(id: Bigint!): VehicleNightTravelRecord!
+	vehicle_night_travel_record_by_pk(id: Bigint!): VehicleNightTravelRecord
 	"""
 	联合主键查询
 	"""
-	vehicle_night_travel_record_by_union_pk(record_id: String!): VehicleNightTravelRecord!
+	vehicle_night_travel_record_by_union_pk(record_id: String!): VehicleNightTravelRecord
 }
 extend type Mutation {
 	"""
@@ -24558,11 +24558,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	vehicle_stop_travel_record_by_pk(id: Bigint!): VehicleStopTravelRecord!
+	vehicle_stop_travel_record_by_pk(id: Bigint!): VehicleStopTravelRecord
 	"""
 	联合主键查询
 	"""
-	vehicle_stop_travel_record_by_union_pk(record_id: String!): VehicleStopTravelRecord!
+	vehicle_stop_travel_record_by_union_pk(record_id: String!): VehicleStopTravelRecord
 }
 extend type Mutation {
 	"""
@@ -80559,14 +80559,11 @@ func (ec *executionContext) _Query_control_line_by_pk(ctx context.Context, field
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.ControlLine)
 	fc.Result = res
-	return ec.marshalNControlLine2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐControlLine(ctx, field.Selections, res)
+	return ec.marshalOControlLine2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐControlLine(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_control_line_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -80601,14 +80598,11 @@ func (ec *executionContext) _Query_control_line_by_union_pk(ctx context.Context,
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.ControlLine)
 	fc.Result = res
-	return ec.marshalNControlLine2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐControlLine(ctx, field.Selections, res)
+	return ec.marshalOControlLine2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐControlLine(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_control_line_time(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -80727,14 +80721,11 @@ func (ec *executionContext) _Query_control_line_time_by_pk(ctx context.Context, 
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.ControlLineTime)
 	fc.Result = res
-	return ec.marshalNControlLineTime2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐControlLineTime(ctx, field.Selections, res)
+	return ec.marshalOControlLineTime2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐControlLineTime(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_control_line_time_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -80769,14 +80760,11 @@ func (ec *executionContext) _Query_control_line_time_by_union_pk(ctx context.Con
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.ControlLineTime)
 	fc.Result = res
-	return ec.marshalNControlLineTime2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐControlLineTime(ctx, field.Selections, res)
+	return ec.marshalOControlLineTime2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐControlLineTime(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_ecd_file_check_his(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -80895,14 +80883,11 @@ func (ec *executionContext) _Query_ecd_file_check_his_by_pk(ctx context.Context,
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.EcdFileCheckHis)
 	fc.Result = res
-	return ec.marshalNEcdFileCheckHis2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐEcdFileCheckHis(ctx, field.Selections, res)
+	return ec.marshalOEcdFileCheckHis2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐEcdFileCheckHis(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_ecd_file_check_his_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -80937,14 +80922,11 @@ func (ec *executionContext) _Query_ecd_file_check_his_by_union_pk(ctx context.Co
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.EcdFileCheckHis)
 	fc.Result = res
-	return ec.marshalNEcdFileCheckHis2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐEcdFileCheckHis(ctx, field.Selections, res)
+	return ec.marshalOEcdFileCheckHis2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐEcdFileCheckHis(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_ecd_file_district(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -81063,14 +81045,11 @@ func (ec *executionContext) _Query_ecd_file_district_by_pk(ctx context.Context, 
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.EcdFileDistrict)
 	fc.Result = res
-	return ec.marshalNEcdFileDistrict2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐEcdFileDistrict(ctx, field.Selections, res)
+	return ec.marshalOEcdFileDistrict2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐEcdFileDistrict(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_ecd_file_district_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -81105,14 +81084,11 @@ func (ec *executionContext) _Query_ecd_file_district_by_union_pk(ctx context.Con
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.EcdFileDistrict)
 	fc.Result = res
-	return ec.marshalNEcdFileDistrict2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐEcdFileDistrict(ctx, field.Selections, res)
+	return ec.marshalOEcdFileDistrict2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐEcdFileDistrict(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_ecd_file_line_point(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -81231,14 +81207,11 @@ func (ec *executionContext) _Query_ecd_file_line_point_by_pk(ctx context.Context
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.EcdFileLinePoint)
 	fc.Result = res
-	return ec.marshalNEcdFileLinePoint2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐEcdFileLinePoint(ctx, field.Selections, res)
+	return ec.marshalOEcdFileLinePoint2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐEcdFileLinePoint(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_ecd_file_line_point_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -81273,14 +81246,11 @@ func (ec *executionContext) _Query_ecd_file_line_point_by_union_pk(ctx context.C
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.EcdFileLinePoint)
 	fc.Result = res
-	return ec.marshalNEcdFileLinePoint2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐEcdFileLinePoint(ctx, field.Selections, res)
+	return ec.marshalOEcdFileLinePoint2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐEcdFileLinePoint(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_ecd_file_main(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -81399,14 +81369,11 @@ func (ec *executionContext) _Query_ecd_file_main_by_pk(ctx context.Context, fiel
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.EcdFileMain)
 	fc.Result = res
-	return ec.marshalNEcdFileMain2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐEcdFileMain(ctx, field.Selections, res)
+	return ec.marshalOEcdFileMain2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐEcdFileMain(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_ecd_file_main_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -81441,14 +81408,11 @@ func (ec *executionContext) _Query_ecd_file_main_by_union_pk(ctx context.Context
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.EcdFileMain)
 	fc.Result = res
-	return ec.marshalNEcdFileMain2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐEcdFileMain(ctx, field.Selections, res)
+	return ec.marshalOEcdFileMain2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐEcdFileMain(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_ecd_file_main_sub(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -81567,14 +81531,11 @@ func (ec *executionContext) _Query_ecd_file_main_sub_by_pk(ctx context.Context, 
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.EcdFileMainSub)
 	fc.Result = res
-	return ec.marshalNEcdFileMainSub2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐEcdFileMainSub(ctx, field.Selections, res)
+	return ec.marshalOEcdFileMainSub2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐEcdFileMainSub(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_ecd_file_main_sub_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -81609,14 +81570,11 @@ func (ec *executionContext) _Query_ecd_file_main_sub_by_union_pk(ctx context.Con
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.EcdFileMainSub)
 	fc.Result = res
-	return ec.marshalNEcdFileMainSub2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐEcdFileMainSub(ctx, field.Selections, res)
+	return ec.marshalOEcdFileMainSub2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐEcdFileMainSub(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_ecd_file_vehicle(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -81735,14 +81693,11 @@ func (ec *executionContext) _Query_ecd_file_vehicle_by_pk(ctx context.Context, f
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.EcdFileVehicle)
 	fc.Result = res
-	return ec.marshalNEcdFileVehicle2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐEcdFileVehicle(ctx, field.Selections, res)
+	return ec.marshalOEcdFileVehicle2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐEcdFileVehicle(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_ecd_file_vehicle_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -81777,14 +81732,11 @@ func (ec *executionContext) _Query_ecd_file_vehicle_by_union_pk(ctx context.Cont
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.EcdFileVehicle)
 	fc.Result = res
-	return ec.marshalNEcdFileVehicle2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐEcdFileVehicle(ctx, field.Selections, res)
+	return ec.marshalOEcdFileVehicle2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐEcdFileVehicle(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_ecd_file_vehicle_time(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -81903,14 +81855,11 @@ func (ec *executionContext) _Query_ecd_file_vehicle_time_by_pk(ctx context.Conte
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.EcdFileVehicleTime)
 	fc.Result = res
-	return ec.marshalNEcdFileVehicleTime2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐEcdFileVehicleTime(ctx, field.Selections, res)
+	return ec.marshalOEcdFileVehicleTime2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐEcdFileVehicleTime(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_ecd_file_vehicle_time_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -81945,14 +81894,11 @@ func (ec *executionContext) _Query_ecd_file_vehicle_time_by_union_pk(ctx context
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.EcdFileVehicleTime)
 	fc.Result = res
-	return ec.marshalNEcdFileVehicleTime2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐEcdFileVehicleTime(ctx, field.Selections, res)
+	return ec.marshalOEcdFileVehicleTime2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐEcdFileVehicleTime(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_ecd_line(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -82071,14 +82017,11 @@ func (ec *executionContext) _Query_ecd_line_by_pk(ctx context.Context, field gra
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.EcdLine)
 	fc.Result = res
-	return ec.marshalNEcdLine2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐEcdLine(ctx, field.Selections, res)
+	return ec.marshalOEcdLine2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐEcdLine(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_ecd_line_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -82113,14 +82056,11 @@ func (ec *executionContext) _Query_ecd_line_by_union_pk(ctx context.Context, fie
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.EcdLine)
 	fc.Result = res
-	return ec.marshalNEcdLine2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐEcdLine(ctx, field.Selections, res)
+	return ec.marshalOEcdLine2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐEcdLine(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_electric_fence(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -82239,14 +82179,11 @@ func (ec *executionContext) _Query_electric_fence_by_pk(ctx context.Context, fie
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.ElectricFence)
 	fc.Result = res
-	return ec.marshalNElectricFence2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐElectricFence(ctx, field.Selections, res)
+	return ec.marshalOElectricFence2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐElectricFence(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_electric_fence_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -82281,14 +82218,11 @@ func (ec *executionContext) _Query_electric_fence_by_union_pk(ctx context.Contex
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.ElectricFence)
 	fc.Result = res
-	return ec.marshalNElectricFence2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐElectricFence(ctx, field.Selections, res)
+	return ec.marshalOElectricFence2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐElectricFence(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_electric_fence_enterance_record(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -82407,14 +82341,11 @@ func (ec *executionContext) _Query_electric_fence_enterance_record_by_pk(ctx con
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.ElectricFenceEnteranceRecord)
 	fc.Result = res
-	return ec.marshalNElectricFenceEnteranceRecord2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐElectricFenceEnteranceRecord(ctx, field.Selections, res)
+	return ec.marshalOElectricFenceEnteranceRecord2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐElectricFenceEnteranceRecord(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_electric_fence_enterance_record_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -82449,14 +82380,11 @@ func (ec *executionContext) _Query_electric_fence_enterance_record_by_union_pk(c
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.ElectricFenceEnteranceRecord)
 	fc.Result = res
-	return ec.marshalNElectricFenceEnteranceRecord2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐElectricFenceEnteranceRecord(ctx, field.Selections, res)
+	return ec.marshalOElectricFenceEnteranceRecord2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐElectricFenceEnteranceRecord(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_limit_speed_line(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -82575,14 +82503,11 @@ func (ec *executionContext) _Query_limit_speed_line_by_pk(ctx context.Context, f
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.LimitSpeedLine)
 	fc.Result = res
-	return ec.marshalNLimitSpeedLine2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐLimitSpeedLine(ctx, field.Selections, res)
+	return ec.marshalOLimitSpeedLine2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐLimitSpeedLine(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_limit_speed_line_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -82617,14 +82542,11 @@ func (ec *executionContext) _Query_limit_speed_line_by_union_pk(ctx context.Cont
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.LimitSpeedLine)
 	fc.Result = res
-	return ec.marshalNLimitSpeedLine2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐLimitSpeedLine(ctx, field.Selections, res)
+	return ec.marshalOLimitSpeedLine2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐLimitSpeedLine(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_limit_speed_line_time(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -82743,14 +82665,11 @@ func (ec *executionContext) _Query_limit_speed_line_time_by_pk(ctx context.Conte
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.LimitSpeedLineTime)
 	fc.Result = res
-	return ec.marshalNLimitSpeedLineTime2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐLimitSpeedLineTime(ctx, field.Selections, res)
+	return ec.marshalOLimitSpeedLineTime2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐLimitSpeedLineTime(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_limit_speed_line_time_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -82785,14 +82704,11 @@ func (ec *executionContext) _Query_limit_speed_line_time_by_union_pk(ctx context
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.LimitSpeedLineTime)
 	fc.Result = res
-	return ec.marshalNLimitSpeedLineTime2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐLimitSpeedLineTime(ctx, field.Selections, res)
+	return ec.marshalOLimitSpeedLineTime2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐLimitSpeedLineTime(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_limit_speed_plan(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -82911,14 +82827,11 @@ func (ec *executionContext) _Query_limit_speed_plan_by_pk(ctx context.Context, f
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.LimitSpeedPlan)
 	fc.Result = res
-	return ec.marshalNLimitSpeedPlan2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐLimitSpeedPlan(ctx, field.Selections, res)
+	return ec.marshalOLimitSpeedPlan2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐLimitSpeedPlan(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_limit_speed_plan_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -82953,14 +82866,11 @@ func (ec *executionContext) _Query_limit_speed_plan_by_union_pk(ctx context.Cont
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.LimitSpeedPlan)
 	fc.Result = res
-	return ec.marshalNLimitSpeedPlan2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐLimitSpeedPlan(ctx, field.Selections, res)
+	return ec.marshalOLimitSpeedPlan2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐLimitSpeedPlan(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_limit_speed_plan_detail(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -83079,14 +82989,11 @@ func (ec *executionContext) _Query_limit_speed_plan_detail_by_pk(ctx context.Con
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.LimitSpeedPlanDetail)
 	fc.Result = res
-	return ec.marshalNLimitSpeedPlanDetail2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐLimitSpeedPlanDetail(ctx, field.Selections, res)
+	return ec.marshalOLimitSpeedPlanDetail2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐLimitSpeedPlanDetail(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_limit_speed_plan_detail_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -83121,14 +83028,11 @@ func (ec *executionContext) _Query_limit_speed_plan_detail_by_union_pk(ctx conte
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.LimitSpeedPlanDetail)
 	fc.Result = res
-	return ec.marshalNLimitSpeedPlanDetail2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐLimitSpeedPlanDetail(ctx, field.Selections, res)
+	return ec.marshalOLimitSpeedPlanDetail2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐLimitSpeedPlanDetail(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_vehicle_night_travel_record(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -83247,14 +83151,11 @@ func (ec *executionContext) _Query_vehicle_night_travel_record_by_pk(ctx context
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.VehicleNightTravelRecord)
 	fc.Result = res
-	return ec.marshalNVehicleNightTravelRecord2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐVehicleNightTravelRecord(ctx, field.Selections, res)
+	return ec.marshalOVehicleNightTravelRecord2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐVehicleNightTravelRecord(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_vehicle_night_travel_record_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -83289,14 +83190,11 @@ func (ec *executionContext) _Query_vehicle_night_travel_record_by_union_pk(ctx c
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.VehicleNightTravelRecord)
 	fc.Result = res
-	return ec.marshalNVehicleNightTravelRecord2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐVehicleNightTravelRecord(ctx, field.Selections, res)
+	return ec.marshalOVehicleNightTravelRecord2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐVehicleNightTravelRecord(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_vehicle_stop_travel_record(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -83415,14 +83313,11 @@ func (ec *executionContext) _Query_vehicle_stop_travel_record_by_pk(ctx context.
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.VehicleStopTravelRecord)
 	fc.Result = res
-	return ec.marshalNVehicleStopTravelRecord2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐVehicleStopTravelRecord(ctx, field.Selections, res)
+	return ec.marshalOVehicleStopTravelRecord2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐVehicleStopTravelRecord(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_vehicle_stop_travel_record_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -83457,14 +83352,11 @@ func (ec *executionContext) _Query_vehicle_stop_travel_record_by_union_pk(ctx co
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.VehicleStopTravelRecord)
 	fc.Result = res
-	return ec.marshalNVehicleStopTravelRecord2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐVehicleStopTravelRecord(ctx, field.Selections, res)
+	return ec.marshalOVehicleStopTravelRecord2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐVehicleStopTravelRecord(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query___type(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -111876,9 +111768,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_control_line_by_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "control_line_by_union_pk":
@@ -111890,9 +111779,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_control_line_by_union_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "control_line_time":
@@ -111932,9 +111818,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_control_line_time_by_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "control_line_time_by_union_pk":
@@ -111946,9 +111829,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_control_line_time_by_union_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "ecd_file_check_his":
@@ -111988,9 +111868,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_ecd_file_check_his_by_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "ecd_file_check_his_by_union_pk":
@@ -112002,9 +111879,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_ecd_file_check_his_by_union_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "ecd_file_district":
@@ -112044,9 +111918,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_ecd_file_district_by_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "ecd_file_district_by_union_pk":
@@ -112058,9 +111929,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_ecd_file_district_by_union_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "ecd_file_line_point":
@@ -112100,9 +111968,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_ecd_file_line_point_by_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "ecd_file_line_point_by_union_pk":
@@ -112114,9 +111979,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_ecd_file_line_point_by_union_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "ecd_file_main":
@@ -112156,9 +112018,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_ecd_file_main_by_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "ecd_file_main_by_union_pk":
@@ -112170,9 +112029,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_ecd_file_main_by_union_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "ecd_file_main_sub":
@@ -112212,9 +112068,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_ecd_file_main_sub_by_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "ecd_file_main_sub_by_union_pk":
@@ -112226,9 +112079,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_ecd_file_main_sub_by_union_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "ecd_file_vehicle":
@@ -112268,9 +112118,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_ecd_file_vehicle_by_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "ecd_file_vehicle_by_union_pk":
@@ -112282,9 +112129,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_ecd_file_vehicle_by_union_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "ecd_file_vehicle_time":
@@ -112324,9 +112168,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_ecd_file_vehicle_time_by_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "ecd_file_vehicle_time_by_union_pk":
@@ -112338,9 +112179,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_ecd_file_vehicle_time_by_union_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "ecd_line":
@@ -112380,9 +112218,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_ecd_line_by_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "ecd_line_by_union_pk":
@@ -112394,9 +112229,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_ecd_line_by_union_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "electric_fence":
@@ -112436,9 +112268,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_electric_fence_by_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "electric_fence_by_union_pk":
@@ -112450,9 +112279,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_electric_fence_by_union_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "electric_fence_enterance_record":
@@ -112492,9 +112318,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_electric_fence_enterance_record_by_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "electric_fence_enterance_record_by_union_pk":
@@ -112506,9 +112329,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_electric_fence_enterance_record_by_union_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "limit_speed_line":
@@ -112548,9 +112368,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_limit_speed_line_by_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "limit_speed_line_by_union_pk":
@@ -112562,9 +112379,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_limit_speed_line_by_union_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "limit_speed_line_time":
@@ -112604,9 +112418,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_limit_speed_line_time_by_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "limit_speed_line_time_by_union_pk":
@@ -112618,9 +112429,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_limit_speed_line_time_by_union_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "limit_speed_plan":
@@ -112660,9 +112468,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_limit_speed_plan_by_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "limit_speed_plan_by_union_pk":
@@ -112674,9 +112479,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_limit_speed_plan_by_union_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "limit_speed_plan_detail":
@@ -112716,9 +112518,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_limit_speed_plan_detail_by_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "limit_speed_plan_detail_by_union_pk":
@@ -112730,9 +112529,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_limit_speed_plan_detail_by_union_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "vehicle_night_travel_record":
@@ -112772,9 +112568,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_vehicle_night_travel_record_by_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "vehicle_night_travel_record_by_union_pk":
@@ -112786,9 +112579,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_vehicle_night_travel_record_by_union_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "vehicle_stop_travel_record":
@@ -112828,9 +112618,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_vehicle_stop_travel_record_by_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "vehicle_stop_travel_record_by_union_pk":
@@ -112842,9 +112629,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_vehicle_stop_travel_record_by_union_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "__type":
@@ -114162,10 +113946,6 @@ func (ec *executionContext) marshalNBoolean2bool(ctx context.Context, sel ast.Se
 	return res
 }
 
-func (ec *executionContext) marshalNControlLine2VehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐControlLine(ctx context.Context, sel ast.SelectionSet, v model1.ControlLine) graphql.Marshaler {
-	return ec._ControlLine(ctx, sel, &v)
-}
-
 func (ec *executionContext) marshalNControlLine2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐControlLineᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.ControlLine) graphql.Marshaler {
 	ret := make(graphql.Array, len(v))
 	var wg sync.WaitGroup
@@ -114276,10 +114056,6 @@ func (ec *executionContext) unmarshalNControlLineSelectColumn2VehicleSupervision
 
 func (ec *executionContext) marshalNControlLineSelectColumn2VehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐControlLineSelectColumn(ctx context.Context, sel ast.SelectionSet, v model.ControlLineSelectColumn) graphql.Marshaler {
 	return v
-}
-
-func (ec *executionContext) marshalNControlLineTime2VehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐControlLineTime(ctx context.Context, sel ast.SelectionSet, v model1.ControlLineTime) graphql.Marshaler {
-	return ec._ControlLineTime(ctx, sel, &v)
 }
 
 func (ec *executionContext) marshalNControlLineTime2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐControlLineTimeᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.ControlLineTime) graphql.Marshaler {
@@ -114394,10 +114170,6 @@ func (ec *executionContext) marshalNControlLineTimeSelectColumn2VehicleSupervisi
 	return v
 }
 
-func (ec *executionContext) marshalNEcdFileCheckHis2VehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐEcdFileCheckHis(ctx context.Context, sel ast.SelectionSet, v model1.EcdFileCheckHis) graphql.Marshaler {
-	return ec._EcdFileCheckHis(ctx, sel, &v)
-}
-
 func (ec *executionContext) marshalNEcdFileCheckHis2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐEcdFileCheckHisᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.EcdFileCheckHis) graphql.Marshaler {
 	ret := make(graphql.Array, len(v))
 	var wg sync.WaitGroup
@@ -114508,10 +114280,6 @@ func (ec *executionContext) unmarshalNEcdFileCheckHisSelectColumn2VehicleSupervi
 
 func (ec *executionContext) marshalNEcdFileCheckHisSelectColumn2VehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐEcdFileCheckHisSelectColumn(ctx context.Context, sel ast.SelectionSet, v model.EcdFileCheckHisSelectColumn) graphql.Marshaler {
 	return v
-}
-
-func (ec *executionContext) marshalNEcdFileDistrict2VehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐEcdFileDistrict(ctx context.Context, sel ast.SelectionSet, v model1.EcdFileDistrict) graphql.Marshaler {
-	return ec._EcdFileDistrict(ctx, sel, &v)
 }
 
 func (ec *executionContext) marshalNEcdFileDistrict2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐEcdFileDistrictᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.EcdFileDistrict) graphql.Marshaler {
@@ -114626,10 +114394,6 @@ func (ec *executionContext) marshalNEcdFileDistrictSelectColumn2VehicleSupervisi
 	return v
 }
 
-func (ec *executionContext) marshalNEcdFileLinePoint2VehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐEcdFileLinePoint(ctx context.Context, sel ast.SelectionSet, v model1.EcdFileLinePoint) graphql.Marshaler {
-	return ec._EcdFileLinePoint(ctx, sel, &v)
-}
-
 func (ec *executionContext) marshalNEcdFileLinePoint2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐEcdFileLinePointᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.EcdFileLinePoint) graphql.Marshaler {
 	ret := make(graphql.Array, len(v))
 	var wg sync.WaitGroup
@@ -114740,10 +114504,6 @@ func (ec *executionContext) unmarshalNEcdFileLinePointSelectColumn2VehicleSuperv
 
 func (ec *executionContext) marshalNEcdFileLinePointSelectColumn2VehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐEcdFileLinePointSelectColumn(ctx context.Context, sel ast.SelectionSet, v model.EcdFileLinePointSelectColumn) graphql.Marshaler {
 	return v
-}
-
-func (ec *executionContext) marshalNEcdFileMain2VehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐEcdFileMain(ctx context.Context, sel ast.SelectionSet, v model1.EcdFileMain) graphql.Marshaler {
-	return ec._EcdFileMain(ctx, sel, &v)
 }
 
 func (ec *executionContext) marshalNEcdFileMain2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐEcdFileMainᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.EcdFileMain) graphql.Marshaler {
@@ -114858,10 +114618,6 @@ func (ec *executionContext) marshalNEcdFileMainSelectColumn2VehicleSupervision�
 	return v
 }
 
-func (ec *executionContext) marshalNEcdFileMainSub2VehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐEcdFileMainSub(ctx context.Context, sel ast.SelectionSet, v model1.EcdFileMainSub) graphql.Marshaler {
-	return ec._EcdFileMainSub(ctx, sel, &v)
-}
-
 func (ec *executionContext) marshalNEcdFileMainSub2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐEcdFileMainSubᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.EcdFileMainSub) graphql.Marshaler {
 	ret := make(graphql.Array, len(v))
 	var wg sync.WaitGroup
@@ -114972,10 +114728,6 @@ func (ec *executionContext) unmarshalNEcdFileMainSubSelectColumn2VehicleSupervis
 
 func (ec *executionContext) marshalNEcdFileMainSubSelectColumn2VehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐEcdFileMainSubSelectColumn(ctx context.Context, sel ast.SelectionSet, v model.EcdFileMainSubSelectColumn) graphql.Marshaler {
 	return v
-}
-
-func (ec *executionContext) marshalNEcdFileVehicle2VehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐEcdFileVehicle(ctx context.Context, sel ast.SelectionSet, v model1.EcdFileVehicle) graphql.Marshaler {
-	return ec._EcdFileVehicle(ctx, sel, &v)
 }
 
 func (ec *executionContext) marshalNEcdFileVehicle2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐEcdFileVehicleᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.EcdFileVehicle) graphql.Marshaler {
@@ -115090,10 +114842,6 @@ func (ec *executionContext) marshalNEcdFileVehicleSelectColumn2VehicleSupervisio
 	return v
 }
 
-func (ec *executionContext) marshalNEcdFileVehicleTime2VehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐEcdFileVehicleTime(ctx context.Context, sel ast.SelectionSet, v model1.EcdFileVehicleTime) graphql.Marshaler {
-	return ec._EcdFileVehicleTime(ctx, sel, &v)
-}
-
 func (ec *executionContext) marshalNEcdFileVehicleTime2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐEcdFileVehicleTimeᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.EcdFileVehicleTime) graphql.Marshaler {
 	ret := make(graphql.Array, len(v))
 	var wg sync.WaitGroup
@@ -115204,10 +114952,6 @@ func (ec *executionContext) unmarshalNEcdFileVehicleTimeSelectColumn2VehicleSupe
 
 func (ec *executionContext) marshalNEcdFileVehicleTimeSelectColumn2VehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐEcdFileVehicleTimeSelectColumn(ctx context.Context, sel ast.SelectionSet, v model.EcdFileVehicleTimeSelectColumn) graphql.Marshaler {
 	return v
-}
-
-func (ec *executionContext) marshalNEcdLine2VehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐEcdLine(ctx context.Context, sel ast.SelectionSet, v model1.EcdLine) graphql.Marshaler {
-	return ec._EcdLine(ctx, sel, &v)
 }
 
 func (ec *executionContext) marshalNEcdLine2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐEcdLineᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.EcdLine) graphql.Marshaler {
@@ -115322,10 +115066,6 @@ func (ec *executionContext) marshalNEcdLineSelectColumn2VehicleSupervisionᚋint
 	return v
 }
 
-func (ec *executionContext) marshalNElectricFence2VehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐElectricFence(ctx context.Context, sel ast.SelectionSet, v model1.ElectricFence) graphql.Marshaler {
-	return ec._ElectricFence(ctx, sel, &v)
-}
-
 func (ec *executionContext) marshalNElectricFence2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐElectricFenceᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.ElectricFence) graphql.Marshaler {
 	ret := make(graphql.Array, len(v))
 	var wg sync.WaitGroup
@@ -115390,10 +115130,6 @@ func (ec *executionContext) marshalNElectricFenceAggregate2ᚖVehicleSupervision
 func (ec *executionContext) unmarshalNElectricFenceBoolExp2VehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐElectricFenceBoolExp(ctx context.Context, v interface{}) (model.ElectricFenceBoolExp, error) {
 	res, err := ec.unmarshalInputElectricFenceBoolExp(ctx, v)
 	return res, graphql.ErrorOnPath(ctx, err)
-}
-
-func (ec *executionContext) marshalNElectricFenceEnteranceRecord2VehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐElectricFenceEnteranceRecord(ctx context.Context, sel ast.SelectionSet, v model1.ElectricFenceEnteranceRecord) graphql.Marshaler {
-	return ec._ElectricFenceEnteranceRecord(ctx, sel, &v)
 }
 
 func (ec *executionContext) marshalNElectricFenceEnteranceRecord2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐElectricFenceEnteranceRecordᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.ElectricFenceEnteranceRecord) graphql.Marshaler {
@@ -115599,10 +115335,6 @@ func (ec *executionContext) marshalNJsonb2string(ctx context.Context, sel ast.Se
 	return res
 }
 
-func (ec *executionContext) marshalNLimitSpeedLine2VehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐLimitSpeedLine(ctx context.Context, sel ast.SelectionSet, v model1.LimitSpeedLine) graphql.Marshaler {
-	return ec._LimitSpeedLine(ctx, sel, &v)
-}
-
 func (ec *executionContext) marshalNLimitSpeedLine2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐLimitSpeedLineᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.LimitSpeedLine) graphql.Marshaler {
 	ret := make(graphql.Array, len(v))
 	var wg sync.WaitGroup
@@ -115713,10 +115445,6 @@ func (ec *executionContext) unmarshalNLimitSpeedLineSelectColumn2VehicleSupervis
 
 func (ec *executionContext) marshalNLimitSpeedLineSelectColumn2VehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐLimitSpeedLineSelectColumn(ctx context.Context, sel ast.SelectionSet, v model.LimitSpeedLineSelectColumn) graphql.Marshaler {
 	return v
-}
-
-func (ec *executionContext) marshalNLimitSpeedLineTime2VehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐLimitSpeedLineTime(ctx context.Context, sel ast.SelectionSet, v model1.LimitSpeedLineTime) graphql.Marshaler {
-	return ec._LimitSpeedLineTime(ctx, sel, &v)
 }
 
 func (ec *executionContext) marshalNLimitSpeedLineTime2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐLimitSpeedLineTimeᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.LimitSpeedLineTime) graphql.Marshaler {
@@ -115831,10 +115559,6 @@ func (ec *executionContext) marshalNLimitSpeedLineTimeSelectColumn2VehicleSuperv
 	return v
 }
 
-func (ec *executionContext) marshalNLimitSpeedPlan2VehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐLimitSpeedPlan(ctx context.Context, sel ast.SelectionSet, v model1.LimitSpeedPlan) graphql.Marshaler {
-	return ec._LimitSpeedPlan(ctx, sel, &v)
-}
-
 func (ec *executionContext) marshalNLimitSpeedPlan2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐLimitSpeedPlanᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.LimitSpeedPlan) graphql.Marshaler {
 	ret := make(graphql.Array, len(v))
 	var wg sync.WaitGroup
@@ -115899,10 +115623,6 @@ func (ec *executionContext) marshalNLimitSpeedPlanAggregate2ᚖVehicleSupervisio
 func (ec *executionContext) unmarshalNLimitSpeedPlanBoolExp2VehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐLimitSpeedPlanBoolExp(ctx context.Context, v interface{}) (model.LimitSpeedPlanBoolExp, error) {
 	res, err := ec.unmarshalInputLimitSpeedPlanBoolExp(ctx, v)
 	return res, graphql.ErrorOnPath(ctx, err)
-}
-
-func (ec *executionContext) marshalNLimitSpeedPlanDetail2VehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐLimitSpeedPlanDetail(ctx context.Context, sel ast.SelectionSet, v model1.LimitSpeedPlanDetail) graphql.Marshaler {
-	return ec._LimitSpeedPlanDetail(ctx, sel, &v)
 }
 
 func (ec *executionContext) marshalNLimitSpeedPlanDetail2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐLimitSpeedPlanDetailᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.LimitSpeedPlanDetail) graphql.Marshaler {
@@ -116144,10 +115864,6 @@ func (ec *executionContext) marshalNTimestamptz2ᚖtimeᚐTime(ctx context.Conte
 	return res
 }
 
-func (ec *executionContext) marshalNVehicleNightTravelRecord2VehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐVehicleNightTravelRecord(ctx context.Context, sel ast.SelectionSet, v model1.VehicleNightTravelRecord) graphql.Marshaler {
-	return ec._VehicleNightTravelRecord(ctx, sel, &v)
-}
-
 func (ec *executionContext) marshalNVehicleNightTravelRecord2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐVehicleNightTravelRecordᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.VehicleNightTravelRecord) graphql.Marshaler {
 	ret := make(graphql.Array, len(v))
 	var wg sync.WaitGroup
@@ -116258,10 +115974,6 @@ func (ec *executionContext) unmarshalNVehicleNightTravelRecordSelectColumn2Vehic
 
 func (ec *executionContext) marshalNVehicleNightTravelRecordSelectColumn2VehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐVehicleNightTravelRecordSelectColumn(ctx context.Context, sel ast.SelectionSet, v model.VehicleNightTravelRecordSelectColumn) graphql.Marshaler {
 	return v
-}
-
-func (ec *executionContext) marshalNVehicleStopTravelRecord2VehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐVehicleStopTravelRecord(ctx context.Context, sel ast.SelectionSet, v model1.VehicleStopTravelRecord) graphql.Marshaler {
-	return ec._VehicleStopTravelRecord(ctx, sel, &v)
 }
 
 func (ec *executionContext) marshalNVehicleStopTravelRecord2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐVehicleStopTravelRecordᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.VehicleStopTravelRecord) graphql.Marshaler {

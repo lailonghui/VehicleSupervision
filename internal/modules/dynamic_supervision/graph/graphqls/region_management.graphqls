@@ -456,11 +456,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	region_management_by_pk(id: Bigint!): RegionManagement!
+	region_management_by_pk(id: Bigint!): RegionManagement
 	"""
 	联合主键查询
 	"""
-	region_management_by_union_pk(region_management_id: String!): RegionManagement!
+	region_management_by_union_pk(region_management_id: String!): RegionManagement
 }
 extend type Mutation {
 	"""

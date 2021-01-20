@@ -58,9 +58,11 @@ func (t *ConstructionUploadPicPkLoader) NewLoader(ctx context.Context) *Construc
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}
@@ -129,9 +131,11 @@ func (t *ConstructionUploadPicUnionPkLoader) NewLoader(ctx context.Context) *Con
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}

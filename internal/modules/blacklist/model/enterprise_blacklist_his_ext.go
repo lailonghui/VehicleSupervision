@@ -58,9 +58,11 @@ func (t *EnterpriseBlacklistHisPkLoader) NewLoader(ctx context.Context) *Enterpr
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}
@@ -129,9 +131,11 @@ func (t *EnterpriseBlacklistHisUnionPkLoader) NewLoader(ctx context.Context) *En
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}

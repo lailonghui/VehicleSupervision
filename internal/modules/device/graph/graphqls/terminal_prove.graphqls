@@ -825,11 +825,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	terminal_prove_by_pk(id: Bigint!): TerminalProve!
+	terminal_prove_by_pk(id: Bigint!): TerminalProve
 	"""
 	联合主键查询
 	"""
-	terminal_prove_by_union_pk(prove_id: String!): TerminalProve!
+	terminal_prove_by_union_pk(prove_id: String!): TerminalProve
 }
 extend type Mutation {
 	"""

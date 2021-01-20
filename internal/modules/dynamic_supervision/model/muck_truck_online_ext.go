@@ -58,9 +58,11 @@ func (t *MuckTruckOnlinePkLoader) NewLoader(ctx context.Context) *MuckTruckOnlin
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}
@@ -129,9 +131,11 @@ func (t *MuckTruckOnlineUnionPkLoader) NewLoader(ctx context.Context) *MuckTruck
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}

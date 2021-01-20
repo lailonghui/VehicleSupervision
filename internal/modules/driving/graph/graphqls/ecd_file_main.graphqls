@@ -750,11 +750,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	ecd_file_main_by_pk(id: Bigint!): EcdFileMain!
+	ecd_file_main_by_pk(id: Bigint!): EcdFileMain
 	"""
 	联合主键查询
 	"""
-	ecd_file_main_by_union_pk(file_main_id: String!): EcdFileMain!
+	ecd_file_main_by_union_pk(file_main_id: String!): EcdFileMain
 }
 extend type Mutation {
 	"""

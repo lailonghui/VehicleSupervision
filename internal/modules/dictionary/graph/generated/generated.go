@@ -2071,11 +2071,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	data_dictionary_by_pk(id: Bigint!): DataDictionary!
+	data_dictionary_by_pk(id: Bigint!): DataDictionary
 	"""
 	联合主键查询
 	"""
-	data_dictionary_by_union_pk(dictionary_id: String!): DataDictionary!
+	data_dictionary_by_union_pk(dictionary_id: String!): DataDictionary
 }
 extend type Mutation {
 	"""
@@ -2417,11 +2417,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	data_dictionary_category_by_pk(id: Bigint!): DataDictionaryCategory!
+	data_dictionary_category_by_pk(id: Bigint!): DataDictionaryCategory
 	"""
 	联合主键查询
 	"""
-	data_dictionary_category_by_union_pk(dictionary_category_id: String!): DataDictionaryCategory!
+	data_dictionary_category_by_union_pk(dictionary_category_id: String!): DataDictionaryCategory
 }
 extend type Mutation {
 	"""
@@ -7985,14 +7985,11 @@ func (ec *executionContext) _Query_data_dictionary_by_pk(ctx context.Context, fi
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.DataDictionary)
 	fc.Result = res
-	return ec.marshalNDataDictionary2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋmodelᚐDataDictionary(ctx, field.Selections, res)
+	return ec.marshalODataDictionary2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋmodelᚐDataDictionary(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_data_dictionary_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -8027,14 +8024,11 @@ func (ec *executionContext) _Query_data_dictionary_by_union_pk(ctx context.Conte
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.DataDictionary)
 	fc.Result = res
-	return ec.marshalNDataDictionary2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋmodelᚐDataDictionary(ctx, field.Selections, res)
+	return ec.marshalODataDictionary2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋmodelᚐDataDictionary(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_data_dictionary_category(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -8153,14 +8147,11 @@ func (ec *executionContext) _Query_data_dictionary_category_by_pk(ctx context.Co
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.DataDictionaryCategory)
 	fc.Result = res
-	return ec.marshalNDataDictionaryCategory2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋmodelᚐDataDictionaryCategory(ctx, field.Selections, res)
+	return ec.marshalODataDictionaryCategory2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋmodelᚐDataDictionaryCategory(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_data_dictionary_category_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -8195,14 +8186,11 @@ func (ec *executionContext) _Query_data_dictionary_category_by_union_pk(ctx cont
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.DataDictionaryCategory)
 	fc.Result = res
-	return ec.marshalNDataDictionaryCategory2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋmodelᚐDataDictionaryCategory(ctx, field.Selections, res)
+	return ec.marshalODataDictionaryCategory2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋmodelᚐDataDictionaryCategory(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query___type(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -12182,9 +12170,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_data_dictionary_by_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "data_dictionary_by_union_pk":
@@ -12196,9 +12181,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_data_dictionary_by_union_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "data_dictionary_category":
@@ -12238,9 +12220,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_data_dictionary_category_by_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "data_dictionary_category_by_union_pk":
@@ -12252,9 +12231,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_data_dictionary_category_by_union_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "__type":
@@ -12547,10 +12523,6 @@ func (ec *executionContext) marshalNBoolean2bool(ctx context.Context, sel ast.Se
 	return res
 }
 
-func (ec *executionContext) marshalNDataDictionary2VehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋmodelᚐDataDictionary(ctx context.Context, sel ast.SelectionSet, v model1.DataDictionary) graphql.Marshaler {
-	return ec._DataDictionary(ctx, sel, &v)
-}
-
 func (ec *executionContext) marshalNDataDictionary2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋmodelᚐDataDictionaryᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.DataDictionary) graphql.Marshaler {
 	ret := make(graphql.Array, len(v))
 	var wg sync.WaitGroup
@@ -12615,10 +12587,6 @@ func (ec *executionContext) marshalNDataDictionaryAggregate2ᚖVehicleSupervisio
 func (ec *executionContext) unmarshalNDataDictionaryBoolExp2VehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋgraphᚋmodelᚐDataDictionaryBoolExp(ctx context.Context, v interface{}) (model.DataDictionaryBoolExp, error) {
 	res, err := ec.unmarshalInputDataDictionaryBoolExp(ctx, v)
 	return res, graphql.ErrorOnPath(ctx, err)
-}
-
-func (ec *executionContext) marshalNDataDictionaryCategory2VehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋmodelᚐDataDictionaryCategory(ctx context.Context, sel ast.SelectionSet, v model1.DataDictionaryCategory) graphql.Marshaler {
-	return ec._DataDictionaryCategory(ctx, sel, &v)
 }
 
 func (ec *executionContext) marshalNDataDictionaryCategory2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋmodelᚐDataDictionaryCategoryᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.DataDictionaryCategory) graphql.Marshaler {

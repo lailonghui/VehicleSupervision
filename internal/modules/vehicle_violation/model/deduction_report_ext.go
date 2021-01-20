@@ -58,9 +58,11 @@ func (t *DeductionReportPkLoader) NewLoader(ctx context.Context) *DeductionRepor
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}
@@ -129,9 +131,11 @@ func (t *DeductionReportUnionPkLoader) NewLoader(ctx context.Context) *Deduction
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}

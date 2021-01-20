@@ -58,9 +58,11 @@ func (t *FingerprintInformationPkLoader) NewLoader(ctx context.Context) *Fingerp
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}
@@ -129,9 +131,11 @@ func (t *FingerprintInformationUnionPkLoader) NewLoader(ctx context.Context) *Fi
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}

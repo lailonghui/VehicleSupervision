@@ -410,7 +410,7 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	driving_license_registration_inspection_by_pk(id: Bigint!): DrivingLicenseRegistrationInspection!
+	driving_license_registration_inspection_by_pk(id: Bigint!): DrivingLicenseRegistrationInspection
 }
 extend type Mutation {
 	"""

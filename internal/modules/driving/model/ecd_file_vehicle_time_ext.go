@@ -58,9 +58,11 @@ func (t *EcdFileVehicleTimePkLoader) NewLoader(ctx context.Context) *EcdFileVehi
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}
@@ -129,9 +131,11 @@ func (t *EcdFileVehicleTimeUnionPkLoader) NewLoader(ctx context.Context) *EcdFil
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}

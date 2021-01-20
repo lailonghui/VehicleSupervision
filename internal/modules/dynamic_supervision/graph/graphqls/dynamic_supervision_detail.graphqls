@@ -1043,11 +1043,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	dynamic_supervision_detail_by_pk(id: Bigint!): DynamicSupervisionDetail!
+	dynamic_supervision_detail_by_pk(id: Bigint!): DynamicSupervisionDetail
 	"""
 	联合主键查询
 	"""
-	dynamic_supervision_detail_by_union_pk(supervision_detail_id: String!): DynamicSupervisionDetail!
+	dynamic_supervision_detail_by_union_pk(supervision_detail_id: String!): DynamicSupervisionDetail
 }
 extend type Mutation {
 	"""

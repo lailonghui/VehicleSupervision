@@ -396,9 +396,11 @@ func (r *queryResolver) VehicleDriverBindingByPk(ctx context.Context, id int64) 
 				return nil, err
 			}
 			if exist {
-				if rs.GetPrimary() != 0 {
+
+				if rs.GetPrimary() == 0 {
 					return nil, nil
 				}
+
 				return &rs, nil
 			}
 		}
@@ -410,7 +412,7 @@ func (r *queryResolver) VehicleDriverBindingByPk(ctx context.Context, id int64) 
 				if cacheErr == nil {
 					_ = cacheAspect.SetNotExistPkQueryCache(ctx, cacheKey, "")
 				}
-				return &rs, nil
+				return nil, nil
 			}
 			return &rs, err
 		}
@@ -424,6 +426,9 @@ func (r *queryResolver) VehicleDriverBindingByPk(ctx context.Context, id int64) 
 	tx := db.DB.Model(m).First(&rs, id)
 	err := tx.Error
 	if err != nil {
+		if err == gorm.ErrRecordNotFound {
+			return nil, nil
+		}
 		return nil, err
 	}
 	return &rs, nil
@@ -442,9 +447,11 @@ func (r *queryResolver) VehicleDriverBindingByUnionPk(ctx context.Context, vehic
 				return nil, err
 			}
 			if exist {
-				if rs.GetPrimary() != 0 {
+
+				if rs.GetPrimary() == 0 {
 					return nil, nil
 				}
+
 				return &rs, nil
 			}
 		}
@@ -456,7 +463,7 @@ func (r *queryResolver) VehicleDriverBindingByUnionPk(ctx context.Context, vehic
 				if cacheErr == nil {
 					_ = cacheAspect.SetNotExistUnionPkQueryCache(ctx, cacheKey, "")
 				}
-				return &rs, nil
+				return nil, nil
 			}
 			return nil, err
 		}
@@ -471,7 +478,7 @@ func (r *queryResolver) VehicleDriverBindingByUnionPk(ctx context.Context, vehic
 	err := tx.Error
 	if err != nil {
 		if err == gorm.ErrRecordNotFound {
-			return &rs, nil
+			return nil, nil
 		}
 		return nil, err
 	}

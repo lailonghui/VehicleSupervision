@@ -58,9 +58,11 @@ func (t *VehicleDriverBindingPkLoader) NewLoader(ctx context.Context) *VehicleDr
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}
@@ -129,9 +131,11 @@ func (t *VehicleDriverBindingUnionPkLoader) NewLoader(ctx context.Context) *Vehi
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}

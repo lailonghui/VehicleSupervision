@@ -1040,7 +1040,7 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	vehicle_info_by_pk(id: Bigint!): VehicleInfo!
+	vehicle_info_by_pk(id: Bigint!): VehicleInfo
 }
 extend type Mutation {
 	"""

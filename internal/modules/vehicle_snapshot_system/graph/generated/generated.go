@@ -6072,11 +6072,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	construction_camera_by_pk(id: Bigint!): ConstructionCamera!
+	construction_camera_by_pk(id: Bigint!): ConstructionCamera
 	"""
 	联合主键查询
 	"""
-	construction_camera_by_union_pk(construction_camera_id: String!): ConstructionCamera!
+	construction_camera_by_union_pk(construction_camera_id: String!): ConstructionCamera
 }
 extend type Mutation {
 	"""
@@ -6828,11 +6828,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	construction_info_by_pk(id: Bigint!): ConstructionInfo!
+	construction_info_by_pk(id: Bigint!): ConstructionInfo
 	"""
 	联合主键查询
 	"""
-	construction_info_by_union_pk(construction_info_id: String!): ConstructionInfo!
+	construction_info_by_union_pk(construction_info_id: String!): ConstructionInfo
 }
 extend type Mutation {
 	"""
@@ -7160,11 +7160,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	construction_upload_pic_by_pk(id: Bigint!): ConstructionUploadPic!
+	construction_upload_pic_by_pk(id: Bigint!): ConstructionUploadPic
 	"""
 	联合主键查询
 	"""
-	construction_upload_pic_by_union_pk(construction_upload_pic_id: String!): ConstructionUploadPic!
+	construction_upload_pic_by_union_pk(construction_upload_pic_id: String!): ConstructionUploadPic
 }
 extend type Mutation {
 	"""
@@ -7520,11 +7520,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	offline_registration_record_by_pk(id: Bigint!): OfflineRegistrationRecord!
+	offline_registration_record_by_pk(id: Bigint!): OfflineRegistrationRecord
 	"""
 	联合主键查询
 	"""
-	offline_registration_record_by_union_pk(offline_registration_record_id: String!): OfflineRegistrationRecord!
+	offline_registration_record_by_union_pk(offline_registration_record_id: String!): OfflineRegistrationRecord
 }
 extend type Mutation {
 	"""
@@ -7996,11 +7996,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	snapshot_system_passing_alarm_by_pk(id: Bigint!): SnapshotSystemPassingAlarm!
+	snapshot_system_passing_alarm_by_pk(id: Bigint!): SnapshotSystemPassingAlarm
 	"""
 	联合主键查询
 	"""
-	snapshot_system_passing_alarm_by_union_pk(snapshot_system_passing_alarm_id: String!): SnapshotSystemPassingAlarm!
+	snapshot_system_passing_alarm_by_union_pk(snapshot_system_passing_alarm_id: String!): SnapshotSystemPassingAlarm
 }
 extend type Mutation {
 	"""
@@ -8426,11 +8426,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	vehicle_passing_record_by_pk(id: Bigint!): VehiclePassingRecord!
+	vehicle_passing_record_by_pk(id: Bigint!): VehiclePassingRecord
 	"""
 	联合主键查询
 	"""
-	vehicle_passing_record_by_union_pk(vehicle_passing_record_id: String!): VehiclePassingRecord!
+	vehicle_passing_record_by_union_pk(vehicle_passing_record_id: String!): VehiclePassingRecord
 }
 extend type Mutation {
 	"""
@@ -23431,14 +23431,11 @@ func (ec *executionContext) _Query_construction_camera_by_pk(ctx context.Context
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.ConstructionCamera)
 	fc.Result = res
-	return ec.marshalNConstructionCamera2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_snapshot_systemᚋmodelᚐConstructionCamera(ctx, field.Selections, res)
+	return ec.marshalOConstructionCamera2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_snapshot_systemᚋmodelᚐConstructionCamera(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_construction_camera_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -23473,14 +23470,11 @@ func (ec *executionContext) _Query_construction_camera_by_union_pk(ctx context.C
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.ConstructionCamera)
 	fc.Result = res
-	return ec.marshalNConstructionCamera2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_snapshot_systemᚋmodelᚐConstructionCamera(ctx, field.Selections, res)
+	return ec.marshalOConstructionCamera2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_snapshot_systemᚋmodelᚐConstructionCamera(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_construction_info(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -23599,14 +23593,11 @@ func (ec *executionContext) _Query_construction_info_by_pk(ctx context.Context, 
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.ConstructionInfo)
 	fc.Result = res
-	return ec.marshalNConstructionInfo2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_snapshot_systemᚋmodelᚐConstructionInfo(ctx, field.Selections, res)
+	return ec.marshalOConstructionInfo2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_snapshot_systemᚋmodelᚐConstructionInfo(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_construction_info_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -23641,14 +23632,11 @@ func (ec *executionContext) _Query_construction_info_by_union_pk(ctx context.Con
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.ConstructionInfo)
 	fc.Result = res
-	return ec.marshalNConstructionInfo2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_snapshot_systemᚋmodelᚐConstructionInfo(ctx, field.Selections, res)
+	return ec.marshalOConstructionInfo2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_snapshot_systemᚋmodelᚐConstructionInfo(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_construction_upload_pic(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -23767,14 +23755,11 @@ func (ec *executionContext) _Query_construction_upload_pic_by_pk(ctx context.Con
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.ConstructionUploadPic)
 	fc.Result = res
-	return ec.marshalNConstructionUploadPic2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_snapshot_systemᚋmodelᚐConstructionUploadPic(ctx, field.Selections, res)
+	return ec.marshalOConstructionUploadPic2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_snapshot_systemᚋmodelᚐConstructionUploadPic(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_construction_upload_pic_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -23809,14 +23794,11 @@ func (ec *executionContext) _Query_construction_upload_pic_by_union_pk(ctx conte
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.ConstructionUploadPic)
 	fc.Result = res
-	return ec.marshalNConstructionUploadPic2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_snapshot_systemᚋmodelᚐConstructionUploadPic(ctx, field.Selections, res)
+	return ec.marshalOConstructionUploadPic2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_snapshot_systemᚋmodelᚐConstructionUploadPic(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_offline_registration_record(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -23935,14 +23917,11 @@ func (ec *executionContext) _Query_offline_registration_record_by_pk(ctx context
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.OfflineRegistrationRecord)
 	fc.Result = res
-	return ec.marshalNOfflineRegistrationRecord2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_snapshot_systemᚋmodelᚐOfflineRegistrationRecord(ctx, field.Selections, res)
+	return ec.marshalOOfflineRegistrationRecord2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_snapshot_systemᚋmodelᚐOfflineRegistrationRecord(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_offline_registration_record_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -23977,14 +23956,11 @@ func (ec *executionContext) _Query_offline_registration_record_by_union_pk(ctx c
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.OfflineRegistrationRecord)
 	fc.Result = res
-	return ec.marshalNOfflineRegistrationRecord2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_snapshot_systemᚋmodelᚐOfflineRegistrationRecord(ctx, field.Selections, res)
+	return ec.marshalOOfflineRegistrationRecord2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_snapshot_systemᚋmodelᚐOfflineRegistrationRecord(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_snapshot_system_passing_alarm(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -24103,14 +24079,11 @@ func (ec *executionContext) _Query_snapshot_system_passing_alarm_by_pk(ctx conte
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.SnapshotSystemPassingAlarm)
 	fc.Result = res
-	return ec.marshalNSnapshotSystemPassingAlarm2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_snapshot_systemᚋmodelᚐSnapshotSystemPassingAlarm(ctx, field.Selections, res)
+	return ec.marshalOSnapshotSystemPassingAlarm2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_snapshot_systemᚋmodelᚐSnapshotSystemPassingAlarm(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_snapshot_system_passing_alarm_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -24145,14 +24118,11 @@ func (ec *executionContext) _Query_snapshot_system_passing_alarm_by_union_pk(ctx
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.SnapshotSystemPassingAlarm)
 	fc.Result = res
-	return ec.marshalNSnapshotSystemPassingAlarm2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_snapshot_systemᚋmodelᚐSnapshotSystemPassingAlarm(ctx, field.Selections, res)
+	return ec.marshalOSnapshotSystemPassingAlarm2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_snapshot_systemᚋmodelᚐSnapshotSystemPassingAlarm(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_vehicle_passing_record(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -24271,14 +24241,11 @@ func (ec *executionContext) _Query_vehicle_passing_record_by_pk(ctx context.Cont
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.VehiclePassingRecord)
 	fc.Result = res
-	return ec.marshalNVehiclePassingRecord2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_snapshot_systemᚋmodelᚐVehiclePassingRecord(ctx, field.Selections, res)
+	return ec.marshalOVehiclePassingRecord2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_snapshot_systemᚋmodelᚐVehiclePassingRecord(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_vehicle_passing_record_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -24313,14 +24280,11 @@ func (ec *executionContext) _Query_vehicle_passing_record_by_union_pk(ctx contex
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.VehiclePassingRecord)
 	fc.Result = res
-	return ec.marshalNVehiclePassingRecord2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_snapshot_systemᚋmodelᚐVehiclePassingRecord(ctx, field.Selections, res)
+	return ec.marshalOVehiclePassingRecord2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_snapshot_systemᚋmodelᚐVehiclePassingRecord(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query___type(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -38381,9 +38345,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_construction_camera_by_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "construction_camera_by_union_pk":
@@ -38395,9 +38356,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_construction_camera_by_union_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "construction_info":
@@ -38437,9 +38395,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_construction_info_by_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "construction_info_by_union_pk":
@@ -38451,9 +38406,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_construction_info_by_union_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "construction_upload_pic":
@@ -38493,9 +38445,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_construction_upload_pic_by_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "construction_upload_pic_by_union_pk":
@@ -38507,9 +38456,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_construction_upload_pic_by_union_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "offline_registration_record":
@@ -38549,9 +38495,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_offline_registration_record_by_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "offline_registration_record_by_union_pk":
@@ -38563,9 +38506,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_offline_registration_record_by_union_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "snapshot_system_passing_alarm":
@@ -38605,9 +38545,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_snapshot_system_passing_alarm_by_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "snapshot_system_passing_alarm_by_union_pk":
@@ -38619,9 +38556,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_snapshot_system_passing_alarm_by_union_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "vehicle_passing_record":
@@ -38661,9 +38595,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_vehicle_passing_record_by_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "vehicle_passing_record_by_union_pk":
@@ -38675,9 +38606,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_vehicle_passing_record_by_union_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "__type":
@@ -39976,10 +39904,6 @@ func (ec *executionContext) marshalNBoolean2bool(ctx context.Context, sel ast.Se
 	return res
 }
 
-func (ec *executionContext) marshalNConstructionCamera2VehicleSupervisionᚋinternalᚋmodulesᚋvehicle_snapshot_systemᚋmodelᚐConstructionCamera(ctx context.Context, sel ast.SelectionSet, v model1.ConstructionCamera) graphql.Marshaler {
-	return ec._ConstructionCamera(ctx, sel, &v)
-}
-
 func (ec *executionContext) marshalNConstructionCamera2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_snapshot_systemᚋmodelᚐConstructionCameraᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.ConstructionCamera) graphql.Marshaler {
 	ret := make(graphql.Array, len(v))
 	var wg sync.WaitGroup
@@ -40092,10 +40016,6 @@ func (ec *executionContext) marshalNConstructionCameraSelectColumn2VehicleSuperv
 	return v
 }
 
-func (ec *executionContext) marshalNConstructionInfo2VehicleSupervisionᚋinternalᚋmodulesᚋvehicle_snapshot_systemᚋmodelᚐConstructionInfo(ctx context.Context, sel ast.SelectionSet, v model1.ConstructionInfo) graphql.Marshaler {
-	return ec._ConstructionInfo(ctx, sel, &v)
-}
-
 func (ec *executionContext) marshalNConstructionInfo2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_snapshot_systemᚋmodelᚐConstructionInfoᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.ConstructionInfo) graphql.Marshaler {
 	ret := make(graphql.Array, len(v))
 	var wg sync.WaitGroup
@@ -40206,10 +40126,6 @@ func (ec *executionContext) unmarshalNConstructionInfoSelectColumn2VehicleSuperv
 
 func (ec *executionContext) marshalNConstructionInfoSelectColumn2VehicleSupervisionᚋinternalᚋmodulesᚋvehicle_snapshot_systemᚋgraphᚋmodelᚐConstructionInfoSelectColumn(ctx context.Context, sel ast.SelectionSet, v model.ConstructionInfoSelectColumn) graphql.Marshaler {
 	return v
-}
-
-func (ec *executionContext) marshalNConstructionUploadPic2VehicleSupervisionᚋinternalᚋmodulesᚋvehicle_snapshot_systemᚋmodelᚐConstructionUploadPic(ctx context.Context, sel ast.SelectionSet, v model1.ConstructionUploadPic) graphql.Marshaler {
-	return ec._ConstructionUploadPic(ctx, sel, &v)
 }
 
 func (ec *executionContext) marshalNConstructionUploadPic2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_snapshot_systemᚋmodelᚐConstructionUploadPicᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.ConstructionUploadPic) graphql.Marshaler {
@@ -40384,10 +40300,6 @@ func (ec *executionContext) marshalNNumeric2float64(ctx context.Context, sel ast
 	return res
 }
 
-func (ec *executionContext) marshalNOfflineRegistrationRecord2VehicleSupervisionᚋinternalᚋmodulesᚋvehicle_snapshot_systemᚋmodelᚐOfflineRegistrationRecord(ctx context.Context, sel ast.SelectionSet, v model1.OfflineRegistrationRecord) graphql.Marshaler {
-	return ec._OfflineRegistrationRecord(ctx, sel, &v)
-}
-
 func (ec *executionContext) marshalNOfflineRegistrationRecord2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_snapshot_systemᚋmodelᚐOfflineRegistrationRecordᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.OfflineRegistrationRecord) graphql.Marshaler {
 	ret := make(graphql.Array, len(v))
 	var wg sync.WaitGroup
@@ -40513,10 +40425,6 @@ func (ec *executionContext) marshalNPoint2string(ctx context.Context, sel ast.Se
 		}
 	}
 	return res
-}
-
-func (ec *executionContext) marshalNSnapshotSystemPassingAlarm2VehicleSupervisionᚋinternalᚋmodulesᚋvehicle_snapshot_systemᚋmodelᚐSnapshotSystemPassingAlarm(ctx context.Context, sel ast.SelectionSet, v model1.SnapshotSystemPassingAlarm) graphql.Marshaler {
-	return ec._SnapshotSystemPassingAlarm(ctx, sel, &v)
 }
 
 func (ec *executionContext) marshalNSnapshotSystemPassingAlarm2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_snapshot_systemᚋmodelᚐSnapshotSystemPassingAlarmᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.SnapshotSystemPassingAlarm) graphql.Marshaler {
@@ -40680,10 +40588,6 @@ func (ec *executionContext) marshalNTimestamptz2ᚖtimeᚐTime(ctx context.Conte
 		}
 	}
 	return res
-}
-
-func (ec *executionContext) marshalNVehiclePassingRecord2VehicleSupervisionᚋinternalᚋmodulesᚋvehicle_snapshot_systemᚋmodelᚐVehiclePassingRecord(ctx context.Context, sel ast.SelectionSet, v model1.VehiclePassingRecord) graphql.Marshaler {
-	return ec._VehiclePassingRecord(ctx, sel, &v)
 }
 
 func (ec *executionContext) marshalNVehiclePassingRecord2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_snapshot_systemᚋmodelᚐVehiclePassingRecordᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.VehiclePassingRecord) graphql.Marshaler {

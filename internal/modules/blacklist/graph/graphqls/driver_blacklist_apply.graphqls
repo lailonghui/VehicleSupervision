@@ -335,11 +335,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	driver_blacklist_apply_by_pk(id: Bigint!): DriverBlacklistApply!
+	driver_blacklist_apply_by_pk(id: Bigint!): DriverBlacklistApply
 	"""
 	联合主键查询
 	"""
-	driver_blacklist_apply_by_union_pk(apply_id: String!): DriverBlacklistApply!
+	driver_blacklist_apply_by_union_pk(apply_id: String!): DriverBlacklistApply
 }
 extend type Mutation {
 	"""

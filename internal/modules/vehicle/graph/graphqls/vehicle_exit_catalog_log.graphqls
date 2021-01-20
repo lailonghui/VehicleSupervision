@@ -367,11 +367,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	vehicle_exit_catalog_log_by_pk(id: Bigint!): VehicleExitCatalogLog!
+	vehicle_exit_catalog_log_by_pk(id: Bigint!): VehicleExitCatalogLog
 	"""
 	联合主键查询
 	"""
-	vehicle_exit_catalog_log_by_union_pk(vehicle_exit_catalog_log_id: String!): VehicleExitCatalogLog!
+	vehicle_exit_catalog_log_by_union_pk(vehicle_exit_catalog_log_id: String!): VehicleExitCatalogLog
 }
 extend type Mutation {
 	"""

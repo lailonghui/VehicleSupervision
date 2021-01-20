@@ -699,11 +699,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	enterprise_muck_trunk_by_pk(id: Bigint!): EnterpriseMuckTrunk!
+	enterprise_muck_trunk_by_pk(id: Bigint!): EnterpriseMuckTrunk
 	"""
 	联合主键查询
 	"""
-	enterprise_muck_trunk_by_union_pk(enterprise_muck_trunk_id: String!): EnterpriseMuckTrunk!
+	enterprise_muck_trunk_by_union_pk(enterprise_muck_trunk_id: String!): EnterpriseMuckTrunk
 }
 extend type Mutation {
 	"""

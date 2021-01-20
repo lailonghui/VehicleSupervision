@@ -275,11 +275,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	enterprise_ukey_by_pk(id: Bigint!): EnterpriseUkey!
+	enterprise_ukey_by_pk(id: Bigint!): EnterpriseUkey
 	"""
 	联合主键查询
 	"""
-	enterprise_ukey_by_union_pk(ukey_id: String!): EnterpriseUkey!
+	enterprise_ukey_by_union_pk(ukey_id: String!): EnterpriseUkey
 }
 extend type Mutation {
 	"""

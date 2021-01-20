@@ -58,9 +58,11 @@ func (t *IllegalPhotoPkLoader) NewLoader(ctx context.Context) *IllegalPhotoPkLoa
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}
@@ -129,9 +131,11 @@ func (t *IllegalPhotoUnionPkLoader) NewLoader(ctx context.Context) *IllegalPhoto
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}

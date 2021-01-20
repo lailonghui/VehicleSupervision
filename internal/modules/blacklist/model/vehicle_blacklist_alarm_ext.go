@@ -58,9 +58,11 @@ func (t *VehicleBlacklistAlarmPkLoader) NewLoader(ctx context.Context) *VehicleB
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}
@@ -129,9 +131,11 @@ func (t *VehicleBlacklistAlarmUnionPkLoader) NewLoader(ctx context.Context) *Veh
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}

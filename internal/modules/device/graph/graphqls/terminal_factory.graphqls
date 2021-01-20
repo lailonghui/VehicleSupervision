@@ -359,11 +359,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	terminal_factory_by_pk(id: Bigint!): TerminalFactory!
+	terminal_factory_by_pk(id: Bigint!): TerminalFactory
 	"""
 	联合主键查询
 	"""
-	terminal_factory_by_union_pk(factory_id: String!): TerminalFactory!
+	terminal_factory_by_union_pk(factory_id: String!): TerminalFactory
 }
 extend type Mutation {
 	"""

@@ -58,9 +58,11 @@ func (t *ControlLinePkLoader) NewLoader(ctx context.Context) *ControlLinePkLoade
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}
@@ -129,9 +131,11 @@ func (t *ControlLineUnionPkLoader) NewLoader(ctx context.Context) *ControlLineUn
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}

@@ -58,9 +58,11 @@ func (t *DataDictionaryPkLoader) NewLoader(ctx context.Context) *DataDictionaryP
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}
@@ -129,9 +131,11 @@ func (t *DataDictionaryUnionPkLoader) NewLoader(ctx context.Context) *DataDictio
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}

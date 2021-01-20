@@ -428,11 +428,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	control_line_by_pk(id: Bigint!): ControlLine!
+	control_line_by_pk(id: Bigint!): ControlLine
 	"""
 	联合主键查询
 	"""
-	control_line_by_union_pk(control_line_id: String!): ControlLine!
+	control_line_by_union_pk(control_line_id: String!): ControlLine
 }
 extend type Mutation {
 	"""

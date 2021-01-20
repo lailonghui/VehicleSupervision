@@ -58,9 +58,11 @@ func (t *EnterpriseScoreSetPkLoader) NewLoader(ctx context.Context) *EnterpriseS
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}
@@ -129,9 +131,11 @@ func (t *EnterpriseScoreSetUnionPkLoader) NewLoader(ctx context.Context) *Enterp
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}

@@ -58,9 +58,11 @@ func (t *SellerFilingPkLoader) NewLoader(ctx context.Context) *SellerFilingPkLoa
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}
@@ -129,9 +131,11 @@ func (t *SellerFilingUnionPkLoader) NewLoader(ctx context.Context) *SellerFiling
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}

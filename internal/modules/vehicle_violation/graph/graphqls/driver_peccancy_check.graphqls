@@ -275,7 +275,7 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	driver_peccancy_check_by_pk(id: Bigint!): DriverPeccancyCheck!
+	driver_peccancy_check_by_pk(id: Bigint!): DriverPeccancyCheck
 }
 extend type Mutation {
 	"""

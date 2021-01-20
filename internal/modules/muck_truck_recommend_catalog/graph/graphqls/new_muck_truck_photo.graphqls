@@ -289,11 +289,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	new_muck_truck_photo_by_pk(id: Bigint!): NewMuckTruckPhoto!
+	new_muck_truck_photo_by_pk(id: Bigint!): NewMuckTruckPhoto
 	"""
 	联合主键查询
 	"""
-	new_muck_truck_photo_by_union_pk(new_muck_truck_photo_id: String!): NewMuckTruckPhoto!
+	new_muck_truck_photo_by_union_pk(new_muck_truck_photo_id: String!): NewMuckTruckPhoto
 }
 extend type Mutation {
 	"""

@@ -275,11 +275,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	region_issued_by_pk(id: Bigint!): RegionIssued!
+	region_issued_by_pk(id: Bigint!): RegionIssued
 	"""
 	联合主键查询
 	"""
-	region_issued_by_union_pk(region_issued_id: String!): RegionIssued!
+	region_issued_by_union_pk(region_issued_id: String!): RegionIssued
 }
 extend type Mutation {
 	"""

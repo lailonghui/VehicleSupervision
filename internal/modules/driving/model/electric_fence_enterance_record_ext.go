@@ -58,9 +58,11 @@ func (t *ElectricFenceEnteranceRecordPkLoader) NewLoader(ctx context.Context) *E
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}
@@ -129,9 +131,11 @@ func (t *ElectricFenceEnteranceRecordUnionPkLoader) NewLoader(ctx context.Contex
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}

@@ -331,7 +331,7 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	district_alarm_content_push_by_pk(id: Bigint!): DistrictAlarmContentPush!
+	district_alarm_content_push_by_pk(id: Bigint!): DistrictAlarmContentPush
 }
 extend type Mutation {
 	"""

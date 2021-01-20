@@ -317,11 +317,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	terminal_beidou_valid_by_pk(id: Bigint!): TerminalBeidouValid!
+	terminal_beidou_valid_by_pk(id: Bigint!): TerminalBeidouValid
 	"""
 	联合主键查询
 	"""
-	terminal_beidou_valid_by_union_pk(terminal_beidou_valid_id: String!): TerminalBeidouValid!
+	terminal_beidou_valid_by_union_pk(terminal_beidou_valid_id: String!): TerminalBeidouValid
 }
 extend type Mutation {
 	"""

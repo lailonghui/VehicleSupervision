@@ -1802,6 +1802,157 @@ type VehicleViolationScoringRecordVarianceFields struct {
 	DemeritPoints *float64 `json:"demerit_points"`
 }
 
+// aggregated selection of "vio_codewfdm"
+type VioCodewfdmAggregate struct {
+	Aggregate *VioCodewfdmAggregateFields `json:"aggregate"`
+}
+
+// aggregate fields of "vio_codewfdm"
+type VioCodewfdmAggregateFields struct {
+	Avg        *VioCodewfdmAvgFields        `json:"avg"`
+	Count      *int                         `json:"count"`
+	Max        *VioCodewfdmMaxFields        `json:"max"`
+	Min        *VioCodewfdmMinFields        `json:"min"`
+	Stddev     *VioCodewfdmStddevFields     `json:"stddev"`
+	StddevPop  *VioCodewfdmStddevPopFields  `json:"stddev_pop"`
+	StddevSamp *VioCodewfdmStddevSampFields `json:"stddev_samp"`
+	Sum        *VioCodewfdmSumFields        `json:"sum"`
+	VarPop     *VioCodewfdmVarPopFields     `json:"var_pop"`
+	VarSamp    *VioCodewfdmVarSampFields    `json:"var_samp"`
+	Variance   *VioCodewfdmVarianceFields   `json:"variance"`
+}
+
+// aggregate avg on columns of table "vio_codewfdm"
+type VioCodewfdmAvgFields struct {
+	Wfjfs   *float64 `json:"wfjfs"`
+	FkjeMin *float64 `json:"fkje_min"`
+	FkjeMax *float64 `json:"fkje_max"`
+}
+
+// Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'vio_codewfdm'.
+type VioCodewfdmBoolExp struct {
+	And     []*VioCodewfdmBoolExp       `json:"_and"`
+	Not     *VioCodewfdmBoolExp         `json:"_not"`
+	Or      []*VioCodewfdmBoolExp       `json:"_or"`
+	Wfxw    *model.StringComparisonExp  `json:"wfxw"`
+	Wfms    *model.StringComparisonExp  `json:"wfms"`
+	Wfjfs   *model.NumericComparisonExp `json:"wfjfs"`
+	FkjeMin *model.NumericComparisonExp `json:"fkje_min"`
+	FkjeMax *model.NumericComparisonExp `json:"fkje_max"`
+	Xh      *model.StringComparisonExp  `json:"xh"`
+}
+
+// input type for incrementing integer column in table "vio_codewfdm"
+type VioCodewfdmIncInput struct {
+	Wfjfs   *float64 `json:"wfjfs"`
+	FkjeMin *float64 `json:"fkje_min"`
+	FkjeMax *float64 `json:"fkje_max"`
+}
+
+// input type for inserting data into table "vio_codewfdm"
+type VioCodewfdmInsertInput struct {
+	Wfxw    string   `json:"wfxw"`
+	Wfms    *string  `json:"wfms"`
+	Wfjfs   *float64 `json:"wfjfs"`
+	FkjeMin *float64 `json:"fkje_min"`
+	FkjeMax *float64 `json:"fkje_max"`
+}
+
+// aggregate max on columns of table "vio_codewfdm"
+type VioCodewfdmMaxFields struct {
+	Wfxw    *string  `json:"wfxw"`
+	Wfms    *string  `json:"wfms"`
+	Wfjfs   *float64 `json:"wfjfs"`
+	FkjeMin *float64 `json:"fkje_min"`
+	FkjeMax *float64 `json:"fkje_max"`
+	Xh      *string  `json:"xh"`
+}
+
+// aggregate min on columns of table "vio_codewfdm"
+type VioCodewfdmMinFields struct {
+	Wfxw    *string  `json:"wfxw"`
+	Wfms    *string  `json:"wfms"`
+	Wfjfs   *float64 `json:"wfjfs"`
+	FkjeMin *float64 `json:"fkje_min"`
+	FkjeMax *float64 `json:"fkje_max"`
+	Xh      *string  `json:"xh"`
+}
+
+// response of any mutation on the table "vio_codewfdm"
+type VioCodewfdmMutationResponse struct {
+	AffectedRows int                   `json:"affected_rows"`
+	Returning    []*model1.VioCodewfdm `json:"returning"`
+}
+
+// ordering options when selecting data from "vio_codewfdm"
+type VioCodewfdmOrderBy struct {
+	Wfxw    *model.OrderBy `json:"wfxw"`
+	Wfms    *model.OrderBy `json:"wfms"`
+	Wfjfs   *model.OrderBy `json:"wfjfs"`
+	FkjeMin *model.OrderBy `json:"fkje_min"`
+	FkjeMax *model.OrderBy `json:"fkje_max"`
+	Xh      *model.OrderBy `json:"xh"`
+}
+
+// input type for updating data in table "vio_codewfdm"
+type VioCodewfdmSetInput struct {
+	Wfxw    *string  `json:"wfxw"`
+	Wfms    *string  `json:"wfms"`
+	Wfjfs   *float64 `json:"wfjfs"`
+	FkjeMin *float64 `json:"fkje_min"`
+	FkjeMax *float64 `json:"fkje_max"`
+	Xh      *string  `json:"xh"`
+}
+
+// aggregate stddev on columns of table "vio_codewfdm"
+type VioCodewfdmStddevFields struct {
+	Wfjfs   *float64 `json:"wfjfs"`
+	FkjeMin *float64 `json:"fkje_min"`
+	FkjeMax *float64 `json:"fkje_max"`
+}
+
+// aggregate stddev_pop on columns of table "vio_codewfdm"
+type VioCodewfdmStddevPopFields struct {
+	Wfjfs   *float64 `json:"wfjfs"`
+	FkjeMin *float64 `json:"fkje_min"`
+	FkjeMax *float64 `json:"fkje_max"`
+}
+
+// aggregate stddev_samp on columns of table "vio_codewfdm"
+type VioCodewfdmStddevSampFields struct {
+	Wfjfs   *float64 `json:"wfjfs"`
+	FkjeMin *float64 `json:"fkje_min"`
+	FkjeMax *float64 `json:"fkje_max"`
+}
+
+// aggregate sum on columns of table "vio_codewfdm"
+type VioCodewfdmSumFields struct {
+	Wfjfs   *float64 `json:"wfjfs"`
+	FkjeMin *float64 `json:"fkje_min"`
+	FkjeMax *float64 `json:"fkje_max"`
+}
+
+// aggregate var_pop on columns of table "vio_codewfdm"
+type VioCodewfdmVarPopFields struct {
+	Wfjfs   *float64 `json:"wfjfs"`
+	FkjeMin *float64 `json:"fkje_min"`
+	FkjeMax *float64 `json:"fkje_max"`
+}
+
+// aggregate var_samp on columns of table "vio_codewfdm"
+type VioCodewfdmVarSampFields struct {
+	Wfjfs   *float64 `json:"wfjfs"`
+	FkjeMin *float64 `json:"fkje_min"`
+	FkjeMax *float64 `json:"fkje_max"`
+}
+
+// aggregate variance on columns of table "vio_codewfdm"
+type VioCodewfdmVarianceFields struct {
+	Wfjfs   *float64 `json:"wfjfs"`
+	FkjeMin *float64 `json:"fkje_min"`
+	FkjeMax *float64 `json:"fkje_max"`
+}
+
 // aggregated selection of "violation_registration"
 type ViolationRegistrationAggregate struct {
 	Aggregate *ViolationRegistrationAggregateFields `json:"aggregate"`
@@ -2826,6 +2977,62 @@ func (e *VehicleViolationScoringRecordSelectColumn) UnmarshalGQL(v interface{}) 
 }
 
 func (e VehicleViolationScoringRecordSelectColumn) MarshalGQL(w io.Writer) {
+	fmt.Fprint(w, strconv.Quote(e.String()))
+}
+
+// 可选select
+type VioCodewfdmSelectColumn string
+
+const (
+	// 违法行为
+	VioCodewfdmSelectColumnWfxw VioCodewfdmSelectColumn = "wfxw"
+	// 违法描述
+	VioCodewfdmSelectColumnWfms VioCodewfdmSelectColumn = "wfms"
+	// 违法计分数
+	VioCodewfdmSelectColumnWfjfs VioCodewfdmSelectColumn = "wfjfs"
+	// 最小罚款金额
+	VioCodewfdmSelectColumnFkjeMin VioCodewfdmSelectColumn = "fkje_min"
+	// 最大罚款金额
+	VioCodewfdmSelectColumnFkjeMax VioCodewfdmSelectColumn = "fkje_max"
+	// 序号
+	VioCodewfdmSelectColumnXh VioCodewfdmSelectColumn = "xh"
+)
+
+var AllVioCodewfdmSelectColumn = []VioCodewfdmSelectColumn{
+	VioCodewfdmSelectColumnWfxw,
+	VioCodewfdmSelectColumnWfms,
+	VioCodewfdmSelectColumnWfjfs,
+	VioCodewfdmSelectColumnFkjeMin,
+	VioCodewfdmSelectColumnFkjeMax,
+	VioCodewfdmSelectColumnXh,
+}
+
+func (e VioCodewfdmSelectColumn) IsValid() bool {
+	switch e {
+	case VioCodewfdmSelectColumnWfxw, VioCodewfdmSelectColumnWfms, VioCodewfdmSelectColumnWfjfs, VioCodewfdmSelectColumnFkjeMin, VioCodewfdmSelectColumnFkjeMax, VioCodewfdmSelectColumnXh:
+		return true
+	}
+	return false
+}
+
+func (e VioCodewfdmSelectColumn) String() string {
+	return string(e)
+}
+
+func (e *VioCodewfdmSelectColumn) UnmarshalGQL(v interface{}) error {
+	str, ok := v.(string)
+	if !ok {
+		return fmt.Errorf("enums must be strings")
+	}
+
+	*e = VioCodewfdmSelectColumn(str)
+	if !e.IsValid() {
+		return fmt.Errorf("%s is not a valid VioCodewfdmSelectColumn", str)
+	}
+	return nil
+}
+
+func (e VioCodewfdmSelectColumn) MarshalGQL(w io.Writer) {
 	fmt.Fprint(w, strconv.Quote(e.String()))
 }
 

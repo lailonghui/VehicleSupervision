@@ -58,9 +58,11 @@ func (t *NewMuckTruckRecommendCatalogPkLoader) NewLoader(ctx context.Context) *N
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}
@@ -129,9 +131,11 @@ func (t *NewMuckTruckRecommendCatalogUnionPkLoader) NewLoader(ctx context.Contex
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}

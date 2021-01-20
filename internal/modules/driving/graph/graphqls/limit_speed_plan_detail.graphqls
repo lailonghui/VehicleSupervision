@@ -386,11 +386,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	limit_speed_plan_detail_by_pk(id: Bigint!): LimitSpeedPlanDetail!
+	limit_speed_plan_detail_by_pk(id: Bigint!): LimitSpeedPlanDetail
 	"""
 	联合主键查询
 	"""
-	limit_speed_plan_detail_by_union_pk(detail_id: String!): LimitSpeedPlanDetail!
+	limit_speed_plan_detail_by_union_pk(detail_id: String!): LimitSpeedPlanDetail
 }
 extend type Mutation {
 	"""

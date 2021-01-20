@@ -261,11 +261,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	new_muck_truck_recommend_catalog_by_pk(id: Bigint!): NewMuckTruckRecommendCatalog!
+	new_muck_truck_recommend_catalog_by_pk(id: Bigint!): NewMuckTruckRecommendCatalog
 	"""
 	联合主键查询
 	"""
-	new_muck_truck_recommend_catalog_by_union_pk(new_muck_truck_recommend_catalog_id: String!): NewMuckTruckRecommendCatalog!
+	new_muck_truck_recommend_catalog_by_union_pk(new_muck_truck_recommend_catalog_id: String!): NewMuckTruckRecommendCatalog
 }
 extend type Mutation {
 	"""

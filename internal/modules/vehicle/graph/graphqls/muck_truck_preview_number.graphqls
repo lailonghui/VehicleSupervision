@@ -619,11 +619,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	muck_truck_preview_number_by_pk(id: Bigint!): MuckTruckPreviewNumber!
+	muck_truck_preview_number_by_pk(id: Bigint!): MuckTruckPreviewNumber
 	"""
 	联合主键查询
 	"""
-	muck_truck_preview_number_by_union_pk(muck_truck_preview_number_id: String!): MuckTruckPreviewNumber!
+	muck_truck_preview_number_by_union_pk(muck_truck_preview_number_id: String!): MuckTruckPreviewNumber
 }
 extend type Mutation {
 	"""

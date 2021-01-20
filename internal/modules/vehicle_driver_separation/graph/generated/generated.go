@@ -5237,11 +5237,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	case_approval_review_call_by_pk(id: Bigint!): CaseApprovalReviewCall!
+	case_approval_review_call_by_pk(id: Bigint!): CaseApprovalReviewCall
 	"""
 	联合主键查询
 	"""
-	case_approval_review_call_by_union_pk(case_approval_review_call_id: String!): CaseApprovalReviewCall!
+	case_approval_review_call_by_union_pk(case_approval_review_call_id: String!): CaseApprovalReviewCall
 }
 extend type Mutation {
 	"""
@@ -5583,11 +5583,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	case_approval_review_operation_by_pk(id: Bigint!): CaseApprovalReviewOperation!
+	case_approval_review_operation_by_pk(id: Bigint!): CaseApprovalReviewOperation
 	"""
 	联合主键查询
 	"""
-	case_approval_review_operation_by_union_pk(case_approval_review_operation_id: String!): CaseApprovalReviewOperation!
+	case_approval_review_operation_by_union_pk(case_approval_review_operation_id: String!): CaseApprovalReviewOperation
 }
 extend type Mutation {
 	"""
@@ -6331,7 +6331,7 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	dispute_violation_record_by_pk(id: Bigint!): DisputeViolationRecord!
+	dispute_violation_record_by_pk(id: Bigint!): DisputeViolationRecord
 }
 extend type Mutation {
 	"""
@@ -6637,7 +6637,7 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	dispute_violation_record_log_by_pk(id: Bigint!): DisputeViolationRecordLog!
+	dispute_violation_record_log_by_pk(id: Bigint!): DisputeViolationRecordLog
 }
 extend type Mutation {
 	"""
@@ -7101,11 +7101,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	driving_log_info_by_pk(id: Bigint!): DrivingLogInfo!
+	driving_log_info_by_pk(id: Bigint!): DrivingLogInfo
 	"""
 	联合主键查询
 	"""
-	driving_log_info_by_union_pk(driving_log_info_id: String!): DrivingLogInfo!
+	driving_log_info_by_union_pk(driving_log_info_id: String!): DrivingLogInfo
 }
 extend type Mutation {
 	"""
@@ -7447,11 +7447,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	vehicle_driver_binding_by_pk(id: Bigint!): VehicleDriverBinding!
+	vehicle_driver_binding_by_pk(id: Bigint!): VehicleDriverBinding
 	"""
 	联合主键查询
 	"""
-	vehicle_driver_binding_by_union_pk(vehicle_driver_binding_id: String!): VehicleDriverBinding!
+	vehicle_driver_binding_by_union_pk(vehicle_driver_binding_id: String!): VehicleDriverBinding
 }
 extend type Mutation {
 	"""
@@ -23622,14 +23622,11 @@ func (ec *executionContext) _Query_case_approval_review_call_by_pk(ctx context.C
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.CaseApprovalReviewCall)
 	fc.Result = res
-	return ec.marshalNCaseApprovalReviewCall2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_driver_separationᚋmodelᚐCaseApprovalReviewCall(ctx, field.Selections, res)
+	return ec.marshalOCaseApprovalReviewCall2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_driver_separationᚋmodelᚐCaseApprovalReviewCall(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_case_approval_review_call_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -23664,14 +23661,11 @@ func (ec *executionContext) _Query_case_approval_review_call_by_union_pk(ctx con
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.CaseApprovalReviewCall)
 	fc.Result = res
-	return ec.marshalNCaseApprovalReviewCall2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_driver_separationᚋmodelᚐCaseApprovalReviewCall(ctx, field.Selections, res)
+	return ec.marshalOCaseApprovalReviewCall2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_driver_separationᚋmodelᚐCaseApprovalReviewCall(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_case_approval_review_operation(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -23790,14 +23784,11 @@ func (ec *executionContext) _Query_case_approval_review_operation_by_pk(ctx cont
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.CaseApprovalReviewOperation)
 	fc.Result = res
-	return ec.marshalNCaseApprovalReviewOperation2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_driver_separationᚋmodelᚐCaseApprovalReviewOperation(ctx, field.Selections, res)
+	return ec.marshalOCaseApprovalReviewOperation2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_driver_separationᚋmodelᚐCaseApprovalReviewOperation(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_case_approval_review_operation_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -23832,14 +23823,11 @@ func (ec *executionContext) _Query_case_approval_review_operation_by_union_pk(ct
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.CaseApprovalReviewOperation)
 	fc.Result = res
-	return ec.marshalNCaseApprovalReviewOperation2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_driver_separationᚋmodelᚐCaseApprovalReviewOperation(ctx, field.Selections, res)
+	return ec.marshalOCaseApprovalReviewOperation2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_driver_separationᚋmodelᚐCaseApprovalReviewOperation(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_dispute_violation_record(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -23958,14 +23946,11 @@ func (ec *executionContext) _Query_dispute_violation_record_by_pk(ctx context.Co
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.DisputeViolationRecord)
 	fc.Result = res
-	return ec.marshalNDisputeViolationRecord2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_driver_separationᚋmodelᚐDisputeViolationRecord(ctx, field.Selections, res)
+	return ec.marshalODisputeViolationRecord2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_driver_separationᚋmodelᚐDisputeViolationRecord(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_dispute_violation_record_log(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -24084,14 +24069,11 @@ func (ec *executionContext) _Query_dispute_violation_record_log_by_pk(ctx contex
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.DisputeViolationRecordLog)
 	fc.Result = res
-	return ec.marshalNDisputeViolationRecordLog2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_driver_separationᚋmodelᚐDisputeViolationRecordLog(ctx, field.Selections, res)
+	return ec.marshalODisputeViolationRecordLog2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_driver_separationᚋmodelᚐDisputeViolationRecordLog(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_driving_log_info(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -24210,14 +24192,11 @@ func (ec *executionContext) _Query_driving_log_info_by_pk(ctx context.Context, f
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.DrivingLogInfo)
 	fc.Result = res
-	return ec.marshalNDrivingLogInfo2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_driver_separationᚋmodelᚐDrivingLogInfo(ctx, field.Selections, res)
+	return ec.marshalODrivingLogInfo2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_driver_separationᚋmodelᚐDrivingLogInfo(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_driving_log_info_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -24252,14 +24231,11 @@ func (ec *executionContext) _Query_driving_log_info_by_union_pk(ctx context.Cont
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.DrivingLogInfo)
 	fc.Result = res
-	return ec.marshalNDrivingLogInfo2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_driver_separationᚋmodelᚐDrivingLogInfo(ctx, field.Selections, res)
+	return ec.marshalODrivingLogInfo2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_driver_separationᚋmodelᚐDrivingLogInfo(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_vehicle_driver_binding(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -24378,14 +24354,11 @@ func (ec *executionContext) _Query_vehicle_driver_binding_by_pk(ctx context.Cont
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.VehicleDriverBinding)
 	fc.Result = res
-	return ec.marshalNVehicleDriverBinding2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_driver_separationᚋmodelᚐVehicleDriverBinding(ctx, field.Selections, res)
+	return ec.marshalOVehicleDriverBinding2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_driver_separationᚋmodelᚐVehicleDriverBinding(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_vehicle_driver_binding_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -24420,14 +24393,11 @@ func (ec *executionContext) _Query_vehicle_driver_binding_by_union_pk(ctx contex
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.VehicleDriverBinding)
 	fc.Result = res
-	return ec.marshalNVehicleDriverBinding2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_driver_separationᚋmodelᚐVehicleDriverBinding(ctx, field.Selections, res)
+	return ec.marshalOVehicleDriverBinding2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_driver_separationᚋmodelᚐVehicleDriverBinding(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query___type(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -34474,9 +34444,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_case_approval_review_call_by_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "case_approval_review_call_by_union_pk":
@@ -34488,9 +34455,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_case_approval_review_call_by_union_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "case_approval_review_operation":
@@ -34530,9 +34494,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_case_approval_review_operation_by_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "case_approval_review_operation_by_union_pk":
@@ -34544,9 +34505,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_case_approval_review_operation_by_union_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "dispute_violation_record":
@@ -34586,9 +34544,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_dispute_violation_record_by_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "dispute_violation_record_log":
@@ -34628,9 +34583,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_dispute_violation_record_log_by_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "driving_log_info":
@@ -34670,9 +34622,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_driving_log_info_by_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "driving_log_info_by_union_pk":
@@ -34684,9 +34633,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_driving_log_info_by_union_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "vehicle_driver_binding":
@@ -34726,9 +34672,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_vehicle_driver_binding_by_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "vehicle_driver_binding_by_union_pk":
@@ -34740,9 +34683,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_vehicle_driver_binding_by_union_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "__type":
@@ -35477,10 +35417,6 @@ func (ec *executionContext) marshalNBoolean2bool(ctx context.Context, sel ast.Se
 	return res
 }
 
-func (ec *executionContext) marshalNCaseApprovalReviewCall2VehicleSupervisionᚋinternalᚋmodulesᚋvehicle_driver_separationᚋmodelᚐCaseApprovalReviewCall(ctx context.Context, sel ast.SelectionSet, v model1.CaseApprovalReviewCall) graphql.Marshaler {
-	return ec._CaseApprovalReviewCall(ctx, sel, &v)
-}
-
 func (ec *executionContext) marshalNCaseApprovalReviewCall2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_driver_separationᚋmodelᚐCaseApprovalReviewCallᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.CaseApprovalReviewCall) graphql.Marshaler {
 	ret := make(graphql.Array, len(v))
 	var wg sync.WaitGroup
@@ -35591,10 +35527,6 @@ func (ec *executionContext) unmarshalNCaseApprovalReviewCallSelectColumn2Vehicle
 
 func (ec *executionContext) marshalNCaseApprovalReviewCallSelectColumn2VehicleSupervisionᚋinternalᚋmodulesᚋvehicle_driver_separationᚋgraphᚋmodelᚐCaseApprovalReviewCallSelectColumn(ctx context.Context, sel ast.SelectionSet, v model.CaseApprovalReviewCallSelectColumn) graphql.Marshaler {
 	return v
-}
-
-func (ec *executionContext) marshalNCaseApprovalReviewOperation2VehicleSupervisionᚋinternalᚋmodulesᚋvehicle_driver_separationᚋmodelᚐCaseApprovalReviewOperation(ctx context.Context, sel ast.SelectionSet, v model1.CaseApprovalReviewOperation) graphql.Marshaler {
-	return ec._CaseApprovalReviewOperation(ctx, sel, &v)
 }
 
 func (ec *executionContext) marshalNCaseApprovalReviewOperation2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_driver_separationᚋmodelᚐCaseApprovalReviewOperationᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.CaseApprovalReviewOperation) graphql.Marshaler {
@@ -35709,10 +35641,6 @@ func (ec *executionContext) marshalNCaseApprovalReviewOperationSelectColumn2Vehi
 	return v
 }
 
-func (ec *executionContext) marshalNDisputeViolationRecord2VehicleSupervisionᚋinternalᚋmodulesᚋvehicle_driver_separationᚋmodelᚐDisputeViolationRecord(ctx context.Context, sel ast.SelectionSet, v model1.DisputeViolationRecord) graphql.Marshaler {
-	return ec._DisputeViolationRecord(ctx, sel, &v)
-}
-
 func (ec *executionContext) marshalNDisputeViolationRecord2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_driver_separationᚋmodelᚐDisputeViolationRecordᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.DisputeViolationRecord) graphql.Marshaler {
 	ret := make(graphql.Array, len(v))
 	var wg sync.WaitGroup
@@ -35808,10 +35736,6 @@ func (ec *executionContext) unmarshalNDisputeViolationRecordInsertInput2ᚕᚖVe
 func (ec *executionContext) unmarshalNDisputeViolationRecordInsertInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_driver_separationᚋgraphᚋmodelᚐDisputeViolationRecordInsertInput(ctx context.Context, v interface{}) (*model.DisputeViolationRecordInsertInput, error) {
 	res, err := ec.unmarshalInputDisputeViolationRecordInsertInput(ctx, v)
 	return &res, graphql.ErrorOnPath(ctx, err)
-}
-
-func (ec *executionContext) marshalNDisputeViolationRecordLog2VehicleSupervisionᚋinternalᚋmodulesᚋvehicle_driver_separationᚋmodelᚐDisputeViolationRecordLog(ctx context.Context, sel ast.SelectionSet, v model1.DisputeViolationRecordLog) graphql.Marshaler {
-	return ec._DisputeViolationRecordLog(ctx, sel, &v)
 }
 
 func (ec *executionContext) marshalNDisputeViolationRecordLog2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_driver_separationᚋmodelᚐDisputeViolationRecordLogᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.DisputeViolationRecordLog) graphql.Marshaler {
@@ -35939,10 +35863,6 @@ func (ec *executionContext) unmarshalNDisputeViolationRecordSelectColumn2Vehicle
 
 func (ec *executionContext) marshalNDisputeViolationRecordSelectColumn2VehicleSupervisionᚋinternalᚋmodulesᚋvehicle_driver_separationᚋgraphᚋmodelᚐDisputeViolationRecordSelectColumn(ctx context.Context, sel ast.SelectionSet, v model.DisputeViolationRecordSelectColumn) graphql.Marshaler {
 	return v
-}
-
-func (ec *executionContext) marshalNDrivingLogInfo2VehicleSupervisionᚋinternalᚋmodulesᚋvehicle_driver_separationᚋmodelᚐDrivingLogInfo(ctx context.Context, sel ast.SelectionSet, v model1.DrivingLogInfo) graphql.Marshaler {
-	return ec._DrivingLogInfo(ctx, sel, &v)
 }
 
 func (ec *executionContext) marshalNDrivingLogInfo2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_driver_separationᚋmodelᚐDrivingLogInfoᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.DrivingLogInfo) graphql.Marshaler {
@@ -36181,10 +36101,6 @@ func (ec *executionContext) marshalNTimestamptz2ᚖtimeᚐTime(ctx context.Conte
 		}
 	}
 	return res
-}
-
-func (ec *executionContext) marshalNVehicleDriverBinding2VehicleSupervisionᚋinternalᚋmodulesᚋvehicle_driver_separationᚋmodelᚐVehicleDriverBinding(ctx context.Context, sel ast.SelectionSet, v model1.VehicleDriverBinding) graphql.Marshaler {
-	return ec._VehicleDriverBinding(ctx, sel, &v)
 }
 
 func (ec *executionContext) marshalNVehicleDriverBinding2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_driver_separationᚋmodelᚐVehicleDriverBindingᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.VehicleDriverBinding) graphql.Marshaler {

@@ -471,11 +471,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	terminal_check_param_by_pk(id: Bigint!): TerminalCheckParam!
+	terminal_check_param_by_pk(id: Bigint!): TerminalCheckParam
 	"""
 	联合主键查询
 	"""
-	terminal_check_param_by_union_pk(terminal_check_param_id: String!): TerminalCheckParam!
+	terminal_check_param_by_union_pk(terminal_check_param_id: String!): TerminalCheckParam
 }
 extend type Mutation {
 	"""

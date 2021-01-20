@@ -58,9 +58,11 @@ func (t *OutageFilingUploadFilePkLoader) NewLoader(ctx context.Context) *OutageF
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}
@@ -129,9 +131,11 @@ func (t *OutageFilingUploadFileUnionPkLoader) NewLoader(ctx context.Context) *Ou
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}

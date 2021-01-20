@@ -8280,7 +8280,7 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	alarm_processing_record_by_pk(id: Bigint!): AlarmProcessingRecord!
+	alarm_processing_record_by_pk(id: Bigint!): AlarmProcessingRecord
 }
 extend type Mutation {
 	"""
@@ -8721,7 +8721,7 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	alarm_supervision_picture_upload_by_pk(id: Bigint!): AlarmSupervisionPictureUpload!
+	alarm_supervision_picture_upload_by_pk(id: Bigint!): AlarmSupervisionPictureUpload
 }
 extend type Mutation {
 	"""
@@ -9252,7 +9252,7 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	district_alarm_content_push_by_pk(id: Bigint!): DistrictAlarmContentPush!
+	district_alarm_content_push_by_pk(id: Bigint!): DistrictAlarmContentPush
 }
 extend type Mutation {
 	"""
@@ -9628,11 +9628,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	enterprise_alarm_send_police_by_pk(id: Bigint!): EnterpriseAlarmSendPolice!
+	enterprise_alarm_send_police_by_pk(id: Bigint!): EnterpriseAlarmSendPolice
 	"""
 	联合主键查询
 	"""
-	enterprise_alarm_send_police_by_union_pk(enterprise_alarm_send_police_id: String!): EnterpriseAlarmSendPolice!
+	enterprise_alarm_send_police_by_union_pk(enterprise_alarm_send_police_id: String!): EnterpriseAlarmSendPolice
 }
 extend type Mutation {
 	"""
@@ -10137,11 +10137,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	offline_alarm_registration_by_pk(id: Bigint!): OfflineAlarmRegistration!
+	offline_alarm_registration_by_pk(id: Bigint!): OfflineAlarmRegistration
 	"""
 	联合主键查询
 	"""
-	offline_alarm_registration_by_union_pk(offline_alarm_registration_id: String!): OfflineAlarmRegistration!
+	offline_alarm_registration_by_union_pk(offline_alarm_registration_id: String!): OfflineAlarmRegistration
 }
 extend type Mutation {
 	"""
@@ -10976,11 +10976,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	vehicle_alarm_data_by_pk(id: Bigint!): VehicleAlarmData!
+	vehicle_alarm_data_by_pk(id: Bigint!): VehicleAlarmData
 	"""
 	联合主键查询
 	"""
-	vehicle_alarm_data_by_union_pk(vehicle_alarm_data_id: String!): VehicleAlarmData!
+	vehicle_alarm_data_by_union_pk(vehicle_alarm_data_id: String!): VehicleAlarmData
 }
 extend type Mutation {
 	"""
@@ -11359,11 +11359,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	video_platform_alarm_type_by_pk(id: Bigint!): VideoPlatformAlarmType!
+	video_platform_alarm_type_by_pk(id: Bigint!): VideoPlatformAlarmType
 	"""
 	联合主键查询
 	"""
-	video_platform_alarm_type_by_union_pk(video_platform_alarm_type_id: String!): VideoPlatformAlarmType!
+	video_platform_alarm_type_by_union_pk(video_platform_alarm_type_id: String!): VideoPlatformAlarmType
 }
 extend type Mutation {
 	"""
@@ -11761,7 +11761,7 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	voice_alarm_record_by_pk(id: Bigint!): VoiceAlarmRecord!
+	voice_alarm_record_by_pk(id: Bigint!): VoiceAlarmRecord
 }
 extend type Mutation {
 	"""
@@ -30269,14 +30269,11 @@ func (ec *executionContext) _Query_alarm_processing_record_by_pk(ctx context.Con
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.AlarmProcessingRecord)
 	fc.Result = res
-	return ec.marshalNAlarmProcessingRecord2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_alarmᚋmodelᚐAlarmProcessingRecord(ctx, field.Selections, res)
+	return ec.marshalOAlarmProcessingRecord2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_alarmᚋmodelᚐAlarmProcessingRecord(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_alarm_supervision_picture_upload(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -30395,14 +30392,11 @@ func (ec *executionContext) _Query_alarm_supervision_picture_upload_by_pk(ctx co
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.AlarmSupervisionPictureUpload)
 	fc.Result = res
-	return ec.marshalNAlarmSupervisionPictureUpload2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_alarmᚋmodelᚐAlarmSupervisionPictureUpload(ctx, field.Selections, res)
+	return ec.marshalOAlarmSupervisionPictureUpload2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_alarmᚋmodelᚐAlarmSupervisionPictureUpload(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_district_alarm_content_push(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -30521,14 +30515,11 @@ func (ec *executionContext) _Query_district_alarm_content_push_by_pk(ctx context
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.DistrictAlarmContentPush)
 	fc.Result = res
-	return ec.marshalNDistrictAlarmContentPush2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_alarmᚋmodelᚐDistrictAlarmContentPush(ctx, field.Selections, res)
+	return ec.marshalODistrictAlarmContentPush2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_alarmᚋmodelᚐDistrictAlarmContentPush(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_enterprise_alarm_send_police(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -30647,14 +30638,11 @@ func (ec *executionContext) _Query_enterprise_alarm_send_police_by_pk(ctx contex
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.EnterpriseAlarmSendPolice)
 	fc.Result = res
-	return ec.marshalNEnterpriseAlarmSendPolice2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_alarmᚋmodelᚐEnterpriseAlarmSendPolice(ctx, field.Selections, res)
+	return ec.marshalOEnterpriseAlarmSendPolice2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_alarmᚋmodelᚐEnterpriseAlarmSendPolice(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_enterprise_alarm_send_police_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -30689,14 +30677,11 @@ func (ec *executionContext) _Query_enterprise_alarm_send_police_by_union_pk(ctx 
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.EnterpriseAlarmSendPolice)
 	fc.Result = res
-	return ec.marshalNEnterpriseAlarmSendPolice2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_alarmᚋmodelᚐEnterpriseAlarmSendPolice(ctx, field.Selections, res)
+	return ec.marshalOEnterpriseAlarmSendPolice2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_alarmᚋmodelᚐEnterpriseAlarmSendPolice(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_offline_alarm_registration(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -30815,14 +30800,11 @@ func (ec *executionContext) _Query_offline_alarm_registration_by_pk(ctx context.
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.OfflineAlarmRegistration)
 	fc.Result = res
-	return ec.marshalNOfflineAlarmRegistration2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_alarmᚋmodelᚐOfflineAlarmRegistration(ctx, field.Selections, res)
+	return ec.marshalOOfflineAlarmRegistration2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_alarmᚋmodelᚐOfflineAlarmRegistration(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_offline_alarm_registration_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -30857,14 +30839,11 @@ func (ec *executionContext) _Query_offline_alarm_registration_by_union_pk(ctx co
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.OfflineAlarmRegistration)
 	fc.Result = res
-	return ec.marshalNOfflineAlarmRegistration2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_alarmᚋmodelᚐOfflineAlarmRegistration(ctx, field.Selections, res)
+	return ec.marshalOOfflineAlarmRegistration2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_alarmᚋmodelᚐOfflineAlarmRegistration(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_vehicle_alarm_data(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -30983,14 +30962,11 @@ func (ec *executionContext) _Query_vehicle_alarm_data_by_pk(ctx context.Context,
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.VehicleAlarmData)
 	fc.Result = res
-	return ec.marshalNVehicleAlarmData2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_alarmᚋmodelᚐVehicleAlarmData(ctx, field.Selections, res)
+	return ec.marshalOVehicleAlarmData2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_alarmᚋmodelᚐVehicleAlarmData(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_vehicle_alarm_data_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -31025,14 +31001,11 @@ func (ec *executionContext) _Query_vehicle_alarm_data_by_union_pk(ctx context.Co
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.VehicleAlarmData)
 	fc.Result = res
-	return ec.marshalNVehicleAlarmData2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_alarmᚋmodelᚐVehicleAlarmData(ctx, field.Selections, res)
+	return ec.marshalOVehicleAlarmData2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_alarmᚋmodelᚐVehicleAlarmData(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_video_platform_alarm_type(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -31151,14 +31124,11 @@ func (ec *executionContext) _Query_video_platform_alarm_type_by_pk(ctx context.C
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.VideoPlatformAlarmType)
 	fc.Result = res
-	return ec.marshalNVideoPlatformAlarmType2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_alarmᚋmodelᚐVideoPlatformAlarmType(ctx, field.Selections, res)
+	return ec.marshalOVideoPlatformAlarmType2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_alarmᚋmodelᚐVideoPlatformAlarmType(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_video_platform_alarm_type_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -31193,14 +31163,11 @@ func (ec *executionContext) _Query_video_platform_alarm_type_by_union_pk(ctx con
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.VideoPlatformAlarmType)
 	fc.Result = res
-	return ec.marshalNVideoPlatformAlarmType2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_alarmᚋmodelᚐVideoPlatformAlarmType(ctx, field.Selections, res)
+	return ec.marshalOVideoPlatformAlarmType2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_alarmᚋmodelᚐVideoPlatformAlarmType(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_voice_alarm_record(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -31319,14 +31286,11 @@ func (ec *executionContext) _Query_voice_alarm_record_by_pk(ctx context.Context,
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.VoiceAlarmRecord)
 	fc.Result = res
-	return ec.marshalNVoiceAlarmRecord2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_alarmᚋmodelᚐVoiceAlarmRecord(ctx, field.Selections, res)
+	return ec.marshalOVoiceAlarmRecord2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_alarmᚋmodelᚐVoiceAlarmRecord(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query___type(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -52937,9 +52901,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_alarm_processing_record_by_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "alarm_supervision_picture_upload":
@@ -52979,9 +52940,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_alarm_supervision_picture_upload_by_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "district_alarm_content_push":
@@ -53021,9 +52979,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_district_alarm_content_push_by_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "enterprise_alarm_send_police":
@@ -53063,9 +53018,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_enterprise_alarm_send_police_by_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "enterprise_alarm_send_police_by_union_pk":
@@ -53077,9 +53029,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_enterprise_alarm_send_police_by_union_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "offline_alarm_registration":
@@ -53119,9 +53068,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_offline_alarm_registration_by_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "offline_alarm_registration_by_union_pk":
@@ -53133,9 +53079,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_offline_alarm_registration_by_union_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "vehicle_alarm_data":
@@ -53175,9 +53118,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_vehicle_alarm_data_by_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "vehicle_alarm_data_by_union_pk":
@@ -53189,9 +53129,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_vehicle_alarm_data_by_union_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "video_platform_alarm_type":
@@ -53231,9 +53168,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_video_platform_alarm_type_by_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "video_platform_alarm_type_by_union_pk":
@@ -53245,9 +53179,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_video_platform_alarm_type_by_union_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "voice_alarm_record":
@@ -53287,9 +53218,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_voice_alarm_record_by_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "__type":
@@ -55205,10 +55133,6 @@ func (ec *executionContext) ___Type(ctx context.Context, sel ast.SelectionSet, o
 
 // region    ***************************** type.gotpl *****************************
 
-func (ec *executionContext) marshalNAlarmProcessingRecord2VehicleSupervisionᚋinternalᚋmodulesᚋvehicle_alarmᚋmodelᚐAlarmProcessingRecord(ctx context.Context, sel ast.SelectionSet, v model1.AlarmProcessingRecord) graphql.Marshaler {
-	return ec._AlarmProcessingRecord(ctx, sel, &v)
-}
-
 func (ec *executionContext) marshalNAlarmProcessingRecord2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_alarmᚋmodelᚐAlarmProcessingRecordᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.AlarmProcessingRecord) graphql.Marshaler {
 	ret := make(graphql.Array, len(v))
 	var wg sync.WaitGroup
@@ -55319,10 +55243,6 @@ func (ec *executionContext) unmarshalNAlarmProcessingRecordSelectColumn2VehicleS
 
 func (ec *executionContext) marshalNAlarmProcessingRecordSelectColumn2VehicleSupervisionᚋinternalᚋmodulesᚋvehicle_alarmᚋgraphᚋmodelᚐAlarmProcessingRecordSelectColumn(ctx context.Context, sel ast.SelectionSet, v model.AlarmProcessingRecordSelectColumn) graphql.Marshaler {
 	return v
-}
-
-func (ec *executionContext) marshalNAlarmSupervisionPictureUpload2VehicleSupervisionᚋinternalᚋmodulesᚋvehicle_alarmᚋmodelᚐAlarmSupervisionPictureUpload(ctx context.Context, sel ast.SelectionSet, v model1.AlarmSupervisionPictureUpload) graphql.Marshaler {
-	return ec._AlarmSupervisionPictureUpload(ctx, sel, &v)
 }
 
 func (ec *executionContext) marshalNAlarmSupervisionPictureUpload2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_alarmᚋmodelᚐAlarmSupervisionPictureUploadᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.AlarmSupervisionPictureUpload) graphql.Marshaler {
@@ -55467,10 +55387,6 @@ func (ec *executionContext) marshalNBoolean2bool(ctx context.Context, sel ast.Se
 	return res
 }
 
-func (ec *executionContext) marshalNDistrictAlarmContentPush2VehicleSupervisionᚋinternalᚋmodulesᚋvehicle_alarmᚋmodelᚐDistrictAlarmContentPush(ctx context.Context, sel ast.SelectionSet, v model1.DistrictAlarmContentPush) graphql.Marshaler {
-	return ec._DistrictAlarmContentPush(ctx, sel, &v)
-}
-
 func (ec *executionContext) marshalNDistrictAlarmContentPush2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_alarmᚋmodelᚐDistrictAlarmContentPushᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.DistrictAlarmContentPush) graphql.Marshaler {
 	ret := make(graphql.Array, len(v))
 	var wg sync.WaitGroup
@@ -55581,10 +55497,6 @@ func (ec *executionContext) unmarshalNDistrictAlarmContentPushSelectColumn2Vehic
 
 func (ec *executionContext) marshalNDistrictAlarmContentPushSelectColumn2VehicleSupervisionᚋinternalᚋmodulesᚋvehicle_alarmᚋgraphᚋmodelᚐDistrictAlarmContentPushSelectColumn(ctx context.Context, sel ast.SelectionSet, v model.DistrictAlarmContentPushSelectColumn) graphql.Marshaler {
 	return v
-}
-
-func (ec *executionContext) marshalNEnterpriseAlarmSendPolice2VehicleSupervisionᚋinternalᚋmodulesᚋvehicle_alarmᚋmodelᚐEnterpriseAlarmSendPolice(ctx context.Context, sel ast.SelectionSet, v model1.EnterpriseAlarmSendPolice) graphql.Marshaler {
-	return ec._EnterpriseAlarmSendPolice(ctx, sel, &v)
 }
 
 func (ec *executionContext) marshalNEnterpriseAlarmSendPolice2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_alarmᚋmodelᚐEnterpriseAlarmSendPoliceᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.EnterpriseAlarmSendPolice) graphql.Marshaler {
@@ -55757,10 +55669,6 @@ func (ec *executionContext) marshalNNumeric2float64(ctx context.Context, sel ast
 		}
 	}
 	return res
-}
-
-func (ec *executionContext) marshalNOfflineAlarmRegistration2VehicleSupervisionᚋinternalᚋmodulesᚋvehicle_alarmᚋmodelᚐOfflineAlarmRegistration(ctx context.Context, sel ast.SelectionSet, v model1.OfflineAlarmRegistration) graphql.Marshaler {
-	return ec._OfflineAlarmRegistration(ctx, sel, &v)
 }
 
 func (ec *executionContext) marshalNOfflineAlarmRegistration2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_alarmᚋmodelᚐOfflineAlarmRegistrationᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.OfflineAlarmRegistration) graphql.Marshaler {
@@ -55941,10 +55849,6 @@ func (ec *executionContext) marshalNTimestamptz2ᚖtimeᚐTime(ctx context.Conte
 	return res
 }
 
-func (ec *executionContext) marshalNVehicleAlarmData2VehicleSupervisionᚋinternalᚋmodulesᚋvehicle_alarmᚋmodelᚐVehicleAlarmData(ctx context.Context, sel ast.SelectionSet, v model1.VehicleAlarmData) graphql.Marshaler {
-	return ec._VehicleAlarmData(ctx, sel, &v)
-}
-
 func (ec *executionContext) marshalNVehicleAlarmData2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_alarmᚋmodelᚐVehicleAlarmDataᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.VehicleAlarmData) graphql.Marshaler {
 	ret := make(graphql.Array, len(v))
 	var wg sync.WaitGroup
@@ -56057,10 +55961,6 @@ func (ec *executionContext) marshalNVehicleAlarmDataSelectColumn2VehicleSupervis
 	return v
 }
 
-func (ec *executionContext) marshalNVideoPlatformAlarmType2VehicleSupervisionᚋinternalᚋmodulesᚋvehicle_alarmᚋmodelᚐVideoPlatformAlarmType(ctx context.Context, sel ast.SelectionSet, v model1.VideoPlatformAlarmType) graphql.Marshaler {
-	return ec._VideoPlatformAlarmType(ctx, sel, &v)
-}
-
 func (ec *executionContext) marshalNVideoPlatformAlarmType2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_alarmᚋmodelᚐVideoPlatformAlarmTypeᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.VideoPlatformAlarmType) graphql.Marshaler {
 	ret := make(graphql.Array, len(v))
 	var wg sync.WaitGroup
@@ -56171,10 +56071,6 @@ func (ec *executionContext) unmarshalNVideoPlatformAlarmTypeSelectColumn2Vehicle
 
 func (ec *executionContext) marshalNVideoPlatformAlarmTypeSelectColumn2VehicleSupervisionᚋinternalᚋmodulesᚋvehicle_alarmᚋgraphᚋmodelᚐVideoPlatformAlarmTypeSelectColumn(ctx context.Context, sel ast.SelectionSet, v model.VideoPlatformAlarmTypeSelectColumn) graphql.Marshaler {
 	return v
-}
-
-func (ec *executionContext) marshalNVoiceAlarmRecord2VehicleSupervisionᚋinternalᚋmodulesᚋvehicle_alarmᚋmodelᚐVoiceAlarmRecord(ctx context.Context, sel ast.SelectionSet, v model1.VoiceAlarmRecord) graphql.Marshaler {
-	return ec._VoiceAlarmRecord(ctx, sel, &v)
 }
 
 func (ec *executionContext) marshalNVoiceAlarmRecord2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_alarmᚋmodelᚐVoiceAlarmRecordᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.VoiceAlarmRecord) graphql.Marshaler {

@@ -466,11 +466,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	driver_fingerprint_by_pk(id: Bigint!): DriverFingerprint!
+	driver_fingerprint_by_pk(id: Bigint!): DriverFingerprint
 	"""
 	联合主键查询
 	"""
-	driver_fingerprint_by_union_pk(driver_fingerprint_id: String!): DriverFingerprint!
+	driver_fingerprint_by_union_pk(driver_fingerprint_id: String!): DriverFingerprint
 }
 extend type Mutation {
 	"""

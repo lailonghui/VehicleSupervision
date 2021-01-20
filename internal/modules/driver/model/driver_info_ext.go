@@ -58,9 +58,11 @@ func (t *DriverInfoPkLoader) NewLoader(ctx context.Context) *DriverInfoPkLoader 
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}

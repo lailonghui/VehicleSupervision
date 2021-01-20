@@ -58,9 +58,11 @@ func (t *SeriousTrafficViolationPkLoader) NewLoader(ctx context.Context) *Seriou
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}
@@ -129,9 +131,11 @@ func (t *SeriousTrafficViolationUnionPkLoader) NewLoader(ctx context.Context) *S
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}

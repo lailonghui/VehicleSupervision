@@ -438,7 +438,7 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	owner_info_by_pk(id: Bigint!): OwnerInfo!
+	owner_info_by_pk(id: Bigint!): OwnerInfo
 }
 extend type Mutation {
 	"""

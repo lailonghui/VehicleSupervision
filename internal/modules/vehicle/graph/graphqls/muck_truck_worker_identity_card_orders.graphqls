@@ -275,7 +275,7 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	muck_truck_worker_identity_card_orders_by_pk(id: Bigint!): MuckTruckWorkerIdentityCardOrders!
+	muck_truck_worker_identity_card_orders_by_pk(id: Bigint!): MuckTruckWorkerIdentityCardOrders
 }
 extend type Mutation {
 	"""

@@ -419,11 +419,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	regional_violation_register_by_pk(id: Bigint!): RegionalViolationRegister!
+	regional_violation_register_by_pk(id: Bigint!): RegionalViolationRegister
 	"""
 	联合主键查询
 	"""
-	regional_violation_register_by_union_pk(regional_violation_register_id: String!): RegionalViolationRegister!
+	regional_violation_register_by_union_pk(regional_violation_register_id: String!): RegionalViolationRegister
 }
 extend type Mutation {
 	"""

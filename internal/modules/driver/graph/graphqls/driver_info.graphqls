@@ -662,7 +662,7 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	driver_info_by_pk(id: Bigint!): DriverInfo!
+	driver_info_by_pk(id: Bigint!): DriverInfo
 }
 extend type Mutation {
 	"""

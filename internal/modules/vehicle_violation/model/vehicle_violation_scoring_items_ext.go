@@ -58,9 +58,11 @@ func (t *VehicleViolationScoringItemsPkLoader) NewLoader(ctx context.Context) *V
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}

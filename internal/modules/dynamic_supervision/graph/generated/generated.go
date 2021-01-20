@@ -11815,7 +11815,7 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	dynamic_spot_check_disposal_by_pk(id: Bigint!): DynamicSpotCheckDisposal!
+	dynamic_spot_check_disposal_by_pk(id: Bigint!): DynamicSpotCheckDisposal
 }
 extend type Mutation {
 	"""
@@ -12338,11 +12338,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	dynamic_supervision_by_pk(id: Bigint!): DynamicSupervision!
+	dynamic_supervision_by_pk(id: Bigint!): DynamicSupervision
 	"""
 	联合主键查询
 	"""
-	dynamic_supervision_by_union_pk(supervision_id: String!): DynamicSupervision!
+	dynamic_supervision_by_union_pk(supervision_id: String!): DynamicSupervision
 }
 extend type Mutation {
 	"""
@@ -13424,11 +13424,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	dynamic_supervision_detail_by_pk(id: Bigint!): DynamicSupervisionDetail!
+	dynamic_supervision_detail_by_pk(id: Bigint!): DynamicSupervisionDetail
 	"""
 	联合主键查询
 	"""
-	dynamic_supervision_detail_by_union_pk(supervision_detail_id: String!): DynamicSupervisionDetail!
+	dynamic_supervision_detail_by_union_pk(supervision_detail_id: String!): DynamicSupervisionDetail
 }
 extend type Mutation {
 	"""
@@ -13868,11 +13868,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	muck_truck_online_by_pk(id: Bigint!): MuckTruckOnline!
+	muck_truck_online_by_pk(id: Bigint!): MuckTruckOnline
 	"""
 	联合主键查询
 	"""
-	muck_truck_online_by_union_pk(muck_truck_online_id: String!): MuckTruckOnline!
+	muck_truck_online_by_union_pk(muck_truck_online_id: String!): MuckTruckOnline
 }
 extend type Mutation {
 	"""
@@ -14186,11 +14186,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	region_issued_by_pk(id: Bigint!): RegionIssued!
+	region_issued_by_pk(id: Bigint!): RegionIssued
 	"""
 	联合主键查询
 	"""
-	region_issued_by_union_pk(region_issued_id: String!): RegionIssued!
+	region_issued_by_union_pk(region_issued_id: String!): RegionIssued
 }
 extend type Mutation {
 	"""
@@ -14685,11 +14685,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	region_management_by_pk(id: Bigint!): RegionManagement!
+	region_management_by_pk(id: Bigint!): RegionManagement
 	"""
 	联合主键查询
 	"""
-	region_management_by_union_pk(region_management_id: String!): RegionManagement!
+	region_management_by_union_pk(region_management_id: String!): RegionManagement
 }
 extend type Mutation {
 	"""
@@ -15414,11 +15414,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	vehicle_alarm_supervision_by_pk(id: Bigint!): VehicleAlarmSupervision!
+	vehicle_alarm_supervision_by_pk(id: Bigint!): VehicleAlarmSupervision
 	"""
 	联合主键查询
 	"""
-	vehicle_alarm_supervision_by_union_pk(vehicle_alarm_supervision_id: String!): VehicleAlarmSupervision!
+	vehicle_alarm_supervision_by_union_pk(vehicle_alarm_supervision_id: String!): VehicleAlarmSupervision
 }
 extend type Mutation {
 	"""
@@ -15867,11 +15867,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	vehicle_alarm_times_record_by_pk(id: Bigint!): VehicleAlarmTimesRecord!
+	vehicle_alarm_times_record_by_pk(id: Bigint!): VehicleAlarmTimesRecord
 	"""
 	联合主键查询
 	"""
-	vehicle_alarm_times_record_by_union_pk(vehicle_alarm_times_record_id: String!): VehicleAlarmTimesRecord!
+	vehicle_alarm_times_record_by_union_pk(vehicle_alarm_times_record_id: String!): VehicleAlarmTimesRecord
 }
 extend type Mutation {
 	"""
@@ -16367,11 +16367,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	vehicle_offline_disposal_by_pk(id: Bigint!): VehicleOfflineDisposal!
+	vehicle_offline_disposal_by_pk(id: Bigint!): VehicleOfflineDisposal
 	"""
 	联合主键查询
 	"""
-	vehicle_offline_disposal_by_union_pk(vehicle_offline_disposal_id: String!): VehicleOfflineDisposal!
+	vehicle_offline_disposal_by_union_pk(vehicle_offline_disposal_id: String!): VehicleOfflineDisposal
 }
 extend type Mutation {
 	"""
@@ -40768,14 +40768,11 @@ func (ec *executionContext) _Query_dynamic_spot_check_disposal_by_pk(ctx context
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.DynamicSpotCheckDisposal)
 	fc.Result = res
-	return ec.marshalNDynamicSpotCheckDisposal2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋmodelᚐDynamicSpotCheckDisposal(ctx, field.Selections, res)
+	return ec.marshalODynamicSpotCheckDisposal2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋmodelᚐDynamicSpotCheckDisposal(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_dynamic_supervision(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -40894,14 +40891,11 @@ func (ec *executionContext) _Query_dynamic_supervision_by_pk(ctx context.Context
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.DynamicSupervision)
 	fc.Result = res
-	return ec.marshalNDynamicSupervision2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋmodelᚐDynamicSupervision(ctx, field.Selections, res)
+	return ec.marshalODynamicSupervision2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋmodelᚐDynamicSupervision(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_dynamic_supervision_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -40936,14 +40930,11 @@ func (ec *executionContext) _Query_dynamic_supervision_by_union_pk(ctx context.C
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.DynamicSupervision)
 	fc.Result = res
-	return ec.marshalNDynamicSupervision2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋmodelᚐDynamicSupervision(ctx, field.Selections, res)
+	return ec.marshalODynamicSupervision2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋmodelᚐDynamicSupervision(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_dynamic_supervision_detail(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -41062,14 +41053,11 @@ func (ec *executionContext) _Query_dynamic_supervision_detail_by_pk(ctx context.
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.DynamicSupervisionDetail)
 	fc.Result = res
-	return ec.marshalNDynamicSupervisionDetail2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋmodelᚐDynamicSupervisionDetail(ctx, field.Selections, res)
+	return ec.marshalODynamicSupervisionDetail2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋmodelᚐDynamicSupervisionDetail(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_dynamic_supervision_detail_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -41104,14 +41092,11 @@ func (ec *executionContext) _Query_dynamic_supervision_detail_by_union_pk(ctx co
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.DynamicSupervisionDetail)
 	fc.Result = res
-	return ec.marshalNDynamicSupervisionDetail2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋmodelᚐDynamicSupervisionDetail(ctx, field.Selections, res)
+	return ec.marshalODynamicSupervisionDetail2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋmodelᚐDynamicSupervisionDetail(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_muck_truck_online(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -41230,14 +41215,11 @@ func (ec *executionContext) _Query_muck_truck_online_by_pk(ctx context.Context, 
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.MuckTruckOnline)
 	fc.Result = res
-	return ec.marshalNMuckTruckOnline2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋmodelᚐMuckTruckOnline(ctx, field.Selections, res)
+	return ec.marshalOMuckTruckOnline2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋmodelᚐMuckTruckOnline(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_muck_truck_online_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -41272,14 +41254,11 @@ func (ec *executionContext) _Query_muck_truck_online_by_union_pk(ctx context.Con
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.MuckTruckOnline)
 	fc.Result = res
-	return ec.marshalNMuckTruckOnline2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋmodelᚐMuckTruckOnline(ctx, field.Selections, res)
+	return ec.marshalOMuckTruckOnline2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋmodelᚐMuckTruckOnline(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_region_issued(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -41398,14 +41377,11 @@ func (ec *executionContext) _Query_region_issued_by_pk(ctx context.Context, fiel
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.RegionIssued)
 	fc.Result = res
-	return ec.marshalNRegionIssued2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋmodelᚐRegionIssued(ctx, field.Selections, res)
+	return ec.marshalORegionIssued2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋmodelᚐRegionIssued(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_region_issued_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -41440,14 +41416,11 @@ func (ec *executionContext) _Query_region_issued_by_union_pk(ctx context.Context
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.RegionIssued)
 	fc.Result = res
-	return ec.marshalNRegionIssued2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋmodelᚐRegionIssued(ctx, field.Selections, res)
+	return ec.marshalORegionIssued2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋmodelᚐRegionIssued(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_region_management(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -41566,14 +41539,11 @@ func (ec *executionContext) _Query_region_management_by_pk(ctx context.Context, 
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.RegionManagement)
 	fc.Result = res
-	return ec.marshalNRegionManagement2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋmodelᚐRegionManagement(ctx, field.Selections, res)
+	return ec.marshalORegionManagement2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋmodelᚐRegionManagement(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_region_management_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -41608,14 +41578,11 @@ func (ec *executionContext) _Query_region_management_by_union_pk(ctx context.Con
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.RegionManagement)
 	fc.Result = res
-	return ec.marshalNRegionManagement2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋmodelᚐRegionManagement(ctx, field.Selections, res)
+	return ec.marshalORegionManagement2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋmodelᚐRegionManagement(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_vehicle_alarm_supervision(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -41734,14 +41701,11 @@ func (ec *executionContext) _Query_vehicle_alarm_supervision_by_pk(ctx context.C
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.VehicleAlarmSupervision)
 	fc.Result = res
-	return ec.marshalNVehicleAlarmSupervision2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋmodelᚐVehicleAlarmSupervision(ctx, field.Selections, res)
+	return ec.marshalOVehicleAlarmSupervision2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋmodelᚐVehicleAlarmSupervision(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_vehicle_alarm_supervision_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -41776,14 +41740,11 @@ func (ec *executionContext) _Query_vehicle_alarm_supervision_by_union_pk(ctx con
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.VehicleAlarmSupervision)
 	fc.Result = res
-	return ec.marshalNVehicleAlarmSupervision2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋmodelᚐVehicleAlarmSupervision(ctx, field.Selections, res)
+	return ec.marshalOVehicleAlarmSupervision2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋmodelᚐVehicleAlarmSupervision(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_vehicle_alarm_times_record(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -41902,14 +41863,11 @@ func (ec *executionContext) _Query_vehicle_alarm_times_record_by_pk(ctx context.
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.VehicleAlarmTimesRecord)
 	fc.Result = res
-	return ec.marshalNVehicleAlarmTimesRecord2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋmodelᚐVehicleAlarmTimesRecord(ctx, field.Selections, res)
+	return ec.marshalOVehicleAlarmTimesRecord2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋmodelᚐVehicleAlarmTimesRecord(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_vehicle_alarm_times_record_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -41944,14 +41902,11 @@ func (ec *executionContext) _Query_vehicle_alarm_times_record_by_union_pk(ctx co
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.VehicleAlarmTimesRecord)
 	fc.Result = res
-	return ec.marshalNVehicleAlarmTimesRecord2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋmodelᚐVehicleAlarmTimesRecord(ctx, field.Selections, res)
+	return ec.marshalOVehicleAlarmTimesRecord2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋmodelᚐVehicleAlarmTimesRecord(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_vehicle_offline_disposal(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -42070,14 +42025,11 @@ func (ec *executionContext) _Query_vehicle_offline_disposal_by_pk(ctx context.Co
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.VehicleOfflineDisposal)
 	fc.Result = res
-	return ec.marshalNVehicleOfflineDisposal2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋmodelᚐVehicleOfflineDisposal(ctx, field.Selections, res)
+	return ec.marshalOVehicleOfflineDisposal2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋmodelᚐVehicleOfflineDisposal(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_vehicle_offline_disposal_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -42112,14 +42064,11 @@ func (ec *executionContext) _Query_vehicle_offline_disposal_by_union_pk(ctx cont
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.VehicleOfflineDisposal)
 	fc.Result = res
-	return ec.marshalNVehicleOfflineDisposal2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋmodelᚐVehicleOfflineDisposal(ctx, field.Selections, res)
+	return ec.marshalOVehicleOfflineDisposal2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋmodelᚐVehicleOfflineDisposal(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query___type(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -73162,9 +73111,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_dynamic_spot_check_disposal_by_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "dynamic_supervision":
@@ -73204,9 +73150,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_dynamic_supervision_by_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "dynamic_supervision_by_union_pk":
@@ -73218,9 +73161,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_dynamic_supervision_by_union_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "dynamic_supervision_detail":
@@ -73260,9 +73200,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_dynamic_supervision_detail_by_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "dynamic_supervision_detail_by_union_pk":
@@ -73274,9 +73211,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_dynamic_supervision_detail_by_union_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "muck_truck_online":
@@ -73316,9 +73250,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_muck_truck_online_by_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "muck_truck_online_by_union_pk":
@@ -73330,9 +73261,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_muck_truck_online_by_union_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "region_issued":
@@ -73372,9 +73300,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_region_issued_by_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "region_issued_by_union_pk":
@@ -73386,9 +73311,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_region_issued_by_union_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "region_management":
@@ -73428,9 +73350,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_region_management_by_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "region_management_by_union_pk":
@@ -73442,9 +73361,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_region_management_by_union_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "vehicle_alarm_supervision":
@@ -73484,9 +73400,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_vehicle_alarm_supervision_by_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "vehicle_alarm_supervision_by_union_pk":
@@ -73498,9 +73411,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_vehicle_alarm_supervision_by_union_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "vehicle_alarm_times_record":
@@ -73540,9 +73450,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_vehicle_alarm_times_record_by_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "vehicle_alarm_times_record_by_union_pk":
@@ -73554,9 +73461,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_vehicle_alarm_times_record_by_union_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "vehicle_offline_disposal":
@@ -73596,9 +73500,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_vehicle_offline_disposal_by_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "vehicle_offline_disposal_by_union_pk":
@@ -73610,9 +73511,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_vehicle_offline_disposal_by_union_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "__type":
@@ -76654,10 +76552,6 @@ func (ec *executionContext) marshalNBoolean2bool(ctx context.Context, sel ast.Se
 	return res
 }
 
-func (ec *executionContext) marshalNDynamicSpotCheckDisposal2VehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋmodelᚐDynamicSpotCheckDisposal(ctx context.Context, sel ast.SelectionSet, v model1.DynamicSpotCheckDisposal) graphql.Marshaler {
-	return ec._DynamicSpotCheckDisposal(ctx, sel, &v)
-}
-
 func (ec *executionContext) marshalNDynamicSpotCheckDisposal2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋmodelᚐDynamicSpotCheckDisposalᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.DynamicSpotCheckDisposal) graphql.Marshaler {
 	ret := make(graphql.Array, len(v))
 	var wg sync.WaitGroup
@@ -76770,10 +76664,6 @@ func (ec *executionContext) marshalNDynamicSpotCheckDisposalSelectColumn2Vehicle
 	return v
 }
 
-func (ec *executionContext) marshalNDynamicSupervision2VehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋmodelᚐDynamicSupervision(ctx context.Context, sel ast.SelectionSet, v model1.DynamicSupervision) graphql.Marshaler {
-	return ec._DynamicSupervision(ctx, sel, &v)
-}
-
 func (ec *executionContext) marshalNDynamicSupervision2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋmodelᚐDynamicSupervisionᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.DynamicSupervision) graphql.Marshaler {
 	ret := make(graphql.Array, len(v))
 	var wg sync.WaitGroup
@@ -76838,10 +76728,6 @@ func (ec *executionContext) marshalNDynamicSupervisionAggregate2ᚖVehicleSuperv
 func (ec *executionContext) unmarshalNDynamicSupervisionBoolExp2VehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋgraphᚋmodelᚐDynamicSupervisionBoolExp(ctx context.Context, v interface{}) (model.DynamicSupervisionBoolExp, error) {
 	res, err := ec.unmarshalInputDynamicSupervisionBoolExp(ctx, v)
 	return res, graphql.ErrorOnPath(ctx, err)
-}
-
-func (ec *executionContext) marshalNDynamicSupervisionDetail2VehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋmodelᚐDynamicSupervisionDetail(ctx context.Context, sel ast.SelectionSet, v model1.DynamicSupervisionDetail) graphql.Marshaler {
-	return ec._DynamicSupervisionDetail(ctx, sel, &v)
 }
 
 func (ec *executionContext) marshalNDynamicSupervisionDetail2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋmodelᚐDynamicSupervisionDetailᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.DynamicSupervisionDetail) graphql.Marshaler {
@@ -77047,10 +76933,6 @@ func (ec *executionContext) marshalNJsonb2string(ctx context.Context, sel ast.Se
 	return res
 }
 
-func (ec *executionContext) marshalNMuckTruckOnline2VehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋmodelᚐMuckTruckOnline(ctx context.Context, sel ast.SelectionSet, v model1.MuckTruckOnline) graphql.Marshaler {
-	return ec._MuckTruckOnline(ctx, sel, &v)
-}
-
 func (ec *executionContext) marshalNMuckTruckOnline2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋmodelᚐMuckTruckOnlineᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.MuckTruckOnline) graphql.Marshaler {
 	ret := make(graphql.Array, len(v))
 	var wg sync.WaitGroup
@@ -77193,10 +77075,6 @@ func (ec *executionContext) marshalNPoint2string(ctx context.Context, sel ast.Se
 	return res
 }
 
-func (ec *executionContext) marshalNRegionIssued2VehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋmodelᚐRegionIssued(ctx context.Context, sel ast.SelectionSet, v model1.RegionIssued) graphql.Marshaler {
-	return ec._RegionIssued(ctx, sel, &v)
-}
-
 func (ec *executionContext) marshalNRegionIssued2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋmodelᚐRegionIssuedᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.RegionIssued) graphql.Marshaler {
 	ret := make(graphql.Array, len(v))
 	var wg sync.WaitGroup
@@ -77307,10 +77185,6 @@ func (ec *executionContext) unmarshalNRegionIssuedSelectColumn2VehicleSupervisio
 
 func (ec *executionContext) marshalNRegionIssuedSelectColumn2VehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋgraphᚋmodelᚐRegionIssuedSelectColumn(ctx context.Context, sel ast.SelectionSet, v model.RegionIssuedSelectColumn) graphql.Marshaler {
 	return v
-}
-
-func (ec *executionContext) marshalNRegionManagement2VehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋmodelᚐRegionManagement(ctx context.Context, sel ast.SelectionSet, v model1.RegionManagement) graphql.Marshaler {
-	return ec._RegionManagement(ctx, sel, &v)
 }
 
 func (ec *executionContext) marshalNRegionManagement2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋmodelᚐRegionManagementᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.RegionManagement) graphql.Marshaler {
@@ -77476,10 +77350,6 @@ func (ec *executionContext) marshalNTimestamptz2ᚖtimeᚐTime(ctx context.Conte
 	return res
 }
 
-func (ec *executionContext) marshalNVehicleAlarmSupervision2VehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋmodelᚐVehicleAlarmSupervision(ctx context.Context, sel ast.SelectionSet, v model1.VehicleAlarmSupervision) graphql.Marshaler {
-	return ec._VehicleAlarmSupervision(ctx, sel, &v)
-}
-
 func (ec *executionContext) marshalNVehicleAlarmSupervision2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋmodelᚐVehicleAlarmSupervisionᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.VehicleAlarmSupervision) graphql.Marshaler {
 	ret := make(graphql.Array, len(v))
 	var wg sync.WaitGroup
@@ -77592,10 +77462,6 @@ func (ec *executionContext) marshalNVehicleAlarmSupervisionSelectColumn2VehicleS
 	return v
 }
 
-func (ec *executionContext) marshalNVehicleAlarmTimesRecord2VehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋmodelᚐVehicleAlarmTimesRecord(ctx context.Context, sel ast.SelectionSet, v model1.VehicleAlarmTimesRecord) graphql.Marshaler {
-	return ec._VehicleAlarmTimesRecord(ctx, sel, &v)
-}
-
 func (ec *executionContext) marshalNVehicleAlarmTimesRecord2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋmodelᚐVehicleAlarmTimesRecordᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.VehicleAlarmTimesRecord) graphql.Marshaler {
 	ret := make(graphql.Array, len(v))
 	var wg sync.WaitGroup
@@ -77706,10 +77572,6 @@ func (ec *executionContext) unmarshalNVehicleAlarmTimesRecordSelectColumn2Vehicl
 
 func (ec *executionContext) marshalNVehicleAlarmTimesRecordSelectColumn2VehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋgraphᚋmodelᚐVehicleAlarmTimesRecordSelectColumn(ctx context.Context, sel ast.SelectionSet, v model.VehicleAlarmTimesRecordSelectColumn) graphql.Marshaler {
 	return v
-}
-
-func (ec *executionContext) marshalNVehicleOfflineDisposal2VehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋmodelᚐVehicleOfflineDisposal(ctx context.Context, sel ast.SelectionSet, v model1.VehicleOfflineDisposal) graphql.Marshaler {
-	return ec._VehicleOfflineDisposal(ctx, sel, &v)
 }
 
 func (ec *executionContext) marshalNVehicleOfflineDisposal2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdynamic_supervisionᚋmodelᚐVehicleOfflineDisposalᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.VehicleOfflineDisposal) graphql.Marshaler {

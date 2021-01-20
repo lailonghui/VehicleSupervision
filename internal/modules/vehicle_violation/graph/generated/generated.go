@@ -495,6 +495,8 @@ type ComplexityRoot struct {
 		DeleteVehicleViolationScoringItemsByPk   func(childComplexity int, id int64) int
 		DeleteVehicleViolationScoringRecord      func(childComplexity int, where model.VehicleViolationScoringRecordBoolExp) int
 		DeleteVehicleViolationScoringRecordByPk  func(childComplexity int, id int64) int
+		DeleteVioCodewfdm                        func(childComplexity int, where model.VioCodewfdmBoolExp) int
+		DeleteVioCodewfdmByPk                    func(childComplexity int, id string) int
 		DeleteViolationRegistration              func(childComplexity int, where model.ViolationRegistrationBoolExp) int
 		DeleteViolationRegistrationByPk          func(childComplexity int, id int64) int
 		DeleteViolationRegistrationByUnionPk     func(childComplexity int, violationRegistrationID string) int
@@ -516,6 +518,8 @@ type ComplexityRoot struct {
 		InsertVehicleViolationScoringItemsOne    func(childComplexity int, objects model.VehicleViolationScoringItemsInsertInput) int
 		InsertVehicleViolationScoringRecord      func(childComplexity int, objects []*model.VehicleViolationScoringRecordInsertInput) int
 		InsertVehicleViolationScoringRecordOne   func(childComplexity int, objects model.VehicleViolationScoringRecordInsertInput) int
+		InsertVioCodewfdm                        func(childComplexity int, objects []*model.VioCodewfdmInsertInput) int
+		InsertVioCodewfdmOne                     func(childComplexity int, objects model.VioCodewfdmInsertInput) int
 		InsertViolationRegistration              func(childComplexity int, objects []*model.ViolationRegistrationInsertInput) int
 		InsertViolationRegistrationOne           func(childComplexity int, objects model.ViolationRegistrationInsertInput) int
 		UpdateAppEnforcement                     func(childComplexity int, inc *model.AppEnforcementIncInput, set *model.AppEnforcementSetInput, where model.AppEnforcementBoolExp) int
@@ -540,6 +544,8 @@ type ComplexityRoot struct {
 		UpdateVehicleViolationScoringItemsByPk   func(childComplexity int, inc *model.VehicleViolationScoringItemsIncInput, set *model.VehicleViolationScoringItemsSetInput, id int64) int
 		UpdateVehicleViolationScoringRecord      func(childComplexity int, inc *model.VehicleViolationScoringRecordIncInput, set *model.VehicleViolationScoringRecordSetInput, where model.VehicleViolationScoringRecordBoolExp) int
 		UpdateVehicleViolationScoringRecordByPk  func(childComplexity int, inc *model.VehicleViolationScoringRecordIncInput, set *model.VehicleViolationScoringRecordSetInput, id int64) int
+		UpdateVioCodewfdm                        func(childComplexity int, inc *model.VioCodewfdmIncInput, set *model.VioCodewfdmSetInput, where model.VioCodewfdmBoolExp) int
+		UpdateVioCodewfdmByPk                    func(childComplexity int, inc *model.VioCodewfdmIncInput, set *model.VioCodewfdmSetInput, id string) int
 		UpdateViolationRegistration              func(childComplexity int, inc *model.ViolationRegistrationIncInput, set *model.ViolationRegistrationSetInput, where model.ViolationRegistrationBoolExp) int
 		UpdateViolationRegistrationByPk          func(childComplexity int, inc *model.ViolationRegistrationIncInput, set *model.ViolationRegistrationSetInput, id int64) int
 		UpdateViolationRegistrationByUnionPk     func(childComplexity int, inc *model.ViolationRegistrationIncInput, set *model.ViolationRegistrationSetInput, violationRegistrationID string) int
@@ -577,6 +583,9 @@ type ComplexityRoot struct {
 		VehicleViolationScoringRecord          func(childComplexity int, distinctOn []model.VehicleViolationScoringRecordSelectColumn, limit *int, offset *int, orderBy []*model.VehicleViolationScoringRecordOrderBy, where *model.VehicleViolationScoringRecordBoolExp) int
 		VehicleViolationScoringRecordAggregate func(childComplexity int, distinctOn []model.VehicleViolationScoringRecordSelectColumn, limit *int, offset *int, orderBy []*model.VehicleViolationScoringRecordOrderBy, where *model.VehicleViolationScoringRecordBoolExp) int
 		VehicleViolationScoringRecordByPk      func(childComplexity int, id int64) int
+		VioCodewfdm                            func(childComplexity int, distinctOn []model.VioCodewfdmSelectColumn, limit *int, offset *int, orderBy []*model.VioCodewfdmOrderBy, where *model.VioCodewfdmBoolExp) int
+		VioCodewfdmAggregate                   func(childComplexity int, distinctOn []model.VioCodewfdmSelectColumn, limit *int, offset *int, orderBy []*model.VioCodewfdmOrderBy, where *model.VioCodewfdmBoolExp) int
+		VioCodewfdmByPk                        func(childComplexity int, id string) int
 		ViolationRegistration                  func(childComplexity int, distinctOn []model.ViolationRegistrationSelectColumn, limit *int, offset *int, orderBy []*model.ViolationRegistrationOrderBy, where *model.ViolationRegistrationBoolExp) int
 		ViolationRegistrationAggregate         func(childComplexity int, distinctOn []model.ViolationRegistrationSelectColumn, limit *int, offset *int, orderBy []*model.ViolationRegistrationOrderBy, where *model.ViolationRegistrationBoolExp) int
 		ViolationRegistrationByPk              func(childComplexity int, id int64) int
@@ -1228,6 +1237,104 @@ type ComplexityRoot struct {
 		ID            func(childComplexity int) int
 	}
 
+	VioCodewfdm struct {
+		FkjeMax func(childComplexity int) int
+		FkjeMin func(childComplexity int) int
+		Wfjfs   func(childComplexity int) int
+		Wfms    func(childComplexity int) int
+		Wfxw    func(childComplexity int) int
+		Xh      func(childComplexity int) int
+	}
+
+	VioCodewfdmAggregate struct {
+		Aggregate func(childComplexity int) int
+	}
+
+	VioCodewfdmAggregateFields struct {
+		Avg        func(childComplexity int) int
+		Count      func(childComplexity int) int
+		Max        func(childComplexity int) int
+		Min        func(childComplexity int) int
+		Stddev     func(childComplexity int) int
+		StddevPop  func(childComplexity int) int
+		StddevSamp func(childComplexity int) int
+		Sum        func(childComplexity int) int
+		VarPop     func(childComplexity int) int
+		VarSamp    func(childComplexity int) int
+		Variance   func(childComplexity int) int
+	}
+
+	VioCodewfdmAvgFields struct {
+		FkjeMax func(childComplexity int) int
+		FkjeMin func(childComplexity int) int
+		Wfjfs   func(childComplexity int) int
+	}
+
+	VioCodewfdmMaxFields struct {
+		FkjeMax func(childComplexity int) int
+		FkjeMin func(childComplexity int) int
+		Wfjfs   func(childComplexity int) int
+		Wfms    func(childComplexity int) int
+		Wfxw    func(childComplexity int) int
+		Xh      func(childComplexity int) int
+	}
+
+	VioCodewfdmMinFields struct {
+		FkjeMax func(childComplexity int) int
+		FkjeMin func(childComplexity int) int
+		Wfjfs   func(childComplexity int) int
+		Wfms    func(childComplexity int) int
+		Wfxw    func(childComplexity int) int
+		Xh      func(childComplexity int) int
+	}
+
+	VioCodewfdmMutationResponse struct {
+		AffectedRows func(childComplexity int) int
+		Returning    func(childComplexity int) int
+	}
+
+	VioCodewfdmStddevFields struct {
+		FkjeMax func(childComplexity int) int
+		FkjeMin func(childComplexity int) int
+		Wfjfs   func(childComplexity int) int
+	}
+
+	VioCodewfdmStddevPopFields struct {
+		FkjeMax func(childComplexity int) int
+		FkjeMin func(childComplexity int) int
+		Wfjfs   func(childComplexity int) int
+	}
+
+	VioCodewfdmStddevSampFields struct {
+		FkjeMax func(childComplexity int) int
+		FkjeMin func(childComplexity int) int
+		Wfjfs   func(childComplexity int) int
+	}
+
+	VioCodewfdmSumFields struct {
+		FkjeMax func(childComplexity int) int
+		FkjeMin func(childComplexity int) int
+		Wfjfs   func(childComplexity int) int
+	}
+
+	VioCodewfdmVarPopFields struct {
+		FkjeMax func(childComplexity int) int
+		FkjeMin func(childComplexity int) int
+		Wfjfs   func(childComplexity int) int
+	}
+
+	VioCodewfdmVarSampFields struct {
+		FkjeMax func(childComplexity int) int
+		FkjeMin func(childComplexity int) int
+		Wfjfs   func(childComplexity int) int
+	}
+
+	VioCodewfdmVarianceFields struct {
+		FkjeMax func(childComplexity int) int
+		FkjeMin func(childComplexity int) int
+		Wfjfs   func(childComplexity int) int
+	}
+
 	ViolationRegistration struct {
 		Cause                   func(childComplexity int) int
 		CityID                  func(childComplexity int) int
@@ -1443,6 +1550,12 @@ type MutationResolver interface {
 	InsertVehicleViolationScoringRecordOne(ctx context.Context, objects model.VehicleViolationScoringRecordInsertInput) (*model1.VehicleViolationScoringRecord, error)
 	UpdateVehicleViolationScoringRecord(ctx context.Context, inc *model.VehicleViolationScoringRecordIncInput, set *model.VehicleViolationScoringRecordSetInput, where model.VehicleViolationScoringRecordBoolExp) (*model.VehicleViolationScoringRecordMutationResponse, error)
 	UpdateVehicleViolationScoringRecordByPk(ctx context.Context, inc *model.VehicleViolationScoringRecordIncInput, set *model.VehicleViolationScoringRecordSetInput, id int64) (*model1.VehicleViolationScoringRecord, error)
+	DeleteVioCodewfdm(ctx context.Context, where model.VioCodewfdmBoolExp) (*model.VioCodewfdmMutationResponse, error)
+	DeleteVioCodewfdmByPk(ctx context.Context, id string) (*model1.VioCodewfdm, error)
+	InsertVioCodewfdm(ctx context.Context, objects []*model.VioCodewfdmInsertInput) (*model.VioCodewfdmMutationResponse, error)
+	InsertVioCodewfdmOne(ctx context.Context, objects model.VioCodewfdmInsertInput) (*model1.VioCodewfdm, error)
+	UpdateVioCodewfdm(ctx context.Context, inc *model.VioCodewfdmIncInput, set *model.VioCodewfdmSetInput, where model.VioCodewfdmBoolExp) (*model.VioCodewfdmMutationResponse, error)
+	UpdateVioCodewfdmByPk(ctx context.Context, inc *model.VioCodewfdmIncInput, set *model.VioCodewfdmSetInput, id string) (*model1.VioCodewfdm, error)
 	DeleteViolationRegistration(ctx context.Context, where model.ViolationRegistrationBoolExp) (*model.ViolationRegistrationMutationResponse, error)
 	DeleteViolationRegistrationByPk(ctx context.Context, id int64) (*model1.ViolationRegistration, error)
 	InsertViolationRegistration(ctx context.Context, objects []*model.ViolationRegistrationInsertInput) (*model.ViolationRegistrationMutationResponse, error)
@@ -1484,6 +1597,9 @@ type QueryResolver interface {
 	VehicleViolationScoringRecord(ctx context.Context, distinctOn []model.VehicleViolationScoringRecordSelectColumn, limit *int, offset *int, orderBy []*model.VehicleViolationScoringRecordOrderBy, where *model.VehicleViolationScoringRecordBoolExp) ([]*model1.VehicleViolationScoringRecord, error)
 	VehicleViolationScoringRecordAggregate(ctx context.Context, distinctOn []model.VehicleViolationScoringRecordSelectColumn, limit *int, offset *int, orderBy []*model.VehicleViolationScoringRecordOrderBy, where *model.VehicleViolationScoringRecordBoolExp) (*model.VehicleViolationScoringRecordAggregate, error)
 	VehicleViolationScoringRecordByPk(ctx context.Context, id int64) (*model1.VehicleViolationScoringRecord, error)
+	VioCodewfdm(ctx context.Context, distinctOn []model.VioCodewfdmSelectColumn, limit *int, offset *int, orderBy []*model.VioCodewfdmOrderBy, where *model.VioCodewfdmBoolExp) ([]*model1.VioCodewfdm, error)
+	VioCodewfdmAggregate(ctx context.Context, distinctOn []model.VioCodewfdmSelectColumn, limit *int, offset *int, orderBy []*model.VioCodewfdmOrderBy, where *model.VioCodewfdmBoolExp) (*model.VioCodewfdmAggregate, error)
+	VioCodewfdmByPk(ctx context.Context, id string) (*model1.VioCodewfdm, error)
 	ViolationRegistration(ctx context.Context, distinctOn []model.ViolationRegistrationSelectColumn, limit *int, offset *int, orderBy []*model.ViolationRegistrationOrderBy, where *model.ViolationRegistrationBoolExp) ([]*model1.ViolationRegistration, error)
 	ViolationRegistrationAggregate(ctx context.Context, distinctOn []model.ViolationRegistrationSelectColumn, limit *int, offset *int, orderBy []*model.ViolationRegistrationOrderBy, where *model.ViolationRegistrationBoolExp) (*model.ViolationRegistrationAggregate, error)
 	ViolationRegistrationByPk(ctx context.Context, id int64) (*model1.ViolationRegistration, error)
@@ -3568,6 +3684,30 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.DeleteVehicleViolationScoringRecordByPk(childComplexity, args["id"].(int64)), true
 
+	case "Mutation.delete_vio_codewfdm":
+		if e.complexity.Mutation.DeleteVioCodewfdm == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_delete_vio_codewfdm_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.DeleteVioCodewfdm(childComplexity, args["where"].(model.VioCodewfdmBoolExp)), true
+
+	case "Mutation.delete_vio_codewfdm_by_pk":
+		if e.complexity.Mutation.DeleteVioCodewfdmByPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_delete_vio_codewfdm_by_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.DeleteVioCodewfdmByPk(childComplexity, args["id"].(string)), true
+
 	case "Mutation.delete_violation_registration":
 		if e.complexity.Mutation.DeleteViolationRegistration == nil {
 			break
@@ -3819,6 +3959,30 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Mutation.InsertVehicleViolationScoringRecordOne(childComplexity, args["objects"].(model.VehicleViolationScoringRecordInsertInput)), true
+
+	case "Mutation.insert_vio_codewfdm":
+		if e.complexity.Mutation.InsertVioCodewfdm == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_insert_vio_codewfdm_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.InsertVioCodewfdm(childComplexity, args["objects"].([]*model.VioCodewfdmInsertInput)), true
+
+	case "Mutation.insert_vio_codewfdm_one":
+		if e.complexity.Mutation.InsertVioCodewfdmOne == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_insert_vio_codewfdm_one_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.InsertVioCodewfdmOne(childComplexity, args["objects"].(model.VioCodewfdmInsertInput)), true
 
 	case "Mutation.insert_violation_registration":
 		if e.complexity.Mutation.InsertViolationRegistration == nil {
@@ -4107,6 +4271,30 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Mutation.UpdateVehicleViolationScoringRecordByPk(childComplexity, args["_inc"].(*model.VehicleViolationScoringRecordIncInput), args["_set"].(*model.VehicleViolationScoringRecordSetInput), args["id"].(int64)), true
+
+	case "Mutation.update_vio_codewfdm":
+		if e.complexity.Mutation.UpdateVioCodewfdm == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_update_vio_codewfdm_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.UpdateVioCodewfdm(childComplexity, args["_inc"].(*model.VioCodewfdmIncInput), args["_set"].(*model.VioCodewfdmSetInput), args["where"].(model.VioCodewfdmBoolExp)), true
+
+	case "Mutation.update_vio_codewfdm_by_pk":
+		if e.complexity.Mutation.UpdateVioCodewfdmByPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_update_vio_codewfdm_by_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.UpdateVioCodewfdmByPk(childComplexity, args["_inc"].(*model.VioCodewfdmIncInput), args["_set"].(*model.VioCodewfdmSetInput), args["id"].(string)), true
 
 	case "Mutation.update_violation_registration":
 		if e.complexity.Mutation.UpdateViolationRegistration == nil {
@@ -4515,6 +4703,42 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Query.VehicleViolationScoringRecordByPk(childComplexity, args["id"].(int64)), true
+
+	case "Query.vio_codewfdm":
+		if e.complexity.Query.VioCodewfdm == nil {
+			break
+		}
+
+		args, err := ec.field_Query_vio_codewfdm_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.VioCodewfdm(childComplexity, args["distinct_on"].([]model.VioCodewfdmSelectColumn), args["limit"].(*int), args["offset"].(*int), args["order_by"].([]*model.VioCodewfdmOrderBy), args["where"].(*model.VioCodewfdmBoolExp)), true
+
+	case "Query.vio_codewfdm_aggregate":
+		if e.complexity.Query.VioCodewfdmAggregate == nil {
+			break
+		}
+
+		args, err := ec.field_Query_vio_codewfdm_aggregate_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.VioCodewfdmAggregate(childComplexity, args["distinct_on"].([]model.VioCodewfdmSelectColumn), args["limit"].(*int), args["offset"].(*int), args["order_by"].([]*model.VioCodewfdmOrderBy), args["where"].(*model.VioCodewfdmBoolExp)), true
+
+	case "Query.vio_codewfdm_by_pk":
+		if e.complexity.Query.VioCodewfdmByPk == nil {
+			break
+		}
+
+		args, err := ec.field_Query_vio_codewfdm_by_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.VioCodewfdmByPk(childComplexity, args["id"].(string)), true
 
 	case "Query.violation_registration":
 		if e.complexity.Query.ViolationRegistration == nil {
@@ -7609,6 +7833,398 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.VehicleViolationScoringRecordVarianceFields.ID(childComplexity), true
 
+	case "VioCodewfdm.fkje_max":
+		if e.complexity.VioCodewfdm.FkjeMax == nil {
+			break
+		}
+
+		return e.complexity.VioCodewfdm.FkjeMax(childComplexity), true
+
+	case "VioCodewfdm.fkje_min":
+		if e.complexity.VioCodewfdm.FkjeMin == nil {
+			break
+		}
+
+		return e.complexity.VioCodewfdm.FkjeMin(childComplexity), true
+
+	case "VioCodewfdm.wfjfs":
+		if e.complexity.VioCodewfdm.Wfjfs == nil {
+			break
+		}
+
+		return e.complexity.VioCodewfdm.Wfjfs(childComplexity), true
+
+	case "VioCodewfdm.wfms":
+		if e.complexity.VioCodewfdm.Wfms == nil {
+			break
+		}
+
+		return e.complexity.VioCodewfdm.Wfms(childComplexity), true
+
+	case "VioCodewfdm.wfxw":
+		if e.complexity.VioCodewfdm.Wfxw == nil {
+			break
+		}
+
+		return e.complexity.VioCodewfdm.Wfxw(childComplexity), true
+
+	case "VioCodewfdm.xh":
+		if e.complexity.VioCodewfdm.Xh == nil {
+			break
+		}
+
+		return e.complexity.VioCodewfdm.Xh(childComplexity), true
+
+	case "VioCodewfdmAggregate.aggregate":
+		if e.complexity.VioCodewfdmAggregate.Aggregate == nil {
+			break
+		}
+
+		return e.complexity.VioCodewfdmAggregate.Aggregate(childComplexity), true
+
+	case "VioCodewfdmAggregateFields.avg":
+		if e.complexity.VioCodewfdmAggregateFields.Avg == nil {
+			break
+		}
+
+		return e.complexity.VioCodewfdmAggregateFields.Avg(childComplexity), true
+
+	case "VioCodewfdmAggregateFields.count":
+		if e.complexity.VioCodewfdmAggregateFields.Count == nil {
+			break
+		}
+
+		return e.complexity.VioCodewfdmAggregateFields.Count(childComplexity), true
+
+	case "VioCodewfdmAggregateFields.max":
+		if e.complexity.VioCodewfdmAggregateFields.Max == nil {
+			break
+		}
+
+		return e.complexity.VioCodewfdmAggregateFields.Max(childComplexity), true
+
+	case "VioCodewfdmAggregateFields.min":
+		if e.complexity.VioCodewfdmAggregateFields.Min == nil {
+			break
+		}
+
+		return e.complexity.VioCodewfdmAggregateFields.Min(childComplexity), true
+
+	case "VioCodewfdmAggregateFields.stddev":
+		if e.complexity.VioCodewfdmAggregateFields.Stddev == nil {
+			break
+		}
+
+		return e.complexity.VioCodewfdmAggregateFields.Stddev(childComplexity), true
+
+	case "VioCodewfdmAggregateFields.stddev_pop":
+		if e.complexity.VioCodewfdmAggregateFields.StddevPop == nil {
+			break
+		}
+
+		return e.complexity.VioCodewfdmAggregateFields.StddevPop(childComplexity), true
+
+	case "VioCodewfdmAggregateFields.stddev_samp":
+		if e.complexity.VioCodewfdmAggregateFields.StddevSamp == nil {
+			break
+		}
+
+		return e.complexity.VioCodewfdmAggregateFields.StddevSamp(childComplexity), true
+
+	case "VioCodewfdmAggregateFields.sum":
+		if e.complexity.VioCodewfdmAggregateFields.Sum == nil {
+			break
+		}
+
+		return e.complexity.VioCodewfdmAggregateFields.Sum(childComplexity), true
+
+	case "VioCodewfdmAggregateFields.var_pop":
+		if e.complexity.VioCodewfdmAggregateFields.VarPop == nil {
+			break
+		}
+
+		return e.complexity.VioCodewfdmAggregateFields.VarPop(childComplexity), true
+
+	case "VioCodewfdmAggregateFields.var_samp":
+		if e.complexity.VioCodewfdmAggregateFields.VarSamp == nil {
+			break
+		}
+
+		return e.complexity.VioCodewfdmAggregateFields.VarSamp(childComplexity), true
+
+	case "VioCodewfdmAggregateFields.variance":
+		if e.complexity.VioCodewfdmAggregateFields.Variance == nil {
+			break
+		}
+
+		return e.complexity.VioCodewfdmAggregateFields.Variance(childComplexity), true
+
+	case "VioCodewfdmAvgFields.fkje_max":
+		if e.complexity.VioCodewfdmAvgFields.FkjeMax == nil {
+			break
+		}
+
+		return e.complexity.VioCodewfdmAvgFields.FkjeMax(childComplexity), true
+
+	case "VioCodewfdmAvgFields.fkje_min":
+		if e.complexity.VioCodewfdmAvgFields.FkjeMin == nil {
+			break
+		}
+
+		return e.complexity.VioCodewfdmAvgFields.FkjeMin(childComplexity), true
+
+	case "VioCodewfdmAvgFields.wfjfs":
+		if e.complexity.VioCodewfdmAvgFields.Wfjfs == nil {
+			break
+		}
+
+		return e.complexity.VioCodewfdmAvgFields.Wfjfs(childComplexity), true
+
+	case "VioCodewfdmMaxFields.fkje_max":
+		if e.complexity.VioCodewfdmMaxFields.FkjeMax == nil {
+			break
+		}
+
+		return e.complexity.VioCodewfdmMaxFields.FkjeMax(childComplexity), true
+
+	case "VioCodewfdmMaxFields.fkje_min":
+		if e.complexity.VioCodewfdmMaxFields.FkjeMin == nil {
+			break
+		}
+
+		return e.complexity.VioCodewfdmMaxFields.FkjeMin(childComplexity), true
+
+	case "VioCodewfdmMaxFields.wfjfs":
+		if e.complexity.VioCodewfdmMaxFields.Wfjfs == nil {
+			break
+		}
+
+		return e.complexity.VioCodewfdmMaxFields.Wfjfs(childComplexity), true
+
+	case "VioCodewfdmMaxFields.wfms":
+		if e.complexity.VioCodewfdmMaxFields.Wfms == nil {
+			break
+		}
+
+		return e.complexity.VioCodewfdmMaxFields.Wfms(childComplexity), true
+
+	case "VioCodewfdmMaxFields.wfxw":
+		if e.complexity.VioCodewfdmMaxFields.Wfxw == nil {
+			break
+		}
+
+		return e.complexity.VioCodewfdmMaxFields.Wfxw(childComplexity), true
+
+	case "VioCodewfdmMaxFields.xh":
+		if e.complexity.VioCodewfdmMaxFields.Xh == nil {
+			break
+		}
+
+		return e.complexity.VioCodewfdmMaxFields.Xh(childComplexity), true
+
+	case "VioCodewfdmMinFields.fkje_max":
+		if e.complexity.VioCodewfdmMinFields.FkjeMax == nil {
+			break
+		}
+
+		return e.complexity.VioCodewfdmMinFields.FkjeMax(childComplexity), true
+
+	case "VioCodewfdmMinFields.fkje_min":
+		if e.complexity.VioCodewfdmMinFields.FkjeMin == nil {
+			break
+		}
+
+		return e.complexity.VioCodewfdmMinFields.FkjeMin(childComplexity), true
+
+	case "VioCodewfdmMinFields.wfjfs":
+		if e.complexity.VioCodewfdmMinFields.Wfjfs == nil {
+			break
+		}
+
+		return e.complexity.VioCodewfdmMinFields.Wfjfs(childComplexity), true
+
+	case "VioCodewfdmMinFields.wfms":
+		if e.complexity.VioCodewfdmMinFields.Wfms == nil {
+			break
+		}
+
+		return e.complexity.VioCodewfdmMinFields.Wfms(childComplexity), true
+
+	case "VioCodewfdmMinFields.wfxw":
+		if e.complexity.VioCodewfdmMinFields.Wfxw == nil {
+			break
+		}
+
+		return e.complexity.VioCodewfdmMinFields.Wfxw(childComplexity), true
+
+	case "VioCodewfdmMinFields.xh":
+		if e.complexity.VioCodewfdmMinFields.Xh == nil {
+			break
+		}
+
+		return e.complexity.VioCodewfdmMinFields.Xh(childComplexity), true
+
+	case "VioCodewfdmMutationResponse.affected_rows":
+		if e.complexity.VioCodewfdmMutationResponse.AffectedRows == nil {
+			break
+		}
+
+		return e.complexity.VioCodewfdmMutationResponse.AffectedRows(childComplexity), true
+
+	case "VioCodewfdmMutationResponse.returning":
+		if e.complexity.VioCodewfdmMutationResponse.Returning == nil {
+			break
+		}
+
+		return e.complexity.VioCodewfdmMutationResponse.Returning(childComplexity), true
+
+	case "VioCodewfdmStddevFields.fkje_max":
+		if e.complexity.VioCodewfdmStddevFields.FkjeMax == nil {
+			break
+		}
+
+		return e.complexity.VioCodewfdmStddevFields.FkjeMax(childComplexity), true
+
+	case "VioCodewfdmStddevFields.fkje_min":
+		if e.complexity.VioCodewfdmStddevFields.FkjeMin == nil {
+			break
+		}
+
+		return e.complexity.VioCodewfdmStddevFields.FkjeMin(childComplexity), true
+
+	case "VioCodewfdmStddevFields.wfjfs":
+		if e.complexity.VioCodewfdmStddevFields.Wfjfs == nil {
+			break
+		}
+
+		return e.complexity.VioCodewfdmStddevFields.Wfjfs(childComplexity), true
+
+	case "VioCodewfdmStddevPopFields.fkje_max":
+		if e.complexity.VioCodewfdmStddevPopFields.FkjeMax == nil {
+			break
+		}
+
+		return e.complexity.VioCodewfdmStddevPopFields.FkjeMax(childComplexity), true
+
+	case "VioCodewfdmStddevPopFields.fkje_min":
+		if e.complexity.VioCodewfdmStddevPopFields.FkjeMin == nil {
+			break
+		}
+
+		return e.complexity.VioCodewfdmStddevPopFields.FkjeMin(childComplexity), true
+
+	case "VioCodewfdmStddevPopFields.wfjfs":
+		if e.complexity.VioCodewfdmStddevPopFields.Wfjfs == nil {
+			break
+		}
+
+		return e.complexity.VioCodewfdmStddevPopFields.Wfjfs(childComplexity), true
+
+	case "VioCodewfdmStddevSampFields.fkje_max":
+		if e.complexity.VioCodewfdmStddevSampFields.FkjeMax == nil {
+			break
+		}
+
+		return e.complexity.VioCodewfdmStddevSampFields.FkjeMax(childComplexity), true
+
+	case "VioCodewfdmStddevSampFields.fkje_min":
+		if e.complexity.VioCodewfdmStddevSampFields.FkjeMin == nil {
+			break
+		}
+
+		return e.complexity.VioCodewfdmStddevSampFields.FkjeMin(childComplexity), true
+
+	case "VioCodewfdmStddevSampFields.wfjfs":
+		if e.complexity.VioCodewfdmStddevSampFields.Wfjfs == nil {
+			break
+		}
+
+		return e.complexity.VioCodewfdmStddevSampFields.Wfjfs(childComplexity), true
+
+	case "VioCodewfdmSumFields.fkje_max":
+		if e.complexity.VioCodewfdmSumFields.FkjeMax == nil {
+			break
+		}
+
+		return e.complexity.VioCodewfdmSumFields.FkjeMax(childComplexity), true
+
+	case "VioCodewfdmSumFields.fkje_min":
+		if e.complexity.VioCodewfdmSumFields.FkjeMin == nil {
+			break
+		}
+
+		return e.complexity.VioCodewfdmSumFields.FkjeMin(childComplexity), true
+
+	case "VioCodewfdmSumFields.wfjfs":
+		if e.complexity.VioCodewfdmSumFields.Wfjfs == nil {
+			break
+		}
+
+		return e.complexity.VioCodewfdmSumFields.Wfjfs(childComplexity), true
+
+	case "VioCodewfdmVarPopFields.fkje_max":
+		if e.complexity.VioCodewfdmVarPopFields.FkjeMax == nil {
+			break
+		}
+
+		return e.complexity.VioCodewfdmVarPopFields.FkjeMax(childComplexity), true
+
+	case "VioCodewfdmVarPopFields.fkje_min":
+		if e.complexity.VioCodewfdmVarPopFields.FkjeMin == nil {
+			break
+		}
+
+		return e.complexity.VioCodewfdmVarPopFields.FkjeMin(childComplexity), true
+
+	case "VioCodewfdmVarPopFields.wfjfs":
+		if e.complexity.VioCodewfdmVarPopFields.Wfjfs == nil {
+			break
+		}
+
+		return e.complexity.VioCodewfdmVarPopFields.Wfjfs(childComplexity), true
+
+	case "VioCodewfdmVarSampFields.fkje_max":
+		if e.complexity.VioCodewfdmVarSampFields.FkjeMax == nil {
+			break
+		}
+
+		return e.complexity.VioCodewfdmVarSampFields.FkjeMax(childComplexity), true
+
+	case "VioCodewfdmVarSampFields.fkje_min":
+		if e.complexity.VioCodewfdmVarSampFields.FkjeMin == nil {
+			break
+		}
+
+		return e.complexity.VioCodewfdmVarSampFields.FkjeMin(childComplexity), true
+
+	case "VioCodewfdmVarSampFields.wfjfs":
+		if e.complexity.VioCodewfdmVarSampFields.Wfjfs == nil {
+			break
+		}
+
+		return e.complexity.VioCodewfdmVarSampFields.Wfjfs(childComplexity), true
+
+	case "VioCodewfdmVarianceFields.fkje_max":
+		if e.complexity.VioCodewfdmVarianceFields.FkjeMax == nil {
+			break
+		}
+
+		return e.complexity.VioCodewfdmVarianceFields.FkjeMax(childComplexity), true
+
+	case "VioCodewfdmVarianceFields.fkje_min":
+		if e.complexity.VioCodewfdmVarianceFields.FkjeMin == nil {
+			break
+		}
+
+		return e.complexity.VioCodewfdmVarianceFields.FkjeMin(childComplexity), true
+
+	case "VioCodewfdmVarianceFields.wfjfs":
+		if e.complexity.VioCodewfdmVarianceFields.Wfjfs == nil {
+			break
+		}
+
+		return e.complexity.VioCodewfdmVarianceFields.Wfjfs(childComplexity), true
+
 	case "ViolationRegistration.cause":
 		if e.complexity.ViolationRegistration.Cause == nil {
 			break
@@ -8792,7 +9408,7 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	app_enforcement_by_pk(id: Bigint!): AppEnforcement!
+	app_enforcement_by_pk(id: Bigint!): AppEnforcement
 }
 extend type Mutation {
 	"""
@@ -9332,11 +9948,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	deduction_report_by_pk(id: Bigint!): DeductionReport!
+	deduction_report_by_pk(id: Bigint!): DeductionReport
 	"""
 	联合主键查询
 	"""
-	deduction_report_by_union_pk(deduction_report_id: String!): DeductionReport!
+	deduction_report_by_union_pk(deduction_report_id: String!): DeductionReport
 }
 extend type Mutation {
 	"""
@@ -9650,7 +10266,7 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	driver_peccancy_check_by_pk(id: Bigint!): DriverPeccancyCheck!
+	driver_peccancy_check_by_pk(id: Bigint!): DriverPeccancyCheck
 }
 extend type Mutation {
 	"""
@@ -9984,11 +10600,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	illegal_photo_by_pk(id: Bigint!): IllegalPhoto!
+	illegal_photo_by_pk(id: Bigint!): IllegalPhoto
 	"""
 	联合主键查询
 	"""
-	illegal_photo_by_union_pk(illegal_photo_id: String!): IllegalPhoto!
+	illegal_photo_by_union_pk(illegal_photo_id: String!): IllegalPhoto
 }
 extend type Mutation {
 	"""
@@ -10446,11 +11062,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	regional_violation_register_by_pk(id: Bigint!): RegionalViolationRegister!
+	regional_violation_register_by_pk(id: Bigint!): RegionalViolationRegister
 	"""
 	联合主键查询
 	"""
-	regional_violation_register_by_union_pk(regional_violation_register_id: String!): RegionalViolationRegister!
+	regional_violation_register_by_union_pk(regional_violation_register_id: String!): RegionalViolationRegister
 }
 extend type Mutation {
 	"""
@@ -10778,11 +11394,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	serious_traffic_violation_by_pk(id: Bigint!): SeriousTrafficViolation!
+	serious_traffic_violation_by_pk(id: Bigint!): SeriousTrafficViolation
 	"""
 	联合主键查询
 	"""
-	serious_traffic_violation_by_union_pk(serious_traffic_violation_id: String!): SeriousTrafficViolation!
+	serious_traffic_violation_by_union_pk(serious_traffic_violation_id: String!): SeriousTrafficViolation
 }
 extend type Mutation {
 	"""
@@ -11431,7 +12047,7 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	vehicle_violation_details_by_pk(id: Bigint!): VehicleViolationDetails!
+	vehicle_violation_details_by_pk(id: Bigint!): VehicleViolationDetails
 }
 extend type Mutation {
 	"""
@@ -11783,7 +12399,7 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	vehicle_violation_scoring_items_by_pk(id: Bigint!): VehicleViolationScoringItems!
+	vehicle_violation_scoring_items_by_pk(id: Bigint!): VehicleViolationScoringItems
 }
 extend type Mutation {
 	"""
@@ -12140,7 +12756,7 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	vehicle_violation_scoring_record_by_pk(id: Bigint!): VehicleViolationScoringRecord!
+	vehicle_violation_scoring_record_by_pk(id: Bigint!): VehicleViolationScoringRecord
 }
 extend type Mutation {
 	"""
@@ -12167,6 +12783,271 @@ extend type Mutation {
 	根据主键更新
 	"""
 	update_vehicle_violation_scoring_record_by_pk(_inc: VehicleViolationScoringRecordIncInput, _set: VehicleViolationScoringRecordSetInput, id: Bigint!): VehicleViolationScoringRecord
+}
+`, BuiltIn: false},
+	{Name: "graph/graphqls/vio_codewfdm.graphqls", Input: `type VioCodewfdm {
+	"""
+	 违法行为     
+	"""
+	wfxw: String!
+	"""
+	 违法描述     
+	"""
+	wfms: String
+	"""
+	 违法计分数   
+	"""
+	wfjfs: Numeric
+	"""
+	 最小罚款金额 
+	"""
+	fkje_min: Numeric
+	"""
+	 最大罚款金额 
+	"""
+	fkje_max: Numeric
+	"""
+	 序号         
+	"""
+	xh: String!
+}
+"""
+aggregated selection of "vio_codewfdm"
+"""
+type VioCodewfdmAggregate {
+	aggregate: VioCodewfdmAggregateFields
+}
+"""
+aggregate fields of "vio_codewfdm"
+"""
+type VioCodewfdmAggregateFields {
+	avg: VioCodewfdmAvgFields
+	count: Int
+	max: VioCodewfdmMaxFields
+	min: VioCodewfdmMinFields
+	stddev: VioCodewfdmStddevFields
+	stddev_pop: VioCodewfdmStddevPopFields
+	stddev_samp: VioCodewfdmStddevSampFields
+	sum: VioCodewfdmSumFields
+	var_pop: VioCodewfdmVarPopFields
+	var_samp: VioCodewfdmVarSampFields
+	variance: VioCodewfdmVarianceFields
+}
+"""
+aggregate avg on columns of table "vio_codewfdm"
+"""
+type VioCodewfdmAvgFields {
+	wfjfs: Numeric
+	fkje_min: Numeric
+	fkje_max: Numeric
+}
+"""
+aggregate max on columns of table "vio_codewfdm"
+"""
+type VioCodewfdmMaxFields {
+	wfxw: String
+	wfms: String
+	wfjfs: Numeric
+	fkje_min: Numeric
+	fkje_max: Numeric
+	xh: String
+}
+"""
+aggregate min on columns of table "vio_codewfdm"
+"""
+type VioCodewfdmMinFields {
+	wfxw: String
+	wfms: String
+	wfjfs: Numeric
+	fkje_min: Numeric
+	fkje_max: Numeric
+	xh: String
+}
+"""
+aggregate stddev on columns of table "vio_codewfdm"
+"""
+type VioCodewfdmStddevFields {
+	wfjfs: Numeric
+	fkje_min: Numeric
+	fkje_max: Numeric
+}
+"""
+aggregate stddev_pop on columns of table "vio_codewfdm"
+"""
+type VioCodewfdmStddevPopFields {
+	wfjfs: Numeric
+	fkje_min: Numeric
+	fkje_max: Numeric
+}
+"""
+aggregate stddev_samp on columns of table "vio_codewfdm"
+"""
+type VioCodewfdmStddevSampFields {
+	wfjfs: Numeric
+	fkje_min: Numeric
+	fkje_max: Numeric
+}
+"""
+aggregate sum on columns of table "vio_codewfdm"
+"""
+type VioCodewfdmSumFields {
+	wfjfs: Numeric
+	fkje_min: Numeric
+	fkje_max: Numeric
+}
+"""
+aggregate var_pop on columns of table "vio_codewfdm"
+"""
+type VioCodewfdmVarPopFields {
+	wfjfs: Numeric
+	fkje_min: Numeric
+	fkje_max: Numeric
+}
+"""
+aggregate var_samp on columns of table "vio_codewfdm"
+"""
+type VioCodewfdmVarSampFields {
+	wfjfs: Numeric
+	fkje_min: Numeric
+	fkje_max: Numeric
+}
+"""
+aggregate variance on columns of table "vio_codewfdm"
+"""
+type VioCodewfdmVarianceFields {
+	wfjfs: Numeric
+	fkje_min: Numeric
+	fkje_max: Numeric
+}
+"""
+response of any mutation on the table "vio_codewfdm"
+"""
+type VioCodewfdmMutationResponse {
+	affected_rows: Int!
+	returning: [VioCodewfdm!]!
+}
+"""
+ordering options when selecting data from "vio_codewfdm"
+"""
+input VioCodewfdmOrderBy {
+	wfxw: OrderBy
+	wfms: OrderBy
+	wfjfs: OrderBy
+	fkje_min: OrderBy
+	fkje_max: OrderBy
+	xh: OrderBy
+}
+"""
+Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'vio_codewfdm'.
+"""
+input VioCodewfdmBoolExp {
+	_and: [VioCodewfdmBoolExp]
+	_not: VioCodewfdmBoolExp
+	_or: [VioCodewfdmBoolExp]
+	wfxw: StringComparisonExp
+	wfms: StringComparisonExp
+	wfjfs: NumericComparisonExp
+	fkje_min: NumericComparisonExp
+	fkje_max: NumericComparisonExp
+	xh: StringComparisonExp
+}
+"""
+input type for inserting data into table "vio_codewfdm"
+"""
+input VioCodewfdmInsertInput {
+	wfxw: String!
+	wfms: String
+	wfjfs: Numeric
+	fkje_min: Numeric
+	fkje_max: Numeric
+}
+"""
+input type for incrementing integer column in table "vio_codewfdm"
+"""
+input VioCodewfdmIncInput {
+	wfjfs: Numeric
+	fkje_min: Numeric
+	fkje_max: Numeric
+}
+"""
+input type for updating data in table "vio_codewfdm"
+"""
+input VioCodewfdmSetInput {
+	wfxw: String
+	wfms: String
+	wfjfs: Numeric
+	fkje_min: Numeric
+	fkje_max: Numeric
+	xh: String
+}
+"""
+可选select
+"""
+enum VioCodewfdmSelectColumn {
+	"""
+	 违法行为     
+	"""
+	wfxw
+	"""
+	 违法描述     
+	"""
+	wfms
+	"""
+	 违法计分数   
+	"""
+	wfjfs
+	"""
+	 最小罚款金额 
+	"""
+	fkje_min
+	"""
+	 最大罚款金额 
+	"""
+	fkje_max
+	"""
+	 序号         
+	"""
+	xh
+}
+extend type Query {
+	"""
+	列表查询
+	"""
+	vio_codewfdm(distinct_on: [VioCodewfdmSelectColumn!], limit: Int, offset: Int, order_by: [VioCodewfdmOrderBy!], where: VioCodewfdmBoolExp): [VioCodewfdm!]!
+	"""
+	聚合查询
+	"""
+	vio_codewfdm_aggregate(distinct_on: [VioCodewfdmSelectColumn!], limit: Int, offset: Int, order_by: [VioCodewfdmOrderBy!], where: VioCodewfdmBoolExp): VioCodewfdmAggregate!
+	"""
+	主键查询
+	"""
+	vio_codewfdm_by_pk(id: String!): VioCodewfdm
+}
+extend type Mutation {
+	"""
+	删除记录
+	"""
+	delete_vio_codewfdm(where: VioCodewfdmBoolExp!): VioCodewfdmMutationResponse
+	"""
+	根据主键删除记录
+	"""
+	delete_vio_codewfdm_by_pk(id: String!): VioCodewfdm
+	"""
+	插入
+	"""
+	insert_vio_codewfdm(objects: [VioCodewfdmInsertInput!]!): VioCodewfdmMutationResponse
+	"""
+	插入一条记录
+	"""
+	insert_vio_codewfdm_one(objects: VioCodewfdmInsertInput!): VioCodewfdm
+	"""
+	更新
+	"""
+	update_vio_codewfdm(_inc: VioCodewfdmIncInput, _set: VioCodewfdmSetInput, where: VioCodewfdmBoolExp!): VioCodewfdmMutationResponse
+	"""
+	根据主键更新
+	"""
+	update_vio_codewfdm_by_pk(_inc: VioCodewfdmIncInput, _set: VioCodewfdmSetInput, id: String!): VioCodewfdm
 }
 `, BuiltIn: false},
 	{Name: "graph/graphqls/violation_registration.graphqls", Input: `"""
@@ -12712,11 +13593,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	violation_registration_by_pk(id: Bigint!): ViolationRegistration!
+	violation_registration_by_pk(id: Bigint!): ViolationRegistration
 	"""
 	联合主键查询
 	"""
-	violation_registration_by_union_pk(violation_registration_id: String!): ViolationRegistration!
+	violation_registration_by_union_pk(violation_registration_id: String!): ViolationRegistration
 }
 extend type Mutation {
 	"""
@@ -13090,6 +13971,36 @@ func (ec *executionContext) field_Mutation_delete_vehicle_violation_scoring_reco
 	return args, nil
 }
 
+func (ec *executionContext) field_Mutation_delete_vio_codewfdm_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 model.VioCodewfdmBoolExp
+	if tmp, ok := rawArgs["where"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("where"))
+		arg0, err = ec.unmarshalNVioCodewfdmBoolExp2VehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmBoolExp(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["where"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_delete_vio_codewfdm_by_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["id"] = arg0
+	return args, nil
+}
+
 func (ec *executionContext) field_Mutation_delete_violation_registration_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -13397,6 +14308,36 @@ func (ec *executionContext) field_Mutation_insert_vehicle_violation_scoring_reco
 	if tmp, ok := rawArgs["objects"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("objects"))
 		arg0, err = ec.unmarshalNVehicleViolationScoringRecordInsertInput2VehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVehicleViolationScoringRecordInsertInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["objects"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_insert_vio_codewfdm_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 []*model.VioCodewfdmInsertInput
+	if tmp, ok := rawArgs["objects"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("objects"))
+		arg0, err = ec.unmarshalNVioCodewfdmInsertInput2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmInsertInputᚄ(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["objects"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_insert_vio_codewfdm_one_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 model.VioCodewfdmInsertInput
+	if tmp, ok := rawArgs["objects"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("objects"))
+		arg0, err = ec.unmarshalNVioCodewfdmInsertInput2VehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmInsertInput(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -14153,6 +15094,72 @@ func (ec *executionContext) field_Mutation_update_vehicle_violation_scoring_reco
 	if tmp, ok := rawArgs["id"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
 		arg2, err = ec.unmarshalNBigint2int64(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["id"] = arg2
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_update_vio_codewfdm_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *model.VioCodewfdmIncInput
+	if tmp, ok := rawArgs["_inc"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
+		arg0, err = ec.unmarshalOVioCodewfdmIncInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmIncInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_inc"] = arg0
+	var arg1 *model.VioCodewfdmSetInput
+	if tmp, ok := rawArgs["_set"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
+		arg1, err = ec.unmarshalOVioCodewfdmSetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmSetInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_set"] = arg1
+	var arg2 model.VioCodewfdmBoolExp
+	if tmp, ok := rawArgs["where"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("where"))
+		arg2, err = ec.unmarshalNVioCodewfdmBoolExp2VehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmBoolExp(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["where"] = arg2
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_update_vio_codewfdm_by_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *model.VioCodewfdmIncInput
+	if tmp, ok := rawArgs["_inc"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
+		arg0, err = ec.unmarshalOVioCodewfdmIncInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmIncInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_inc"] = arg0
+	var arg1 *model.VioCodewfdmSetInput
+	if tmp, ok := rawArgs["_set"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
+		arg1, err = ec.unmarshalOVioCodewfdmSetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmSetInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_set"] = arg1
+	var arg2 string
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg2, err = ec.unmarshalNString2string(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -15380,6 +16387,123 @@ func (ec *executionContext) field_Query_vehicle_violation_scoring_record_by_pk_a
 	if tmp, ok := rawArgs["id"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
 		arg0, err = ec.unmarshalNBigint2int64(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Query_vio_codewfdm_aggregate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 []model.VioCodewfdmSelectColumn
+	if tmp, ok := rawArgs["distinct_on"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("distinct_on"))
+		arg0, err = ec.unmarshalOVioCodewfdmSelectColumn2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmSelectColumnᚄ(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["distinct_on"] = arg0
+	var arg1 *int
+	if tmp, ok := rawArgs["limit"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("limit"))
+		arg1, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["limit"] = arg1
+	var arg2 *int
+	if tmp, ok := rawArgs["offset"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("offset"))
+		arg2, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["offset"] = arg2
+	var arg3 []*model.VioCodewfdmOrderBy
+	if tmp, ok := rawArgs["order_by"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("order_by"))
+		arg3, err = ec.unmarshalOVioCodewfdmOrderBy2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmOrderByᚄ(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["order_by"] = arg3
+	var arg4 *model.VioCodewfdmBoolExp
+	if tmp, ok := rawArgs["where"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("where"))
+		arg4, err = ec.unmarshalOVioCodewfdmBoolExp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmBoolExp(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["where"] = arg4
+	return args, nil
+}
+
+func (ec *executionContext) field_Query_vio_codewfdm_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 []model.VioCodewfdmSelectColumn
+	if tmp, ok := rawArgs["distinct_on"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("distinct_on"))
+		arg0, err = ec.unmarshalOVioCodewfdmSelectColumn2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmSelectColumnᚄ(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["distinct_on"] = arg0
+	var arg1 *int
+	if tmp, ok := rawArgs["limit"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("limit"))
+		arg1, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["limit"] = arg1
+	var arg2 *int
+	if tmp, ok := rawArgs["offset"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("offset"))
+		arg2, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["offset"] = arg2
+	var arg3 []*model.VioCodewfdmOrderBy
+	if tmp, ok := rawArgs["order_by"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("order_by"))
+		arg3, err = ec.unmarshalOVioCodewfdmOrderBy2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmOrderByᚄ(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["order_by"] = arg3
+	var arg4 *model.VioCodewfdmBoolExp
+	if tmp, ok := rawArgs["where"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("where"))
+		arg4, err = ec.unmarshalOVioCodewfdmBoolExp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmBoolExp(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["where"] = arg4
+	return args, nil
+}
+
+func (ec *executionContext) field_Query_vio_codewfdm_by_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -26269,6 +27393,240 @@ func (ec *executionContext) _Mutation_update_vehicle_violation_scoring_record_by
 	return ec.marshalOVehicleViolationScoringRecord2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋmodelᚐVehicleViolationScoringRecord(ctx, field.Selections, res)
 }
 
+func (ec *executionContext) _Mutation_delete_vio_codewfdm(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_delete_vio_codewfdm_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().DeleteVioCodewfdm(rctx, args["where"].(model.VioCodewfdmBoolExp))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.VioCodewfdmMutationResponse)
+	fc.Result = res
+	return ec.marshalOVioCodewfdmMutationResponse2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmMutationResponse(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_delete_vio_codewfdm_by_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_delete_vio_codewfdm_by_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().DeleteVioCodewfdmByPk(rctx, args["id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.VioCodewfdm)
+	fc.Result = res
+	return ec.marshalOVioCodewfdm2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋmodelᚐVioCodewfdm(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_insert_vio_codewfdm(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_insert_vio_codewfdm_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().InsertVioCodewfdm(rctx, args["objects"].([]*model.VioCodewfdmInsertInput))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.VioCodewfdmMutationResponse)
+	fc.Result = res
+	return ec.marshalOVioCodewfdmMutationResponse2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmMutationResponse(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_insert_vio_codewfdm_one(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_insert_vio_codewfdm_one_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().InsertVioCodewfdmOne(rctx, args["objects"].(model.VioCodewfdmInsertInput))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.VioCodewfdm)
+	fc.Result = res
+	return ec.marshalOVioCodewfdm2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋmodelᚐVioCodewfdm(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_update_vio_codewfdm(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_vio_codewfdm_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateVioCodewfdm(rctx, args["_inc"].(*model.VioCodewfdmIncInput), args["_set"].(*model.VioCodewfdmSetInput), args["where"].(model.VioCodewfdmBoolExp))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.VioCodewfdmMutationResponse)
+	fc.Result = res
+	return ec.marshalOVioCodewfdmMutationResponse2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmMutationResponse(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_update_vio_codewfdm_by_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_vio_codewfdm_by_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateVioCodewfdmByPk(rctx, args["_inc"].(*model.VioCodewfdmIncInput), args["_set"].(*model.VioCodewfdmSetInput), args["id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.VioCodewfdm)
+	fc.Result = res
+	return ec.marshalOVioCodewfdm2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋmodelᚐVioCodewfdm(ctx, field.Selections, res)
+}
+
 func (ec *executionContext) _Mutation_delete_violation_registration(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -26697,14 +28055,11 @@ func (ec *executionContext) _Query_app_enforcement_by_pk(ctx context.Context, fi
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.AppEnforcement)
 	fc.Result = res
-	return ec.marshalNAppEnforcement2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋmodelᚐAppEnforcement(ctx, field.Selections, res)
+	return ec.marshalOAppEnforcement2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋmodelᚐAppEnforcement(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_deduction_report(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -26823,14 +28178,11 @@ func (ec *executionContext) _Query_deduction_report_by_pk(ctx context.Context, f
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.DeductionReport)
 	fc.Result = res
-	return ec.marshalNDeductionReport2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋmodelᚐDeductionReport(ctx, field.Selections, res)
+	return ec.marshalODeductionReport2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋmodelᚐDeductionReport(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_deduction_report_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -26865,14 +28217,11 @@ func (ec *executionContext) _Query_deduction_report_by_union_pk(ctx context.Cont
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.DeductionReport)
 	fc.Result = res
-	return ec.marshalNDeductionReport2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋmodelᚐDeductionReport(ctx, field.Selections, res)
+	return ec.marshalODeductionReport2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋmodelᚐDeductionReport(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_driver_peccancy_check(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -26991,14 +28340,11 @@ func (ec *executionContext) _Query_driver_peccancy_check_by_pk(ctx context.Conte
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.DriverPeccancyCheck)
 	fc.Result = res
-	return ec.marshalNDriverPeccancyCheck2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋmodelᚐDriverPeccancyCheck(ctx, field.Selections, res)
+	return ec.marshalODriverPeccancyCheck2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋmodelᚐDriverPeccancyCheck(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_illegal_photo(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -27117,14 +28463,11 @@ func (ec *executionContext) _Query_illegal_photo_by_pk(ctx context.Context, fiel
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.IllegalPhoto)
 	fc.Result = res
-	return ec.marshalNIllegalPhoto2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋmodelᚐIllegalPhoto(ctx, field.Selections, res)
+	return ec.marshalOIllegalPhoto2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋmodelᚐIllegalPhoto(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_illegal_photo_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -27159,14 +28502,11 @@ func (ec *executionContext) _Query_illegal_photo_by_union_pk(ctx context.Context
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.IllegalPhoto)
 	fc.Result = res
-	return ec.marshalNIllegalPhoto2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋmodelᚐIllegalPhoto(ctx, field.Selections, res)
+	return ec.marshalOIllegalPhoto2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋmodelᚐIllegalPhoto(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_regional_violation_register(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -27285,14 +28625,11 @@ func (ec *executionContext) _Query_regional_violation_register_by_pk(ctx context
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.RegionalViolationRegister)
 	fc.Result = res
-	return ec.marshalNRegionalViolationRegister2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋmodelᚐRegionalViolationRegister(ctx, field.Selections, res)
+	return ec.marshalORegionalViolationRegister2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋmodelᚐRegionalViolationRegister(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_regional_violation_register_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -27327,14 +28664,11 @@ func (ec *executionContext) _Query_regional_violation_register_by_union_pk(ctx c
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.RegionalViolationRegister)
 	fc.Result = res
-	return ec.marshalNRegionalViolationRegister2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋmodelᚐRegionalViolationRegister(ctx, field.Selections, res)
+	return ec.marshalORegionalViolationRegister2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋmodelᚐRegionalViolationRegister(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_serious_traffic_violation(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -27453,14 +28787,11 @@ func (ec *executionContext) _Query_serious_traffic_violation_by_pk(ctx context.C
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.SeriousTrafficViolation)
 	fc.Result = res
-	return ec.marshalNSeriousTrafficViolation2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋmodelᚐSeriousTrafficViolation(ctx, field.Selections, res)
+	return ec.marshalOSeriousTrafficViolation2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋmodelᚐSeriousTrafficViolation(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_serious_traffic_violation_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -27495,14 +28826,11 @@ func (ec *executionContext) _Query_serious_traffic_violation_by_union_pk(ctx con
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.SeriousTrafficViolation)
 	fc.Result = res
-	return ec.marshalNSeriousTrafficViolation2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋmodelᚐSeriousTrafficViolation(ctx, field.Selections, res)
+	return ec.marshalOSeriousTrafficViolation2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋmodelᚐSeriousTrafficViolation(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_vehicle_violation_details(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -27621,14 +28949,11 @@ func (ec *executionContext) _Query_vehicle_violation_details_by_pk(ctx context.C
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.VehicleViolationDetails)
 	fc.Result = res
-	return ec.marshalNVehicleViolationDetails2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋmodelᚐVehicleViolationDetails(ctx, field.Selections, res)
+	return ec.marshalOVehicleViolationDetails2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋmodelᚐVehicleViolationDetails(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_vehicle_violation_scoring_items(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -27747,14 +29072,11 @@ func (ec *executionContext) _Query_vehicle_violation_scoring_items_by_pk(ctx con
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.VehicleViolationScoringItems)
 	fc.Result = res
-	return ec.marshalNVehicleViolationScoringItems2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋmodelᚐVehicleViolationScoringItems(ctx, field.Selections, res)
+	return ec.marshalOVehicleViolationScoringItems2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋmodelᚐVehicleViolationScoringItems(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_vehicle_violation_scoring_record(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -27873,14 +29195,134 @@ func (ec *executionContext) _Query_vehicle_violation_scoring_record_by_pk(ctx co
 		return graphql.Null
 	}
 	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.VehicleViolationScoringRecord)
+	fc.Result = res
+	return ec.marshalOVehicleViolationScoringRecord2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋmodelᚐVehicleViolationScoringRecord(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Query_vio_codewfdm(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_vio_codewfdm_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().VioCodewfdm(rctx, args["distinct_on"].([]model.VioCodewfdmSelectColumn), args["limit"].(*int), args["offset"].(*int), args["order_by"].([]*model.VioCodewfdmOrderBy), args["where"].(*model.VioCodewfdmBoolExp))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
 		if !graphql.HasFieldError(ctx, fc) {
 			ec.Errorf(ctx, "must not be null")
 		}
 		return graphql.Null
 	}
-	res := resTmp.(*model1.VehicleViolationScoringRecord)
+	res := resTmp.([]*model1.VioCodewfdm)
 	fc.Result = res
-	return ec.marshalNVehicleViolationScoringRecord2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋmodelᚐVehicleViolationScoringRecord(ctx, field.Selections, res)
+	return ec.marshalNVioCodewfdm2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋmodelᚐVioCodewfdmᚄ(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Query_vio_codewfdm_aggregate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_vio_codewfdm_aggregate_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().VioCodewfdmAggregate(rctx, args["distinct_on"].([]model.VioCodewfdmSelectColumn), args["limit"].(*int), args["offset"].(*int), args["order_by"].([]*model.VioCodewfdmOrderBy), args["where"].(*model.VioCodewfdmBoolExp))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*model.VioCodewfdmAggregate)
+	fc.Result = res
+	return ec.marshalNVioCodewfdmAggregate2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmAggregate(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Query_vio_codewfdm_by_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_vio_codewfdm_by_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().VioCodewfdmByPk(rctx, args["id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.VioCodewfdm)
+	fc.Result = res
+	return ec.marshalOVioCodewfdm2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋmodelᚐVioCodewfdm(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_violation_registration(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -27999,14 +29441,11 @@ func (ec *executionContext) _Query_violation_registration_by_pk(ctx context.Cont
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.ViolationRegistration)
 	fc.Result = res
-	return ec.marshalNViolationRegistration2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋmodelᚐViolationRegistration(ctx, field.Selections, res)
+	return ec.marshalOViolationRegistration2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋmodelᚐViolationRegistration(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_violation_registration_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -28041,14 +29480,11 @@ func (ec *executionContext) _Query_violation_registration_by_union_pk(ctx contex
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
 	res := resTmp.(*model1.ViolationRegistration)
 	fc.Result = res
-	return ec.marshalNViolationRegistration2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋmodelᚐViolationRegistration(ctx, field.Selections, res)
+	return ec.marshalOViolationRegistration2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋmodelᚐViolationRegistration(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query___type(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -42132,6 +43568,1810 @@ func (ec *executionContext) _VehicleViolationScoringRecordVarianceFields_demerit
 	return ec.marshalONumeric2ᚖfloat64(ctx, field.Selections, res)
 }
 
+func (ec *executionContext) _VioCodewfdm_wfxw(ctx context.Context, field graphql.CollectedField, obj *model1.VioCodewfdm) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "VioCodewfdm",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Wfxw, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(string)
+	fc.Result = res
+	return ec.marshalNString2string(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _VioCodewfdm_wfms(ctx context.Context, field graphql.CollectedField, obj *model1.VioCodewfdm) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "VioCodewfdm",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Wfms, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _VioCodewfdm_wfjfs(ctx context.Context, field graphql.CollectedField, obj *model1.VioCodewfdm) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "VioCodewfdm",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Wfjfs, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*float64)
+	fc.Result = res
+	return ec.marshalONumeric2ᚖfloat64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _VioCodewfdm_fkje_min(ctx context.Context, field graphql.CollectedField, obj *model1.VioCodewfdm) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "VioCodewfdm",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.FkjeMin, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*float64)
+	fc.Result = res
+	return ec.marshalONumeric2ᚖfloat64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _VioCodewfdm_fkje_max(ctx context.Context, field graphql.CollectedField, obj *model1.VioCodewfdm) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "VioCodewfdm",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.FkjeMax, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*float64)
+	fc.Result = res
+	return ec.marshalONumeric2ᚖfloat64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _VioCodewfdm_xh(ctx context.Context, field graphql.CollectedField, obj *model1.VioCodewfdm) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "VioCodewfdm",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Xh, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(string)
+	fc.Result = res
+	return ec.marshalNString2string(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _VioCodewfdmAggregate_aggregate(ctx context.Context, field graphql.CollectedField, obj *model.VioCodewfdmAggregate) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "VioCodewfdmAggregate",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Aggregate, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.VioCodewfdmAggregateFields)
+	fc.Result = res
+	return ec.marshalOVioCodewfdmAggregateFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmAggregateFields(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _VioCodewfdmAggregateFields_avg(ctx context.Context, field graphql.CollectedField, obj *model.VioCodewfdmAggregateFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "VioCodewfdmAggregateFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Avg, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.VioCodewfdmAvgFields)
+	fc.Result = res
+	return ec.marshalOVioCodewfdmAvgFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmAvgFields(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _VioCodewfdmAggregateFields_count(ctx context.Context, field graphql.CollectedField, obj *model.VioCodewfdmAggregateFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "VioCodewfdmAggregateFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Count, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*int)
+	fc.Result = res
+	return ec.marshalOInt2ᚖint(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _VioCodewfdmAggregateFields_max(ctx context.Context, field graphql.CollectedField, obj *model.VioCodewfdmAggregateFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "VioCodewfdmAggregateFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Max, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.VioCodewfdmMaxFields)
+	fc.Result = res
+	return ec.marshalOVioCodewfdmMaxFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmMaxFields(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _VioCodewfdmAggregateFields_min(ctx context.Context, field graphql.CollectedField, obj *model.VioCodewfdmAggregateFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "VioCodewfdmAggregateFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Min, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.VioCodewfdmMinFields)
+	fc.Result = res
+	return ec.marshalOVioCodewfdmMinFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmMinFields(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _VioCodewfdmAggregateFields_stddev(ctx context.Context, field graphql.CollectedField, obj *model.VioCodewfdmAggregateFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "VioCodewfdmAggregateFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Stddev, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.VioCodewfdmStddevFields)
+	fc.Result = res
+	return ec.marshalOVioCodewfdmStddevFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmStddevFields(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _VioCodewfdmAggregateFields_stddev_pop(ctx context.Context, field graphql.CollectedField, obj *model.VioCodewfdmAggregateFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "VioCodewfdmAggregateFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.StddevPop, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.VioCodewfdmStddevPopFields)
+	fc.Result = res
+	return ec.marshalOVioCodewfdmStddevPopFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmStddevPopFields(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _VioCodewfdmAggregateFields_stddev_samp(ctx context.Context, field graphql.CollectedField, obj *model.VioCodewfdmAggregateFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "VioCodewfdmAggregateFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.StddevSamp, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.VioCodewfdmStddevSampFields)
+	fc.Result = res
+	return ec.marshalOVioCodewfdmStddevSampFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmStddevSampFields(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _VioCodewfdmAggregateFields_sum(ctx context.Context, field graphql.CollectedField, obj *model.VioCodewfdmAggregateFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "VioCodewfdmAggregateFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Sum, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.VioCodewfdmSumFields)
+	fc.Result = res
+	return ec.marshalOVioCodewfdmSumFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmSumFields(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _VioCodewfdmAggregateFields_var_pop(ctx context.Context, field graphql.CollectedField, obj *model.VioCodewfdmAggregateFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "VioCodewfdmAggregateFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.VarPop, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.VioCodewfdmVarPopFields)
+	fc.Result = res
+	return ec.marshalOVioCodewfdmVarPopFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmVarPopFields(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _VioCodewfdmAggregateFields_var_samp(ctx context.Context, field graphql.CollectedField, obj *model.VioCodewfdmAggregateFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "VioCodewfdmAggregateFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.VarSamp, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.VioCodewfdmVarSampFields)
+	fc.Result = res
+	return ec.marshalOVioCodewfdmVarSampFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmVarSampFields(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _VioCodewfdmAggregateFields_variance(ctx context.Context, field graphql.CollectedField, obj *model.VioCodewfdmAggregateFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "VioCodewfdmAggregateFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Variance, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.VioCodewfdmVarianceFields)
+	fc.Result = res
+	return ec.marshalOVioCodewfdmVarianceFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmVarianceFields(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _VioCodewfdmAvgFields_wfjfs(ctx context.Context, field graphql.CollectedField, obj *model.VioCodewfdmAvgFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "VioCodewfdmAvgFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Wfjfs, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*float64)
+	fc.Result = res
+	return ec.marshalONumeric2ᚖfloat64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _VioCodewfdmAvgFields_fkje_min(ctx context.Context, field graphql.CollectedField, obj *model.VioCodewfdmAvgFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "VioCodewfdmAvgFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.FkjeMin, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*float64)
+	fc.Result = res
+	return ec.marshalONumeric2ᚖfloat64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _VioCodewfdmAvgFields_fkje_max(ctx context.Context, field graphql.CollectedField, obj *model.VioCodewfdmAvgFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "VioCodewfdmAvgFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.FkjeMax, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*float64)
+	fc.Result = res
+	return ec.marshalONumeric2ᚖfloat64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _VioCodewfdmMaxFields_wfxw(ctx context.Context, field graphql.CollectedField, obj *model.VioCodewfdmMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "VioCodewfdmMaxFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Wfxw, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _VioCodewfdmMaxFields_wfms(ctx context.Context, field graphql.CollectedField, obj *model.VioCodewfdmMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "VioCodewfdmMaxFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Wfms, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _VioCodewfdmMaxFields_wfjfs(ctx context.Context, field graphql.CollectedField, obj *model.VioCodewfdmMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "VioCodewfdmMaxFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Wfjfs, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*float64)
+	fc.Result = res
+	return ec.marshalONumeric2ᚖfloat64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _VioCodewfdmMaxFields_fkje_min(ctx context.Context, field graphql.CollectedField, obj *model.VioCodewfdmMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "VioCodewfdmMaxFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.FkjeMin, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*float64)
+	fc.Result = res
+	return ec.marshalONumeric2ᚖfloat64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _VioCodewfdmMaxFields_fkje_max(ctx context.Context, field graphql.CollectedField, obj *model.VioCodewfdmMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "VioCodewfdmMaxFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.FkjeMax, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*float64)
+	fc.Result = res
+	return ec.marshalONumeric2ᚖfloat64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _VioCodewfdmMaxFields_xh(ctx context.Context, field graphql.CollectedField, obj *model.VioCodewfdmMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "VioCodewfdmMaxFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Xh, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _VioCodewfdmMinFields_wfxw(ctx context.Context, field graphql.CollectedField, obj *model.VioCodewfdmMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "VioCodewfdmMinFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Wfxw, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _VioCodewfdmMinFields_wfms(ctx context.Context, field graphql.CollectedField, obj *model.VioCodewfdmMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "VioCodewfdmMinFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Wfms, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _VioCodewfdmMinFields_wfjfs(ctx context.Context, field graphql.CollectedField, obj *model.VioCodewfdmMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "VioCodewfdmMinFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Wfjfs, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*float64)
+	fc.Result = res
+	return ec.marshalONumeric2ᚖfloat64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _VioCodewfdmMinFields_fkje_min(ctx context.Context, field graphql.CollectedField, obj *model.VioCodewfdmMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "VioCodewfdmMinFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.FkjeMin, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*float64)
+	fc.Result = res
+	return ec.marshalONumeric2ᚖfloat64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _VioCodewfdmMinFields_fkje_max(ctx context.Context, field graphql.CollectedField, obj *model.VioCodewfdmMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "VioCodewfdmMinFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.FkjeMax, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*float64)
+	fc.Result = res
+	return ec.marshalONumeric2ᚖfloat64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _VioCodewfdmMinFields_xh(ctx context.Context, field graphql.CollectedField, obj *model.VioCodewfdmMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "VioCodewfdmMinFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Xh, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _VioCodewfdmMutationResponse_affected_rows(ctx context.Context, field graphql.CollectedField, obj *model.VioCodewfdmMutationResponse) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "VioCodewfdmMutationResponse",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.AffectedRows, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(int)
+	fc.Result = res
+	return ec.marshalNInt2int(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _VioCodewfdmMutationResponse_returning(ctx context.Context, field graphql.CollectedField, obj *model.VioCodewfdmMutationResponse) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "VioCodewfdmMutationResponse",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Returning, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.([]*model1.VioCodewfdm)
+	fc.Result = res
+	return ec.marshalNVioCodewfdm2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋmodelᚐVioCodewfdmᚄ(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _VioCodewfdmStddevFields_wfjfs(ctx context.Context, field graphql.CollectedField, obj *model.VioCodewfdmStddevFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "VioCodewfdmStddevFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Wfjfs, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*float64)
+	fc.Result = res
+	return ec.marshalONumeric2ᚖfloat64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _VioCodewfdmStddevFields_fkje_min(ctx context.Context, field graphql.CollectedField, obj *model.VioCodewfdmStddevFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "VioCodewfdmStddevFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.FkjeMin, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*float64)
+	fc.Result = res
+	return ec.marshalONumeric2ᚖfloat64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _VioCodewfdmStddevFields_fkje_max(ctx context.Context, field graphql.CollectedField, obj *model.VioCodewfdmStddevFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "VioCodewfdmStddevFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.FkjeMax, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*float64)
+	fc.Result = res
+	return ec.marshalONumeric2ᚖfloat64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _VioCodewfdmStddevPopFields_wfjfs(ctx context.Context, field graphql.CollectedField, obj *model.VioCodewfdmStddevPopFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "VioCodewfdmStddevPopFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Wfjfs, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*float64)
+	fc.Result = res
+	return ec.marshalONumeric2ᚖfloat64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _VioCodewfdmStddevPopFields_fkje_min(ctx context.Context, field graphql.CollectedField, obj *model.VioCodewfdmStddevPopFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "VioCodewfdmStddevPopFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.FkjeMin, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*float64)
+	fc.Result = res
+	return ec.marshalONumeric2ᚖfloat64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _VioCodewfdmStddevPopFields_fkje_max(ctx context.Context, field graphql.CollectedField, obj *model.VioCodewfdmStddevPopFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "VioCodewfdmStddevPopFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.FkjeMax, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*float64)
+	fc.Result = res
+	return ec.marshalONumeric2ᚖfloat64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _VioCodewfdmStddevSampFields_wfjfs(ctx context.Context, field graphql.CollectedField, obj *model.VioCodewfdmStddevSampFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "VioCodewfdmStddevSampFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Wfjfs, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*float64)
+	fc.Result = res
+	return ec.marshalONumeric2ᚖfloat64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _VioCodewfdmStddevSampFields_fkje_min(ctx context.Context, field graphql.CollectedField, obj *model.VioCodewfdmStddevSampFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "VioCodewfdmStddevSampFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.FkjeMin, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*float64)
+	fc.Result = res
+	return ec.marshalONumeric2ᚖfloat64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _VioCodewfdmStddevSampFields_fkje_max(ctx context.Context, field graphql.CollectedField, obj *model.VioCodewfdmStddevSampFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "VioCodewfdmStddevSampFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.FkjeMax, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*float64)
+	fc.Result = res
+	return ec.marshalONumeric2ᚖfloat64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _VioCodewfdmSumFields_wfjfs(ctx context.Context, field graphql.CollectedField, obj *model.VioCodewfdmSumFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "VioCodewfdmSumFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Wfjfs, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*float64)
+	fc.Result = res
+	return ec.marshalONumeric2ᚖfloat64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _VioCodewfdmSumFields_fkje_min(ctx context.Context, field graphql.CollectedField, obj *model.VioCodewfdmSumFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "VioCodewfdmSumFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.FkjeMin, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*float64)
+	fc.Result = res
+	return ec.marshalONumeric2ᚖfloat64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _VioCodewfdmSumFields_fkje_max(ctx context.Context, field graphql.CollectedField, obj *model.VioCodewfdmSumFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "VioCodewfdmSumFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.FkjeMax, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*float64)
+	fc.Result = res
+	return ec.marshalONumeric2ᚖfloat64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _VioCodewfdmVarPopFields_wfjfs(ctx context.Context, field graphql.CollectedField, obj *model.VioCodewfdmVarPopFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "VioCodewfdmVarPopFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Wfjfs, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*float64)
+	fc.Result = res
+	return ec.marshalONumeric2ᚖfloat64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _VioCodewfdmVarPopFields_fkje_min(ctx context.Context, field graphql.CollectedField, obj *model.VioCodewfdmVarPopFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "VioCodewfdmVarPopFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.FkjeMin, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*float64)
+	fc.Result = res
+	return ec.marshalONumeric2ᚖfloat64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _VioCodewfdmVarPopFields_fkje_max(ctx context.Context, field graphql.CollectedField, obj *model.VioCodewfdmVarPopFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "VioCodewfdmVarPopFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.FkjeMax, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*float64)
+	fc.Result = res
+	return ec.marshalONumeric2ᚖfloat64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _VioCodewfdmVarSampFields_wfjfs(ctx context.Context, field graphql.CollectedField, obj *model.VioCodewfdmVarSampFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "VioCodewfdmVarSampFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Wfjfs, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*float64)
+	fc.Result = res
+	return ec.marshalONumeric2ᚖfloat64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _VioCodewfdmVarSampFields_fkje_min(ctx context.Context, field graphql.CollectedField, obj *model.VioCodewfdmVarSampFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "VioCodewfdmVarSampFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.FkjeMin, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*float64)
+	fc.Result = res
+	return ec.marshalONumeric2ᚖfloat64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _VioCodewfdmVarSampFields_fkje_max(ctx context.Context, field graphql.CollectedField, obj *model.VioCodewfdmVarSampFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "VioCodewfdmVarSampFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.FkjeMax, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*float64)
+	fc.Result = res
+	return ec.marshalONumeric2ᚖfloat64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _VioCodewfdmVarianceFields_wfjfs(ctx context.Context, field graphql.CollectedField, obj *model.VioCodewfdmVarianceFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "VioCodewfdmVarianceFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Wfjfs, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*float64)
+	fc.Result = res
+	return ec.marshalONumeric2ᚖfloat64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _VioCodewfdmVarianceFields_fkje_min(ctx context.Context, field graphql.CollectedField, obj *model.VioCodewfdmVarianceFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "VioCodewfdmVarianceFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.FkjeMin, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*float64)
+	fc.Result = res
+	return ec.marshalONumeric2ᚖfloat64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _VioCodewfdmVarianceFields_fkje_max(ctx context.Context, field graphql.CollectedField, obj *model.VioCodewfdmVarianceFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "VioCodewfdmVarianceFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.FkjeMax, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*float64)
+	fc.Result = res
+	return ec.marshalONumeric2ᚖfloat64(ctx, field.Selections, res)
+}
+
 func (ec *executionContext) _ViolationRegistration_id(ctx context.Context, field graphql.CollectedField, obj *model1.ViolationRegistration) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -52781,6 +56021,298 @@ func (ec *executionContext) unmarshalInputVehicleViolationScoringRecordSetInput(
 	return it, nil
 }
 
+func (ec *executionContext) unmarshalInputVioCodewfdmBoolExp(ctx context.Context, obj interface{}) (model.VioCodewfdmBoolExp, error) {
+	var it model.VioCodewfdmBoolExp
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "_and":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_and"))
+			it.And, err = ec.unmarshalOVioCodewfdmBoolExp2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmBoolExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_not":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_not"))
+			it.Not, err = ec.unmarshalOVioCodewfdmBoolExp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmBoolExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_or":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_or"))
+			it.Or, err = ec.unmarshalOVioCodewfdmBoolExp2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmBoolExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "wfxw":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("wfxw"))
+			it.Wfxw, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "wfms":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("wfms"))
+			it.Wfms, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "wfjfs":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("wfjfs"))
+			it.Wfjfs, err = ec.unmarshalONumericComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐNumericComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "fkje_min":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("fkje_min"))
+			it.FkjeMin, err = ec.unmarshalONumericComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐNumericComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "fkje_max":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("fkje_max"))
+			it.FkjeMax, err = ec.unmarshalONumericComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐNumericComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "xh":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("xh"))
+			it.Xh, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputVioCodewfdmIncInput(ctx context.Context, obj interface{}) (model.VioCodewfdmIncInput, error) {
+	var it model.VioCodewfdmIncInput
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "wfjfs":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("wfjfs"))
+			it.Wfjfs, err = ec.unmarshalONumeric2ᚖfloat64(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "fkje_min":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("fkje_min"))
+			it.FkjeMin, err = ec.unmarshalONumeric2ᚖfloat64(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "fkje_max":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("fkje_max"))
+			it.FkjeMax, err = ec.unmarshalONumeric2ᚖfloat64(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputVioCodewfdmInsertInput(ctx context.Context, obj interface{}) (model.VioCodewfdmInsertInput, error) {
+	var it model.VioCodewfdmInsertInput
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "wfxw":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("wfxw"))
+			it.Wfxw, err = ec.unmarshalNString2string(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "wfms":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("wfms"))
+			it.Wfms, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "wfjfs":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("wfjfs"))
+			it.Wfjfs, err = ec.unmarshalONumeric2ᚖfloat64(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "fkje_min":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("fkje_min"))
+			it.FkjeMin, err = ec.unmarshalONumeric2ᚖfloat64(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "fkje_max":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("fkje_max"))
+			it.FkjeMax, err = ec.unmarshalONumeric2ᚖfloat64(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputVioCodewfdmOrderBy(ctx context.Context, obj interface{}) (model.VioCodewfdmOrderBy, error) {
+	var it model.VioCodewfdmOrderBy
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "wfxw":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("wfxw"))
+			it.Wfxw, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "wfms":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("wfms"))
+			it.Wfms, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "wfjfs":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("wfjfs"))
+			it.Wfjfs, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "fkje_min":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("fkje_min"))
+			it.FkjeMin, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "fkje_max":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("fkje_max"))
+			it.FkjeMax, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "xh":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("xh"))
+			it.Xh, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputVioCodewfdmSetInput(ctx context.Context, obj interface{}) (model.VioCodewfdmSetInput, error) {
+	var it model.VioCodewfdmSetInput
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "wfxw":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("wfxw"))
+			it.Wfxw, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "wfms":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("wfms"))
+			it.Wfms, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "wfjfs":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("wfjfs"))
+			it.Wfjfs, err = ec.unmarshalONumeric2ᚖfloat64(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "fkje_min":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("fkje_min"))
+			it.FkjeMin, err = ec.unmarshalONumeric2ᚖfloat64(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "fkje_max":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("fkje_max"))
+			it.FkjeMax, err = ec.unmarshalONumeric2ᚖfloat64(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "xh":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("xh"))
+			it.Xh, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
 func (ec *executionContext) unmarshalInputViolationRegistrationBoolExp(ctx context.Context, obj interface{}) (model.ViolationRegistrationBoolExp, error) {
 	var it model.ViolationRegistrationBoolExp
 	var asMap = obj.(map[string]interface{})
@@ -55755,6 +59287,18 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			out.Values[i] = ec._Mutation_update_vehicle_violation_scoring_record(ctx, field)
 		case "update_vehicle_violation_scoring_record_by_pk":
 			out.Values[i] = ec._Mutation_update_vehicle_violation_scoring_record_by_pk(ctx, field)
+		case "delete_vio_codewfdm":
+			out.Values[i] = ec._Mutation_delete_vio_codewfdm(ctx, field)
+		case "delete_vio_codewfdm_by_pk":
+			out.Values[i] = ec._Mutation_delete_vio_codewfdm_by_pk(ctx, field)
+		case "insert_vio_codewfdm":
+			out.Values[i] = ec._Mutation_insert_vio_codewfdm(ctx, field)
+		case "insert_vio_codewfdm_one":
+			out.Values[i] = ec._Mutation_insert_vio_codewfdm_one(ctx, field)
+		case "update_vio_codewfdm":
+			out.Values[i] = ec._Mutation_update_vio_codewfdm(ctx, field)
+		case "update_vio_codewfdm_by_pk":
+			out.Values[i] = ec._Mutation_update_vio_codewfdm_by_pk(ctx, field)
 		case "delete_violation_registration":
 			out.Values[i] = ec._Mutation_delete_violation_registration(ctx, field)
 		case "delete_violation_registration_by_pk":
@@ -55834,9 +59378,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_app_enforcement_by_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "deduction_report":
@@ -55876,9 +59417,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_deduction_report_by_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "deduction_report_by_union_pk":
@@ -55890,9 +59428,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_deduction_report_by_union_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "driver_peccancy_check":
@@ -55932,9 +59467,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_driver_peccancy_check_by_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "illegal_photo":
@@ -55974,9 +59506,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_illegal_photo_by_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "illegal_photo_by_union_pk":
@@ -55988,9 +59517,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_illegal_photo_by_union_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "regional_violation_register":
@@ -56030,9 +59556,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_regional_violation_register_by_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "regional_violation_register_by_union_pk":
@@ -56044,9 +59567,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_regional_violation_register_by_union_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "serious_traffic_violation":
@@ -56086,9 +59606,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_serious_traffic_violation_by_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "serious_traffic_violation_by_union_pk":
@@ -56100,9 +59617,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_serious_traffic_violation_by_union_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "vehicle_violation_details":
@@ -56142,9 +59656,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_vehicle_violation_details_by_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "vehicle_violation_scoring_items":
@@ -56184,9 +59695,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_vehicle_violation_scoring_items_by_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "vehicle_violation_scoring_record":
@@ -56226,9 +59734,45 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_vehicle_violation_scoring_record_by_pk(ctx, field)
+				return res
+			})
+		case "vio_codewfdm":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_vio_codewfdm(ctx, field)
 				if res == graphql.Null {
 					atomic.AddUint32(&invalids, 1)
 				}
+				return res
+			})
+		case "vio_codewfdm_aggregate":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_vio_codewfdm_aggregate(ctx, field)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			})
+		case "vio_codewfdm_by_pk":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_vio_codewfdm_by_pk(ctx, field)
 				return res
 			})
 		case "violation_registration":
@@ -56268,9 +59812,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_violation_registration_by_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "violation_registration_by_union_pk":
@@ -56282,9 +59823,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_violation_registration_by_union_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
 				return res
 			})
 		case "__type":
@@ -58802,6 +62340,438 @@ func (ec *executionContext) _VehicleViolationScoringRecordVarianceFields(ctx con
 	return out
 }
 
+var vioCodewfdmImplementors = []string{"VioCodewfdm"}
+
+func (ec *executionContext) _VioCodewfdm(ctx context.Context, sel ast.SelectionSet, obj *model1.VioCodewfdm) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, vioCodewfdmImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("VioCodewfdm")
+		case "wfxw":
+			out.Values[i] = ec._VioCodewfdm_wfxw(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "wfms":
+			out.Values[i] = ec._VioCodewfdm_wfms(ctx, field, obj)
+		case "wfjfs":
+			out.Values[i] = ec._VioCodewfdm_wfjfs(ctx, field, obj)
+		case "fkje_min":
+			out.Values[i] = ec._VioCodewfdm_fkje_min(ctx, field, obj)
+		case "fkje_max":
+			out.Values[i] = ec._VioCodewfdm_fkje_max(ctx, field, obj)
+		case "xh":
+			out.Values[i] = ec._VioCodewfdm_xh(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var vioCodewfdmAggregateImplementors = []string{"VioCodewfdmAggregate"}
+
+func (ec *executionContext) _VioCodewfdmAggregate(ctx context.Context, sel ast.SelectionSet, obj *model.VioCodewfdmAggregate) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, vioCodewfdmAggregateImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("VioCodewfdmAggregate")
+		case "aggregate":
+			out.Values[i] = ec._VioCodewfdmAggregate_aggregate(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var vioCodewfdmAggregateFieldsImplementors = []string{"VioCodewfdmAggregateFields"}
+
+func (ec *executionContext) _VioCodewfdmAggregateFields(ctx context.Context, sel ast.SelectionSet, obj *model.VioCodewfdmAggregateFields) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, vioCodewfdmAggregateFieldsImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("VioCodewfdmAggregateFields")
+		case "avg":
+			out.Values[i] = ec._VioCodewfdmAggregateFields_avg(ctx, field, obj)
+		case "count":
+			out.Values[i] = ec._VioCodewfdmAggregateFields_count(ctx, field, obj)
+		case "max":
+			out.Values[i] = ec._VioCodewfdmAggregateFields_max(ctx, field, obj)
+		case "min":
+			out.Values[i] = ec._VioCodewfdmAggregateFields_min(ctx, field, obj)
+		case "stddev":
+			out.Values[i] = ec._VioCodewfdmAggregateFields_stddev(ctx, field, obj)
+		case "stddev_pop":
+			out.Values[i] = ec._VioCodewfdmAggregateFields_stddev_pop(ctx, field, obj)
+		case "stddev_samp":
+			out.Values[i] = ec._VioCodewfdmAggregateFields_stddev_samp(ctx, field, obj)
+		case "sum":
+			out.Values[i] = ec._VioCodewfdmAggregateFields_sum(ctx, field, obj)
+		case "var_pop":
+			out.Values[i] = ec._VioCodewfdmAggregateFields_var_pop(ctx, field, obj)
+		case "var_samp":
+			out.Values[i] = ec._VioCodewfdmAggregateFields_var_samp(ctx, field, obj)
+		case "variance":
+			out.Values[i] = ec._VioCodewfdmAggregateFields_variance(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var vioCodewfdmAvgFieldsImplementors = []string{"VioCodewfdmAvgFields"}
+
+func (ec *executionContext) _VioCodewfdmAvgFields(ctx context.Context, sel ast.SelectionSet, obj *model.VioCodewfdmAvgFields) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, vioCodewfdmAvgFieldsImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("VioCodewfdmAvgFields")
+		case "wfjfs":
+			out.Values[i] = ec._VioCodewfdmAvgFields_wfjfs(ctx, field, obj)
+		case "fkje_min":
+			out.Values[i] = ec._VioCodewfdmAvgFields_fkje_min(ctx, field, obj)
+		case "fkje_max":
+			out.Values[i] = ec._VioCodewfdmAvgFields_fkje_max(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var vioCodewfdmMaxFieldsImplementors = []string{"VioCodewfdmMaxFields"}
+
+func (ec *executionContext) _VioCodewfdmMaxFields(ctx context.Context, sel ast.SelectionSet, obj *model.VioCodewfdmMaxFields) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, vioCodewfdmMaxFieldsImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("VioCodewfdmMaxFields")
+		case "wfxw":
+			out.Values[i] = ec._VioCodewfdmMaxFields_wfxw(ctx, field, obj)
+		case "wfms":
+			out.Values[i] = ec._VioCodewfdmMaxFields_wfms(ctx, field, obj)
+		case "wfjfs":
+			out.Values[i] = ec._VioCodewfdmMaxFields_wfjfs(ctx, field, obj)
+		case "fkje_min":
+			out.Values[i] = ec._VioCodewfdmMaxFields_fkje_min(ctx, field, obj)
+		case "fkje_max":
+			out.Values[i] = ec._VioCodewfdmMaxFields_fkje_max(ctx, field, obj)
+		case "xh":
+			out.Values[i] = ec._VioCodewfdmMaxFields_xh(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var vioCodewfdmMinFieldsImplementors = []string{"VioCodewfdmMinFields"}
+
+func (ec *executionContext) _VioCodewfdmMinFields(ctx context.Context, sel ast.SelectionSet, obj *model.VioCodewfdmMinFields) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, vioCodewfdmMinFieldsImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("VioCodewfdmMinFields")
+		case "wfxw":
+			out.Values[i] = ec._VioCodewfdmMinFields_wfxw(ctx, field, obj)
+		case "wfms":
+			out.Values[i] = ec._VioCodewfdmMinFields_wfms(ctx, field, obj)
+		case "wfjfs":
+			out.Values[i] = ec._VioCodewfdmMinFields_wfjfs(ctx, field, obj)
+		case "fkje_min":
+			out.Values[i] = ec._VioCodewfdmMinFields_fkje_min(ctx, field, obj)
+		case "fkje_max":
+			out.Values[i] = ec._VioCodewfdmMinFields_fkje_max(ctx, field, obj)
+		case "xh":
+			out.Values[i] = ec._VioCodewfdmMinFields_xh(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var vioCodewfdmMutationResponseImplementors = []string{"VioCodewfdmMutationResponse"}
+
+func (ec *executionContext) _VioCodewfdmMutationResponse(ctx context.Context, sel ast.SelectionSet, obj *model.VioCodewfdmMutationResponse) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, vioCodewfdmMutationResponseImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("VioCodewfdmMutationResponse")
+		case "affected_rows":
+			out.Values[i] = ec._VioCodewfdmMutationResponse_affected_rows(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "returning":
+			out.Values[i] = ec._VioCodewfdmMutationResponse_returning(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var vioCodewfdmStddevFieldsImplementors = []string{"VioCodewfdmStddevFields"}
+
+func (ec *executionContext) _VioCodewfdmStddevFields(ctx context.Context, sel ast.SelectionSet, obj *model.VioCodewfdmStddevFields) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, vioCodewfdmStddevFieldsImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("VioCodewfdmStddevFields")
+		case "wfjfs":
+			out.Values[i] = ec._VioCodewfdmStddevFields_wfjfs(ctx, field, obj)
+		case "fkje_min":
+			out.Values[i] = ec._VioCodewfdmStddevFields_fkje_min(ctx, field, obj)
+		case "fkje_max":
+			out.Values[i] = ec._VioCodewfdmStddevFields_fkje_max(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var vioCodewfdmStddevPopFieldsImplementors = []string{"VioCodewfdmStddevPopFields"}
+
+func (ec *executionContext) _VioCodewfdmStddevPopFields(ctx context.Context, sel ast.SelectionSet, obj *model.VioCodewfdmStddevPopFields) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, vioCodewfdmStddevPopFieldsImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("VioCodewfdmStddevPopFields")
+		case "wfjfs":
+			out.Values[i] = ec._VioCodewfdmStddevPopFields_wfjfs(ctx, field, obj)
+		case "fkje_min":
+			out.Values[i] = ec._VioCodewfdmStddevPopFields_fkje_min(ctx, field, obj)
+		case "fkje_max":
+			out.Values[i] = ec._VioCodewfdmStddevPopFields_fkje_max(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var vioCodewfdmStddevSampFieldsImplementors = []string{"VioCodewfdmStddevSampFields"}
+
+func (ec *executionContext) _VioCodewfdmStddevSampFields(ctx context.Context, sel ast.SelectionSet, obj *model.VioCodewfdmStddevSampFields) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, vioCodewfdmStddevSampFieldsImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("VioCodewfdmStddevSampFields")
+		case "wfjfs":
+			out.Values[i] = ec._VioCodewfdmStddevSampFields_wfjfs(ctx, field, obj)
+		case "fkje_min":
+			out.Values[i] = ec._VioCodewfdmStddevSampFields_fkje_min(ctx, field, obj)
+		case "fkje_max":
+			out.Values[i] = ec._VioCodewfdmStddevSampFields_fkje_max(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var vioCodewfdmSumFieldsImplementors = []string{"VioCodewfdmSumFields"}
+
+func (ec *executionContext) _VioCodewfdmSumFields(ctx context.Context, sel ast.SelectionSet, obj *model.VioCodewfdmSumFields) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, vioCodewfdmSumFieldsImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("VioCodewfdmSumFields")
+		case "wfjfs":
+			out.Values[i] = ec._VioCodewfdmSumFields_wfjfs(ctx, field, obj)
+		case "fkje_min":
+			out.Values[i] = ec._VioCodewfdmSumFields_fkje_min(ctx, field, obj)
+		case "fkje_max":
+			out.Values[i] = ec._VioCodewfdmSumFields_fkje_max(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var vioCodewfdmVarPopFieldsImplementors = []string{"VioCodewfdmVarPopFields"}
+
+func (ec *executionContext) _VioCodewfdmVarPopFields(ctx context.Context, sel ast.SelectionSet, obj *model.VioCodewfdmVarPopFields) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, vioCodewfdmVarPopFieldsImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("VioCodewfdmVarPopFields")
+		case "wfjfs":
+			out.Values[i] = ec._VioCodewfdmVarPopFields_wfjfs(ctx, field, obj)
+		case "fkje_min":
+			out.Values[i] = ec._VioCodewfdmVarPopFields_fkje_min(ctx, field, obj)
+		case "fkje_max":
+			out.Values[i] = ec._VioCodewfdmVarPopFields_fkje_max(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var vioCodewfdmVarSampFieldsImplementors = []string{"VioCodewfdmVarSampFields"}
+
+func (ec *executionContext) _VioCodewfdmVarSampFields(ctx context.Context, sel ast.SelectionSet, obj *model.VioCodewfdmVarSampFields) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, vioCodewfdmVarSampFieldsImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("VioCodewfdmVarSampFields")
+		case "wfjfs":
+			out.Values[i] = ec._VioCodewfdmVarSampFields_wfjfs(ctx, field, obj)
+		case "fkje_min":
+			out.Values[i] = ec._VioCodewfdmVarSampFields_fkje_min(ctx, field, obj)
+		case "fkje_max":
+			out.Values[i] = ec._VioCodewfdmVarSampFields_fkje_max(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var vioCodewfdmVarianceFieldsImplementors = []string{"VioCodewfdmVarianceFields"}
+
+func (ec *executionContext) _VioCodewfdmVarianceFields(ctx context.Context, sel ast.SelectionSet, obj *model.VioCodewfdmVarianceFields) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, vioCodewfdmVarianceFieldsImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("VioCodewfdmVarianceFields")
+		case "wfjfs":
+			out.Values[i] = ec._VioCodewfdmVarianceFields_wfjfs(ctx, field, obj)
+		case "fkje_min":
+			out.Values[i] = ec._VioCodewfdmVarianceFields_fkje_min(ctx, field, obj)
+		case "fkje_max":
+			out.Values[i] = ec._VioCodewfdmVarianceFields_fkje_max(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
 var violationRegistrationImplementors = []string{"ViolationRegistration"}
 
 func (ec *executionContext) _ViolationRegistration(ctx context.Context, sel ast.SelectionSet, obj *model1.ViolationRegistration) graphql.Marshaler {
@@ -59591,10 +63561,6 @@ func (ec *executionContext) ___Type(ctx context.Context, sel ast.SelectionSet, o
 
 // region    ***************************** type.gotpl *****************************
 
-func (ec *executionContext) marshalNAppEnforcement2VehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋmodelᚐAppEnforcement(ctx context.Context, sel ast.SelectionSet, v model1.AppEnforcement) graphql.Marshaler {
-	return ec._AppEnforcement(ctx, sel, &v)
-}
-
 func (ec *executionContext) marshalNAppEnforcement2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋmodelᚐAppEnforcementᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.AppEnforcement) graphql.Marshaler {
 	ret := make(graphql.Array, len(v))
 	var wg sync.WaitGroup
@@ -59737,10 +63703,6 @@ func (ec *executionContext) marshalNBoolean2bool(ctx context.Context, sel ast.Se
 	return res
 }
 
-func (ec *executionContext) marshalNDeductionReport2VehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋmodelᚐDeductionReport(ctx context.Context, sel ast.SelectionSet, v model1.DeductionReport) graphql.Marshaler {
-	return ec._DeductionReport(ctx, sel, &v)
-}
-
 func (ec *executionContext) marshalNDeductionReport2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋmodelᚐDeductionReportᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.DeductionReport) graphql.Marshaler {
 	ret := make(graphql.Array, len(v))
 	var wg sync.WaitGroup
@@ -59851,10 +63813,6 @@ func (ec *executionContext) unmarshalNDeductionReportSelectColumn2VehicleSupervi
 
 func (ec *executionContext) marshalNDeductionReportSelectColumn2VehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐDeductionReportSelectColumn(ctx context.Context, sel ast.SelectionSet, v model.DeductionReportSelectColumn) graphql.Marshaler {
 	return v
-}
-
-func (ec *executionContext) marshalNDriverPeccancyCheck2VehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋmodelᚐDriverPeccancyCheck(ctx context.Context, sel ast.SelectionSet, v model1.DriverPeccancyCheck) graphql.Marshaler {
-	return ec._DriverPeccancyCheck(ctx, sel, &v)
 }
 
 func (ec *executionContext) marshalNDriverPeccancyCheck2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋmodelᚐDriverPeccancyCheckᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.DriverPeccancyCheck) graphql.Marshaler {
@@ -59982,10 +63940,6 @@ func (ec *executionContext) marshalNFloat2float64(ctx context.Context, sel ast.S
 		}
 	}
 	return res
-}
-
-func (ec *executionContext) marshalNIllegalPhoto2VehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋmodelᚐIllegalPhoto(ctx context.Context, sel ast.SelectionSet, v model1.IllegalPhoto) graphql.Marshaler {
-	return ec._IllegalPhoto(ctx, sel, &v)
 }
 
 func (ec *executionContext) marshalNIllegalPhoto2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋmodelᚐIllegalPhotoᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.IllegalPhoto) graphql.Marshaler {
@@ -60160,10 +64114,6 @@ func (ec *executionContext) marshalNPoint2string(ctx context.Context, sel ast.Se
 	return res
 }
 
-func (ec *executionContext) marshalNRegionalViolationRegister2VehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋmodelᚐRegionalViolationRegister(ctx context.Context, sel ast.SelectionSet, v model1.RegionalViolationRegister) graphql.Marshaler {
-	return ec._RegionalViolationRegister(ctx, sel, &v)
-}
-
 func (ec *executionContext) marshalNRegionalViolationRegister2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋmodelᚐRegionalViolationRegisterᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.RegionalViolationRegister) graphql.Marshaler {
 	ret := make(graphql.Array, len(v))
 	var wg sync.WaitGroup
@@ -60274,10 +64224,6 @@ func (ec *executionContext) unmarshalNRegionalViolationRegisterSelectColumn2Vehi
 
 func (ec *executionContext) marshalNRegionalViolationRegisterSelectColumn2VehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐRegionalViolationRegisterSelectColumn(ctx context.Context, sel ast.SelectionSet, v model.RegionalViolationRegisterSelectColumn) graphql.Marshaler {
 	return v
-}
-
-func (ec *executionContext) marshalNSeriousTrafficViolation2VehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋmodelᚐSeriousTrafficViolation(ctx context.Context, sel ast.SelectionSet, v model1.SeriousTrafficViolation) graphql.Marshaler {
-	return ec._SeriousTrafficViolation(ctx, sel, &v)
 }
 
 func (ec *executionContext) marshalNSeriousTrafficViolation2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋmodelᚐSeriousTrafficViolationᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.SeriousTrafficViolation) graphql.Marshaler {
@@ -60443,10 +64389,6 @@ func (ec *executionContext) marshalNTimestamptz2ᚖtimeᚐTime(ctx context.Conte
 	return res
 }
 
-func (ec *executionContext) marshalNVehicleViolationDetails2VehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋmodelᚐVehicleViolationDetails(ctx context.Context, sel ast.SelectionSet, v model1.VehicleViolationDetails) graphql.Marshaler {
-	return ec._VehicleViolationDetails(ctx, sel, &v)
-}
-
 func (ec *executionContext) marshalNVehicleViolationDetails2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋmodelᚐVehicleViolationDetailsᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.VehicleViolationDetails) graphql.Marshaler {
 	ret := make(graphql.Array, len(v))
 	var wg sync.WaitGroup
@@ -60557,10 +64499,6 @@ func (ec *executionContext) unmarshalNVehicleViolationDetailsSelectColumn2Vehicl
 
 func (ec *executionContext) marshalNVehicleViolationDetailsSelectColumn2VehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVehicleViolationDetailsSelectColumn(ctx context.Context, sel ast.SelectionSet, v model.VehicleViolationDetailsSelectColumn) graphql.Marshaler {
 	return v
-}
-
-func (ec *executionContext) marshalNVehicleViolationScoringItems2VehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋmodelᚐVehicleViolationScoringItems(ctx context.Context, sel ast.SelectionSet, v model1.VehicleViolationScoringItems) graphql.Marshaler {
-	return ec._VehicleViolationScoringItems(ctx, sel, &v)
 }
 
 func (ec *executionContext) marshalNVehicleViolationScoringItems2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋmodelᚐVehicleViolationScoringItemsᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.VehicleViolationScoringItems) graphql.Marshaler {
@@ -60675,10 +64613,6 @@ func (ec *executionContext) marshalNVehicleViolationScoringItemsSelectColumn2Veh
 	return v
 }
 
-func (ec *executionContext) marshalNVehicleViolationScoringRecord2VehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋmodelᚐVehicleViolationScoringRecord(ctx context.Context, sel ast.SelectionSet, v model1.VehicleViolationScoringRecord) graphql.Marshaler {
-	return ec._VehicleViolationScoringRecord(ctx, sel, &v)
-}
-
 func (ec *executionContext) marshalNVehicleViolationScoringRecord2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋmodelᚐVehicleViolationScoringRecordᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.VehicleViolationScoringRecord) graphql.Marshaler {
 	ret := make(graphql.Array, len(v))
 	var wg sync.WaitGroup
@@ -60791,8 +64725,116 @@ func (ec *executionContext) marshalNVehicleViolationScoringRecordSelectColumn2Ve
 	return v
 }
 
-func (ec *executionContext) marshalNViolationRegistration2VehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋmodelᚐViolationRegistration(ctx context.Context, sel ast.SelectionSet, v model1.ViolationRegistration) graphql.Marshaler {
-	return ec._ViolationRegistration(ctx, sel, &v)
+func (ec *executionContext) marshalNVioCodewfdm2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋmodelᚐVioCodewfdmᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.VioCodewfdm) graphql.Marshaler {
+	ret := make(graphql.Array, len(v))
+	var wg sync.WaitGroup
+	isLen1 := len(v) == 1
+	if !isLen1 {
+		wg.Add(len(v))
+	}
+	for i := range v {
+		i := i
+		fc := &graphql.FieldContext{
+			Index:  &i,
+			Result: &v[i],
+		}
+		ctx := graphql.WithFieldContext(ctx, fc)
+		f := func(i int) {
+			defer func() {
+				if r := recover(); r != nil {
+					ec.Error(ctx, ec.Recover(ctx, r))
+					ret = nil
+				}
+			}()
+			if !isLen1 {
+				defer wg.Done()
+			}
+			ret[i] = ec.marshalNVioCodewfdm2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋmodelᚐVioCodewfdm(ctx, sel, v[i])
+		}
+		if isLen1 {
+			f(i)
+		} else {
+			go f(i)
+		}
+
+	}
+	wg.Wait()
+	return ret
+}
+
+func (ec *executionContext) marshalNVioCodewfdm2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋmodelᚐVioCodewfdm(ctx context.Context, sel ast.SelectionSet, v *model1.VioCodewfdm) graphql.Marshaler {
+	if v == nil {
+		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	return ec._VioCodewfdm(ctx, sel, v)
+}
+
+func (ec *executionContext) marshalNVioCodewfdmAggregate2VehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmAggregate(ctx context.Context, sel ast.SelectionSet, v model.VioCodewfdmAggregate) graphql.Marshaler {
+	return ec._VioCodewfdmAggregate(ctx, sel, &v)
+}
+
+func (ec *executionContext) marshalNVioCodewfdmAggregate2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmAggregate(ctx context.Context, sel ast.SelectionSet, v *model.VioCodewfdmAggregate) graphql.Marshaler {
+	if v == nil {
+		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	return ec._VioCodewfdmAggregate(ctx, sel, v)
+}
+
+func (ec *executionContext) unmarshalNVioCodewfdmBoolExp2VehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmBoolExp(ctx context.Context, v interface{}) (model.VioCodewfdmBoolExp, error) {
+	res, err := ec.unmarshalInputVioCodewfdmBoolExp(ctx, v)
+	return res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) unmarshalNVioCodewfdmInsertInput2VehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmInsertInput(ctx context.Context, v interface{}) (model.VioCodewfdmInsertInput, error) {
+	res, err := ec.unmarshalInputVioCodewfdmInsertInput(ctx, v)
+	return res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) unmarshalNVioCodewfdmInsertInput2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmInsertInputᚄ(ctx context.Context, v interface{}) ([]*model.VioCodewfdmInsertInput, error) {
+	var vSlice []interface{}
+	if v != nil {
+		if tmp1, ok := v.([]interface{}); ok {
+			vSlice = tmp1
+		} else {
+			vSlice = []interface{}{v}
+		}
+	}
+	var err error
+	res := make([]*model.VioCodewfdmInsertInput, len(vSlice))
+	for i := range vSlice {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
+		res[i], err = ec.unmarshalNVioCodewfdmInsertInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmInsertInput(ctx, vSlice[i])
+		if err != nil {
+			return nil, err
+		}
+	}
+	return res, nil
+}
+
+func (ec *executionContext) unmarshalNVioCodewfdmInsertInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmInsertInput(ctx context.Context, v interface{}) (*model.VioCodewfdmInsertInput, error) {
+	res, err := ec.unmarshalInputVioCodewfdmInsertInput(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) unmarshalNVioCodewfdmOrderBy2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmOrderBy(ctx context.Context, v interface{}) (*model.VioCodewfdmOrderBy, error) {
+	res, err := ec.unmarshalInputVioCodewfdmOrderBy(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) unmarshalNVioCodewfdmSelectColumn2VehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmSelectColumn(ctx context.Context, v interface{}) (model.VioCodewfdmSelectColumn, error) {
+	var res model.VioCodewfdmSelectColumn
+	err := res.UnmarshalGQL(v)
+	return res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalNVioCodewfdmSelectColumn2VehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmSelectColumn(ctx context.Context, sel ast.SelectionSet, v model.VioCodewfdmSelectColumn) graphql.Marshaler {
+	return v
 }
 
 func (ec *executionContext) marshalNViolationRegistration2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋmodelᚐViolationRegistrationᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.ViolationRegistration) graphql.Marshaler {
@@ -63726,6 +67768,233 @@ func (ec *executionContext) marshalOVehicleViolationScoringRecordVarianceFields2
 		return graphql.Null
 	}
 	return ec._VehicleViolationScoringRecordVarianceFields(ctx, sel, v)
+}
+
+func (ec *executionContext) marshalOVioCodewfdm2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋmodelᚐVioCodewfdm(ctx context.Context, sel ast.SelectionSet, v *model1.VioCodewfdm) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._VioCodewfdm(ctx, sel, v)
+}
+
+func (ec *executionContext) marshalOVioCodewfdmAggregateFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmAggregateFields(ctx context.Context, sel ast.SelectionSet, v *model.VioCodewfdmAggregateFields) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._VioCodewfdmAggregateFields(ctx, sel, v)
+}
+
+func (ec *executionContext) marshalOVioCodewfdmAvgFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmAvgFields(ctx context.Context, sel ast.SelectionSet, v *model.VioCodewfdmAvgFields) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._VioCodewfdmAvgFields(ctx, sel, v)
+}
+
+func (ec *executionContext) unmarshalOVioCodewfdmBoolExp2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmBoolExp(ctx context.Context, v interface{}) ([]*model.VioCodewfdmBoolExp, error) {
+	if v == nil {
+		return nil, nil
+	}
+	var vSlice []interface{}
+	if v != nil {
+		if tmp1, ok := v.([]interface{}); ok {
+			vSlice = tmp1
+		} else {
+			vSlice = []interface{}{v}
+		}
+	}
+	var err error
+	res := make([]*model.VioCodewfdmBoolExp, len(vSlice))
+	for i := range vSlice {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
+		res[i], err = ec.unmarshalOVioCodewfdmBoolExp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmBoolExp(ctx, vSlice[i])
+		if err != nil {
+			return nil, err
+		}
+	}
+	return res, nil
+}
+
+func (ec *executionContext) unmarshalOVioCodewfdmBoolExp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmBoolExp(ctx context.Context, v interface{}) (*model.VioCodewfdmBoolExp, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputVioCodewfdmBoolExp(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) unmarshalOVioCodewfdmIncInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmIncInput(ctx context.Context, v interface{}) (*model.VioCodewfdmIncInput, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputVioCodewfdmIncInput(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalOVioCodewfdmMaxFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmMaxFields(ctx context.Context, sel ast.SelectionSet, v *model.VioCodewfdmMaxFields) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._VioCodewfdmMaxFields(ctx, sel, v)
+}
+
+func (ec *executionContext) marshalOVioCodewfdmMinFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmMinFields(ctx context.Context, sel ast.SelectionSet, v *model.VioCodewfdmMinFields) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._VioCodewfdmMinFields(ctx, sel, v)
+}
+
+func (ec *executionContext) marshalOVioCodewfdmMutationResponse2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmMutationResponse(ctx context.Context, sel ast.SelectionSet, v *model.VioCodewfdmMutationResponse) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._VioCodewfdmMutationResponse(ctx, sel, v)
+}
+
+func (ec *executionContext) unmarshalOVioCodewfdmOrderBy2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmOrderByᚄ(ctx context.Context, v interface{}) ([]*model.VioCodewfdmOrderBy, error) {
+	if v == nil {
+		return nil, nil
+	}
+	var vSlice []interface{}
+	if v != nil {
+		if tmp1, ok := v.([]interface{}); ok {
+			vSlice = tmp1
+		} else {
+			vSlice = []interface{}{v}
+		}
+	}
+	var err error
+	res := make([]*model.VioCodewfdmOrderBy, len(vSlice))
+	for i := range vSlice {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
+		res[i], err = ec.unmarshalNVioCodewfdmOrderBy2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmOrderBy(ctx, vSlice[i])
+		if err != nil {
+			return nil, err
+		}
+	}
+	return res, nil
+}
+
+func (ec *executionContext) unmarshalOVioCodewfdmSelectColumn2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmSelectColumnᚄ(ctx context.Context, v interface{}) ([]model.VioCodewfdmSelectColumn, error) {
+	if v == nil {
+		return nil, nil
+	}
+	var vSlice []interface{}
+	if v != nil {
+		if tmp1, ok := v.([]interface{}); ok {
+			vSlice = tmp1
+		} else {
+			vSlice = []interface{}{v}
+		}
+	}
+	var err error
+	res := make([]model.VioCodewfdmSelectColumn, len(vSlice))
+	for i := range vSlice {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
+		res[i], err = ec.unmarshalNVioCodewfdmSelectColumn2VehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmSelectColumn(ctx, vSlice[i])
+		if err != nil {
+			return nil, err
+		}
+	}
+	return res, nil
+}
+
+func (ec *executionContext) marshalOVioCodewfdmSelectColumn2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmSelectColumnᚄ(ctx context.Context, sel ast.SelectionSet, v []model.VioCodewfdmSelectColumn) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	ret := make(graphql.Array, len(v))
+	var wg sync.WaitGroup
+	isLen1 := len(v) == 1
+	if !isLen1 {
+		wg.Add(len(v))
+	}
+	for i := range v {
+		i := i
+		fc := &graphql.FieldContext{
+			Index:  &i,
+			Result: &v[i],
+		}
+		ctx := graphql.WithFieldContext(ctx, fc)
+		f := func(i int) {
+			defer func() {
+				if r := recover(); r != nil {
+					ec.Error(ctx, ec.Recover(ctx, r))
+					ret = nil
+				}
+			}()
+			if !isLen1 {
+				defer wg.Done()
+			}
+			ret[i] = ec.marshalNVioCodewfdmSelectColumn2VehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmSelectColumn(ctx, sel, v[i])
+		}
+		if isLen1 {
+			f(i)
+		} else {
+			go f(i)
+		}
+
+	}
+	wg.Wait()
+	return ret
+}
+
+func (ec *executionContext) unmarshalOVioCodewfdmSetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmSetInput(ctx context.Context, v interface{}) (*model.VioCodewfdmSetInput, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputVioCodewfdmSetInput(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalOVioCodewfdmStddevFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmStddevFields(ctx context.Context, sel ast.SelectionSet, v *model.VioCodewfdmStddevFields) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._VioCodewfdmStddevFields(ctx, sel, v)
+}
+
+func (ec *executionContext) marshalOVioCodewfdmStddevPopFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmStddevPopFields(ctx context.Context, sel ast.SelectionSet, v *model.VioCodewfdmStddevPopFields) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._VioCodewfdmStddevPopFields(ctx, sel, v)
+}
+
+func (ec *executionContext) marshalOVioCodewfdmStddevSampFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmStddevSampFields(ctx context.Context, sel ast.SelectionSet, v *model.VioCodewfdmStddevSampFields) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._VioCodewfdmStddevSampFields(ctx, sel, v)
+}
+
+func (ec *executionContext) marshalOVioCodewfdmSumFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmSumFields(ctx context.Context, sel ast.SelectionSet, v *model.VioCodewfdmSumFields) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._VioCodewfdmSumFields(ctx, sel, v)
+}
+
+func (ec *executionContext) marshalOVioCodewfdmVarPopFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmVarPopFields(ctx context.Context, sel ast.SelectionSet, v *model.VioCodewfdmVarPopFields) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._VioCodewfdmVarPopFields(ctx, sel, v)
+}
+
+func (ec *executionContext) marshalOVioCodewfdmVarSampFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmVarSampFields(ctx context.Context, sel ast.SelectionSet, v *model.VioCodewfdmVarSampFields) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._VioCodewfdmVarSampFields(ctx, sel, v)
+}
+
+func (ec *executionContext) marshalOVioCodewfdmVarianceFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋgraphᚋmodelᚐVioCodewfdmVarianceFields(ctx context.Context, sel ast.SelectionSet, v *model.VioCodewfdmVarianceFields) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._VioCodewfdmVarianceFields(ctx, sel, v)
 }
 
 func (ec *executionContext) marshalOViolationRegistration2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋmodelᚐViolationRegistration(ctx context.Context, sel ast.SelectionSet, v *model1.ViolationRegistration) graphql.Marshaler {

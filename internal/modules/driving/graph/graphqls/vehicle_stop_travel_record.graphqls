@@ -387,11 +387,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	vehicle_stop_travel_record_by_pk(id: Bigint!): VehicleStopTravelRecord!
+	vehicle_stop_travel_record_by_pk(id: Bigint!): VehicleStopTravelRecord
 	"""
 	联合主键查询
 	"""
-	vehicle_stop_travel_record_by_union_pk(record_id: String!): VehicleStopTravelRecord!
+	vehicle_stop_travel_record_by_union_pk(record_id: String!): VehicleStopTravelRecord
 }
 extend type Mutation {
 	"""

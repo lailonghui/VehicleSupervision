@@ -58,9 +58,11 @@ func (t *DisputeViolationRecordPkLoader) NewLoader(ctx context.Context) *Dispute
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}

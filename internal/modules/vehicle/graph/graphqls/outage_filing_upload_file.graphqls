@@ -289,11 +289,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	outage_filing_upload_file_by_pk(id: Bigint!): OutageFilingUploadFile!
+	outage_filing_upload_file_by_pk(id: Bigint!): OutageFilingUploadFile
 	"""
 	联合主键查询
 	"""
-	outage_filing_upload_file_by_union_pk(outage_filing_upload_file_id: String!): OutageFilingUploadFile!
+	outage_filing_upload_file_by_union_pk(outage_filing_upload_file_id: String!): OutageFilingUploadFile
 }
 extend type Mutation {
 	"""

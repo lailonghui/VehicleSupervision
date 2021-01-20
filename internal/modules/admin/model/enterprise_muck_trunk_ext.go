@@ -58,9 +58,11 @@ func (t *EnterpriseMuckTrunkPkLoader) NewLoader(ctx context.Context) *Enterprise
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}
@@ -129,9 +131,11 @@ func (t *EnterpriseMuckTrunkUnionPkLoader) NewLoader(ctx context.Context) *Enter
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}

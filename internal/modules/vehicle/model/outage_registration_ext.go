@@ -58,9 +58,11 @@ func (t *OutageRegistrationPkLoader) NewLoader(ctx context.Context) *OutageRegis
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}
@@ -129,9 +131,11 @@ func (t *OutageRegistrationUnionPkLoader) NewLoader(ctx context.Context) *Outage
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}

@@ -58,9 +58,11 @@ func (t *MuckTruckWorkerIdentityCardOrdersPkLoader) NewLoader(ctx context.Contex
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}

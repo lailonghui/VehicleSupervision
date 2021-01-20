@@ -58,9 +58,11 @@ func (t *OfflineRegistrationRecordPkLoader) NewLoader(ctx context.Context) *Offl
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}
@@ -129,9 +131,11 @@ func (t *OfflineRegistrationRecordUnionPkLoader) NewLoader(ctx context.Context) 
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}

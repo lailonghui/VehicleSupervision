@@ -395,9 +395,11 @@ func (r *queryResolver) TerminalByPk(ctx context.Context, id int64) (*model1.Ter
 				return nil, err
 			}
 			if exist {
-				if rs.GetPrimary() != 0 {
+
+				if rs.GetPrimary() == 0 {
 					return nil, nil
 				}
+
 				return &rs, nil
 			}
 		}
@@ -409,7 +411,7 @@ func (r *queryResolver) TerminalByPk(ctx context.Context, id int64) (*model1.Ter
 				if cacheErr == nil {
 					_ = cacheAspect.SetNotExistPkQueryCache(ctx, cacheKey, "")
 				}
-				return &rs, nil
+				return nil, nil
 			}
 			return &rs, err
 		}
@@ -423,6 +425,9 @@ func (r *queryResolver) TerminalByPk(ctx context.Context, id int64) (*model1.Ter
 	tx := db.DB.Model(m).First(&rs, id)
 	err := tx.Error
 	if err != nil {
+		if err == gorm.ErrRecordNotFound {
+			return nil, nil
+		}
 		return nil, err
 	}
 	return &rs, nil
@@ -441,9 +446,11 @@ func (r *queryResolver) TerminalByUnionPk(ctx context.Context, terminalID string
 				return nil, err
 			}
 			if exist {
-				if rs.GetPrimary() != 0 {
+
+				if rs.GetPrimary() == 0 {
 					return nil, nil
 				}
+
 				return &rs, nil
 			}
 		}
@@ -455,7 +462,7 @@ func (r *queryResolver) TerminalByUnionPk(ctx context.Context, terminalID string
 				if cacheErr == nil {
 					_ = cacheAspect.SetNotExistUnionPkQueryCache(ctx, cacheKey, "")
 				}
-				return &rs, nil
+				return nil, nil
 			}
 			return nil, err
 		}
@@ -470,7 +477,7 @@ func (r *queryResolver) TerminalByUnionPk(ctx context.Context, terminalID string
 	err := tx.Error
 	if err != nil {
 		if err == gorm.ErrRecordNotFound {
-			return &rs, nil
+			return nil, nil
 		}
 		return nil, err
 	}

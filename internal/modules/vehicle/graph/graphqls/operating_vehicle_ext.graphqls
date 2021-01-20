@@ -629,7 +629,7 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	operating_vehicle_ext_by_pk(id: Bigint!): OperatingVehicleExt!
+	operating_vehicle_ext_by_pk(id: Bigint!): OperatingVehicleExt
 }
 extend type Mutation {
 	"""

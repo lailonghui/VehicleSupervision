@@ -58,9 +58,11 @@ func (t *TerminalParamItemPkLoader) NewLoader(ctx context.Context) *TerminalPara
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}
@@ -129,9 +131,11 @@ func (t *TerminalParamItemUnionPkLoader) NewLoader(ctx context.Context) *Termina
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}

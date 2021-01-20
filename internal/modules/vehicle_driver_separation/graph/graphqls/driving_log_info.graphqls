@@ -433,11 +433,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	driving_log_info_by_pk(id: Bigint!): DrivingLogInfo!
+	driving_log_info_by_pk(id: Bigint!): DrivingLogInfo
 	"""
 	联合主键查询
 	"""
-	driving_log_info_by_union_pk(driving_log_info_id: String!): DrivingLogInfo!
+	driving_log_info_by_union_pk(driving_log_info_id: String!): DrivingLogInfo
 }
 extend type Mutation {
 	"""

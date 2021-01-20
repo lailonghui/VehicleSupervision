@@ -58,9 +58,11 @@ func (t *RideHailingDriverVerifyPkLoader) NewLoader(ctx context.Context) *RideHa
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}
@@ -129,9 +131,11 @@ func (t *RideHailingDriverVerifyUnionPkLoader) NewLoader(ctx context.Context) *R
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}

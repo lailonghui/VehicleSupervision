@@ -522,7 +522,7 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	terminal_reg_log_by_pk(id: Bigint!): TerminalRegLog!
+	terminal_reg_log_by_pk(id: Bigint!): TerminalRegLog
 }
 extend type Mutation {
 	"""

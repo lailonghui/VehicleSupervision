@@ -512,7 +512,7 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	vehicle_location_last_by_pk(id: Bigint!): VehicleLocationLast!
+	vehicle_location_last_by_pk(id: Bigint!): VehicleLocationLast
 }
 extend type Mutation {
 	"""

@@ -522,7 +522,7 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	dynamic_spot_check_disposal_by_pk(id: Bigint!): DynamicSpotCheckDisposal!
+	dynamic_spot_check_disposal_by_pk(id: Bigint!): DynamicSpotCheckDisposal
 }
 extend type Mutation {
 	"""

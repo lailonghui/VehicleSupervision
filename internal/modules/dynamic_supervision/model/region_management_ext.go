@@ -58,9 +58,11 @@ func (t *RegionManagementPkLoader) NewLoader(ctx context.Context) *RegionManagem
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}
@@ -129,9 +131,11 @@ func (t *RegionManagementUnionPkLoader) NewLoader(ctx context.Context) *RegionMa
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}

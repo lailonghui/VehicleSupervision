@@ -662,11 +662,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	muck_truck_test_situation_by_pk(id: Bigint!): MuckTruckTestSituation!
+	muck_truck_test_situation_by_pk(id: Bigint!): MuckTruckTestSituation
 	"""
 	联合主键查询
 	"""
-	muck_truck_test_situation_by_union_pk(muck_truck_test_situation_id: String!): MuckTruckTestSituation!
+	muck_truck_test_situation_by_union_pk(muck_truck_test_situation_id: String!): MuckTruckTestSituation
 }
 extend type Mutation {
 	"""

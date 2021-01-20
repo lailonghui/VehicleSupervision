@@ -1076,7 +1076,7 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	muck_truck_ext_by_pk(id: Bigint!): MuckTruckExt!
+	muck_truck_ext_by_pk(id: Bigint!): MuckTruckExt
 }
 extend type Mutation {
 	"""

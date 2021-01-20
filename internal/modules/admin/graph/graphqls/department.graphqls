@@ -377,11 +377,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	department_by_pk(id: Bigint!): Department!
+	department_by_pk(id: Bigint!): Department
 	"""
 	联合主键查询
 	"""
-	department_by_union_pk(department_id: String!): Department!
+	department_by_union_pk(department_id: String!): Department
 }
 extend type Mutation {
 	"""

@@ -331,11 +331,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	fingerprint_driver_by_pk(id: Bigint!): FingerprintDriver!
+	fingerprint_driver_by_pk(id: Bigint!): FingerprintDriver
 	"""
 	联合主键查询
 	"""
-	fingerprint_driver_by_union_pk(fingerprint_driver_id: String!): FingerprintDriver!
+	fingerprint_driver_by_union_pk(fingerprint_driver_id: String!): FingerprintDriver
 }
 extend type Mutation {
 	"""

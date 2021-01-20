@@ -359,7 +359,7 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	voice_alarm_record_by_pk(id: Bigint!): VoiceAlarmRecord!
+	voice_alarm_record_by_pk(id: Bigint!): VoiceAlarmRecord
 }
 extend type Mutation {
 	"""

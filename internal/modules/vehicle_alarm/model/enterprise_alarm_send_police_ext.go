@@ -58,9 +58,11 @@ func (t *EnterpriseAlarmSendPolicePkLoader) NewLoader(ctx context.Context) *Ente
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}
@@ -129,9 +131,11 @@ func (t *EnterpriseAlarmSendPoliceUnionPkLoader) NewLoader(ctx context.Context) 
 								return
 							}
 							if exist {
+
 								if entity.GetPrimary() != 0 {
 									rs[i] = &entity
 								}
+
 								return
 							}
 						}

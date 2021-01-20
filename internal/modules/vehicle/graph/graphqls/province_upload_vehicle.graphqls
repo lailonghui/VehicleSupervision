@@ -544,11 +544,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	province_upload_vehicle_by_pk(id: Bigint!): ProvinceUploadVehicle!
+	province_upload_vehicle_by_pk(id: Bigint!): ProvinceUploadVehicle
 	"""
 	联合主键查询
 	"""
-	province_upload_vehicle_by_union_pk(province_upload_vehicle_id: String!): ProvinceUploadVehicle!
+	province_upload_vehicle_by_union_pk(province_upload_vehicle_id: String!): ProvinceUploadVehicle
 }
 extend type Mutation {
 	"""

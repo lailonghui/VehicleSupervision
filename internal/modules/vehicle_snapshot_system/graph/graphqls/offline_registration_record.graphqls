@@ -317,11 +317,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	offline_registration_record_by_pk(id: Bigint!): OfflineRegistrationRecord!
+	offline_registration_record_by_pk(id: Bigint!): OfflineRegistrationRecord
 	"""
 	联合主键查询
 	"""
-	offline_registration_record_by_union_pk(offline_registration_record_id: String!): OfflineRegistrationRecord!
+	offline_registration_record_by_union_pk(offline_registration_record_id: String!): OfflineRegistrationRecord
 }
 extend type Mutation {
 	"""
