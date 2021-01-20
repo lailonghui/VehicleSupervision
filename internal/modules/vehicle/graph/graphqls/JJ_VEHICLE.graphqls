@@ -484,11 +484,11 @@ extend type Query {
 	"""
 	主键查询
 	"""
-	jj_vehicle_by_pk(id: Bigint!): JjVehicle!
+	jj_vehicle_by_pk(id: Bigint!): JjVehicle
 	"""
 	联合主键查询
 	"""
-	jj_vehicle_by_union_pk(vehicle_id: String!): JjVehicle!
+	jj_vehicle_by_union_pk(vehicle_id: String!): JjVehicle
 }
 extend type Mutation {
 	"""

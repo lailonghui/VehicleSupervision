@@ -4,6 +4,7 @@ import (
 	"context"
 	rc "github.com/go-redis/cache/v8"
 	"github.com/go-redis/redis/v8"
+	"strconv"
 	"sync"
 	"time"
 )
@@ -42,10 +43,13 @@ func (r *Cacher) getKeySetKey(ctx context.Context) string {
 }
 
 //getKey 获取缓存的key
-func (r *Cacher) getKey(ctx context.Context, cacheKey string) string {
+func (r *Cacher) getKey(ctx context.Context, cacheKey string, expire *time.Duration) string {
 	key := r.KeyPrefix + ":" + cacheKey
+	if expire == nil{
+		return key
+	}
 	r.RedisClient.ZAdd(ctx, r.getKeySetKey(ctx), &redis.Z{
-		Score:  float64(time.Now().UnixNano()),
+		Score:  float64(time.Now().Add(*expire).UnixNano()),
 		Member: key,
 	})
 	return key
@@ -53,7 +57,7 @@ func (r *Cacher) getKey(ctx context.Context, cacheKey string) string {
 
 //Get 获取缓存内容
 func (r *Cacher) Get(ctx context.Context, cacheKey string, dest interface{}) (bool, error) {
-	err := r.Cache.Get(ctx, r.getKey(ctx, cacheKey), dest)
+	err := r.Cache.Get(ctx, r.getKey(ctx, cacheKey, nil), dest)
 	if err != nil {
 		if err == rc.ErrCacheMiss {
 			return false, nil
@@ -69,7 +73,7 @@ func (r *Cacher) Set(ctx context.Context, cacheKey string, value interface{}, ex
 
 	return r.Cache.Set(&rc.Item{
 		Ctx:            ctx,
-		Key:            r.getKey(ctx, cacheKey),
+		Key:            r.getKey(ctx, cacheKey, &expire),
 		Value:          value,
 		TTL:            expire,
 		SkipLocalCache: true,
@@ -78,7 +82,7 @@ func (r *Cacher) Set(ctx context.Context, cacheKey string, value interface{}, ex
 
 //Del 删除缓存的值
 func (r *Cacher) Del(ctx context.Context, cacheKey string) error {
-	return r.Cache.Delete(ctx, r.getKey(ctx, cacheKey))
+	return r.Cache.Delete(ctx, r.getKey(ctx, cacheKey, nil))
 }
 
 //BatchDel 批量删除
@@ -154,4 +158,9 @@ func (r Cacher) IsEmpty(ctx context.Context) (bool, error) {
 		return false, nil
 	}
 	return true, nil
+}
+
+//Clean 清理缓存中过期的内容，主要是zset中过期的键
+func (r Cacher) Clean(ctx context.Context) (int64, error) {
+	return r.RedisClient.ZRemRangeByScore(ctx, r.getKeySetKey(ctx), "0", strconv.FormatInt(time.Now().UnixNano(), 10)).Result()
 }

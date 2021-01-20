@@ -7,7 +7,9 @@ import (
 	"fmt"
 	goRedis "github.com/go-redis/redis/v8"
 	"github.com/stretchr/testify/assert"
+	"strconv"
 	"testing"
+	"time"
 )
 
 func init() {
@@ -20,7 +22,7 @@ func init() {
 		MinIdleConns: cf.RedisConf.Pool.MinIdle,
 		PoolSize:     cf.RedisConf.Pool.MaxActive,
 	}
-	 rc.Setup(redisConfig)
+	rc.Setup(redisConfig)
 }
 
 func TestNewCacher(t *testing.T) {
@@ -61,5 +63,20 @@ func TestCacher_Clear(t *testing.T) {
 	c := NewCacher("enterprise:upk", rc.REDIS_CLIENT)
 	assert.NotNil(t, c)
 	err := c.Clear(ctx)
+	assert.Nil(t, err)
+}
+
+func TestCacher_Clean(t *testing.T) {
+	var ctx context.Context = context.Background()
+	c := NewCacher("test", rc.REDIS_CLIENT)
+	assert.NotNil(t, c)
+	var i int64 = 0
+	for ; i < 100; i++ {
+		err := c.Set(ctx, strconv.FormatInt(i, 10), i, time.Duration(i)*time.Second)
+		assert.Nil(t, err)
+	}
+	time.Sleep(10 * time.Second)
+	count, err := c.Clean(ctx)
+	fmt.Println(count)
 	assert.Nil(t, err)
 }
